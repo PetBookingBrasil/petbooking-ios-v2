@@ -340,7 +340,7 @@
 				DEVELOPMENT_TEAM = 77828RW9EP;
 				INFOPLIST_FILE = "petbooking-ios-v2/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.petbooking-ios-v2";
+				PRODUCT_BUNDLE_IDENTIFIER = com.petbooking;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -354,7 +354,7 @@
 				DEVELOPMENT_TEAM = 77828RW9EP;
 				INFOPLIST_FILE = "petbooking-ios-v2/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.petbooking-ios-v2";
+				PRODUCT_BUNDLE_IDENTIFIER = com.petbooking;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
