@@ -379,6 +379,7 @@
 				413682D11E9C2B2D008C463B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
