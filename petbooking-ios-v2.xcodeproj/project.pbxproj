@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4120ED001EB0DE9F009D35B0 /* PresentationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ECFA1EB0DE9F009D35B0 /* PresentationInteractor.swift */; };
+		4120ED011EB0DE9F009D35B0 /* PresentationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ECFB1EB0DE9F009D35B0 /* PresentationPresenter.swift */; };
+		4120ED021EB0DE9F009D35B0 /* PresentationProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ECFC1EB0DE9F009D35B0 /* PresentationProtocols.swift */; };
+		4120ED031EB0DE9F009D35B0 /* PresentationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ECFD1EB0DE9F009D35B0 /* PresentationRouter.swift */; };
+		4120ED041EB0DE9F009D35B0 /* PresentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ECFE1EB0DE9F009D35B0 /* PresentationViewController.swift */; };
+		4120ED051EB0DE9F009D35B0 /* PresentationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4120ECFF1EB0DE9F009D35B0 /* PresentationViewController.xib */; };
+		4120ED081EB111A7009D35B0 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ED071EB111A7009D35B0 /* UIButtonExtension.swift */; };
+		4120ED0A1EB11BA0009D35B0 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ED091EB11BA0009D35B0 /* UIColorExtension.swift */; };
+		4120ED101EB128A5009D35B0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4120ED0F1EB128A5009D35B0 /* Localizable.strings */; };
 		413682C11E9C2B2D008C463B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413682C01E9C2B2D008C463B /* AppDelegate.swift */; };
 		413682C31E9C2B2D008C463B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413682C21E9C2B2D008C463B /* ViewController.swift */; };
 		413682C61E9C2B2D008C463B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 413682C41E9C2B2D008C463B /* Main.storyboard */; };
@@ -16,6 +25,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4120ECFA1EB0DE9F009D35B0 /* PresentationInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationInteractor.swift; sourceTree = "<group>"; };
+		4120ECFB1EB0DE9F009D35B0 /* PresentationPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationPresenter.swift; sourceTree = "<group>"; };
+		4120ECFC1EB0DE9F009D35B0 /* PresentationProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationProtocols.swift; sourceTree = "<group>"; };
+		4120ECFD1EB0DE9F009D35B0 /* PresentationRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationRouter.swift; sourceTree = "<group>"; };
+		4120ECFE1EB0DE9F009D35B0 /* PresentationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationViewController.swift; sourceTree = "<group>"; };
+		4120ECFF1EB0DE9F009D35B0 /* PresentationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PresentationViewController.xib; sourceTree = "<group>"; };
+		4120ED071EB111A7009D35B0 /* UIButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		4120ED091EB11BA0009D35B0 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		4120ED0F1EB128A5009D35B0 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		413682BD1E9C2B2D008C463B /* petbooking-ios-v2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "petbooking-ios-v2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		413682C01E9C2B2D008C463B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		413682C21E9C2B2D008C463B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -40,6 +58,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4120ED061EB11188009D35B0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4120ED071EB111A7009D35B0 /* UIButtonExtension.swift */,
+				4120ED091EB11BA0009D35B0 /* UIColorExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		413682B41E9C2B2D008C463B = {
 			isa = PBXGroup;
 			children = (
@@ -61,14 +88,38 @@
 		413682BF1E9C2B2D008C463B /* petbooking-ios-v2 */ = {
 			isa = PBXGroup;
 			children = (
+				4120ED061EB11188009D35B0 /* Extensions */,
+				418D099C1EB0D71200FCD5A6 /* Modules */,
 				413682C01E9C2B2D008C463B /* AppDelegate.swift */,
 				413682C21E9C2B2D008C463B /* ViewController.swift */,
 				413682C41E9C2B2D008C463B /* Main.storyboard */,
 				413682C71E9C2B2D008C463B /* Assets.xcassets */,
 				413682C91E9C2B2D008C463B /* LaunchScreen.storyboard */,
 				413682CC1E9C2B2D008C463B /* Info.plist */,
+				4120ED0F1EB128A5009D35B0 /* Localizable.strings */,
 			);
 			path = "petbooking-ios-v2";
+			sourceTree = "<group>";
+		};
+		418D099C1EB0D71200FCD5A6 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				418D099D1EB0D7B800FCD5A6 /* Presentation */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		418D099D1EB0D7B800FCD5A6 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				4120ECFA1EB0DE9F009D35B0 /* PresentationInteractor.swift */,
+				4120ECFB1EB0DE9F009D35B0 /* PresentationPresenter.swift */,
+				4120ECFC1EB0DE9F009D35B0 /* PresentationProtocols.swift */,
+				4120ECFD1EB0DE9F009D35B0 /* PresentationRouter.swift */,
+				4120ECFE1EB0DE9F009D35B0 /* PresentationViewController.swift */,
+				4120ECFF1EB0DE9F009D35B0 /* PresentationViewController.xib */,
+			);
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 		6BC186A20FCE32BA04CC64D7 /* Pods */ = {
@@ -151,8 +202,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4120ED101EB128A5009D35B0 /* Localizable.strings in Resources */,
 				413682CB1E9C2B2D008C463B /* LaunchScreen.storyboard in Resources */,
 				413682C81E9C2B2D008C463B /* Assets.xcassets in Resources */,
+				4120ED051EB0DE9F009D35B0 /* PresentationViewController.xib in Resources */,
 				413682C61E9C2B2D008C463B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -212,8 +265,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4120ED031EB0DE9F009D35B0 /* PresentationRouter.swift in Sources */,
+				4120ED081EB111A7009D35B0 /* UIButtonExtension.swift in Sources */,
 				413682C31E9C2B2D008C463B /* ViewController.swift in Sources */,
+				4120ED001EB0DE9F009D35B0 /* PresentationInteractor.swift in Sources */,
+				4120ED011EB0DE9F009D35B0 /* PresentationPresenter.swift in Sources */,
+				4120ED0A1EB11BA0009D35B0 /* UIColorExtension.swift in Sources */,
 				413682C11E9C2B2D008C463B /* AppDelegate.swift in Sources */,
+				4120ED041EB0DE9F009D35B0 /* PresentationViewController.swift in Sources */,
+				4120ED021EB0DE9F009D35B0 /* PresentationProtocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +403,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.petbooking;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -357,6 +418,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.petbooking;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

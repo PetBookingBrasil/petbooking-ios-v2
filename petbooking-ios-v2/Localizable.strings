@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  petbooking-ios-v2
+
+  Created by Ryniere S Silva on 26/04/17.
+  Copyright © 2017 Pet Booking Serviços e Desenvolvimento de Softwares SA. All rights reserved.
+*/
+
+
+// Presentation Screen
+
+"ap1_title" = "Encontre e agende serviços para seus Pets, em poucos segundos, a qualquer hora do dia!";
+"ap1_description" = "Banho, tosa, consultas veterinárias e muito mais!";
+"ap2_title" = "Realize seu cadastro, encontre o serviço desejado e agende o horário mais conveniente para você!";
+"ap2_description" = "";
+"ap3_title" = "Cuidar dos seus Pets nunca foi tão fácil e prático!";
+"ap3_description" = "Simples, rápido, seguro e gratuito";
