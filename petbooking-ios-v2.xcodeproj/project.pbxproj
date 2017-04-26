@@ -7,14 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4120ED001EB0DE9F009D35B0 /* PresentationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ECFA1EB0DE9F009D35B0 /* PresentationInteractor.swift */; };
+		4120ED011EB0DE9F009D35B0 /* PresentationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ECFB1EB0DE9F009D35B0 /* PresentationPresenter.swift */; };
+		4120ED021EB0DE9F009D35B0 /* PresentationProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ECFC1EB0DE9F009D35B0 /* PresentationProtocols.swift */; };
+		4120ED031EB0DE9F009D35B0 /* PresentationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ECFD1EB0DE9F009D35B0 /* PresentationRouter.swift */; };
+		4120ED041EB0DE9F009D35B0 /* PresentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ECFE1EB0DE9F009D35B0 /* PresentationViewController.swift */; };
+		4120ED051EB0DE9F009D35B0 /* PresentationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4120ECFF1EB0DE9F009D35B0 /* PresentationViewController.xib */; };
+		4120ED081EB111A7009D35B0 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ED071EB111A7009D35B0 /* UIButtonExtension.swift */; };
+		4120ED0A1EB11BA0009D35B0 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ED091EB11BA0009D35B0 /* UIColorExtension.swift */; };
+		4120ED101EB128A5009D35B0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4120ED0F1EB128A5009D35B0 /* Localizable.strings */; };
 		413682C11E9C2B2D008C463B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413682C01E9C2B2D008C463B /* AppDelegate.swift */; };
 		413682C31E9C2B2D008C463B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413682C21E9C2B2D008C463B /* ViewController.swift */; };
 		413682C61E9C2B2D008C463B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 413682C41E9C2B2D008C463B /* Main.storyboard */; };
 		413682C81E9C2B2D008C463B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 413682C71E9C2B2D008C463B /* Assets.xcassets */; };
 		413682CB1E9C2B2D008C463B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 413682C91E9C2B2D008C463B /* LaunchScreen.storyboard */; };
+		DFC90A17A5F8AA2CE20F8375 /* Pods_petbooking_ios_v2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9D68A4E19945C41B8E9EDFE /* Pods_petbooking_ios_v2.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4120ECFA1EB0DE9F009D35B0 /* PresentationInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationInteractor.swift; sourceTree = "<group>"; };
+		4120ECFB1EB0DE9F009D35B0 /* PresentationPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationPresenter.swift; sourceTree = "<group>"; };
+		4120ECFC1EB0DE9F009D35B0 /* PresentationProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationProtocols.swift; sourceTree = "<group>"; };
+		4120ECFD1EB0DE9F009D35B0 /* PresentationRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationRouter.swift; sourceTree = "<group>"; };
+		4120ECFE1EB0DE9F009D35B0 /* PresentationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationViewController.swift; sourceTree = "<group>"; };
+		4120ECFF1EB0DE9F009D35B0 /* PresentationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PresentationViewController.xib; sourceTree = "<group>"; };
+		4120ED071EB111A7009D35B0 /* UIButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		4120ED091EB11BA0009D35B0 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		4120ED0F1EB128A5009D35B0 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		413682BD1E9C2B2D008C463B /* petbooking-ios-v2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "petbooking-ios-v2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		413682C01E9C2B2D008C463B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		413682C21E9C2B2D008C463B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +41,9 @@
 		413682C71E9C2B2D008C463B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		413682CA1E9C2B2D008C463B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		413682CC1E9C2B2D008C463B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5EC8A11A3CAAE140E557AF6F /* Pods-petbooking-ios-v2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petbooking-ios-v2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-petbooking-ios-v2/Pods-petbooking-ios-v2.debug.xcconfig"; sourceTree = "<group>"; };
+		9908B75EC13330082A78645E /* Pods-petbooking-ios-v2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petbooking-ios-v2.release.xcconfig"; path = "Pods/Target Support Files/Pods-petbooking-ios-v2/Pods-petbooking-ios-v2.release.xcconfig"; sourceTree = "<group>"; };
+		C9D68A4E19945C41B8E9EDFE /* Pods_petbooking_ios_v2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_petbooking_ios_v2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +51,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DFC90A17A5F8AA2CE20F8375 /* Pods_petbooking_ios_v2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4120ED061EB11188009D35B0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4120ED071EB111A7009D35B0 /* UIButtonExtension.swift */,
+				4120ED091EB11BA0009D35B0 /* UIColorExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		413682B41E9C2B2D008C463B = {
 			isa = PBXGroup;
 			children = (
 				413682BF1E9C2B2D008C463B /* petbooking-ios-v2 */,
 				413682BE1E9C2B2D008C463B /* Products */,
+				6BC186A20FCE32BA04CC64D7 /* Pods */,
+				C4DC27CBAA13EC798434A677 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +88,55 @@
 		413682BF1E9C2B2D008C463B /* petbooking-ios-v2 */ = {
 			isa = PBXGroup;
 			children = (
+				4120ED061EB11188009D35B0 /* Extensions */,
+				418D099C1EB0D71200FCD5A6 /* Modules */,
 				413682C01E9C2B2D008C463B /* AppDelegate.swift */,
 				413682C21E9C2B2D008C463B /* ViewController.swift */,
 				413682C41E9C2B2D008C463B /* Main.storyboard */,
 				413682C71E9C2B2D008C463B /* Assets.xcassets */,
 				413682C91E9C2B2D008C463B /* LaunchScreen.storyboard */,
 				413682CC1E9C2B2D008C463B /* Info.plist */,
+				4120ED0F1EB128A5009D35B0 /* Localizable.strings */,
 			);
 			path = "petbooking-ios-v2";
+			sourceTree = "<group>";
+		};
+		418D099C1EB0D71200FCD5A6 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				418D099D1EB0D7B800FCD5A6 /* Presentation */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		418D099D1EB0D7B800FCD5A6 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				4120ECFA1EB0DE9F009D35B0 /* PresentationInteractor.swift */,
+				4120ECFB1EB0DE9F009D35B0 /* PresentationPresenter.swift */,
+				4120ECFC1EB0DE9F009D35B0 /* PresentationProtocols.swift */,
+				4120ECFD1EB0DE9F009D35B0 /* PresentationRouter.swift */,
+				4120ECFE1EB0DE9F009D35B0 /* PresentationViewController.swift */,
+				4120ECFF1EB0DE9F009D35B0 /* PresentationViewController.xib */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		6BC186A20FCE32BA04CC64D7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5EC8A11A3CAAE140E557AF6F /* Pods-petbooking-ios-v2.debug.xcconfig */,
+				9908B75EC13330082A78645E /* Pods-petbooking-ios-v2.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C4DC27CBAA13EC798434A677 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C9D68A4E19945C41B8E9EDFE /* Pods_petbooking_ios_v2.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +146,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 413682CF1E9C2B2D008C463B /* Build configuration list for PBXNativeTarget "petbooking-ios-v2" */;
 			buildPhases = (
+				4FB1F55EA32591231EB3CBD5 /* [CP] Check Pods Manifest.lock */,
 				413682B91E9C2B2D008C463B /* Sources */,
 				413682BA1E9C2B2D008C463B /* Frameworks */,
 				413682BB1E9C2B2D008C463B /* Resources */,
+				BC86734ECD653476C12801FB /* [CP] Embed Pods Frameworks */,
+				CCDE22ABC7C6B67408128786 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -124,21 +202,78 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4120ED101EB128A5009D35B0 /* Localizable.strings in Resources */,
 				413682CB1E9C2B2D008C463B /* LaunchScreen.storyboard in Resources */,
 				413682C81E9C2B2D008C463B /* Assets.xcassets in Resources */,
+				4120ED051EB0DE9F009D35B0 /* PresentationViewController.xib in Resources */,
 				413682C61E9C2B2D008C463B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4FB1F55EA32591231EB3CBD5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BC86734ECD653476C12801FB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-petbooking-ios-v2/Pods-petbooking-ios-v2-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CCDE22ABC7C6B67408128786 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-petbooking-ios-v2/Pods-petbooking-ios-v2-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		413682B91E9C2B2D008C463B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4120ED031EB0DE9F009D35B0 /* PresentationRouter.swift in Sources */,
+				4120ED081EB111A7009D35B0 /* UIButtonExtension.swift in Sources */,
 				413682C31E9C2B2D008C463B /* ViewController.swift in Sources */,
+				4120ED001EB0DE9F009D35B0 /* PresentationInteractor.swift in Sources */,
+				4120ED011EB0DE9F009D35B0 /* PresentationPresenter.swift in Sources */,
+				4120ED0A1EB11BA0009D35B0 /* UIColorExtension.swift in Sources */,
 				413682C11E9C2B2D008C463B /* AppDelegate.swift in Sources */,
+				4120ED041EB0DE9F009D35B0 /* PresentationViewController.swift in Sources */,
+				4120ED021EB0DE9F009D35B0 /* PresentationProtocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,27 +394,31 @@
 		};
 		413682D01E9C2B2D008C463B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5EC8A11A3CAAE140E557AF6F /* Pods-petbooking-ios-v2.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 77828RW9EP;
 				INFOPLIST_FILE = "petbooking-ios-v2/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.petbooking-ios-v2";
+				PRODUCT_BUNDLE_IDENTIFIER = com.petbooking;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		413682D11E9C2B2D008C463B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9908B75EC13330082A78645E /* Pods-petbooking-ios-v2.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 77828RW9EP;
 				INFOPLIST_FILE = "petbooking-ios-v2/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.petbooking-ios-v2";
+				PRODUCT_BUNDLE_IDENTIFIER = com.petbooking;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -302,6 +441,7 @@
 				413682D11E9C2B2D008C463B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

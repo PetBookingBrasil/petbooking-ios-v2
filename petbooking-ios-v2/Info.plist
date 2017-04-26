@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
+	<key>CFBundleDisplayName</key>
+	<string>Pet Booking</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -15,11 +17,121 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>2.0</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleTypeRole2</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.petbooking</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.petbooking</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.petbooking</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb1579605499022071</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>3</string>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>akamaihd.net</key>
+			<dict>
+				<key>NSExceptionRequiresForwardSecrecy</key>
+				<false/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+				<false/>
+			</dict>
+			<key>facebook.com</key>
+			<dict>
+				<key>NSExceptionRequiresForwardSecrecy</key>
+				<false/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+				<false/>
+			</dict>
+			<key>fbcdn.net</key>
+			<dict>
+				<key>NSExceptionRequiresForwardSecrecy</key>
+				<false/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+				<false/>
+			</dict>
+		</dict>
+	</dict>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>O Pet Booking precisa da sua localização para encontrar estabelecimentos próximos à você.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>O Pet Booking precisa da sua localização para encontrar estabelecimentos próximos à você.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Upload profile picture</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>SourceSansPro-Regular.otf</string>
+		<string>SourceSansPro-Semibold.otf</string>
+		<string>SourceSansPro-It.otf</string>
+		<string>Avenir</string>
+	</array>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>Quick-Menu_Proximos</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Próximos a mim</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.shortcutitem.proximos</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>Quick-Menu_Busca</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Buscar</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.shortcutitem.buscar</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>Quick-Menu_Agenda</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Meus Agendamentos</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.shortcutitem.meusagendamentos</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>Quick-Menu_Favoritos</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Favoritos</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.shortcutitem.favoritos</string>
+		</dict>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -28,11 +140,13 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIRequiresFullScreen</key>
+	<true/>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleLightContent</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 </dict>
 </plist>
