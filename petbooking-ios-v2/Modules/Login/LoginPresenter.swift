@@ -23,5 +23,21 @@ class LoginPresenter: LoginPresenterProtocol {
 
         self.interactor.presenter = self
     }
+	
+	func didTapLoginButton() {
+		
+	}
+	
+	func didTapFacebookLoginButton() {
+		
+	}
+	
+	func didTapSignupButton() {
+		
+	}
+	
+	func didTapForgotPasswordButton() {
+		
+	}
 
 }

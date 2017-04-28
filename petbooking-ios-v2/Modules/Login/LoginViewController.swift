@@ -16,6 +16,8 @@ class LoginViewController: UIViewController, LoginViewProtocol {
 	@IBOutlet weak var signupButton: UIButton!
 	@IBOutlet weak var facebookLoginButton: UIButton!
 	@IBOutlet weak var forgotPasswordButton: UIButton!
+	@IBOutlet weak var emailTextField: UITextField!
+	@IBOutlet weak var passwordTextField: UITextField!
 	
 	
 	var presenter: LoginPresenterProtocol?
@@ -37,4 +39,16 @@ class LoginViewController: UIViewController, LoginViewProtocol {
 		signupButton.buttonWithBorder(width: 2, color: .white)
 	}
 
+	@IBAction func login(_ sender: Any) {
+	}
+	
+	@IBAction func facebookLogin(_ sender: Any) {
+	}
+	
+	@IBAction func signup(_ sender: Any) {
+	}
+	
+	@IBAction func forgotPassword(_ sender: Any) {
+	}
+	
 }

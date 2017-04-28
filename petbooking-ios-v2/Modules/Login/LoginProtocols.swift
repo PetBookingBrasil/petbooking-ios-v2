@@ -16,6 +16,14 @@ protocol LoginWireframeProtocol: class {
 }
 //MARK: Presenter -
 protocol LoginPresenterProtocol: class {
+	
+	func didTapLoginButton()
+	
+	func didTapFacebookLoginButton()
+	
+	func didTapSignupButton()
+	
+	func didTapForgotPasswordButton()
 
 }
 

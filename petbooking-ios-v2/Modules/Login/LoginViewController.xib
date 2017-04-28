@@ -12,9 +12,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="petbooking_ios_v2" customModuleProvider="target">
             <connections>
+                <outlet property="emailTextField" destination="HC0-WK-bwa" id="mQL-eJ-kJS"/>
                 <outlet property="facebookLoginButton" destination="sZ6-qM-2Q3" id="bW9-1W-xo4"/>
                 <outlet property="forgotPasswordButton" destination="kbR-i5-tTJ" id="mYk-fj-SOs"/>
                 <outlet property="loginButton" destination="Gcq-Xr-Awp" id="ybl-Wv-cjP"/>
+                <outlet property="passwordTextField" destination="NoA-12-VrB" id="tak-Qz-VtK"/>
                 <outlet property="signupButton" destination="YlQ-1K-Xxa" id="XUt-uv-Oiw"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -36,6 +38,9 @@
                     <state key="normal" title="Entrar">
                         <color key="titleColor" red="1" green="0.29411764705882354" blue="0.29411764705882354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
+                    <connections>
+                        <action selector="login:" destination="-1" eventType="touchUpInside" id="gG1-g3-bJE"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sZ6-qM-2Q3">
                     <rect key="frame" x="16" y="447.66666666666674" width="382" height="65.333333333333258"/>
@@ -46,6 +51,9 @@
                     <state key="normal" title="Entrar com Facebook">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="facebookLogin:" destination="-1" eventType="touchUpInside" id="CJs-KE-bef"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YlQ-1K-Xxa">
                     <rect key="frame" x="214.66666666666663" y="375" width="183.33333333333337" height="54.666666666666686"/>
@@ -55,6 +63,9 @@
                     <state key="normal" title="Cadastre-se">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="signup:" destination="-1" eventType="touchUpInside" id="n4g-BF-JQm"/>
+                    </connections>
                 </button>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HC0-WK-bwa">
                     <rect key="frame" x="61" y="224" width="292" height="17"/>
@@ -106,6 +117,9 @@
                     <state key="normal" title="Esqueceu a senha?">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="forgotPassword:" destination="-1" eventType="touchUpInside" id="qWq-p2-liV"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="0.29411764705882354" blue="0.29411764705882354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
