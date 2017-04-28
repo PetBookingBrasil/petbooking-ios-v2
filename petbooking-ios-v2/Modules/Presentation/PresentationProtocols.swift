@@ -8,6 +8,7 @@
 //
 
 import Foundation
+import UIKit
 
 //MARK: Wireframe -
 protocol PresentationWireframeProtocol: class {
@@ -30,7 +31,7 @@ protocol PresentationPresenterProtocol: class {
 	
 	func setupView()
 	
-	func setupView(imageNamed:String, backgroundColorHexString:String, title:String, description:String)
+	func setupView(imageNamed:String, backgroundColorHexString:String, title:String, titleFont: UIFont?, description:String, descriptionFont: UIFont?)
 
 }
 
@@ -56,6 +57,6 @@ protocol PresentationViewProtocol: class {
 	
 	func setupViewBackgroundColor(backgroundColorHexString:String)
 	
-	func setupLabels(title:String, description:String)
+	func setupLabels(title:String, titleFont:UIFont?, description:String, descriptionFont:UIFont?)
 	
 }

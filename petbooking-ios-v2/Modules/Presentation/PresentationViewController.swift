@@ -54,9 +54,16 @@ class PresentationViewController: UIViewController, PresentationViewProtocol {
 		
 	}
 	
-	func setupLabels(title:String, description:String) {
+	func setupLabels(title:String, titleFont:UIFont?, description:String, descriptionFont:UIFont?) {
 		titleLabel.text = title
 		descriptionLabel.text = description
+		
+		if let titleFont = titleFont {
+			titleLabel.font = titleFont
+		}
+		if let descriptionFont = descriptionFont {
+			descriptionLabel.font = descriptionFont
+		}
 	}
 	
 }
