@@ -6,5 +6,9 @@ target 'petbooking-ios-v2' do
   use_frameworks!
 
   # Pods for petbooking-ios-v2
+	
+	pod 'FacebookCore'
+	pod 'FacebookLogin'
+	#pod 'FacebookShare'
 
 end
