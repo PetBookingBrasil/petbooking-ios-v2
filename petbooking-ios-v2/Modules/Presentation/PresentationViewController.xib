@@ -70,15 +70,15 @@
                         <constraint firstAttribute="height" constant="50" id="ouV-am-tJd"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Banho, tosa, consultas veterinárias e muito mais!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4J-Pb-DgN">
-                    <rect key="frame" x="40" y="456" width="334" height="47"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Banho, tosa, consultas veterinárias e muito mais!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4J-Pb-DgN">
+                    <rect key="frame" x="20" y="456" width="374" height="43"/>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Encontre e agende serviçoe para seus Pets, em poucos segundos, a qualquer hora do dia!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PhN-WV-wvo">
                     <rect key="frame" x="10" y="377" width="394" height="71.666666666666686"/>
-                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -89,7 +89,7 @@
                 <constraint firstItem="DeZ-yo-5MN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="80.670000000000002" id="3hO-1B-NrI"/>
                 <constraint firstAttribute="trailing" secondItem="DeZ-yo-5MN" secondAttribute="trailing" constant="80.329999999999998" id="HxS-hE-PVT"/>
                 <constraint firstItem="jAE-J5-Tcg" firstAttribute="leading" secondItem="LX7-qH-9Wn" secondAttribute="trailing" constant="10" id="M2w-pT-o8Y"/>
-                <constraint firstItem="J4J-Pb-DgN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="V2K-NT-dHO"/>
+                <constraint firstItem="J4J-Pb-DgN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="V2K-NT-dHO"/>
                 <constraint firstItem="jAE-J5-Tcg" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="VaK-1Y-HQR"/>
                 <constraint firstItem="PhN-WV-wvo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Y41-YR-apg"/>
                 <constraint firstItem="J4J-Pb-DgN" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="eqx-Qw-0TC"/>
@@ -101,7 +101,7 @@
                 <constraint firstAttribute="trailing" secondItem="PhN-WV-wvo" secondAttribute="trailing" constant="10" id="n0l-Xw-Xiv"/>
                 <constraint firstItem="PhN-WV-wvo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="pYf-gn-PC1"/>
                 <constraint firstAttribute="bottom" secondItem="LX7-qH-9Wn" secondAttribute="bottom" constant="40" id="r7I-1g-YlL"/>
-                <constraint firstAttribute="trailing" secondItem="J4J-Pb-DgN" secondAttribute="trailing" constant="40" id="zLQ-dR-CN7"/>
+                <constraint firstAttribute="trailing" secondItem="J4J-Pb-DgN" secondAttribute="trailing" constant="20" id="zLQ-dR-CN7"/>
             </constraints>
             <point key="canvasLocation" x="34" y="54"/>
         </view>

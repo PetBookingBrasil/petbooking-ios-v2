@@ -45,11 +45,11 @@ class PresentationPresenter: PresentationPresenterProtocol {
 		
 	}
 	
-	func setupView(imageNamed:String, backgroundColorHexString:String, title:String, description:String) {
+	func setupView(imageNamed:String, backgroundColorHexString:String, title:String, titleFont: UIFont?, description:String, descriptionFont: UIFont?) {
 		
 		view?.setupLogoImageView(imageNamed: imageNamed)
 		view?.setupViewBackgroundColor(backgroundColorHexString: backgroundColorHexString)
-		view?.setupLabels(title: title, description: description)
+		view?.setupLabels(title: title, titleFont: titleFont, description: description, descriptionFont: descriptionFont)
 		
 	}
 
