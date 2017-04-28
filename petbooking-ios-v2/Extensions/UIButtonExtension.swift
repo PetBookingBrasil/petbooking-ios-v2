@@ -12,7 +12,7 @@ import UIKit
 extension UIButton {
 	
 	func roundButton() {
-		layer.cornerRadius = 25
+		layer.cornerRadius = self.frame.height / 2
 		layer.masksToBounds = true
 	}
 	

@@ -22,10 +22,14 @@ class PresentationViewController: UIViewController, PresentationViewProtocol {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		setupButtons()
 		
 		presenter?.setupView()
 		self.navigationController?.isNavigationBarHidden = true
+	}
+	
+	override func viewDidLayoutSubviews() {
+		super.viewDidLayoutSubviews()
+		setupButtons()
 	}
 	
 	func setupButtons() {
