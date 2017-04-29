@@ -23,6 +23,13 @@
 		4120ED1C1EB38650009D35B0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ED161EB38650009D35B0 /* LoginViewController.swift */; };
 		4120ED1D1EB38650009D35B0 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4120ED171EB38650009D35B0 /* LoginViewController.xib */; };
 		4120ED1F1EB390C3009D35B0 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ED1E1EB390C3009D35B0 /* UIViewControllerExtension.swift */; };
+		4120ED271EB4F136009D35B0 /* ForgotPasswordInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ED211EB4F136009D35B0 /* ForgotPasswordInteractor.swift */; };
+		4120ED281EB4F136009D35B0 /* ForgotPasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ED221EB4F136009D35B0 /* ForgotPasswordPresenter.swift */; };
+		4120ED291EB4F136009D35B0 /* ForgotPasswordProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ED231EB4F136009D35B0 /* ForgotPasswordProtocols.swift */; };
+		4120ED2A1EB4F136009D35B0 /* ForgotPasswordRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ED241EB4F136009D35B0 /* ForgotPasswordRouter.swift */; };
+		4120ED2B1EB4F136009D35B0 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ED251EB4F136009D35B0 /* ForgotPasswordViewController.swift */; };
+		4120ED2C1EB4F136009D35B0 /* ForgotPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4120ED261EB4F136009D35B0 /* ForgotPasswordViewController.xib */; };
+		4120ED2E1EB500A6009D35B0 /* UINavigationControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ED2D1EB500A6009D35B0 /* UINavigationControllerExtension.swift */; };
 		413682C11E9C2B2D008C463B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413682C01E9C2B2D008C463B /* AppDelegate.swift */; };
 		413682C31E9C2B2D008C463B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413682C21E9C2B2D008C463B /* ViewController.swift */; };
 		413682C61E9C2B2D008C463B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 413682C41E9C2B2D008C463B /* Main.storyboard */; };
@@ -48,6 +55,13 @@
 		4120ED161EB38650009D35B0 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4120ED171EB38650009D35B0 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		4120ED1E1EB390C3009D35B0 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		4120ED211EB4F136009D35B0 /* ForgotPasswordInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordInteractor.swift; sourceTree = "<group>"; };
+		4120ED221EB4F136009D35B0 /* ForgotPasswordPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordPresenter.swift; sourceTree = "<group>"; };
+		4120ED231EB4F136009D35B0 /* ForgotPasswordProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordProtocols.swift; sourceTree = "<group>"; };
+		4120ED241EB4F136009D35B0 /* ForgotPasswordRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordRouter.swift; sourceTree = "<group>"; };
+		4120ED251EB4F136009D35B0 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		4120ED261EB4F136009D35B0 /* ForgotPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgotPasswordViewController.xib; sourceTree = "<group>"; };
+		4120ED2D1EB500A6009D35B0 /* UINavigationControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtension.swift; sourceTree = "<group>"; };
 		413682BD1E9C2B2D008C463B /* petbooking-ios-v2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "petbooking-ios-v2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		413682C01E9C2B2D008C463B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		413682C21E9C2B2D008C463B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +92,7 @@
 				4120ED071EB111A7009D35B0 /* UIButtonExtension.swift */,
 				4120ED091EB11BA0009D35B0 /* UIColorExtension.swift */,
 				4120ED1E1EB390C3009D35B0 /* UIViewControllerExtension.swift */,
+				4120ED2D1EB500A6009D35B0 /* UINavigationControllerExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -93,6 +108,19 @@
 				4120ED171EB38650009D35B0 /* LoginViewController.xib */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		4120ED201EB4F11E009D35B0 /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+				4120ED211EB4F136009D35B0 /* ForgotPasswordInteractor.swift */,
+				4120ED221EB4F136009D35B0 /* ForgotPasswordPresenter.swift */,
+				4120ED231EB4F136009D35B0 /* ForgotPasswordProtocols.swift */,
+				4120ED241EB4F136009D35B0 /* ForgotPasswordRouter.swift */,
+				4120ED251EB4F136009D35B0 /* ForgotPasswordViewController.swift */,
+				4120ED261EB4F136009D35B0 /* ForgotPasswordViewController.xib */,
+			);
+			path = ForgotPassword;
 			sourceTree = "<group>";
 		};
 		413682B41E9C2B2D008C463B = {
@@ -132,6 +160,7 @@
 		418D099C1EB0D71200FCD5A6 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				4120ED201EB4F11E009D35B0 /* ForgotPassword */,
 				4120ED111EB38629009D35B0 /* Login */,
 				418D099D1EB0D7B800FCD5A6 /* Presentation */,
 			);
@@ -233,6 +262,7 @@
 			files = (
 				4120ED101EB128A5009D35B0 /* Localizable.strings in Resources */,
 				413682CB1E9C2B2D008C463B /* LaunchScreen.storyboard in Resources */,
+				4120ED2C1EB4F136009D35B0 /* ForgotPasswordViewController.xib in Resources */,
 				4120ED1D1EB38650009D35B0 /* LoginViewController.xib in Resources */,
 				413682C81E9C2B2D008C463B /* Assets.xcassets in Resources */,
 				4120ED051EB0DE9F009D35B0 /* PresentationViewController.xib in Resources */,
@@ -302,11 +332,17 @@
 				413682C31E9C2B2D008C463B /* ViewController.swift in Sources */,
 				4120ED001EB0DE9F009D35B0 /* PresentationInteractor.swift in Sources */,
 				4120ED191EB38650009D35B0 /* LoginPresenter.swift in Sources */,
+				4120ED291EB4F136009D35B0 /* ForgotPasswordProtocols.swift in Sources */,
+				4120ED2A1EB4F136009D35B0 /* ForgotPasswordRouter.swift in Sources */,
 				4120ED011EB0DE9F009D35B0 /* PresentationPresenter.swift in Sources */,
+				4120ED271EB4F136009D35B0 /* ForgotPasswordInteractor.swift in Sources */,
 				4120ED0A1EB11BA0009D35B0 /* UIColorExtension.swift in Sources */,
 				413682C11E9C2B2D008C463B /* AppDelegate.swift in Sources */,
 				4120ED041EB0DE9F009D35B0 /* PresentationViewController.swift in Sources */,
+				4120ED2E1EB500A6009D35B0 /* UINavigationControllerExtension.swift in Sources */,
+				4120ED281EB4F136009D35B0 /* ForgotPasswordPresenter.swift in Sources */,
 				4120ED1A1EB38650009D35B0 /* LoginProtocols.swift in Sources */,
+				4120ED2B1EB4F136009D35B0 /* ForgotPasswordViewController.swift in Sources */,
 				4120ED181EB38650009D35B0 /* LoginInteractor.swift in Sources */,
 				4120ED1B1EB38650009D35B0 /* LoginRouter.swift in Sources */,
 				4120ED021EB0DE9F009D35B0 /* PresentationProtocols.swift in Sources */,

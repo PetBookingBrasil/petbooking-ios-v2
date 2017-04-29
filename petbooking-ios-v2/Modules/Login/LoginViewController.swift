@@ -27,6 +27,11 @@ class LoginViewController: UIViewController, LoginViewProtocol {
 		hideKeyboardWhenTappedAround()
     }
 	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		self.navigationController?.isNavigationBarHidden = true
+	}
+	
 	override func viewDidLayoutSubviews() {
 		super.viewDidLayoutSubviews()
 		setupButtons()
@@ -40,6 +45,7 @@ class LoginViewController: UIViewController, LoginViewProtocol {
 	}
 
 	@IBAction func login(_ sender: Any) {
+		presenter?.didTapLoginButton(email: emailTextField.text, password: passwordTextField.text)
 	}
 	
 	@IBAction func facebookLogin(_ sender: Any) {
@@ -50,6 +56,7 @@ class LoginViewController: UIViewController, LoginViewProtocol {
 	}
 	
 	@IBAction func forgotPassword(_ sender: Any) {
+		presenter?.didTapForgotPasswordButton()
 	}
 	
 }

@@ -13,11 +13,12 @@ import Foundation
 //MARK: Wireframe -
 protocol LoginWireframeProtocol: class {
 
+	func didTapForgotPasswordButton()
 }
 //MARK: Presenter -
 protocol LoginPresenterProtocol: class {
 	
-	func didTapLoginButton()
+	func didTapLoginButton(email:String?, password:String?)
 	
 	func didTapFacebookLoginButton()
 	

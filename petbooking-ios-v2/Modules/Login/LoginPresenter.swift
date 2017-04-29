@@ -24,7 +24,7 @@ class LoginPresenter: LoginPresenterProtocol {
         self.interactor.presenter = self
     }
 	
-	func didTapLoginButton() {
+	func didTapLoginButton(email:String?, password:String?) {
 		
 	}
 	
@@ -38,6 +38,7 @@ class LoginPresenter: LoginPresenterProtocol {
 	
 	func didTapForgotPasswordButton() {
 		
+		router.didTapForgotPasswordButton()
 	}
 	
 	func didCompleteFacebookLoginWithSuccess() {

@@ -51,6 +51,7 @@ class PresentationRouter: PresentationWireframeProtocol {
 	
 	func skipPresentationView() {
 		
-		self.viewController?.present(LoginRouter.createModule(), animated: true, completion: nil)
+		
+		self.viewController?.present(UINavigationController(rootViewController: LoginRouter.createModule()), animated: true, completion: nil)
 	}
 }

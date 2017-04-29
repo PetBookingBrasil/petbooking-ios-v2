@@ -20,6 +20,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
 		
+		UINavigationBar.appearance().barTintColor = UIColor(hex: "ff4b4b")
+		UINavigationBar.appearance().tintColor = .white
+		UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
+		UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffsetMake(0, -80.0), for: .default)
+		
+		var backButtonImage = UIImage(named: "back_icon")
+		backButtonImage = backButtonImage?.stretchableImage(withLeftCapWidth: 22, topCapHeight: 14)
+		UIBarButtonItem.appearance().setBackButtonBackgroundImage(backButtonImage, for: .normal, barMetrics: .default)
+	
 		self.window?.rootViewController = PresentationRouter.createFirstModule()
 		self.window?.makeKeyAndVisible()
 		return true
