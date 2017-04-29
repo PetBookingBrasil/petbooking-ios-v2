@@ -28,6 +28,11 @@ class LoginRouter: LoginWireframeProtocol {
         return view
     }
 	
+
+	func didTapSignupButton() {
+		viewController?.navigationController?.pushViewController(SignupRouter.createModule(), animated: true)
+	}
+	
 	func didTapForgotPasswordButton() {
 		viewController?.navigationController?.pushViewController(ForgotPasswordRouter.createModule(), animated: true)
 	}

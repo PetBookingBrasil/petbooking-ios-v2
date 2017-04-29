@@ -38,10 +38,10 @@ class LoginViewController: UIViewController, LoginViewProtocol {
 	}
 	
 	func setupButtons() {
-		loginButton.roundButton()
-		signupButton.roundButton()
-		facebookLoginButton.roundButton()
-		signupButton.buttonWithBorder(width: 2, color: .white)
+		loginButton.round()
+		signupButton.round()
+		facebookLoginButton.round()
+		signupButton.setBorder(width: 2, color: .white)
 	}
 
 	@IBAction func login(_ sender: Any) {
@@ -53,6 +53,7 @@ class LoginViewController: UIViewController, LoginViewProtocol {
 	}
 	
 	@IBAction func signup(_ sender: Any) {
+		presenter?.didTapSignupButton()
 	}
 	
 	@IBAction func forgotPassword(_ sender: Any) {

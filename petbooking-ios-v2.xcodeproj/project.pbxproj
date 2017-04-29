@@ -13,7 +13,7 @@
 		4120ED031EB0DE9F009D35B0 /* PresentationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ECFD1EB0DE9F009D35B0 /* PresentationRouter.swift */; };
 		4120ED041EB0DE9F009D35B0 /* PresentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ECFE1EB0DE9F009D35B0 /* PresentationViewController.swift */; };
 		4120ED051EB0DE9F009D35B0 /* PresentationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4120ECFF1EB0DE9F009D35B0 /* PresentationViewController.xib */; };
-		4120ED081EB111A7009D35B0 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ED071EB111A7009D35B0 /* UIButtonExtension.swift */; };
+		4120ED081EB111A7009D35B0 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ED071EB111A7009D35B0 /* UIViewExtension.swift */; };
 		4120ED0A1EB11BA0009D35B0 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ED091EB11BA0009D35B0 /* UIColorExtension.swift */; };
 		4120ED101EB128A5009D35B0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4120ED0F1EB128A5009D35B0 /* Localizable.strings */; };
 		4120ED181EB38650009D35B0 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ED121EB38650009D35B0 /* LoginInteractor.swift */; };
@@ -30,11 +30,17 @@
 		4120ED2B1EB4F136009D35B0 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ED251EB4F136009D35B0 /* ForgotPasswordViewController.swift */; };
 		4120ED2C1EB4F136009D35B0 /* ForgotPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4120ED261EB4F136009D35B0 /* ForgotPasswordViewController.xib */; };
 		4120ED2E1EB500A6009D35B0 /* UINavigationControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ED2D1EB500A6009D35B0 /* UINavigationControllerExtension.swift */; };
+		4120ED361EB529FE009D35B0 /* SignupInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ED301EB529FE009D35B0 /* SignupInteractor.swift */; };
+		4120ED371EB529FE009D35B0 /* SignupPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ED311EB529FE009D35B0 /* SignupPresenter.swift */; };
+		4120ED381EB529FE009D35B0 /* SignupProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ED321EB529FE009D35B0 /* SignupProtocols.swift */; };
+		4120ED391EB529FE009D35B0 /* SignupRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ED331EB529FE009D35B0 /* SignupRouter.swift */; };
+		4120ED3B1EB529FE009D35B0 /* SignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4120ED351EB529FE009D35B0 /* SignupViewController.xib */; };
 		413682C11E9C2B2D008C463B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413682C01E9C2B2D008C463B /* AppDelegate.swift */; };
 		413682C31E9C2B2D008C463B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413682C21E9C2B2D008C463B /* ViewController.swift */; };
 		413682C61E9C2B2D008C463B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 413682C41E9C2B2D008C463B /* Main.storyboard */; };
 		413682C81E9C2B2D008C463B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 413682C71E9C2B2D008C463B /* Assets.xcassets */; };
 		413682CB1E9C2B2D008C463B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 413682C91E9C2B2D008C463B /* LaunchScreen.storyboard */; };
+		415BCAE01EB534C40015BB0C /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415BCADF1EB534C40015BB0C /* SignupViewController.swift */; };
 		DFC90A17A5F8AA2CE20F8375 /* Pods_petbooking_ios_v2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9D68A4E19945C41B8E9EDFE /* Pods_petbooking_ios_v2.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,7 +51,7 @@
 		4120ECFD1EB0DE9F009D35B0 /* PresentationRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationRouter.swift; sourceTree = "<group>"; };
 		4120ECFE1EB0DE9F009D35B0 /* PresentationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationViewController.swift; sourceTree = "<group>"; };
 		4120ECFF1EB0DE9F009D35B0 /* PresentationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PresentationViewController.xib; sourceTree = "<group>"; };
-		4120ED071EB111A7009D35B0 /* UIButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		4120ED071EB111A7009D35B0 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		4120ED091EB11BA0009D35B0 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		4120ED0F1EB128A5009D35B0 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		4120ED121EB38650009D35B0 /* LoginInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
@@ -62,6 +68,11 @@
 		4120ED251EB4F136009D35B0 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		4120ED261EB4F136009D35B0 /* ForgotPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgotPasswordViewController.xib; sourceTree = "<group>"; };
 		4120ED2D1EB500A6009D35B0 /* UINavigationControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtension.swift; sourceTree = "<group>"; };
+		4120ED301EB529FE009D35B0 /* SignupInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupInteractor.swift; sourceTree = "<group>"; };
+		4120ED311EB529FE009D35B0 /* SignupPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupPresenter.swift; sourceTree = "<group>"; };
+		4120ED321EB529FE009D35B0 /* SignupProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupProtocols.swift; sourceTree = "<group>"; };
+		4120ED331EB529FE009D35B0 /* SignupRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupRouter.swift; sourceTree = "<group>"; };
+		4120ED351EB529FE009D35B0 /* SignupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignupViewController.xib; sourceTree = "<group>"; };
 		413682BD1E9C2B2D008C463B /* petbooking-ios-v2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "petbooking-ios-v2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		413682C01E9C2B2D008C463B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		413682C21E9C2B2D008C463B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +80,7 @@
 		413682C71E9C2B2D008C463B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		413682CA1E9C2B2D008C463B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		413682CC1E9C2B2D008C463B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		415BCADF1EB534C40015BB0C /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		5EC8A11A3CAAE140E557AF6F /* Pods-petbooking-ios-v2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petbooking-ios-v2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-petbooking-ios-v2/Pods-petbooking-ios-v2.debug.xcconfig"; sourceTree = "<group>"; };
 		9908B75EC13330082A78645E /* Pods-petbooking-ios-v2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petbooking-ios-v2.release.xcconfig"; path = "Pods/Target Support Files/Pods-petbooking-ios-v2/Pods-petbooking-ios-v2.release.xcconfig"; sourceTree = "<group>"; };
 		C9D68A4E19945C41B8E9EDFE /* Pods_petbooking_ios_v2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_petbooking_ios_v2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,7 +101,7 @@
 		4120ED061EB11188009D35B0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				4120ED071EB111A7009D35B0 /* UIButtonExtension.swift */,
+				4120ED071EB111A7009D35B0 /* UIViewExtension.swift */,
 				4120ED091EB11BA0009D35B0 /* UIColorExtension.swift */,
 				4120ED1E1EB390C3009D35B0 /* UIViewControllerExtension.swift */,
 				4120ED2D1EB500A6009D35B0 /* UINavigationControllerExtension.swift */,
@@ -121,6 +133,19 @@
 				4120ED261EB4F136009D35B0 /* ForgotPasswordViewController.xib */,
 			);
 			path = ForgotPassword;
+			sourceTree = "<group>";
+		};
+		4120ED2F1EB529EC009D35B0 /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				4120ED301EB529FE009D35B0 /* SignupInteractor.swift */,
+				4120ED311EB529FE009D35B0 /* SignupPresenter.swift */,
+				4120ED321EB529FE009D35B0 /* SignupProtocols.swift */,
+				4120ED331EB529FE009D35B0 /* SignupRouter.swift */,
+				415BCADF1EB534C40015BB0C /* SignupViewController.swift */,
+				4120ED351EB529FE009D35B0 /* SignupViewController.xib */,
+			);
+			path = Signup;
 			sourceTree = "<group>";
 		};
 		413682B41E9C2B2D008C463B = {
@@ -160,6 +185,7 @@
 		418D099C1EB0D71200FCD5A6 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				4120ED2F1EB529EC009D35B0 /* Signup */,
 				4120ED201EB4F11E009D35B0 /* ForgotPassword */,
 				4120ED111EB38629009D35B0 /* Login */,
 				418D099D1EB0D7B800FCD5A6 /* Presentation */,
@@ -266,6 +292,7 @@
 				4120ED1D1EB38650009D35B0 /* LoginViewController.xib in Resources */,
 				413682C81E9C2B2D008C463B /* Assets.xcassets in Resources */,
 				4120ED051EB0DE9F009D35B0 /* PresentationViewController.xib in Resources */,
+				4120ED3B1EB529FE009D35B0 /* SignupViewController.xib in Resources */,
 				413682C61E9C2B2D008C463B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -328,7 +355,8 @@
 				4120ED1C1EB38650009D35B0 /* LoginViewController.swift in Sources */,
 				4120ED031EB0DE9F009D35B0 /* PresentationRouter.swift in Sources */,
 				4120ED1F1EB390C3009D35B0 /* UIViewControllerExtension.swift in Sources */,
-				4120ED081EB111A7009D35B0 /* UIButtonExtension.swift in Sources */,
+				4120ED381EB529FE009D35B0 /* SignupProtocols.swift in Sources */,
+				4120ED081EB111A7009D35B0 /* UIViewExtension.swift in Sources */,
 				413682C31E9C2B2D008C463B /* ViewController.swift in Sources */,
 				4120ED001EB0DE9F009D35B0 /* PresentationInteractor.swift in Sources */,
 				4120ED191EB38650009D35B0 /* LoginPresenter.swift in Sources */,
@@ -339,10 +367,14 @@
 				4120ED0A1EB11BA0009D35B0 /* UIColorExtension.swift in Sources */,
 				413682C11E9C2B2D008C463B /* AppDelegate.swift in Sources */,
 				4120ED041EB0DE9F009D35B0 /* PresentationViewController.swift in Sources */,
+				4120ED371EB529FE009D35B0 /* SignupPresenter.swift in Sources */,
+				4120ED361EB529FE009D35B0 /* SignupInteractor.swift in Sources */,
 				4120ED2E1EB500A6009D35B0 /* UINavigationControllerExtension.swift in Sources */,
 				4120ED281EB4F136009D35B0 /* ForgotPasswordPresenter.swift in Sources */,
+				4120ED391EB529FE009D35B0 /* SignupRouter.swift in Sources */,
 				4120ED1A1EB38650009D35B0 /* LoginProtocols.swift in Sources */,
 				4120ED2B1EB4F136009D35B0 /* ForgotPasswordViewController.swift in Sources */,
+				415BCAE01EB534C40015BB0C /* SignupViewController.swift in Sources */,
 				4120ED181EB38650009D35B0 /* LoginInteractor.swift in Sources */,
 				4120ED1B1EB38650009D35B0 /* LoginRouter.swift in Sources */,
 				4120ED021EB0DE9F009D35B0 /* PresentationProtocols.swift in Sources */,

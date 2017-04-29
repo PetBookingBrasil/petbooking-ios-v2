@@ -33,9 +33,9 @@ class PresentationViewController: UIViewController, PresentationViewProtocol {
 	}
 	
 	func setupButtons() {
-		nextButton.roundButton()
-		skipButton.roundButton()
-		skipButton.buttonWithBorder(width: 2, color: .white)
+		nextButton.round()
+		skipButton.round()
+		skipButton.setBorder(width: 2, color: .white)
 	}
 	
 	@IBAction func next(_ sender: Any) {

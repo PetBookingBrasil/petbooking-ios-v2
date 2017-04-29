@@ -33,7 +33,7 @@ class ForgotPasswordViewController: UIViewController, ForgotPasswordViewProtocol
 	}
 	
 	func setupButtons() {
-		sendButton.roundButton()
+		sendButton.round()
 	}
 
 	

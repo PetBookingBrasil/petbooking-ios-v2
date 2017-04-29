@@ -33,6 +33,7 @@ class LoginPresenter: LoginPresenterProtocol {
 	}
 	
 	func didTapSignupButton() {
+		router.didTapSignupButton()
 		
 	}
 	

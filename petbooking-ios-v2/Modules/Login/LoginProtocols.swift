@@ -14,6 +14,8 @@ import Foundation
 protocol LoginWireframeProtocol: class {
 
 	func didTapForgotPasswordButton()
+	
+	func didTapSignupButton()
 }
 //MARK: Presenter -
 protocol LoginPresenterProtocol: class {
