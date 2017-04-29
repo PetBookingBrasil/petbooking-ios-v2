@@ -9,8 +9,43 @@
 //
 
 import UIKit
+import FacebookCore
+import FacebookLogin
 
 class LoginInteractor: LoginInteractorProtocol {
-
-    weak var presenter: LoginPresenterProtocol?
+	
+	weak var presenter: LoginPresenterProtocol?
+	
+	func didTapLoginButton() {
+		
+	}
+	
+	func didTapFacebookLoginButton() {
+		
+		let loginManager = LoginManager()
+		loginManager.logIn([.publicProfile, .email], viewController: nil) { (loginResult) in
+			
+			switch loginResult {
+			case .failed(let error):
+				self.presenter?.didCompleteFacebookLoginWithError(error: error)
+				break
+			case .cancelled:
+				break
+			case .success(let grantedPermissions, let declinedPermissions, let accessToken):
+				self.presenter?.didCompleteFacebookLoginWithSuccess()
+				break
+			}
+			
+		}
+		
+		
+		}
+		
+		func didTapSignupButton() {
+			
+		}
+		
+		func didTapForgotPasswordButton() {
+			
+		}
 }

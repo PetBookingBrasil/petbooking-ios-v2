@@ -43,6 +43,7 @@ class LoginViewController: UIViewController, LoginViewProtocol {
 	}
 	
 	@IBAction func facebookLogin(_ sender: Any) {
+		presenter?.didTapFacebookLoginButton()
 	}
 	
 	@IBAction func signup(_ sender: Any) {

@@ -29,7 +29,7 @@ class LoginPresenter: LoginPresenterProtocol {
 	}
 	
 	func didTapFacebookLoginButton() {
-		
+		interactor.didTapFacebookLoginButton()
 	}
 	
 	func didTapSignupButton() {
@@ -37,6 +37,14 @@ class LoginPresenter: LoginPresenterProtocol {
 	}
 	
 	func didTapForgotPasswordButton() {
+		
+	}
+	
+	func didCompleteFacebookLoginWithSuccess() {
+		
+	}
+	
+	func didCompleteFacebookLoginWithError(error: Error) {
 		
 	}
 
