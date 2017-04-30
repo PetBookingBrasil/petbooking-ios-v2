@@ -11,6 +11,8 @@ target 'petbooking-ios-v2' do
 	pod 'FacebookLogin'
 	#pod 'FacebookShare'
 	
+	pod 'Alamofire', '~> 4.4'
+	
 	pod 'IQKeyboardManager'
 
 end

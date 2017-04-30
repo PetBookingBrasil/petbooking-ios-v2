@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (4.4.0)
   - Bolts (1.8.4):
     - Bolts/AppLinks (= 1.8.4)
     - Bolts/Tasks (= 1.8.4)
@@ -20,11 +21,13 @@ PODS:
   - IQKeyboardManager (4.0.9)
 
 DEPENDENCIES:
+  - Alamofire (~> 4.4)
   - FacebookCore
   - FacebookLogin
   - IQKeyboardManager
 
 SPEC CHECKSUMS:
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   FacebookCore: 2cb3f0fbff218e9d3119cec84bae983b232412de
   FacebookLogin: c9d606504735780a9e3002465a615512e0a691a5
@@ -32,6 +35,6 @@ SPEC CHECKSUMS:
   FBSDKLoginKit: 1fa529fc622d7b32ebeaffbecd377180833c6d30
   IQKeyboardManager: 322c7405df3eb5f7e50dede32ea937bf3d4364e0
 
-PODFILE CHECKSUM: 60d1ed988ab23ec582687118e2e42411f8d50eed
+PODFILE CHECKSUM: fa7bc801eba3e95ca9ca4bdbb099611ea2ae28b2
 
 COCOAPODS: 1.2.1
