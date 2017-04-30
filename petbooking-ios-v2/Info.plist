@@ -174,5 +174,9 @@
 		<string>fb</string>
 		<string>fbshareextension</string>
 	</array>
+	<key>API_BASE_URL_ENDPOINT</key>
+	<string>$(API_BASE_URL_ENDPOINT)</string>
+	<key>AUTH_KEY</key>
+	<string>$(AUTH_KEY)</string>
 </dict>
 </plist>

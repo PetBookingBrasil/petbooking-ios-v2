@@ -41,6 +41,9 @@
 		413682C81E9C2B2D008C463B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 413682C71E9C2B2D008C463B /* Assets.xcassets */; };
 		413682CB1E9C2B2D008C463B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 413682C91E9C2B2D008C463B /* LaunchScreen.storyboard */; };
 		415BCAE01EB534C40015BB0C /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415BCADF1EB534C40015BB0C /* SignupViewController.swift */; };
+		4168AA4C1EB69217001E2D6D /* PetbookingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4168AA4B1EB69217001E2D6D /* PetbookingAPI.swift */; };
+		4168AA4F1EB6A4DD001E2D6D /* Consumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4168AA4E1EB6A4DD001E2D6D /* Consumer.swift */; };
+		4168AA521EB6A828001E2D6D /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4168AA511EB6A828001E2D6D /* UserManager.swift */; };
 		DFC90A17A5F8AA2CE20F8375 /* Pods_petbooking_ios_v2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9D68A4E19945C41B8E9EDFE /* Pods_petbooking_ios_v2.framework */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +84,9 @@
 		413682CA1E9C2B2D008C463B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		413682CC1E9C2B2D008C463B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		415BCADF1EB534C40015BB0C /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		4168AA4B1EB69217001E2D6D /* PetbookingAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetbookingAPI.swift; sourceTree = "<group>"; };
+		4168AA4E1EB6A4DD001E2D6D /* Consumer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Consumer.swift; sourceTree = "<group>"; };
+		4168AA511EB6A828001E2D6D /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		5EC8A11A3CAAE140E557AF6F /* Pods-petbooking-ios-v2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petbooking-ios-v2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-petbooking-ios-v2/Pods-petbooking-ios-v2.debug.xcconfig"; sourceTree = "<group>"; };
 		9908B75EC13330082A78645E /* Pods-petbooking-ios-v2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petbooking-ios-v2.release.xcconfig"; path = "Pods/Target Support Files/Pods-petbooking-ios-v2/Pods-petbooking-ios-v2.release.xcconfig"; sourceTree = "<group>"; };
 		C9D68A4E19945C41B8E9EDFE /* Pods_petbooking_ios_v2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_petbooking_ios_v2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -169,6 +175,9 @@
 		413682BF1E9C2B2D008C463B /* petbooking-ios-v2 */ = {
 			isa = PBXGroup;
 			children = (
+				4168AA501EB6A819001E2D6D /* Managers */,
+				4168AA4D1EB6A4B5001E2D6D /* Models */,
+				4168AA4A1EB691E1001E2D6D /* Webservices */,
 				4120ED061EB11188009D35B0 /* Extensions */,
 				418D099C1EB0D71200FCD5A6 /* Modules */,
 				413682C01E9C2B2D008C463B /* AppDelegate.swift */,
@@ -180,6 +189,30 @@
 				4120ED0F1EB128A5009D35B0 /* Localizable.strings */,
 			);
 			path = "petbooking-ios-v2";
+			sourceTree = "<group>";
+		};
+		4168AA4A1EB691E1001E2D6D /* Webservices */ = {
+			isa = PBXGroup;
+			children = (
+				4168AA4B1EB69217001E2D6D /* PetbookingAPI.swift */,
+			);
+			path = Webservices;
+			sourceTree = "<group>";
+		};
+		4168AA4D1EB6A4B5001E2D6D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4168AA4E1EB6A4DD001E2D6D /* Consumer.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4168AA501EB6A819001E2D6D /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				4168AA511EB6A828001E2D6D /* UserManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		418D099C1EB0D71200FCD5A6 /* Modules */ = {
@@ -359,6 +392,7 @@
 				4120ED081EB111A7009D35B0 /* UIViewExtension.swift in Sources */,
 				413682C31E9C2B2D008C463B /* ViewController.swift in Sources */,
 				4120ED001EB0DE9F009D35B0 /* PresentationInteractor.swift in Sources */,
+				4168AA521EB6A828001E2D6D /* UserManager.swift in Sources */,
 				4120ED191EB38650009D35B0 /* LoginPresenter.swift in Sources */,
 				4120ED291EB4F136009D35B0 /* ForgotPasswordProtocols.swift in Sources */,
 				4120ED2A1EB4F136009D35B0 /* ForgotPasswordRouter.swift in Sources */,
@@ -369,7 +403,9 @@
 				4120ED041EB0DE9F009D35B0 /* PresentationViewController.swift in Sources */,
 				4120ED371EB529FE009D35B0 /* SignupPresenter.swift in Sources */,
 				4120ED361EB529FE009D35B0 /* SignupInteractor.swift in Sources */,
+				4168AA4F1EB6A4DD001E2D6D /* Consumer.swift in Sources */,
 				4120ED2E1EB500A6009D35B0 /* UINavigationControllerExtension.swift in Sources */,
+				4168AA4C1EB69217001E2D6D /* PetbookingAPI.swift in Sources */,
 				4120ED281EB4F136009D35B0 /* ForgotPasswordPresenter.swift in Sources */,
 				4120ED391EB529FE009D35B0 /* SignupRouter.swift in Sources */,
 				4120ED1A1EB38650009D35B0 /* LoginProtocols.swift in Sources */,
@@ -407,6 +443,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				API_BASE_URL_ENDPOINT = novo.petbooking.com.br/api;
+				AUTH_KEY = "ac1e488b-38b6-47dd-b3a1-c2b3b77f67d4";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -457,6 +495,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				API_BASE_URL_ENDPOINT = novo.petbooking.com.br/api;
+				AUTH_KEY = "ac1e488b-38b6-47dd-b3a1-c2b3b77f67d4";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";

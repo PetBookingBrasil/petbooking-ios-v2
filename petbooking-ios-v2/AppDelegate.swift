@@ -28,6 +28,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		var backButtonImage = UIImage(named: "back_icon")
 		backButtonImage = backButtonImage?.stretchableImage(withLeftCapWidth: 22, topCapHeight: 14)
 		UIBarButtonItem.appearance().setBackButtonBackgroundImage(backButtonImage, for: .normal, barMetrics: .default)
+		
+		
+		PetbookingAPI.sharedInstance.getConsumer { (success, message) in
+			
+			
+			
+		}
+		
 	
 		self.window?.rootViewController = PresentationRouter.createFirstModule()
 		self.window?.makeKeyAndVisible()

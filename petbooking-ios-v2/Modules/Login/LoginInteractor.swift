@@ -32,6 +32,12 @@ class LoginInteractor: LoginInteractorProtocol {
 			case .cancelled:
 				break
 			case .success(let grantedPermissions, let declinedPermissions, let accessToken):
+				
+				PetbookingAPI.sharedInstance.loginWithFacebook(accessToken.authenticationToken, completion: { (success, message) in
+					
+					
+				})
+				
 				self.presenter?.didCompleteFacebookLoginWithSuccess()
 				break
 			}
