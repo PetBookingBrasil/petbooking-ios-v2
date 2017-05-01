@@ -26,7 +26,7 @@ class LoginPresenter: LoginPresenterProtocol {
     }
 	
 	func didTapLoginButton(email:String?, password:String?) {
-		
+		interactor.didTapLoginButton(email: email, password: password)
 	}
 	
 	func didTapFacebookLoginButton() {
@@ -54,6 +54,20 @@ class LoginPresenter: LoginPresenterProtocol {
 	}
 	
 	func didCompleteFacebookLoginWithError(error: Error) {
+		
+	}
+	
+	func didCompleteLoginWithSuccess() {
+		
+		ALLoadingView.manager.hideLoadingView(withDelay: 1) {
+			
+			self.router.didCompleteFacebookLoginWithSuccess()
+			
+		}
+		
+	}
+	
+	func didCompleteLoginWithError(error:Error) {
 		
 	}
 

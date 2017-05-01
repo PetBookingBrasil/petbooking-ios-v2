@@ -9,6 +9,7 @@
 import UIKit
 import FacebookCore
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -28,7 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		var backButtonImage = UIImage(named: "back_icon")
 		backButtonImage = backButtonImage?.stretchableImage(withLeftCapWidth: 22, topCapHeight: 14)
 		UIBarButtonItem.appearance().setBackButtonBackgroundImage(backButtonImage, for: .normal, barMetrics: .default)
-		
 		
 		PetbookingAPI.sharedInstance.getConsumer { (success, message) in
 			

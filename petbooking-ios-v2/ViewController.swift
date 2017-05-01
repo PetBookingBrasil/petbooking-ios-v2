@@ -25,14 +25,19 @@ class ViewController: UIViewController {
 		super.viewWillAppear(animated)
 		
 		
-		if let currentUser = UserManager.sharedInstance.getCurrentUser() {
-			nameLabel.text = currentUser.name
+		PetbookingAPI.sharedInstance.userInfo { (user, message) in
 			
-			if let url = URL(string: currentUser.avatarUrlThumb) {
-				imageView.pin_setImage(from: url)
+			if let currentUser = user {
+				
+				self.nameLabel.text = currentUser.name
+				
+				if let url = URL(string: currentUser.avatarUrlThumb) {
+					self.imageView.pin_setImage(from: url)
+				}
 			}
 			
 		}
+		
 	}
 
 	override func didReceiveMemoryWarning() {

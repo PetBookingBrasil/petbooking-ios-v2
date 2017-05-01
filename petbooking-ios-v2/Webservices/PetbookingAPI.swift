@@ -32,7 +32,7 @@ class PetbookingAPI: NSObject {
 	override init() {
 		
 		var token = ""
-		if let consumer = UserManager.sharedInstance.getCurrentConsumer() {
+		if let consumer = SessionManager.sharedInstance.getCurrentConsumer() {
 			token = consumer.token
 		}
 		
@@ -44,8 +44,6 @@ class PetbookingAPI: NSObject {
 		consumer_headers	= [
 			"Content-Type": "application/vnd.api+json"
 		]
-		
-		
 	}
 
 }
@@ -71,7 +69,7 @@ extension PetbookingAPI {
 					
 					if let dic = jsonObject as? [String: Any] {
 						let consumer = try MTLJSONAdapter.model(of: Consumer.self, fromJSONDictionary: dic) as! Consumer
-						try UserManager.sharedInstance.saveConsumer(consumer: consumer)
+						try SessionManager.sharedInstance.saveConsumer(consumer: consumer)
 					}
 
 					
@@ -88,32 +86,26 @@ extension PetbookingAPI {
 		}
 	}
 	
-	func loginWithFacebook(_ facebookAccessToken:String,  completion: @escaping (_ success: Bool, _ message: String) -> Void) {
+	func login(_ parameters: Parameters, completion: @escaping (_ success: Bool, _ message: String) -> Void) {
 		
 		var token = ""
-		if let consumer = UserManager.sharedInstance.getCurrentConsumer() {
+		if let consumer = SessionManager.sharedInstance.getCurrentConsumer() {
 			token = consumer.token
 		}
 		
-		self.auth_headers["Authorization"] = "Bearer \(token)"
+		self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
 		
-		
-		let parameters: Parameters = [
-			"data": ["type":"users", "attributes":["provider":"facebook", "provider_token":facebookAccessToken]]
-
-		]
-		
-		Alamofire.request("\(PetbookingAPI.API_BASE_URL)/users", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: auth_headers).responseJSON { (response) in
-		
+		Alamofire.request("\(PetbookingAPI.API_BASE_URL)/sessions", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: auth_headers).responseJSON { (response) in
+			
 			switch response.result{
 			case .success(let jsonObject):
 				if let dic = jsonObject as? [String: Any] {
 					
 					do {
 						
-						let user = try MTLJSONAdapter.model(of: User.self, fromJSONDictionary: dic) as! User
+						let session = try MTLJSONAdapter.model(of: Session.self, fromJSONDictionary: dic) as! Session
 						
-						try UserManager.sharedInstance.saveUser(user: user)
+						try SessionManager.sharedInstance.saveSession(session: session)
 						
 						completion(true, "")
 						
@@ -129,7 +121,84 @@ extension PetbookingAPI {
 				completion(false, error.localizedDescription)
 				break
 			}
+			
+		}
 		
+	}
+	
+	func loginWithFacebook(_ facebookAccessToken:String,  completion: @escaping (_ success: Bool, _ message: String) -> Void) {
+		
+		let parameters: Parameters = [
+			"data": ["type":"sessions", "attributes":["provider":"facebook", "provider_token":facebookAccessToken]]
+
+		]
+		
+		login(parameters, completion: completion)
+		
+	}
+	
+	func loginWithEmail(_ email:String, password:String,  completion: @escaping (_ success: Bool, _ message: String) -> Void) {
+		
+		let parameters: Parameters = [
+			"data": ["type":"sessions", "attributes":["provider":"b2beauty", "email":email, "password":password]]
+			
+		]
+		
+		login(parameters, completion: completion)
+		
+	}
+	
+}
+
+// MARK: User
+
+extension PetbookingAPI {
+	
+	func userInfo(_ completion: @escaping (_ user: User?, _ message: String) -> Void) {
+		
+		var token = ""
+		if let consumer = SessionManager.sharedInstance.getCurrentConsumer() {
+			token = consumer.token
+		}
+		
+		var authToken = ""
+		var userId = 0
+		if let session = SessionManager.sharedInstance.getCurrentSession() {
+			authToken = session.authToken
+			userId = session.userId
+		}
+		
+		self.auth_headers["Authorization"] = "Bearer \(token)"
+		self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
+		self.auth_headers.updateValue("Token token=\"\(authToken)\"", forKey: "X-Petbooking-Session-Token")
+		
+		Alamofire.request("\(PetbookingAPI.API_BASE_URL)/users/\(userId)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: auth_headers).responseJSON { (response) in
+			
+			switch response.result{
+			case .success(let jsonObject):
+				if let dic = jsonObject as? [String: Any] {
+					
+					do {
+						
+						let user = try MTLJSONAdapter.model(of: User.self, fromJSONDictionary: dic) as! User
+						
+						try UserManager.sharedInstance.saveUser(user: user)
+						
+						completion(user, "")
+						
+					} catch {
+						completion(nil, error.localizedDescription)
+					}
+				} else {
+					completion(nil, "")
+				}
+				break
+			case .failure(let error):
+				print(error)
+				completion(nil, error.localizedDescription)
+				break
+			}
+			
 		}
 		
 	}

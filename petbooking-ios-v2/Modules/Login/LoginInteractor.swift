@@ -16,7 +16,23 @@ class LoginInteractor: LoginInteractorProtocol {
 	
 	weak var presenter: LoginPresenterProtocol?
 	
-	func didTapLoginButton() {
+	func didTapLoginButton(email:String?, password:String?) {
+		
+		guard let email = email else {
+			return
+		}
+		
+		guard let password = password else {
+			return
+		}
+		
+		PetbookingAPI.sharedInstance.loginWithEmail(email, password: password) { (success, message) in
+			
+			if success {
+				self.presenter?.didCompleteLoginWithSuccess()
+			}
+			
+		}
 		
 	}
 	

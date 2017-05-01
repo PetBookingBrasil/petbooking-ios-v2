@@ -33,6 +33,10 @@ protocol LoginPresenterProtocol: class {
 	func didCompleteFacebookLoginWithSuccess()
 	
 	func didCompleteFacebookLoginWithError(error:Error)
+	
+	func didCompleteLoginWithSuccess()
+	
+	func didCompleteLoginWithError(error:Error)
 
 }
 
@@ -41,7 +45,7 @@ protocol LoginInteractorProtocol: class {
 
   var presenter: LoginPresenterProtocol?  { get set }
 	
-	func didTapLoginButton()
+	func didTapLoginButton(email:String?, password:String?)
 	
 	func didTapFacebookLoginButton()
 	
