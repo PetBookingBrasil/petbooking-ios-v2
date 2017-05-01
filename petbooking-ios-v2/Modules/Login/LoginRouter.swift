@@ -39,13 +39,11 @@ class LoginRouter: LoginWireframeProtocol {
 	
 	func didCompleteFacebookLoginWithSuccess() {
 		
-		let when = DispatchTime.now() + 1 // change 2 to desired number of seconds
-		DispatchQueue.main.asyncAfter(deadline: when) {
+			
 			let storyboard = UIStoryboard(name: "Main", bundle: nil)
 			let viewController = storyboard.instantiateViewController(withIdentifier :"ViewController")
 			
 			self.viewController?.present(viewController, animated: true, completion: nil)
-		}
 		
 	}
 }

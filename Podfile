@@ -17,5 +17,6 @@ target 'petbooking-ios-v2' do
 	
 	pod 'PINRemoteImage'
 	pod 'IQKeyboardManager'
+	pod 'ALLoadingView'
 
 end

@@ -9,6 +9,7 @@
 //
 
 import UIKit
+import ALLoadingView
 
 class LoginPresenter: LoginPresenterProtocol {
 
@@ -29,6 +30,7 @@ class LoginPresenter: LoginPresenterProtocol {
 	}
 	
 	func didTapFacebookLoginButton() {
+		ALLoadingView.manager.showLoadingView(ofType: .basic, windowMode: .fullscreen)
 		interactor.didTapFacebookLoginButton()
 	}
 	
@@ -43,7 +45,12 @@ class LoginPresenter: LoginPresenterProtocol {
 	}
 	
 	func didCompleteFacebookLoginWithSuccess() {
-		router.didCompleteFacebookLoginWithSuccess()
+		ALLoadingView.manager.hideLoadingView(withDelay: 1) { 
+			
+			self.router.didCompleteFacebookLoginWithSuccess()
+			
+		}
+		
 	}
 	
 	func didCompleteFacebookLoginWithError(error: Error) {
