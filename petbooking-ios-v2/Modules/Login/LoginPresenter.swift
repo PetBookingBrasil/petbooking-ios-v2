@@ -26,6 +26,7 @@ class LoginPresenter: LoginPresenterProtocol {
     }
 	
 	func didTapLoginButton(email:String?, password:String?) {
+		ALLoadingView.manager.showLoadingView(ofType: .basic, windowMode: .fullscreen)
 		interactor.didTapLoginButton(email: email, password: password)
 	}
 	
