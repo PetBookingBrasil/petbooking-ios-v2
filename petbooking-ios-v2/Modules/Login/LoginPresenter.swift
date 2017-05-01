@@ -43,7 +43,7 @@ class LoginPresenter: LoginPresenterProtocol {
 	}
 	
 	func didCompleteFacebookLoginWithSuccess() {
-		
+		router.didCompleteFacebookLoginWithSuccess()
 	}
 	
 	func didCompleteFacebookLoginWithError(error: Error) {

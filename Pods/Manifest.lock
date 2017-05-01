@@ -18,10 +18,19 @@ PODS:
     - Bolts (~> 1.7)
   - FBSDKLoginKit (4.22.0):
     - FBSDKCoreKit
+  - FLAnimatedImage (1.0.12)
   - IQKeyboardManager (4.0.9)
   - Mantle (2.1.0):
     - Mantle/extobjc (= 2.1.0)
   - Mantle/extobjc (2.1.0)
+  - PINCache (2.3)
+  - PINRemoteImage (2.1.4):
+    - PINRemoteImage/FLAnimatedImage (= 2.1.4)
+  - PINRemoteImage/Core (2.1.4):
+    - PINCache (>= 2.1)
+  - PINRemoteImage/FLAnimatedImage (2.1.4):
+    - FLAnimatedImage (>= 1.0)
+    - PINRemoteImage/Core
   - Realm (2.6.2):
     - Realm/Headers (= 2.6.2)
   - Realm/Headers (2.6.2)
@@ -34,6 +43,7 @@ DEPENDENCIES:
   - FacebookLogin
   - IQKeyboardManager
   - Mantle
+  - PINRemoteImage
   - RealmSwift
 
 SPEC CHECKSUMS:
@@ -43,11 +53,14 @@ SPEC CHECKSUMS:
   FacebookLogin: c9d606504735780a9e3002465a615512e0a691a5
   FBSDKCoreKit: c693bad19feb225469eeff14452ba364522ee48b
   FBSDKLoginKit: 1fa529fc622d7b32ebeaffbecd377180833c6d30
+  FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   IQKeyboardManager: 322c7405df3eb5f7e50dede32ea937bf3d4364e0
   Mantle: 2fa750afa478cd625a94230fbf1c13462f29395b
+  PINCache: ce36ed282031b92fc7733ffe831f474ff80fddc2
+  PINRemoteImage: 4ac4011c5caefd6befd99758e09becede05d3226
   Realm: 29222766425b9f831228f81b63f0e38a97a4d700
   RealmSwift: d161a80f96cb91ae88391a7d5a9cf08024a7bc8e
 
-PODFILE CHECKSUM: 2d7e5cbaa313f5cd2acff994f2653204bcd6a4c3
+PODFILE CHECKSUM: e0aa7864ef3475f7930b3ea60e5c08334074449f
 
 COCOAPODS: 1.2.1

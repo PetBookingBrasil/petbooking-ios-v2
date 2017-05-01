@@ -16,6 +16,8 @@ protocol LoginWireframeProtocol: class {
 	func didTapForgotPasswordButton()
 	
 	func didTapSignupButton()
+	
+	func didCompleteFacebookLoginWithSuccess()
 }
 //MARK: Presenter -
 protocol LoginPresenterProtocol: class {

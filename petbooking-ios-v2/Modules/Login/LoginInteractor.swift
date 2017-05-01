@@ -35,6 +35,9 @@ class LoginInteractor: LoginInteractorProtocol {
 				
 				PetbookingAPI.sharedInstance.loginWithFacebook(accessToken.authenticationToken, completion: { (success, message) in
 					
+					if success {
+						self.presenter?.didCompleteFacebookLoginWithSuccess()
+					}
 					
 				})
 				

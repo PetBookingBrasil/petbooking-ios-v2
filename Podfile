@@ -15,6 +15,7 @@ target 'petbooking-ios-v2' do
 	pod 'RealmSwift'
 	pod 'Mantle'
 	
+	pod 'PINRemoteImage'
 	pod 'IQKeyboardManager'
 
 end

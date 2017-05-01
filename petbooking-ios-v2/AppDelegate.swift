@@ -36,9 +36,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			
 		}
 		
-	
-		self.window?.rootViewController = PresentationRouter.createFirstModule()
+		if let _ = UserManager.sharedInstance.getCurrentUser() {
+			
+			let storyboard = UIStoryboard(name: "Main", bundle: nil)
+			let viewController = storyboard.instantiateViewController(withIdentifier :"ViewController")
+			self.window?.rootViewController = viewController
+			
+		} else {
+			self.window?.rootViewController = PresentationRouter.createFirstModule()
+			
+		}
 		self.window?.makeKeyAndVisible()
+	
+		
 		return true
 	}
 	

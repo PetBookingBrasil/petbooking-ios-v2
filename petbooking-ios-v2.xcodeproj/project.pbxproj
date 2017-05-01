@@ -44,6 +44,7 @@
 		4168AA4C1EB69217001E2D6D /* PetbookingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4168AA4B1EB69217001E2D6D /* PetbookingAPI.swift */; };
 		4168AA4F1EB6A4DD001E2D6D /* Consumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4168AA4E1EB6A4DD001E2D6D /* Consumer.swift */; };
 		4168AA521EB6A828001E2D6D /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4168AA511EB6A828001E2D6D /* UserManager.swift */; };
+		4168AA541EB6BB56001E2D6D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4168AA531EB6BB56001E2D6D /* User.swift */; };
 		DFC90A17A5F8AA2CE20F8375 /* Pods_petbooking_ios_v2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9D68A4E19945C41B8E9EDFE /* Pods_petbooking_ios_v2.framework */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +88,7 @@
 		4168AA4B1EB69217001E2D6D /* PetbookingAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetbookingAPI.swift; sourceTree = "<group>"; };
 		4168AA4E1EB6A4DD001E2D6D /* Consumer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Consumer.swift; sourceTree = "<group>"; };
 		4168AA511EB6A828001E2D6D /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		4168AA531EB6BB56001E2D6D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5EC8A11A3CAAE140E557AF6F /* Pods-petbooking-ios-v2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petbooking-ios-v2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-petbooking-ios-v2/Pods-petbooking-ios-v2.debug.xcconfig"; sourceTree = "<group>"; };
 		9908B75EC13330082A78645E /* Pods-petbooking-ios-v2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petbooking-ios-v2.release.xcconfig"; path = "Pods/Target Support Files/Pods-petbooking-ios-v2/Pods-petbooking-ios-v2.release.xcconfig"; sourceTree = "<group>"; };
 		C9D68A4E19945C41B8E9EDFE /* Pods_petbooking_ios_v2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_petbooking_ios_v2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -203,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				4168AA4E1EB6A4DD001E2D6D /* Consumer.swift */,
+				4168AA531EB6BB56001E2D6D /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 				413682C31E9C2B2D008C463B /* ViewController.swift in Sources */,
 				4120ED001EB0DE9F009D35B0 /* PresentationInteractor.swift in Sources */,
 				4168AA521EB6A828001E2D6D /* UserManager.swift in Sources */,
+				4168AA541EB6BB56001E2D6D /* User.swift in Sources */,
 				4120ED191EB38650009D35B0 /* LoginPresenter.swift in Sources */,
 				4120ED291EB4F136009D35B0 /* ForgotPasswordProtocols.swift in Sources */,
 				4120ED2A1EB4F136009D35B0 /* ForgotPasswordRouter.swift in Sources */,

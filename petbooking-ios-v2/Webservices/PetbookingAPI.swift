@@ -107,10 +107,26 @@ extension PetbookingAPI {
 		
 			switch response.result{
 			case .success(let jsonObject):
-				print(jsonObject)
+				if let dic = jsonObject as? [String: Any] {
+					
+					do {
+						
+						let user = try MTLJSONAdapter.model(of: User.self, fromJSONDictionary: dic) as! User
+						
+						try UserManager.sharedInstance.saveUser(user: user)
+						
+						completion(true, "")
+						
+					} catch {
+						completion(false, error.localizedDescription)
+					}
+				} else {
+					completion(false, "")
+				}
 				break
 			case .failure(let error):
 				print(error)
+				completion(false, error.localizedDescription)
 				break
 			}
 		
