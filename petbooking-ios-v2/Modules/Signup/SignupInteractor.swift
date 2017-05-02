@@ -9,8 +9,50 @@
 //
 
 import UIKit
+import FacebookCore
+import Mantle
 
 class SignupInteractor: SignupInteractorProtocol {
+	
+	var signupType:SignupType?
+	
+	weak var presenter: SignupPresenterProtocol?
+	
+	func fillFields() {
+		
+		switch signupType! {
+		case .facebook:
+			let connection = GraphRequestConnection()
+			connection.add(GraphRequest(graphPath: "/me", parameters:["fields": "id, name, email, picture"])) { httpResponse, result in
+				switch result {
+				case .success(let response):
+					print("Graph Request Succeeded: \(response)")
+					
+					if let dic = response.dictionaryValue {
+						do {
+						let facebookGraph = try MTLJSONAdapter.model(of: FacebookGraphModel.self, fromJSONDictionary: dic) as! FacebookGraphModel
+							
+							self.presenter?.setProfileImageView(urlString: facebookGraph.profileUrl)
+							self.presenter?.setNameLabel(name: facebookGraph.name)
+							self.presenter?.setEmail(email: facebookGraph.email)
+							
+						} catch {
+							
+						}
+					}
+				case .failed(let error):
+					print("Graph Request Failed: \(error)")
+				}
+			}
+			connection.start()
+			break
+		case .email:
+			break
+		}
+		
+	}
+}
 
-    weak var presenter: SignupPresenterProtocol?
+enum SignupType {
+	case email, facebook
 }

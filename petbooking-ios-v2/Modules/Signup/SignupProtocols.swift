@@ -17,16 +17,31 @@ protocol SignupWireframeProtocol: class {
 //MARK: Presenter -
 protocol SignupPresenterProtocol: class {
 
+	func fillFields()
+	
+	func setProfileImageView(urlString:String)
+		
+	func setNameLabel(name:String)
+	
+	func setEmail(email:String)
 }
 
 //MARK: Interactor -
 protocol SignupInteractorProtocol: class {
 
   var presenter: SignupPresenterProtocol?  { get set }
+	
+	func fillFields()
 }
 
 //MARK: View -
 protocol SignupViewProtocol: class {
 
   var presenter: SignupPresenterProtocol?  { get set }
+	
+	func setProfileImageView(urlString:String)
+	
+	func setNameLabel(name:String)
+	
+	func setEmail(email:String)
 }

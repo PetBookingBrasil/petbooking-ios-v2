@@ -53,11 +53,13 @@ class LoginInteractor: LoginInteractorProtocol {
 					
 					if success {
 						self.presenter?.didCompleteFacebookLoginWithSuccess()
+					} else {
+						self.presenter?.registerNewUserWithFacebookData()
 					}
 					
 				})
 				
-				self.presenter?.didCompleteFacebookLoginWithSuccess()
+				
 				break
 			}
 			

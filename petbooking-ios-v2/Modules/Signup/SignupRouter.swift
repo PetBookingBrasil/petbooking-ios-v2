@@ -11,20 +11,21 @@
 import UIKit
 
 class SignupRouter: SignupWireframeProtocol {
-    
-    weak var viewController: UIViewController?
-    
-    static func createModule() -> UIViewController {
-        // Change to get view from storyboard if not using progammatic UI
-        let view = SignupViewController(nibName: nil, bundle: nil)
-        let interactor = SignupInteractor()
-        let router = SignupRouter()
-        let presenter = SignupPresenter(interface: view, interactor: interactor, router: router)
-        
-        view.presenter = presenter
-        interactor.presenter = presenter
-        router.viewController = view
-        
-        return view
-    }
+	
+	weak var viewController: UIViewController?
+	
+	static func createModule(signupType:SignupType = .email) -> UIViewController {
+		// Change to get view from storyboard if not using progammatic UI
+		let view = SignupViewController(nibName: nil, bundle: nil)
+		let interactor = SignupInteractor()
+		interactor.signupType = signupType
+		let router = SignupRouter()
+		let presenter = SignupPresenter(interface: view, interactor: interactor, router: router)
+		
+		view.presenter = presenter
+		interactor.presenter = presenter
+		router.viewController = view
+		
+		return view
+	}
 }

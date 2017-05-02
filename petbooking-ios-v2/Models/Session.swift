@@ -17,6 +17,7 @@ class Session: MTLModel, MTLJSONSerializing {
 	dynamic var authToken:String = ""
 	dynamic var tokenExpiresAt:Double = 0
 	dynamic var validForScheduling:Bool = false
+	dynamic var errors = [ErrorRest]()
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
 		return [
@@ -24,7 +25,14 @@ class Session: MTLModel, MTLJSONSerializing {
 			"authToken": "data.attributes.token",
 			"tokenExpiresAt": "data.attributes.expires_at",
 			"validForScheduling": "data.attributes.user_valid_for_scheduling",
+			"errors": "errors"
 		]
+	}
+	
+	static func ferrorsJSONTransformer() -> ValueTransformer {
+		
+		return MTLJSONAdapter.arrayTransformer(withModelClass: ErrorRest.self)
+		
 	}
 	
 }

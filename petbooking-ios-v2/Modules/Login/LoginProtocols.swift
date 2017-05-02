@@ -18,6 +18,8 @@ protocol LoginWireframeProtocol: class {
 	func didTapSignupButton()
 	
 	func didCompleteFacebookLoginWithSuccess()
+	
+	func registerNewUserWithFacebookData()
 }
 //MARK: Presenter -
 protocol LoginPresenterProtocol: class {
@@ -37,6 +39,8 @@ protocol LoginPresenterProtocol: class {
 	func didCompleteLoginWithSuccess()
 	
 	func didCompleteLoginWithError(error:Error)
+	
+	func registerNewUserWithFacebookData()
 
 }
 

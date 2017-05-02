@@ -9,6 +9,7 @@
 //
 
 import UIKit
+import PINRemoteImage
 
 class SignupViewController: UIViewController, SignupViewProtocol {
 
@@ -36,6 +37,12 @@ class SignupViewController: UIViewController, SignupViewProtocol {
 				setupView()
     }
 	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		
+		presenter?.fillFields()
+	}
+	
 	func setupView() {
 		profilePictureView.round()
 		profilePictureFrameView.setBorder(width: 2, color: .white)
@@ -45,6 +52,24 @@ class SignupViewController: UIViewController, SignupViewProtocol {
 
 	
 	@IBAction func save(_ sender: Any) {
+	}
+	
+	func setProfileImageView(urlString:String) {
+		
+		if let url = URL(string: urlString) {
+			profilePictureImageView.pin_setImage(from: url)
+		}
+		
+	}
+	
+	func setNameLabel(name:String) {
+		
+		fullNameTextField.text = name
+	}
+	
+	func setEmail(email:String) {
+		
+		emailTextField.text = email
 	}
 	
 }

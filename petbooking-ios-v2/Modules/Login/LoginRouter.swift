@@ -46,4 +46,8 @@ class LoginRouter: LoginWireframeProtocol {
 			self.viewController?.present(viewController, animated: true, completion: nil)
 		
 	}
+	
+	func registerNewUserWithFacebookData() {
+		viewController?.navigationController?.pushViewController(SignupRouter.createModule(signupType: .facebook), animated: true)
+	}
 }

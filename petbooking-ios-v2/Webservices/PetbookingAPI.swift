@@ -105,10 +105,15 @@ extension PetbookingAPI {
 						
 						let session = try MTLJSONAdapter.model(of: Session.self, fromJSONDictionary: dic) as! Session
 						
-						try SessionManager.sharedInstance.saveSession(session: session)
-						
-						completion(true, "")
-						
+						if session.errors.count == 0 {
+							
+							try SessionManager.sharedInstance.saveSession(session: session)
+							
+							completion(true, "")
+						} else {
+							completion(false, "")
+						}
+
 					} catch {
 						completion(false, error.localizedDescription)
 					}

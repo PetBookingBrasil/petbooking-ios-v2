@@ -71,5 +71,9 @@ class LoginPresenter: LoginPresenterProtocol {
 	func didCompleteLoginWithError(error:Error) {
 		
 	}
+	
+	func registerNewUserWithFacebookData() {
+		router.registerNewUserWithFacebookData()
+	}
 
 }

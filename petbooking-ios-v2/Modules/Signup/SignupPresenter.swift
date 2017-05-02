@@ -9,19 +9,41 @@
 //
 
 import UIKit
+import ALLoadingView
 
 class SignupPresenter: SignupPresenterProtocol {
-
-    weak private var view: SignupViewProtocol?
-    private let interactor: SignupInteractorProtocol
-    private let router: SignupWireframeProtocol
-
-    init(interface: SignupViewProtocol, interactor: SignupInteractorProtocol, router: SignupWireframeProtocol) {
-        self.view = interface
-        self.interactor = interactor
-        self.router = router
-
-        self.interactor.presenter = self
-    }
-
+	
+	
+	
+	weak private var view: SignupViewProtocol?
+	private let interactor: SignupInteractorProtocol
+	private let router: SignupWireframeProtocol
+	
+	init(interface: SignupViewProtocol, interactor: SignupInteractorProtocol, router: SignupWireframeProtocol) {
+		self.view = interface
+		self.interactor = interactor
+		self.router = router
+		
+		self.interactor.presenter = self
+	}
+	
+	func fillFields() {
+		interactor.fillFields()
+	}
+	
+	func setProfileImageView(urlString:String) {
+		ALLoadingView.manager.hideLoadingView()
+		view?.setProfileImageView(urlString: urlString)
+	}
+	
+	func setNameLabel(name:String) {
+		
+		view?.setNameLabel(name: name)
+	}
+	
+	func setEmail(email:String) {
+		
+		view?.setEmail(email: email)
+	}
+	
 }
