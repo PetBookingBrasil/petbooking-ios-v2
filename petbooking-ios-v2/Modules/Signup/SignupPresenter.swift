@@ -46,4 +46,12 @@ class SignupPresenter: SignupPresenterProtocol {
 		view?.setEmail(email: email)
 	}
 	
+	func fillAdrressWithZipcode(zipcode:String) {
+		interactor.fillAdrressWithZipcode(zipcode: zipcode)
+	}
+	
+	func fillAdrressFields(street:String, neighborhood:String, city:String, state:String) {
+		view?.fillAdrressFields(street: street, neighborhood: neighborhood, city: city, state: state)
+	}
+	
 }

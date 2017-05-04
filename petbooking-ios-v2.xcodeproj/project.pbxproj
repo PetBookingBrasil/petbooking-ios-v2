@@ -41,6 +41,8 @@
 		413682C81E9C2B2D008C463B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 413682C71E9C2B2D008C463B /* Assets.xcassets */; };
 		413682CB1E9C2B2D008C463B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 413682C91E9C2B2D008C463B /* LaunchScreen.storyboard */; };
 		415BCAE01EB534C40015BB0C /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415BCADF1EB534C40015BB0C /* SignupViewController.swift */; };
+		415F73D41EBA9F08000D9B14 /* ViaCepAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415F73D31EBA9F08000D9B14 /* ViaCepAPI.swift */; };
+		415F73D61EBAA033000D9B14 /* ViaCepAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415F73D51EBAA033000D9B14 /* ViaCepAddress.swift */; };
 		4168AA4C1EB69217001E2D6D /* PetbookingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4168AA4B1EB69217001E2D6D /* PetbookingAPI.swift */; };
 		4168AA4F1EB6A4DD001E2D6D /* Consumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4168AA4E1EB6A4DD001E2D6D /* Consumer.swift */; };
 		4168AA521EB6A828001E2D6D /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4168AA511EB6A828001E2D6D /* UserManager.swift */; };
@@ -89,6 +91,8 @@
 		413682CA1E9C2B2D008C463B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		413682CC1E9C2B2D008C463B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		415BCADF1EB534C40015BB0C /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		415F73D31EBA9F08000D9B14 /* ViaCepAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViaCepAPI.swift; sourceTree = "<group>"; };
+		415F73D51EBAA033000D9B14 /* ViaCepAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViaCepAddress.swift; sourceTree = "<group>"; };
 		4168AA4B1EB69217001E2D6D /* PetbookingAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetbookingAPI.swift; sourceTree = "<group>"; };
 		4168AA4E1EB6A4DD001E2D6D /* Consumer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Consumer.swift; sourceTree = "<group>"; };
 		4168AA511EB6A828001E2D6D /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
@@ -205,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				4168AA4B1EB69217001E2D6D /* PetbookingAPI.swift */,
+				415F73D31EBA9F08000D9B14 /* ViaCepAPI.swift */,
 			);
 			path = Webservices;
 			sourceTree = "<group>";
@@ -217,6 +222,7 @@
 				4168AA551EB79399001E2D6D /* Session.swift */,
 				4168AA5B1EB80A24001E2D6D /* ErrorRest.swift */,
 				4168AA5D1EB8181B001E2D6D /* FacebookGraphModel.swift */,
+				415F73D51EBAA033000D9B14 /* ViaCepAddress.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -412,6 +418,7 @@
 				4168AA541EB6BB56001E2D6D /* User.swift in Sources */,
 				4120ED191EB38650009D35B0 /* LoginPresenter.swift in Sources */,
 				4120ED291EB4F136009D35B0 /* ForgotPasswordProtocols.swift in Sources */,
+				415F73D61EBAA033000D9B14 /* ViaCepAddress.swift in Sources */,
 				4120ED2A1EB4F136009D35B0 /* ForgotPasswordRouter.swift in Sources */,
 				4120ED011EB0DE9F009D35B0 /* PresentationPresenter.swift in Sources */,
 				4120ED271EB4F136009D35B0 /* ForgotPasswordInteractor.swift in Sources */,
@@ -424,6 +431,7 @@
 				4120ED361EB529FE009D35B0 /* SignupInteractor.swift in Sources */,
 				4168AA561EB79399001E2D6D /* Session.swift in Sources */,
 				4168AA4F1EB6A4DD001E2D6D /* Consumer.swift in Sources */,
+				415F73D41EBA9F08000D9B14 /* ViaCepAPI.swift in Sources */,
 				4120ED2E1EB500A6009D35B0 /* UINavigationControllerExtension.swift in Sources */,
 				4168AA4C1EB69217001E2D6D /* PetbookingAPI.swift in Sources */,
 				4120ED281EB4F136009D35B0 /* ForgotPasswordPresenter.swift in Sources */,

@@ -36,6 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			
 		}
 		
+		
 		if let _ = UserManager.sharedInstance.getCurrentUser() {
 			
 			let storyboard = UIStoryboard(name: "Main", bundle: nil)

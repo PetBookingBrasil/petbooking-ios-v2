@@ -51,6 +51,18 @@ class SignupInteractor: SignupInteractorProtocol {
 		}
 		
 	}
+	
+	func fillAdrressWithZipcode(zipcode:String) {
+		
+		ViaCepAPI.sharedInstance.getAddressByZipcode(zipcode: zipcode) { (address, message) in
+			
+			guard let address = address else {
+				return
+			}
+			self.presenter?.fillAdrressFields(street: address.street, neighborhood: address.neighborhood, city: address.city, state: address.state)
+			
+		}
+	}
 }
 
 enum SignupType {

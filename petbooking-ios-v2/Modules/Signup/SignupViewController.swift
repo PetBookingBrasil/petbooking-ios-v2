@@ -24,6 +24,12 @@ class SignupViewController: UIViewController, SignupViewProtocol {
 	@IBOutlet weak var confirmPasswordTextField: UITextField!
 	@IBOutlet weak var emailTextField: UITextField!
 	@IBOutlet weak var mobileNumberTextField: UITextField!
+	@IBOutlet weak var numberTextField: UITextField!
+	@IBOutlet weak var cityTextField: UITextField!
+	@IBOutlet weak var neighborhoodTextField: UITextField!
+	@IBOutlet weak var zipcodeTextField: UITextField!
+	@IBOutlet weak var stateTextField: UITextField!
+	@IBOutlet weak var streetTextField: UITextField!
 	@IBOutlet weak var saveButton: UIButton!
 	
 	var presenter: SignupPresenterProtocol?
@@ -72,4 +78,54 @@ class SignupViewController: UIViewController, SignupViewProtocol {
 		emailTextField.text = email
 	}
 	
+	func fillAdrressFields(street:String, neighborhood:String, city:String, state:String) {
+		
+		streetTextField.text = street
+		neighborhoodTextField.text = neighborhood
+		cityTextField.text = city
+		stateTextField.text = state
+		
+	}
+	
+}
+
+extension SignupViewController:UITextFieldDelegate {
+	
+	func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+		
+		switch textField {
+		case zipcodeTextField:
+			break
+		case stateTextField:
+			guard let text = textField.text else {
+				return true
+			}
+			if text.characters.count >= 2 && !string.isEmpty || string.characters.count > 2{
+				return false
+			}
+			break
+			
+		default:
+			break
+		}
+		
+		return true
+	}
+	
+	func textFieldDidEndEditing(_ textField: UITextField) {
+		switch textField {
+		case zipcodeTextField:
+			guard let zipcode = textField.text else {
+				return
+			}
+			presenter?.fillAdrressWithZipcode(zipcode: zipcode)
+			break
+			case stateTextField:
+				textField.text = textField.text?.uppercased()
+			break
+			
+		default:
+			break
+		}
+	}
 }

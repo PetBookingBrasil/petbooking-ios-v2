@@ -24,6 +24,10 @@ protocol SignupPresenterProtocol: class {
 	func setNameLabel(name:String)
 	
 	func setEmail(email:String)
+	
+	func fillAdrressWithZipcode(zipcode:String)
+	
+	func fillAdrressFields(street:String, neighborhood:String, city:String, state:String)
 }
 
 //MARK: Interactor -
@@ -32,6 +36,9 @@ protocol SignupInteractorProtocol: class {
   var presenter: SignupPresenterProtocol?  { get set }
 	
 	func fillFields()
+	
+	func fillAdrressWithZipcode(zipcode:String)
+	
 }
 
 //MARK: View -
@@ -44,4 +51,6 @@ protocol SignupViewProtocol: class {
 	func setNameLabel(name:String)
 	
 	func setEmail(email:String)
+	
+	func fillAdrressFields(street:String, neighborhood:String, city:String, state:String)
 }
