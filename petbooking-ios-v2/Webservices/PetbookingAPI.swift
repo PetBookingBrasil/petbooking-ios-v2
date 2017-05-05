@@ -45,7 +45,7 @@ class PetbookingAPI: NSObject {
 			"Content-Type": "application/vnd.api+json"
 		]
 	}
-
+	
 }
 
 // MARK: Login
@@ -58,7 +58,7 @@ extension PetbookingAPI {
 			"data": ["type":"consumers", "attributes":["uuid":PetbookingAPI.AUTH_KEY]]
 		]
 		
-		Alamofire.request("https://novo.petbooking.com.br/api/v2/consumers/auth/", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: consumer_headers).responseJSON { (response) in
+		Alamofire.request("https://staging.petbooking.com.br/api/v2/consumers/auth/", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: consumer_headers).responseJSON { (response) in
 			
 			switch response.result{
 			case .success(let jsonObject):
@@ -71,7 +71,7 @@ extension PetbookingAPI {
 						let consumer = try MTLJSONAdapter.model(of: Consumer.self, fromJSONDictionary: dic) as! Consumer
 						try SessionManager.sharedInstance.saveConsumer(consumer: consumer)
 					}
-
+					
 					
 				} catch {
 					
@@ -113,7 +113,7 @@ extension PetbookingAPI {
 						} else {
 							completion(false, "")
 						}
-
+						
 					} catch {
 						completion(false, error.localizedDescription)
 					}
@@ -135,7 +135,7 @@ extension PetbookingAPI {
 		
 		let parameters: Parameters = [
 			"data": ["type":"sessions", "attributes":["provider":"facebook", "provider_token":facebookAccessToken]]
-
+			
 		]
 		
 		login(parameters, completion: completion)
@@ -159,6 +159,67 @@ extension PetbookingAPI {
 
 extension PetbookingAPI {
 	
+	func createUser(name:String, cpf:String, birthday:String, email:String, mobile:String, zipcode:String, street:String, streetNumber:String, neighborhood:String, city:String, state:String, password:String, provider:String, providerToken:String, avatar:String, _ completion: @escaping (_ user: Bool, _ message: String) -> Void) {
+		
+		var token = ""
+		if let consumer = SessionManager.sharedInstance.getCurrentConsumer() {
+			token = consumer.token
+		}
+		
+		
+		self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
+		
+		let parameters: Parameters = [
+			"data": ["type":"users", "attributes":["provider":provider, "provider_token":providerToken, "email":email, "password":password, "name":name, "phone":mobile, "cpf":cpf, "city":city, "state":state, "zipcode":zipcode, "street":street, "street_number":streetNumber, "neighborhood":neighborhood, "avatar":avatar]]
+			
+		]
+		
+		
+		Alamofire.request("\(PetbookingAPI.API_BASE_URL)/users", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: auth_headers).responseJSON { (response) in
+			
+			switch response.result{
+			case .success(let jsonObject):
+				if let dic = jsonObject as? [String: Any] {
+					
+					do {
+						
+						let user = try MTLJSONAdapter.model(of: User.self, fromJSONDictionary: dic) as! User
+						
+						if user.errors.count == 0 {
+							
+							try UserManager.sharedInstance.saveUser(user: user)
+							
+							if providerToken.isEmpty {
+								self.loginWithEmail(email, password: password, completion: { (success, message) in
+									
+									completion(success, message)
+									
+								})
+							} else {
+								self.loginWithFacebook(providerToken, completion: { (success, message) in
+									completion(success, message)
+								})
+							}
+						} else {
+							completion(false, "")
+						}
+						
+					} catch {
+						completion(false, error.localizedDescription)
+					}
+				} else {
+					completion(false, "")
+				}
+				break
+			case .failure(let error):
+				print(error)
+				completion(false, error.localizedDescription)
+				break
+			}
+			
+		}
+	}
+	
 	func userInfo(_ completion: @escaping (_ user: User?, _ message: String) -> Void) {
 		
 		var token = ""
@@ -173,7 +234,6 @@ extension PetbookingAPI {
 			userId = session.userId
 		}
 		
-		self.auth_headers["Authorization"] = "Bearer \(token)"
 		self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
 		self.auth_headers.updateValue("Token token=\"\(authToken)\"", forKey: "X-Petbooking-Session-Token")
 		
@@ -205,7 +265,6 @@ extension PetbookingAPI {
 			}
 			
 		}
-		
 	}
 	
 }

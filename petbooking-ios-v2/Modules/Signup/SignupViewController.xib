@@ -62,6 +62,7 @@
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    <gestureRecognizers/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="23j-oh-uGU" secondAttribute="trailing" id="3ez-cO-d1d"/>
                                         <constraint firstItem="23j-oh-uGU" firstAttribute="top" secondItem="kOW-vR-FwE" secondAttribute="top" id="Gf5-Tr-4zZ"/>
@@ -74,6 +75,9 @@
                                         <constraint firstItem="23j-oh-uGU" firstAttribute="leading" secondItem="kOW-vR-FwE" secondAttribute="leading" id="rhE-Km-S7d"/>
                                         <constraint firstAttribute="width" constant="112" id="uVh-ar-KYK"/>
                                     </constraints>
+                                    <connections>
+                                        <outletCollection property="gestureRecognizers" destination="gMW-Ad-LdH" appends="YES" id="wyb-Sv-uhY"/>
+                                    </connections>
                                 </view>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="email_icon_black" translatesAutoresizingMaskIntoConstraints="NO" id="F9I-Xz-x5i">
                                     <rect key="frame" x="38" y="171" width="16" height="16"/>
@@ -480,6 +484,11 @@
             </constraints>
             <point key="canvasLocation" x="34" y="157"/>
         </view>
+        <tapGestureRecognizer id="gMW-Ad-LdH">
+            <connections>
+                <action selector="changeAvatar:" destination="-1" id="259-TZ-19g"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="camera_icon_black" width="25" height="25"/>

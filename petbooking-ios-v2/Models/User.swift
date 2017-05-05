@@ -36,6 +36,7 @@ class User: MTLModel, MTLJSONSerializing {
 	dynamic var streetNumber:String = ""
 	dynamic var zipcode:String = ""
 	dynamic var validForScheduling:Bool = false
+	dynamic var errors = [ErrorRest]()
 	
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
@@ -63,6 +64,7 @@ class User: MTLModel, MTLJSONSerializing {
 			"streetNumber": "data.attributes.street_number",
 			"zipcode": "data.attributes.zipcode",
 			"validForScheduling": "data.attributes.valid_for_scheduling",
+			"errors": "errors"
 		]
 	}
 }

@@ -9,7 +9,7 @@
 import UIKit
 import Mantle
 
-class ErrorRest: MTLModel {
+class ErrorRest: MTLModel, MTLJSONSerializing {
 
 	dynamic var errorCode:Int = 0
 	dynamic var errorDetail:String = ""

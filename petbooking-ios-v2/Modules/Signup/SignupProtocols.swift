@@ -13,6 +13,7 @@ import Foundation
 //MARK: Wireframe -
 protocol SignupWireframeProtocol: class {
 
+	func createUserWithSuccess()
 }
 //MARK: Presenter -
 protocol SignupPresenterProtocol: class {
@@ -28,6 +29,12 @@ protocol SignupPresenterProtocol: class {
 	func fillAdrressWithZipcode(zipcode:String)
 	
 	func fillAdrressFields(street:String, neighborhood:String, city:String, state:String)
+	
+	func createUser(name:String, cpf:String, birthday:String, email:String, mobile:String, zipcode:String, street:String, streetNumber:String, neighborhood:String, city:String, state:String, password:String, avatar:String)
+	
+	func createUserWithSuccess()
+	
+	func createUserWithError()
 }
 
 //MARK: Interactor -
@@ -38,6 +45,8 @@ protocol SignupInteractorProtocol: class {
 	func fillFields()
 	
 	func fillAdrressWithZipcode(zipcode:String)
+	
+	func createUser(name:String, cpf:String, birthday:String, email:String, mobile:String, zipcode:String, street:String, streetNumber:String, neighborhood:String, city:String, state:String, password:String, avatar:String)
 	
 }
 

@@ -54,4 +54,20 @@ class SignupPresenter: SignupPresenterProtocol {
 		view?.fillAdrressFields(street: street, neighborhood: neighborhood, city: city, state: state)
 	}
 	
+	func createUser(name:String, cpf:String, birthday:String, email:String, mobile:String, zipcode:String, street:String, streetNumber:String, neighborhood:String, city:String, state:String, password:String, avatar:String)
+	{
+		
+		ALLoadingView.manager.showLoadingView(ofType: .basic, windowMode: .fullscreen)
+		interactor.createUser(name: name, cpf: cpf, birthday: birthday, email: email, mobile: mobile, zipcode: zipcode, street: street, streetNumber: streetNumber, neighborhood: neighborhood, city: city, state: state, password: password, avatar:avatar)
+	}
+	
+	func createUserWithSuccess() {
+		ALLoadingView.manager.hideLoadingView()
+		router.createUserWithSuccess()
+	}
+	
+	func createUserWithError() {
+		ALLoadingView.manager.hideLoadingView()
+	}
+	
 }

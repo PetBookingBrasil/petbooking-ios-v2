@@ -63,6 +63,27 @@ class SignupInteractor: SignupInteractorProtocol {
 			
 		}
 	}
+	
+	func createUser(name:String, cpf:String, birthday:String, email:String, mobile:String, zipcode:String, street:String, streetNumber:String, neighborhood:String, city:String, state:String, password:String, avatar:String) {
+		
+		var provider = "b2beauty"
+		var providerToken = ""
+		if signupType == .facebook {
+			if let token = AccessToken.current?.authenticationToken {
+				provider = "facebook"
+				providerToken = token
+			}
+		}
+		
+		PetbookingAPI.sharedInstance.createUser(name: name, cpf: cpf, birthday: birthday, email: email, mobile: mobile, zipcode: zipcode, street: street, streetNumber: streetNumber, neighborhood: neighborhood, city: city, state: state, password: password, provider: provider, providerToken: providerToken, avatar:avatar) { (success, message) in
+			
+			if success {
+				 self.presenter?.createUserWithSuccess()
+			} else {
+				self.presenter?.createUserWithError()
+			}
+		}
+	}
 }
 
 enum SignupType {

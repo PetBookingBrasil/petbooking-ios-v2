@@ -56,8 +56,89 @@ class SignupViewController: UIViewController, SignupViewProtocol {
 		saveButton.round()
 	}
 
+	@IBAction func changeAvatar(_ sender: Any) {
+		
+		if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
+			
+			 let imagePicker = UIImagePickerController()
+			
+			imagePicker.delegate = self
+			imagePicker.sourceType = .savedPhotosAlbum;
+			imagePicker.allowsEditing = false
+			
+			self.present(imagePicker, animated: true, completion: nil)
+		}
+		
+	}
 	
 	@IBAction func save(_ sender: Any) {
+		
+		guard let name = fullNameTextField.text else {
+			return
+		}
+		
+		guard let cpf = cpfTextField.text else {
+			return
+		}
+		
+		guard let birthday = birthdayTextField.text else {
+			return
+		}
+		
+		guard let email = emailTextField.text else {
+			return
+		}
+		
+		guard let mobile = mobileNumberTextField.text else {
+			return
+		}
+		
+		guard let zipcode = zipcodeTextField.text else {
+			return
+		}
+		
+		guard let street = streetTextField.text else {
+			return
+		}
+		
+		guard let streetNumber = numberTextField.text else {
+			return
+		}
+		
+		guard let neighborhood = neighborhoodTextField.text else {
+			return
+		}
+		
+		guard let city = cityTextField.text else {
+			return
+		}
+		
+		guard let state = stateTextField.text else {
+			return
+		}
+		
+		guard let password = passwordTextField.text else {
+			return
+		}
+		
+		guard let confirmPassword = confirmPasswordTextField.text else {
+			return
+		}
+		
+		if password != confirmPassword {
+			return
+		}
+		
+		guard let image = profilePictureImageView.image else {
+			return
+		}
+		
+		guard let base64Avatar = image.toBase64String() else {
+			return
+		}
+		
+		
+		presenter?.createUser(name: name, cpf: cpf, birthday: birthday, email: email, mobile: mobile, zipcode: zipcode, street: street, streetNumber: streetNumber, neighborhood: neighborhood, city: city, state: state, password: password, avatar:"data:image/jpeg;base64,\(base64Avatar)")
 	}
 	
 	func setProfileImageView(urlString:String) {
@@ -86,6 +167,7 @@ class SignupViewController: UIViewController, SignupViewProtocol {
 		stateTextField.text = state
 		
 	}
+	
 	
 }
 
@@ -128,4 +210,16 @@ extension SignupViewController:UITextFieldDelegate {
 			break
 		}
 	}
+}
+
+extension SignupViewController:UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+	
+	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+		if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+			profilePictureImageView.image = image
+		}
+		
+		picker.dismiss(animated: true, completion: nil);
+	}
+	
 }
