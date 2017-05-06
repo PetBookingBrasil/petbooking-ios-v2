@@ -153,6 +153,56 @@ extension PetbookingAPI {
 		
 	}
 	
+	func resetPassword(_ email:String, completion: @escaping (_ success: Bool, _ message: String) -> Void) {
+		
+		var token = ""
+		if let consumer = SessionManager.sharedInstance.getCurrentConsumer() {
+			token = consumer.token
+		}
+		
+		self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
+		
+		let parameters: Parameters = [
+			"data": ["type":"users", "attributes":["email":email]]
+			
+		]
+		
+		Alamofire.request("\(PetbookingAPI.API_BASE_URL)/users/recovery_password", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: auth_headers).responseJSON { (response) in
+			
+			switch response.result{
+			case .success(let jsonObject):
+				if let dic = jsonObject as? [String: Any] {
+					
+					do {
+						
+						let session = try MTLJSONAdapter.model(of: Session.self, fromJSONDictionary: dic) as! Session
+						
+						if session.errors.count == 0 {
+							
+							try SessionManager.sharedInstance.saveSession(session: session)
+							
+							completion(true, "")
+						} else {
+							completion(false, "")
+						}
+						
+					} catch {
+						completion(false, error.localizedDescription)
+					}
+				} else {
+					completion(false, "")
+				}
+				break
+			case .failure(let error):
+				print(error)
+				completion(false, error.localizedDescription)
+				break
+			}
+			
+		}
+		
+	}
+	
 }
 
 // MARK: User
@@ -173,7 +223,6 @@ extension PetbookingAPI {
 			"data": ["type":"users", "attributes":["provider":provider, "provider_token":providerToken, "email":email, "password":password, "name":name, "phone":mobile, "cpf":cpf, "city":city, "state":state, "zipcode":zipcode, "street":street, "street_number":streetNumber, "neighborhood":neighborhood, "avatar":avatar]]
 			
 		]
-		
 		
 		Alamofire.request("\(PetbookingAPI.API_BASE_URL)/users", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: auth_headers).responseJSON { (response) in
 			

@@ -10,6 +10,7 @@
 
 import UIKit
 import PINRemoteImage
+import AKMaskField
 
 class SignupViewController: UIViewController, SignupViewProtocol {
 
@@ -18,16 +19,16 @@ class SignupViewController: UIViewController, SignupViewProtocol {
 	@IBOutlet weak var profilePictureImageView: UIImageView!
 	@IBOutlet weak var profilePictureFrameView: UIView!
 	@IBOutlet weak var fullNameTextField: UITextField!
-	@IBOutlet weak var cpfTextField: UITextField!
-	@IBOutlet weak var birthdayTextField: UITextField!
+	@IBOutlet weak var cpfTextField: AKMaskField!
+	@IBOutlet weak var birthdayTextField: AKMaskField!
 	@IBOutlet weak var passwordTextField: UITextField!
 	@IBOutlet weak var confirmPasswordTextField: UITextField!
 	@IBOutlet weak var emailTextField: UITextField!
-	@IBOutlet weak var mobileNumberTextField: UITextField!
+	@IBOutlet weak var mobileNumberTextField: AKMaskField!
 	@IBOutlet weak var numberTextField: UITextField!
 	@IBOutlet weak var cityTextField: UITextField!
 	@IBOutlet weak var neighborhoodTextField: UITextField!
-	@IBOutlet weak var zipcodeTextField: UITextField!
+	@IBOutlet weak var zipcodeTextField: AKMaskField!
 	@IBOutlet weak var stateTextField: UITextField!
 	@IBOutlet weak var streetTextField: UITextField!
 	@IBOutlet weak var saveButton: UIButton!
@@ -54,6 +55,19 @@ class SignupViewController: UIViewController, SignupViewProtocol {
 		profilePictureFrameView.setBorder(width: 2, color: .white)
 		profilePictureFrameView.round()
 		saveButton.round()
+		
+		cpfTextField.maskExpression = "{ddd}.{ddd}.{ddd}-{dd}"
+		cpfTextField.maskTemplate = "xxx.xxx.xxx-xx"
+		
+		birthdayTextField.maskExpression = "{dd}/{dd}/{dddd}"
+		birthdayTextField.maskTemplate = "dd/mm/aaaa"
+		
+		mobileNumberTextField.maskExpression = "({dd}){ddddd}-{dddd}"
+		mobileNumberTextField.maskTemplate = "(xx)xxxxx-xxxx"
+		
+		zipcodeTextField.maskExpression = "{ddddd}-{ddd}"
+		zipcodeTextField.maskTemplate = "xxxxx-xxx"
+		zipcodeTextField.maskDelegate = self
 	}
 
 	@IBAction func changeAvatar(_ sender: Any) {
@@ -77,7 +91,7 @@ class SignupViewController: UIViewController, SignupViewProtocol {
 			return
 		}
 		
-		guard let cpf = cpfTextField.text else {
+		guard let cpf = cpfTextField.text?.components(separatedBy: CharacterSet.decimalDigits.inverted).joined() else {
 			return
 		}
 		
@@ -89,11 +103,11 @@ class SignupViewController: UIViewController, SignupViewProtocol {
 			return
 		}
 		
-		guard let mobile = mobileNumberTextField.text else {
+		guard let mobile = mobileNumberTextField.text?.components(separatedBy: CharacterSet.decimalDigits.inverted).joined() else {
 			return
 		}
 		
-		guard let zipcode = zipcodeTextField.text else {
+		guard let zipcode = zipcodeTextField.text?.components(separatedBy: CharacterSet.decimalDigits.inverted).joined() else {
 			return
 		}
 		
@@ -171,7 +185,7 @@ class SignupViewController: UIViewController, SignupViewProtocol {
 	
 }
 
-extension SignupViewController:UITextFieldDelegate {
+extension SignupViewController:UITextFieldDelegate, AKMaskFieldDelegate {
 	
 	func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
 		
@@ -204,6 +218,20 @@ extension SignupViewController:UITextFieldDelegate {
 			break
 			case stateTextField:
 				textField.text = textField.text?.uppercased()
+			break
+			
+		default:
+			break
+		}
+	}
+	
+	func maskFieldDidEndEditing(_ maskField: AKMaskField) {
+		switch maskField {
+		case zipcodeTextField:
+			guard let zipcode = maskField.text else {
+				return
+			}
+			presenter?.fillAdrressWithZipcode(zipcode: zipcode)
 			break
 			
 		default:

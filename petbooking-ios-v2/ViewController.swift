@@ -35,9 +35,7 @@ class ViewController: UIViewController {
 					self.imageView.pin_setImage(from: url)
 				}
 			}
-			
 		}
-		
 	}
 
 	override func didReceiveMemoryWarning() {

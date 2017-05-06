@@ -16,6 +16,8 @@ protocol ForgotPasswordWireframeProtocol: class {
 }
 //MARK: Presenter -
 protocol ForgotPasswordPresenterProtocol: class {
+	
+	func didTapSendButton(email:String)
 
 }
 
@@ -23,6 +25,8 @@ protocol ForgotPasswordPresenterProtocol: class {
 protocol ForgotPasswordInteractorProtocol: class {
 
   var presenter: ForgotPasswordPresenterProtocol?  { get set }
+	
+	func didTapSendButton(email:String)
 }
 
 //MARK: View -

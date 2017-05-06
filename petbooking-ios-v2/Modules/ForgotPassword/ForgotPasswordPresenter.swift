@@ -23,5 +23,9 @@ class ForgotPasswordPresenter: ForgotPasswordPresenterProtocol {
 
         self.interactor.presenter = self
     }
+	
+	func didTapSendButton(email:String) {
+		interactor.didTapSendButton(email: email)
+	}
 
 }

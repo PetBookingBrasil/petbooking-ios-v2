@@ -13,4 +13,13 @@ import UIKit
 class ForgotPasswordInteractor: ForgotPasswordInteractorProtocol {
 
     weak var presenter: ForgotPasswordPresenterProtocol?
+	
+	func didTapSendButton(email:String) {
+		
+		PetbookingAPI.sharedInstance.resetPassword(email) { (success, message) in
+			
+			
+		}
+		
+	}
 }

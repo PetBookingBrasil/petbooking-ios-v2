@@ -1,4 +1,5 @@
 PODS:
+  - AKMaskField (2.0.3)
   - Alamofire (4.4.0)
   - ALLoadingView (1.1.3)
   - Bolts (1.8.4):
@@ -39,6 +40,7 @@ PODS:
     - Realm (= 2.6.2)
 
 DEPENDENCIES:
+  - AKMaskField
   - Alamofire (~> 4.4)
   - ALLoadingView
   - FacebookCore
@@ -49,6 +51,7 @@ DEPENDENCIES:
   - RealmSwift
 
 SPEC CHECKSUMS:
+  AKMaskField: b6d147524813e62cd3f15475fa2200ce7a3d2620
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   ALLoadingView: 64344433e904ed512c4dc5776524783e123eb543
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
@@ -64,6 +67,6 @@ SPEC CHECKSUMS:
   Realm: 29222766425b9f831228f81b63f0e38a97a4d700
   RealmSwift: d161a80f96cb91ae88391a7d5a9cf08024a7bc8e
 
-PODFILE CHECKSUM: e4ac5d7ccd27c3122003b95493878c806d2b9021
+PODFILE CHECKSUM: 0bfd934d602dbfb5c196e6fda66c9701bc13ff4f
 
 COCOAPODS: 1.2.1

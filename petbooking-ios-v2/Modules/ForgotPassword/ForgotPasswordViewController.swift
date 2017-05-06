@@ -38,6 +38,7 @@ class ForgotPasswordViewController: UIViewController, ForgotPasswordViewProtocol
 
 	
 	@IBAction func send(_ sender: Any) {
+		presenter?.didTapSendButton(email: emailTextField.text!)
 	}
 
 }
