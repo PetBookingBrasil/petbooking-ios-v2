@@ -10,18 +10,19 @@
 import UIKit
 
 class PresentationInteractor: PresentationInteractorProtocol {
-
-    weak var presenter: PresentationPresenterProtocol?
+	
+	weak var presenter: PresentationPresenterProtocol?
+	weak var parentView: PresentationParentProtocol?
 	var index:PresentationIndex?
 	
 	func didTapNextButton() {
 		
 		switch index! {
 		case .first:
-			presenter?.nextView(index: .second)
+			parentView?.nextPage()
 			break
 		case .second:
-			presenter?.nextView(index: .third)
+			parentView?.nextPage()
 			break
 		case .third:
 			presenter?.skipPresentationView()

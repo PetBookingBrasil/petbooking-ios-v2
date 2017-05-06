@@ -19,5 +19,6 @@ target 'petbooking-ios-v2' do
 	pod 'IQKeyboardManager'
 	pod 'ALLoadingView'
 	pod 'AKMaskField'
+	pod 'Pageboy'
 
 end

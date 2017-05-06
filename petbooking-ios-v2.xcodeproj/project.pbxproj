@@ -40,6 +40,7 @@
 		413682C61E9C2B2D008C463B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 413682C41E9C2B2D008C463B /* Main.storyboard */; };
 		413682C81E9C2B2D008C463B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 413682C71E9C2B2D008C463B /* Assets.xcassets */; };
 		413682CB1E9C2B2D008C463B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 413682C91E9C2B2D008C463B /* LaunchScreen.storyboard */; };
+		4137157F1EBD5B3F00258C6F /* PresentationPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4137157E1EBD5B3F00258C6F /* PresentationPageViewController.swift */; };
 		415BCAE01EB534C40015BB0C /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415BCADF1EB534C40015BB0C /* SignupViewController.swift */; };
 		415F73D41EBA9F08000D9B14 /* ViaCepAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415F73D31EBA9F08000D9B14 /* ViaCepAPI.swift */; };
 		415F73D61EBAA033000D9B14 /* ViaCepAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415F73D51EBAA033000D9B14 /* ViaCepAddress.swift */; };
@@ -91,6 +92,7 @@
 		413682C71E9C2B2D008C463B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		413682CA1E9C2B2D008C463B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		413682CC1E9C2B2D008C463B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4137157E1EBD5B3F00258C6F /* PresentationPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationPageViewController.swift; sourceTree = "<group>"; };
 		415BCADF1EB534C40015BB0C /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		415F73D31EBA9F08000D9B14 /* ViaCepAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViaCepAPI.swift; sourceTree = "<group>"; };
 		415F73D51EBAA033000D9B14 /* ViaCepAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViaCepAddress.swift; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 				4120ECFD1EB0DE9F009D35B0 /* PresentationRouter.swift */,
 				4120ECFE1EB0DE9F009D35B0 /* PresentationViewController.swift */,
 				4120ECFF1EB0DE9F009D35B0 /* PresentationViewController.xib */,
+				4137157E1EBD5B3F00258C6F /* PresentationPageViewController.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 				4168AA581EB794D5001E2D6D /* SessionManager.swift in Sources */,
 				4120ED0A1EB11BA0009D35B0 /* UIColorExtension.swift in Sources */,
 				413682C11E9C2B2D008C463B /* AppDelegate.swift in Sources */,
+				4137157F1EBD5B3F00258C6F /* PresentationPageViewController.swift in Sources */,
 				4120ED041EB0DE9F009D35B0 /* PresentationViewController.swift in Sources */,
 				4168AA5C1EB80A24001E2D6D /* ErrorRest.swift in Sources */,
 				4120ED371EB529FE009D35B0 /* SignupPresenter.swift in Sources */,

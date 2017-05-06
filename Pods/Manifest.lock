@@ -25,6 +25,7 @@ PODS:
   - Mantle (2.1.0):
     - Mantle/extobjc (= 2.1.0)
   - Mantle/extobjc (2.1.0)
+  - Pageboy (1.0.5)
   - PINCache (2.3)
   - PINRemoteImage (2.1.4):
     - PINRemoteImage/FLAnimatedImage (= 2.1.4)
@@ -47,6 +48,7 @@ DEPENDENCIES:
   - FacebookLogin
   - IQKeyboardManager
   - Mantle
+  - Pageboy
   - PINRemoteImage
   - RealmSwift
 
@@ -62,11 +64,12 @@ SPEC CHECKSUMS:
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   IQKeyboardManager: 322c7405df3eb5f7e50dede32ea937bf3d4364e0
   Mantle: 2fa750afa478cd625a94230fbf1c13462f29395b
+  Pageboy: 7fd2c36c92693232fa4bc2382ac681e3f956f830
   PINCache: ce36ed282031b92fc7733ffe831f474ff80fddc2
   PINRemoteImage: 4ac4011c5caefd6befd99758e09becede05d3226
   Realm: 29222766425b9f831228f81b63f0e38a97a4d700
   RealmSwift: d161a80f96cb91ae88391a7d5a9cf08024a7bc8e
 
-PODFILE CHECKSUM: 0bfd934d602dbfb5c196e6fda66c9701bc13ff4f
+PODFILE CHECKSUM: e9f9368bd5748620c72ec60bfc81b6cd1c9b6172
 
 COCOAPODS: 1.2.1

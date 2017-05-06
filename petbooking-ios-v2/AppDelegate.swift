@@ -44,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			self.window?.rootViewController = viewController
 			
 		} else {
-			self.window?.rootViewController = PresentationRouter.createFirstModule()
+			self.window?.rootViewController = PresentationPageViewController()//PresentationRouter.createFirstModule()
 			
 		}
 		self.window?.makeKeyAndVisible()
