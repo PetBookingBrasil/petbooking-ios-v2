@@ -33,6 +33,22 @@ class SignupViewController: UIViewController, SignupViewProtocol {
 	@IBOutlet weak var streetTextField: UITextField!
 	@IBOutlet weak var saveButton: UIButton!
 	
+	@IBOutlet weak var cameraIconImageView: UIImageView!
+	@IBOutlet weak var cpfIconImageView: UIImageView!
+	@IBOutlet weak var userIconImageView: UIImageView!
+	@IBOutlet weak var birthdayIconImageView: UIImageView!
+	@IBOutlet weak var emailIconImageView: UIImageView!
+	@IBOutlet weak var locationIconImageView: UIImageView!
+	@IBOutlet weak var phoneIconImageView: UIImageView!
+	@IBOutlet weak var cepIconImageView: UIImageView!
+	@IBOutlet weak var numberIconImageView: UIImageView!
+	@IBOutlet weak var stateIconImageView: UIImageView!
+	@IBOutlet weak var cityIconImageView: UIImageView!
+	@IBOutlet weak var confirmPasswordIconImageView: UIImageView!
+	@IBOutlet weak var passwordIconImageView: UIImageView!
+	@IBOutlet weak var neighborhoodIconImageView: UIImageView!
+	
+	
 	var presenter: SignupPresenterProtocol?
 
 	override func viewDidLoad() {
@@ -68,6 +84,49 @@ class SignupViewController: UIViewController, SignupViewProtocol {
 		zipcodeTextField.maskExpression = "{ddddd}-{ddd}"
 		zipcodeTextField.maskTemplate = "xxxxx-xxx"
 		zipcodeTextField.maskDelegate = self
+		
+		cameraIconImageView.image = cameraIconImageView.image!.withRenderingMode(.alwaysTemplate)
+		cameraIconImageView.tintColor = .white
+		
+		cpfIconImageView.image = cpfIconImageView.image!.withRenderingMode(.alwaysTemplate)
+		cpfIconImageView.tintColor = .black
+		
+		userIconImageView.image = userIconImageView.image!.withRenderingMode(.alwaysTemplate)
+		userIconImageView.tintColor = .black
+		
+		birthdayIconImageView.image = birthdayIconImageView.image!.withRenderingMode(.alwaysTemplate)
+		birthdayIconImageView.tintColor = .black
+		
+		emailIconImageView.image = emailIconImageView.image!.withRenderingMode(.alwaysTemplate)
+		emailIconImageView.tintColor = .black
+		
+		locationIconImageView.image = locationIconImageView.image!.withRenderingMode(.alwaysTemplate)
+		locationIconImageView.tintColor = .black
+		
+		neighborhoodIconImageView.image = neighborhoodIconImageView.image!.withRenderingMode(.alwaysTemplate)
+		neighborhoodIconImageView.tintColor = .black
+		
+		cepIconImageView.image = cepIconImageView.image!.withRenderingMode(.alwaysTemplate)
+		cepIconImageView.tintColor = .black
+		
+		numberIconImageView.image = numberIconImageView.image!.withRenderingMode(.alwaysTemplate)
+		numberIconImageView.tintColor = .black
+		
+		cityIconImageView.image = cityIconImageView.image!.withRenderingMode(.alwaysTemplate)
+		cityIconImageView.tintColor = .black
+		
+		stateIconImageView.image = stateIconImageView.image!.withRenderingMode(.alwaysTemplate)
+		stateIconImageView.tintColor = .black
+		
+		phoneIconImageView.image = phoneIconImageView.image!.withRenderingMode(.alwaysTemplate)
+		phoneIconImageView.tintColor = .black
+		
+		confirmPasswordIconImageView.image = confirmPasswordIconImageView.image!.withRenderingMode(.alwaysTemplate)
+		confirmPasswordIconImageView.tintColor = .black
+		
+		passwordIconImageView.image = passwordIconImageView.image!.withRenderingMode(.alwaysTemplate)
+		passwordIconImageView.tintColor = .black
+		
 	}
 
 	@IBAction func changeAvatar(_ sender: Any) {
