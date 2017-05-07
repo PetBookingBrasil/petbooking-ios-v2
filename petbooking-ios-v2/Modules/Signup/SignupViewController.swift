@@ -13,7 +13,7 @@ import PINRemoteImage
 import AKMaskField
 
 class SignupViewController: UIViewController, SignupViewProtocol {
-
+	
 	
 	@IBOutlet weak var profilePictureView: UIView!
 	@IBOutlet weak var profilePictureImageView: UIImageView!
@@ -50,15 +50,15 @@ class SignupViewController: UIViewController, SignupViewProtocol {
 	
 	
 	var presenter: SignupPresenterProtocol?
-
+	
 	override func viewDidLoad() {
-        super.viewDidLoad()
+		super.viewDidLoad()
 		
 		self.navigationController?.isNavigationBarHidden = false
 		self.title = "Preencha os seus dados"
 		hideKeyboardWhenTappedAround()
-				setupView()
-    }
+		setupView()
+	}
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
@@ -128,19 +128,10 @@ class SignupViewController: UIViewController, SignupViewProtocol {
 		passwordIconImageView.tintColor = .black
 		
 	}
-
+	
 	@IBAction func changeAvatar(_ sender: Any) {
 		
-		if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
-			
-			 let imagePicker = UIImagePickerController()
-			
-			imagePicker.delegate = self
-			imagePicker.sourceType = .savedPhotosAlbum;
-			imagePicker.allowsEditing = false
-			
-			self.present(imagePicker, animated: true, completion: nil)
-		}
+		MIBlurPopup.show(SelectPhotoSourcePopupRouter.createModule(delegate: self), on: self)
 		
 	}
 	
@@ -275,8 +266,8 @@ extension SignupViewController:UITextFieldDelegate, AKMaskFieldDelegate {
 			}
 			presenter?.fillAdrressWithZipcode(zipcode: zipcode)
 			break
-			case stateTextField:
-				textField.text = textField.text?.uppercased()
+		case stateTextField:
+			textField.text = textField.text?.uppercased()
 			break
 			
 		default:
@@ -307,6 +298,40 @@ extension SignupViewController:UIImagePickerControllerDelegate, UINavigationCont
 		}
 		
 		picker.dismiss(animated: true, completion: nil);
+	}
+	
+}
+
+extension SignupViewController: SelectPhotoSourcePopupActionProtocol {
+	
+	func showCamera() {
+		
+		if UIImagePickerController.isSourceTypeAvailable(.camera){
+			
+			let imagePicker = UIImagePickerController()
+			
+			imagePicker.delegate = self
+			imagePicker.sourceType = .camera
+			imagePicker.allowsEditing = false
+			
+			self.present(imagePicker, animated: true, completion: nil)
+		}
+		
+	}
+	
+	func showAlbum() {
+		
+		if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
+			
+			let imagePicker = UIImagePickerController()
+			
+			imagePicker.delegate = self
+			imagePicker.sourceType = .savedPhotosAlbum
+			imagePicker.allowsEditing = false
+			
+			self.present(imagePicker, animated: true, completion: nil)
+		}
+		
 	}
 	
 }

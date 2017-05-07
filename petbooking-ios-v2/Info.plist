@@ -118,6 +118,8 @@
 	<string>O Pet Booking precisa da sua localização para encontrar estabelecimentos próximos à você.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Upload profile picture</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Upload profile picture</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>SourceSansPro-Regular.otf</string>

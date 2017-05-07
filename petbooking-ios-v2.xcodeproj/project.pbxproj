@@ -41,6 +41,14 @@
 		413682C81E9C2B2D008C463B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 413682C71E9C2B2D008C463B /* Assets.xcassets */; };
 		413682CB1E9C2B2D008C463B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 413682C91E9C2B2D008C463B /* LaunchScreen.storyboard */; };
 		4137157F1EBD5B3F00258C6F /* PresentationPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4137157E1EBD5B3F00258C6F /* PresentationPageViewController.swift */; };
+		413715871EBE7D0300258C6F /* SelectPhotoSourcePopupInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413715811EBE7D0300258C6F /* SelectPhotoSourcePopupInteractor.swift */; };
+		413715881EBE7D0300258C6F /* SelectPhotoSourcePopupPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413715821EBE7D0300258C6F /* SelectPhotoSourcePopupPresenter.swift */; };
+		413715891EBE7D0300258C6F /* SelectPhotoSourcePopupProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413715831EBE7D0300258C6F /* SelectPhotoSourcePopupProtocols.swift */; };
+		4137158A1EBE7D0300258C6F /* SelectPhotoSourcePopupRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413715841EBE7D0300258C6F /* SelectPhotoSourcePopupRouter.swift */; };
+		4137158B1EBE7D0300258C6F /* SelectPhotoSourcePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413715851EBE7D0300258C6F /* SelectPhotoSourcePopupViewController.swift */; };
+		4137158C1EBE7D0300258C6F /* SelectPhotoSourcePopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 413715861EBE7D0300258C6F /* SelectPhotoSourcePopupViewController.xib */; };
+		4137158F1EBEAFFA00258C6F /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4137158E1EBEAFFA00258C6F /* Device.swift */; };
+		413715931EBEB3B400258C6F /* MIBlurPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413715921EBEB3B400258C6F /* MIBlurPopup.swift */; };
 		415BCAE01EB534C40015BB0C /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415BCADF1EB534C40015BB0C /* SignupViewController.swift */; };
 		415F73D41EBA9F08000D9B14 /* ViaCepAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415F73D31EBA9F08000D9B14 /* ViaCepAPI.swift */; };
 		415F73D61EBAA033000D9B14 /* ViaCepAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415F73D51EBAA033000D9B14 /* ViaCepAddress.swift */; };
@@ -93,6 +101,14 @@
 		413682CA1E9C2B2D008C463B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		413682CC1E9C2B2D008C463B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4137157E1EBD5B3F00258C6F /* PresentationPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationPageViewController.swift; sourceTree = "<group>"; };
+		413715811EBE7D0300258C6F /* SelectPhotoSourcePopupInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectPhotoSourcePopupInteractor.swift; sourceTree = "<group>"; };
+		413715821EBE7D0300258C6F /* SelectPhotoSourcePopupPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectPhotoSourcePopupPresenter.swift; sourceTree = "<group>"; };
+		413715831EBE7D0300258C6F /* SelectPhotoSourcePopupProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectPhotoSourcePopupProtocols.swift; sourceTree = "<group>"; };
+		413715841EBE7D0300258C6F /* SelectPhotoSourcePopupRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectPhotoSourcePopupRouter.swift; sourceTree = "<group>"; };
+		413715851EBE7D0300258C6F /* SelectPhotoSourcePopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectPhotoSourcePopupViewController.swift; sourceTree = "<group>"; };
+		413715861EBE7D0300258C6F /* SelectPhotoSourcePopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectPhotoSourcePopupViewController.xib; sourceTree = "<group>"; };
+		4137158E1EBEAFFA00258C6F /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		413715921EBEB3B400258C6F /* MIBlurPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIBlurPopup.swift; sourceTree = "<group>"; };
 		415BCADF1EB534C40015BB0C /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		415F73D31EBA9F08000D9B14 /* ViaCepAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViaCepAPI.swift; sourceTree = "<group>"; };
 		415F73D51EBAA033000D9B14 /* ViaCepAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViaCepAddress.swift; sourceTree = "<group>"; };
@@ -194,6 +210,8 @@
 		413682BF1E9C2B2D008C463B /* petbooking-ios-v2 */ = {
 			isa = PBXGroup;
 			children = (
+				413715901EBEB38C00258C6F /* Libraries */,
+				4137158D1EBEAFDD00258C6F /* Helpers */,
 				4168AA501EB6A819001E2D6D /* Managers */,
 				4168AA4D1EB6A4B5001E2D6D /* Models */,
 				4168AA4A1EB691E1001E2D6D /* Webservices */,
@@ -208,6 +226,43 @@
 				4120ED0F1EB128A5009D35B0 /* Localizable.strings */,
 			);
 			path = "petbooking-ios-v2";
+			sourceTree = "<group>";
+		};
+		413715801EBE7CEA00258C6F /* SelectPhotoSourcePopup */ = {
+			isa = PBXGroup;
+			children = (
+				413715811EBE7D0300258C6F /* SelectPhotoSourcePopupInteractor.swift */,
+				413715821EBE7D0300258C6F /* SelectPhotoSourcePopupPresenter.swift */,
+				413715831EBE7D0300258C6F /* SelectPhotoSourcePopupProtocols.swift */,
+				413715841EBE7D0300258C6F /* SelectPhotoSourcePopupRouter.swift */,
+				413715851EBE7D0300258C6F /* SelectPhotoSourcePopupViewController.swift */,
+				413715861EBE7D0300258C6F /* SelectPhotoSourcePopupViewController.xib */,
+			);
+			path = SelectPhotoSourcePopup;
+			sourceTree = "<group>";
+		};
+		4137158D1EBEAFDD00258C6F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4137158E1EBEAFFA00258C6F /* Device.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		413715901EBEB38C00258C6F /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				413715911EBEB3B400258C6F /* MIBlurPopup */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		413715911EBEB3B400258C6F /* MIBlurPopup */ = {
+			isa = PBXGroup;
+			children = (
+				413715921EBEB3B400258C6F /* MIBlurPopup.swift */,
+			);
+			path = MIBlurPopup;
 			sourceTree = "<group>";
 		};
 		4168AA4A1EB691E1001E2D6D /* Webservices */ = {
@@ -244,6 +299,7 @@
 		418D099C1EB0D71200FCD5A6 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				413715801EBE7CEA00258C6F /* SelectPhotoSourcePopup */,
 				4120ED2F1EB529EC009D35B0 /* Signup */,
 				4120ED201EB4F11E009D35B0 /* ForgotPassword */,
 				4120ED111EB38629009D35B0 /* Login */,
@@ -354,6 +410,7 @@
 				4120ED051EB0DE9F009D35B0 /* PresentationViewController.xib in Resources */,
 				4120ED3B1EB529FE009D35B0 /* SignupViewController.xib in Resources */,
 				413682C61E9C2B2D008C463B /* Main.storyboard in Resources */,
+				4137158C1EBE7D0300258C6F /* SelectPhotoSourcePopupViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,8 +478,10 @@
 				4168AA5E1EB8181B001E2D6D /* FacebookGraphModel.swift in Sources */,
 				4120ED001EB0DE9F009D35B0 /* PresentationInteractor.swift in Sources */,
 				4168AA521EB6A828001E2D6D /* UserManager.swift in Sources */,
+				413715931EBEB3B400258C6F /* MIBlurPopup.swift in Sources */,
 				4168AA541EB6BB56001E2D6D /* User.swift in Sources */,
 				4120ED191EB38650009D35B0 /* LoginPresenter.swift in Sources */,
+				4137158F1EBEAFFA00258C6F /* Device.swift in Sources */,
 				4120ED291EB4F136009D35B0 /* ForgotPasswordProtocols.swift in Sources */,
 				415F73D61EBAA033000D9B14 /* ViaCepAddress.swift in Sources */,
 				4120ED2A1EB4F136009D35B0 /* ForgotPasswordRouter.swift in Sources */,
@@ -430,6 +489,7 @@
 				4120ED271EB4F136009D35B0 /* ForgotPasswordInteractor.swift in Sources */,
 				4168AA581EB794D5001E2D6D /* SessionManager.swift in Sources */,
 				4120ED0A1EB11BA0009D35B0 /* UIColorExtension.swift in Sources */,
+				4137158B1EBE7D0300258C6F /* SelectPhotoSourcePopupViewController.swift in Sources */,
 				413682C11E9C2B2D008C463B /* AppDelegate.swift in Sources */,
 				4137157F1EBD5B3F00258C6F /* PresentationPageViewController.swift in Sources */,
 				4120ED041EB0DE9F009D35B0 /* PresentationViewController.swift in Sources */,
@@ -440,7 +500,10 @@
 				4168AA561EB79399001E2D6D /* Session.swift in Sources */,
 				4168AA4F1EB6A4DD001E2D6D /* Consumer.swift in Sources */,
 				415F73D41EBA9F08000D9B14 /* ViaCepAPI.swift in Sources */,
+				413715871EBE7D0300258C6F /* SelectPhotoSourcePopupInteractor.swift in Sources */,
+				4137158A1EBE7D0300258C6F /* SelectPhotoSourcePopupRouter.swift in Sources */,
 				4120ED2E1EB500A6009D35B0 /* UINavigationControllerExtension.swift in Sources */,
+				413715891EBE7D0300258C6F /* SelectPhotoSourcePopupProtocols.swift in Sources */,
 				4168AA4C1EB69217001E2D6D /* PetbookingAPI.swift in Sources */,
 				4120ED281EB4F136009D35B0 /* ForgotPasswordPresenter.swift in Sources */,
 				4120ED391EB529FE009D35B0 /* SignupRouter.swift in Sources */,
@@ -450,6 +513,7 @@
 				4120ED181EB38650009D35B0 /* LoginInteractor.swift in Sources */,
 				4120ED1B1EB38650009D35B0 /* LoginRouter.swift in Sources */,
 				4120ED021EB0DE9F009D35B0 /* PresentationProtocols.swift in Sources */,
+				413715881EBE7D0300258C6F /* SelectPhotoSourcePopupPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
