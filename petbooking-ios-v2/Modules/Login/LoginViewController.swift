@@ -45,7 +45,33 @@ class LoginViewController: UIViewController, LoginViewProtocol {
 	}
 
 	@IBAction func login(_ sender: Any) {
-		presenter?.didTapLoginButton(email: emailTextField.text, password: passwordTextField.text)
+		
+		guard let email = emailTextField.text else {
+			
+			MIBlurPopup.show(AlertPopupRouter.createModule(title: "E-mail obrigatório", message: "O campo e-mail não pode ficar vazio."), on: self)
+			
+			return
+		}
+		
+		if email.isEmpty {
+			MIBlurPopup.show(AlertPopupRouter.createModule(title: "E-mail obrigatório", message: "O campo e-mail não pode ficar vazio."), on: self)
+			return
+		}
+		
+		if !email.isEmail {
+			MIBlurPopup.show(AlertPopupRouter.createModule(title: "E-mail inválido", message: "Insira seu e-mail no formato nome@domínio.com."), on: self)
+			return
+		}
+		
+		guard let password = passwordTextField.text else {
+			return
+		}
+		if password.isEmpty {
+			MIBlurPopup.show(AlertPopupRouter.createModule(title: "Senha obrigatória", message: "O campo senha não pode ficar vazio."), on: self)
+			return
+		}
+		
+		presenter?.didTapLoginButton(email: email, password: password)
 	}
 	
 	@IBAction func facebookLogin(_ sender: Any) {

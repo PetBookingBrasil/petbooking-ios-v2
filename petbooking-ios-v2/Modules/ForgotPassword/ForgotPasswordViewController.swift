@@ -38,6 +38,24 @@ class ForgotPasswordViewController: UIViewController, ForgotPasswordViewProtocol
 
 	
 	@IBAction func send(_ sender: Any) {
+		
+		guard let email = emailTextField.text else {
+			
+			MIBlurPopup.show(AlertPopupRouter.createModule(title: "E-mail obrigatório", message: "O campo e-mail não pode ficar vazio."), on: self)
+			
+			return
+		}
+		
+		if email.isEmpty {
+			MIBlurPopup.show(AlertPopupRouter.createModule(title: "E-mail obrigatório", message: "O campo e-mail não pode ficar vazio."), on: self)
+			return
+		}
+		
+		if !email.isEmail {
+			MIBlurPopup.show(AlertPopupRouter.createModule(title: "E-mail inválido", message: "Insira seu e-mail no formato nome@domínio.com."), on: self)
+			return
+		}
+		
 		presenter?.didTapSendButton(email: emailTextField.text!)
 	}
 	
