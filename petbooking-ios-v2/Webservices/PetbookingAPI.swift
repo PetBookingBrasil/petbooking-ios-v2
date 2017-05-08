@@ -169,41 +169,18 @@ extension PetbookingAPI {
 		
 		Alamofire.request("\(PetbookingAPI.API_BASE_URL)/users/recover-password", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: auth_headers).responseJSON { (response) in
 			
-			
-			switch response.result{
-				
-				
-			case .success(let jsonObject):
-				if let dic = jsonObject as? [String: Any] {
-					
-					do {
-						
-						let session = try MTLJSONAdapter.model(of: Session.self, fromJSONDictionary: dic) as! Session
-						
-						if session.errors.count == 0 {
-							
-							try SessionManager.sharedInstance.saveSession(session: session)
-							
-							completion(true, "")
-						} else {
-							completion(false, "")
-						}
-						
-					} catch {
-						completion(false, error.localizedDescription)
-					}
-				} else {
-					completion(false, "")
-				}
+			switch response.response!.statusCode {
+			case 200,
+			     201,
+			     202,
+			     204:
+				completion(true, "")
 				break
-			case .failure(let error):
-				print(error)
-				completion(false, error.localizedDescription)
+			default:
+				completion(false, "")
 				break
 			}
-			
 		}
-		
 	}
 	
 }
