@@ -54,7 +54,7 @@ class LoginPresenter: LoginPresenterProtocol {
 		
 	}
 	
-	func didCompleteFacebookLoginWithError(error: Error) {
+	func didCompleteFacebookLoginWithError(error: Error?) {
 		
 	}
 	
@@ -68,7 +68,7 @@ class LoginPresenter: LoginPresenterProtocol {
 		
 	}
 	
-	func didCompleteLoginWithError(error:Error) {
+	func didCompleteLoginWithError(error:Error?) {
 		
 	}
 	

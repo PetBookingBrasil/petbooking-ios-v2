@@ -9,6 +9,7 @@
 //
 
 import UIKit
+import ALLoadingView
 
 class ForgotPasswordPresenter: ForgotPasswordPresenterProtocol {
 
@@ -25,7 +26,18 @@ class ForgotPasswordPresenter: ForgotPasswordPresenterProtocol {
     }
 	
 	func didTapSendButton(email:String) {
+		ALLoadingView.manager.showLoadingView(ofType: .basic, windowMode: .fullscreen)
 		interactor.didTapSendButton(email: email)
+	}
+	
+	func resetPasswordWithSuccess() {
+		ALLoadingView.manager.hideLoadingView()
+		view?.resetPasswordWithSuccess()
+	}
+	
+	func resetPasswordWithError() {
+		ALLoadingView.manager.hideLoadingView()
+		view?.resetPasswordWithError()
 	}
 
 }

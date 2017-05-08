@@ -18,6 +18,10 @@ protocol ForgotPasswordWireframeProtocol: class {
 protocol ForgotPasswordPresenterProtocol: class {
 	
 	func didTapSendButton(email:String)
+	
+	func resetPasswordWithSuccess()
+	
+	func resetPasswordWithError()
 
 }
 
@@ -33,4 +37,8 @@ protocol ForgotPasswordInteractorProtocol: class {
 protocol ForgotPasswordViewProtocol: class {
 
   var presenter: ForgotPasswordPresenterProtocol?  { get set }
+	
+	func resetPasswordWithSuccess()
+	
+	func resetPasswordWithError()
 }

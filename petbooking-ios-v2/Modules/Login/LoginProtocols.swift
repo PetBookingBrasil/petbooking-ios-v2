@@ -34,11 +34,11 @@ protocol LoginPresenterProtocol: class {
 	
 	func didCompleteFacebookLoginWithSuccess()
 	
-	func didCompleteFacebookLoginWithError(error:Error)
+	func didCompleteFacebookLoginWithError(error:Error?)
 	
 	func didCompleteLoginWithSuccess()
 	
-	func didCompleteLoginWithError(error:Error)
+	func didCompleteLoginWithError(error:Error?)
 	
 	func registerNewUserWithFacebookData()
 

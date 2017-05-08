@@ -18,6 +18,11 @@ class ForgotPasswordInteractor: ForgotPasswordInteractorProtocol {
 		
 		PetbookingAPI.sharedInstance.resetPassword(email) { (success, message) in
 			
+			if success {
+				self.presenter?.resetPasswordWithSuccess()
+			} else {
+				self.presenter?.resetPasswordWithError()
+			}
 			
 		}
 		

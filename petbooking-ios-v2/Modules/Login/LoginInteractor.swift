@@ -26,10 +26,39 @@ class LoginInteractor: LoginInteractorProtocol {
 			return
 		}
 		
-		PetbookingAPI.sharedInstance.loginWithEmail(email, password: password) { (success, message) in
+		guard let consumer = SessionManager.sharedInstance.getCurrentConsumer() else {
+			return
+		}
+		
+		if consumer.isValid() {
 			
-			if success {
-				self.presenter?.didCompleteLoginWithSuccess()
+			PetbookingAPI.sharedInstance.loginWithEmail(email, password: password) { (success, message) in
+				
+				if success {
+					self.presenter?.didCompleteLoginWithSuccess()
+				} else {
+					self.presenter?.didCompleteLoginWithError(error: nil)
+				}
+				
+			}
+		} else {
+			
+			PetbookingAPI.sharedInstance.getConsumer { (success, message) in
+				
+				if success {
+					PetbookingAPI.sharedInstance.loginWithEmail(email, password: password) { (success, message) in
+						
+						if success {
+							self.presenter?.didCompleteLoginWithSuccess()
+						} else {
+							self.presenter?.didCompleteLoginWithError(error: nil)
+						}
+						
+					}
+				} else {
+					self.presenter?.didCompleteLoginWithError(error: nil)
+				}
+				
 			}
 			
 		}
@@ -46,33 +75,53 @@ class LoginInteractor: LoginInteractorProtocol {
 				self.presenter?.didCompleteFacebookLoginWithError(error: error)
 				break
 			case .cancelled:
+				self.presenter?.didCompleteFacebookLoginWithError(error: nil)
 				break
-			case .success(let grantedPermissions, let declinedPermissions, let accessToken):
+			case .success( _, _, let accessToken):
 				
-				PetbookingAPI.sharedInstance.loginWithFacebook(accessToken.authenticationToken, completion: { (success, message) in
+				if let _ = SessionManager.sharedInstance.getCurrentConsumer()?.isValid() {
 					
-					if success {
-						self.presenter?.didCompleteFacebookLoginWithSuccess()
-					} else {
-						self.presenter?.registerNewUserWithFacebookData()
+					PetbookingAPI.sharedInstance.loginWithFacebook(accessToken.authenticationToken, completion: { (success, message) in
+						
+						if success {
+							self.presenter?.didCompleteFacebookLoginWithSuccess()
+						} else {
+							self.presenter?.registerNewUserWithFacebookData()
+						}
+						
+					})
+				} else {
+					PetbookingAPI.sharedInstance.getConsumer { (success, message) in
+						
+						if success {
+							PetbookingAPI.sharedInstance.loginWithFacebook(accessToken.authenticationToken, completion: { (success, message) in
+								
+								if success {
+									self.presenter?.didCompleteFacebookLoginWithSuccess()
+								} else {
+									self.presenter?.registerNewUserWithFacebookData()
+								}
+								
+							})
+						} else {
+							self.presenter?.didCompleteFacebookLoginWithError(error: nil)
+						}
 					}
-					
-				})
-				
+				}
 				break
 			}
 			
 		}
 		
 		
-		}
+	}
+	
+	func didTapSignupButton() {
 		
-		func didTapSignupButton() {
-			
-			
-		}
 		
-		func didTapForgotPasswordButton() {
-			
-		}
+	}
+	
+	func didTapForgotPasswordButton() {
+		
+	}
 }

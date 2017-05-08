@@ -58,7 +58,7 @@ extension PetbookingAPI {
 			"data": ["type":"consumers", "attributes":["uuid":PetbookingAPI.AUTH_KEY]]
 		]
 		
-		Alamofire.request("https://staging.petbooking.com.br/api/v2/consumers/auth/", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: consumer_headers).responseJSON { (response) in
+		Alamofire.request("\(PetbookingAPI.API_BASE_URL)/consumers/auth/", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: consumer_headers).responseJSON { (response) in
 			
 			switch response.result{
 			case .success(let jsonObject):
@@ -167,9 +167,12 @@ extension PetbookingAPI {
 			
 		]
 		
-		Alamofire.request("\(PetbookingAPI.API_BASE_URL)/users/recovery_password", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: auth_headers).responseJSON { (response) in
+		Alamofire.request("\(PetbookingAPI.API_BASE_URL)/users/recover-password", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: auth_headers).responseJSON { (response) in
+			
 			
 			switch response.result{
+				
+				
 			case .success(let jsonObject):
 				if let dic = jsonObject as? [String: Any] {
 					
