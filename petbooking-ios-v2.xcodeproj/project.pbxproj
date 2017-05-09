@@ -68,6 +68,17 @@
 		4168AA581EB794D5001E2D6D /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4168AA571EB794D5001E2D6D /* SessionManager.swift */; };
 		4168AA5C1EB80A24001E2D6D /* ErrorRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4168AA5B1EB80A24001E2D6D /* ErrorRest.swift */; };
 		4168AA5E1EB8181B001E2D6D /* FacebookGraphModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4168AA5D1EB8181B001E2D6D /* FacebookGraphModel.swift */; };
+		41E7E2DD1EC106FC002C0A55 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E7E2DC1EC106FC002C0A55 /* UITextFieldExtension.swift */; };
+		41E7E2EA1EC27833002C0A55 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 41E7E2E01EC27833002C0A55 /* OpenSans-Bold.ttf */; };
+		41E7E2EB1EC27833002C0A55 /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 41E7E2E11EC27833002C0A55 /* OpenSans-BoldItalic.ttf */; };
+		41E7E2EC1EC27833002C0A55 /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 41E7E2E21EC27833002C0A55 /* OpenSans-ExtraBold.ttf */; };
+		41E7E2ED1EC27833002C0A55 /* OpenSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 41E7E2E31EC27833002C0A55 /* OpenSans-ExtraBoldItalic.ttf */; };
+		41E7E2EE1EC27833002C0A55 /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 41E7E2E41EC27833002C0A55 /* OpenSans-Italic.ttf */; };
+		41E7E2EF1EC27833002C0A55 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 41E7E2E51EC27833002C0A55 /* OpenSans-Light.ttf */; };
+		41E7E2F01EC27833002C0A55 /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 41E7E2E61EC27833002C0A55 /* OpenSans-LightItalic.ttf */; };
+		41E7E2F11EC27833002C0A55 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 41E7E2E71EC27833002C0A55 /* OpenSans-Regular.ttf */; };
+		41E7E2F21EC27833002C0A55 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 41E7E2E81EC27833002C0A55 /* OpenSans-Semibold.ttf */; };
+		41E7E2F31EC27833002C0A55 /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 41E7E2E91EC27833002C0A55 /* OpenSans-SemiboldItalic.ttf */; };
 		DFC90A17A5F8AA2CE20F8375 /* Pods_petbooking_ios_v2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9D68A4E19945C41B8E9EDFE /* Pods_petbooking_ios_v2.framework */; };
 /* End PBXBuildFile section */
 
@@ -135,6 +146,17 @@
 		4168AA571EB794D5001E2D6D /* SessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		4168AA5B1EB80A24001E2D6D /* ErrorRest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorRest.swift; sourceTree = "<group>"; };
 		4168AA5D1EB8181B001E2D6D /* FacebookGraphModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookGraphModel.swift; sourceTree = "<group>"; };
+		41E7E2DC1EC106FC002C0A55 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
+		41E7E2E01EC27833002C0A55 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		41E7E2E11EC27833002C0A55 /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		41E7E2E21EC27833002C0A55 /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		41E7E2E31EC27833002C0A55 /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		41E7E2E41EC27833002C0A55 /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
+		41E7E2E51EC27833002C0A55 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		41E7E2E61EC27833002C0A55 /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		41E7E2E71EC27833002C0A55 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		41E7E2E81EC27833002C0A55 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
+		41E7E2E91EC27833002C0A55 /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; };
 		5EC8A11A3CAAE140E557AF6F /* Pods-petbooking-ios-v2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petbooking-ios-v2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-petbooking-ios-v2/Pods-petbooking-ios-v2.debug.xcconfig"; sourceTree = "<group>"; };
 		9908B75EC13330082A78645E /* Pods-petbooking-ios-v2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petbooking-ios-v2.release.xcconfig"; path = "Pods/Target Support Files/Pods-petbooking-ios-v2/Pods-petbooking-ios-v2.release.xcconfig"; sourceTree = "<group>"; };
 		C9D68A4E19945C41B8E9EDFE /* Pods_petbooking_ios_v2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_petbooking_ios_v2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,6 +183,7 @@
 				4120ED2D1EB500A6009D35B0 /* UINavigationControllerExtension.swift */,
 				415F73D71EBC16E2000D9B14 /* UIImageExtension.swift */,
 				414BB1F91EC00722000BE2CC /* StringExtension.swift */,
+				41E7E2DC1EC106FC002C0A55 /* UITextFieldExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -225,6 +248,7 @@
 		413682BF1E9C2B2D008C463B /* petbooking-ios-v2 */ = {
 			isa = PBXGroup;
 			children = (
+				41E7E2DE1EC27821002C0A55 /* Fonts */,
 				413715901EBEB38C00258C6F /* Libraries */,
 				4137158D1EBEAFDD00258C6F /* Helpers */,
 				4168AA501EB6A819001E2D6D /* Managers */,
@@ -351,6 +375,31 @@
 			path = Presentation;
 			sourceTree = "<group>";
 		};
+		41E7E2DE1EC27821002C0A55 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				41E7E2DF1EC27821002C0A55 /* OpenSans */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		41E7E2DF1EC27821002C0A55 /* OpenSans */ = {
+			isa = PBXGroup;
+			children = (
+				41E7E2E01EC27833002C0A55 /* OpenSans-Bold.ttf */,
+				41E7E2E11EC27833002C0A55 /* OpenSans-BoldItalic.ttf */,
+				41E7E2E21EC27833002C0A55 /* OpenSans-ExtraBold.ttf */,
+				41E7E2E31EC27833002C0A55 /* OpenSans-ExtraBoldItalic.ttf */,
+				41E7E2E41EC27833002C0A55 /* OpenSans-Italic.ttf */,
+				41E7E2E51EC27833002C0A55 /* OpenSans-Light.ttf */,
+				41E7E2E61EC27833002C0A55 /* OpenSans-LightItalic.ttf */,
+				41E7E2E71EC27833002C0A55 /* OpenSans-Regular.ttf */,
+				41E7E2E81EC27833002C0A55 /* OpenSans-Semibold.ttf */,
+				41E7E2E91EC27833002C0A55 /* OpenSans-SemiboldItalic.ttf */,
+			);
+			path = OpenSans;
+			sourceTree = "<group>";
+		};
 		6BC186A20FCE32BA04CC64D7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -431,16 +480,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41E7E2EA1EC27833002C0A55 /* OpenSans-Bold.ttf in Resources */,
+				41E7E2ED1EC27833002C0A55 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
 				414BB1F81EBFF4AF000BE2CC /* AlertPopupViewController.xib in Resources */,
+				41E7E2EE1EC27833002C0A55 /* OpenSans-Italic.ttf in Resources */,
 				4120ED101EB128A5009D35B0 /* Localizable.strings in Resources */,
 				413682CB1E9C2B2D008C463B /* LaunchScreen.storyboard in Resources */,
 				4120ED2C1EB4F136009D35B0 /* ForgotPasswordViewController.xib in Resources */,
 				4120ED1D1EB38650009D35B0 /* LoginViewController.xib in Resources */,
+				41E7E2F01EC27833002C0A55 /* OpenSans-LightItalic.ttf in Resources */,
+				41E7E2EB1EC27833002C0A55 /* OpenSans-BoldItalic.ttf in Resources */,
 				413682C81E9C2B2D008C463B /* Assets.xcassets in Resources */,
+				41E7E2F21EC27833002C0A55 /* OpenSans-Semibold.ttf in Resources */,
+				41E7E2EF1EC27833002C0A55 /* OpenSans-Light.ttf in Resources */,
 				4120ED051EB0DE9F009D35B0 /* PresentationViewController.xib in Resources */,
 				4120ED3B1EB529FE009D35B0 /* SignupViewController.xib in Resources */,
 				413682C61E9C2B2D008C463B /* Main.storyboard in Resources */,
+				41E7E2F31EC27833002C0A55 /* OpenSans-SemiboldItalic.ttf in Resources */,
 				4137158C1EBE7D0300258C6F /* SelectPhotoSourcePopupViewController.xib in Resources */,
+				41E7E2F11EC27833002C0A55 /* OpenSans-Regular.ttf in Resources */,
+				41E7E2EC1EC27833002C0A55 /* OpenSans-ExtraBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,6 +591,7 @@
 				4120ED361EB529FE009D35B0 /* SignupInteractor.swift in Sources */,
 				415F73D81EBC16E2000D9B14 /* UIImageExtension.swift in Sources */,
 				4168AA561EB79399001E2D6D /* Session.swift in Sources */,
+				41E7E2DD1EC106FC002C0A55 /* UITextFieldExtension.swift in Sources */,
 				4168AA4F1EB6A4DD001E2D6D /* Consumer.swift in Sources */,
 				415F73D41EBA9F08000D9B14 /* ViaCepAPI.swift in Sources */,
 				413715871EBE7D0300258C6F /* SelectPhotoSourcePopupInteractor.swift in Sources */,

@@ -9,6 +9,11 @@
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="petbooking_ios_v2" customModuleProvider="target">
             <connections>
@@ -30,11 +35,12 @@
                     <rect key="frame" x="152.66666666666669" y="70" width="109.00000000000006" height="117"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gcq-Xr-Awp">
-                    <rect key="frame" x="16" y="375" width="183.66666666666666" height="54.666666666666686"/>
+                    <rect key="frame" x="16" y="378" width="183.66666666666666" height="54.666666666666686"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="Gcq-Xr-Awp" secondAttribute="height" multiplier="164:49" id="eam-Yf-92u"/>
                     </constraints>
+                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
                     <state key="normal" title="Entrar">
                         <color key="titleColor" red="1" green="0.29411764705882354" blue="0.29411764705882354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
@@ -43,12 +49,12 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sZ6-qM-2Q3">
-                    <rect key="frame" x="16" y="447.66666666666663" width="382" height="64.999999999999886"/>
+                    <rect key="frame" x="16" y="450.66666666666663" width="382" height="64.999999999999886"/>
                     <color key="backgroundColor" red="0.0" green="0.33333333333333331" blue="0.64313725490196072" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="sZ6-qM-2Q3" secondAttribute="height" multiplier="288:49" id="ODk-wP-5tK"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
+                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="18"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="30" maxY="0.0"/>
                     <state key="normal" title="Entrar com Facebook" image="FB-f-Logo_white">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -58,10 +64,11 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YlQ-1K-Xxa">
-                    <rect key="frame" x="214.66666666666663" y="375" width="183.33333333333337" height="54.666666666666686"/>
+                    <rect key="frame" x="214.66666666666663" y="378" width="183.33333333333337" height="54.666666666666686"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="YlQ-1K-Xxa" secondAttribute="height" multiplier="164:49" id="rEg-JK-7Av"/>
                     </constraints>
+                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
                     <state key="normal" title="Cadastre-se">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -70,43 +77,43 @@
                     </connections>
                 </button>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HC0-WK-bwa">
-                    <rect key="frame" x="61" y="224" width="292" height="17"/>
+                    <rect key="frame" x="61" y="224" width="292" height="20"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NoA-12-VrB">
-                    <rect key="frame" x="61" y="285" width="292" height="17"/>
+                    <rect key="frame" x="61" y="285" width="292" height="20"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                 </textField>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="password_icon" translatesAutoresizingMaskIntoConstraints="NO" id="FkI-IB-bbJ">
-                    <rect key="frame" x="33" y="286" width="12" height="15"/>
+                    <rect key="frame" x="33" y="288" width="12" height="15"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="email_icon" translatesAutoresizingMaskIntoConstraints="NO" id="4SQ-Un-7ea">
-                    <rect key="frame" x="31" y="226.66666666666666" width="16" height="12"/>
+                    <rect key="frame" x="31" y="228.66666666666666" width="16" height="12"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="16" id="YO9-wK-AXR"/>
                         <constraint firstAttribute="height" constant="12" id="wvS-H0-59V"/>
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aUd-GH-zie">
-                    <rect key="frame" x="16" y="314" width="382" height="1"/>
+                    <rect key="frame" x="16" y="317" width="382" height="1"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="XYq-pR-uhX"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5eO-1A-0XE">
-                    <rect key="frame" x="16" y="253" width="382" height="1"/>
+                    <rect key="frame" x="16" y="256" width="382" height="1"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="0gi-li-0Tb"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qyo-Ve-mkf">
-                    <rect key="frame" x="207" y="378" width="0.0" height="49"/>
+                    <rect key="frame" x="207" y="381" width="0.0" height="49"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" id="9Wf-oB-DbG"/>
@@ -114,8 +121,8 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kbR-i5-tTJ">
-                    <rect key="frame" x="305" y="323" width="93" height="24"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <rect key="frame" x="301" y="326" width="97" height="27"/>
+                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="11"/>
                     <state key="normal" title="Esqueceu a senha?">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>

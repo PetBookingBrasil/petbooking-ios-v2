@@ -31,9 +31,17 @@ class ViewController: UIViewController {
 				
 				self.nameLabel.text = currentUser.name
 				
-				if let url = URL(string: "https://cdn.petbooking.com.br/\(currentUser.avatarUrlThumb)") {
-					self.imageView.pin_setImage(from: url)
+				if currentUser.avatarUrlThumb.contains("http") {
+					if let url = URL(string: currentUser.avatarUrlThumb) {
+						self.imageView.pin_setImage(from: url)
+					}
+				} else {
+					if let url = URL(string: "https://cdn.petbooking.com.br/\(currentUser.avatarUrlThumb)") {
+						self.imageView.pin_setImage(from: url)
+					}
 				}
+				
+				
 			}
 		}
 	}

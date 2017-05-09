@@ -137,55 +137,55 @@ class SignupViewController: UIViewController, SignupViewProtocol {
 	
 	@IBAction func save(_ sender: Any) {
 		
-		guard let name = fullNameTextField.text else {
+		guard let name = fullNameTextField.checkField() else {
 			return
 		}
 		
-		guard let cpf = cpfTextField.text?.components(separatedBy: CharacterSet.decimalDigits.inverted).joined() else {
+		guard let cpf = cpfTextField.checkField()?.components(separatedBy: CharacterSet.decimalDigits.inverted).joined() else {
 			return
 		}
 		
-		guard let birthday = birthdayTextField.text else {
+		guard let birthday = birthdayTextField.checkField() else {
 			return
 		}
 		
-		guard let email = emailTextField.text else {
+		guard let email = emailTextField.checkField() else {
 			return
 		}
 		
-		guard let mobile = mobileNumberTextField.text?.components(separatedBy: CharacterSet.decimalDigits.inverted).joined() else {
+		guard let mobile = mobileNumberTextField.checkField()?.components(separatedBy: CharacterSet.decimalDigits.inverted).joined() else {
 			return
 		}
 		
-		guard let zipcode = zipcodeTextField.text?.components(separatedBy: CharacterSet.decimalDigits.inverted).joined() else {
+		guard let zipcode = zipcodeTextField.checkField()?.components(separatedBy: CharacterSet.decimalDigits.inverted).joined() else {
 			return
 		}
 		
-		guard let street = streetTextField.text else {
+		guard let street = streetTextField.checkField() else {
 			return
 		}
 		
-		guard let streetNumber = numberTextField.text else {
+		guard let streetNumber = numberTextField.checkField() else {
 			return
 		}
 		
-		guard let neighborhood = neighborhoodTextField.text else {
+		guard let neighborhood = neighborhoodTextField.checkField() else {
 			return
 		}
 		
-		guard let city = cityTextField.text else {
+		guard let city = cityTextField.checkField() else {
 			return
 		}
 		
-		guard let state = stateTextField.text else {
+		guard let state = stateTextField.checkField() else {
 			return
 		}
 		
-		guard let password = passwordTextField.text else {
+		guard let password = passwordTextField.checkField() else {
 			return
 		}
 		
-		guard let confirmPassword = confirmPasswordTextField.text else {
+		guard let confirmPassword = confirmPasswordTextField.checkField() else {
 			return
 		}
 		
