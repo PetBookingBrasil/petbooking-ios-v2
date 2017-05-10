@@ -42,13 +42,13 @@ class PresentationInteractor: PresentationInteractorProtocol {
 		}
 		switch index {
 		case .first:
-			presenter?.setupView(imageNamed: "apt_01", backgroundColorHexString: "fbcfd5", title: NSLocalizedString("ap1_title", comment: ""), titleFont: nil, description: NSLocalizedString("ap1_description", comment: ""), descriptionFont: nil)
+			presenter?.setupView(imageNamed: "apt_01", backgroundColorHexString: "FFC500", title: NSLocalizedString("ap1_title", comment: ""), titleFont: nil, description: NSLocalizedString("ap1_description", comment: ""), descriptionFont: nil)
 			break
 		case .second:
-			presenter?.setupView(imageNamed: "apt_02", backgroundColorHexString: "f6dac4", title:  NSLocalizedString("ap2_title", comment: ""), titleFont: nil, description:  NSLocalizedString("ap2_description", comment: ""), descriptionFont: nil)
+			presenter?.setupView(imageNamed: "apt_02", backgroundColorHexString: "FF7F0B", title:  NSLocalizedString("ap2_title", comment: ""), titleFont: nil, description:  NSLocalizedString("ap2_description", comment: ""), descriptionFont: nil)
 			break
 		case .third:
-			presenter?.setupView(imageNamed: "apt_03", backgroundColorHexString: "abdeda", title:  NSLocalizedString("ap3_title", comment: ""), titleFont: UIFont.systemFont(ofSize: 18), description:  NSLocalizedString("ap3_description", comment: ""), descriptionFont: UIFont.boldSystemFont(ofSize: 20))
+			presenter?.setupView(imageNamed: "apt_03", backgroundColorHexString: "FF4B39", title:  NSLocalizedString("ap3_title", comment: ""), titleFont: UIFont.systemFont(ofSize: 18), description:  NSLocalizedString("ap3_description", comment: ""), descriptionFont: UIFont.boldSystemFont(ofSize: 20))
 			break
 		}
 		
