@@ -17,37 +17,51 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignupViewController" customModule="petbooking_ios_v2" customModuleProvider="target">
             <connections>
+                <outlet property="birthdayAlertMessageLabel" destination="Ypm-VY-wyp" id="ZPT-Ax-TT8"/>
                 <outlet property="birthdayIconImageView" destination="Frb-5N-OLb" id="vfW-wX-N4v"/>
                 <outlet property="birthdayTextField" destination="Cu7-m9-Zvc" id="ZL6-nN-ORC"/>
                 <outlet property="cameraIconImageView" destination="fnX-bD-Kee" id="evx-R9-mq4"/>
                 <outlet property="cepIconImageView" destination="Htj-A7-QzL" id="xQx-9o-mxE"/>
+                <outlet property="cityAlertMessageLabel" destination="gKx-GI-Kk9" id="LEX-fg-6Ls"/>
                 <outlet property="cityIconImageView" destination="KFZ-rJ-bgZ" id="eCS-xn-JeH"/>
                 <outlet property="cityTextField" destination="1aP-Ez-srv" id="50I-IP-Snx"/>
+                <outlet property="confirmPasswordAlertMessageLabel" destination="WfV-zV-R9b" id="xgf-Qk-dk3"/>
                 <outlet property="confirmPasswordIconImageView" destination="SH9-Ha-kMw" id="P4m-cr-04e"/>
                 <outlet property="confirmPasswordTextField" destination="iyM-7A-dmi" id="ROP-JV-P1n"/>
+                <outlet property="cpfAlertMessageLabel" destination="b80-42-p48" id="ekM-hl-lZf"/>
                 <outlet property="cpfIconImageView" destination="iOe-a6-lTn" id="JJK-Ne-zgc"/>
                 <outlet property="cpfTextField" destination="7Ui-93-gPg" id="CWc-YE-7iE"/>
+                <outlet property="emailAlertMessageLabel" destination="yIi-WM-zNY" id="Y9K-eD-NPQ"/>
                 <outlet property="emailIconImageView" destination="REh-HA-40r" id="rsO-8F-MF4"/>
                 <outlet property="emailTextField" destination="v7R-vM-Abz" id="zfn-jz-F5i"/>
                 <outlet property="fullNameTextField" destination="hQO-TA-ZSe" id="hdv-lu-gKU"/>
                 <outlet property="locationIconImageView" destination="gCu-wK-XEY" id="wEc-6Y-git"/>
+                <outlet property="mobileAlertMessageLabel" destination="eyo-X8-eQJ" id="RdN-Do-8XQ"/>
                 <outlet property="mobileNumberTextField" destination="4tu-i9-ZPO" id="TSY-BO-0WY"/>
+                <outlet property="nameAlertMessageLabel" destination="Upd-yY-wxt" id="SpP-ds-OOU"/>
+                <outlet property="neighborhoodAlertMessageLabel" destination="YWT-nw-vUC" id="TjD-Lc-hLx"/>
                 <outlet property="neighborhoodIconImageView" destination="9xM-gb-PDW" id="qwd-9r-9Xi"/>
                 <outlet property="neighborhoodTextField" destination="hfC-Kr-zMT" id="460-r1-036"/>
+                <outlet property="numberAlertMessageLabel" destination="HCV-bz-X5M" id="XxV-9a-tDP"/>
                 <outlet property="numberIconImageView" destination="5Xg-KX-KgO" id="SwS-4U-tF2"/>
                 <outlet property="numberTextField" destination="3Aq-IX-3hn" id="A67-S3-dRX"/>
+                <outlet property="passwordAlertMessageLabel" destination="V5J-7p-oOw" id="pSQ-zy-nbq"/>
                 <outlet property="passwordIconImageView" destination="bzi-C4-EIy" id="CkT-jx-l20"/>
                 <outlet property="passwordTextField" destination="Sdh-zK-rgf" id="nRD-xj-cCp"/>
                 <outlet property="phoneIconImageView" destination="7E4-EU-BMO" id="hME-xi-uQE"/>
+                <outlet property="profileImageAlertMessage" destination="VbC-oO-wSv" id="oFX-IY-OU3"/>
                 <outlet property="profilePictureFrameView" destination="Fln-bZ-7X1" id="BxG-40-hob"/>
                 <outlet property="profilePictureImageView" destination="23j-oh-uGU" id="9E2-ZJ-1Qw"/>
                 <outlet property="profilePictureView" destination="kOW-vR-FwE" id="Vbx-bY-ZkU"/>
                 <outlet property="saveButton" destination="vOC-BY-xpr" id="WDm-20-soo"/>
+                <outlet property="stateAlertMessageLabel" destination="YAC-IP-WhH" id="9j3-G5-TKx"/>
                 <outlet property="stateIconImageView" destination="pbf-dr-h13" id="hhl-oA-PCn"/>
                 <outlet property="stateTextField" destination="D0r-5t-QDv" id="u0L-QF-YqI"/>
+                <outlet property="streetAlertMessageLabel" destination="eRk-s0-WfU" id="bo7-3M-lDH"/>
                 <outlet property="streetTextField" destination="Fed-MD-GGM" id="zpM-jI-ufu"/>
                 <outlet property="userIconImageView" destination="F9I-Xz-x5i" id="WgM-PL-xRn"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="zipcodeAlertMessageLabel" destination="YeY-Lx-oic" id="e7e-hq-wfd"/>
                 <outlet property="zipcodeTextField" destination="WDU-pb-FKl" id="DYr-TT-lpI"/>
             </connections>
         </placeholder>
@@ -316,81 +330,87 @@
                                         <constraint firstAttribute="height" constant="1" id="xJt-DA-Btj"/>
                                     </constraints>
                                 </view>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Por favor, insira seu nome e sobrenome." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Upd-yY-wxt">
-                                    <rect key="frame" x="16" y="204" width="343" height="15"/>
-                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="11"/>
+                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Por favor, insira seu nome e sobrenome." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Upd-yY-wxt">
+                                    <rect key="frame" x="16" y="204" width="343" height="11"/>
+                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="8"/>
                                     <color key="textColor" red="1" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Por favor, insira seu nome e sobrenome." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yIi-WM-zNY">
-                                    <rect key="frame" x="16" y="314" width="343" height="15"/>
-                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="11"/>
+                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Por favor, insira seu nome e sobrenome." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yIi-WM-zNY">
+                                    <rect key="frame" x="16" y="314" width="343" height="11"/>
+                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="8"/>
                                     <color key="textColor" red="1" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Por favor, insira seu nome e sobrenome." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRk-s0-WfU">
-                                    <rect key="frame" x="16" y="369" width="343" height="15"/>
-                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="11"/>
+                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Por favor, insira seu nome e sobrenome." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRk-s0-WfU">
+                                    <rect key="frame" x="16" y="369" width="343" height="11"/>
+                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="8"/>
                                     <color key="textColor" red="1" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Por favor, insira seu nome e sobrenome." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YWT-nw-vUC">
-                                    <rect key="frame" x="16" y="479" width="343" height="15"/>
-                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="11"/>
+                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Por favor, insira seu nome e sobrenome." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YWT-nw-vUC">
+                                    <rect key="frame" x="16" y="479" width="343" height="11"/>
+                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="8"/>
                                     <color key="textColor" red="1" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Por favor, insira seu nome e sobrenome." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gKx-GI-Kk9">
-                                    <rect key="frame" x="16" y="534" width="343" height="15"/>
-                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="11"/>
+                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Por favor, insira seu nome e sobrenome." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gKx-GI-Kk9">
+                                    <rect key="frame" x="16" y="534" width="343" height="11"/>
+                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="8"/>
                                     <color key="textColor" red="1" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Por favor, insira seu nome e sobrenome." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YAC-IP-WhH">
-                                    <rect key="frame" x="16" y="589" width="343" height="15"/>
-                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="11"/>
+                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Por favor, insira seu nome e sobrenome." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YAC-IP-WhH">
+                                    <rect key="frame" x="16" y="589" width="343" height="11"/>
+                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="8"/>
                                     <color key="textColor" red="1" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Por favor, insira seu nome e sobrenome." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eyo-X8-eQJ">
-                                    <rect key="frame" x="16" y="644" width="343" height="15"/>
-                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="11"/>
+                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Por favor, insira seu nome e sobrenome." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eyo-X8-eQJ">
+                                    <rect key="frame" x="16" y="644" width="343" height="11"/>
+                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="8"/>
                                     <color key="textColor" red="1" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CPF do titular do cartão." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b80-42-p48">
-                                    <rect key="frame" x="16" y="259" width="164" height="15"/>
-                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="11"/>
+                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CPF do titular do cartão." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b80-42-p48">
+                                    <rect key="frame" x="16" y="259" width="164" height="11"/>
+                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="8"/>
                                     <color key="textColor" red="1" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CPF do titular do cartão." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HCV-bz-X5M">
-                                    <rect key="frame" x="16" y="424" width="164" height="15"/>
-                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="11"/>
+                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CPF do titular do cartão." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HCV-bz-X5M">
+                                    <rect key="frame" x="16" y="424" width="164" height="11"/>
+                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="8"/>
                                     <color key="textColor" red="1" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CPF do titular do cartão." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V5J-7p-oOw">
-                                    <rect key="frame" x="16" y="699" width="164" height="15"/>
-                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="11"/>
+                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CPF do titular do cartão." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V5J-7p-oOw">
+                                    <rect key="frame" x="16" y="699" width="164" height="11"/>
+                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="8"/>
                                     <color key="textColor" red="1" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insira sua data de nascimento" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ypm-VY-wyp">
-                                    <rect key="frame" x="195" y="259" width="164" height="15"/>
-                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="11"/>
+                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CPF do titular do cartão." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WfV-zV-R9b">
+                                    <rect key="frame" x="195" y="699" width="164" height="11"/>
+                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="8"/>
                                     <color key="textColor" red="1" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insira sua data de nascimento" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YeY-Lx-oic">
-                                    <rect key="frame" x="195" y="424" width="164" height="15"/>
-                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="11"/>
+                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insira sua data de nascimento" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ypm-VY-wyp">
+                                    <rect key="frame" x="195" y="259" width="164" height="11"/>
+                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="8"/>
                                     <color key="textColor" red="1" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CPF do titular do cartão." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WfV-zV-R9b">
-                                    <rect key="frame" x="195" y="699" width="164" height="15"/>
-                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="11"/>
+                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insira sua data de nascimento" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YeY-Lx-oic">
+                                    <rect key="frame" x="195" y="424" width="164" height="11"/>
+                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="8"/>
+                                    <color key="textColor" red="1" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Por favor, insira seu nome e sobrenome." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VbC-oO-wSv">
+                                    <rect key="frame" x="16" y="140" width="343" height="11"/>
+                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="8"/>
                                     <color key="textColor" red="1" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -429,6 +449,7 @@
                                 <constraint firstItem="V5J-7p-oOw" firstAttribute="leading" secondItem="5qx-pr-Bjw" secondAttribute="leading" constant="16" id="Fkf-Xs-Z73"/>
                                 <constraint firstItem="8oP-kb-UBe" firstAttribute="top" secondItem="D0r-5t-QDv" secondAttribute="bottom" constant="12" id="Flc-Jh-xjU"/>
                                 <constraint firstItem="WFs-jH-bnl" firstAttribute="top" secondItem="3Aq-IX-3hn" secondAttribute="bottom" constant="12" id="Frr-T6-QkD"/>
+                                <constraint firstAttribute="trailing" secondItem="VbC-oO-wSv" secondAttribute="trailing" constant="16" id="G4K-Tg-6kl"/>
                                 <constraint firstItem="Cu7-m9-Zvc" firstAttribute="leading" secondItem="nj3-YT-MRm" secondAttribute="leading" constant="46" id="H1x-ZG-6Lq"/>
                                 <constraint firstItem="6LL-tJ-oGv" firstAttribute="centerX" secondItem="WFs-jH-bnl" secondAttribute="centerX" id="HFF-qd-w90"/>
                                 <constraint firstItem="1aP-Ez-srv" firstAttribute="top" secondItem="ZOa-yG-OX2" secondAttribute="bottom" constant="22" id="Htk-EW-Qd3"/>
@@ -447,6 +468,7 @@
                                 <constraint firstAttribute="trailing" secondItem="eRk-s0-WfU" secondAttribute="trailing" constant="16" id="PHp-Fy-NVH"/>
                                 <constraint firstItem="3Aq-IX-3hn" firstAttribute="leading" secondItem="Fed-MD-GGM" secondAttribute="leading" id="PKd-ge-iR8"/>
                                 <constraint firstItem="Sdh-zK-rgf" firstAttribute="leading" secondItem="4tu-i9-ZPO" secondAttribute="leading" id="QXm-6i-bGb"/>
+                                <constraint firstItem="VbC-oO-wSv" firstAttribute="leading" secondItem="5qx-pr-Bjw" secondAttribute="leading" constant="16" id="Qnc-D4-5Ub"/>
                                 <constraint firstItem="1pX-BI-tOg" firstAttribute="top" secondItem="v7R-vM-Abz" secondAttribute="bottom" constant="12" id="R0U-Z9-rfK"/>
                                 <constraint firstItem="Fed-MD-GGM" firstAttribute="trailing" secondItem="hql-0S-5Ub" secondAttribute="trailing" constant="-45" id="Rbb-cz-qUw"/>
                                 <constraint firstItem="gCu-wK-XEY" firstAttribute="centerY" secondItem="Fed-MD-GGM" secondAttribute="centerY" id="TJF-gk-Jne"/>
@@ -506,6 +528,7 @@
                                 <constraint firstItem="5Xg-KX-KgO" firstAttribute="centerX" secondItem="gCu-wK-XEY" secondAttribute="centerX" id="kUv-Qz-enE"/>
                                 <constraint firstItem="HCV-bz-X5M" firstAttribute="top" secondItem="WFs-jH-bnl" secondAttribute="bottom" constant="1" id="kWf-Wk-n8c"/>
                                 <constraint firstItem="pbf-dr-h13" firstAttribute="centerX" secondItem="KFZ-rJ-bgZ" secondAttribute="centerX" id="kl6-J1-lBa"/>
+                                <constraint firstItem="VbC-oO-wSv" firstAttribute="top" secondItem="kOW-vR-FwE" secondAttribute="bottom" constant="3" id="l3U-dX-Bi9"/>
                                 <constraint firstItem="vOC-BY-xpr" firstAttribute="width" secondItem="vOC-BY-xpr" secondAttribute="height" multiplier="288:49" id="lXc-4M-caA"/>
                                 <constraint firstItem="iOe-a6-lTn" firstAttribute="centerX" secondItem="F9I-Xz-x5i" secondAttribute="centerX" id="lhf-Pn-Gb3"/>
                                 <constraint firstItem="YWT-nw-vUC" firstAttribute="top" secondItem="ZOa-yG-OX2" secondAttribute="bottom" constant="1" id="m2j-Ob-EPp"/>

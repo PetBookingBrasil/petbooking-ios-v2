@@ -49,6 +49,34 @@ class SignupViewController: UIViewController, SignupViewProtocol {
 	@IBOutlet weak var neighborhoodIconImageView: UIImageView!
 	
 	
+	@IBOutlet weak var nameAlertMessageLabel: UILabel!
+	@IBOutlet weak var cpfAlertMessageLabel: UILabel!
+	@IBOutlet weak var birthdayAlertMessageLabel: UILabel!
+	@IBOutlet weak var emailAlertMessageLabel: UILabel!
+	
+	@IBOutlet weak var streetAlertMessageLabel: UILabel!
+	
+	@IBOutlet weak var numberAlertMessageLabel: UILabel!
+	
+	@IBOutlet weak var zipcodeAlertMessageLabel: UILabel!
+	
+	@IBOutlet weak var neighborhoodAlertMessageLabel: UILabel!
+	
+	@IBOutlet weak var cityAlertMessageLabel: UILabel!
+	
+	@IBOutlet weak var stateAlertMessageLabel: UILabel!
+	
+	@IBOutlet weak var mobileAlertMessageLabel: UILabel!
+	
+	@IBOutlet weak var passwordAlertMessageLabel: UILabel!
+	
+	@IBOutlet weak var confirmPasswordAlertMessageLabel: UILabel!
+	
+	@IBOutlet weak var profileImageAlertMessage: UILabel!
+	
+	
+	
+	
 	var presenter: SignupPresenterProtocol?
 	
 	override func viewDidLoad() {
@@ -135,74 +163,121 @@ class SignupViewController: UIViewController, SignupViewProtocol {
 		
 	}
 	
+	func checkValidField(value:String?, alertLabel:UILabel, alertMessage:String) -> Bool {
+		
+		if value == nil {
+			alertLabel.isHidden = false
+			alertLabel.text = alertMessage
+			return false
+		}
+		
+		alertLabel.isHidden = true
+		return true
+	}
+	
+	func checkValidPasswordFields() -> Bool {
+		
+		var isValid = true
+		
+		let password = passwordTextField.checkField()
+		if !checkValidField(value: password, alertLabel: passwordAlertMessageLabel, alertMessage: NSLocalizedString("invalid_password", comment: "")) {
+			isValid = false
+		}
+		
+		let confirmPassword = confirmPasswordTextField.checkField()
+		if !checkValidField(value: confirmPassword, alertLabel: confirmPasswordAlertMessageLabel, alertMessage: NSLocalizedString("invalid_confirmPassword", comment: "")) {
+			isValid = false
+		}
+		
+		if isValid && password != confirmPassword {
+			isValid = checkValidField(value: nil, alertLabel: confirmPasswordAlertMessageLabel, alertMessage: NSLocalizedString("invalid_confirmPassword", comment: ""))
+		}
+		
+		return isValid
+	}
+	
 	@IBAction func save(_ sender: Any) {
 		
-		guard let name = fullNameTextField.checkField() else {
-			return
+		var isValid = true
+		
+		let name = fullNameTextField.checkField()
+		if !checkValidField(value: name, alertLabel: nameAlertMessageLabel, alertMessage: NSLocalizedString("invalid_name", comment: "")) {
+			isValid = false
 		}
 		
-		guard let cpf = cpfTextField.checkField()?.components(separatedBy: CharacterSet.decimalDigits.inverted).joined() else {
-			return
+
+		let cpf = cpfTextField.checkField()
+		if !checkValidField(value: cpf, alertLabel: cpfAlertMessageLabel, alertMessage: NSLocalizedString("invalid_cpf", comment: "")) {
+			isValid = false
 		}
 		
-		guard let birthday = birthdayTextField.checkField() else {
-			return
+		let birthday = birthdayTextField.checkField()
+		if !checkValidField(value: birthday, alertLabel: birthdayAlertMessageLabel, alertMessage: NSLocalizedString("invalid_birthday", comment: "")) {
+			isValid = false
 		}
 		
-		guard let email = emailTextField.checkField() else {
-			return
+		let email = emailTextField.checkField()
+		if !checkValidField(value: email, alertLabel: emailAlertMessageLabel, alertMessage: NSLocalizedString("invalid_email", comment: "")) {
+			isValid = false
 		}
 		
-		guard let mobile = mobileNumberTextField.checkField()?.components(separatedBy: CharacterSet.decimalDigits.inverted).joined() else {
-			return
+		let mobile = mobileNumberTextField.checkField()?.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
+		if !checkValidField(value: mobile, alertLabel: mobileAlertMessageLabel, alertMessage: NSLocalizedString("invalid_mobile", comment: "")) {
+			isValid = false
 		}
 		
-		guard let zipcode = zipcodeTextField.checkField()?.components(separatedBy: CharacterSet.decimalDigits.inverted).joined() else {
-			return
+		let zipcode = zipcodeTextField.checkField()?.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
+		if !checkValidField(value: zipcode, alertLabel: zipcodeAlertMessageLabel, alertMessage: NSLocalizedString("invalid_zipcode", comment: "")) {
+			isValid = false
 		}
 		
-		guard let street = streetTextField.checkField() else {
-			return
+		let street = streetTextField.checkField()
+		if !checkValidField(value: street, alertLabel: streetAlertMessageLabel, alertMessage: NSLocalizedString("invalid_street", comment: "")) {
+			isValid = false
 		}
 		
-		guard let streetNumber = numberTextField.checkField() else {
-			return
+		let streetNumber = numberTextField.checkField()
+		if !checkValidField(value: streetNumber, alertLabel: numberAlertMessageLabel, alertMessage: NSLocalizedString("invalid_streetNumber", comment: "")) {
+			isValid = false
 		}
 		
-		guard let neighborhood = neighborhoodTextField.checkField() else {
-			return
+		let neighborhood = neighborhoodTextField.checkField()
+		if !checkValidField(value: neighborhood, alertLabel: neighborhoodAlertMessageLabel, alertMessage: NSLocalizedString("invalid_neighborhood", comment: "")) {
+			isValid = false
 		}
 		
-		guard let city = cityTextField.checkField() else {
-			return
+		let city = cityTextField.checkField()
+		if !checkValidField(value: city, alertLabel: cityAlertMessageLabel, alertMessage: NSLocalizedString("invalid_city", comment: "")) {
+			isValid = false
 		}
 		
-		guard let state = stateTextField.checkField() else {
-			return
+		let state = stateTextField.checkField()
+		if !checkValidField(value: state, alertLabel: stateAlertMessageLabel, alertMessage: NSLocalizedString("invalid_state", comment: "")) {
+			isValid = false
 		}
 		
-		guard let password = passwordTextField.checkField() else {
-			return
+		let password = passwordTextField.checkField()
+		
+		if !checkValidPasswordFields() {
+			isValid = false
 		}
 		
-		guard let confirmPassword = confirmPasswordTextField.checkField() else {
-			return
+		let image = profilePictureImageView.image
+		
+			if image == nil {
+			isValid = checkValidField(value: nil, alertLabel: profileImageAlertMessage, alertMessage: NSLocalizedString("invalid_profileImage", comment: ""))
+			} else {
+				let _ = checkValidField(value: "ok", alertLabel: profileImageAlertMessage, alertMessage: NSLocalizedString("invalid_profileImage", comment: ""))
+		}
+
+		if isValid {
+			guard let base64Avatar = image!.toBase64String() else {
+				return
+			}
+			
+			presenter?.createUser(name: name!, cpf: cpf!, birthday: birthday!, email: email!, mobile: mobile!, zipcode: zipcode!, street: street!, streetNumber: streetNumber!, neighborhood: neighborhood!, city: city!, state: state!, password: password!, avatar:"data:image/jpeg;base64,\(base64Avatar)")
 		}
 		
-		if password != confirmPassword {
-			return
-		}
-		
-		guard let image = profilePictureImageView.image else {
-			return
-		}
-		
-		guard let base64Avatar = image.toBase64String() else {
-			return
-		}
-		
-		
-		presenter?.createUser(name: name, cpf: cpf, birthday: birthday, email: email, mobile: mobile, zipcode: zipcode, street: street, streetNumber: streetNumber, neighborhood: neighborhood, city: city, state: state, password: password, avatar:"data:image/jpeg;base64,\(base64Avatar)")
 	}
 	
 	func setProfileImageView(urlString:String) {
