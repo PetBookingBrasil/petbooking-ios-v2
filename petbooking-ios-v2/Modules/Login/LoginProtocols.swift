@@ -62,4 +62,9 @@ protocol LoginInteractorProtocol: class {
 protocol LoginViewProtocol: class {
 
   var presenter: LoginPresenterProtocol?  { get set }
+	
+	func didCompleteFacebookLoginWithError(error:Error?)
+	
+	func didCompleteLoginWithError(error:Error?)
+	
 }

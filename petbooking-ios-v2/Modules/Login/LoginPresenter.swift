@@ -55,7 +55,8 @@ class LoginPresenter: LoginPresenterProtocol {
 	}
 	
 	func didCompleteFacebookLoginWithError(error: Error?) {
-		
+			ALLoadingView.manager.hideLoadingView()
+		view?.didCompleteFacebookLoginWithError(error: error)
 	}
 	
 	func didCompleteLoginWithSuccess() {
@@ -69,7 +70,8 @@ class LoginPresenter: LoginPresenterProtocol {
 	}
 	
 	func didCompleteLoginWithError(error:Error?) {
-		
+			ALLoadingView.manager.hideLoadingView()
+		view?.didCompleteLoginWithError(error: error)
 	}
 	
 	func registerNewUserWithFacebookData() {
