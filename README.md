@@ -18,7 +18,6 @@ The application is organized by feature in following folders structure:
 + **_Libraries_**: 3rd party libraries used by the app.
 + **_Helpers_** - Utilities classes used in many places.
  
-> Each UI package has Android UI component like Activity/Fragment. Adapters, Holder or another file are inside when exists.
 
 ### Patterns
 + **_Webservice_** layer is done by:
