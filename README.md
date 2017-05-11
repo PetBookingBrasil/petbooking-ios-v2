@@ -3,7 +3,7 @@
 
 ### App architeture
 
-The architeture used on PetBooking iOS is the [Viper architeure](https://www.objc.io/issues/13-architecture/viper/).
+The architeture used on PetBooking iOS is the [Viper architeture](https://www.objc.io/issues/13-architecture/viper/).
 
 SDKs and 3rd party libraries are installed using [Cocoapods](https://cocoapods.org/)
 
