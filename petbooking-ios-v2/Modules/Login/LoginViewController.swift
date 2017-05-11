@@ -35,6 +35,7 @@ class LoginViewController: UIViewController, LoginViewProtocol {
 	override func viewDidLayoutSubviews() {
 		super.viewDidLayoutSubviews()
 		setupButtons()
+		
 	}
 	
 	func setupButtons() {
