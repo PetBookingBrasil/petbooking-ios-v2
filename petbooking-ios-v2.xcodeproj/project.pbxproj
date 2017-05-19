@@ -13,14 +13,72 @@
 		4120ED031EB0DE9F009D35B0 /* PresentationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ECFD1EB0DE9F009D35B0 /* PresentationRouter.swift */; };
 		4120ED041EB0DE9F009D35B0 /* PresentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ECFE1EB0DE9F009D35B0 /* PresentationViewController.swift */; };
 		4120ED051EB0DE9F009D35B0 /* PresentationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4120ECFF1EB0DE9F009D35B0 /* PresentationViewController.xib */; };
-		4120ED081EB111A7009D35B0 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ED071EB111A7009D35B0 /* UIButtonExtension.swift */; };
+		4120ED081EB111A7009D35B0 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ED071EB111A7009D35B0 /* UIViewExtension.swift */; };
 		4120ED0A1EB11BA0009D35B0 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ED091EB11BA0009D35B0 /* UIColorExtension.swift */; };
 		4120ED101EB128A5009D35B0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4120ED0F1EB128A5009D35B0 /* Localizable.strings */; };
+		4120ED181EB38650009D35B0 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ED121EB38650009D35B0 /* LoginInteractor.swift */; };
+		4120ED191EB38650009D35B0 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ED131EB38650009D35B0 /* LoginPresenter.swift */; };
+		4120ED1A1EB38650009D35B0 /* LoginProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ED141EB38650009D35B0 /* LoginProtocols.swift */; };
+		4120ED1B1EB38650009D35B0 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ED151EB38650009D35B0 /* LoginRouter.swift */; };
+		4120ED1C1EB38650009D35B0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ED161EB38650009D35B0 /* LoginViewController.swift */; };
+		4120ED1D1EB38650009D35B0 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4120ED171EB38650009D35B0 /* LoginViewController.xib */; };
+		4120ED1F1EB390C3009D35B0 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ED1E1EB390C3009D35B0 /* UIViewControllerExtension.swift */; };
+		4120ED271EB4F136009D35B0 /* ForgotPasswordInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ED211EB4F136009D35B0 /* ForgotPasswordInteractor.swift */; };
+		4120ED281EB4F136009D35B0 /* ForgotPasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ED221EB4F136009D35B0 /* ForgotPasswordPresenter.swift */; };
+		4120ED291EB4F136009D35B0 /* ForgotPasswordProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ED231EB4F136009D35B0 /* ForgotPasswordProtocols.swift */; };
+		4120ED2A1EB4F136009D35B0 /* ForgotPasswordRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ED241EB4F136009D35B0 /* ForgotPasswordRouter.swift */; };
+		4120ED2B1EB4F136009D35B0 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ED251EB4F136009D35B0 /* ForgotPasswordViewController.swift */; };
+		4120ED2C1EB4F136009D35B0 /* ForgotPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4120ED261EB4F136009D35B0 /* ForgotPasswordViewController.xib */; };
+		4120ED2E1EB500A6009D35B0 /* UINavigationControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ED2D1EB500A6009D35B0 /* UINavigationControllerExtension.swift */; };
+		4120ED361EB529FE009D35B0 /* SignupInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ED301EB529FE009D35B0 /* SignupInteractor.swift */; };
+		4120ED371EB529FE009D35B0 /* SignupPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ED311EB529FE009D35B0 /* SignupPresenter.swift */; };
+		4120ED381EB529FE009D35B0 /* SignupProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ED321EB529FE009D35B0 /* SignupProtocols.swift */; };
+		4120ED391EB529FE009D35B0 /* SignupRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ED331EB529FE009D35B0 /* SignupRouter.swift */; };
+		4120ED3B1EB529FE009D35B0 /* SignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4120ED351EB529FE009D35B0 /* SignupViewController.xib */; };
 		413682C11E9C2B2D008C463B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413682C01E9C2B2D008C463B /* AppDelegate.swift */; };
 		413682C31E9C2B2D008C463B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413682C21E9C2B2D008C463B /* ViewController.swift */; };
 		413682C61E9C2B2D008C463B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 413682C41E9C2B2D008C463B /* Main.storyboard */; };
 		413682C81E9C2B2D008C463B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 413682C71E9C2B2D008C463B /* Assets.xcassets */; };
 		413682CB1E9C2B2D008C463B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 413682C91E9C2B2D008C463B /* LaunchScreen.storyboard */; };
+		4137157F1EBD5B3F00258C6F /* PresentationPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4137157E1EBD5B3F00258C6F /* PresentationPageViewController.swift */; };
+		413715871EBE7D0300258C6F /* SelectPhotoSourcePopupInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413715811EBE7D0300258C6F /* SelectPhotoSourcePopupInteractor.swift */; };
+		413715881EBE7D0300258C6F /* SelectPhotoSourcePopupPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413715821EBE7D0300258C6F /* SelectPhotoSourcePopupPresenter.swift */; };
+		413715891EBE7D0300258C6F /* SelectPhotoSourcePopupProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413715831EBE7D0300258C6F /* SelectPhotoSourcePopupProtocols.swift */; };
+		4137158A1EBE7D0300258C6F /* SelectPhotoSourcePopupRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413715841EBE7D0300258C6F /* SelectPhotoSourcePopupRouter.swift */; };
+		4137158B1EBE7D0300258C6F /* SelectPhotoSourcePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413715851EBE7D0300258C6F /* SelectPhotoSourcePopupViewController.swift */; };
+		4137158C1EBE7D0300258C6F /* SelectPhotoSourcePopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 413715861EBE7D0300258C6F /* SelectPhotoSourcePopupViewController.xib */; };
+		4137158F1EBEAFFA00258C6F /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4137158E1EBEAFFA00258C6F /* Device.swift */; };
+		413715931EBEB3B400258C6F /* MIBlurPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413715921EBEB3B400258C6F /* MIBlurPopup.swift */; };
+		414BB1F31EBFF4AF000BE2CC /* AlertPopupInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414BB1ED1EBFF4AF000BE2CC /* AlertPopupInteractor.swift */; };
+		414BB1F41EBFF4AF000BE2CC /* AlertPopupPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414BB1EE1EBFF4AF000BE2CC /* AlertPopupPresenter.swift */; };
+		414BB1F51EBFF4AF000BE2CC /* AlertPopupProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414BB1EF1EBFF4AF000BE2CC /* AlertPopupProtocols.swift */; };
+		414BB1F61EBFF4AF000BE2CC /* AlertPopupRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414BB1F01EBFF4AF000BE2CC /* AlertPopupRouter.swift */; };
+		414BB1F71EBFF4AF000BE2CC /* AlertPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414BB1F11EBFF4AF000BE2CC /* AlertPopupViewController.swift */; };
+		414BB1F81EBFF4AF000BE2CC /* AlertPopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 414BB1F21EBFF4AF000BE2CC /* AlertPopupViewController.xib */; };
+		414BB1FA1EC00722000BE2CC /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414BB1F91EC00722000BE2CC /* StringExtension.swift */; };
+		415BCAE01EB534C40015BB0C /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415BCADF1EB534C40015BB0C /* SignupViewController.swift */; };
+		415F73D41EBA9F08000D9B14 /* ViaCepAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415F73D31EBA9F08000D9B14 /* ViaCepAPI.swift */; };
+		415F73D61EBAA033000D9B14 /* ViaCepAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415F73D51EBAA033000D9B14 /* ViaCepAddress.swift */; };
+		415F73D81EBC16E2000D9B14 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415F73D71EBC16E2000D9B14 /* UIImageExtension.swift */; };
+		4168AA4C1EB69217001E2D6D /* PetbookingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4168AA4B1EB69217001E2D6D /* PetbookingAPI.swift */; };
+		4168AA4F1EB6A4DD001E2D6D /* Consumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4168AA4E1EB6A4DD001E2D6D /* Consumer.swift */; };
+		4168AA521EB6A828001E2D6D /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4168AA511EB6A828001E2D6D /* UserManager.swift */; };
+		4168AA541EB6BB56001E2D6D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4168AA531EB6BB56001E2D6D /* User.swift */; };
+		4168AA561EB79399001E2D6D /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4168AA551EB79399001E2D6D /* Session.swift */; };
+		4168AA581EB794D5001E2D6D /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4168AA571EB794D5001E2D6D /* SessionManager.swift */; };
+		4168AA5C1EB80A24001E2D6D /* ErrorRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4168AA5B1EB80A24001E2D6D /* ErrorRest.swift */; };
+		4168AA5E1EB8181B001E2D6D /* FacebookGraphModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4168AA5D1EB8181B001E2D6D /* FacebookGraphModel.swift */; };
+		41E7E2DD1EC106FC002C0A55 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E7E2DC1EC106FC002C0A55 /* UITextFieldExtension.swift */; };
+		41E7E2EA1EC27833002C0A55 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 41E7E2E01EC27833002C0A55 /* OpenSans-Bold.ttf */; };
+		41E7E2EB1EC27833002C0A55 /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 41E7E2E11EC27833002C0A55 /* OpenSans-BoldItalic.ttf */; };
+		41E7E2EC1EC27833002C0A55 /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 41E7E2E21EC27833002C0A55 /* OpenSans-ExtraBold.ttf */; };
+		41E7E2ED1EC27833002C0A55 /* OpenSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 41E7E2E31EC27833002C0A55 /* OpenSans-ExtraBoldItalic.ttf */; };
+		41E7E2EE1EC27833002C0A55 /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 41E7E2E41EC27833002C0A55 /* OpenSans-Italic.ttf */; };
+		41E7E2EF1EC27833002C0A55 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 41E7E2E51EC27833002C0A55 /* OpenSans-Light.ttf */; };
+		41E7E2F01EC27833002C0A55 /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 41E7E2E61EC27833002C0A55 /* OpenSans-LightItalic.ttf */; };
+		41E7E2F11EC27833002C0A55 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 41E7E2E71EC27833002C0A55 /* OpenSans-Regular.ttf */; };
+		41E7E2F21EC27833002C0A55 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 41E7E2E81EC27833002C0A55 /* OpenSans-Semibold.ttf */; };
+		41E7E2F31EC27833002C0A55 /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 41E7E2E91EC27833002C0A55 /* OpenSans-SemiboldItalic.ttf */; };
 		DFC90A17A5F8AA2CE20F8375 /* Pods_petbooking_ios_v2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9D68A4E19945C41B8E9EDFE /* Pods_petbooking_ios_v2.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,9 +89,28 @@
 		4120ECFD1EB0DE9F009D35B0 /* PresentationRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationRouter.swift; sourceTree = "<group>"; };
 		4120ECFE1EB0DE9F009D35B0 /* PresentationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationViewController.swift; sourceTree = "<group>"; };
 		4120ECFF1EB0DE9F009D35B0 /* PresentationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PresentationViewController.xib; sourceTree = "<group>"; };
-		4120ED071EB111A7009D35B0 /* UIButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		4120ED071EB111A7009D35B0 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		4120ED091EB11BA0009D35B0 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		4120ED0F1EB128A5009D35B0 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		4120ED121EB38650009D35B0 /* LoginInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
+		4120ED131EB38650009D35B0 /* LoginPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		4120ED141EB38650009D35B0 /* LoginProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginProtocols.swift; sourceTree = "<group>"; };
+		4120ED151EB38650009D35B0 /* LoginRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
+		4120ED161EB38650009D35B0 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		4120ED171EB38650009D35B0 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		4120ED1E1EB390C3009D35B0 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		4120ED211EB4F136009D35B0 /* ForgotPasswordInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordInteractor.swift; sourceTree = "<group>"; };
+		4120ED221EB4F136009D35B0 /* ForgotPasswordPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordPresenter.swift; sourceTree = "<group>"; };
+		4120ED231EB4F136009D35B0 /* ForgotPasswordProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordProtocols.swift; sourceTree = "<group>"; };
+		4120ED241EB4F136009D35B0 /* ForgotPasswordRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordRouter.swift; sourceTree = "<group>"; };
+		4120ED251EB4F136009D35B0 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		4120ED261EB4F136009D35B0 /* ForgotPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgotPasswordViewController.xib; sourceTree = "<group>"; };
+		4120ED2D1EB500A6009D35B0 /* UINavigationControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtension.swift; sourceTree = "<group>"; };
+		4120ED301EB529FE009D35B0 /* SignupInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupInteractor.swift; sourceTree = "<group>"; };
+		4120ED311EB529FE009D35B0 /* SignupPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupPresenter.swift; sourceTree = "<group>"; };
+		4120ED321EB529FE009D35B0 /* SignupProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupProtocols.swift; sourceTree = "<group>"; };
+		4120ED331EB529FE009D35B0 /* SignupRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupRouter.swift; sourceTree = "<group>"; };
+		4120ED351EB529FE009D35B0 /* SignupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignupViewController.xib; sourceTree = "<group>"; };
 		413682BD1E9C2B2D008C463B /* petbooking-ios-v2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "petbooking-ios-v2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		413682C01E9C2B2D008C463B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		413682C21E9C2B2D008C463B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -41,6 +118,45 @@
 		413682C71E9C2B2D008C463B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		413682CA1E9C2B2D008C463B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		413682CC1E9C2B2D008C463B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4137157E1EBD5B3F00258C6F /* PresentationPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationPageViewController.swift; sourceTree = "<group>"; };
+		413715811EBE7D0300258C6F /* SelectPhotoSourcePopupInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectPhotoSourcePopupInteractor.swift; sourceTree = "<group>"; };
+		413715821EBE7D0300258C6F /* SelectPhotoSourcePopupPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectPhotoSourcePopupPresenter.swift; sourceTree = "<group>"; };
+		413715831EBE7D0300258C6F /* SelectPhotoSourcePopupProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectPhotoSourcePopupProtocols.swift; sourceTree = "<group>"; };
+		413715841EBE7D0300258C6F /* SelectPhotoSourcePopupRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectPhotoSourcePopupRouter.swift; sourceTree = "<group>"; };
+		413715851EBE7D0300258C6F /* SelectPhotoSourcePopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectPhotoSourcePopupViewController.swift; sourceTree = "<group>"; };
+		413715861EBE7D0300258C6F /* SelectPhotoSourcePopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectPhotoSourcePopupViewController.xib; sourceTree = "<group>"; };
+		4137158E1EBEAFFA00258C6F /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		413715921EBEB3B400258C6F /* MIBlurPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIBlurPopup.swift; sourceTree = "<group>"; };
+		414BB1ED1EBFF4AF000BE2CC /* AlertPopupInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertPopupInteractor.swift; sourceTree = "<group>"; };
+		414BB1EE1EBFF4AF000BE2CC /* AlertPopupPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertPopupPresenter.swift; sourceTree = "<group>"; };
+		414BB1EF1EBFF4AF000BE2CC /* AlertPopupProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertPopupProtocols.swift; sourceTree = "<group>"; };
+		414BB1F01EBFF4AF000BE2CC /* AlertPopupRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertPopupRouter.swift; sourceTree = "<group>"; };
+		414BB1F11EBFF4AF000BE2CC /* AlertPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertPopupViewController.swift; sourceTree = "<group>"; };
+		414BB1F21EBFF4AF000BE2CC /* AlertPopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlertPopupViewController.xib; sourceTree = "<group>"; };
+		414BB1F91EC00722000BE2CC /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		415BCADF1EB534C40015BB0C /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		415F73D31EBA9F08000D9B14 /* ViaCepAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViaCepAPI.swift; sourceTree = "<group>"; };
+		415F73D51EBAA033000D9B14 /* ViaCepAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViaCepAddress.swift; sourceTree = "<group>"; };
+		415F73D71EBC16E2000D9B14 /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		4168AA4B1EB69217001E2D6D /* PetbookingAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetbookingAPI.swift; sourceTree = "<group>"; };
+		4168AA4E1EB6A4DD001E2D6D /* Consumer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Consumer.swift; sourceTree = "<group>"; };
+		4168AA511EB6A828001E2D6D /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		4168AA531EB6BB56001E2D6D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		4168AA551EB79399001E2D6D /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		4168AA571EB794D5001E2D6D /* SessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
+		4168AA5B1EB80A24001E2D6D /* ErrorRest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorRest.swift; sourceTree = "<group>"; };
+		4168AA5D1EB8181B001E2D6D /* FacebookGraphModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookGraphModel.swift; sourceTree = "<group>"; };
+		41E7E2DC1EC106FC002C0A55 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
+		41E7E2E01EC27833002C0A55 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		41E7E2E11EC27833002C0A55 /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		41E7E2E21EC27833002C0A55 /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		41E7E2E31EC27833002C0A55 /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		41E7E2E41EC27833002C0A55 /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
+		41E7E2E51EC27833002C0A55 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		41E7E2E61EC27833002C0A55 /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		41E7E2E71EC27833002C0A55 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		41E7E2E81EC27833002C0A55 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
+		41E7E2E91EC27833002C0A55 /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; };
 		5EC8A11A3CAAE140E557AF6F /* Pods-petbooking-ios-v2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petbooking-ios-v2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-petbooking-ios-v2/Pods-petbooking-ios-v2.debug.xcconfig"; sourceTree = "<group>"; };
 		9908B75EC13330082A78645E /* Pods-petbooking-ios-v2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petbooking-ios-v2.release.xcconfig"; path = "Pods/Target Support Files/Pods-petbooking-ios-v2/Pods-petbooking-ios-v2.release.xcconfig"; sourceTree = "<group>"; };
 		C9D68A4E19945C41B8E9EDFE /* Pods_petbooking_ios_v2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_petbooking_ios_v2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,10 +177,54 @@
 		4120ED061EB11188009D35B0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				4120ED071EB111A7009D35B0 /* UIButtonExtension.swift */,
+				4120ED071EB111A7009D35B0 /* UIViewExtension.swift */,
 				4120ED091EB11BA0009D35B0 /* UIColorExtension.swift */,
+				4120ED1E1EB390C3009D35B0 /* UIViewControllerExtension.swift */,
+				4120ED2D1EB500A6009D35B0 /* UINavigationControllerExtension.swift */,
+				415F73D71EBC16E2000D9B14 /* UIImageExtension.swift */,
+				414BB1F91EC00722000BE2CC /* StringExtension.swift */,
+				41E7E2DC1EC106FC002C0A55 /* UITextFieldExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4120ED111EB38629009D35B0 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				4120ED121EB38650009D35B0 /* LoginInteractor.swift */,
+				4120ED131EB38650009D35B0 /* LoginPresenter.swift */,
+				4120ED141EB38650009D35B0 /* LoginProtocols.swift */,
+				4120ED151EB38650009D35B0 /* LoginRouter.swift */,
+				4120ED161EB38650009D35B0 /* LoginViewController.swift */,
+				4120ED171EB38650009D35B0 /* LoginViewController.xib */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		4120ED201EB4F11E009D35B0 /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+				4120ED211EB4F136009D35B0 /* ForgotPasswordInteractor.swift */,
+				4120ED221EB4F136009D35B0 /* ForgotPasswordPresenter.swift */,
+				4120ED231EB4F136009D35B0 /* ForgotPasswordProtocols.swift */,
+				4120ED241EB4F136009D35B0 /* ForgotPasswordRouter.swift */,
+				4120ED251EB4F136009D35B0 /* ForgotPasswordViewController.swift */,
+				4120ED261EB4F136009D35B0 /* ForgotPasswordViewController.xib */,
+			);
+			path = ForgotPassword;
+			sourceTree = "<group>";
+		};
+		4120ED2F1EB529EC009D35B0 /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				4120ED301EB529FE009D35B0 /* SignupInteractor.swift */,
+				4120ED311EB529FE009D35B0 /* SignupPresenter.swift */,
+				4120ED321EB529FE009D35B0 /* SignupProtocols.swift */,
+				4120ED331EB529FE009D35B0 /* SignupRouter.swift */,
+				415BCADF1EB534C40015BB0C /* SignupViewController.swift */,
+				4120ED351EB529FE009D35B0 /* SignupViewController.xib */,
+			);
+			path = Signup;
 			sourceTree = "<group>";
 		};
 		413682B41E9C2B2D008C463B = {
@@ -88,6 +248,12 @@
 		413682BF1E9C2B2D008C463B /* petbooking-ios-v2 */ = {
 			isa = PBXGroup;
 			children = (
+				41E7E2DE1EC27821002C0A55 /* Fonts */,
+				413715901EBEB38C00258C6F /* Libraries */,
+				4137158D1EBEAFDD00258C6F /* Helpers */,
+				4168AA501EB6A819001E2D6D /* Managers */,
+				4168AA4D1EB6A4B5001E2D6D /* Models */,
+				4168AA4A1EB691E1001E2D6D /* Webservices */,
 				4120ED061EB11188009D35B0 /* Extensions */,
 				418D099C1EB0D71200FCD5A6 /* Modules */,
 				413682C01E9C2B2D008C463B /* AppDelegate.swift */,
@@ -101,9 +267,95 @@
 			path = "petbooking-ios-v2";
 			sourceTree = "<group>";
 		};
+		413715801EBE7CEA00258C6F /* SelectPhotoSourcePopup */ = {
+			isa = PBXGroup;
+			children = (
+				413715811EBE7D0300258C6F /* SelectPhotoSourcePopupInteractor.swift */,
+				413715821EBE7D0300258C6F /* SelectPhotoSourcePopupPresenter.swift */,
+				413715831EBE7D0300258C6F /* SelectPhotoSourcePopupProtocols.swift */,
+				413715841EBE7D0300258C6F /* SelectPhotoSourcePopupRouter.swift */,
+				413715851EBE7D0300258C6F /* SelectPhotoSourcePopupViewController.swift */,
+				413715861EBE7D0300258C6F /* SelectPhotoSourcePopupViewController.xib */,
+			);
+			path = SelectPhotoSourcePopup;
+			sourceTree = "<group>";
+		};
+		4137158D1EBEAFDD00258C6F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4137158E1EBEAFFA00258C6F /* Device.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		413715901EBEB38C00258C6F /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				413715911EBEB3B400258C6F /* MIBlurPopup */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		413715911EBEB3B400258C6F /* MIBlurPopup */ = {
+			isa = PBXGroup;
+			children = (
+				413715921EBEB3B400258C6F /* MIBlurPopup.swift */,
+			);
+			path = MIBlurPopup;
+			sourceTree = "<group>";
+		};
+		414BB1EC1EBFF49A000BE2CC /* AlertPopup */ = {
+			isa = PBXGroup;
+			children = (
+				414BB1ED1EBFF4AF000BE2CC /* AlertPopupInteractor.swift */,
+				414BB1EE1EBFF4AF000BE2CC /* AlertPopupPresenter.swift */,
+				414BB1EF1EBFF4AF000BE2CC /* AlertPopupProtocols.swift */,
+				414BB1F01EBFF4AF000BE2CC /* AlertPopupRouter.swift */,
+				414BB1F11EBFF4AF000BE2CC /* AlertPopupViewController.swift */,
+				414BB1F21EBFF4AF000BE2CC /* AlertPopupViewController.xib */,
+			);
+			path = AlertPopup;
+			sourceTree = "<group>";
+		};
+		4168AA4A1EB691E1001E2D6D /* Webservices */ = {
+			isa = PBXGroup;
+			children = (
+				4168AA4B1EB69217001E2D6D /* PetbookingAPI.swift */,
+				415F73D31EBA9F08000D9B14 /* ViaCepAPI.swift */,
+			);
+			path = Webservices;
+			sourceTree = "<group>";
+		};
+		4168AA4D1EB6A4B5001E2D6D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4168AA4E1EB6A4DD001E2D6D /* Consumer.swift */,
+				4168AA531EB6BB56001E2D6D /* User.swift */,
+				4168AA551EB79399001E2D6D /* Session.swift */,
+				4168AA5B1EB80A24001E2D6D /* ErrorRest.swift */,
+				4168AA5D1EB8181B001E2D6D /* FacebookGraphModel.swift */,
+				415F73D51EBAA033000D9B14 /* ViaCepAddress.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4168AA501EB6A819001E2D6D /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				4168AA511EB6A828001E2D6D /* UserManager.swift */,
+				4168AA571EB794D5001E2D6D /* SessionManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		418D099C1EB0D71200FCD5A6 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				414BB1EC1EBFF49A000BE2CC /* AlertPopup */,
+				413715801EBE7CEA00258C6F /* SelectPhotoSourcePopup */,
+				4120ED2F1EB529EC009D35B0 /* Signup */,
+				4120ED201EB4F11E009D35B0 /* ForgotPassword */,
+				4120ED111EB38629009D35B0 /* Login */,
 				418D099D1EB0D7B800FCD5A6 /* Presentation */,
 			);
 			path = Modules;
@@ -118,8 +370,34 @@
 				4120ECFD1EB0DE9F009D35B0 /* PresentationRouter.swift */,
 				4120ECFE1EB0DE9F009D35B0 /* PresentationViewController.swift */,
 				4120ECFF1EB0DE9F009D35B0 /* PresentationViewController.xib */,
+				4137157E1EBD5B3F00258C6F /* PresentationPageViewController.swift */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		41E7E2DE1EC27821002C0A55 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				41E7E2DF1EC27821002C0A55 /* OpenSans */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		41E7E2DF1EC27821002C0A55 /* OpenSans */ = {
+			isa = PBXGroup;
+			children = (
+				41E7E2E01EC27833002C0A55 /* OpenSans-Bold.ttf */,
+				41E7E2E11EC27833002C0A55 /* OpenSans-BoldItalic.ttf */,
+				41E7E2E21EC27833002C0A55 /* OpenSans-ExtraBold.ttf */,
+				41E7E2E31EC27833002C0A55 /* OpenSans-ExtraBoldItalic.ttf */,
+				41E7E2E41EC27833002C0A55 /* OpenSans-Italic.ttf */,
+				41E7E2E51EC27833002C0A55 /* OpenSans-Light.ttf */,
+				41E7E2E61EC27833002C0A55 /* OpenSans-LightItalic.ttf */,
+				41E7E2E71EC27833002C0A55 /* OpenSans-Regular.ttf */,
+				41E7E2E81EC27833002C0A55 /* OpenSans-Semibold.ttf */,
+				41E7E2E91EC27833002C0A55 /* OpenSans-SemiboldItalic.ttf */,
+			);
+			path = OpenSans;
 			sourceTree = "<group>";
 		};
 		6BC186A20FCE32BA04CC64D7 /* Pods */ = {
@@ -202,11 +480,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41E7E2EA1EC27833002C0A55 /* OpenSans-Bold.ttf in Resources */,
+				41E7E2ED1EC27833002C0A55 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
+				414BB1F81EBFF4AF000BE2CC /* AlertPopupViewController.xib in Resources */,
+				41E7E2EE1EC27833002C0A55 /* OpenSans-Italic.ttf in Resources */,
 				4120ED101EB128A5009D35B0 /* Localizable.strings in Resources */,
 				413682CB1E9C2B2D008C463B /* LaunchScreen.storyboard in Resources */,
+				4120ED2C1EB4F136009D35B0 /* ForgotPasswordViewController.xib in Resources */,
+				4120ED1D1EB38650009D35B0 /* LoginViewController.xib in Resources */,
+				41E7E2F01EC27833002C0A55 /* OpenSans-LightItalic.ttf in Resources */,
+				41E7E2EB1EC27833002C0A55 /* OpenSans-BoldItalic.ttf in Resources */,
 				413682C81E9C2B2D008C463B /* Assets.xcassets in Resources */,
+				41E7E2F21EC27833002C0A55 /* OpenSans-Semibold.ttf in Resources */,
+				41E7E2EF1EC27833002C0A55 /* OpenSans-Light.ttf in Resources */,
 				4120ED051EB0DE9F009D35B0 /* PresentationViewController.xib in Resources */,
+				4120ED3B1EB529FE009D35B0 /* SignupViewController.xib in Resources */,
 				413682C61E9C2B2D008C463B /* Main.storyboard in Resources */,
+				41E7E2F31EC27833002C0A55 /* OpenSans-SemiboldItalic.ttf in Resources */,
+				4137158C1EBE7D0300258C6F /* SelectPhotoSourcePopupViewController.xib in Resources */,
+				41E7E2F11EC27833002C0A55 /* OpenSans-Regular.ttf in Resources */,
+				41E7E2EC1EC27833002C0A55 /* OpenSans-ExtraBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,7 +518,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		BC86734ECD653476C12801FB /* [CP] Embed Pods Frameworks */ = {
@@ -265,15 +558,58 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4120ED1C1EB38650009D35B0 /* LoginViewController.swift in Sources */,
 				4120ED031EB0DE9F009D35B0 /* PresentationRouter.swift in Sources */,
-				4120ED081EB111A7009D35B0 /* UIButtonExtension.swift in Sources */,
+				4120ED1F1EB390C3009D35B0 /* UIViewControllerExtension.swift in Sources */,
+				4120ED381EB529FE009D35B0 /* SignupProtocols.swift in Sources */,
+				4120ED081EB111A7009D35B0 /* UIViewExtension.swift in Sources */,
 				413682C31E9C2B2D008C463B /* ViewController.swift in Sources */,
+				4168AA5E1EB8181B001E2D6D /* FacebookGraphModel.swift in Sources */,
 				4120ED001EB0DE9F009D35B0 /* PresentationInteractor.swift in Sources */,
+				414BB1FA1EC00722000BE2CC /* StringExtension.swift in Sources */,
+				4168AA521EB6A828001E2D6D /* UserManager.swift in Sources */,
+				413715931EBEB3B400258C6F /* MIBlurPopup.swift in Sources */,
+				4168AA541EB6BB56001E2D6D /* User.swift in Sources */,
+				4120ED191EB38650009D35B0 /* LoginPresenter.swift in Sources */,
+				4137158F1EBEAFFA00258C6F /* Device.swift in Sources */,
+				4120ED291EB4F136009D35B0 /* ForgotPasswordProtocols.swift in Sources */,
+				415F73D61EBAA033000D9B14 /* ViaCepAddress.swift in Sources */,
+				4120ED2A1EB4F136009D35B0 /* ForgotPasswordRouter.swift in Sources */,
 				4120ED011EB0DE9F009D35B0 /* PresentationPresenter.swift in Sources */,
+				4120ED271EB4F136009D35B0 /* ForgotPasswordInteractor.swift in Sources */,
+				4168AA581EB794D5001E2D6D /* SessionManager.swift in Sources */,
 				4120ED0A1EB11BA0009D35B0 /* UIColorExtension.swift in Sources */,
+				414BB1F31EBFF4AF000BE2CC /* AlertPopupInteractor.swift in Sources */,
+				4137158B1EBE7D0300258C6F /* SelectPhotoSourcePopupViewController.swift in Sources */,
 				413682C11E9C2B2D008C463B /* AppDelegate.swift in Sources */,
+				4137157F1EBD5B3F00258C6F /* PresentationPageViewController.swift in Sources */,
 				4120ED041EB0DE9F009D35B0 /* PresentationViewController.swift in Sources */,
+				414BB1F61EBFF4AF000BE2CC /* AlertPopupRouter.swift in Sources */,
+				4168AA5C1EB80A24001E2D6D /* ErrorRest.swift in Sources */,
+				414BB1F41EBFF4AF000BE2CC /* AlertPopupPresenter.swift in Sources */,
+				4120ED371EB529FE009D35B0 /* SignupPresenter.swift in Sources */,
+				4120ED361EB529FE009D35B0 /* SignupInteractor.swift in Sources */,
+				415F73D81EBC16E2000D9B14 /* UIImageExtension.swift in Sources */,
+				4168AA561EB79399001E2D6D /* Session.swift in Sources */,
+				41E7E2DD1EC106FC002C0A55 /* UITextFieldExtension.swift in Sources */,
+				4168AA4F1EB6A4DD001E2D6D /* Consumer.swift in Sources */,
+				415F73D41EBA9F08000D9B14 /* ViaCepAPI.swift in Sources */,
+				413715871EBE7D0300258C6F /* SelectPhotoSourcePopupInteractor.swift in Sources */,
+				4137158A1EBE7D0300258C6F /* SelectPhotoSourcePopupRouter.swift in Sources */,
+				4120ED2E1EB500A6009D35B0 /* UINavigationControllerExtension.swift in Sources */,
+				413715891EBE7D0300258C6F /* SelectPhotoSourcePopupProtocols.swift in Sources */,
+				414BB1F51EBFF4AF000BE2CC /* AlertPopupProtocols.swift in Sources */,
+				4168AA4C1EB69217001E2D6D /* PetbookingAPI.swift in Sources */,
+				4120ED281EB4F136009D35B0 /* ForgotPasswordPresenter.swift in Sources */,
+				4120ED391EB529FE009D35B0 /* SignupRouter.swift in Sources */,
+				4120ED1A1EB38650009D35B0 /* LoginProtocols.swift in Sources */,
+				4120ED2B1EB4F136009D35B0 /* ForgotPasswordViewController.swift in Sources */,
+				415BCAE01EB534C40015BB0C /* SignupViewController.swift in Sources */,
+				4120ED181EB38650009D35B0 /* LoginInteractor.swift in Sources */,
+				414BB1F71EBFF4AF000BE2CC /* AlertPopupViewController.swift in Sources */,
+				4120ED1B1EB38650009D35B0 /* LoginRouter.swift in Sources */,
 				4120ED021EB0DE9F009D35B0 /* PresentationProtocols.swift in Sources */,
+				413715881EBE7D0300258C6F /* SelectPhotoSourcePopupPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +639,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				API_BASE_URL_ENDPOINT = novo.petbooking.com.br/api;
+				AUTH_KEY = "ac1e488b-38b6-47dd-b3a1-c2b3b77f67d4";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -353,6 +691,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				API_BASE_URL_ENDPOINT = novo.petbooking.com.br/api;
+				AUTH_KEY = "ac1e488b-38b6-47dd-b3a1-c2b3b77f67d4";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -396,7 +736,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5EC8A11A3CAAE140E557AF6F /* Pods-petbooking-ios-v2.debug.xcconfig */;
 			buildSettings = {
+				API_BASE_URL_ENDPOINT = staging.petbooking.com.br/api;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				AUTH_KEY = "2fe5ec0e-3a9b-4b77-824a-4b3a0a2e55ef";
 				DEVELOPMENT_TEAM = 77828RW9EP;
 				INFOPLIST_FILE = "petbooking-ios-v2/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -411,7 +753,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9908B75EC13330082A78645E /* Pods-petbooking-ios-v2.release.xcconfig */;
 			buildSettings = {
+				API_BASE_URL_ENDPOINT = novo.petbooking.com.br/api;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				AUTH_KEY = "ac1e488b-38b6-47dd-b3a1-c2b3b77f67d4";
 				DEVELOPMENT_TEAM = 77828RW9EP;
 				INFOPLIST_FILE = "petbooking-ios-v2/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -12,7 +12,7 @@ The application is organized by feature in following folders structure:
 
 + **_Webservices_**:  Contains all classes and interfaces that is use to communicate with rest service.
 + **_Modules_**: Contains the Viper modules.
-+ **_Models_**: Contains all models that represents the rest response..
++ **_Models_**: Contains all models that represents the rest response.
 + **_Extensions_**: Classes extensions.
 + **_Managers_**: Classes to manage objects stored on the mobile database, like User and Session.
 + **_Libraries_**: 3rd party libraries used by the app.

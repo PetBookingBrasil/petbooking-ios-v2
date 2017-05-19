@@ -6,5 +6,19 @@ target 'petbooking-ios-v2' do
   use_frameworks!
 
   # Pods for petbooking-ios-v2
+	
+	pod 'FacebookCore'
+	pod 'FacebookLogin'
+	#pod 'FacebookShare'
+	
+	pod 'Alamofire', '~> 4.4'
+	pod 'RealmSwift'
+	pod 'Mantle'
+	
+	pod 'PINRemoteImage'
+	pod 'IQKeyboardManager'
+	pod 'ALLoadingView'
+	pod 'AKMaskField'
+	pod 'Pageboy'
 
 end

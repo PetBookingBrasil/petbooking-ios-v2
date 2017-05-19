@@ -39,6 +39,7 @@ protocol PresentationPresenterProtocol: class {
 protocol PresentationInteractorProtocol: class {
 
   var presenter: PresentationPresenterProtocol?  { get set }
+	var parentView: PresentationParentProtocol? { get set}
 	
 	func didTapNextButton()
 	
@@ -59,4 +60,10 @@ protocol PresentationViewProtocol: class {
 	
 	func setupLabels(title:String, titleFont:UIFont?, description:String, descriptionFont:UIFont?)
 	
+}
+
+protocol PresentationParentProtocol: class {
+	
+	func nextPage()
+
 }

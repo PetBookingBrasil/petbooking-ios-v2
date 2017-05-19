@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>API_BASE_URL_ENDPOINT</key>
+	<string>$(API_BASE_URL_ENDPOINT)</string>
+	<key>AUTH_KEY</key>
+	<string>$(AUTH_KEY)</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -44,9 +48,33 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>3</string>
+	<string>8</string>
+	<key>FacebookAppID</key>
+	<string>1579605499022071</string>
+	<key>FacebookDisplayName</key>
+	<string>Pet Booking</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>comgooglemaps</string>
+		<string>waze</string>
+		<string>fbapi</string>
+		<string>fbapi20130214</string>
+		<string>fbapi20130410</string>
+		<string>fbapi20130702</string>
+		<string>fbapi20131010</string>
+		<string>fbapi20131219</string>
+		<string>fbapi20140410</string>
+		<string>fbapi20140116</string>
+		<string>fbapi20150313</string>
+		<string>fbapi20150629</string>
+		<string>fb-messenger-api20140430</string>
+		<string>fbauth</string>
+		<string>fbauth2</string>
+		<string>fb</string>
+		<string>fbshareextension</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -84,6 +112,8 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Upload profile picture</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>O Pet Booking precisa da sua localização para encontrar estabelecimentos próximos à você.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
@@ -92,10 +122,16 @@
 	<string>Upload profile picture</string>
 	<key>UIAppFonts</key>
 	<array>
-		<string>SourceSansPro-Regular.otf</string>
-		<string>SourceSansPro-Semibold.otf</string>
-		<string>SourceSansPro-It.otf</string>
-		<string>Avenir</string>
+		<string>OpenSans-Bold.ttf</string>
+		<string>OpenSans-BoldItalic.ttf</string>
+		<string>OpenSans-ExtraBold.ttf</string>
+		<string>OpenSans-ExtraBoldItalic.ttf</string>
+		<string>OpenSans-Italic.ttf</string>
+		<string>OpenSans-Light.ttf</string>
+		<string>OpenSans-LightItalic.ttf</string>
+		<string>OpenSans-Regular.ttf</string>
+		<string>OpenSans-Semibold.ttf</string>
+		<string>OpenSans-SemiboldItalic.ttf</string>
 	</array>
 	<key>UIApplicationShortcutItems</key>
 	<array>
@@ -148,5 +184,7 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>

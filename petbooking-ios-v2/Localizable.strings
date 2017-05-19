@@ -15,3 +15,21 @@
 "ap2_description" = "";
 "ap3_title" = "Simples, rápido e seguro!";
 "ap3_description" = "Cuidar dos seus Pets nunca foi tão fácil!";
+
+
+// Signup Screen
+
+"invalid_name" = "Por favor, insira seu nome e sobrenome.";
+"invalid_email" = "Insira seu e-mail no formato nome@domínio.com.";
+"invalid_cpf" = "Este CPF não é válido.";
+"invalid_birthday" = "Data de nascimento é um campo obrigatório";
+"invalid_mobile" = "Celular é um campo obrigatório";
+"invalid_zipcode" = "CEP é um campo obrigatório";
+"invalid_street" = "Rua é um campo obrigatório";
+"invalid_streetNumber" = "Número é um campo obrigatório";
+"invalid_neighborhood" = "Bairro é um campo obrigatório";
+"invalid_city" = "Cidade é um campo obrigatório";
+"invalid_state" = "Estado é um campo obrigatório";
+"invalid_password" = "Senha está inválida, por favor digite uma senha de, no mínimo, 8 caracteres.";
+"invalid_confirmPassword" = "As senhas não combinam";
+"invalid_profileImage" = "Selecione uma imagem para o seu perfil";

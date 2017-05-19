@@ -28,7 +28,7 @@ class PresentationRouter: PresentationWireframeProtocol {
 	}
 	
 	
-	static func createModule(index:PresentationIndex, navigationController:UINavigationController? = nil) -> UIViewController {
+	static func createModule(index:PresentationIndex, navigationController:UINavigationController? = nil, parentViewController:PresentationParentProtocol? = nil) -> UIViewController {
 		// Change to get view from storyboard if not using progammatic UI
 		let view = PresentationViewController(nibName: nil, bundle: nil)
 		let interactor = PresentationInteractor()
@@ -37,6 +37,7 @@ class PresentationRouter: PresentationWireframeProtocol {
 		
 		interactor.index = index
 		view.presenter = presenter
+		interactor.parentView = parentViewController
 		interactor.presenter = presenter
 		router.viewController = view
 		router.navigationController = navigationController
@@ -51,5 +52,7 @@ class PresentationRouter: PresentationWireframeProtocol {
 	
 	func skipPresentationView() {
 		
+		
+		self.viewController?.present(UINavigationController(rootViewController: LoginRouter.createModule()), animated: true, completion: nil)
 	}
 }

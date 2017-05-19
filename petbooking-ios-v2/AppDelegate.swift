@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FacebookCore
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,10 +19,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
 		
+		SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
 		
-		self.window?.rootViewController = PresentationRouter.createFirstModule()
+		UINavigationBar.appearance().barTintColor = UIColor(hex: "ff4b4b")
+		UINavigationBar.appearance().tintColor = .white
+		UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
+		UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffsetMake(0, -80.0), for: .default)
+		
+		var backButtonImage = UIImage(named: "back_icon")
+		backButtonImage = backButtonImage?.stretchableImage(withLeftCapWidth: 22, topCapHeight: 14)
+		UIBarButtonItem.appearance().setBackButtonBackgroundImage(backButtonImage, for: .normal, barMetrics: .default)
+		
+		PetbookingAPI.sharedInstance.getConsumer { (success, message) in
+			
+			
+			
+		}
+		
+		
+		if let _ = UserManager.sharedInstance.getCurrentUser() {
+			
+			let storyboard = UIStoryboard(name: "Main", bundle: nil)
+			let viewController = storyboard.instantiateViewController(withIdentifier :"ViewController")
+			self.window?.rootViewController = viewController
+			
+		} else {
+			self.window?.rootViewController = PresentationPageViewController()//PresentationRouter.createFirstModule()
+			
+		}
 		self.window?.makeKeyAndVisible()
+	
+		
 		return true
+	}
+	
+	func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+		
+		return SDKApplicationDelegate.shared.application(app, open:url, options:options)
 	}
 
 	func applicationWillResignActive(_ application: UIApplication) {

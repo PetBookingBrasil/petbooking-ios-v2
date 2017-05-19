@@ -22,16 +22,20 @@ class PresentationViewController: UIViewController, PresentationViewProtocol {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		setupButtons()
 		
 		presenter?.setupView()
 		self.navigationController?.isNavigationBarHidden = true
 	}
 	
+	override func viewDidLayoutSubviews() {
+		super.viewDidLayoutSubviews()
+		setupButtons()
+	}
+	
 	func setupButtons() {
-		nextButton.roundButton()
-		skipButton.roundButton()
-		skipButton.buttonWithBorder(width: 2, color: .white)
+		nextButton.round()
+		skipButton.round()
+		skipButton.setBorder(width: 2, color: .white)
 	}
 	
 	@IBAction func next(_ sender: Any) {
