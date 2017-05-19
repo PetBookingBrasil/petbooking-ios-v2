@@ -39,6 +39,7 @@ PODS:
   - Realm/Headers (2.6.2)
   - RealmSwift (2.6.2):
     - Realm (= 2.6.2)
+  - SideMenu (2.3.2)
 
 DEPENDENCIES:
   - AKMaskField
@@ -51,6 +52,7 @@ DEPENDENCIES:
   - Pageboy
   - PINRemoteImage
   - RealmSwift
+  - SideMenu
 
 SPEC CHECKSUMS:
   AKMaskField: b6d147524813e62cd3f15475fa2200ce7a3d2620
@@ -69,7 +71,8 @@ SPEC CHECKSUMS:
   PINRemoteImage: 4ac4011c5caefd6befd99758e09becede05d3226
   Realm: 29222766425b9f831228f81b63f0e38a97a4d700
   RealmSwift: d161a80f96cb91ae88391a7d5a9cf08024a7bc8e
+  SideMenu: 3fa07dd05d4bade2b6f9889fb1877e312e1ba319
 
-PODFILE CHECKSUM: e9f9368bd5748620c72ec60bfc81b6cd1c9b6172
+PODFILE CHECKSUM: 0ea5c5f077da98bd30ee632ae1b2f0002c5aeba0
 
 COCOAPODS: 1.2.1
