@@ -182,7 +182,6 @@ extension PetbookingAPI {
 			}
 		}
 	}
-	
 }
 
 // MARK: User
