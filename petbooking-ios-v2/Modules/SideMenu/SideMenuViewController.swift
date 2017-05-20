@@ -89,7 +89,9 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
 			cell.titleLabel.text = NSLocalizedString("side_menu_favorites", comment: "")
 			break
 		case .settings:
-			cell.iconImageView.image = UIImage(named:"editProfile")
+			cell.iconImageView.image = UIImage(named:"settings")
+			cell.iconImageView.image = cell.iconImageView.image!.withRenderingMode(.alwaysTemplate)
+			cell.iconImageView.tintColor = .white
 			cell.titleLabel.text = NSLocalizedString("side_menu_settings", comment: "")
 			break
 		case .logout:
