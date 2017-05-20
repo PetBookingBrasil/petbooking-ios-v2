@@ -21,7 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
 		
-		UINavigationBar.appearance().barTintColor = UIColor(hex: "ff4b4b")
+		UINavigationBar.appearance().isTranslucent = false
+		UINavigationBar.appearance().barTintColor = uicolorFromHex(rgbValue: 0xFF4B4B)
 		UINavigationBar.appearance().tintColor = .white
 		UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
 		UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffsetMake(0, -80.0), for: .default)
@@ -32,8 +33,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		PetbookingAPI.sharedInstance.getConsumer { (success, message) in
 			
-			
-			
 		}
 		
 		
@@ -41,10 +40,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			
 			let storyboard = UIStoryboard(name: "Main", bundle: nil)
 			let viewController = storyboard.instantiateViewController(withIdentifier :"ViewController")
-			self.window?.rootViewController = viewController
+			self.window?.rootViewController = UINavigationController(rootViewController: viewController)
 			
 		} else {
-			self.window?.rootViewController = PresentationPageViewController()//PresentationRouter.createFirstModule()
+			self.window?.rootViewController = PresentationPageViewController()
 			
 		}
 		self.window?.makeKeyAndVisible()
@@ -79,7 +78,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func applicationWillTerminate(_ application: UIApplication) {
 		// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 	}
-
+	func uicolorFromHex(rgbValue:UInt32)->UIColor {
+		
+		let red = CGFloat((rgbValue & 0xFF0000) >> 16)/256.0
+		
+		let green = CGFloat((rgbValue & 0xFF00) >> 8)/256.0
+		
+		let blue = CGFloat(rgbValue & 0xFF)/256.0
+		
+		return UIColor(red:red, green:green, blue:blue, alpha:1.0)
+	}
 
 }
 

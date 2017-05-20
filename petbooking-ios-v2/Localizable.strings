@@ -33,3 +33,13 @@
 "invalid_password" = "Senha está inválida, por favor digite uma senha de, no mínimo, 8 caracteres.";
 "invalid_confirmPassword" = "As senhas não combinam";
 "invalid_profileImage" = "Selecione uma imagem para o seu perfil";
+
+// Side Menu
+
+"side_menu_my_pets" = "Meus Pets";
+"side_menu_search" = "Pesquisar";
+"side_menu_agenda" = "Agenda";
+"side_menu_payments" = "Pagamentos";
+"side_menu_favorites" = "Favoritos";
+"side_menu_settings" = "Configurações";
+"side_menu_logout" = "Sair";
