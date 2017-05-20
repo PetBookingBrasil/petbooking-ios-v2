@@ -20,5 +20,7 @@ target 'petbooking-ios-v2' do
 	pod 'ALLoadingView'
 	pod 'AKMaskField'
 	pod 'Pageboy'
-
+	pod 'SideMenu'
+	pod 'ENSwiftSideMenu', '~> 0.1.1'
+	
 end

@@ -68,6 +68,14 @@
 		4168AA581EB794D5001E2D6D /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4168AA571EB794D5001E2D6D /* SessionManager.swift */; };
 		4168AA5C1EB80A24001E2D6D /* ErrorRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4168AA5B1EB80A24001E2D6D /* ErrorRest.swift */; };
 		4168AA5E1EB8181B001E2D6D /* FacebookGraphModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4168AA5D1EB8181B001E2D6D /* FacebookGraphModel.swift */; };
+		418DAA2A1ECE7EAE006265CF /* SideMenuInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418DAA241ECE7EAE006265CF /* SideMenuInteractor.swift */; };
+		418DAA2B1ECE7EAE006265CF /* SideMenuPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418DAA251ECE7EAE006265CF /* SideMenuPresenter.swift */; };
+		418DAA2C1ECE7EAE006265CF /* SideMenuProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418DAA261ECE7EAE006265CF /* SideMenuProtocols.swift */; };
+		418DAA2D1ECE7EAE006265CF /* SideMenuRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418DAA271ECE7EAE006265CF /* SideMenuRouter.swift */; };
+		418DAA2E1ECE7EAE006265CF /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418DAA281ECE7EAE006265CF /* SideMenuViewController.swift */; };
+		418DAA2F1ECE7EAE006265CF /* SideMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 418DAA291ECE7EAE006265CF /* SideMenuViewController.xib */; };
+		418DAA321ECE93FB006265CF /* SideMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418DAA301ECE93FB006265CF /* SideMenuTableViewCell.swift */; };
+		418DAA331ECE93FB006265CF /* SideMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 418DAA311ECE93FB006265CF /* SideMenuTableViewCell.xib */; };
 		41E7E2DD1EC106FC002C0A55 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E7E2DC1EC106FC002C0A55 /* UITextFieldExtension.swift */; };
 		41E7E2EA1EC27833002C0A55 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 41E7E2E01EC27833002C0A55 /* OpenSans-Bold.ttf */; };
 		41E7E2EB1EC27833002C0A55 /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 41E7E2E11EC27833002C0A55 /* OpenSans-BoldItalic.ttf */; };
@@ -146,6 +154,14 @@
 		4168AA571EB794D5001E2D6D /* SessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		4168AA5B1EB80A24001E2D6D /* ErrorRest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorRest.swift; sourceTree = "<group>"; };
 		4168AA5D1EB8181B001E2D6D /* FacebookGraphModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookGraphModel.swift; sourceTree = "<group>"; };
+		418DAA241ECE7EAE006265CF /* SideMenuInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuInteractor.swift; sourceTree = "<group>"; };
+		418DAA251ECE7EAE006265CF /* SideMenuPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuPresenter.swift; sourceTree = "<group>"; };
+		418DAA261ECE7EAE006265CF /* SideMenuProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuProtocols.swift; sourceTree = "<group>"; };
+		418DAA271ECE7EAE006265CF /* SideMenuRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuRouter.swift; sourceTree = "<group>"; };
+		418DAA281ECE7EAE006265CF /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		418DAA291ECE7EAE006265CF /* SideMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SideMenuViewController.xib; sourceTree = "<group>"; };
+		418DAA301ECE93FB006265CF /* SideMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewCell.swift; sourceTree = "<group>"; };
+		418DAA311ECE93FB006265CF /* SideMenuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SideMenuTableViewCell.xib; sourceTree = "<group>"; };
 		41E7E2DC1EC106FC002C0A55 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		41E7E2E01EC27833002C0A55 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		41E7E2E11EC27833002C0A55 /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
@@ -351,6 +367,7 @@
 		418D099C1EB0D71200FCD5A6 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				418DAA231ECE7E92006265CF /* SideMenu */,
 				414BB1EC1EBFF49A000BE2CC /* AlertPopup */,
 				413715801EBE7CEA00258C6F /* SelectPhotoSourcePopup */,
 				4120ED2F1EB529EC009D35B0 /* Signup */,
@@ -373,6 +390,21 @@
 				4137157E1EBD5B3F00258C6F /* PresentationPageViewController.swift */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		418DAA231ECE7E92006265CF /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				418DAA241ECE7EAE006265CF /* SideMenuInteractor.swift */,
+				418DAA251ECE7EAE006265CF /* SideMenuPresenter.swift */,
+				418DAA261ECE7EAE006265CF /* SideMenuProtocols.swift */,
+				418DAA271ECE7EAE006265CF /* SideMenuRouter.swift */,
+				418DAA281ECE7EAE006265CF /* SideMenuViewController.swift */,
+				418DAA291ECE7EAE006265CF /* SideMenuViewController.xib */,
+				418DAA301ECE93FB006265CF /* SideMenuTableViewCell.swift */,
+				418DAA311ECE93FB006265CF /* SideMenuTableViewCell.xib */,
+			);
+			path = SideMenu;
 			sourceTree = "<group>";
 		};
 		41E7E2DE1EC27821002C0A55 /* Fonts */ = {
@@ -481,6 +513,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				41E7E2EA1EC27833002C0A55 /* OpenSans-Bold.ttf in Resources */,
+				418DAA331ECE93FB006265CF /* SideMenuTableViewCell.xib in Resources */,
 				41E7E2ED1EC27833002C0A55 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
 				414BB1F81EBFF4AF000BE2CC /* AlertPopupViewController.xib in Resources */,
 				41E7E2EE1EC27833002C0A55 /* OpenSans-Italic.ttf in Resources */,
@@ -497,6 +530,7 @@
 				4120ED3B1EB529FE009D35B0 /* SignupViewController.xib in Resources */,
 				413682C61E9C2B2D008C463B /* Main.storyboard in Resources */,
 				41E7E2F31EC27833002C0A55 /* OpenSans-SemiboldItalic.ttf in Resources */,
+				418DAA2F1ECE7EAE006265CF /* SideMenuViewController.xib in Resources */,
 				4137158C1EBE7D0300258C6F /* SelectPhotoSourcePopupViewController.xib in Resources */,
 				41E7E2F11EC27833002C0A55 /* OpenSans-Regular.ttf in Resources */,
 				41E7E2EC1EC27833002C0A55 /* OpenSans-ExtraBold.ttf in Resources */,
@@ -580,6 +614,7 @@
 				4168AA581EB794D5001E2D6D /* SessionManager.swift in Sources */,
 				4120ED0A1EB11BA0009D35B0 /* UIColorExtension.swift in Sources */,
 				414BB1F31EBFF4AF000BE2CC /* AlertPopupInteractor.swift in Sources */,
+				418DAA2C1ECE7EAE006265CF /* SideMenuProtocols.swift in Sources */,
 				4137158B1EBE7D0300258C6F /* SelectPhotoSourcePopupViewController.swift in Sources */,
 				413682C11E9C2B2D008C463B /* AppDelegate.swift in Sources */,
 				4137157F1EBD5B3F00258C6F /* PresentationPageViewController.swift in Sources */,
@@ -588,15 +623,19 @@
 				4168AA5C1EB80A24001E2D6D /* ErrorRest.swift in Sources */,
 				414BB1F41EBFF4AF000BE2CC /* AlertPopupPresenter.swift in Sources */,
 				4120ED371EB529FE009D35B0 /* SignupPresenter.swift in Sources */,
+				418DAA2B1ECE7EAE006265CF /* SideMenuPresenter.swift in Sources */,
 				4120ED361EB529FE009D35B0 /* SignupInteractor.swift in Sources */,
 				415F73D81EBC16E2000D9B14 /* UIImageExtension.swift in Sources */,
 				4168AA561EB79399001E2D6D /* Session.swift in Sources */,
+				418DAA2A1ECE7EAE006265CF /* SideMenuInteractor.swift in Sources */,
 				41E7E2DD1EC106FC002C0A55 /* UITextFieldExtension.swift in Sources */,
 				4168AA4F1EB6A4DD001E2D6D /* Consumer.swift in Sources */,
 				415F73D41EBA9F08000D9B14 /* ViaCepAPI.swift in Sources */,
 				413715871EBE7D0300258C6F /* SelectPhotoSourcePopupInteractor.swift in Sources */,
 				4137158A1EBE7D0300258C6F /* SelectPhotoSourcePopupRouter.swift in Sources */,
+				418DAA321ECE93FB006265CF /* SideMenuTableViewCell.swift in Sources */,
 				4120ED2E1EB500A6009D35B0 /* UINavigationControllerExtension.swift in Sources */,
+				418DAA2D1ECE7EAE006265CF /* SideMenuRouter.swift in Sources */,
 				413715891EBE7D0300258C6F /* SelectPhotoSourcePopupProtocols.swift in Sources */,
 				414BB1F51EBFF4AF000BE2CC /* AlertPopupProtocols.swift in Sources */,
 				4168AA4C1EB69217001E2D6D /* PetbookingAPI.swift in Sources */,
@@ -609,6 +648,7 @@
 				414BB1F71EBFF4AF000BE2CC /* AlertPopupViewController.swift in Sources */,
 				4120ED1B1EB38650009D35B0 /* LoginRouter.swift in Sources */,
 				4120ED021EB0DE9F009D35B0 /* PresentationProtocols.swift in Sources */,
+				418DAA2E1ECE7EAE006265CF /* SideMenuViewController.swift in Sources */,
 				413715881EBE7D0300258C6F /* SelectPhotoSourcePopupPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
