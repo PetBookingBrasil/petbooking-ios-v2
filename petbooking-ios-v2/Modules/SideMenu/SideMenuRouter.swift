@@ -36,4 +36,10 @@ class SideMenuRouter: SideMenuWireframeProtocol {
 		self.viewController?.navigationController?.pushViewController(loginViewController, animated: true)
 		
 	}
+	
+	func didTapMyPets() {
+		
+		self.viewController?.navigationController?.pushViewController(MyPetsRouter.createModule(), animated: true)
+		
+	}
 }

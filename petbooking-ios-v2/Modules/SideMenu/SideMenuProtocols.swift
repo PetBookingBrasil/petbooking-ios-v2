@@ -14,12 +14,16 @@ import Foundation
 protocol SideMenuWireframeProtocol: class {
 	
 	func didTapLogout()
+	
+	func didTapMyPets()
 
 }
 //MARK: Presenter -
 protocol SideMenuPresenterProtocol: class {
 	
 	func didTapLogout()
+	
+	func didTapMyPets()
 
 }
 

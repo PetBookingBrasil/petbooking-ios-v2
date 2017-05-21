@@ -294,5 +294,57 @@ extension PetbookingAPI {
 			
 		}
 	}
+}
+
+// MARK: User
+
+extension PetbookingAPI {
+	
+	func getUserPets(completion: @escaping (_ petList: PetList?, _ message: String) -> Void) {
+		
+		var token = ""
+		if let consumer = SessionManager.sharedInstance.getCurrentConsumer() {
+			token = consumer.token
+		}
+		
+		var authToken = ""
+		var userId = 0
+		if let session = SessionManager.sharedInstance.getCurrentSession() {
+			authToken = session.authToken
+			userId = session.userId
+		}
+		
+		self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
+		self.auth_headers.updateValue("Token token=\"\(authToken)\"", forKey: "X-Petbooking-Session-Token")
+		
+		Alamofire.request("\(PetbookingAPI.API_BASE_URL)/users/\(userId)/pets", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: auth_headers).responseJSON { (response) in
+			
+			switch response.result{
+			case .success(let jsonObject):
+				if let dic = jsonObject as? [String: Any] {
+					
+					do {
+						print(dic)
+						let petList = try MTLJSONAdapter.model(of: PetList.self, fromJSONDictionary: dic) as! PetList
+						
+						
+						completion(petList, "")
+						
+					} catch {
+						completion(nil, error.localizedDescription)
+					}
+				} else {
+					completion(nil, "")
+				}
+				break
+			case .failure(let error):
+				print(error)
+				completion(nil, error.localizedDescription)
+				break
+			}
+			
+		}
+		
+	}
 	
 }

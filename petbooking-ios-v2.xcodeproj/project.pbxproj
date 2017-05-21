@@ -76,6 +76,15 @@
 		418DAA2F1ECE7EAE006265CF /* SideMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 418DAA291ECE7EAE006265CF /* SideMenuViewController.xib */; };
 		418DAA321ECE93FB006265CF /* SideMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418DAA301ECE93FB006265CF /* SideMenuTableViewCell.swift */; };
 		418DAA331ECE93FB006265CF /* SideMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 418DAA311ECE93FB006265CF /* SideMenuTableViewCell.xib */; };
+		418DAA3B1ED125CA006265CF /* MyPetsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418DAA351ED125CA006265CF /* MyPetsInteractor.swift */; };
+		418DAA3C1ED125CA006265CF /* MyPetsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418DAA361ED125CA006265CF /* MyPetsPresenter.swift */; };
+		418DAA3D1ED125CA006265CF /* MyPetsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418DAA371ED125CA006265CF /* MyPetsProtocols.swift */; };
+		418DAA3E1ED125CA006265CF /* MyPetsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418DAA381ED125CA006265CF /* MyPetsRouter.swift */; };
+		418DAA3F1ED125CA006265CF /* MyPetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418DAA391ED125CA006265CF /* MyPetsViewController.swift */; };
+		418DAA401ED125CA006265CF /* MyPetsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 418DAA3A1ED125CA006265CF /* MyPetsViewController.xib */; };
+		418DAA431ED12871006265CF /* MyPetsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418DAA411ED12871006265CF /* MyPetsTableViewCell.swift */; };
+		418DAA441ED12871006265CF /* MyPetsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 418DAA421ED12871006265CF /* MyPetsTableViewCell.xib */; };
+		418DAA461ED12FAF006265CF /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418DAA451ED12FAF006265CF /* Pet.swift */; };
 		41E7E2DD1EC106FC002C0A55 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E7E2DC1EC106FC002C0A55 /* UITextFieldExtension.swift */; };
 		41E7E2EA1EC27833002C0A55 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 41E7E2E01EC27833002C0A55 /* OpenSans-Bold.ttf */; };
 		41E7E2EB1EC27833002C0A55 /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 41E7E2E11EC27833002C0A55 /* OpenSans-BoldItalic.ttf */; };
@@ -162,6 +171,15 @@
 		418DAA291ECE7EAE006265CF /* SideMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SideMenuViewController.xib; sourceTree = "<group>"; };
 		418DAA301ECE93FB006265CF /* SideMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewCell.swift; sourceTree = "<group>"; };
 		418DAA311ECE93FB006265CF /* SideMenuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SideMenuTableViewCell.xib; sourceTree = "<group>"; };
+		418DAA351ED125CA006265CF /* MyPetsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPetsInteractor.swift; sourceTree = "<group>"; };
+		418DAA361ED125CA006265CF /* MyPetsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPetsPresenter.swift; sourceTree = "<group>"; };
+		418DAA371ED125CA006265CF /* MyPetsProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPetsProtocols.swift; sourceTree = "<group>"; };
+		418DAA381ED125CA006265CF /* MyPetsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPetsRouter.swift; sourceTree = "<group>"; };
+		418DAA391ED125CA006265CF /* MyPetsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPetsViewController.swift; sourceTree = "<group>"; };
+		418DAA3A1ED125CA006265CF /* MyPetsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyPetsViewController.xib; sourceTree = "<group>"; };
+		418DAA411ED12871006265CF /* MyPetsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPetsTableViewCell.swift; sourceTree = "<group>"; };
+		418DAA421ED12871006265CF /* MyPetsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyPetsTableViewCell.xib; sourceTree = "<group>"; };
+		418DAA451ED12FAF006265CF /* Pet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
 		41E7E2DC1EC106FC002C0A55 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		41E7E2E01EC27833002C0A55 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		41E7E2E11EC27833002C0A55 /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
@@ -351,6 +369,7 @@
 				4168AA5B1EB80A24001E2D6D /* ErrorRest.swift */,
 				4168AA5D1EB8181B001E2D6D /* FacebookGraphModel.swift */,
 				415F73D51EBAA033000D9B14 /* ViaCepAddress.swift */,
+				418DAA451ED12FAF006265CF /* Pet.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -367,6 +386,7 @@
 		418D099C1EB0D71200FCD5A6 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				418DAA341ED1257B006265CF /* MyPets */,
 				418DAA231ECE7E92006265CF /* SideMenu */,
 				414BB1EC1EBFF49A000BE2CC /* AlertPopup */,
 				413715801EBE7CEA00258C6F /* SelectPhotoSourcePopup */,
@@ -405,6 +425,21 @@
 				418DAA311ECE93FB006265CF /* SideMenuTableViewCell.xib */,
 			);
 			path = SideMenu;
+			sourceTree = "<group>";
+		};
+		418DAA341ED1257B006265CF /* MyPets */ = {
+			isa = PBXGroup;
+			children = (
+				418DAA351ED125CA006265CF /* MyPetsInteractor.swift */,
+				418DAA361ED125CA006265CF /* MyPetsPresenter.swift */,
+				418DAA371ED125CA006265CF /* MyPetsProtocols.swift */,
+				418DAA381ED125CA006265CF /* MyPetsRouter.swift */,
+				418DAA391ED125CA006265CF /* MyPetsViewController.swift */,
+				418DAA3A1ED125CA006265CF /* MyPetsViewController.xib */,
+				418DAA411ED12871006265CF /* MyPetsTableViewCell.swift */,
+				418DAA421ED12871006265CF /* MyPetsTableViewCell.xib */,
+			);
+			path = MyPets;
 			sourceTree = "<group>";
 		};
 		41E7E2DE1EC27821002C0A55 /* Fonts */ = {
@@ -525,7 +560,9 @@
 				41E7E2EB1EC27833002C0A55 /* OpenSans-BoldItalic.ttf in Resources */,
 				413682C81E9C2B2D008C463B /* Assets.xcassets in Resources */,
 				41E7E2F21EC27833002C0A55 /* OpenSans-Semibold.ttf in Resources */,
+				418DAA441ED12871006265CF /* MyPetsTableViewCell.xib in Resources */,
 				41E7E2EF1EC27833002C0A55 /* OpenSans-Light.ttf in Resources */,
+				418DAA401ED125CA006265CF /* MyPetsViewController.xib in Resources */,
 				4120ED051EB0DE9F009D35B0 /* PresentationViewController.xib in Resources */,
 				4120ED3B1EB529FE009D35B0 /* SignupViewController.xib in Resources */,
 				413682C61E9C2B2D008C463B /* Main.storyboard in Resources */,
@@ -606,6 +643,7 @@
 				4168AA541EB6BB56001E2D6D /* User.swift in Sources */,
 				4120ED191EB38650009D35B0 /* LoginPresenter.swift in Sources */,
 				4137158F1EBEAFFA00258C6F /* Device.swift in Sources */,
+				418DAA3C1ED125CA006265CF /* MyPetsPresenter.swift in Sources */,
 				4120ED291EB4F136009D35B0 /* ForgotPasswordProtocols.swift in Sources */,
 				415F73D61EBAA033000D9B14 /* ViaCepAddress.swift in Sources */,
 				4120ED2A1EB4F136009D35B0 /* ForgotPasswordRouter.swift in Sources */,
@@ -616,11 +654,14 @@
 				414BB1F31EBFF4AF000BE2CC /* AlertPopupInteractor.swift in Sources */,
 				418DAA2C1ECE7EAE006265CF /* SideMenuProtocols.swift in Sources */,
 				4137158B1EBE7D0300258C6F /* SelectPhotoSourcePopupViewController.swift in Sources */,
+				418DAA431ED12871006265CF /* MyPetsTableViewCell.swift in Sources */,
 				413682C11E9C2B2D008C463B /* AppDelegate.swift in Sources */,
 				4137157F1EBD5B3F00258C6F /* PresentationPageViewController.swift in Sources */,
 				4120ED041EB0DE9F009D35B0 /* PresentationViewController.swift in Sources */,
+				418DAA3E1ED125CA006265CF /* MyPetsRouter.swift in Sources */,
 				414BB1F61EBFF4AF000BE2CC /* AlertPopupRouter.swift in Sources */,
 				4168AA5C1EB80A24001E2D6D /* ErrorRest.swift in Sources */,
+				418DAA3F1ED125CA006265CF /* MyPetsViewController.swift in Sources */,
 				414BB1F41EBFF4AF000BE2CC /* AlertPopupPresenter.swift in Sources */,
 				4120ED371EB529FE009D35B0 /* SignupPresenter.swift in Sources */,
 				418DAA2B1ECE7EAE006265CF /* SideMenuPresenter.swift in Sources */,
@@ -630,12 +671,15 @@
 				418DAA2A1ECE7EAE006265CF /* SideMenuInteractor.swift in Sources */,
 				41E7E2DD1EC106FC002C0A55 /* UITextFieldExtension.swift in Sources */,
 				4168AA4F1EB6A4DD001E2D6D /* Consumer.swift in Sources */,
+				418DAA3B1ED125CA006265CF /* MyPetsInteractor.swift in Sources */,
 				415F73D41EBA9F08000D9B14 /* ViaCepAPI.swift in Sources */,
 				413715871EBE7D0300258C6F /* SelectPhotoSourcePopupInteractor.swift in Sources */,
 				4137158A1EBE7D0300258C6F /* SelectPhotoSourcePopupRouter.swift in Sources */,
 				418DAA321ECE93FB006265CF /* SideMenuTableViewCell.swift in Sources */,
 				4120ED2E1EB500A6009D35B0 /* UINavigationControllerExtension.swift in Sources */,
 				418DAA2D1ECE7EAE006265CF /* SideMenuRouter.swift in Sources */,
+				418DAA3D1ED125CA006265CF /* MyPetsProtocols.swift in Sources */,
+				418DAA461ED12FAF006265CF /* Pet.swift in Sources */,
 				413715891EBE7D0300258C6F /* SelectPhotoSourcePopupProtocols.swift in Sources */,
 				414BB1F51EBFF4AF000BE2CC /* AlertPopupProtocols.swift in Sources */,
 				4168AA4C1EB69217001E2D6D /* PetbookingAPI.swift in Sources */,

@@ -30,5 +30,9 @@ class SideMenuPresenter: SideMenuPresenterProtocol {
 		router.didTapLogout()
 		
 	}
+	
+	func didTapMyPets() {
+		router.didTapMyPets()
+	}
 
 }
