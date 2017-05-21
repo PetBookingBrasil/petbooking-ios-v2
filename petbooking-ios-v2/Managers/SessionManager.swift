@@ -55,6 +55,14 @@ class SessionManager: NSObject {
 		}
 	}
 	
+	func isConsumerValid() ->Bool {
+		
+		guard let consumer = getCurrentConsumer() else {
+			return false
+		}
+		return consumer.isValid()
+	}
+	
 	func getCurrentSession() -> Session? {
 		
 		do {
