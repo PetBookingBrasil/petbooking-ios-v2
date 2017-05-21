@@ -88,7 +88,6 @@ class LoginViewController: UIViewController, LoginViewProtocol {
 	}
 	
 	func didCompleteFacebookLoginWithError(error:Error?) {
-		MIBlurPopup.show(AlertPopupRouter.createModule(title: "Login incorreto", message: "O campo senha não pode ficar vazio."), on: self)
 	}
 	
 	func didCompleteLoginWithError(error:Error?) {

@@ -79,6 +79,8 @@ class LoginInteractor: LoginInteractorProtocol {
 				break
 			case .success( _, _, let accessToken):
 				
+				self.presenter?.showLoading()
+				
 				if let _ = SessionManager.sharedInstance.getCurrentConsumer()?.isValid() {
 					
 					PetbookingAPI.sharedInstance.loginWithFacebook(accessToken.authenticationToken, completion: { (success, message) in

@@ -31,7 +31,7 @@ class LoginPresenter: LoginPresenterProtocol {
 	}
 	
 	func didTapFacebookLoginButton() {
-		ALLoadingView.manager.showLoadingView(ofType: .basic, windowMode: .fullscreen)
+		
 		interactor.didTapFacebookLoginButton()
 	}
 	
@@ -76,6 +76,10 @@ class LoginPresenter: LoginPresenterProtocol {
 	
 	func registerNewUserWithFacebookData() {
 		router.registerNewUserWithFacebookData()
+	}
+	
+	func showLoading() {
+		ALLoadingView.manager.showLoadingView(ofType: .basic, windowMode: .fullscreen)
 	}
 
 }

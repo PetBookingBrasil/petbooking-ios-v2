@@ -41,6 +41,8 @@ protocol LoginPresenterProtocol: class {
 	func didCompleteLoginWithError(error:Error?)
 	
 	func registerNewUserWithFacebookData()
+	
+	func showLoading()
 
 }
 
