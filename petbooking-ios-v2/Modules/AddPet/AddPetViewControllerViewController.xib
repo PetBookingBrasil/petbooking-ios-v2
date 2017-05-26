@@ -77,9 +77,12 @@
                                         <constraint firstItem="48j-2h-UD4" firstAttribute="centerY" secondItem="MBO-go-WZp" secondAttribute="centerY" id="cew-HN-ZW6"/>
                                         <constraint firstAttribute="width" constant="112" id="cw8-11-bL6"/>
                                     </constraints>
+                                    <connections>
+                                        <outletCollection property="gestureRecognizers" destination="QyA-fy-cH4" appends="YES" id="MbP-t7-F43"/>
+                                    </connections>
                                 </view>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kind" translatesAutoresizingMaskIntoConstraints="NO" id="HBO-Hk-UE7">
-                                    <rect key="frame" x="26" y="172.66666666666666" width="19" height="15"/>
+                                    <rect key="frame" x="26" y="173" width="19" height="15"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="19" id="bgK-Wu-H3W"/>
                                         <constraint firstAttribute="height" constant="15" id="xe7-xS-Hi1"/>
@@ -104,7 +107,7 @@
                                     </constraints>
                                 </view>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="birthday" translatesAutoresizingMaskIntoConstraints="NO" id="UhD-xm-wgM">
-                                    <rect key="frame" x="29" y="228.33333333333334" width="13" height="13"/>
+                                    <rect key="frame" x="29" y="228.66666666666666" width="13" height="13"/>
                                 </imageView>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nascimento" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="80j-Qg-cwX" customClass="AKMaskField" customModule="AKMaskField">
                                     <rect key="frame" x="61.000000000000014" y="225" width="138.33333333333337" height="20"/>
@@ -118,7 +121,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </textField>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pet" translatesAutoresizingMaskIntoConstraints="NO" id="mEm-Oe-9SY">
-                                    <rect key="frame" x="216" y="226.33333333333334" width="17" height="17"/>
+                                    <rect key="frame" x="216" y="226.66666666666666" width="17" height="17"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="17" id="3xN-zA-hvZ"/>
                                         <constraint firstAttribute="width" constant="17" id="Ggv-ry-MzG"/>
@@ -151,7 +154,7 @@
                                     </constraints>
                                 </view>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pelagem" translatesAutoresizingMaskIntoConstraints="NO" id="D7m-Py-rK6">
-                                    <rect key="frame" x="27.666666666666664" y="392.33333333333331" width="16.999999999999993" height="16"/>
+                                    <rect key="frame" x="27.666666666666664" y="392.66666666666669" width="16.999999999999993" height="16"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="17" id="an7-fj-vIk"/>
                                         <constraint firstAttribute="height" constant="16" id="fzE-ci-EYY"/>
@@ -169,7 +172,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </textField>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="observações" translatesAutoresizingMaskIntoConstraints="NO" id="7IF-IM-TC7">
-                                    <rect key="frame" x="29" y="449" width="14" height="14"/>
+                                    <rect key="frame" x="29" y="448.33333333333331" width="14" height="14"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="14" id="EQV-bW-VwH"/>
                                         <constraint firstAttribute="height" constant="14" id="gOb-vd-C95"/>
@@ -209,7 +212,7 @@
                                     </constraints>
                                 </view>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kind" translatesAutoresizingMaskIntoConstraints="NO" id="CWJ-gQ-g3q">
-                                    <rect key="frame" x="26" y="283.33333333333331" width="19" height="15"/>
+                                    <rect key="frame" x="26" y="282.66666666666669" width="19" height="15"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="19" id="5jV-rK-8ef"/>
                                         <constraint firstAttribute="height" constant="15" id="89c-JU-Fqu"/>
@@ -242,7 +245,7 @@
                                     </constraints>
                                 </view>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pet" translatesAutoresizingMaskIntoConstraints="NO" id="B5G-Nr-6If">
-                                    <rect key="frame" x="27.666666666666664" y="337" width="16.999999999999993" height="17"/>
+                                    <rect key="frame" x="27.666666666666664" y="337.33333333333331" width="16.999999999999993" height="17"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="17" id="SdX-Op-Vkm"/>
                                         <constraint firstAttribute="width" constant="17" id="YyT-np-Bs1"/>
@@ -280,7 +283,7 @@
                                     </state>
                                 </button>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="temperamento" translatesAutoresizingMaskIntoConstraints="NO" id="6ZN-eH-0ig">
-                                    <rect key="frame" x="217" y="391.33333333333331" width="15" height="18"/>
+                                    <rect key="frame" x="217" y="391.66666666666669" width="15" height="18"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="18" id="gSF-tC-bF4"/>
                                         <constraint firstAttribute="width" constant="15" id="lQo-s3-LTD"/>
@@ -352,7 +355,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="porte" translatesAutoresizingMaskIntoConstraints="NO" id="0aX-6D-GuV">
-                                    <rect key="frame" x="216.66666666666666" y="283.33333333333331" width="16" height="14"/>
+                                    <rect key="frame" x="216.66666666666666" y="283.66666666666669" width="16" height="14"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="16" id="2eZ-ms-YSk"/>
                                         <constraint firstAttribute="height" constant="14" id="EXh-3R-ScB"/>
@@ -496,6 +499,11 @@
             </constraints>
             <point key="canvasLocation" x="-46" y="49"/>
         </view>
+        <tapGestureRecognizer id="QyA-fy-cH4">
+            <connections>
+                <action selector="changeAvatar:" destination="-1" id="og0-Yo-gHE"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="birthday" width="13" height="13"/>

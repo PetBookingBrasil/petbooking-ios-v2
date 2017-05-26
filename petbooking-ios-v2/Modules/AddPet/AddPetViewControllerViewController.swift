@@ -57,6 +57,57 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 		kindIconImageView.changeImageColor(color: .black)
 		temperIconImageView.changeImageColor(color: .black)
 		
+		hideKeyboardWhenTappedAround()
+		
     }
 
+	@IBAction func changeAvatar(_ sender: Any) {
+		MIBlurPopup.show(SelectPhotoSourcePopupRouter.createModule(delegate: self), on: self)
+	}
+}
+
+extension AddPetViewControllerViewController:UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+	
+	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+		if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+			profilePictureImageView.image = image
+		}
+		
+		picker.dismiss(animated: true, completion: nil);
+	}
+	
+}
+
+extension AddPetViewControllerViewController: SelectPhotoSourcePopupActionProtocol {
+	
+	func showCamera() {
+		
+		if UIImagePickerController.isSourceTypeAvailable(.camera){
+			
+			let imagePicker = UIImagePickerController()
+			
+			imagePicker.delegate = self
+			imagePicker.sourceType = .camera
+			imagePicker.allowsEditing = false
+			
+			self.present(imagePicker, animated: true, completion: nil)
+		}
+		
+	}
+	
+	func showAlbum() {
+		
+		if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
+			
+			let imagePicker = UIImagePickerController()
+			
+			imagePicker.delegate = self
+			imagePicker.sourceType = .savedPhotosAlbum
+			imagePicker.allowsEditing = false
+			
+			self.present(imagePicker, animated: true, completion: nil)
+		}
+		
+	}
+	
 }
