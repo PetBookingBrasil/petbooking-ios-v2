@@ -39,7 +39,7 @@ class MyPetsViewController: UIViewController, MyPetsViewProtocol {
 	}
 	
 	func addPet() {
-		
+		presenter?.didTapAddPet()
 	}
 	
 }

@@ -12,6 +12,8 @@ import Foundation
 
 //MARK: Wireframe -
 protocol MyPetsWireframeProtocol: class {
+	
+	func showAddPet()
 
 }
 //MARK: Presenter -
@@ -20,6 +22,8 @@ protocol MyPetsPresenterProtocol: class {
 	func reloadTableData()
 	
 	func fillTableData(petList:PetList)
+	
+	func didTapAddPet()
 }
 
 //MARK: Interactor -

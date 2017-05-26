@@ -46,3 +46,8 @@
 
 // My Pets
 "my_pets_title" = "Meus Pets";
+
+
+// Add Pet
+
+"add_pet_title" = "Preencha os dados do pet";

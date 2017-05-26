@@ -32,5 +32,9 @@ class MyPetsPresenter: MyPetsPresenterProtocol {
 	func fillTableData(petList: PetList) {
 		view?.fillTableData(petList: petList)
 	}
+	
+	func didTapAddPet() {
+		router.showAddPet()
+	}
 
 }
