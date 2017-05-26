@@ -34,7 +34,7 @@ class ViewController: UIViewController {
 		SideMenuManager.menuAnimationBackgroundColor = UIColor.clear
 		SideMenuManager.menuShadowRadius = 0
 		SideMenuManager.menuShadowOpacity = 0
-		SideMenuManager.menuPushStyle = .replace
+		SideMenuManager.menuPushStyle = .popWhenPossible
 		
 		navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named:"menu"), style: .plain, target: self, action: #selector(showLeftMenu))
 		

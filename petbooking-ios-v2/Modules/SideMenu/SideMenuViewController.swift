@@ -30,6 +30,8 @@ class SideMenuViewController: UIViewController, SideMenuViewProtocol {
 		menuTableView.delegate = self
 		menuTableView.dataSource = self
 		
+		self.profileImageView.round()
+		
     }
 	
 	func setupUserData() {
@@ -111,6 +113,7 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
 		
 		switch sideMenuItem {
 		case .myPets:
+			presenter?.didTapMyPets()
 					break
 		case .search:
 					break

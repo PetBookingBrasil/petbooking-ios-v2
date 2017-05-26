@@ -43,3 +43,11 @@
 "side_menu_favorites" = "Favoritos";
 "side_menu_settings" = "Configurações";
 "side_menu_logout" = "Sair";
+
+// My Pets
+"my_pets_title" = "Meus Pets";
+
+
+// Add Pet
+
+"add_pet_title" = "Preencha os dados do pet";
