@@ -9,9 +9,15 @@
 //
 
 import UIKit
+import AKMaskField
 
 class AddPetViewControllerViewController: UIViewController, AddPetViewControllerViewProtocol {
 
+	@IBOutlet weak var picker: UIPickerView!
+	
+	@IBOutlet weak var pickerView: UIView!
+	var petPickerType: PetPickerType = .gender
+	
 	@IBOutlet weak var profilePictureView: UIView!
 	@IBOutlet weak var profilePictureImageView: UIImageView!
 	@IBOutlet weak var profilePictureFrameView: UIView!
@@ -35,7 +41,41 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 	
 	@IBOutlet weak var saveButton: UIButton!
 	
+
+	@IBOutlet weak var petNameTextField: UITextField!
+	@IBOutlet weak var genderLabel: UILabel!
+	
+	@IBOutlet weak var petTypeLabel: UILabel!
+	
+	@IBOutlet weak var breedLabel: UILabel!
+	@IBOutlet weak var moodLabel: UILabel!
+	@IBOutlet weak var observationTextField: UITextField!
+	
+	@IBOutlet weak var petSizeLabel: UILabel!
+	@IBOutlet weak var birthdayTextField: AKMaskField!
+	
+	@IBOutlet weak var coatLabel: UILabel!
+	var breedList = [Breed]()
+	var petBreedIndex = 0
+	
+	var petTypeList:[PetTypeEnum] = [.dog, .cat]
+	var petTypeIndex = 0
+	
+	var genderList:[PetGenderEnum] = [.male, .female]
+	var petGenderIndex = 0
+	
+	var coatList:[PetCoatEnum] = [.short, .medium, .long]
+	var petCoatIndex = 0
+	
+	var temperList:[PetMoodEnum] = [.agitated, .happy, .loving, .angry, .playful, .needy, .affectionate, .calm, .brave]
+	var petTemperIndex = 0
+	
+	var petSizeList:[PetSizeEnum] = [.small, .medium, .big, .giant]
+	var petSizeIndex = 0
+		
 	var presenter: AddPetViewControllerPresenterProtocol?
+	
+	var pet:Pet! = Pet()
 
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,13 +97,143 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 		kindIconImageView.changeImageColor(color: .black)
 		temperIconImageView.changeImageColor(color: .black)
 		
+		birthdayTextField.maskExpression = "{dd}/{dd}/{dddd}"
+		birthdayTextField.maskTemplate = "dd/mm/aaaa"
+		
+
+		let tapGesture = UITapGestureRecognizer(target: self, action: #selector(AddPetViewControllerViewController.tapField(_:)))
+		genderLabel.addGestureRecognizer(tapGesture)
+		
+		let tapGesture2 = UITapGestureRecognizer(target: self, action: #selector(AddPetViewControllerViewController.tapField(_:)))
+		petTypeLabel.addGestureRecognizer(tapGesture2)
+		
+		let tapGesture3 = UITapGestureRecognizer(target: self, action: #selector(AddPetViewControllerViewController.tapField(_:)))
+		breedLabel.addGestureRecognizer(tapGesture3)
+		
+		let tapGesture4 = UITapGestureRecognizer(target: self, action: #selector(AddPetViewControllerViewController.tapField(_:)))
+		moodLabel.addGestureRecognizer(tapGesture4)
+		
+		let tapGesture5 = UITapGestureRecognizer(target: self, action: #selector(AddPetViewControllerViewController.tapField(_:)))
+		coatLabel.addGestureRecognizer(tapGesture5)
+		
+		let tapGesture6 = UITapGestureRecognizer(target: self, action: #selector(AddPetViewControllerViewController.tapField(_:)))
+		petSizeLabel.addGestureRecognizer(tapGesture6)
+		
+		picker.dataSource = self
+		picker.delegate = self
+				
 		hideKeyboardWhenTappedAround()
+		
+		
 		
     }
 
 	@IBAction func changeAvatar(_ sender: Any) {
 		MIBlurPopup.show(SelectPhotoSourcePopupRouter.createModule(delegate: self), on: self)
 	}
+	
+	func tapField(_ sender: UITapGestureRecognizer) {
+		
+		guard let label = sender.view as? UILabel else {
+			return
+		}
+		
+		var index = 0
+		switch label {
+		case genderLabel:
+			petPickerType = .gender
+			index = petGenderIndex
+			break
+		case petTypeLabel:
+			petPickerType = .petType
+			index = petTypeIndex
+			break
+		case breedLabel:
+				petPickerType = .breed
+				index = petBreedIndex
+			break
+		case coatLabel:
+			petPickerType = .coat
+			index = petCoatIndex
+			break
+		case moodLabel:
+			petPickerType = .temper
+			index = petTemperIndex
+			break
+		case petSizeLabel:
+			petPickerType = .petSize
+			index = petSizeIndex
+			break
+		default: break
+		}
+		
+		picker.reloadAllComponents()
+		picker.selectRow(index, inComponent: 0, animated: false)
+		pickerView.isHidden = false
+	}
+	@IBAction func doneTapped(_ sender: Any) {
+		
+		pickerView.isHidden = true
+		
+		let index = picker.selectedRow(inComponent: 0)
+		
+		switch petPickerType {
+		case .breed:
+			pet.breedName = breedList[index].name
+			pet.breedId = breedList[index].id
+			breedLabel.text = pet.breedName
+			petBreedIndex = index
+			break
+		case .coat:
+			petCoatIndex = index
+			pet.coatSize = coatList[index].rawValue
+			coatLabel.text = "pet_coat_size_\(pet.coatSize)".localized
+			break
+		case .gender:
+			pet.gender = genderList[index].rawValue
+			genderLabel.text = "pet_gender_\(pet.gender)".localized
+			petGenderIndex = index
+			break
+		case .petSize:
+			petSizeIndex = index
+			pet.size = petSizeList[index].rawValue
+			petSizeLabel.text = "pet_size_\(pet.size)".localized
+			break
+		case .temper:
+			petTemperIndex = index
+			pet.mood = temperList[index].rawValue
+			moodLabel.text = "pet_mood_\(pet.mood)".localized
+			break
+		case .petType:
+			pet.type = petTypeList[index].rawValue
+			petTypeLabel.text = "pet_type_\(pet.type)".localized
+			petTypeIndex = index
+			
+			PetbookingAPI.sharedInstance.getBreedList(petType: pet.type, completion: { (breedList, message) in
+				
+				guard let breedList = breedList else {
+					return
+				}
+				
+				self.breedList = breedList.breeds
+				
+			})
+			
+			break
+		}
+		
+	}
+	
+	@IBAction func save(_ sender: Any) {
+		
+		guard let name = petNameTextField.text else {
+			return
+		}
+		
+		pet.name = name
+		presenter?.didtapSaveButton(pet: self.pet)
+	}
+	
 }
 
 extension AddPetViewControllerViewController:UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -71,6 +241,13 @@ extension AddPetViewControllerViewController:UIImagePickerControllerDelegate, UI
 	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
 		if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
 			profilePictureImageView.image = image
+			
+			guard let base64Avatar = image.toBase64String() else {
+				return
+			}
+			
+			pet.photoUrl = "data:image/jpeg;base64,\(base64Avatar)"
+			
 		}
 		
 		picker.dismiss(animated: true, completion: nil);
@@ -107,6 +284,60 @@ extension AddPetViewControllerViewController: SelectPhotoSourcePopupActionProtoc
 			
 			self.present(imagePicker, animated: true, completion: nil)
 		}
+		
+	}
+	
+}
+
+extension AddPetViewControllerViewController:UIPickerViewDataSource, UIPickerViewDelegate {
+	
+	func numberOfComponents(in pickerView: UIPickerView) -> Int {
+		return 1
+	}
+	
+	func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+		
+		switch petPickerType {
+		case .breed:
+			return breedList.count
+		case .coat:
+			return coatList.count
+		case .gender:
+			return genderList.count
+		case .petSize:
+			return petSizeList.count
+		case .temper:
+			return temperList.count
+		case .petType:
+			return petTypeList.count
+		}
+		
+	}
+	
+	func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+		
+		
+		var key = ""
+		switch petPickerType {
+		case .breed:
+			key =  breedList[row].name
+		case .coat:
+			key = "pet_coat_size_\(coatList[row].rawValue)"
+		case .gender:
+			key = "pet_gender_\(genderList[row].rawValue)"
+		case .petSize:
+			key = "pet_size_\(petSizeList[row].rawValue)"
+		case .temper:
+			key = "pet_mood_\(temperList[row].rawValue)"
+		case .petType:
+			key = "pet_type_\(petTypeList[row].rawValue)"
+		}
+		
+		return key.localized
+	}
+	
+	func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+		
 		
 	}
 	

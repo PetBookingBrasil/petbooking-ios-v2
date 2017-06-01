@@ -44,6 +44,7 @@
 		4129D9E81ED86E9B0067EDC3 /* MyPetsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4129D9E01ED86E9B0067EDC3 /* MyPetsTableViewCell.xib */; };
 		4129D9E91ED86E9B0067EDC3 /* MyPetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4129D9E11ED86E9B0067EDC3 /* MyPetsViewController.swift */; };
 		4129D9EA1ED86E9B0067EDC3 /* MyPetsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4129D9E21ED86E9B0067EDC3 /* MyPetsViewController.xib */; };
+		4129D9EC1EDF8BCF0067EDC3 /* Breed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4129D9EB1EDF8BCF0067EDC3 /* Breed.swift */; };
 		413682C11E9C2B2D008C463B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413682C01E9C2B2D008C463B /* AppDelegate.swift */; };
 		413682C31E9C2B2D008C463B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413682C21E9C2B2D008C463B /* ViewController.swift */; };
 		413682C61E9C2B2D008C463B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 413682C41E9C2B2D008C463B /* Main.storyboard */; };
@@ -144,6 +145,7 @@
 		4129D9E01ED86E9B0067EDC3 /* MyPetsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyPetsTableViewCell.xib; sourceTree = "<group>"; };
 		4129D9E11ED86E9B0067EDC3 /* MyPetsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPetsViewController.swift; sourceTree = "<group>"; };
 		4129D9E21ED86E9B0067EDC3 /* MyPetsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyPetsViewController.xib; sourceTree = "<group>"; };
+		4129D9EB1EDF8BCF0067EDC3 /* Breed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Breed.swift; sourceTree = "<group>"; };
 		413682BD1E9C2B2D008C463B /* petbooking-ios-v2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "petbooking-ios-v2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		413682C01E9C2B2D008C463B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		413682C21E9C2B2D008C463B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -385,6 +387,7 @@
 				4168AA5D1EB8181B001E2D6D /* FacebookGraphModel.swift */,
 				415F73D51EBAA033000D9B14 /* ViaCepAddress.swift */,
 				418DAA451ED12FAF006265CF /* Pet.swift */,
+				4129D9EB1EDF8BCF0067EDC3 /* Breed.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -659,6 +662,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4129D9EC1EDF8BCF0067EDC3 /* Breed.swift in Sources */,
 				4120ED1C1EB38650009D35B0 /* LoginViewController.swift in Sources */,
 				4120ED031EB0DE9F009D35B0 /* PresentationRouter.swift in Sources */,
 				4120ED1F1EB390C3009D35B0 /* UIViewControllerExtension.swift in Sources */,

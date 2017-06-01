@@ -51,3 +51,30 @@
 // Add Pet
 
 "add_pet_title" = "Preencha os dados do pet";
+
+"pet_type_dog" = "Cão";
+"pet_type_cat" = "Gato";
+
+"pet_gender_male" = "Macho";
+"pet_gender_female" = "Fêmea";
+
+"pet_size_small" = "Pequeno";
+"pet_size_medium" = "Médio";
+"pet_size_big" = "Grande";
+"pet_size_giant" = "Gigante";
+
+"pet_coat_size_short_coat" = "Curta";
+"pet_coat_size_medium_coat" = "Média";
+"pet_coat_size_long_coat" = "Longa";
+
+
+"pet_mood_calm" = "Tranquilo";
+"pet_mood_agitated" = "Agitado";
+"pet_mood_happy" = "Alegre";
+"pet_mood_loving" = "Amoroso";
+"pet_mood_angry" = "Bravo";
+"pet_mood_playful" = "Brincalhão";
+"pet_mood_needy" = "Carente";
+"pet_mood_affectionate" = "Carinhoso";
+"pet_mood_brave" = "Valente";
+

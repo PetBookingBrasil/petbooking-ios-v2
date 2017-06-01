@@ -13,16 +13,22 @@ import Foundation
 //MARK: Wireframe -
 protocol AddPetViewControllerWireframeProtocol: class {
 
+	func didSavePetWithSuccess()
 }
 //MARK: Presenter -
 protocol AddPetViewControllerPresenterProtocol: class {
 
+	func didtapSaveButton(pet:Pet)
+	
+	func didSavePetWithSuccess()
 }
 
 //MARK: Interactor -
 protocol AddPetViewControllerInteractorProtocol: class {
 
   var presenter: AddPetViewControllerPresenterProtocol?  { get set }
+	
+	func savePet(pet:Pet)
 }
 
 //MARK: View -

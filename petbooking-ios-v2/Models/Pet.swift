@@ -19,6 +19,12 @@ class Pet: MTLModel, MTLJSONSerializing {
 	dynamic var photoUrl = ""
 	dynamic var photoMediumUrl = ""
 	dynamic var photoThumbUrl = ""
+	dynamic var breedId = ""
+	dynamic var mood = ""
+	dynamic var size = ""
+	dynamic var coatSize = ""
+	dynamic var birthday = ""
+	dynamic var petDescription = ""
 	
 
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
@@ -53,3 +59,39 @@ class PetList: MTLModel, MTLJSONSerializing {
 		
 	}
 }
+
+enum PetTypeEnum:String {
+	case dog = "dog"
+	case cat = "cat"
+}
+
+enum PetGenderEnum:String {
+	case male = "male"
+	case female = "female"
+}
+
+enum PetSizeEnum:String {
+	case small = "small"
+	case medium = "medium"
+	case big = "big"
+	case giant = "giant"
+}
+
+enum PetCoatEnum:String {
+	case short = "short_coat"
+	case medium = "medium_coat"
+	case long = "long_coat"
+}
+
+enum PetMoodEnum:String {
+	case calm = "calm"
+	case agitated = "agitated"
+	case happy = "happy"
+	case loving = "loving"
+	case angry = "angry"
+	case playful = "playful"
+	case needy = "needy"
+	case affectionate = "affectionate"
+	case brave = "brave"
+}
+
