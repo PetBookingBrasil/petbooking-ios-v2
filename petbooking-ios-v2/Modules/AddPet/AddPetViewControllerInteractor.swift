@@ -17,9 +17,13 @@ class AddPetViewControllerInteractor: AddPetViewControllerInteractorProtocol {
 	func savePet(pet:Pet) {
 		
 		
-		PetbookingAPI.sharedInstance.createPet(pet: pet) { (petList, message) in
+		PetbookingAPI.sharedInstance.createPet(pet: pet) { (pet, message) in
 			
-			
+			if pet != nil {
+				self.presenter?.didSavePetWithSuccess()
+			} else {
+				self.presenter?.didSavePetWithError(message: message)
+			}
 			
 		}
 		

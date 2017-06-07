@@ -21,6 +21,8 @@ protocol AddPetViewControllerPresenterProtocol: class {
 	func didtapSaveButton(pet:Pet)
 	
 	func didSavePetWithSuccess()
+	
+	func didSavePetWithError(message:String)
 }
 
 //MARK: Interactor -
@@ -35,4 +37,6 @@ protocol AddPetViewControllerInteractorProtocol: class {
 protocol AddPetViewControllerViewProtocol: class {
 
   var presenter: AddPetViewControllerPresenterProtocol?  { get set }
+	
+	func showAlertMessage(title:String, message:String)
 }

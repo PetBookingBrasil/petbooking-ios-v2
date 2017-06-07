@@ -35,4 +35,9 @@ class AddPetViewControllerPresenter: AddPetViewControllerPresenterProtocol {
 		ALLoadingView.manager.hideLoadingView()
 		router.didSavePetWithSuccess()
 	}
+	
+	func didSavePetWithError(message:String) {
+		ALLoadingView.manager.hideLoadingView()
+		view?.showAlertMessage(title: "", message: message)
+	}
 }

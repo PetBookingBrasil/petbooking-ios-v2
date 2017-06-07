@@ -480,7 +480,7 @@ extension PetbookingAPI {
 		}
 	}
 	
-	func createPet(pet:Pet, completion: @escaping (_ petList: PetList?, _ message: String) -> Void) {
+	func createPet(pet:Pet, completion: @escaping (_ pet: Pet?, _ message: String) -> Void) {
 		
 		if SessionManager.sharedInstance.isConsumerValid() {
 			var token = ""
@@ -507,13 +507,15 @@ extension PetbookingAPI {
 				
 				switch response.result{
 				case .success(let jsonObject):
+					print(jsonObject)
 					if let dic = jsonObject as? [String: Any] {
 						
 						do {
-							let petList = try MTLJSONAdapter.model(of: PetList.self, fromJSONDictionary: dic) as! PetList
+
+							let pet = try MTLJSONAdapter.model(of: Pet.self, fromJSONDictionary: dic) as! Pet
 							
 							
-							completion(petList, "")
+							completion(pet, "")
 							
 						} catch {
 							completion(nil, error.localizedDescription)
@@ -534,7 +536,7 @@ extension PetbookingAPI {
 			getConsumer(completion: { (success, message) in
 				
 				if success {
-					self.getUserPets(completion: completion)
+					self.createPet(pet:pet,completion: completion)
 				} else {
 					
 					completion(nil, "")

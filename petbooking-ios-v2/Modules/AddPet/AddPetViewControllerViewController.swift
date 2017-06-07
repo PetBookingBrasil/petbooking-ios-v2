@@ -12,7 +12,7 @@ import UIKit
 import AKMaskField
 
 class AddPetViewControllerViewController: UIViewController, AddPetViewControllerViewProtocol {
-
+	
 	@IBOutlet weak var picker: UIPickerView!
 	
 	@IBOutlet weak var pickerView: UIView!
@@ -41,7 +41,7 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 	
 	@IBOutlet weak var saveButton: UIButton!
 	
-
+	
 	@IBOutlet weak var petNameTextField: UITextField!
 	@IBOutlet weak var genderLabel: UILabel!
 	
@@ -55,6 +55,26 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 	@IBOutlet weak var birthdayTextField: AKMaskField!
 	
 	@IBOutlet weak var coatLabel: UILabel!
+	
+	@IBOutlet weak var petPictureAlertMessageLabel: UILabel!
+	
+	@IBOutlet weak var petNameAlertMessageLabel: UILabel!
+	
+	@IBOutlet weak var birthdayAlertMessageLabel: UILabel!
+	
+	@IBOutlet weak var genderAlertMessageLabel: UILabel!
+	
+	@IBOutlet weak var petKindAlertMessageLabel: UILabel!
+	
+	@IBOutlet weak var coatAlertMessageLabel: UILabel!
+	
+	@IBOutlet weak var moodAlertMessageLabel: UILabel!
+	
+	@IBOutlet weak var petSizeAlertMessage: UILabel!
+	
+	
+	@IBOutlet weak var petBreedAlertMessageLabel: UILabel!
+	
 	var breedList = [Breed]()
 	var petBreedIndex = 0
 	
@@ -72,13 +92,13 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 	
 	var petSizeList:[PetSizeEnum] = [.small, .medium, .big, .giant]
 	var petSizeIndex = 0
-		
+	
 	var presenter: AddPetViewControllerPresenterProtocol?
 	
 	var pet:Pet! = Pet()
-
+	
 	override func viewDidLoad() {
-        super.viewDidLoad()
+		super.viewDidLoad()
 		
 		title = NSLocalizedString("add_pet_title", comment: "")
 		
@@ -100,7 +120,7 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 		birthdayTextField.maskExpression = "{dd}/{dd}/{dddd}"
 		birthdayTextField.maskTemplate = "dd/mm/aaaa"
 		
-
+		
 		let tapGesture = UITapGestureRecognizer(target: self, action: #selector(AddPetViewControllerViewController.tapField(_:)))
 		genderLabel.addGestureRecognizer(tapGesture)
 		
@@ -121,13 +141,13 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 		
 		picker.dataSource = self
 		picker.delegate = self
-				
+		
 		hideKeyboardWhenTappedAround()
 		
 		
 		
-    }
-
+	}
+	
 	@IBAction func changeAvatar(_ sender: Any) {
 		MIBlurPopup.show(SelectPhotoSourcePopupRouter.createModule(delegate: self), on: self)
 	}
@@ -149,8 +169,14 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 			index = petTypeIndex
 			break
 		case breedLabel:
-				petPickerType = .breed
-				index = petBreedIndex
+			
+			if breedList.isEmpty {
+				let breed = Breed()!
+				breed.name = NSLocalizedString("select_pet_kind", comment: "")
+				breedList.append(breed)
+			}
+			petPickerType = .breed
+			index = petBreedIndex
 			break
 		case coatLabel:
 			petPickerType = .coat
@@ -179,9 +205,13 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 		
 		switch petPickerType {
 		case .breed:
+			
 			pet.breedName = breedList[index].name
 			pet.breedId = breedList[index].id
-			breedLabel.text = pet.breedName
+			
+			if !pet.breedId.isBlank {
+				breedLabel.text = pet.breedName
+			}
 			petBreedIndex = index
 			break
 		case .coat:
@@ -226,12 +256,104 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 	
 	@IBAction func save(_ sender: Any) {
 		
-		guard let name = petNameTextField.text else {
-			return
+		var isValid = true
+		
+		let name = petNameTextField.checkField()
+		if checkValidField(value: name, alertLabel: petNameAlertMessageLabel, alertMessage: NSLocalizedString("invalid_pet_name", comment: "")) {
+			pet.name = name!
+		} else {
+			isValid = false
 		}
 		
-		pet.name = name
-		presenter?.didtapSaveButton(pet: self.pet)
+		if let observation = observationTextField.text {
+			pet.petDescription = observation
+		}
+		
+		
+		let birthday = birthdayTextField.checkField()
+		if checkValidField(value: birthday, alertLabel: birthdayAlertMessageLabel, alertMessage: NSLocalizedString("invalid_birthday", comment: "")) {
+			pet.birthday = birthday!
+		} else {
+			isValid = false
+		}
+		
+		if pet.breedId.isBlank {
+			isValid = false
+			_ = checkValidField(value: nil, alertLabel: petBreedAlertMessageLabel, alertMessage: NSLocalizedString("invalid_pet_breed", comment: ""))
+		} else {
+			_ = checkValidField(value: "ok", alertLabel: petBreedAlertMessageLabel, alertMessage: NSLocalizedString("invalid_pet_breed", comment: ""))
+		}
+		
+		if pet.coatSize.isBlank {
+			isValid = false
+			_ = checkValidField(value: nil, alertLabel: coatAlertMessageLabel, alertMessage: NSLocalizedString("invalid_pet_coat", comment: ""))
+		} else {
+			_ = checkValidField(value: "ok", alertLabel: coatAlertMessageLabel, alertMessage: NSLocalizedString("invalid_pet_coat", comment: ""))
+		}
+		
+		
+		
+		if pet.type.isBlank {
+			isValid = false
+			_ = checkValidField(value: nil, alertLabel: petKindAlertMessageLabel, alertMessage: NSLocalizedString("invalid_pet_kind", comment: ""))
+		} else {
+			_ = checkValidField(value: "ok", alertLabel: petKindAlertMessageLabel, alertMessage: NSLocalizedString("invalid_pet_kind", comment: ""))
+		}
+		
+		if pet.size.isBlank {
+			isValid = false
+			_ = checkValidField(value: nil, alertLabel: petSizeAlertMessage, alertMessage: NSLocalizedString("invalid_pet_size", comment: ""))
+		} else {
+			_ = checkValidField(value: "ok", alertLabel: petSizeAlertMessage, alertMessage: NSLocalizedString("invalid_pet_size", comment: ""))
+		}
+		
+		
+		
+		if pet.gender.isBlank {
+			isValid = false
+			_ = checkValidField(value: nil, alertLabel: genderAlertMessageLabel, alertMessage: NSLocalizedString("invalid_pet_gender", comment: ""))
+		} else {
+			_ = checkValidField(value: "ok", alertLabel: genderAlertMessageLabel, alertMessage: NSLocalizedString("invalid_pet_gender", comment: ""))
+		}
+		
+		
+		if pet.mood.isBlank {
+			isValid = false
+			_ = checkValidField(value: nil, alertLabel: moodAlertMessageLabel, alertMessage: NSLocalizedString("invalid_pet_mood", comment: ""))
+		} else {
+			_ = checkValidField(value: "ok", alertLabel: moodAlertMessageLabel, alertMessage: NSLocalizedString("invalid_pet_mood", comment: ""))
+		}
+		
+		
+		//		if pet.photoUrl.isBlank {
+		//			isValid = false
+		//			_ = checkValidField(value: nil, alertLabel: petPictureAlertMessageLabel, alertMessage: NSLocalizedString("invalid_pet_picture", comment: ""))
+		//		} else {
+		//			_ = checkValidField(value: "ok", alertLabel: petPictureAlertMessageLabel, alertMessage: NSLocalizedString("invalid_pet_picture", comment: ""))
+		//		}
+		
+		
+		if isValid {
+			presenter?.didtapSaveButton(pet: self.pet)
+		}
+		
+		
+	}
+	
+	func checkValidField(value:String?, alertLabel:UILabel, alertMessage:String) -> Bool {
+		
+		if value == nil {
+			alertLabel.isHidden = false
+			alertLabel.text = alertMessage
+			return false
+		}
+		
+		alertLabel.isHidden = true
+		return true
+	}
+	
+	func showAlertMessage(title:String, message:String) {
+		
 	}
 	
 }

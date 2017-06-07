@@ -78,3 +78,14 @@
 "pet_mood_affectionate" = "Carinhoso";
 "pet_mood_brave" = "Valente";
 
+"invalid_pet_name" = "O nome do animal não pode ser vazio";
+"invalid_pet_picture" = "";
+"invalid_pet_gender" = "O gênero do animal não pode ser vazio";
+"invalid_pet_kind" = "O tipo do animal não pode ser vazio";
+"invalid_pet_size" = "O porte do animal não pode ser vazio";
+"invalid_pet_breed" = "A raça do animal não pode ser vazia";
+"invalid_pet_coat" = "A pelagem do animal não pode ser vazia";
+"invalid_pet_mood" = "O temperamento do animal não pode ser vazio";
+
+"select_pet_kind" = "Selecione o tipo do animal";
+
