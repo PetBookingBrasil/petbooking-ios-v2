@@ -296,6 +296,80 @@ extension PetbookingAPI {
 		}
 	}
 	
+	func updateUser(name:String, cpf:String, birthday:String, email:String, mobile:String, zipcode:String, street:String, streetNumber:String, neighborhood:String, city:String, state:String, avatar:String, _ completion: @escaping (_ user: Bool, _ message: String) -> Void) {
+		
+		if SessionManager.sharedInstance.isConsumerValid() {
+			var token = ""
+			if let consumer = SessionManager.sharedInstance.getCurrentConsumer() {
+				token = consumer.token
+			}
+			
+			
+			var authToken = ""
+			var userId = 0
+			if let session = SessionManager.sharedInstance.getCurrentSession() {
+				authToken = session.authToken
+				userId = session.userId
+			}
+			
+			self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
+			self.auth_headers.updateValue("Token token=\"\(authToken)\"", forKey: "X-Petbooking-Session-Token")
+			
+			let parameters: Parameters = [
+				"data": ["type":"users", "id":userId, "attributes":["email":email, "name":name, "phone":mobile, "cpf":cpf, "city":city, "state":state, "zipcode":zipcode, "street":street, "street_number":streetNumber, "neighborhood":neighborhood, "avatar":avatar]]
+				
+			]
+			
+			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/users/\(userId)", method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: auth_headers).responseJSON { (response) in
+				
+				switch response.result{
+				case .success(let jsonObject):
+					if let dic = jsonObject as? [String: Any] {
+						
+						do {
+							
+							let user = try MTLJSONAdapter.model(of: User.self, fromJSONDictionary: dic) as! User
+							
+							if user.errors.count == 0 {
+								
+								try UserManager.sharedInstance.saveUser(user: user)
+								
+								completion(true, "")
+								
+							} else {
+								completion(false, "")
+							}
+							
+						} catch {
+							completion(false, error.localizedDescription)
+						}
+					} else {
+						completion(false, "")
+					}
+					break
+				case .failure(let error):
+					print(error)
+					completion(false, error.localizedDescription)
+					break
+				}
+				
+			}
+		} else {
+			
+			getConsumer(completion: { (success, message) in
+				
+				if success {
+					self.updateUser(name: name, cpf: cpf, birthday: birthday, email: email, mobile: mobile, zipcode: zipcode, street: street, streetNumber: streetNumber, neighborhood: neighborhood, city: city, state: state, avatar: avatar, completion)
+				} else {
+					
+					completion(false, "")
+					
+				}
+				
+			})
+		}
+	}
+	
 	func userInfo(_ completion: @escaping (_ user: User?, _ message: String) -> Void) {
 		
 		if SessionManager.sharedInstance.isConsumerValid() {

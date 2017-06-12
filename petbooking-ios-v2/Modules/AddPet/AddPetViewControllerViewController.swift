@@ -72,6 +72,7 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 	
 	@IBOutlet weak var petSizeAlertMessage: UILabel!
 	
+	@IBOutlet weak var petSIzeInfoButton: UIButton!
 	
 	@IBOutlet weak var petBreedAlertMessageLabel: UILabel!
 	
@@ -116,6 +117,11 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 		breedIconImageView.changeImageColor(color: .black)
 		kindIconImageView.changeImageColor(color: .black)
 		temperIconImageView.changeImageColor(color: .black)
+		
+		let image = UIImage(named: "info")?.withRenderingMode(.alwaysTemplate)
+		petSIzeInfoButton.setImage(image, for: .normal)
+		petSIzeInfoButton.tintColor = .red
+		
 		
 		birthdayTextField.maskExpression = "{dd}/{dd}/{dddd}"
 		birthdayTextField.maskTemplate = "dd/mm/aaaa"
@@ -252,6 +258,11 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 			break
 		}
 		
+	}
+	
+	
+	@IBAction func showPetSizeInfo(_ sender: Any) {
+		MIBlurPopup.show(PetSizePopupViewController(), on: self)
 	}
 	
 	@IBAction func save(_ sender: Any) {

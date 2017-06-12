@@ -39,6 +39,7 @@
                 <outlet property="petNameIconImageView" destination="HBO-Hk-UE7" id="Au3-Qt-MmB"/>
                 <outlet property="petNameTextField" destination="6GP-vy-TT0" id="nz1-G9-DY2"/>
                 <outlet property="petPictureAlertMessageLabel" destination="fVM-Zc-m6R" id="o0x-Qe-goA"/>
+                <outlet property="petSIzeInfoButton" destination="9yD-Ag-qHb" id="4UX-1z-Gbl"/>
                 <outlet property="petSizeAlertMessage" destination="TkT-ZT-4Wy" id="d5D-Cp-OkN"/>
                 <outlet property="petSizeIconImageView" destination="0aX-6D-GuV" id="Ygo-AT-hbB"/>
                 <outlet property="petSizeLabel" destination="RJn-qo-sre" id="0St-HQ-FIi"/>
@@ -304,6 +305,12 @@
                                     <color key="textColor" red="1" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insira sua data de nascimento" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TkT-ZT-4Wy">
+                                    <rect key="frame" x="215" y="313.33333333333331" width="183" height="11"/>
+                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="8"/>
+                                    <color key="textColor" red="1" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insira sua data de nascimento" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tPx-3g-Iab">
                                     <rect key="frame" x="214.66666666666663" y="422" width="183.33333333333337" height="11"/>
                                     <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="8"/>
@@ -359,12 +366,17 @@
                                     <color key="textColor" red="0.3294117647" green="0.3294117647" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insira sua data de nascimento" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TkT-ZT-4Wy">
-                                    <rect key="frame" x="215" y="313.33333333333331" width="183" height="11"/>
-                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="8"/>
-                                    <color key="textColor" red="1" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9yD-Ag-qHb">
+                                    <rect key="frame" x="372" y="280" width="20" height="20"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="20" id="cno-gb-o0h"/>
+                                        <constraint firstAttribute="width" constant="20" id="ggL-EI-0de"/>
+                                    </constraints>
+                                    <state key="normal" image="info"/>
+                                    <connections>
+                                        <action selector="showPetSizeInfo:" destination="-1" eventType="touchUpInside" id="Rwp-Tf-oUx"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
@@ -445,6 +457,7 @@
                                 <constraint firstItem="8kA-hi-jru" firstAttribute="top" secondItem="80j-Qg-cwX" secondAttribute="bottom" constant="12" id="g8u-9f-BIS"/>
                                 <constraint firstItem="D7m-Py-rK6" firstAttribute="centerX" secondItem="B5G-Nr-6If" secondAttribute="centerX" id="gdE-52-9Yq"/>
                                 <constraint firstItem="8kA-hi-jru" firstAttribute="leading" secondItem="1Wz-wr-val" secondAttribute="leading" constant="16" id="gil-9O-SCf"/>
+                                <constraint firstItem="9yD-Ag-qHb" firstAttribute="leading" secondItem="RJn-qo-sre" secondAttribute="trailing" id="hel-Bd-Csy"/>
                                 <constraint firstItem="deh-Qi-gSw" firstAttribute="leading" secondItem="1Wz-wr-val" secondAttribute="leading" constant="16" id="igw-Zv-Se7"/>
                                 <constraint firstItem="gOj-WW-tEk" firstAttribute="top" secondItem="STp-7p-dDE" secondAttribute="bottom" constant="1" id="jCs-vT-zNQ"/>
                                 <constraint firstAttribute="trailing" secondItem="uUH-V1-2ca" secondAttribute="trailing" constant="16" id="jqR-B2-nBQ"/>
@@ -459,6 +472,7 @@
                                 <constraint firstItem="tPx-3g-Iab" firstAttribute="top" secondItem="STp-7p-dDE" secondAttribute="bottom" constant="1" id="nvP-Ej-Ulv"/>
                                 <constraint firstItem="6GP-vy-TT0" firstAttribute="leading" secondItem="deh-Qi-gSw" secondAttribute="leading" constant="45" id="nzO-XA-rzd"/>
                                 <constraint firstItem="ak5-Ry-2O3" firstAttribute="trailing" secondItem="RJn-qo-sre" secondAttribute="trailing" id="oU1-q0-zaq"/>
+                                <constraint firstItem="9yD-Ag-qHb" firstAttribute="centerY" secondItem="RJn-qo-sre" secondAttribute="centerY" id="oYh-fy-8Rr"/>
                                 <constraint firstItem="qKK-Xd-5ew" firstAttribute="top" secondItem="8kA-hi-jru" secondAttribute="bottom" constant="1" id="pXA-ge-RCe"/>
                                 <constraint firstItem="mEm-Oe-9SY" firstAttribute="leading" secondItem="80j-Qg-cwX" secondAttribute="trailing" constant="16.666666666666629" id="szl-JN-O8N"/>
                                 <constraint firstItem="ofd-Wz-Jil" firstAttribute="top" secondItem="Ov9-Jf-qxK" secondAttribute="bottom" constant="12" id="tKt-EK-TJ1"/>
@@ -536,6 +550,7 @@
     <resources>
         <image name="birthday" width="13" height="13"/>
         <image name="camera" width="25" height="25"/>
+        <image name="info" width="15" height="15"/>
         <image name="kind" width="300" height="200"/>
         <image name="observações" width="25" height="24"/>
         <image name="pelagem" width="225" height="200"/>

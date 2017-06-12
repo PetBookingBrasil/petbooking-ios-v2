@@ -19,6 +19,7 @@ class SignupRouter: SignupWireframeProtocol {
 		let view = SignupViewController(nibName: nil, bundle: nil)
 		let interactor = SignupInteractor()
 		interactor.signupType = signupType
+		view.signupType = signupType
 		let router = SignupRouter()
 		let presenter = SignupPresenter(interface: view, interactor: interactor, router: router)
 		
@@ -35,5 +36,11 @@ class SignupRouter: SignupWireframeProtocol {
 		let viewController = storyboard.instantiateViewController(withIdentifier :"ViewController")
 		
 		self.viewController?.present(viewController, animated: true, completion: nil)
+	}
+	
+	func updatedUserWithSuccess(){
+		
+		self.viewController?.navigationController?.popViewController(animated: true)
+		
 	}
 }

@@ -55,6 +55,11 @@ class SideMenuViewController: UIViewController, SideMenuViewProtocol {
 
 	}
 
+	@IBAction func didTapProfileButton(_ sender: Any) {
+		presenter?.didTapProfile()
+	}
+	
+	
 }
 
 extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
