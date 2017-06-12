@@ -51,4 +51,10 @@ extension String {
 			return false
 		}
 	}
+	
+	var localized:String {
+		get {
+			return NSLocalizedString(self, comment: "")
+		}
+	}
 }

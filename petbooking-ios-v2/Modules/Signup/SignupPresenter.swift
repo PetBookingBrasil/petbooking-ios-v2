@@ -46,12 +46,16 @@ class SignupPresenter: SignupPresenterProtocol {
 		view?.setEmail(email: email)
 	}
 	
+	func setUserDetails(mobile:String, cpf:String, birthday:String, zipcode:String) {
+		view?.setUserDetails(mobile: mobile, cpf: cpf, birthday: birthday, zipcode:zipcode)
+	}
+	
 	func fillAdrressWithZipcode(zipcode:String) {
 		interactor.fillAdrressWithZipcode(zipcode: zipcode)
 	}
 	
-	func fillAdrressFields(street:String, neighborhood:String, city:String, state:String) {
-		view?.fillAdrressFields(street: street, neighborhood: neighborhood, city: city, state: state)
+	func fillAdrressFields(street:String, streetNumber:String, neighborhood:String, city:String, state:String) {
+		view?.fillAdrressFields(street: street, streetNumber: streetNumber, neighborhood: neighborhood, city: city, state: state)
 	}
 	
 	func createUser(name:String, cpf:String, birthday:String, email:String, mobile:String, zipcode:String, street:String, streetNumber:String, neighborhood:String, city:String, state:String, password:String, avatar:String)
@@ -64,6 +68,11 @@ class SignupPresenter: SignupPresenterProtocol {
 	func createUserWithSuccess() {
 		ALLoadingView.manager.hideLoadingView()
 		router.createUserWithSuccess()
+	}
+	
+	func updatedUserWithSuccess() {
+		ALLoadingView.manager.hideLoadingView()
+		router.updatedUserWithSuccess()
 	}
 	
 	func createUserWithError() {

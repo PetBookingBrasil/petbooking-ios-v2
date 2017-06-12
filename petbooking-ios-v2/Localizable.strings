@@ -51,3 +51,41 @@
 // Add Pet
 
 "add_pet_title" = "Preencha os dados do pet";
+
+"pet_type_dog" = "Cão";
+"pet_type_cat" = "Gato";
+
+"pet_gender_male" = "Macho";
+"pet_gender_female" = "Fêmea";
+
+"pet_size_small" = "Pequeno";
+"pet_size_medium" = "Médio";
+"pet_size_big" = "Grande";
+"pet_size_giant" = "Gigante";
+
+"pet_coat_size_short_coat" = "Curta";
+"pet_coat_size_medium_coat" = "Média";
+"pet_coat_size_long_coat" = "Longa";
+
+
+"pet_mood_calm" = "Tranquilo";
+"pet_mood_agitated" = "Agitado";
+"pet_mood_happy" = "Alegre";
+"pet_mood_loving" = "Amoroso";
+"pet_mood_angry" = "Bravo";
+"pet_mood_playful" = "Brincalhão";
+"pet_mood_needy" = "Carente";
+"pet_mood_affectionate" = "Carinhoso";
+"pet_mood_brave" = "Valente";
+
+"invalid_pet_name" = "O nome do animal não pode ser vazio";
+"invalid_pet_picture" = "";
+"invalid_pet_gender" = "O gênero do animal não pode ser vazio";
+"invalid_pet_kind" = "O tipo do animal não pode ser vazio";
+"invalid_pet_size" = "O porte do animal não pode ser vazio";
+"invalid_pet_breed" = "A raça do animal não pode ser vazia";
+"invalid_pet_coat" = "A pelagem do animal não pode ser vazia";
+"invalid_pet_mood" = "O temperamento do animal não pode ser vazio";
+
+"select_pet_kind" = "Selecione o tipo do animal";
+

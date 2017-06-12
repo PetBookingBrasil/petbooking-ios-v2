@@ -9,6 +9,7 @@
 //
 
 import UIKit
+import ALLoadingView
 
 class AddPetViewControllerPresenter: AddPetViewControllerPresenterProtocol {
 
@@ -24,4 +25,19 @@ class AddPetViewControllerPresenter: AddPetViewControllerPresenterProtocol {
         self.interactor.presenter = self
     }
 
+	func didtapSaveButton(pet:Pet) {
+		ALLoadingView.manager.showLoadingView(ofType: .basic)
+		interactor.savePet(pet: pet)
+	}
+	
+	func didSavePetWithSuccess() {
+		
+		ALLoadingView.manager.hideLoadingView()
+		router.didSavePetWithSuccess()
+	}
+	
+	func didSavePetWithError(message:String) {
+		ALLoadingView.manager.hideLoadingView()
+		view?.showAlertMessage(title: "", message: message)
+	}
 }

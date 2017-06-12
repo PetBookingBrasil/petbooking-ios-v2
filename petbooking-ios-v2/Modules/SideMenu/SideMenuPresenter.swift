@@ -34,5 +34,9 @@ class SideMenuPresenter: SideMenuPresenterProtocol {
 	func didTapMyPets() {
 		router.didTapMyPets()
 	}
+	
+	func didTapProfile() {
+		router.showProfile()
+	}
 
 }

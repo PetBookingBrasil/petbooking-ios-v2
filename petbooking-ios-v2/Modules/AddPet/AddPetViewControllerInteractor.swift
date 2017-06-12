@@ -13,4 +13,23 @@ import UIKit
 class AddPetViewControllerInteractor: AddPetViewControllerInteractorProtocol {
 
     weak var presenter: AddPetViewControllerPresenterProtocol?
+	
+	func savePet(pet:Pet) {
+		
+		
+		PetbookingAPI.sharedInstance.createPet(pet: pet) { (pet, message) in
+			
+			if pet != nil {
+				self.presenter?.didSavePetWithSuccess()
+			} else {
+				self.presenter?.didSavePetWithError(message: message)
+			}
+			
+		}
+		
+	}
+}
+
+enum PetPickerType {
+	case gender, petType, petSize, breed, coat, temper
 }

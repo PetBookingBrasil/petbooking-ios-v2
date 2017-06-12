@@ -30,7 +30,7 @@ class SignupInteractor: SignupInteractorProtocol {
 					
 					if let dic = response.dictionaryValue {
 						do {
-						let facebookGraph = try MTLJSONAdapter.model(of: FacebookGraphModel.self, fromJSONDictionary: dic) as! FacebookGraphModel
+							let facebookGraph = try MTLJSONAdapter.model(of: FacebookGraphModel.self, fromJSONDictionary: dic) as! FacebookGraphModel
 							
 							self.presenter?.setProfileImageView(urlString: facebookGraph.profileUrl)
 							self.presenter?.setNameLabel(name: facebookGraph.name)
@@ -48,6 +48,24 @@ class SignupInteractor: SignupInteractorProtocol {
 			break
 		case .email:
 			break
+		case .editProfile:
+			
+			guard let user = UserManager.sharedInstance.getCurrentUser() else {
+				return
+			}
+			
+			
+			
+			let dateFormatter = DateFormatter()
+			let birthday = dateFormatter.convertDateFormater(dateString: user.birthday, fromFormat: "yyyy-MM-dd", toFormat: "dd/MM/yyyy")
+			print(birthday)
+			self.presenter?.setProfileImageView(urlString: user.avatarUrlLarge)
+			self.presenter?.setNameLabel(name: user.name)
+			self.presenter?.setEmail(email:user.email)
+			self.presenter?.setUserDetails(mobile: user.phone, cpf: user.cpf, birthday: birthday, zipcode: user.zipcode)
+			self.presenter?.fillAdrressFields(street: user.street, streetNumber: user.streetNumber, neighborhood: user.neighborhood, city: user.city, state: user.state)
+			
+			break
 		}
 		
 	}
@@ -59,7 +77,7 @@ class SignupInteractor: SignupInteractorProtocol {
 			guard let address = address else {
 				return
 			}
-			self.presenter?.fillAdrressFields(street: address.street, neighborhood: address.neighborhood, city: address.city, state: address.state)
+			self.presenter?.fillAdrressFields(street: address.street, streetNumber: "", neighborhood: address.neighborhood, city: address.city, state: address.state)
 			
 		}
 	}
@@ -75,17 +93,34 @@ class SignupInteractor: SignupInteractorProtocol {
 			}
 		}
 		
-		PetbookingAPI.sharedInstance.createUser(name: name, cpf: cpf, birthday: birthday, email: email, mobile: mobile, zipcode: zipcode, street: street, streetNumber: streetNumber, neighborhood: neighborhood, city: city, state: state, password: password, provider: provider, providerToken: providerToken, avatar:avatar) { (success, message) in
+		let dateFormatter = DateFormatter()
+		let birthdaySaveFormat = dateFormatter.convertDateFormater(dateString: birthday, fromFormat: "dd/MM/yyyy", toFormat: "yyyy-MM-dd")
+		
+		if signupType == .editProfile {
 			
-			if success {
+			PetbookingAPI.sharedInstance.updateUser(name: name, cpf: cpf, birthday: birthdaySaveFormat, email: email, mobile: mobile, zipcode: zipcode, street: street, streetNumber: streetNumber, neighborhood: neighborhood, city: city, state: state,avatar:avatar) { (success, message) in
+				
+				if success {
+				 self.presenter?.updatedUserWithSuccess()
+				} else {
+					self.presenter?.createUserWithError()
+				}
+			}
+			
+		} else {
+			
+			PetbookingAPI.sharedInstance.createUser(name: name, cpf: cpf, birthday: birthdaySaveFormat, email: email, mobile: mobile, zipcode: zipcode, street: street, streetNumber: streetNumber, neighborhood: neighborhood, city: city, state: state, password: password, provider: provider, providerToken: providerToken, avatar:avatar) { (success, message) in
+				
+				if success {
 				 self.presenter?.createUserWithSuccess()
-			} else {
-				self.presenter?.createUserWithError()
+				} else {
+					self.presenter?.createUserWithError()
+				}
 			}
 		}
 	}
 }
 
 enum SignupType {
-	case email, facebook
+	case email, facebook, editProfile
 }

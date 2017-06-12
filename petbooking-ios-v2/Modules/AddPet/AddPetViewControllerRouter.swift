@@ -27,4 +27,9 @@ class AddPetViewControllerRouter: AddPetViewControllerWireframeProtocol {
         
         return view
     }
+	
+	func didSavePetWithSuccess() {
+		viewController?.navigationController?.popViewController(animated: true)
+	}
+	
 }

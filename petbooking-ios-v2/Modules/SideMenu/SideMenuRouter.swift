@@ -42,4 +42,8 @@ class SideMenuRouter: SideMenuWireframeProtocol {
 		self.viewController?.navigationController?.pushViewController(MyPetsRouter.createModule(), animated: true)
 		
 	}
+	
+	func showProfile() {
+		self.viewController?.navigationController?.pushViewController(SignupRouter.createModule(signupType: .editProfile), animated: true)
+	}
 }

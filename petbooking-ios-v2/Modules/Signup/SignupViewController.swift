@@ -74,10 +74,13 @@ class SignupViewController: UIViewController, SignupViewProtocol {
 	
 	@IBOutlet weak var profileImageAlertMessage: UILabel!
 	
+	@IBOutlet weak var passwordViewTopDistanceConstraint: NSLayoutConstraint!
+	@IBOutlet weak var passwordSeparatorView: UIView!
 	
 	
 	
 	var presenter: SignupPresenterProtocol?
+	var signupType:SignupType?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -149,11 +152,23 @@ class SignupViewController: UIViewController, SignupViewProtocol {
 		phoneIconImageView.image = phoneIconImageView.image!.withRenderingMode(.alwaysTemplate)
 		phoneIconImageView.tintColor = .black
 		
+		if signupType == .editProfile {
+			confirmPasswordTextField.isHidden = true
+			passwordTextField.isHidden = true
+			confirmPasswordIconImageView.isHidden = true
+			passwordIconImageView.isHidden = true
+			passwordViewTopDistanceConstraint.constant = -33
+			passwordSeparatorView.isHidden = true
+			
+			self.title = "Editar Informações"
+			
+		} else {
 		confirmPasswordIconImageView.image = confirmPasswordIconImageView.image!.withRenderingMode(.alwaysTemplate)
 		confirmPasswordIconImageView.tintColor = .black
 		
 		passwordIconImageView.image = passwordIconImageView.image!.withRenderingMode(.alwaysTemplate)
 		passwordIconImageView.tintColor = .black
+		}
 		
 	}
 	
@@ -176,6 +191,10 @@ class SignupViewController: UIViewController, SignupViewProtocol {
 	}
 	
 	func checkValidPasswordFields() -> Bool {
+		
+		if signupType == .editProfile {
+			return true
+		}
 		
 		var isValid = true
 		
@@ -256,7 +275,10 @@ class SignupViewController: UIViewController, SignupViewProtocol {
 			isValid = false
 		}
 		
-		let password = passwordTextField.checkField()
+		var password = passwordTextField.checkField()
+		if signupType == .editProfile {
+			password = ""
+		}
 		
 		if !checkValidPasswordFields() {
 			isValid = false
@@ -298,12 +320,22 @@ class SignupViewController: UIViewController, SignupViewProtocol {
 		emailTextField.text = email
 	}
 	
-	func fillAdrressFields(street:String, neighborhood:String, city:String, state:String) {
+	func setUserDetails(mobile: String, cpf: String, birthday: String, zipcode:String) {
+		
+		mobileNumberTextField.text = mobile
+		cpfTextField.text = cpf
+		birthdayTextField.text = birthday
+		zipcodeTextField.text = zipcode
+		
+	}
+	
+	func fillAdrressFields(street:String, streetNumber:String, neighborhood:String, city:String, state:String) {
 		
 		streetTextField.text = street
 		neighborhoodTextField.text = neighborhood
 		cityTextField.text = city
 		stateTextField.text = state
+		numberTextField.text = streetNumber
 		
 	}
 	
