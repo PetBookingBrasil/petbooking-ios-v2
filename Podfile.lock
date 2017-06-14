@@ -26,6 +26,7 @@ PODS:
     - Mantle/extobjc (= 2.1.0)
   - Mantle/extobjc (2.1.0)
   - Pageboy (1.0.5)
+  - PageMenu (1.2.9)
   - PINCache (2.3)
   - PINRemoteImage (2.1.4):
     - PINRemoteImage/FLAnimatedImage (= 2.1.4)
@@ -50,9 +51,19 @@ DEPENDENCIES:
   - IQKeyboardManager
   - Mantle
   - Pageboy
+  - PageMenu (from `https://github.com/orazz/PageMenu.git`)
   - PINRemoteImage
   - RealmSwift
   - SideMenu
+
+EXTERNAL SOURCES:
+  PageMenu:
+    :git: https://github.com/orazz/PageMenu.git
+
+CHECKOUT OPTIONS:
+  PageMenu:
+    :commit: ace3d8d095c9c165113d3ac797f317fe7faecbae
+    :git: https://github.com/orazz/PageMenu.git
 
 SPEC CHECKSUMS:
   AKMaskField: b6d147524813e62cd3f15475fa2200ce7a3d2620
@@ -67,12 +78,13 @@ SPEC CHECKSUMS:
   IQKeyboardManager: 322c7405df3eb5f7e50dede32ea937bf3d4364e0
   Mantle: 2fa750afa478cd625a94230fbf1c13462f29395b
   Pageboy: 7fd2c36c92693232fa4bc2382ac681e3f956f830
+  PageMenu: ba19ff267f7a19e444e93c20a7847b78954a7011
   PINCache: ce36ed282031b92fc7733ffe831f474ff80fddc2
   PINRemoteImage: 4ac4011c5caefd6befd99758e09becede05d3226
   Realm: 29222766425b9f831228f81b63f0e38a97a4d700
   RealmSwift: d161a80f96cb91ae88391a7d5a9cf08024a7bc8e
   SideMenu: 3fa07dd05d4bade2b6f9889fb1877e312e1ba319
 
-PODFILE CHECKSUM: 7a8bfed2eb0feb2738922bb4ba031ba4f4ee1657
+PODFILE CHECKSUM: a9c25a2637598876f685413183689142156fd858
 
 COCOAPODS: 1.2.1

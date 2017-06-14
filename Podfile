@@ -21,5 +21,6 @@ target 'petbooking-ios-v2' do
 	pod 'AKMaskField'
 	pod 'Pageboy'
 	pod 'SideMenu'
+	pod 'PageMenu', :git => 'https://github.com/orazz/PageMenu.git'
 	
 end
