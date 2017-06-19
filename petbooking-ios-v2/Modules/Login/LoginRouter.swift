@@ -40,8 +40,7 @@ class LoginRouter: LoginWireframeProtocol {
 	func didCompleteFacebookLoginWithSuccess() {
 		
 			
-			let storyboard = UIStoryboard(name: "Main", bundle: nil)
-			let viewController = storyboard.instantiateViewController(withIdentifier :"ViewController")
+			let viewController = HomeContentViewControllerRouter.createModule()
 		
 		
 			self.viewController?.present(UINavigationController(rootViewController: viewController), animated: true, completion: nil)

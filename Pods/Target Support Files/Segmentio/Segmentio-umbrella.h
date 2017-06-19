@@ -10,8 +10,7 @@
 #endif
 #endif
 
-#import "CMSteppedProgressBar.h"
 
-FOUNDATION_EXPORT double PageMenuVersionNumber;
-FOUNDATION_EXPORT const unsigned char PageMenuVersionString[];
+FOUNDATION_EXPORT double SegmentioVersionNumber;
+FOUNDATION_EXPORT const unsigned char SegmentioVersionString[];
 

@@ -25,7 +25,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		UINavigationBar.appearance().barTintColor =  UIColor(hex: "FF4B4B")
 		UINavigationBar.appearance().tintColor = .white
 		UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
+		UINavigationBar.appearance().setBackgroundImage(
+			UIImage(),
+			for: .any,
+			barMetrics: .default)
+		UINavigationBar.appearance().shadowImage = UIImage()
 		UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffsetMake(0, -80.0), for: .default)
+		
 		
 		var backButtonImage = UIImage(named: "back_icon")
 		backButtonImage = backButtonImage?.stretchableImage(withLeftCapWidth: 22, topCapHeight: 14)
@@ -38,8 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		if let _ = UserManager.sharedInstance.getCurrentUser() {
 			
-			let storyboard = UIStoryboard(name: "Main", bundle: nil)
-			let viewController = storyboard.instantiateViewController(withIdentifier :"ViewController")
+			let viewController = HomeContentViewControllerRouter.createModule()
 			self.window?.rootViewController = UINavigationController(rootViewController: viewController)
 			
 		} else {

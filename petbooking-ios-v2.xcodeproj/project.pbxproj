@@ -59,6 +59,8 @@
 		4137158C1EBE7D0300258C6F /* SelectPhotoSourcePopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 413715861EBE7D0300258C6F /* SelectPhotoSourcePopupViewController.xib */; };
 		4137158F1EBEAFFA00258C6F /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4137158E1EBEAFFA00258C6F /* Device.swift */; };
 		413715931EBEB3B400258C6F /* MIBlurPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413715921EBEB3B400258C6F /* MIBlurPopup.swift */; };
+		4149E96D1EF8404C00D6C44B /* SegmentioBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4149E96C1EF8404C00D6C44B /* SegmentioBuilder.swift */; };
+		4149E96F1EF8416400D6C44B /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4149E96E1EF8416400D6C44B /* UIFontExtension.swift */; };
 		414BB1F31EBFF4AF000BE2CC /* AlertPopupInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414BB1ED1EBFF4AF000BE2CC /* AlertPopupInteractor.swift */; };
 		414BB1F41EBFF4AF000BE2CC /* AlertPopupPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414BB1EE1EBFF4AF000BE2CC /* AlertPopupPresenter.swift */; };
 		414BB1F51EBFF4AF000BE2CC /* AlertPopupProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414BB1EF1EBFF4AF000BE2CC /* AlertPopupProtocols.swift */; };
@@ -93,6 +95,12 @@
 		41A0BAEA1ED7A8FA00671F3C /* AddPetViewControllerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A0BAE41ED7A8FA00671F3C /* AddPetViewControllerRouter.swift */; };
 		41A0BAEB1ED7A8FA00671F3C /* AddPetViewControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A0BAE51ED7A8FA00671F3C /* AddPetViewControllerViewController.swift */; };
 		41A0BAEC1ED7A8FA00671F3C /* AddPetViewControllerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41A0BAE61ED7A8FA00671F3C /* AddPetViewControllerViewController.xib */; };
+		41AAB4F21EF1F9AF00E52857 /* HomeContentViewControllerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AAB4EC1EF1F9AF00E52857 /* HomeContentViewControllerInteractor.swift */; };
+		41AAB4F31EF1F9AF00E52857 /* HomeContentViewControllerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AAB4ED1EF1F9AF00E52857 /* HomeContentViewControllerPresenter.swift */; };
+		41AAB4F41EF1F9AF00E52857 /* HomeContentViewControllerProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AAB4EE1EF1F9AF00E52857 /* HomeContentViewControllerProtocols.swift */; };
+		41AAB4F51EF1F9AF00E52857 /* HomeContentViewControllerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AAB4EF1EF1F9AF00E52857 /* HomeContentViewControllerRouter.swift */; };
+		41AAB4F61EF1F9AF00E52857 /* HomeContentViewControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AAB4F01EF1F9AF00E52857 /* HomeContentViewControllerViewController.swift */; };
+		41AAB4F71EF1F9AF00E52857 /* HomeContentViewControllerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41AAB4F11EF1F9AF00E52857 /* HomeContentViewControllerViewController.xib */; };
 		41BDC2A31EE79FE100F28434 /* PetSizePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BDC2A11EE79FE100F28434 /* PetSizePopupViewController.swift */; };
 		41BDC2A41EE79FE100F28434 /* PetSizePopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41BDC2A21EE79FE100F28434 /* PetSizePopupViewController.xib */; };
 		41E18B561EEE1B8F00470935 /* NSDateFormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E18B551EEE1B8F00470935 /* NSDateFormatterExtension.swift */; };
@@ -165,6 +173,8 @@
 		413715861EBE7D0300258C6F /* SelectPhotoSourcePopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectPhotoSourcePopupViewController.xib; sourceTree = "<group>"; };
 		4137158E1EBEAFFA00258C6F /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		413715921EBEB3B400258C6F /* MIBlurPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIBlurPopup.swift; sourceTree = "<group>"; };
+		4149E96C1EF8404C00D6C44B /* SegmentioBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentioBuilder.swift; sourceTree = "<group>"; };
+		4149E96E1EF8416400D6C44B /* UIFontExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		414BB1ED1EBFF4AF000BE2CC /* AlertPopupInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertPopupInteractor.swift; sourceTree = "<group>"; };
 		414BB1EE1EBFF4AF000BE2CC /* AlertPopupPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertPopupPresenter.swift; sourceTree = "<group>"; };
 		414BB1EF1EBFF4AF000BE2CC /* AlertPopupProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertPopupProtocols.swift; sourceTree = "<group>"; };
@@ -199,6 +209,12 @@
 		41A0BAE41ED7A8FA00671F3C /* AddPetViewControllerRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPetViewControllerRouter.swift; sourceTree = "<group>"; };
 		41A0BAE51ED7A8FA00671F3C /* AddPetViewControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPetViewControllerViewController.swift; sourceTree = "<group>"; };
 		41A0BAE61ED7A8FA00671F3C /* AddPetViewControllerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddPetViewControllerViewController.xib; sourceTree = "<group>"; };
+		41AAB4EC1EF1F9AF00E52857 /* HomeContentViewControllerInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeContentViewControllerInteractor.swift; sourceTree = "<group>"; };
+		41AAB4ED1EF1F9AF00E52857 /* HomeContentViewControllerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeContentViewControllerPresenter.swift; sourceTree = "<group>"; };
+		41AAB4EE1EF1F9AF00E52857 /* HomeContentViewControllerProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeContentViewControllerProtocols.swift; sourceTree = "<group>"; };
+		41AAB4EF1EF1F9AF00E52857 /* HomeContentViewControllerRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeContentViewControllerRouter.swift; sourceTree = "<group>"; };
+		41AAB4F01EF1F9AF00E52857 /* HomeContentViewControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeContentViewControllerViewController.swift; sourceTree = "<group>"; };
+		41AAB4F11EF1F9AF00E52857 /* HomeContentViewControllerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeContentViewControllerViewController.xib; sourceTree = "<group>"; };
 		41BDC2A11EE79FE100F28434 /* PetSizePopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetSizePopupViewController.swift; sourceTree = "<group>"; };
 		41BDC2A21EE79FE100F28434 /* PetSizePopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PetSizePopupViewController.xib; sourceTree = "<group>"; };
 		41E18B551EEE1B8F00470935 /* NSDateFormatterExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateFormatterExtension.swift; sourceTree = "<group>"; };
@@ -242,6 +258,7 @@
 				41E7E2DC1EC106FC002C0A55 /* UITextFieldExtension.swift */,
 				4129D9D91ED85C3D0067EDC3 /* UIImageViewExtension.swift */,
 				41E18B551EEE1B8F00470935 /* NSDateFormatterExtension.swift */,
+				4149E96E1EF8416400D6C44B /* UIFontExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -411,6 +428,7 @@
 		418D099C1EB0D71200FCD5A6 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				41AAB4DF1EF1F98300E52857 /* HomeContent */,
 				41A0BAE01ED7A8E600671F3C /* AddPet */,
 				418DAA341ED1257B006265CF /* MyPets */,
 				418DAA231ECE7E92006265CF /* SideMenu */,
@@ -481,6 +499,20 @@
 				41BDC2A21EE79FE100F28434 /* PetSizePopupViewController.xib */,
 			);
 			path = AddPet;
+			sourceTree = "<group>";
+		};
+		41AAB4DF1EF1F98300E52857 /* HomeContent */ = {
+			isa = PBXGroup;
+			children = (
+				41AAB4EC1EF1F9AF00E52857 /* HomeContentViewControllerInteractor.swift */,
+				41AAB4ED1EF1F9AF00E52857 /* HomeContentViewControllerPresenter.swift */,
+				41AAB4EE1EF1F9AF00E52857 /* HomeContentViewControllerProtocols.swift */,
+				41AAB4EF1EF1F9AF00E52857 /* HomeContentViewControllerRouter.swift */,
+				41AAB4F01EF1F9AF00E52857 /* HomeContentViewControllerViewController.swift */,
+				41AAB4F11EF1F9AF00E52857 /* HomeContentViewControllerViewController.xib */,
+				4149E96C1EF8404C00D6C44B /* SegmentioBuilder.swift */,
+			);
+			path = HomeContent;
 			sourceTree = "<group>";
 		};
 		41E7E2DE1EC27821002C0A55 /* Fonts */ = {
@@ -606,6 +638,7 @@
 				41E7E2EF1EC27833002C0A55 /* OpenSans-Light.ttf in Resources */,
 				4129D9E81ED86E9B0067EDC3 /* MyPetsTableViewCell.xib in Resources */,
 				4120ED051EB0DE9F009D35B0 /* PresentationViewController.xib in Resources */,
+				41AAB4F71EF1F9AF00E52857 /* HomeContentViewControllerViewController.xib in Resources */,
 				4120ED3B1EB529FE009D35B0 /* SignupViewController.xib in Resources */,
 				413682C61E9C2B2D008C463B /* Main.storyboard in Resources */,
 				41E7E2F31EC27833002C0A55 /* OpenSans-SemiboldItalic.ttf in Resources */,
@@ -674,6 +707,7 @@
 			files = (
 				4129D9EC1EDF8BCF0067EDC3 /* Breed.swift in Sources */,
 				4120ED1C1EB38650009D35B0 /* LoginViewController.swift in Sources */,
+				41AAB4F31EF1F9AF00E52857 /* HomeContentViewControllerPresenter.swift in Sources */,
 				4120ED031EB0DE9F009D35B0 /* PresentationRouter.swift in Sources */,
 				4120ED1F1EB390C3009D35B0 /* UIViewControllerExtension.swift in Sources */,
 				4120ED381EB529FE009D35B0 /* SignupProtocols.swift in Sources */,
@@ -706,10 +740,12 @@
 				413682C11E9C2B2D008C463B /* AppDelegate.swift in Sources */,
 				4137157F1EBD5B3F00258C6F /* PresentationPageViewController.swift in Sources */,
 				4120ED041EB0DE9F009D35B0 /* PresentationViewController.swift in Sources */,
+				4149E96D1EF8404C00D6C44B /* SegmentioBuilder.swift in Sources */,
 				414BB1F61EBFF4AF000BE2CC /* AlertPopupRouter.swift in Sources */,
 				4168AA5C1EB80A24001E2D6D /* ErrorRest.swift in Sources */,
 				414BB1F41EBFF4AF000BE2CC /* AlertPopupPresenter.swift in Sources */,
 				4120ED371EB529FE009D35B0 /* SignupPresenter.swift in Sources */,
+				41AAB4F21EF1F9AF00E52857 /* HomeContentViewControllerInteractor.swift in Sources */,
 				418DAA2B1ECE7EAE006265CF /* SideMenuPresenter.swift in Sources */,
 				4120ED361EB529FE009D35B0 /* SignupInteractor.swift in Sources */,
 				415F73D81EBC16E2000D9B14 /* UIImageExtension.swift in Sources */,
@@ -718,6 +754,7 @@
 				41A0BAE71ED7A8FA00671F3C /* AddPetViewControllerInteractor.swift in Sources */,
 				418DAA2A1ECE7EAE006265CF /* SideMenuInteractor.swift in Sources */,
 				41E7E2DD1EC106FC002C0A55 /* UITextFieldExtension.swift in Sources */,
+				41AAB4F51EF1F9AF00E52857 /* HomeContentViewControllerRouter.swift in Sources */,
 				4168AA4F1EB6A4DD001E2D6D /* Consumer.swift in Sources */,
 				415F73D41EBA9F08000D9B14 /* ViaCepAPI.swift in Sources */,
 				413715871EBE7D0300258C6F /* SelectPhotoSourcePopupInteractor.swift in Sources */,
@@ -727,6 +764,7 @@
 				4120ED2E1EB500A6009D35B0 /* UINavigationControllerExtension.swift in Sources */,
 				41BDC2A31EE79FE100F28434 /* PetSizePopupViewController.swift in Sources */,
 				418DAA2D1ECE7EAE006265CF /* SideMenuRouter.swift in Sources */,
+				41AAB4F41EF1F9AF00E52857 /* HomeContentViewControllerProtocols.swift in Sources */,
 				41A0BAE91ED7A8FA00671F3C /* AddPetViewControllerProtocols.swift in Sources */,
 				418DAA461ED12FAF006265CF /* Pet.swift in Sources */,
 				413715891EBE7D0300258C6F /* SelectPhotoSourcePopupProtocols.swift in Sources */,
@@ -740,8 +778,10 @@
 				415BCAE01EB534C40015BB0C /* SignupViewController.swift in Sources */,
 				4120ED181EB38650009D35B0 /* LoginInteractor.swift in Sources */,
 				414BB1F71EBFF4AF000BE2CC /* AlertPopupViewController.swift in Sources */,
+				4149E96F1EF8416400D6C44B /* UIFontExtension.swift in Sources */,
 				4120ED1B1EB38650009D35B0 /* LoginRouter.swift in Sources */,
 				4120ED021EB0DE9F009D35B0 /* PresentationProtocols.swift in Sources */,
+				41AAB4F61EF1F9AF00E52857 /* HomeContentViewControllerViewController.swift in Sources */,
 				418DAA2E1ECE7EAE006265CF /* SideMenuViewController.swift in Sources */,
 				413715881EBE7D0300258C6F /* SelectPhotoSourcePopupPresenter.swift in Sources */,
 				41A0BAEB1ED7A8FA00671F3C /* AddPetViewControllerViewController.swift in Sources */,
