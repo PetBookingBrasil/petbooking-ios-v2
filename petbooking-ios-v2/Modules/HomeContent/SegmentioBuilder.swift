@@ -44,11 +44,11 @@ struct SegmentioBuilder {
 			break
 		}
 		
-		let horizontalSeparatorOptions = SegmentioHorizontalSeparatorOptions(type: .top, color: UIColor(hex: "FF4B4B"))
+		let horizontalSeparatorOptions = SegmentioHorizontalSeparatorOptions(type: .top, color: UIColor(hex: "B00021"))
 		let verticalSeparatorOptions = SegmentioVerticalSeparatorOptions(ratio: 0, color: .clear)
 		
 		return SegmentioOptions(
-			backgroundColor: UIColor(hex: "FF4B4B"),
+			backgroundColor: UIColor(hex: "B00021"),
 			maxVisibleItems: 2,
 			scrollEnabled: true,
 			indicatorOptions: segmentioIndicatorOptions(),

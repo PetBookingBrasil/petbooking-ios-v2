@@ -97,8 +97,6 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
 			break
 		case .settings:
 			cell.iconImageView.image = UIImage(named:"settings")
-			cell.iconImageView.image = cell.iconImageView.image!.withRenderingMode(.alwaysTemplate)
-			cell.iconImageView.tintColor = .white
 			cell.titleLabel.text = NSLocalizedString("side_menu_settings", comment: "")
 			break
 		case .logout:

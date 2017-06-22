@@ -61,6 +61,12 @@
 		413715931EBEB3B400258C6F /* MIBlurPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413715921EBEB3B400258C6F /* MIBlurPopup.swift */; };
 		4149E96D1EF8404C00D6C44B /* SegmentioBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4149E96C1EF8404C00D6C44B /* SegmentioBuilder.swift */; };
 		4149E96F1EF8416400D6C44B /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4149E96E1EF8416400D6C44B /* UIFontExtension.swift */; };
+		4149E9771EF9628100D6C44B /* BusinessListViewControllerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4149E9711EF9628100D6C44B /* BusinessListViewControllerInteractor.swift */; };
+		4149E9781EF9628100D6C44B /* BusinessListViewControllerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4149E9721EF9628100D6C44B /* BusinessListViewControllerPresenter.swift */; };
+		4149E9791EF9628100D6C44B /* BusinessListViewControllerProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4149E9731EF9628100D6C44B /* BusinessListViewControllerProtocols.swift */; };
+		4149E97A1EF9628100D6C44B /* BusinessListViewControllerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4149E9741EF9628100D6C44B /* BusinessListViewControllerRouter.swift */; };
+		4149E97B1EF9628100D6C44B /* BusinessListViewControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4149E9751EF9628100D6C44B /* BusinessListViewControllerViewController.swift */; };
+		4149E97C1EF9628100D6C44B /* BusinessListViewControllerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4149E9761EF9628100D6C44B /* BusinessListViewControllerViewController.xib */; };
 		414BB1F31EBFF4AF000BE2CC /* AlertPopupInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414BB1ED1EBFF4AF000BE2CC /* AlertPopupInteractor.swift */; };
 		414BB1F41EBFF4AF000BE2CC /* AlertPopupPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414BB1EE1EBFF4AF000BE2CC /* AlertPopupPresenter.swift */; };
 		414BB1F51EBFF4AF000BE2CC /* AlertPopupProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414BB1EF1EBFF4AF000BE2CC /* AlertPopupProtocols.swift */; };
@@ -175,6 +181,12 @@
 		413715921EBEB3B400258C6F /* MIBlurPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIBlurPopup.swift; sourceTree = "<group>"; };
 		4149E96C1EF8404C00D6C44B /* SegmentioBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentioBuilder.swift; sourceTree = "<group>"; };
 		4149E96E1EF8416400D6C44B /* UIFontExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
+		4149E9711EF9628100D6C44B /* BusinessListViewControllerInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessListViewControllerInteractor.swift; sourceTree = "<group>"; };
+		4149E9721EF9628100D6C44B /* BusinessListViewControllerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessListViewControllerPresenter.swift; sourceTree = "<group>"; };
+		4149E9731EF9628100D6C44B /* BusinessListViewControllerProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessListViewControllerProtocols.swift; sourceTree = "<group>"; };
+		4149E9741EF9628100D6C44B /* BusinessListViewControllerRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessListViewControllerRouter.swift; sourceTree = "<group>"; };
+		4149E9751EF9628100D6C44B /* BusinessListViewControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessListViewControllerViewController.swift; sourceTree = "<group>"; };
+		4149E9761EF9628100D6C44B /* BusinessListViewControllerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusinessListViewControllerViewController.xib; sourceTree = "<group>"; };
 		414BB1ED1EBFF4AF000BE2CC /* AlertPopupInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertPopupInteractor.swift; sourceTree = "<group>"; };
 		414BB1EE1EBFF4AF000BE2CC /* AlertPopupPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertPopupPresenter.swift; sourceTree = "<group>"; };
 		414BB1EF1EBFF4AF000BE2CC /* AlertPopupProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertPopupProtocols.swift; sourceTree = "<group>"; };
@@ -379,6 +391,19 @@
 			path = MIBlurPopup;
 			sourceTree = "<group>";
 		};
+		4149E9701EF961DA00D6C44B /* BusinessList */ = {
+			isa = PBXGroup;
+			children = (
+				4149E9711EF9628100D6C44B /* BusinessListViewControllerInteractor.swift */,
+				4149E9721EF9628100D6C44B /* BusinessListViewControllerPresenter.swift */,
+				4149E9731EF9628100D6C44B /* BusinessListViewControllerProtocols.swift */,
+				4149E9741EF9628100D6C44B /* BusinessListViewControllerRouter.swift */,
+				4149E9751EF9628100D6C44B /* BusinessListViewControllerViewController.swift */,
+				4149E9761EF9628100D6C44B /* BusinessListViewControllerViewController.xib */,
+			);
+			path = BusinessList;
+			sourceTree = "<group>";
+		};
 		414BB1EC1EBFF49A000BE2CC /* AlertPopup */ = {
 			isa = PBXGroup;
 			children = (
@@ -428,6 +453,7 @@
 		418D099C1EB0D71200FCD5A6 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				4149E9701EF961DA00D6C44B /* BusinessList */,
 				41AAB4DF1EF1F98300E52857 /* HomeContent */,
 				41A0BAE01ED7A8E600671F3C /* AddPet */,
 				418DAA341ED1257B006265CF /* MyPets */,
@@ -627,6 +653,7 @@
 				414BB1F81EBFF4AF000BE2CC /* AlertPopupViewController.xib in Resources */,
 				41E7E2EE1EC27833002C0A55 /* OpenSans-Italic.ttf in Resources */,
 				4120ED101EB128A5009D35B0 /* Localizable.strings in Resources */,
+				4149E97C1EF9628100D6C44B /* BusinessListViewControllerViewController.xib in Resources */,
 				413682CB1E9C2B2D008C463B /* LaunchScreen.storyboard in Resources */,
 				4120ED2C1EB4F136009D35B0 /* ForgotPasswordViewController.xib in Resources */,
 				4120ED1D1EB38650009D35B0 /* LoginViewController.xib in Resources */,
@@ -740,6 +767,7 @@
 				413682C11E9C2B2D008C463B /* AppDelegate.swift in Sources */,
 				4137157F1EBD5B3F00258C6F /* PresentationPageViewController.swift in Sources */,
 				4120ED041EB0DE9F009D35B0 /* PresentationViewController.swift in Sources */,
+				4149E9771EF9628100D6C44B /* BusinessListViewControllerInteractor.swift in Sources */,
 				4149E96D1EF8404C00D6C44B /* SegmentioBuilder.swift in Sources */,
 				414BB1F61EBFF4AF000BE2CC /* AlertPopupRouter.swift in Sources */,
 				4168AA5C1EB80A24001E2D6D /* ErrorRest.swift in Sources */,
@@ -768,14 +796,17 @@
 				41A0BAE91ED7A8FA00671F3C /* AddPetViewControllerProtocols.swift in Sources */,
 				418DAA461ED12FAF006265CF /* Pet.swift in Sources */,
 				413715891EBE7D0300258C6F /* SelectPhotoSourcePopupProtocols.swift in Sources */,
+				4149E9791EF9628100D6C44B /* BusinessListViewControllerProtocols.swift in Sources */,
 				414BB1F51EBFF4AF000BE2CC /* AlertPopupProtocols.swift in Sources */,
 				4168AA4C1EB69217001E2D6D /* PetbookingAPI.swift in Sources */,
+				4149E97B1EF9628100D6C44B /* BusinessListViewControllerViewController.swift in Sources */,
 				4120ED281EB4F136009D35B0 /* ForgotPasswordPresenter.swift in Sources */,
 				4120ED391EB529FE009D35B0 /* SignupRouter.swift in Sources */,
 				4120ED1A1EB38650009D35B0 /* LoginProtocols.swift in Sources */,
 				4129D9E31ED86E9B0067EDC3 /* MyPetsInteractor.swift in Sources */,
 				4120ED2B1EB4F136009D35B0 /* ForgotPasswordViewController.swift in Sources */,
 				415BCAE01EB534C40015BB0C /* SignupViewController.swift in Sources */,
+				4149E97A1EF9628100D6C44B /* BusinessListViewControllerRouter.swift in Sources */,
 				4120ED181EB38650009D35B0 /* LoginInteractor.swift in Sources */,
 				414BB1F71EBFF4AF000BE2CC /* AlertPopupViewController.swift in Sources */,
 				4149E96F1EF8416400D6C44B /* UIFontExtension.swift in Sources */,
@@ -783,6 +814,7 @@
 				4120ED021EB0DE9F009D35B0 /* PresentationProtocols.swift in Sources */,
 				41AAB4F61EF1F9AF00E52857 /* HomeContentViewControllerViewController.swift in Sources */,
 				418DAA2E1ECE7EAE006265CF /* SideMenuViewController.swift in Sources */,
+				4149E9781EF9628100D6C44B /* BusinessListViewControllerPresenter.swift in Sources */,
 				413715881EBE7D0300258C6F /* SelectPhotoSourcePopupPresenter.swift in Sources */,
 				41A0BAEB1ED7A8FA00671F3C /* AddPetViewControllerViewController.swift in Sources */,
 				4129D9E41ED86E9B0067EDC3 /* MyPetsPresenter.swift in Sources */,

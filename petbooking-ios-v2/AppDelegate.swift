@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
 		
 		UINavigationBar.appearance().isTranslucent = false
-		UINavigationBar.appearance().barTintColor =  UIColor(hex: "FF4B4B")
+		UINavigationBar.appearance().barTintColor =  UIColor(hex: "E4002B")
 		UINavigationBar.appearance().tintColor = .white
 		UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
 		UINavigationBar.appearance().setBackgroundImage(
@@ -42,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		}
 		
 		
-		if let _ = UserManager.sharedInstance.getCurrentUser() {
+		if let _ = SessionManager.sharedInstance.getCurrentSession() {
 			
 			let viewController = HomeContentViewControllerRouter.createModule()
 			self.window?.rootViewController = UINavigationController(rootViewController: viewController)

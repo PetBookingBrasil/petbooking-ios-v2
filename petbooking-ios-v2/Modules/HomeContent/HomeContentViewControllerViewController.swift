@@ -13,18 +13,21 @@ import Segmentio
 import SideMenu
 
 class HomeContentViewControllerViewController: UIViewController, HomeContentViewControllerViewProtocol {
-
+	
 	@IBOutlet weak var segmentioView: Segmentio!
 	
+	@IBOutlet weak var containerView: UIView!
+	@IBOutlet weak var scrollView: UIScrollView!
 	var presenter: HomeContentViewControllerPresenterProtocol?
-
+	
+	
+	fileprivate lazy var viewControllers: [UIViewController] = {
+		return self.preparedViewControllers()
+	}()
+	
 	override func viewDidLoad() {
-        super.viewDidLoad()
+		super.viewDidLoad()
 		
-		SegmentioBuilder.buildSegmentioView(
-			segmentioView: segmentioView,
-			segmentioStyle: .onlyImage
-		)
 		
 		navigationItem.titleView = UIImageView(image: UIImage(named: "logoNavigationBar"))
 		
@@ -43,14 +46,75 @@ class HomeContentViewControllerViewController: UIViewController, HomeContentView
 		SideMenuManager.menuAnimationBackgroundColor = UIColor.clear
 		SideMenuManager.menuShadowRadius = 0
 		SideMenuManager.menuShadowOpacity = 0
+		//SideMenuManager.menuBlurEffectStyle = .dark
 		SideMenuManager.menuPushStyle = .popWhenPossible
 		
 		navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named:"menu"), style: .plain, target: self, action: #selector(showLeftMenu))
 		
-    }
+	}
+	
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		
+		setupScrollView()
+		
+		SegmentioBuilder.buildSegmentioView(
+			segmentioView: segmentioView,
+			segmentioStyle: .onlyImage
+		)
+		
+		segmentioView.selectedSegmentioIndex = selectedSegmentioIndex()
+		
+		segmentioView.valueDidChange = { [weak self] _, segmentIndex in
+			if let scrollViewWidth = self?.scrollView.frame.width {
+				let contentOffsetX = scrollViewWidth * CGFloat(segmentIndex)
+				self?.scrollView.setContentOffset(
+					CGPoint(x: contentOffsetX, y: 0),
+					animated: true
+				)
+			}
+		}
+		
+	}
 	
 	func showLeftMenu() {
 		present(SideMenuManager.menuLeftNavigationController!, animated: true, completion: nil)
 	}
-
+	
+	// MARK: - Setup container view
+	
+	fileprivate func setupScrollView() {
+		scrollView.contentSize = CGSize(
+			width: UIScreen.main.bounds.width * CGFloat(viewControllers.count),
+			height: containerView.frame.height
+		)
+		
+		for (index, viewController) in viewControllers.enumerated() {
+			viewController.view.frame = CGRect(
+				x: UIScreen.main.bounds.width * CGFloat(index),
+				y: 0,
+				width: scrollView.frame.width,
+				height: scrollView.frame.height
+			)
+			addChildViewController(viewController)
+			scrollView.addSubview(viewController.view, options: .useAutoresize) // module's extension
+			viewController.didMove(toParentViewController: self)
+		}
+	}
+	
+	fileprivate func preparedViewControllers() -> [UIViewController] {
+		let listViewController = BusinessListViewControllerViewController()
+		listViewController.view.backgroundColor = .blue
+		let mapViewController = UIViewController()
+		mapViewController.view.backgroundColor = .yellow
+		
+		return [
+			listViewController,
+			mapViewController
+		]
+	}
+	
+	fileprivate func selectedSegmentioIndex() -> Int {
+		return 0
+	}
 }

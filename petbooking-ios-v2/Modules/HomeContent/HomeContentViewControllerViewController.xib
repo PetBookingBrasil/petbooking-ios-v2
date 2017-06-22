@@ -5,12 +5,14 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12121"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeContentViewControllerViewController" customModule="petbooking_ios_v2" customModuleProvider="target">
             <connections>
+                <outlet property="containerView" destination="g1H-0b-dpg" id="EXW-FJ-ov9"/>
+                <outlet property="scrollView" destination="xzm-y3-a5R" id="P5E-ez-peh"/>
                 <outlet property="segmentioView" destination="aiC-ku-UEk" id="s3A-En-SIR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -27,13 +29,33 @@
                         <constraint firstAttribute="height" constant="60" id="Jpw-Lg-rVc"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g1H-0b-dpg" userLabel="Container">
+                    <rect key="frame" x="0.0" y="60" width="375" height="607"/>
+                    <subviews>
+                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xzm-y3-a5R">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="607"/>
+                        </scrollView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="xzm-y3-a5R" firstAttribute="top" secondItem="g1H-0b-dpg" secondAttribute="top" id="2b0-c7-3Od"/>
+                        <constraint firstItem="xzm-y3-a5R" firstAttribute="leading" secondItem="g1H-0b-dpg" secondAttribute="leading" id="4PD-bA-EqF"/>
+                        <constraint firstAttribute="bottom" secondItem="xzm-y3-a5R" secondAttribute="bottom" id="dhF-7B-z3M"/>
+                        <constraint firstAttribute="trailing" secondItem="xzm-y3-a5R" secondAttribute="trailing" id="rzQ-Mr-Tlh"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="g1H-0b-dpg" secondAttribute="trailing" id="DUZ-Y3-LRc"/>
+                <constraint firstItem="g1H-0b-dpg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="JbA-hf-0Zk"/>
                 <constraint firstItem="aiC-ku-UEk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Lh4-wn-BH9"/>
+                <constraint firstAttribute="bottom" secondItem="g1H-0b-dpg" secondAttribute="bottom" id="Y7x-90-SBc"/>
+                <constraint firstItem="g1H-0b-dpg" firstAttribute="top" secondItem="aiC-ku-UEk" secondAttribute="bottom" id="YH9-xV-oUS"/>
                 <constraint firstAttribute="trailing" secondItem="aiC-ku-UEk" secondAttribute="trailing" id="dve-4p-8nR"/>
                 <constraint firstItem="aiC-ku-UEk" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ncj-P4-6Ud"/>
             </constraints>
+            <point key="canvasLocation" x="34.5" y="53.5"/>
         </view>
     </objects>
 </document>

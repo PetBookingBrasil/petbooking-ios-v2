@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import Mantle
+import CoreLocation
 
 class PetbookingAPI: NSObject {
 	
@@ -616,6 +617,69 @@ extension PetbookingAPI {
 					completion(nil, "")
 					
 				}
+			})
+		}
+	}
+}
+
+// MARK: Business
+
+extension PetbookingAPI {
+	
+	func getBusinessList(coordinate:CLLocationCoordinate2D, completion: @escaping (_ businessList: BreedList?, _ message: String) -> Void ) {
+		
+		if SessionManager.sharedInstance.isConsumerValid() {
+			var token = ""
+			if let consumer = SessionManager.sharedInstance.getCurrentConsumer() {
+				token = consumer.token
+			}
+			
+			guard let session = SessionManager.sharedInstance.getCurrentSession() else {
+				return
+			}
+			
+			self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
+			
+			let coords = "\(coordinate.latitude),\(coordinate.longitude)"
+			
+			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/businesses/search?user_id=\(session.userId)&coords=\(coords)&filter[other]=featured&fields[businesses]=id,name,slug,location,distance,street,street_number,imported,neighborhood,rating_average,rating_count,favorite_count,cover_image,pictures,transportation_fee,bitmask_values,user_favorite&page[number]=1&page[size]=15", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: auth_headers).responseJSON { (response) in
+				
+				switch response.result{
+				case .success(let jsonObject):
+					if let dic = jsonObject as? [String: Any] {
+						print(dic)
+						do {
+							//let breedList = try MTLJSONAdapter.model(of: BreedList.self, fromJSONDictionary: dic) as! BreedList
+							
+							
+							completion(nil, "")
+							
+						} catch {
+							completion(nil, error.localizedDescription)
+						}
+					} else {
+						completion(nil, "")
+					}
+					break
+				case .failure(let error):
+					print(error)
+					completion(nil, error.localizedDescription)
+					break
+				}
+				
+			}
+		} else
+		{
+			getConsumer(completion: { (success, message) in
+				
+				if success {
+					self.getBusinessList(coordinate: coordinate, completion: completion)
+				} else {
+					
+					completion(nil, "")
+					
+				}
+				
 			})
 		}
 	}
