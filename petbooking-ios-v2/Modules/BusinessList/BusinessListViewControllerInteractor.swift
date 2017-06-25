@@ -9,8 +9,23 @@
 //
 
 import UIKit
+import CoreLocation
 
 class BusinessListViewControllerInteractor: BusinessListViewControllerInteractorInputProtocol {
-
-    weak var presenter: BusinessListViewControllerInteractorOutputProtocol?
+	
+	weak var presenter: BusinessListViewControllerInteractorOutputProtocol?
+	
+	func getBusinessByCoordinates(coordinates:CLLocationCoordinate2D) {
+		
+		PetbookingAPI.sharedInstance.getBusinessList(coordinate: coordinates) { (businessList, msg) in
+			
+			guard let businessList = businessList else {
+				return
+			}
+			
+			self.presenter?.updateBusinessList(businessList: businessList)
+			
+		}
+		
+	}
 }

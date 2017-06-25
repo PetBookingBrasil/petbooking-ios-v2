@@ -626,7 +626,7 @@ extension PetbookingAPI {
 
 extension PetbookingAPI {
 	
-	func getBusinessList(coordinate:CLLocationCoordinate2D, completion: @escaping (_ businessList: BreedList?, _ message: String) -> Void ) {
+	func getBusinessList(coordinate:CLLocationCoordinate2D, completion: @escaping (_ businessList: BusinessList?, _ message: String) -> Void ) {
 		
 		if SessionManager.sharedInstance.isConsumerValid() {
 			var token = ""
@@ -649,10 +649,10 @@ extension PetbookingAPI {
 					if let dic = jsonObject as? [String: Any] {
 						print(dic)
 						do {
-							//let breedList = try MTLJSONAdapter.model(of: BreedList.self, fromJSONDictionary: dic) as! BreedList
+							let businessList = try MTLJSONAdapter.model(of: BusinessList.self, fromJSONDictionary: dic) as! BusinessList
 							
 							
-							completion(nil, "")
+							completion(businessList, "")
 							
 						} catch {
 							completion(nil, error.localizedDescription)

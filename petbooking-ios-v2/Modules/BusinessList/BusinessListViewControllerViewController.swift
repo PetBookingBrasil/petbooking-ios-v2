@@ -13,8 +13,12 @@ import CoreLocation
 
 class BusinessListViewControllerViewController: UIViewController, BusinessListViewControllerViewProtocol {
 	
+	@IBOutlet weak var tableView: UITableView!
+	
 	var presenter: BusinessListViewControllerPresenterProtocol?
 	var locationManager:CLLocationManager?
+	var businessList:BusinessList?
+	var businesses = [Business]()
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -35,11 +39,25 @@ class BusinessListViewControllerViewController: UIViewController, BusinessListVi
 			locationManager?.startUpdatingLocation()
 		}
 		
+		tableView.register(UINib(nibName: "BusinessTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+		tableView.rowHeight = UITableViewAutomaticDimension
+		tableView.estimatedRowHeight = 2000
+		
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		
+		
+	}
+	
+	func updateBusinessList(businessList:BusinessList) {
+		
+		self.businessList = businessList
+		
+		businesses = businessList.businesses
+		
+		tableView.reloadData()
 		
 	}
 	
@@ -65,12 +83,35 @@ extension BusinessListViewControllerViewController: CLLocationManagerDelegate {
 		print(coord.latitude)
 		print(coord.longitude)
 		
-		PetbookingAPI.sharedInstance.getBusinessList(coordinate: coord) { (businessList, msg) in
-			
-			print(msg)
-			
-		}
+		presenter?.getBusinessByCoordinates(coordinates: coord)
 		
 	}
+	
+}
+
+extension BusinessListViewControllerViewController: UITableViewDelegate, UITableViewDataSource {
+	
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		
+		return businesses.count
+	}
+	
+	
+	
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		
+		let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! BusinessTableViewCell
+		
+		let business = businesses[indexPath.row]
+		
+		cell.nameLabel.text = business.name
+		
+		return cell
+	}
+	
+	public func numberOfSections(in tableView: UITableView) -> Int {
+		return 1
+	}
+	
 	
 }

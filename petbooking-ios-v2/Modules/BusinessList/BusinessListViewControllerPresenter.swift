@@ -9,6 +9,7 @@
 //
 
 import UIKit
+import  CoreLocation
 
 class BusinessListViewControllerPresenter: BusinessListViewControllerPresenterProtocol, BusinessListViewControllerInteractorOutputProtocol {
 
@@ -21,5 +22,13 @@ class BusinessListViewControllerPresenter: BusinessListViewControllerPresenterPr
         self.interactor = interactor
         self.router = router
     }
+	
+	func getBusinessByCoordinates(coordinates:CLLocationCoordinate2D) {
+		interactor?.getBusinessByCoordinates(coordinates: coordinates)
+	}
+	
+	func updateBusinessList(businessList:BusinessList) {
+		view?.updateBusinessList(businessList: businessList)
+	}
 
 }

@@ -9,34 +9,44 @@
 //
 
 import Foundation
+import CoreLocation
 
 //MARK: Wireframe -
 protocol BusinessListViewControllerWireframeProtocol: class {
-
+	
 }
 //MARK: Presenter -
 protocol BusinessListViewControllerPresenterProtocol: class {
-
-    var interactor: BusinessListViewControllerInteractorInputProtocol? { get set }
+	
+	var interactor: BusinessListViewControllerInteractorInputProtocol? { get set }
+	
+	func getBusinessByCoordinates(coordinates:CLLocationCoordinate2D)
 }
 
 //MARK: Interactor -
 protocol BusinessListViewControllerInteractorOutputProtocol: class {
-
-    /* Interactor -> Presenter */
+	
+	/* Interactor -> Presenter */
+	
+	func updateBusinessList(businessList:BusinessList)
+	
 }
 
 protocol BusinessListViewControllerInteractorInputProtocol: class {
-
-    var presenter: BusinessListViewControllerInteractorOutputProtocol?  { get set }
-
-    /* Presenter -> Interactor */
+	
+	var presenter: BusinessListViewControllerInteractorOutputProtocol?  { get set }
+	
+	func getBusinessByCoordinates(coordinates:CLLocationCoordinate2D)
+	
+	/* Presenter -> Interactor */
 }
 
 //MARK: View -
 protocol BusinessListViewControllerViewProtocol: class {
-
-    var presenter: BusinessListViewControllerPresenterProtocol?  { get set }
-
-    /* Presenter -> ViewController */
+	
+	var presenter: BusinessListViewControllerPresenterProtocol?  { get set }
+	
+	func updateBusinessList(businessList:BusinessList)
+	
+	/* Presenter -> ViewController */
 }
