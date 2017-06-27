@@ -17,8 +17,9 @@ class BusinessListViewControllerViewController: UIViewController, BusinessListVi
 	
 	var presenter: BusinessListViewControllerPresenterProtocol?
 	var locationManager:CLLocationManager?
-	var businessList:BusinessList?
+	var businessList:BusinessList = BusinessList()
 	var businesses = [Business]()
+	var coordinates:CLLocationCoordinate2D = CLLocationCoordinate2D()
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -33,15 +34,21 @@ class BusinessListViewControllerViewController: UIViewController, BusinessListVi
 		// For use in foreground
 		self.locationManager?.requestWhenInUseAuthorization()
 		
+		
+		tableView.register(UINib(nibName: "BusinessTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+		tableView.rowHeight = UITableViewAutomaticDimension
+		tableView.estimatedRowHeight = 2000
+		
+	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		
 		if CLLocationManager.locationServicesEnabled() {
 			locationManager?.delegate = self
 			locationManager?.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
 			locationManager?.startUpdatingLocation()
 		}
-		
-		tableView.register(UINib(nibName: "BusinessTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
-		tableView.rowHeight = UITableViewAutomaticDimension
-		tableView.estimatedRowHeight = 2000
 		
 	}
 	
@@ -53,11 +60,33 @@ class BusinessListViewControllerViewController: UIViewController, BusinessListVi
 	
 	func updateBusinessList(businessList:BusinessList) {
 		
-		self.businessList = businessList
-		
-		businesses = businessList.businesses
-		
-		tableView.reloadData()
+		if businessList.businesses.count > 0 {
+			
+			self.businessList = businessList
+			
+			if businessList.page == 0 {
+				
+				
+				businesses = businessList.businesses
+				
+				tableView.reloadData()
+			} else {
+				let count = self.businesses.count
+				self.businesses += businessList.businesses
+				
+				UIView.setAnimationsEnabled(false)
+				self.tableView.beginUpdates()
+				let contentOffset = self.tableView.contentOffset
+				
+				self.tableView.insertSections(IndexSet(count...self.businesses.count - 1), with: .none)
+				self.tableView.layoutIfNeeded()
+				self.tableView.setContentOffset(contentOffset, animated: false)
+				
+				
+				self.tableView.endUpdates()
+				UIView.setAnimationsEnabled(true)
+			}
+		}
 		
 	}
 	
@@ -79,11 +108,10 @@ extension BusinessListViewControllerViewController: CLLocationManagerDelegate {
 		
 		let locationArray = locations as NSArray
 		let locationObj = locationArray.lastObject as! CLLocation
-		let coord = locationObj.coordinate
-		print(coord.latitude)
-		print(coord.longitude)
+		self.coordinates = locationObj.coordinate
 		
-		presenter?.getBusinessByCoordinates(coordinates: coord)
+		
+		presenter?.getBusinessByCoordinates(coordinates: self.coordinates, page:0)
 		
 	}
 	
@@ -93,24 +121,61 @@ extension BusinessListViewControllerViewController: UITableViewDelegate, UITable
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		
-		return businesses.count
+		return 1
 	}
 	
 	
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		
+		if indexPath.section < businesses.count - 1 {
+			
+			
+			presenter?.getBusinessByCoordinates(coordinates: self.coordinates, page: businessList.page + 1)
+			
+		}
+		
 		let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! BusinessTableViewCell
 		
-		let business = businesses[indexPath.row]
+		let business = businesses[indexPath.section]
 		
+		cell.business = business
 		cell.nameLabel.text = business.name
+		cell.addressLabel.text = "\(business.street), \(business.streetNumber), \(business.neighborhood)"
+		//cell.cityLabel.text = ""
+		cell.distanceLabel.text = "\(business.distance)km"
+		cell.distanceLabel.sizeToFit()
+		cell.distanceView.round()
+		cell.distanceView.setBorder(width: 1, color: .red)
+		cell.ratingLabel.text = "\(business.rating)"
+		cell.reviewQuantityLabel.text = "\(business.ratingCount) Avaliações"
+		
+		if let url = URL(string: business.photoUrl) {
+			cell.businessImageView.pin_setImage(from: url)
+		}
 		
 		return cell
 	}
 	
 	public func numberOfSections(in tableView: UITableView) -> Int {
-		return 1
+		return businesses.count
+	}
+	
+	// Set the spacing between sections
+	func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+		
+		if section == 0 {
+			return 0
+		}
+		
+		return 10
+	}
+	
+	// Make the background color show through
+	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+		let headerView = UIView()
+		headerView.backgroundColor = UIColor.clear
+		return headerView
 	}
 	
 	

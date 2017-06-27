@@ -20,7 +20,7 @@ protocol BusinessListViewControllerPresenterProtocol: class {
 	
 	var interactor: BusinessListViewControllerInteractorInputProtocol? { get set }
 	
-	func getBusinessByCoordinates(coordinates:CLLocationCoordinate2D)
+	func getBusinessByCoordinates(coordinates:CLLocationCoordinate2D, page:Int)
 }
 
 //MARK: Interactor -
@@ -36,7 +36,7 @@ protocol BusinessListViewControllerInteractorInputProtocol: class {
 	
 	var presenter: BusinessListViewControllerInteractorOutputProtocol?  { get set }
 	
-	func getBusinessByCoordinates(coordinates:CLLocationCoordinate2D)
+	func getBusinessByCoordinates(coordinates:CLLocationCoordinate2D, page:Int)
 	
 	/* Presenter -> Interactor */
 }

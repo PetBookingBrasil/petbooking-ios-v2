@@ -22,7 +22,8 @@ class Business: MTLModel, MTLJSONSerializing {
 	dynamic var street:String = ""
 	dynamic var streetNumber:String = ""
 	dynamic var rating  = 0.0
-	dynamic var ratingCount  = 0.0
+	dynamic var ratingCount  = 0
+	dynamic var isFavorite = false
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
 		return [
@@ -36,7 +37,8 @@ class Business: MTLModel, MTLJSONSerializing {
 			"rating": "attributes.rating_average",
 			"ratingCount": "attributes.rating_count",
 			"photoUrl": "attributes.cover_image.url",
-			"photoThumbUrl": "attributes.cover_image.thumb.url"
+			"photoThumbUrl": "attributes.cover_image.thumb.url",
+			"isFavorite": "user_favorite"
 		]
 	}
 	
@@ -45,6 +47,7 @@ class Business: MTLModel, MTLJSONSerializing {
 class BusinessList: MTLModel, MTLJSONSerializing {
 	
 	dynamic var businesses = [Business]()
+	dynamic var page = 0
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
 		return [

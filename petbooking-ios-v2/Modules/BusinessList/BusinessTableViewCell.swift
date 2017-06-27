@@ -20,6 +20,9 @@ class BusinessTableViewCell: UITableViewCell {
 	@IBOutlet weak var distanceLabel: UILabel!
 	@IBOutlet weak var favoriteButton: UIButton!
 	
+	var delegate: BusinessTableViewCellDelegate?
+	var business:Business?
+	
 	
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,5 +34,23 @@ class BusinessTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+	@IBAction func didTapAddFavorite(_ sender: Any) {
+		
+		guard let business = self.business else {
+			return
+		}
+		
+		let imageName = business.isFavorite ? "heartIcon" : "heartFilledIcon"
+		favoriteButton.setBackgroundImage(UIImage(named:imageName), for: .normal)
+		business.isFavorite = !business.isFavorite
+		
+		delegate?.addToFavorites(business: business)
+		
+	}
     
+}
+
+protocol BusinessTableViewCellDelegate: class {
+	
+	func addToFavorites(business:Business)
 }

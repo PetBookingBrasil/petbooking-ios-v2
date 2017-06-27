@@ -23,8 +23,8 @@ class BusinessListViewControllerPresenter: BusinessListViewControllerPresenterPr
         self.router = router
     }
 	
-	func getBusinessByCoordinates(coordinates:CLLocationCoordinate2D) {
-		interactor?.getBusinessByCoordinates(coordinates: coordinates)
+	func getBusinessByCoordinates(coordinates:CLLocationCoordinate2D, page:Int) {
+		interactor?.getBusinessByCoordinates(coordinates: coordinates, page:page)
 	}
 	
 	func updateBusinessList(businessList:BusinessList) {

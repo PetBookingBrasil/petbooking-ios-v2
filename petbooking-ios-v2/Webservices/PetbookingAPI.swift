@@ -112,6 +112,9 @@ extension PetbookingAPI {
 								
 								try SessionManager.sharedInstance.saveSession(session: session)
 								
+								PetbookingAPI.sharedInstance.userInfo { (user, message) in
+								}
+								
 								completion(true, "")
 							} else {
 								completion(false, "")
@@ -626,7 +629,7 @@ extension PetbookingAPI {
 
 extension PetbookingAPI {
 	
-	func getBusinessList(coordinate:CLLocationCoordinate2D, completion: @escaping (_ businessList: BusinessList?, _ message: String) -> Void ) {
+	func getBusinessList(coordinate:CLLocationCoordinate2D, page:Int = 0, completion: @escaping (_ businessList: BusinessList?, _ message: String) -> Void ) {
 		
 		if SessionManager.sharedInstance.isConsumerValid() {
 			var token = ""
@@ -639,10 +642,13 @@ extension PetbookingAPI {
 			}
 			
 			self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
+			self.auth_headers.updateValue("Token token=\"\(session.authToken)\"", forKey: "X-Petbooking-Session-Token")
 			
 			let coords = "\(coordinate.latitude),\(coordinate.longitude)"
 			
-			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/businesses/search?user_id=\(session.userId)&coords=\(coords)&filter[other]=featured&fields[businesses]=id,name,slug,location,distance,street,street_number,imported,neighborhood,rating_average,rating_count,favorite_count,cover_image,pictures,transportation_fee,bitmask_values,user_favorite&page[number]=1&page[size]=15", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: auth_headers).responseJSON { (response) in
+			let parameters: Parameters = ["user_id":session.userId, "coords":coords, "filter[other]":"featured", "fields[businesses]":"id,name,slug,location,distance,street,street_number,imported,neighborhood,rating_average,rating_count,favorite_count,cover_image,pictures,transportation_fee,bitmask_values,user_favorite", "page[number]":page, "page[size]":20]
+			
+			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/businesses/search", method: .get, parameters: parameters, encoding: JSONEncoding.default, headers: auth_headers).responseJSON { (response) in
 				
 				switch response.result{
 				case .success(let jsonObject):
@@ -650,7 +656,7 @@ extension PetbookingAPI {
 						print(dic)
 						do {
 							let businessList = try MTLJSONAdapter.model(of: BusinessList.self, fromJSONDictionary: dic) as! BusinessList
-							
+							businessList.page = page
 							
 							completion(businessList, "")
 							

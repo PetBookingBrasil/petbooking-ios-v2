@@ -15,9 +15,9 @@ class BusinessListViewControllerInteractor: BusinessListViewControllerInteractor
 	
 	weak var presenter: BusinessListViewControllerInteractorOutputProtocol?
 	
-	func getBusinessByCoordinates(coordinates:CLLocationCoordinate2D) {
+	func getBusinessByCoordinates(coordinates:CLLocationCoordinate2D, page:Int) {
 		
-		PetbookingAPI.sharedInstance.getBusinessList(coordinate: coordinates) { (businessList, msg) in
+		PetbookingAPI.sharedInstance.getBusinessList(coordinate: coordinates, page:page) { (businessList, msg) in
 			
 			guard let businessList = businessList else {
 				return
