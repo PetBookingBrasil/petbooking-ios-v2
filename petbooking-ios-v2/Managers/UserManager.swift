@@ -105,6 +105,8 @@ class UserManager: NSObject {
 				
 				let objects = realm.objects(UserRealm.self)
 				realm.delete(objects)
+				let session = realm.objects(SessionRealm.self)
+				realm.delete(session)
 								
 			}
 		}catch {

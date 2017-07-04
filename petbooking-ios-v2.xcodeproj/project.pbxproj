@@ -59,6 +59,7 @@
 		4137158C1EBE7D0300258C6F /* SelectPhotoSourcePopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 413715861EBE7D0300258C6F /* SelectPhotoSourcePopupViewController.xib */; };
 		4137158F1EBEAFFA00258C6F /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4137158E1EBEAFFA00258C6F /* Device.swift */; };
 		413715931EBEB3B400258C6F /* MIBlurPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413715921EBEB3B400258C6F /* MIBlurPopup.swift */; };
+		41432E791F0B3088002789CE /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41432E781F0B3088002789CE /* UIButtonExtension.swift */; };
 		4149E96D1EF8404C00D6C44B /* SegmentioBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4149E96C1EF8404C00D6C44B /* SegmentioBuilder.swift */; };
 		4149E96F1EF8416400D6C44B /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4149E96E1EF8416400D6C44B /* UIFontExtension.swift */; };
 		4149E9771EF9628100D6C44B /* BusinessListViewControllerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4149E9711EF9628100D6C44B /* BusinessListViewControllerInteractor.swift */; };
@@ -182,6 +183,7 @@
 		413715861EBE7D0300258C6F /* SelectPhotoSourcePopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectPhotoSourcePopupViewController.xib; sourceTree = "<group>"; };
 		4137158E1EBEAFFA00258C6F /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		413715921EBEB3B400258C6F /* MIBlurPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIBlurPopup.swift; sourceTree = "<group>"; };
+		41432E781F0B3088002789CE /* UIButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		4149E96C1EF8404C00D6C44B /* SegmentioBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentioBuilder.swift; sourceTree = "<group>"; };
 		4149E96E1EF8416400D6C44B /* UIFontExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		4149E9711EF9628100D6C44B /* BusinessListViewControllerInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessListViewControllerInteractor.swift; sourceTree = "<group>"; };
@@ -277,6 +279,7 @@
 				4129D9D91ED85C3D0067EDC3 /* UIImageViewExtension.swift */,
 				41E18B551EEE1B8F00470935 /* NSDateFormatterExtension.swift */,
 				4149E96E1EF8416400D6C44B /* UIFontExtension.swift */,
+				41432E781F0B3088002789CE /* UIButtonExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -766,6 +769,7 @@
 				4120ED2A1EB4F136009D35B0 /* ForgotPasswordRouter.swift in Sources */,
 				4120ED011EB0DE9F009D35B0 /* PresentationPresenter.swift in Sources */,
 				4149E9971EFF0D0100D6C44B /* BusinessTableViewCell.swift in Sources */,
+				41432E791F0B3088002789CE /* UIButtonExtension.swift in Sources */,
 				41A0BAE81ED7A8FA00671F3C /* AddPetViewControllerPresenter.swift in Sources */,
 				4120ED271EB4F136009D35B0 /* ForgotPasswordInteractor.swift in Sources */,
 				4168AA581EB794D5001E2D6D /* SessionManager.swift in Sources */,

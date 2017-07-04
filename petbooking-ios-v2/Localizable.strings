@@ -16,6 +16,9 @@
 "ap3_title" = "Simples, rápido e seguro!";
 "ap3_description" = "Cuidar dos seus Pets nunca foi tão fácil!";
 
+// Login Screen
+
+"forgot_passowrd" = "Esqueceu a senha?";
 
 // Signup Screen
 

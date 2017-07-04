@@ -15,6 +15,10 @@ extension UIFont {
 		return UIFont(name: "OpenSans-Regular", size: size) ?? UIFont.systemFont(ofSize: size)
 	}
 	
+	class func openSansBold(ofSize size: CGFloat) -> UIFont {
+		return UIFont(name: "OpenSans-Bold", size: size) ?? UIFont.boldSystemFont(ofSize: size)
+	}
+	
 	class func exampleAvenirLight(ofSize size: CGFloat) -> UIFont {
 		return UIFont(name: "Avenir-Light", size: size) ?? UIFont.systemFont(ofSize: size)
 	}

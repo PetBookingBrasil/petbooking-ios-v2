@@ -13,6 +13,9 @@
         <array key="OpenSans-Regular.ttf">
             <string>OpenSans</string>
         </array>
+        <array key="OpenSans-Semibold.ttf">
+            <string>OpenSans-Semibold</string>
+        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="petbooking_ios_v2" customModuleProvider="target">
@@ -20,9 +23,9 @@
                 <outlet property="emailTextField" destination="HC0-WK-bwa" id="mQL-eJ-kJS"/>
                 <outlet property="facebookLoginButton" destination="sZ6-qM-2Q3" id="bW9-1W-xo4"/>
                 <outlet property="forgotPasswordButton" destination="kbR-i5-tTJ" id="mYk-fj-SOs"/>
-                <outlet property="loginButton" destination="Gcq-Xr-Awp" id="ybl-Wv-cjP"/>
+                <outlet property="loginButton" destination="YlQ-1K-Xxa" id="h2N-HV-vUb"/>
                 <outlet property="passwordTextField" destination="NoA-12-VrB" id="tak-Qz-VtK"/>
-                <outlet property="signupButton" destination="YlQ-1K-Xxa" id="XUt-uv-Oiw"/>
+                <outlet property="signupButton" destination="Gcq-Xr-Awp" id="VmH-bR-G3E"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -35,26 +38,26 @@
                     <rect key="frame" x="152.66666666666669" y="70" width="109.00000000000006" height="117"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gcq-Xr-Awp">
-                    <rect key="frame" x="16" y="404" width="183.66666666666666" height="54.666666666666686"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <rect key="frame" x="16" y="444" width="183.66666666666666" height="54.666666666666686"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="Gcq-Xr-Awp" secondAttribute="height" multiplier="164:49" id="eam-Yf-92u"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
-                    <state key="normal" title="Entrar">
-                        <color key="titleColor" red="1" green="0.29411764705882354" blue="0.29411764705882354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="16"/>
+                    <state key="normal" title="Cadastro">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="login:" destination="-1" eventType="touchUpInside" id="gG1-g3-bJE"/>
+                        <action selector="signup:" destination="-1" eventType="touchUpInside" id="BLg-wj-nyb"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sZ6-qM-2Q3">
-                    <rect key="frame" x="16" y="476.66666666666663" width="382" height="64.999999999999886"/>
-                    <color key="backgroundColor" red="0.0" green="0.33333333333333331" blue="0.64313725490196072" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <rect key="frame" x="16" y="516.66666666666663" width="382" height="65"/>
+                    <color key="backgroundColor" red="0.23137254901960785" green="0.34901960784313724" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="sZ6-qM-2Q3" secondAttribute="height" multiplier="288:49" id="ODk-wP-5tK"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="18"/>
+                    <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="16"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="30" maxY="0.0"/>
                     <state key="normal" title="Entrar com Facebook" image="FB-f-Logo_white">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -64,20 +67,21 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YlQ-1K-Xxa">
-                    <rect key="frame" x="214.66666666666663" y="404" width="183.33333333333337" height="54.666666666666686"/>
+                    <rect key="frame" x="214.66666666666663" y="444" width="183.33333333333337" height="54.666666666666686"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="YlQ-1K-Xxa" secondAttribute="height" multiplier="164:49" id="rEg-JK-7Av"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
-                    <state key="normal" title="Cadastre-se">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="16"/>
+                    <state key="normal" title="Entrar">
+                        <color key="titleColor" red="0.89411764705882346" green="0.0" blue="0.16862745098039217" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
-                        <action selector="signup:" destination="-1" eventType="touchUpInside" id="n4g-BF-JQm"/>
+                        <action selector="login:" destination="-1" eventType="touchUpInside" id="6Do-iv-81Q"/>
                     </connections>
                 </button>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HC0-WK-bwa">
-                    <rect key="frame" x="61" y="250" width="292" height="20"/>
+                    <rect key="frame" x="16" y="250" width="382" height="20"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
@@ -88,7 +92,7 @@
                     </userDefinedRuntimeAttributes>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NoA-12-VrB">
-                    <rect key="frame" x="61" y="311" width="292" height="20"/>
+                    <rect key="frame" x="16" y="311" width="382" height="20"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -98,16 +102,6 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </textField>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="password_icon" translatesAutoresizingMaskIntoConstraints="NO" id="FkI-IB-bbJ">
-                    <rect key="frame" x="33" y="313.66666666666669" width="12" height="15"/>
-                </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="email_icon" translatesAutoresizingMaskIntoConstraints="NO" id="4SQ-Un-7ea">
-                    <rect key="frame" x="31" y="254.33333333333331" width="16" height="11.999999999999943"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="16" id="YO9-wK-AXR"/>
-                        <constraint firstAttribute="height" constant="12" id="wvS-H0-59V"/>
-                    </constraints>
-                </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aUd-GH-zie">
                     <rect key="frame" x="16" y="343" width="382" height="1"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -123,7 +117,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qyo-Ve-mkf">
-                    <rect key="frame" x="207" y="407" width="0.0" height="49"/>
+                    <rect key="frame" x="207" y="447" width="0.0" height="49"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" id="9Wf-oB-DbG"/>
@@ -131,8 +125,8 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kbR-i5-tTJ">
-                    <rect key="frame" x="301" y="352" width="97" height="27"/>
-                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="11"/>
+                    <rect key="frame" x="141" y="380" width="132" height="30"/>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                     <state key="normal" title="Esqueceu a senha?">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -153,35 +147,31 @@
                 <constraint firstItem="tC0-1e-kOE" firstAttribute="top" secondItem="Fel-zP-ejN" secondAttribute="bottom" constant="10" id="0SS-Ka-itR"/>
                 <constraint firstItem="sZ6-qM-2Q3" firstAttribute="leading" secondItem="Gcq-Xr-Awp" secondAttribute="leading" id="1aQ-bL-Oxx"/>
                 <constraint firstItem="sZ6-qM-2Q3" firstAttribute="trailing" secondItem="YlQ-1K-Xxa" secondAttribute="trailing" id="1q0-Z2-Blz"/>
-                <constraint firstItem="HC0-WK-bwa" firstAttribute="trailing" secondItem="5eO-1A-0XE" secondAttribute="trailing" constant="-45" id="2vw-xh-r7K"/>
+                <constraint firstItem="HC0-WK-bwa" firstAttribute="trailing" secondItem="5eO-1A-0XE" secondAttribute="trailing" id="2vw-xh-r7K"/>
+                <constraint firstItem="kbR-i5-tTJ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="6ts-yd-zfP"/>
                 <constraint firstItem="aUd-GH-zie" firstAttribute="top" secondItem="NoA-12-VrB" secondAttribute="bottom" constant="12" id="8fw-s8-81W"/>
                 <constraint firstItem="qyo-Ve-mkf" firstAttribute="leading" secondItem="Gcq-Xr-Awp" secondAttribute="trailing" constant="7.5" id="Dm6-vc-ak3"/>
                 <constraint firstItem="YlQ-1K-Xxa" firstAttribute="top" secondItem="Gcq-Xr-Awp" secondAttribute="top" id="E4Q-jL-VKS"/>
                 <constraint firstAttribute="trailing" secondItem="5eO-1A-0XE" secondAttribute="trailing" constant="16" id="FCv-CD-7nu"/>
                 <constraint firstItem="Fel-zP-ejN" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="FdA-L8-MDr"/>
                 <constraint firstItem="Gcq-Xr-Awp" firstAttribute="leading" secondItem="aUd-GH-zie" secondAttribute="leading" id="Gjk-Ay-3R9"/>
-                <constraint firstItem="4SQ-Un-7ea" firstAttribute="centerY" secondItem="HC0-WK-bwa" secondAttribute="centerY" id="ITq-eS-GZC"/>
                 <constraint firstAttribute="trailing" secondItem="aUd-GH-zie" secondAttribute="trailing" constant="16" id="MqD-Sf-0PH"/>
                 <constraint firstItem="qyo-Ve-mkf" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="N8O-ch-cOG"/>
                 <constraint firstItem="aUd-GH-zie" firstAttribute="top" secondItem="5eO-1A-0XE" secondAttribute="bottom" constant="60" id="Nxw-Cl-JPC"/>
-                <constraint firstItem="NoA-12-VrB" firstAttribute="trailing" secondItem="aUd-GH-zie" secondAttribute="trailing" constant="-45" id="Puu-KM-Ihb"/>
+                <constraint firstItem="NoA-12-VrB" firstAttribute="trailing" secondItem="aUd-GH-zie" secondAttribute="trailing" id="Puu-KM-Ihb"/>
                 <constraint firstItem="qyo-Ve-mkf" firstAttribute="centerY" secondItem="Gcq-Xr-Awp" secondAttribute="centerY" id="Q9A-TU-D5k"/>
-                <constraint firstItem="FkI-IB-bbJ" firstAttribute="centerY" secondItem="NoA-12-VrB" secondAttribute="centerY" id="Qh9-BO-J9t"/>
                 <constraint firstItem="YlQ-1K-Xxa" firstAttribute="leading" secondItem="qyo-Ve-mkf" secondAttribute="trailing" constant="7.5" id="Umk-kQ-srg"/>
-                <constraint firstItem="FkI-IB-bbJ" firstAttribute="centerX" secondItem="4SQ-Un-7ea" secondAttribute="centerX" id="ZUS-BY-VG4"/>
-                <constraint firstItem="kbR-i5-tTJ" firstAttribute="top" secondItem="aUd-GH-zie" secondAttribute="bottom" constant="8" id="cRe-vo-rh7"/>
-                <constraint firstItem="HC0-WK-bwa" firstAttribute="leading" secondItem="4SQ-Un-7ea" secondAttribute="trailing" constant="14" id="dzj-IB-uBc"/>
+                <constraint firstItem="kbR-i5-tTJ" firstAttribute="top" secondItem="aUd-GH-zie" secondAttribute="bottom" constant="36" id="cRe-vo-rh7"/>
                 <constraint firstItem="YlQ-1K-Xxa" firstAttribute="trailing" secondItem="aUd-GH-zie" secondAttribute="trailing" id="fOM-4t-0ft"/>
                 <constraint firstItem="HC0-WK-bwa" firstAttribute="top" secondItem="tC0-1e-kOE" secondAttribute="bottom" constant="37" id="hxc-aK-ktn"/>
                 <constraint firstItem="tC0-1e-kOE" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="j1F-jb-3r3"/>
                 <constraint firstItem="5eO-1A-0XE" firstAttribute="top" secondItem="HC0-WK-bwa" secondAttribute="bottom" constant="12" id="mMM-Bf-ujr"/>
-                <constraint firstItem="HC0-WK-bwa" firstAttribute="leading" secondItem="5eO-1A-0XE" secondAttribute="leading" constant="45" id="mrE-SF-5Fe"/>
+                <constraint firstItem="HC0-WK-bwa" firstAttribute="leading" secondItem="5eO-1A-0XE" secondAttribute="leading" id="mrE-SF-5Fe"/>
                 <constraint firstItem="aUd-GH-zie" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="oF6-Jl-T7g"/>
-                <constraint firstItem="Gcq-Xr-Awp" firstAttribute="top" secondItem="aUd-GH-zie" secondAttribute="bottom" constant="60" id="pm5-56-ao7"/>
+                <constraint firstItem="Gcq-Xr-Awp" firstAttribute="top" secondItem="aUd-GH-zie" secondAttribute="bottom" constant="100" id="pm5-56-ao7"/>
                 <constraint firstItem="Fel-zP-ejN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="70" id="pqg-CY-TiC"/>
-                <constraint firstItem="kbR-i5-tTJ" firstAttribute="trailing" secondItem="aUd-GH-zie" secondAttribute="trailing" id="qKu-Nj-DSy"/>
                 <constraint firstItem="sZ6-qM-2Q3" firstAttribute="top" secondItem="YlQ-1K-Xxa" secondAttribute="bottom" constant="18" id="ro6-mL-g2i"/>
-                <constraint firstItem="NoA-12-VrB" firstAttribute="leading" secondItem="aUd-GH-zie" secondAttribute="leading" constant="45" id="ve6-hU-ypR"/>
+                <constraint firstItem="NoA-12-VrB" firstAttribute="leading" secondItem="aUd-GH-zie" secondAttribute="leading" id="ve6-hU-ypR"/>
                 <constraint firstItem="5eO-1A-0XE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="zBV-Ad-8iA"/>
             </constraints>
             <point key="canvasLocation" x="34" y="53"/>
@@ -189,9 +179,7 @@
     </objects>
     <resources>
         <image name="FB-f-Logo_white" width="20" height="20"/>
-        <image name="email_icon" width="16" height="12"/>
         <image name="loginPhrase" width="172" height="22"/>
         <image name="logotipo_login" width="109" height="117"/>
-        <image name="password_icon" width="12" height="15"/>
     </resources>
 </document>
