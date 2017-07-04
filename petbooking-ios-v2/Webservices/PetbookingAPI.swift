@@ -648,7 +648,7 @@ extension PetbookingAPI {
 			
 			let parameters: Parameters = ["user_id":session.userId, "coords":coords, "filter[other]":"featured", "fields[businesses]":"id,name,slug,location,distance,street,street_number,imported,neighborhood,rating_average,rating_count,favorite_count,cover_image,pictures,transportation_fee,bitmask_values,user_favorite", "page[number]":page, "page[size]":20]
 			
-			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/businesses/search", method: .get, parameters: parameters, encoding: JSONEncoding.default, headers: auth_headers).responseJSON { (response) in
+			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/businesses", method: .get, parameters: parameters, encoding: JSONEncoding.default, headers: auth_headers).responseJSON { (response) in
 				
 				switch response.result{
 				case .success(let jsonObject):

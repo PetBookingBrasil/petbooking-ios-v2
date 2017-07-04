@@ -150,6 +150,7 @@ extension BusinessListViewControllerViewController: UITableViewDelegate, UITable
 		cell.ratingLabel.text = "\(business.rating)"
 		cell.reviewQuantityLabel.text = "\(business.ratingCount) Avaliações"
 		
+		 cell.businessImageView.image = nil
 		if let url = URL(string: business.photoUrl) {
 			cell.businessImageView.pin_setImage(from: url)
 		}
