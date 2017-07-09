@@ -18,11 +18,11 @@ class Business: MTLModel, MTLJSONSerializing {
 	dynamic var photoUrl = ""
 	dynamic var photoThumbUrl = ""
 	dynamic var neighborhood:String = ""
-	dynamic var distance = 0.0
+	dynamic var distance:Double = 0.0
 	dynamic var street:String = ""
 	dynamic var streetNumber:String = ""
-	dynamic var rating  = 0.0
-	dynamic var ratingCount  = 0
+	dynamic var rating:Double  = 0.0
+	dynamic var ratingCount:Int  = 0
 	dynamic var isFavorite = false
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
@@ -40,6 +40,19 @@ class Business: MTLModel, MTLJSONSerializing {
 			"photoThumbUrl": "attributes.cover_image.thumb.url",
 			"isFavorite": "user_favorite"
 		]
+	}
+	
+	class func distanceJSONTransformer() -> ValueTransformer {
+		let _forwardBlock: MTLValueTransformerBlock? = { (value, success, error) in
+			
+			guard let distance = value else {
+				return 0.0
+			}
+			
+			return distance
+		}
+		
+		return MTLValueTransformer(usingForwardBlock: _forwardBlock)
 	}
 	
 }

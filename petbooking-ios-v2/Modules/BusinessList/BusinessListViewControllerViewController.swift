@@ -111,7 +111,7 @@ extension BusinessListViewControllerViewController: CLLocationManagerDelegate {
 		self.coordinates = locationObj.coordinate
 		
 		
-		presenter?.getBusinessByCoordinates(coordinates: self.coordinates, page:0)
+		presenter?.getBusinessByCoordinates(coordinates: self.coordinates, page:1)
 		
 	}
 	

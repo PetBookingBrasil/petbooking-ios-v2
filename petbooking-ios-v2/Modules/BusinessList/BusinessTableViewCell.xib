@@ -25,7 +25,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="226"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="225"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="225.66666666666666"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="faD-mi-c4S">
@@ -38,14 +38,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="znr-tB-bGY">
-                        <rect key="frame" x="16" y="116" width="47" height="25"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="znr-tB-bGY">
+                        <rect key="frame" x="16" y="116" width="351" height="25"/>
                         <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="18"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5,0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YDs-lH-ktS">
-                        <rect key="frame" x="35" y="100" width="20" height="20"/>
+                        <rect key="frame" x="35" y="101" width="20" height="19.333333333333329"/>
                         <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="14"/>
                         <color key="textColor" red="0.94901960784313721" green="0.78823529411764703" blue="0.29803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -54,16 +54,16 @@
                         <rect key="frame" x="0.0" y="160" width="375" height="65"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ea6-Ng-fta">
-                                <rect key="frame" x="16" y="18" width="221" height="17"/>
+                                <rect key="frame" x="16" y="18" width="221" height="16.666666666666657"/>
                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zKG-eG-Zq2">
-                                <rect key="frame" x="307" y="23" width="52" height="20"/>
+                                <rect key="frame" x="307.66666666666674" y="23" width="51.333333333333314" height="20"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12km" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="19P-8s-20b">
-                                        <rect key="frame" x="10" y="2" width="32" height="17"/>
+                                        <rect key="frame" x="10" y="2.3333333333333428" width="31.333333333333314" height="16.666666666666657"/>
                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="12"/>
                                         <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -105,10 +105,10 @@
                         </connections>
                     </button>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starIcon" translatesAutoresizingMaskIntoConstraints="NO" id="HCO-21-dY3">
-                        <rect key="frame" x="16" y="103" width="14" height="13"/>
+                        <rect key="frame" x="16" y="103.33333333333333" width="14" height="13"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Nb-vq-d78">
-                        <rect key="frame" x="67" y="101" width="31" height="17"/>
+                        <rect key="frame" x="67" y="101.66666666666667" width="29.666666666666671" height="16.666666666666657"/>
                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="12"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -127,6 +127,7 @@
                     <constraint firstAttribute="trailing" secondItem="NYR-J8-BHK" secondAttribute="trailing" constant="17" id="Plt-TO-W3k"/>
                     <constraint firstItem="faD-mi-c4S" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Qwt-KH-knY"/>
                     <constraint firstItem="maY-XN-1Dv" firstAttribute="width" secondItem="faD-mi-c4S" secondAttribute="width" id="YWS-rL-AWk"/>
+                    <constraint firstAttribute="trailing" secondItem="znr-tB-bGY" secondAttribute="trailing" constant="8" id="Yhb-4T-LFQ"/>
                     <constraint firstAttribute="trailing" secondItem="Lpz-d1-uIX" secondAttribute="trailing" id="Zag-px-o1O"/>
                     <constraint firstItem="maY-XN-1Dv" firstAttribute="height" secondItem="faD-mi-c4S" secondAttribute="height" id="aXq-Oa-ThR"/>
                     <constraint firstItem="Lpz-d1-uIX" firstAttribute="top" secondItem="faD-mi-c4S" secondAttribute="bottom" id="bC1-nD-gVA"/>

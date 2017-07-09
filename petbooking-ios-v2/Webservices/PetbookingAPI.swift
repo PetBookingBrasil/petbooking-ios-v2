@@ -629,7 +629,7 @@ extension PetbookingAPI {
 
 extension PetbookingAPI {
 	
-	func getBusinessList(coordinate:CLLocationCoordinate2D, page:Int = 0, completion: @escaping (_ businessList: BusinessList?, _ message: String) -> Void ) {
+	func getBusinessList(coordinate:CLLocationCoordinate2D, page:Int = 1, completion: @escaping (_ businessList: BusinessList?, _ message: String) -> Void ) {
 		
 		if SessionManager.sharedInstance.isConsumerValid() {
 			var token = ""
@@ -646,14 +646,14 @@ extension PetbookingAPI {
 			
 			let coords = "\(coordinate.latitude),\(coordinate.longitude)"
 			
-			let parameters: Parameters = ["user_id":session.userId, "coords":coords, "filter[other]":"featured", "fields[businesses]":"id,name,slug,location,distance,street,street_number,imported,neighborhood,rating_average,rating_count,favorite_count,cover_image,pictures,transportation_fee,bitmask_values,user_favorite", "page[number]":page, "page[size]":20]
+			let parameters: Parameters = ["coords":coords,"fields[businesses]":"id,name,slug,location,distance,street,street_number,imported,neighborhood,rating_average,rating_count,favorite_count,cover_image,pictures,transportation_fee,bitmask_values,user_favorite", "page[number]":page, "page[size]":20]
 			
-			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/businesses", method: .get, parameters: parameters, encoding: JSONEncoding.default, headers: auth_headers).responseJSON { (response) in
+			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/businesses", method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString), headers: auth_headers).responseJSON { (response) in
 				
 				switch response.result{
 				case .success(let jsonObject):
 					if let dic = jsonObject as? [String: Any] {
-						print(dic)
+						
 						do {
 							let businessList = try MTLJSONAdapter.model(of: BusinessList.self, fromJSONDictionary: dic) as! BusinessList
 							businessList.page = page
