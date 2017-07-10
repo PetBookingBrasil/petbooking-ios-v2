@@ -37,9 +37,15 @@ class PetbookingAPI: NSObject {
 			token = consumer.token
 		}
 		
+		var language = ""
+		if let langStr = Locale.current.languageCode {
+			language = langStr
+		}
+		
 		auth_headers	= [
 			"Authorization": "Bearer \(token)",
-			"Content-Type": "application/vnd.api+json"
+			"Content-Type": "application/vnd.api+json",
+			"X-BDT-language": language
 		]
 		
 		consumer_headers	= [
