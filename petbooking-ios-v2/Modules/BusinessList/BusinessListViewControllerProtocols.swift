@@ -21,6 +21,8 @@ protocol BusinessListViewControllerPresenterProtocol: class {
 	var interactor: BusinessListViewControllerInteractorInputProtocol? { get set }
 	
 	func getBusinessByCoordinates(coordinates:CLLocationCoordinate2D, page:Int)
+	
+	func addToFavorites(business: Business)
 }
 
 //MARK: Interactor -
@@ -37,6 +39,8 @@ protocol BusinessListViewControllerInteractorInputProtocol: class {
 	var presenter: BusinessListViewControllerInteractorOutputProtocol?  { get set }
 	
 	func getBusinessByCoordinates(coordinates:CLLocationCoordinate2D, page:Int)
+	
+	func addToFavorites(business: Business)
 	
 	/* Presenter -> Interactor */
 }

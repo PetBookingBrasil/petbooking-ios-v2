@@ -40,11 +40,16 @@ class BusinessTableViewCell: UITableViewCell {
 			return
 		}
 		
-		let imageName = business.isFavorite ? "heartIcon" : "heartFilledIcon"
-		favoriteButton.setBackgroundImage(UIImage(named:imageName), for: .normal)
-		business.isFavorite = !business.isFavorite
+		setFavorite(isFavorite: !business.isFavorite)
 		
 		delegate?.addToFavorites(business: business)
+		
+	}
+	
+	func setFavorite(isFavorite:Bool) {
+	
+		let imageName = isFavorite ? "heartFilledIcon" : "heartIcon"
+		favoriteButton.setBackgroundImage(UIImage(named:imageName), for: .normal)
 		
 	}
     

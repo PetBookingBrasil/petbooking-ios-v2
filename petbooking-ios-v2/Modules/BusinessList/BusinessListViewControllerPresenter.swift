@@ -30,5 +30,11 @@ class BusinessListViewControllerPresenter: BusinessListViewControllerPresenterPr
 	func updateBusinessList(businessList:BusinessList) {
 		view?.updateBusinessList(businessList: businessList)
 	}
+	
+	func addToFavorites(business: Business) {
+		
+		interactor?.addToFavorites(business: business)
+		
+	}
 
 }

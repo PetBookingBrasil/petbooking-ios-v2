@@ -28,4 +28,29 @@ class BusinessListViewControllerInteractor: BusinessListViewControllerInteractor
 		}
 		
 	}
+	
+	func addToFavorites(business: Business) {
+		
+		if business.isFavorite {
+			
+			PetbookingAPI.sharedInstance.removeBusinessFromFavorite(business: business, completion: { (success, message) in
+				
+				if success {
+					business.isFavorite = false
+				}
+				
+			})
+			
+		} else {
+			
+			PetbookingAPI.sharedInstance.addBusinessToFavorite(business: business) { (success, message) in
+				
+				if success {
+					business.isFavorite = true
+				}
+				
+			}
+		}
+		
+	}
 }

@@ -117,7 +117,7 @@ extension BusinessListViewControllerViewController: CLLocationManagerDelegate {
 	
 }
 
-extension BusinessListViewControllerViewController: UITableViewDelegate, UITableViewDataSource {
+extension BusinessListViewControllerViewController: UITableViewDelegate, UITableViewDataSource, BusinessTableViewCellDelegate {
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		
@@ -138,8 +138,10 @@ extension BusinessListViewControllerViewController: UITableViewDelegate, UITable
 		let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! BusinessTableViewCell
 		
 		let business = businesses[indexPath.section]
+		cell.delegate = self
 		
 		cell.business = business
+		cell.setFavorite(isFavorite: business.isFavorite)
 		cell.nameLabel.text = business.name
 		cell.addressLabel.text = "\(business.street), \(business.streetNumber), \(business.neighborhood)"
 		//cell.cityLabel.text = ""
@@ -179,5 +181,10 @@ extension BusinessListViewControllerViewController: UITableViewDelegate, UITable
 		return headerView
 	}
 	
+	func addToFavorites(business: Business) {
+		
+		presenter?.addToFavorites(business: business)
+		
+	}
 	
 }

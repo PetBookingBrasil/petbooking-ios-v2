@@ -646,7 +646,7 @@ extension PetbookingAPI {
 			
 			let coords = "\(coordinate.latitude),\(coordinate.longitude)"
 			
-			let parameters: Parameters = ["coords":coords,"fields[businesses]":"id,name,slug,location,distance,street,street_number,imported,neighborhood,rating_average,rating_count,favorite_count,cover_image,pictures,transportation_fee,bitmask_values,user_favorite", "page[number]":page, "page[size]":20]
+			let parameters: Parameters = ["coords":coords,"fields[businesses]":"id,name,slug,location,distance,street,street_number,imported,neighborhood,rating_average,rating_count,favorite_count,cover_image,pictures,transportation_fee,user_favorite,bitmask_values", "page[number]":page, "page[size]":20]
 			
 			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/businesses", method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString), headers: auth_headers).responseJSON { (response) in
 				
@@ -689,6 +689,124 @@ extension PetbookingAPI {
 			})
 		}
 	}
+	
+	func removeBusinessFromFavorite(business:Business, completion: @escaping (_ success: Bool, _ message: String) -> Void ) {
+		
+		if SessionManager.sharedInstance.isConsumerValid() {
+			var token = ""
+			if let consumer = SessionManager.sharedInstance.getCurrentConsumer() {
+				token = consumer.token
+			}
+			
+			guard let session = SessionManager.sharedInstance.getCurrentSession() else {
+				return
+			}
+			
+			self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
+			self.auth_headers.updateValue("Token token=\"\(session.authToken)\"", forKey: "X-Petbooking-Session-Token")
+			
+			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/favorites/\(business.id)", method: .delete, parameters: nil, encoding: URLEncoding(destination: .queryString), headers: auth_headers).responseJSON { (response) in
+				
+				switch response.result{
+				case .success(let jsonObject):
+					if let dic = jsonObject as? [String: Any] {
+						
+						do {
+							
+							
+							completion(true, "")
+							
+						} catch {
+							completion(false, error.localizedDescription)
+						}
+					} else {
+						completion(false, "")
+					}
+					break
+				case .failure(let error):
+					completion(false, error.localizedDescription)
+					break
+				}
+				
+			}
+		} else
+		{
+			getConsumer(completion: { (success, message) in
+				
+				if success {
+					self.removeBusinessFromFavorite(business: business, completion: completion)
+				} else {
+					
+					completion(false, "")
+					
+				}
+				
+			})
+		}
+	}
+	
+	
+	
+	func addBusinessToFavorite(business:Business, completion: @escaping (_ success: Bool, _ message: String) -> Void ) {
+		
+		if SessionManager.sharedInstance.isConsumerValid() {
+			var token = ""
+			if let consumer = SessionManager.sharedInstance.getCurrentConsumer() {
+				token = consumer.token
+			}
+			
+			guard let session = SessionManager.sharedInstance.getCurrentSession() else {
+				return
+			}
+			
+			self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
+			self.auth_headers.updateValue("Token token=\"\(session.authToken)\"", forKey: "X-Petbooking-Session-Token")
+			
+			let parameters: Parameters = [
+				"data": ["type":"favorites", "attributes":["favorable_type":"Business", "favorable_id":business.id]]
+				
+			]
+			
+			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/users/\(session.userId)/favorites", method: .post, parameters: parameters, encoding: URLEncoding(destination: .queryString), headers: auth_headers).responseJSON { (response) in
+				
+				switch response.result{
+				case .success(let jsonObject):
+					if let dic = jsonObject as? [String: Any] {
+						
+						do {
+
+							
+							completion(true, "")
+							
+						} catch {
+							completion(false, error.localizedDescription)
+						}
+					} else {
+						completion(false, "")
+					}
+					break
+				case .failure(let error):
+					completion(false, error.localizedDescription)
+					break
+				}
+				
+			}
+		} else
+		{
+			getConsumer(completion: { (success, message) in
+				
+				if success {
+					self.addBusinessToFavorite(business: business, completion: completion)
+				} else {
+					
+					completion(false, "")
+					
+				}
+				
+			})
+		}
+	}
+	
 	
 	
 }
