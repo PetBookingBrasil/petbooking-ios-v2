@@ -64,7 +64,7 @@ class BusinessListViewControllerViewController: UIViewController, BusinessListVi
 			
 			self.businessList = businessList
 			
-			if businessList.page == 0 {
+			if businessList.page == 1 {
 				
 				
 				businesses = businessList.businesses

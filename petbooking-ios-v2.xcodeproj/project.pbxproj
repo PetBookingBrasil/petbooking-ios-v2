@@ -35,6 +35,9 @@
 		4120ED381EB529FE009D35B0 /* SignupProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ED321EB529FE009D35B0 /* SignupProtocols.swift */; };
 		4120ED391EB529FE009D35B0 /* SignupRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ED331EB529FE009D35B0 /* SignupRouter.swift */; };
 		4120ED3B1EB529FE009D35B0 /* SignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4120ED351EB529FE009D35B0 /* SignupViewController.xib */; };
+		4127768E1F13084800EC6488 /* BusinessMapListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4127768C1F13084800EC6488 /* BusinessMapListViewController.swift */; };
+		4127768F1F13084800EC6488 /* BusinessMapListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4127768D1F13084800EC6488 /* BusinessMapListViewController.xib */; };
+		412776911F130AE100EC6488 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 412776901F130AE100EC6488 /* MapKit.framework */; };
 		4129D9DA1ED85C3D0067EDC3 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4129D9D91ED85C3D0067EDC3 /* UIImageViewExtension.swift */; };
 		4129D9E31ED86E9B0067EDC3 /* MyPetsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4129D9DB1ED86E9B0067EDC3 /* MyPetsInteractor.swift */; };
 		4129D9E41ED86E9B0067EDC3 /* MyPetsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4129D9DC1ED86E9B0067EDC3 /* MyPetsPresenter.swift */; };
@@ -157,6 +160,9 @@
 		4120ED321EB529FE009D35B0 /* SignupProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupProtocols.swift; sourceTree = "<group>"; };
 		4120ED331EB529FE009D35B0 /* SignupRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupRouter.swift; sourceTree = "<group>"; };
 		4120ED351EB529FE009D35B0 /* SignupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignupViewController.xib; sourceTree = "<group>"; };
+		4127768C1F13084800EC6488 /* BusinessMapListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessMapListViewController.swift; sourceTree = "<group>"; };
+		4127768D1F13084800EC6488 /* BusinessMapListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusinessMapListViewController.xib; sourceTree = "<group>"; };
+		412776901F130AE100EC6488 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		4129D9D91ED85C3D0067EDC3 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		4129D9DB1ED86E9B0067EDC3 /* MyPetsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPetsInteractor.swift; sourceTree = "<group>"; };
 		4129D9DC1ED86E9B0067EDC3 /* MyPetsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPetsPresenter.swift; sourceTree = "<group>"; };
@@ -259,6 +265,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				412776911F130AE100EC6488 /* MapKit.framework in Frameworks */,
 				DFC90A17A5F8AA2CE20F8375 /* Pods_petbooking_ios_v2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -411,6 +418,8 @@
 				4149E9761EF9628100D6C44B /* BusinessListViewControllerViewController.xib */,
 				4149E9951EFF0D0100D6C44B /* BusinessTableViewCell.swift */,
 				4149E9961EFF0D0100D6C44B /* BusinessTableViewCell.xib */,
+				4127768C1F13084800EC6488 /* BusinessMapListViewController.swift */,
+				4127768D1F13084800EC6488 /* BusinessMapListViewController.xib */,
 			);
 			path = BusinessList;
 			sourceTree = "<group>";
@@ -590,6 +599,7 @@
 		C4DC27CBAA13EC798434A677 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				412776901F130AE100EC6488 /* MapKit.framework */,
 				C9D68A4E19945C41B8E9EDFE /* Pods_petbooking_ios_v2.framework */,
 			);
 			name = Frameworks;
@@ -632,6 +642,11 @@
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = 77828RW9EP;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -665,6 +680,7 @@
 				414BB1F81EBFF4AF000BE2CC /* AlertPopupViewController.xib in Resources */,
 				41E7E2EE1EC27833002C0A55 /* OpenSans-Italic.ttf in Resources */,
 				4120ED101EB128A5009D35B0 /* Localizable.strings in Resources */,
+				4127768F1F13084800EC6488 /* BusinessMapListViewController.xib in Resources */,
 				4149E9981EFF0D0100D6C44B /* BusinessTableViewCell.xib in Resources */,
 				4149E97C1EF9628100D6C44B /* BusinessListViewControllerViewController.xib in Resources */,
 				413682CB1E9C2B2D008C463B /* LaunchScreen.storyboard in Resources */,
@@ -770,6 +786,7 @@
 				4120ED011EB0DE9F009D35B0 /* PresentationPresenter.swift in Sources */,
 				4149E9971EFF0D0100D6C44B /* BusinessTableViewCell.swift in Sources */,
 				41432E791F0B3088002789CE /* UIButtonExtension.swift in Sources */,
+				4127768E1F13084800EC6488 /* BusinessMapListViewController.swift in Sources */,
 				41A0BAE81ED7A8FA00671F3C /* AddPetViewControllerPresenter.swift in Sources */,
 				4120ED271EB4F136009D35B0 /* ForgotPasswordInteractor.swift in Sources */,
 				4168AA581EB794D5001E2D6D /* SessionManager.swift in Sources */,

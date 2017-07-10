@@ -8,7 +8,7 @@
 
 import UIKit
 import Mantle
-
+import CoreLocation
 
 class Business: MTLModel, MTLJSONSerializing {
 
@@ -24,6 +24,7 @@ class Business: MTLModel, MTLJSONSerializing {
 	dynamic var rating:Double  = 0.0
 	dynamic var ratingCount:Int  = 0
 	dynamic var isFavorite = false
+	dynamic var location:CLLocationCoordinate2D = CLLocationCoordinate2D()
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
 		return [
@@ -38,7 +39,8 @@ class Business: MTLModel, MTLJSONSerializing {
 			"ratingCount": "attributes.rating_count",
 			"photoUrl": "attributes.cover_image.url",
 			"photoThumbUrl": "attributes.cover_image.thumb.url",
-			"isFavorite": "user_favorite"
+			"isFavorite": "user_favorite",
+			"location": "attributes.location"
 		]
 	}
 	
@@ -50,6 +52,35 @@ class Business: MTLModel, MTLJSONSerializing {
 			}
 			
 			return distance
+		}
+		
+		return MTLValueTransformer(usingForwardBlock: _forwardBlock)
+	}
+	
+	class func locationJSONTransformer() -> ValueTransformer {
+		
+		let _forwardBlock: MTLValueTransformerBlock? = { (value, success, error) in
+			
+			guard let location = value as? [String] else {
+				return CLLocationCoordinate2D()
+			}
+			
+			guard let latitudeStr = location.first else {
+				return CLLocationCoordinate2D()
+			}
+			
+			guard let longitudeStr = location.last else {
+				return CLLocationCoordinate2D()
+			}
+			
+			if let latitude = Double(latitudeStr), let longitude = Double(longitudeStr) {
+				
+				return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+				
+			}
+			
+			
+			return CLLocationCoordinate2D()
 		}
 		
 		return MTLValueTransformer(usingForwardBlock: _forwardBlock)

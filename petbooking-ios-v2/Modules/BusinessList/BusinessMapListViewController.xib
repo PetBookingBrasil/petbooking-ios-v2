@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BusinessMapListViewController" customModule="petbooking_ios_v2" customModuleProvider="target">
+            <connections>
+                <outlet property="mapView" destination="ueY-cr-C9t" id="JTX-kl-hc1"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ueY-cr-C9t">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </mapView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="ueY-cr-C9t" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="9CZ-O4-c3z"/>
+                <constraint firstAttribute="trailing" secondItem="ueY-cr-C9t" secondAttribute="trailing" id="Izd-fk-dDz"/>
+                <constraint firstItem="ueY-cr-C9t" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Nag-zv-uh5"/>
+                <constraint firstAttribute="bottom" secondItem="ueY-cr-C9t" secondAttribute="bottom" id="wxN-eL-vZC"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

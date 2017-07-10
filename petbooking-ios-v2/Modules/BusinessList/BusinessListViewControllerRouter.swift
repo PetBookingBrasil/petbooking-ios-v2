@@ -11,20 +11,21 @@
 import UIKit
 
 class BusinessListViewControllerRouter: BusinessListViewControllerWireframeProtocol {
-
-    weak var viewController: UIViewController?
-
-    static func createModule() -> UIViewController {
-        // Change to get view from storyboard if not using progammatic UI
-        let view = BusinessListViewControllerViewController(nibName: nil, bundle: nil)
-        let interactor = BusinessListViewControllerInteractor()
-        let router = BusinessListViewControllerRouter()
-        let presenter = BusinessListViewControllerPresenter(interface: view, interactor: interactor, router: router)
-
-        view.presenter = presenter
-        interactor.presenter = presenter
-        router.viewController = view
-
-        return view
-    }
+	
+	weak var viewController: UIViewController?
+	
+	static func createModule(businessListType:BusinessListType = .list) -> UIViewController {
+		// Change to get view from storyboard if not using progammatic UI
+		let view:BusinessListViewControllerViewProtocol = businessListType == .list ? BusinessListViewControllerViewController(nibName: nil, bundle: nil) : BusinessMapListViewController(nibName: nil, bundle: nil)
+		
+		let interactor = BusinessListViewControllerInteractor()
+		let router = BusinessListViewControllerRouter()
+		let presenter = BusinessListViewControllerPresenter(interface: view, interactor: interactor, router: router)
+		
+		view.presenter = presenter
+		interactor.presenter = presenter
+		router.viewController = view as! UIViewController
+		
+		return view as! UIViewController
+	}
 }

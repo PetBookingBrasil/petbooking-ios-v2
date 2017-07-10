@@ -54,3 +54,7 @@ class BusinessListViewControllerInteractor: BusinessListViewControllerInteractor
 		
 	}
 }
+
+enum BusinessListType {
+	case list, map
+}

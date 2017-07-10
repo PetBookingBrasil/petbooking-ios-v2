@@ -104,8 +104,7 @@ class HomeContentViewControllerViewController: UIViewController, HomeContentView
 	
 	fileprivate func preparedViewControllers() -> [UIViewController] {
 		let listViewController = BusinessListViewControllerRouter.createModule()
-		let mapViewController = UIViewController()
-		mapViewController.view.backgroundColor = .yellow
+		let mapViewController = BusinessListViewControllerRouter.createModule(businessListType: .map)
 		
 		return [
 			listViewController,
