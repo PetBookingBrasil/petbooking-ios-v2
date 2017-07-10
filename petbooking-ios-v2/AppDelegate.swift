@@ -8,6 +8,7 @@
 
 import UIKit
 import FacebookCore
+import UserNotifications
 
 
 @UIApplicationMain
@@ -41,6 +42,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			
 		}
 		
+		if #available(iOS 10.0, *) {
+			let center = UNUserNotificationCenter.current()
+			center.requestAuthorization(options:[.badge, .alert, .sound]) { (granted, error) in
+				// Enable or disable features based on authorization.
+				guard error == nil else {
+					//Display Error.. Handle Error.. etc..
+					return
+				}
+				
+				if granted {
+					application.registerForRemoteNotifications()
+				}
+			}
+			application.registerForRemoteNotifications()
+			
+		} else {
+			// Fallback on earlier versions
+			let settings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+			application.registerUserNotificationSettings(settings)
+			application.registerForRemoteNotifications()
+		}
+		
 		
 		if let _ = SessionManager.sharedInstance.getCurrentSession() {
 			
@@ -52,6 +75,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			
 		}
 		self.window?.makeKeyAndVisible()
+		
+		
 	
 		
 		return true
@@ -82,6 +107,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	func applicationWillTerminate(_ application: UIApplication) {
 		// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+	}
+	
+	func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+		
+		let token = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
+		print("DEVICE TOKEN = \(token)")
+		
+		UserManager.sharedInstance.saveAPNSToken(tokenValue: token)
+		
+		
+	}
+	
+	func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+		print(error)
+	}
+	
+	func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
+		print(userInfo)
 	}
 
 }

@@ -97,6 +97,44 @@ class UserManager: NSObject {
 		}
 	}
 	
+	func saveAPNSToken(tokenValue:String) {
+		
+		let token = Token()
+		token.token = tokenValue
+		token.type = "APNS"
+		
+		
+		do {
+			let realm = try Realm()
+			try realm.write {
+				
+				realm.add(token, update: true)
+				
+			}
+		}catch {
+			print(error.localizedDescription)
+		}
+	}
+	
+	func getAPNSToken() -> Token? {
+		
+		do {
+			let realm = try Realm()
+			let predicate = NSPredicate(format: "type = 'APNS'")
+			guard let token = realm.objects(Token.self).filter(predicate).first else {
+				return nil
+			}
+			
+			return 	token
+		} catch {
+			//TODO: Handle error
+			print(error.localizedDescription)
+			return nil
+		}
+		
+	}
+	
+	
 	func logOut() {
 		
 		do {
