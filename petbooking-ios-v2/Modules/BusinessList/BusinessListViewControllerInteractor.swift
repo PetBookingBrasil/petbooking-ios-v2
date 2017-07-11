@@ -31,12 +31,12 @@ class BusinessListViewControllerInteractor: BusinessListViewControllerInteractor
 	
 	func addToFavorites(business: Business) {
 		
-		if business.isFavorite {
+		if business.isFavorited() {
 			
 			PetbookingAPI.sharedInstance.removeBusinessFromFavorite(business: business, completion: { (success, message) in
 				
 				if success {
-					business.isFavorite = false
+					business.favoriteId = 0
 				}
 				
 			})
@@ -46,7 +46,7 @@ class BusinessListViewControllerInteractor: BusinessListViewControllerInteractor
 			PetbookingAPI.sharedInstance.addBusinessToFavorite(business: business) { (success, message) in
 				
 				if success {
-					business.isFavorite = true
+					//business.isFavorite = true
 				}
 				
 			}

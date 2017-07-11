@@ -23,8 +23,8 @@ class Business: MTLModel, MTLJSONSerializing {
 	dynamic var streetNumber:String = ""
 	dynamic var rating:Double  = 0.0
 	dynamic var ratingCount:Int  = 0
-	dynamic var isFavorite = false
 	dynamic var location:CLLocationCoordinate2D = CLLocationCoordinate2D()
+	dynamic var favoriteId = 0
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
 		return [
@@ -39,8 +39,8 @@ class Business: MTLModel, MTLJSONSerializing {
 			"ratingCount": "attributes.rating_count",
 			"photoUrl": "attributes.cover_image.url",
 			"photoThumbUrl": "attributes.cover_image.thumb.url",
-			"isFavorite": "user_favorite",
-			"location": "attributes.location"
+			"location": "attributes.location",
+			"favoriteId": "attributes.user_favorite.id"
 		]
 	}
 	
@@ -84,6 +84,25 @@ class Business: MTLModel, MTLJSONSerializing {
 		}
 		
 		return MTLValueTransformer(usingForwardBlock: _forwardBlock)
+	}
+	
+	class func favoriteIdJSONTransformer() -> ValueTransformer {
+		
+		let _forwardBlock: MTLValueTransformerBlock? = { (value, success, error) in
+			
+			guard let id = value as? NSNumber else {
+				return 0
+			}
+			
+			return id.intValue
+		}
+		
+		return MTLValueTransformer(usingForwardBlock: _forwardBlock)
+	}
+	
+	func isFavorited() -> Bool {
+		
+		return self.favoriteId > 0
 	}
 	
 }

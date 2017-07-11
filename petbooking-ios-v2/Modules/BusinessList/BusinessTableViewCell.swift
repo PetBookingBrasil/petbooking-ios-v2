@@ -40,7 +40,7 @@ class BusinessTableViewCell: UITableViewCell {
 			return
 		}
 		
-		setFavorite(isFavorite: !business.isFavorite)
+		setFavorite(isFavorite: !business.isFavorited())
 		
 		delegate?.addToFavorites(business: business)
 		

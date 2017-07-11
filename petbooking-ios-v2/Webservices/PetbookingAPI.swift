@@ -652,7 +652,7 @@ extension PetbookingAPI {
 			
 			let coords = "\(coordinate.latitude),\(coordinate.longitude)"
 			
-			let parameters: Parameters = ["coords":coords,"fields[businesses]":"id,name,slug,location,distance,street,street_number,imported,neighborhood,rating_average,rating_count,favorite_count,cover_image,pictures,transportation_fee,user_favorite,bitmask_values", "page[number]":page, "page[size]":20]
+			let parameters: Parameters = ["user_id":session.userId, "coords":coords,"fields[businesses]":"id,name,slug,location,distance,street,street_number,imported,neighborhood,rating_average,rating_count,favorite_count,cover_image,pictures,transportation_fee,user_favorite,bitmask_values", "page[number]":page, "page[size]":20]
 			
 			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/businesses", method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString), headers: auth_headers).responseJSON { (response) in
 				
@@ -708,10 +708,11 @@ extension PetbookingAPI {
 				return
 			}
 			
+			
 			self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
 			self.auth_headers.updateValue("Token token=\"\(session.authToken)\"", forKey: "X-Petbooking-Session-Token")
 			
-			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/favorites/\(business.id)", method: .delete, parameters: nil, encoding: URLEncoding(destination: .queryString), headers: auth_headers).responseJSON { (response) in
+			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/favorites/\(business.favoriteId)", method: .delete, parameters: nil, encoding: URLEncoding(destination: .queryString), headers: auth_headers).responseJSON { (response) in
 				
 				switch response.result{
 				case .success(let jsonObject):
@@ -781,6 +782,9 @@ extension PetbookingAPI {
 						
 						do {
 
+							
+							let favorite = try MTLJSONAdapter.model(of: Favorite.self, fromJSONDictionary: dic) as! Favorite
+							business.favoriteId = favorite.favoriteId
 							
 							completion(true, "")
 							

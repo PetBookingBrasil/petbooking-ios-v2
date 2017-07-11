@@ -141,7 +141,7 @@ extension BusinessListViewControllerViewController: UITableViewDelegate, UITable
 		cell.delegate = self
 		
 		cell.business = business
-		cell.setFavorite(isFavorite: business.isFavorite)
+		cell.setFavorite(isFavorite: business.isFavorited())
 		cell.nameLabel.text = business.name
 		cell.addressLabel.text = "\(business.street), \(business.streetNumber), \(business.neighborhood)"
 		//cell.cityLabel.text = ""
