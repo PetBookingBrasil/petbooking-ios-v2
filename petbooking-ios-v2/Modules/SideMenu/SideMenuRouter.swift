@@ -46,4 +46,8 @@ class SideMenuRouter: SideMenuWireframeProtocol {
 	func showProfile() {
 		self.viewController?.navigationController?.pushViewController(SignupRouter.createModule(signupType: .editProfile), animated: true)
 	}
+	
+	func showFavorites() {
+		self.viewController?.navigationController?.pushViewController(BusinessListViewControllerRouter.createModule(businessListType: .favorites), animated: true)
+	}
 }

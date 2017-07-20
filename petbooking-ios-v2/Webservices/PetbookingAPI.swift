@@ -751,9 +751,7 @@ extension PetbookingAPI {
 			})
 		}
 	}
-	
-	
-	
+
 	func addBusinessToFavorite(business:Business, completion: @escaping (_ success: Bool, _ message: String) -> Void ) {
 		
 		if SessionManager.sharedInstance.isConsumerValid() {
@@ -816,7 +814,65 @@ extension PetbookingAPI {
 			})
 		}
 	}
-	
+
+	func getFavoriteBusinessList(page:Int = 1, completion: @escaping (_ businessList: BusinessList?, _ message: String) -> Void ) {
+		
+		if SessionManager.sharedInstance.isConsumerValid() {
+			var token = ""
+			if let consumer = SessionManager.sharedInstance.getCurrentConsumer() {
+				token = consumer.token
+			}
+			
+			guard let session = SessionManager.sharedInstance.getCurrentSession() else {
+				return
+			}
+			
+			self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
+			self.auth_headers.updateValue("Token token=\"\(session.authToken)\"", forKey: "X-Petbooking-Session-Token")
+			
+			let parameters: Parameters = ["type":"businesses", "fields[businesses]":"id,name,slug,location,distance,street,street_number,imported,neighborhood,rating_average,rating_count,favorite_count,cover_image,pictures,transportation_fee,user_favorite,bitmask_values", "page[number]":page, "page[size]":20]
+			
+			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/users/\(session.userId)/favorites", method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString), headers: auth_headers).responseJSON { (response) in
+				
+				switch response.result{
+				case .success(let jsonObject):
+					if let dic = jsonObject as? [String: Any] {
+						
+						do {
+							let businessList = try MTLJSONAdapter.model(of: BusinessList.self, fromJSONDictionary: dic) as! BusinessList
+							businessList.page = page
+							
+							completion(businessList, "")
+							
+						} catch {
+							completion(nil, error.localizedDescription)
+						}
+					} else {
+						completion(nil, "")
+					}
+					break
+				case .failure(let error):
+					print(error)
+					completion(nil, error.localizedDescription)
+					break
+				}
+				
+			}
+		} else
+		{
+			getConsumer(completion: { (success, message) in
+				
+				if success {
+					self.getFavoriteBusinessList(page:page, completion: completion)
+				} else {
+					
+					completion(nil, "")
+					
+				}
+				
+			})
+		}
+	}
 	
 	
 }

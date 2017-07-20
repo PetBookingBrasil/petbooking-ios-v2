@@ -22,6 +22,8 @@ protocol BusinessListViewControllerPresenterProtocol: class {
 	
 	func getBusinessByCoordinates(coordinates:CLLocationCoordinate2D, page:Int)
 	
+	func getFavoriteBusiness(page:Int)
+	
 	func addToFavorites(business: Business)
 }
 
@@ -38,7 +40,11 @@ protocol BusinessListViewControllerInteractorInputProtocol: class {
 	
 	var presenter: BusinessListViewControllerInteractorOutputProtocol?  { get set }
 	
+	var businessListType:BusinessListType? {get set}
+	
 	func getBusinessByCoordinates(coordinates:CLLocationCoordinate2D, page:Int)
+	
+	func getFavoriteBusiness(page:Int)
 	
 	func addToFavorites(business: Business)
 	
@@ -49,6 +55,8 @@ protocol BusinessListViewControllerInteractorInputProtocol: class {
 protocol BusinessListViewControllerViewProtocol: class {
 	
 	var presenter: BusinessListViewControllerPresenterProtocol?  { get set }
+	
+	var businessListType:BusinessListType? {get set}
 	
 	func updateBusinessList(businessList:BusinessList)
 	

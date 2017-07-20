@@ -38,5 +38,9 @@ class SideMenuPresenter: SideMenuPresenterProtocol {
 	func didTapProfile() {
 		router.showProfile()
 	}
+	
+	func didTapFavorites() {
+		router.showFavorites()
+	}
 
 }

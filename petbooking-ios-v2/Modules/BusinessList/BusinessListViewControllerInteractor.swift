@@ -15,9 +15,25 @@ class BusinessListViewControllerInteractor: BusinessListViewControllerInteractor
 	
 	weak var presenter: BusinessListViewControllerInteractorOutputProtocol?
 	
+	var businessListType:BusinessListType?
+	
 	func getBusinessByCoordinates(coordinates:CLLocationCoordinate2D, page:Int) {
 		
 		PetbookingAPI.sharedInstance.getBusinessList(coordinate: coordinates, page:page) { (businessList, msg) in
+			
+			guard let businessList = businessList else {
+				return
+			}
+			
+			self.presenter?.updateBusinessList(businessList: businessList)
+			
+		}
+		
+	}
+	
+	func getFavoriteBusiness(page: Int) {
+		
+		PetbookingAPI.sharedInstance.getFavoriteBusinessList(page:page) { (businessList, msg) in
 			
 			guard let businessList = businessList else {
 				return
@@ -56,5 +72,5 @@ class BusinessListViewControllerInteractor: BusinessListViewControllerInteractor
 }
 
 enum BusinessListType {
-	case list, map
+	case list, map, favorites
 }

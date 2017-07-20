@@ -125,6 +125,7 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
 		case .payments:
 			break
 		case .favorites:
+			presenter?.didTapFavorites()
 			break
 		case .settings:
 			break

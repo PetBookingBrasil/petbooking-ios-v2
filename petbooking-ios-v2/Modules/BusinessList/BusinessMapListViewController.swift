@@ -13,6 +13,9 @@ import CoreLocation
 class BusinessMapListViewController: UIViewController, BusinessListViewControllerViewProtocol {
 
 	var presenter: BusinessListViewControllerPresenterProtocol?
+	
+	var businessListType:BusinessListType?
+
 	var locationManager:CLLocationManager?
 	var businessList:BusinessList = BusinessList()
 	var businesses = [Business]()

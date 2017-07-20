@@ -16,6 +16,7 @@ class BusinessListViewControllerViewController: UIViewController, BusinessListVi
 	@IBOutlet weak var tableView: UITableView!
 	
 	var presenter: BusinessListViewControllerPresenterProtocol?
+	var businessListType:BusinessListType?
 	var locationManager:CLLocationManager?
 	var businessList:BusinessList = BusinessList()
 	var businesses = [Business]()
@@ -24,16 +25,24 @@ class BusinessListViewControllerViewController: UIViewController, BusinessListVi
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		locationManager = CLLocationManager()
 		
-		locationManager?.delegate = self
-		
-		// Ask for Authorisation from the User.
-		self.locationManager?.requestAlwaysAuthorization()
-		
-		// For use in foreground
-		self.locationManager?.requestWhenInUseAuthorization()
-		
+		switch businessListType! {
+		case .favorites:
+			presenter?.getFavoriteBusiness(page:1)
+			title = "Favoritos"
+			break
+		case .list, .map:
+			locationManager = CLLocationManager()
+			
+			locationManager?.delegate = self
+			// Ask for Authorisation from the User.
+			self.locationManager?.requestAlwaysAuthorization()
+			
+			// For use in foreground
+			self.locationManager?.requestWhenInUseAuthorization()
+			break
+			
+		}
 		
 		tableView.register(UINib(nibName: "BusinessTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
 		tableView.rowHeight = UITableViewAutomaticDimension
@@ -44,12 +53,20 @@ class BusinessListViewControllerViewController: UIViewController, BusinessListVi
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		
-		if CLLocationManager.locationServicesEnabled() {
-			locationManager?.delegate = self
-			locationManager?.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-			locationManager?.startUpdatingLocation()
+		switch businessListType! {
+		case .favorites:
+			break
+		case .list, .map:
+			
+			if CLLocationManager.locationServicesEnabled() {
+				locationManager?.delegate = self
+				locationManager?.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+				locationManager?.startUpdatingLocation()
+			}
+			break
+			
 		}
-		
+
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
@@ -130,9 +147,16 @@ extension BusinessListViewControllerViewController: UITableViewDelegate, UITable
 		
 		if indexPath.section < businesses.count - 1 {
 			
+			switch businessListType! {
+			case .favorites:
+				presenter?.getFavoriteBusiness(page:businessList.page + 1)
+				break
+			case .list, .map:
 			
-			presenter?.getBusinessByCoordinates(coordinates: self.coordinates, page: businessList.page + 1)
-			
+				presenter?.getBusinessByCoordinates(coordinates: self.coordinates, page: businessList.page + 1)
+				break
+				
+			}
 		}
 		
 		let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! BusinessTableViewCell
@@ -152,7 +176,7 @@ extension BusinessListViewControllerViewController: UITableViewDelegate, UITable
 		cell.ratingLabel.text = "\(business.rating)"
 		cell.reviewQuantityLabel.text = "\(business.ratingCount) Avaliações"
 		
-		 cell.businessImageView.image = nil
+		cell.businessImageView.image = nil
 		if let url = URL(string: business.photoUrl) {
 			cell.businessImageView.pin_setImage(from: url)
 		}

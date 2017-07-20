@@ -13,18 +13,22 @@ import  CoreLocation
 
 class BusinessListViewControllerPresenter: BusinessListViewControllerPresenterProtocol, BusinessListViewControllerInteractorOutputProtocol {
 
-    weak private var view: BusinessListViewControllerViewProtocol?
-    var interactor: BusinessListViewControllerInteractorInputProtocol?
-    private let router: BusinessListViewControllerWireframeProtocol
-
-    init(interface: BusinessListViewControllerViewProtocol, interactor: BusinessListViewControllerInteractorInputProtocol?, router: BusinessListViewControllerWireframeProtocol) {
-        self.view = interface
-        self.interactor = interactor
-        self.router = router
-    }
+	weak private var view: BusinessListViewControllerViewProtocol?
+	var interactor: BusinessListViewControllerInteractorInputProtocol?
+	private let router: BusinessListViewControllerWireframeProtocol
+	
+	init(interface: BusinessListViewControllerViewProtocol, interactor: BusinessListViewControllerInteractorInputProtocol?, router: BusinessListViewControllerWireframeProtocol) {
+		self.view = interface
+		self.interactor = interactor
+		self.router = router
+	}
 	
 	func getBusinessByCoordinates(coordinates:CLLocationCoordinate2D, page:Int) {
 		interactor?.getBusinessByCoordinates(coordinates: coordinates, page:page)
+	}
+	
+	func getFavoriteBusiness(page: Int) {
+		interactor?.getFavoriteBusiness(page: page)
 	}
 	
 	func updateBusinessList(businessList:BusinessList) {
@@ -36,5 +40,5 @@ class BusinessListViewControllerPresenter: BusinessListViewControllerPresenterPr
 		interactor?.addToFavorites(business: business)
 		
 	}
-
+	
 }
