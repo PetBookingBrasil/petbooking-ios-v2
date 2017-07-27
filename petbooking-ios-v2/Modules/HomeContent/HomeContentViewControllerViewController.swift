@@ -51,11 +51,6 @@ class HomeContentViewControllerViewController: UIViewController, HomeContentView
 		
 		navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named:"menu"), style: .plain, target: self, action: #selector(showLeftMenu))
 		
-	}
-	
-	override func viewDidAppear(_ animated: Bool) {
-		super.viewDidAppear(animated)
-		
 		setupScrollView()
 		
 		SegmentioBuilder.buildSegmentioView(
@@ -74,6 +69,13 @@ class HomeContentViewControllerViewController: UIViewController, HomeContentView
 				)
 			}
 		}
+		
+	}
+	
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		
+		
 		
 		guard let token = UserManager.sharedInstance.getAPNSToken() else {
 			return

@@ -41,4 +41,7 @@ class BusinessListViewControllerPresenter: BusinessListViewControllerPresenterPr
 		
 	}
 	
+	func showBusinessPage(business:Business) {
+		router.showBusinessPage(business: business)
+	}
 }

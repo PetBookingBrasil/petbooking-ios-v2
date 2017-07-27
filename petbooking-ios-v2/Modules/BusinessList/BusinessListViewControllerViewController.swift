@@ -184,6 +184,15 @@ extension BusinessListViewControllerViewController: UITableViewDelegate, UITable
 		return cell
 	}
 	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		
+		let business = businesses[indexPath.section]
+		
+		presenter?.showBusinessPage(business: business)
+		
+		
+	}
+	
 	public func numberOfSections(in tableView: UITableView) -> Int {
 		return businesses.count
 	}

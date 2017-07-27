@@ -14,6 +14,8 @@ import CoreLocation
 //MARK: Wireframe -
 protocol BusinessListViewControllerWireframeProtocol: class {
 	
+	func showBusinessPage(business:Business)
+	
 }
 //MARK: Presenter -
 protocol BusinessListViewControllerPresenterProtocol: class {
@@ -25,6 +27,8 @@ protocol BusinessListViewControllerPresenterProtocol: class {
 	func getFavoriteBusiness(page:Int)
 	
 	func addToFavorites(business: Business)
+	
+	func showBusinessPage(business:Business)
 }
 
 //MARK: Interactor -

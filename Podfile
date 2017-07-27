@@ -22,5 +22,6 @@ target 'petbooking-ios-v2' do
 	pod 'Pageboy'
 	pod 'SideMenu'
 	pod 'Segmentio', '~> 2.1'
+	pod 'BEMCheckBox'
 	
 end
