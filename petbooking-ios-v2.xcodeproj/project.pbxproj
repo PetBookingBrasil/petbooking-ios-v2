@@ -64,6 +64,23 @@
 		4137158F1EBEAFFA00258C6F /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4137158E1EBEAFFA00258C6F /* Device.swift */; };
 		413715931EBEB3B400258C6F /* MIBlurPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413715921EBEB3B400258C6F /* MIBlurPopup.swift */; };
 		41432E791F0B3088002789CE /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41432E781F0B3088002789CE /* UIButtonExtension.swift */; };
+		414862911F2E9F1900F210D8 /* JTCalendarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 414862711F2E9F1900F210D8 /* JTCalendarManager.m */; };
+		414862921F2E9F1900F210D8 /* JTCalendarSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 414862731F2E9F1900F210D8 /* JTCalendarSettings.m */; };
+		414862931F2E9F1900F210D8 /* JTDateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 414862751F2E9F1900F210D8 /* JTDateHelper.m */; };
+		414862941F2E9F1900F210D8 /* JTCalendarDelegateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 414862781F2E9F1900F210D8 /* JTCalendarDelegateManager.m */; };
+		414862951F2E9F1900F210D8 /* JTCalendarScrollManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4148627A1F2E9F1900F210D8 /* JTCalendarScrollManager.m */; };
+		414862961F2E9F1900F210D8 /* JTCalendarDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 414862841F2E9F1900F210D8 /* JTCalendarDayView.m */; };
+		414862971F2E9F1900F210D8 /* JTCalendarMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 414862861F2E9F1900F210D8 /* JTCalendarMenuView.m */; };
+		414862981F2E9F1900F210D8 /* JTCalendarPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 414862881F2E9F1900F210D8 /* JTCalendarPageView.m */; };
+		414862991F2E9F1900F210D8 /* JTCalendarWeekDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4148628A1F2E9F1900F210D8 /* JTCalendarWeekDayView.m */; };
+		4148629A1F2E9F1900F210D8 /* JTCalendarWeekView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4148628C1F2E9F1900F210D8 /* JTCalendarWeekView.m */; };
+		4148629B1F2E9F1A00F210D8 /* JTHorizontalCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4148628E1F2E9F1900F210D8 /* JTHorizontalCalendarView.m */; };
+		4148629C1F2E9F1A00F210D8 /* JTVerticalCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 414862901F2E9F1900F210D8 /* JTVerticalCalendarView.m */; };
+		4148629E1F2FE92F00F210D8 /* Professional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4148629D1F2FE92F00F210D8 /* Professional.swift */; };
+		414862A11F2FF71800F210D8 /* TImeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4148629F1F2FF71800F210D8 /* TImeCollectionViewCell.swift */; };
+		414862A21F2FF71800F210D8 /* TImeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 414862A01F2FF71800F210D8 /* TImeCollectionViewCell.xib */; };
+		414862A51F3014D000F210D8 /* ProfessionalCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414862A31F3014D000F210D8 /* ProfessionalCollectionViewCell.swift */; };
+		414862A61F3014D000F210D8 /* ProfessionalCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 414862A41F3014D000F210D8 /* ProfessionalCollectionViewCell.xib */; };
 		4149E96D1EF8404C00D6C44B /* SegmentioBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4149E96C1EF8404C00D6C44B /* SegmentioBuilder.swift */; };
 		4149E96F1EF8416400D6C44B /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4149E96E1EF8416400D6C44B /* UIFontExtension.swift */; };
 		4149E9771EF9628100D6C44B /* BusinessListViewControllerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4149E9711EF9628100D6C44B /* BusinessListViewControllerInteractor.swift */; };
@@ -140,6 +157,14 @@
 		41D86F911F29802C0038ADA8 /* ServiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41D86F8F1F29802C0038ADA8 /* ServiceTableViewCell.xib */; };
 		41D86F941F298C360038ADA8 /* AdditionalServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D86F921F298C360038ADA8 /* AdditionalServiceTableViewCell.swift */; };
 		41D86F951F298C360038ADA8 /* AdditionalServiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41D86F931F298C360038ADA8 /* AdditionalServiceTableViewCell.xib */; };
+		41D86F981F2ACC490038ADA8 /* SubServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D86F961F2ACC490038ADA8 /* SubServiceTableViewCell.swift */; };
+		41D86F991F2ACC490038ADA8 /* SubServiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41D86F971F2ACC490038ADA8 /* SubServiceTableViewCell.xib */; };
+		41D86FA11F2D525E0038ADA8 /* ScheduleCalendarInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D86F9B1F2D525E0038ADA8 /* ScheduleCalendarInteractor.swift */; };
+		41D86FA21F2D525E0038ADA8 /* ScheduleCalendarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D86F9C1F2D525E0038ADA8 /* ScheduleCalendarPresenter.swift */; };
+		41D86FA31F2D525E0038ADA8 /* ScheduleCalendarProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D86F9D1F2D525E0038ADA8 /* ScheduleCalendarProtocols.swift */; };
+		41D86FA41F2D525E0038ADA8 /* ScheduleCalendarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D86F9E1F2D525E0038ADA8 /* ScheduleCalendarRouter.swift */; };
+		41D86FA51F2D525E0038ADA8 /* ScheduleCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D86F9F1F2D525E0038ADA8 /* ScheduleCalendarViewController.swift */; };
+		41D86FA61F2D525E0038ADA8 /* ScheduleCalendarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41D86FA01F2D525E0038ADA8 /* ScheduleCalendarViewController.xib */; };
 		41E18B561EEE1B8F00470935 /* NSDateFormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E18B551EEE1B8F00470935 /* NSDateFormatterExtension.swift */; };
 		41E7E2DD1EC106FC002C0A55 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E7E2DC1EC106FC002C0A55 /* UITextFieldExtension.swift */; };
 		41E7E2EA1EC27833002C0A55 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 41E7E2E01EC27833002C0A55 /* OpenSans-Bold.ttf */; };
@@ -217,6 +242,44 @@
 		4137158E1EBEAFFA00258C6F /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		413715921EBEB3B400258C6F /* MIBlurPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIBlurPopup.swift; sourceTree = "<group>"; };
 		41432E781F0B3088002789CE /* UIButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		414862691F2E98F600F210D8 /* petbooking-ios-v2-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "petbooking-ios-v2-Bridging-Header.h"; sourceTree = "<group>"; };
+		4148626E1F2E9F1900F210D8 /* JTCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendar.h; sourceTree = "<group>"; };
+		4148626F1F2E9F1900F210D8 /* JTCalendarDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarDelegate.h; sourceTree = "<group>"; };
+		414862701F2E9F1900F210D8 /* JTCalendarManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarManager.h; sourceTree = "<group>"; };
+		414862711F2E9F1900F210D8 /* JTCalendarManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendarManager.m; sourceTree = "<group>"; };
+		414862721F2E9F1900F210D8 /* JTCalendarSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarSettings.h; sourceTree = "<group>"; };
+		414862731F2E9F1900F210D8 /* JTCalendarSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendarSettings.m; sourceTree = "<group>"; };
+		414862741F2E9F1900F210D8 /* JTDateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTDateHelper.h; sourceTree = "<group>"; };
+		414862751F2E9F1900F210D8 /* JTDateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTDateHelper.m; sourceTree = "<group>"; };
+		414862771F2E9F1900F210D8 /* JTCalendarDelegateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarDelegateManager.h; sourceTree = "<group>"; };
+		414862781F2E9F1900F210D8 /* JTCalendarDelegateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendarDelegateManager.m; sourceTree = "<group>"; };
+		414862791F2E9F1900F210D8 /* JTCalendarScrollManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarScrollManager.h; sourceTree = "<group>"; };
+		4148627A1F2E9F1900F210D8 /* JTCalendarScrollManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendarScrollManager.m; sourceTree = "<group>"; };
+		4148627C1F2E9F1900F210D8 /* JTCalendarDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarDay.h; sourceTree = "<group>"; };
+		4148627D1F2E9F1900F210D8 /* JTCalendarPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarPage.h; sourceTree = "<group>"; };
+		4148627E1F2E9F1900F210D8 /* JTCalendarWeek.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarWeek.h; sourceTree = "<group>"; };
+		4148627F1F2E9F1900F210D8 /* JTCalendarWeekDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarWeekDay.h; sourceTree = "<group>"; };
+		414862801F2E9F1900F210D8 /* JTContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTContent.h; sourceTree = "<group>"; };
+		414862811F2E9F1900F210D8 /* JTMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTMenu.h; sourceTree = "<group>"; };
+		414862831F2E9F1900F210D8 /* JTCalendarDayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarDayView.h; sourceTree = "<group>"; };
+		414862841F2E9F1900F210D8 /* JTCalendarDayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendarDayView.m; sourceTree = "<group>"; };
+		414862851F2E9F1900F210D8 /* JTCalendarMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarMenuView.h; sourceTree = "<group>"; };
+		414862861F2E9F1900F210D8 /* JTCalendarMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendarMenuView.m; sourceTree = "<group>"; };
+		414862871F2E9F1900F210D8 /* JTCalendarPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarPageView.h; sourceTree = "<group>"; };
+		414862881F2E9F1900F210D8 /* JTCalendarPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendarPageView.m; sourceTree = "<group>"; };
+		414862891F2E9F1900F210D8 /* JTCalendarWeekDayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarWeekDayView.h; sourceTree = "<group>"; };
+		4148628A1F2E9F1900F210D8 /* JTCalendarWeekDayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendarWeekDayView.m; sourceTree = "<group>"; };
+		4148628B1F2E9F1900F210D8 /* JTCalendarWeekView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarWeekView.h; sourceTree = "<group>"; };
+		4148628C1F2E9F1900F210D8 /* JTCalendarWeekView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendarWeekView.m; sourceTree = "<group>"; };
+		4148628D1F2E9F1900F210D8 /* JTHorizontalCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTHorizontalCalendarView.h; sourceTree = "<group>"; };
+		4148628E1F2E9F1900F210D8 /* JTHorizontalCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTHorizontalCalendarView.m; sourceTree = "<group>"; };
+		4148628F1F2E9F1900F210D8 /* JTVerticalCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTVerticalCalendarView.h; sourceTree = "<group>"; };
+		414862901F2E9F1900F210D8 /* JTVerticalCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTVerticalCalendarView.m; sourceTree = "<group>"; };
+		4148629D1F2FE92F00F210D8 /* Professional.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Professional.swift; sourceTree = "<group>"; };
+		4148629F1F2FF71800F210D8 /* TImeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TImeCollectionViewCell.swift; sourceTree = "<group>"; };
+		414862A01F2FF71800F210D8 /* TImeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TImeCollectionViewCell.xib; sourceTree = "<group>"; };
+		414862A31F3014D000F210D8 /* ProfessionalCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfessionalCollectionViewCell.swift; sourceTree = "<group>"; };
+		414862A41F3014D000F210D8 /* ProfessionalCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfessionalCollectionViewCell.xib; sourceTree = "<group>"; };
 		4149E96C1EF8404C00D6C44B /* SegmentioBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentioBuilder.swift; sourceTree = "<group>"; };
 		4149E96E1EF8416400D6C44B /* UIFontExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		4149E9711EF9628100D6C44B /* BusinessListViewControllerInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessListViewControllerInteractor.swift; sourceTree = "<group>"; };
@@ -293,6 +356,14 @@
 		41D86F8F1F29802C0038ADA8 /* ServiceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceTableViewCell.xib; sourceTree = "<group>"; };
 		41D86F921F298C360038ADA8 /* AdditionalServiceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdditionalServiceTableViewCell.swift; sourceTree = "<group>"; };
 		41D86F931F298C360038ADA8 /* AdditionalServiceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdditionalServiceTableViewCell.xib; sourceTree = "<group>"; };
+		41D86F961F2ACC490038ADA8 /* SubServiceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubServiceTableViewCell.swift; sourceTree = "<group>"; };
+		41D86F971F2ACC490038ADA8 /* SubServiceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubServiceTableViewCell.xib; sourceTree = "<group>"; };
+		41D86F9B1F2D525E0038ADA8 /* ScheduleCalendarInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleCalendarInteractor.swift; sourceTree = "<group>"; };
+		41D86F9C1F2D525E0038ADA8 /* ScheduleCalendarPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleCalendarPresenter.swift; sourceTree = "<group>"; };
+		41D86F9D1F2D525E0038ADA8 /* ScheduleCalendarProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleCalendarProtocols.swift; sourceTree = "<group>"; };
+		41D86F9E1F2D525E0038ADA8 /* ScheduleCalendarRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleCalendarRouter.swift; sourceTree = "<group>"; };
+		41D86F9F1F2D525E0038ADA8 /* ScheduleCalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleCalendarViewController.swift; sourceTree = "<group>"; };
+		41D86FA01F2D525E0038ADA8 /* ScheduleCalendarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleCalendarViewController.xib; sourceTree = "<group>"; };
 		41E18B551EEE1B8F00470935 /* NSDateFormatterExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateFormatterExtension.swift; sourceTree = "<group>"; };
 		41E7E2DC1EC106FC002C0A55 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		41E7E2E01EC27833002C0A55 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
@@ -418,6 +489,7 @@
 				413682C91E9C2B2D008C463B /* LaunchScreen.storyboard */,
 				413682CC1E9C2B2D008C463B /* Info.plist */,
 				4120ED0F1EB128A5009D35B0 /* Localizable.strings */,
+				414862691F2E98F600F210D8 /* petbooking-ios-v2-Bridging-Header.h */,
 			);
 			path = "petbooking-ios-v2";
 			sourceTree = "<group>";
@@ -446,6 +518,7 @@
 		413715901EBEB38C00258C6F /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				4148626D1F2E9F1900F210D8 /* JTCalendar */,
 				413715911EBEB3B400258C6F /* MIBlurPopup */,
 			);
 			path = Libraries;
@@ -457,6 +530,69 @@
 				413715921EBEB3B400258C6F /* MIBlurPopup.swift */,
 			);
 			path = MIBlurPopup;
+			sourceTree = "<group>";
+		};
+		4148626D1F2E9F1900F210D8 /* JTCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				4148626E1F2E9F1900F210D8 /* JTCalendar.h */,
+				4148626F1F2E9F1900F210D8 /* JTCalendarDelegate.h */,
+				414862701F2E9F1900F210D8 /* JTCalendarManager.h */,
+				414862711F2E9F1900F210D8 /* JTCalendarManager.m */,
+				414862721F2E9F1900F210D8 /* JTCalendarSettings.h */,
+				414862731F2E9F1900F210D8 /* JTCalendarSettings.m */,
+				414862741F2E9F1900F210D8 /* JTDateHelper.h */,
+				414862751F2E9F1900F210D8 /* JTDateHelper.m */,
+				414862761F2E9F1900F210D8 /* Managers */,
+				4148627B1F2E9F1900F210D8 /* Protocols */,
+				414862821F2E9F1900F210D8 /* Views */,
+			);
+			path = JTCalendar;
+			sourceTree = "<group>";
+		};
+		414862761F2E9F1900F210D8 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				414862771F2E9F1900F210D8 /* JTCalendarDelegateManager.h */,
+				414862781F2E9F1900F210D8 /* JTCalendarDelegateManager.m */,
+				414862791F2E9F1900F210D8 /* JTCalendarScrollManager.h */,
+				4148627A1F2E9F1900F210D8 /* JTCalendarScrollManager.m */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		4148627B1F2E9F1900F210D8 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				4148627C1F2E9F1900F210D8 /* JTCalendarDay.h */,
+				4148627D1F2E9F1900F210D8 /* JTCalendarPage.h */,
+				4148627E1F2E9F1900F210D8 /* JTCalendarWeek.h */,
+				4148627F1F2E9F1900F210D8 /* JTCalendarWeekDay.h */,
+				414862801F2E9F1900F210D8 /* JTContent.h */,
+				414862811F2E9F1900F210D8 /* JTMenu.h */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		414862821F2E9F1900F210D8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				414862831F2E9F1900F210D8 /* JTCalendarDayView.h */,
+				414862841F2E9F1900F210D8 /* JTCalendarDayView.m */,
+				414862851F2E9F1900F210D8 /* JTCalendarMenuView.h */,
+				414862861F2E9F1900F210D8 /* JTCalendarMenuView.m */,
+				414862871F2E9F1900F210D8 /* JTCalendarPageView.h */,
+				414862881F2E9F1900F210D8 /* JTCalendarPageView.m */,
+				414862891F2E9F1900F210D8 /* JTCalendarWeekDayView.h */,
+				4148628A1F2E9F1900F210D8 /* JTCalendarWeekDayView.m */,
+				4148628B1F2E9F1900F210D8 /* JTCalendarWeekView.h */,
+				4148628C1F2E9F1900F210D8 /* JTCalendarWeekView.m */,
+				4148628D1F2E9F1900F210D8 /* JTHorizontalCalendarView.h */,
+				4148628E1F2E9F1900F210D8 /* JTHorizontalCalendarView.m */,
+				4148628F1F2E9F1900F210D8 /* JTVerticalCalendarView.h */,
+				414862901F2E9F1900F210D8 /* JTVerticalCalendarView.m */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		4149E9701EF961DA00D6C44B /* BusinessList */ = {
@@ -514,6 +650,7 @@
 				41F47DB31F144BD80004BC4E /* Favorite.swift */,
 				41D86F861F26A4A70038ADA8 /* Service.swift */,
 				41D86F8C1F2973C70038ADA8 /* ServiceCategory.swift */,
+				4148629D1F2FE92F00F210D8 /* Professional.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -530,6 +667,7 @@
 		418D099C1EB0D71200FCD5A6 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				41D86F9A1F2D52500038ADA8 /* ScheduleCalendar */,
 				41D86F751F266D640038ADA8 /* BusinessServices */,
 				41D86F661F263A9B0038ADA8 /* HomeBusiness */,
 				4149E9701EF961DA00D6C44B /* BusinessList */,
@@ -651,8 +789,27 @@
 				41D86F8F1F29802C0038ADA8 /* ServiceTableViewCell.xib */,
 				41D86F921F298C360038ADA8 /* AdditionalServiceTableViewCell.swift */,
 				41D86F931F298C360038ADA8 /* AdditionalServiceTableViewCell.xib */,
+				41D86F961F2ACC490038ADA8 /* SubServiceTableViewCell.swift */,
+				41D86F971F2ACC490038ADA8 /* SubServiceTableViewCell.xib */,
 			);
 			path = BusinessServices;
+			sourceTree = "<group>";
+		};
+		41D86F9A1F2D52500038ADA8 /* ScheduleCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				41D86F9B1F2D525E0038ADA8 /* ScheduleCalendarInteractor.swift */,
+				41D86F9C1F2D525E0038ADA8 /* ScheduleCalendarPresenter.swift */,
+				41D86F9D1F2D525E0038ADA8 /* ScheduleCalendarProtocols.swift */,
+				41D86F9E1F2D525E0038ADA8 /* ScheduleCalendarRouter.swift */,
+				41D86F9F1F2D525E0038ADA8 /* ScheduleCalendarViewController.swift */,
+				41D86FA01F2D525E0038ADA8 /* ScheduleCalendarViewController.xib */,
+				4148629F1F2FF71800F210D8 /* TImeCollectionViewCell.swift */,
+				414862A01F2FF71800F210D8 /* TImeCollectionViewCell.xib */,
+				414862A31F3014D000F210D8 /* ProfessionalCollectionViewCell.swift */,
+				414862A41F3014D000F210D8 /* ProfessionalCollectionViewCell.xib */,
+			);
+			path = ScheduleCalendar;
 			sourceTree = "<group>";
 		};
 		41E7E2DE1EC27821002C0A55 /* Fonts */ = {
@@ -780,10 +937,12 @@
 				4149E9981EFF0D0100D6C44B /* BusinessTableViewCell.xib in Resources */,
 				4149E97C1EF9628100D6C44B /* BusinessListViewControllerViewController.xib in Resources */,
 				41D86F811F266D7A0038ADA8 /* BusinessServicesViewController.xib in Resources */,
+				414862A61F3014D000F210D8 /* ProfessionalCollectionViewCell.xib in Resources */,
 				413682CB1E9C2B2D008C463B /* LaunchScreen.storyboard in Resources */,
 				4120ED2C1EB4F136009D35B0 /* ForgotPasswordViewController.xib in Resources */,
 				4120ED1D1EB38650009D35B0 /* LoginViewController.xib in Resources */,
 				41E7E2F01EC27833002C0A55 /* OpenSans-LightItalic.ttf in Resources */,
+				414862A21F2FF71800F210D8 /* TImeCollectionViewCell.xib in Resources */,
 				41E7E2EB1EC27833002C0A55 /* OpenSans-BoldItalic.ttf in Resources */,
 				413682C81E9C2B2D008C463B /* Assets.xcassets in Resources */,
 				41D86F851F2678D30038ADA8 /* PetCollectionViewCell.xib in Resources */,
@@ -798,7 +957,9 @@
 				4120ED3B1EB529FE009D35B0 /* SignupViewController.xib in Resources */,
 				413682C61E9C2B2D008C463B /* Main.storyboard in Resources */,
 				41D86F951F298C360038ADA8 /* AdditionalServiceTableViewCell.xib in Resources */,
+				41D86F991F2ACC490038ADA8 /* SubServiceTableViewCell.xib in Resources */,
 				41E7E2F31EC27833002C0A55 /* OpenSans-SemiboldItalic.ttf in Resources */,
+				41D86FA61F2D525E0038ADA8 /* ScheduleCalendarViewController.xib in Resources */,
 				418DAA2F1ECE7EAE006265CF /* SideMenuViewController.xib in Resources */,
 				4137158C1EBE7D0300258C6F /* SelectPhotoSourcePopupViewController.xib in Resources */,
 				41E7E2F11EC27833002C0A55 /* OpenSans-Regular.ttf in Resources */,
@@ -869,8 +1030,11 @@
 				4120ED031EB0DE9F009D35B0 /* PresentationRouter.swift in Sources */,
 				4120ED1F1EB390C3009D35B0 /* UIViewControllerExtension.swift in Sources */,
 				4120ED381EB529FE009D35B0 /* SignupProtocols.swift in Sources */,
+				414862951F2E9F1900F210D8 /* JTCalendarScrollManager.m in Sources */,
 				4120ED081EB111A7009D35B0 /* UIViewExtension.swift in Sources */,
+				4148629C1F2E9F1A00F210D8 /* JTVerticalCalendarView.m in Sources */,
 				4129D9E71ED86E9B0067EDC3 /* MyPetsTableViewCell.swift in Sources */,
+				41D86F981F2ACC490038ADA8 /* SubServiceTableViewCell.swift in Sources */,
 				413682C31E9C2B2D008C463B /* ViewController.swift in Sources */,
 				4168AA5E1EB8181B001E2D6D /* FacebookGraphModel.swift in Sources */,
 				4120ED001EB0DE9F009D35B0 /* PresentationInteractor.swift in Sources */,
@@ -881,12 +1045,17 @@
 				4168AA541EB6BB56001E2D6D /* User.swift in Sources */,
 				4120ED191EB38650009D35B0 /* LoginPresenter.swift in Sources */,
 				4137158F1EBEAFFA00258C6F /* Device.swift in Sources */,
+				414862921F2E9F1900F210D8 /* JTCalendarSettings.m in Sources */,
 				41A0BAEA1ED7A8FA00671F3C /* AddPetViewControllerRouter.swift in Sources */,
+				414862931F2E9F1900F210D8 /* JTDateHelper.m in Sources */,
+				414862991F2E9F1900F210D8 /* JTCalendarWeekDayView.m in Sources */,
 				4120ED291EB4F136009D35B0 /* ForgotPasswordProtocols.swift in Sources */,
 				4129D9DA1ED85C3D0067EDC3 /* UIImageViewExtension.swift in Sources */,
 				415F73D61EBAA033000D9B14 /* ViaCepAddress.swift in Sources */,
 				4120ED2A1EB4F136009D35B0 /* ForgotPasswordRouter.swift in Sources */,
+				414862971F2E9F1900F210D8 /* JTCalendarMenuView.m in Sources */,
 				4120ED011EB0DE9F009D35B0 /* PresentationPresenter.swift in Sources */,
+				414862911F2E9F1900F210D8 /* JTCalendarManager.m in Sources */,
 				41D86F8A1F294F1E0038ADA8 /* ServiceCollectionViewCell.swift in Sources */,
 				4149E9971EFF0D0100D6C44B /* BusinessTableViewCell.swift in Sources */,
 				41432E791F0B3088002789CE /* UIButtonExtension.swift in Sources */,
@@ -901,9 +1070,14 @@
 				418DAA2C1ECE7EAE006265CF /* SideMenuProtocols.swift in Sources */,
 				41F47DB41F144BD80004BC4E /* Favorite.swift in Sources */,
 				4137158B1EBE7D0300258C6F /* SelectPhotoSourcePopupViewController.swift in Sources */,
+				414862981F2E9F1900F210D8 /* JTCalendarPageView.m in Sources */,
 				4129D9E51ED86E9B0067EDC3 /* MyPetsProtocols.swift in Sources */,
+				414862A11F2FF71800F210D8 /* TImeCollectionViewCell.swift in Sources */,
+				414862941F2E9F1900F210D8 /* JTCalendarDelegateManager.m in Sources */,
 				413682C11E9C2B2D008C463B /* AppDelegate.swift in Sources */,
+				41D86FA21F2D525E0038ADA8 /* ScheduleCalendarPresenter.swift in Sources */,
 				4137157F1EBD5B3F00258C6F /* PresentationPageViewController.swift in Sources */,
+				41D86FA11F2D525E0038ADA8 /* ScheduleCalendarInteractor.swift in Sources */,
 				4120ED041EB0DE9F009D35B0 /* PresentationViewController.swift in Sources */,
 				4149E9771EF9628100D6C44B /* BusinessListViewControllerInteractor.swift in Sources */,
 				4149E96D1EF8404C00D6C44B /* SegmentioBuilder.swift in Sources */,
@@ -921,9 +1095,12 @@
 				412776981F143F2500EC6488 /* Token.swift in Sources */,
 				41A0BAE71ED7A8FA00671F3C /* AddPetViewControllerInteractor.swift in Sources */,
 				418DAA2A1ECE7EAE006265CF /* SideMenuInteractor.swift in Sources */,
+				41D86FA31F2D525E0038ADA8 /* ScheduleCalendarProtocols.swift in Sources */,
+				414862961F2E9F1900F210D8 /* JTCalendarDayView.m in Sources */,
 				41D86F7E1F266D7A0038ADA8 /* BusinessServicesProtocols.swift in Sources */,
 				41E7E2DD1EC106FC002C0A55 /* UITextFieldExtension.swift in Sources */,
 				41D86F7C1F266D7A0038ADA8 /* BusinessServicesInteractor.swift in Sources */,
+				41D86FA51F2D525E0038ADA8 /* ScheduleCalendarViewController.swift in Sources */,
 				41AAB4F51EF1F9AF00E52857 /* HomeContentViewControllerRouter.swift in Sources */,
 				41D86F7F1F266D7A0038ADA8 /* BusinessServicesRouter.swift in Sources */,
 				4168AA4F1EB6A4DD001E2D6D /* Consumer.swift in Sources */,
@@ -939,18 +1116,22 @@
 				41D86F801F266D7A0038ADA8 /* BusinessServicesViewController.swift in Sources */,
 				418DAA2D1ECE7EAE006265CF /* SideMenuRouter.swift in Sources */,
 				41AAB4F41EF1F9AF00E52857 /* HomeContentViewControllerProtocols.swift in Sources */,
+				4148629A1F2E9F1900F210D8 /* JTCalendarWeekView.m in Sources */,
 				41A0BAE91ED7A8FA00671F3C /* AddPetViewControllerProtocols.swift in Sources */,
 				418DAA461ED12FAF006265CF /* Pet.swift in Sources */,
 				413715891EBE7D0300258C6F /* SelectPhotoSourcePopupProtocols.swift in Sources */,
 				4149E9791EF9628100D6C44B /* BusinessListViewControllerProtocols.swift in Sources */,
 				414BB1F51EBFF4AF000BE2CC /* AlertPopupProtocols.swift in Sources */,
 				41D86F701F263AB30038ADA8 /* HomeBusinessRouter.swift in Sources */,
+				4148629E1F2FE92F00F210D8 /* Professional.swift in Sources */,
 				4168AA4C1EB69217001E2D6D /* PetbookingAPI.swift in Sources */,
 				4149E97B1EF9628100D6C44B /* BusinessListViewControllerViewController.swift in Sources */,
 				41D86F941F298C360038ADA8 /* AdditionalServiceTableViewCell.swift in Sources */,
+				41D86FA41F2D525E0038ADA8 /* ScheduleCalendarRouter.swift in Sources */,
 				4120ED281EB4F136009D35B0 /* ForgotPasswordPresenter.swift in Sources */,
 				41D86F8D1F2973C70038ADA8 /* ServiceCategory.swift in Sources */,
 				4120ED391EB529FE009D35B0 /* SignupRouter.swift in Sources */,
+				4148629B1F2E9F1A00F210D8 /* JTHorizontalCalendarView.m in Sources */,
 				4120ED1A1EB38650009D35B0 /* LoginProtocols.swift in Sources */,
 				4129D9E31ED86E9B0067EDC3 /* MyPetsInteractor.swift in Sources */,
 				4120ED2B1EB4F136009D35B0 /* ForgotPasswordViewController.swift in Sources */,
@@ -958,6 +1139,7 @@
 				415BCAE01EB534C40015BB0C /* SignupViewController.swift in Sources */,
 				4149E97A1EF9628100D6C44B /* BusinessListViewControllerRouter.swift in Sources */,
 				4120ED181EB38650009D35B0 /* LoginInteractor.swift in Sources */,
+				414862A51F3014D000F210D8 /* ProfessionalCollectionViewCell.swift in Sources */,
 				41D86F871F26A4A70038ADA8 /* Service.swift in Sources */,
 				414BB1F71EBFF4AF000BE2CC /* AlertPopupViewController.swift in Sources */,
 				4149E96F1EF8416400D6C44B /* UIFontExtension.swift in Sources */,
@@ -1110,6 +1292,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "petbooking-ios-v2/petbooking-ios-v2-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1131,6 +1314,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "petbooking-ios-v2/petbooking-ios-v2-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

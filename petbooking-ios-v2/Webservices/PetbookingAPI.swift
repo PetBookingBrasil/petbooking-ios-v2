@@ -990,4 +990,60 @@ extension PetbookingAPI {
 		}
 	}
 	
+	func getProfessionalsList(service: Service, completion: @escaping (_ professionalList: ProfessionalList?, _ message: String) -> Void ) {
+		
+		if SessionManager.sharedInstance.isConsumerValid() {
+			var token = ""
+			if let consumer = SessionManager.sharedInstance.getCurrentConsumer() {
+				token = consumer.token
+			}
+			
+			guard let session = SessionManager.sharedInstance.getCurrentSession() else {
+				return
+			}
+			
+			self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
+			self.auth_headers.updateValue("Token token=\"\(session.authToken)\"", forKey: "X-Petbooking-Session-Token")
+			
+			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/services/\(service.id)/employments", method: .get, parameters: nil, encoding: URLEncoding(destination: .queryString), headers: auth_headers).responseJSON { (response) in
+				
+				switch response.result{
+				case .success(let jsonObject):
+					if let dic = jsonObject as? [String: Any] {
+						print(dic)
+						do {
+							let professionalList = try MTLJSONAdapter.model(of: ProfessionalList.self, fromJSONDictionary: dic) as! ProfessionalList
+							
+							completion(professionalList, "")
+							
+						} catch {
+							completion(nil, error.localizedDescription)
+						}
+					} else {
+						completion(nil, "")
+					}
+					break
+				case .failure(let error):
+					print(error)
+					completion(nil, error.localizedDescription)
+					break
+				}
+				
+			}
+		} else
+		{
+			getConsumer(completion: { (success, message) in
+				
+				if success {
+					self.getProfessionalsList(service: service, completion: completion)
+				} else {
+					
+					completion(nil, "")
+					
+				}
+				
+			})
+		}
+	}
+	
 }

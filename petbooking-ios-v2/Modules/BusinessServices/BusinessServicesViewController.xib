@@ -46,10 +46,10 @@
                                     </connections>
                                 </collectionView>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="qDW-FV-f5H">
-                                    <rect key="frame" x="0.0" y="66" width="375" height="100"/>
+                                    <rect key="frame" x="0.0" y="66" width="375" height="110"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="100" id="PSG-GO-e0K"/>
+                                        <constraint firstAttribute="height" constant="110" id="PSG-GO-e0K"/>
                                     </constraints>
                                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="DW5-Mq-8vR">
                                         <size key="itemSize" width="50" height="50"/>
@@ -62,9 +62,9 @@
                                         <outlet property="delegate" destination="-1" id="GIn-2b-NbO"/>
                                     </connections>
                                 </collectionView>
-                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lvV-iL-ezs">
-                                    <rect key="frame" x="0.0" y="166" width="375" height="501"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lvV-iL-ezs">
+                                    <rect key="frame" x="0.0" y="176" width="375" height="491"/>
+                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <connections>
                                         <outlet property="dataSource" destination="-1" id="h32-ZP-gdG"/>
                                         <outlet property="delegate" destination="-1" id="IGC-xy-jYl"/>

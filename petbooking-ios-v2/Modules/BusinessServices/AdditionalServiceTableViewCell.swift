@@ -7,12 +7,18 @@
 //
 
 import UIKit
+import BEMCheckBox
 
 class AdditionalServiceTableViewCell: UITableViewCell {
 
+	@IBOutlet weak var checkBox: BEMCheckBox!
+	@IBOutlet weak var nameLabel: UILabel!	
+	@IBOutlet weak var priceLabel: UILabel!
+	
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+			checkBox.boxType = .square
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

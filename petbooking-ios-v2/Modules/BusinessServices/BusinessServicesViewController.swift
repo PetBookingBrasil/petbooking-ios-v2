@@ -9,11 +9,12 @@
 //
 
 import UIKit
+import BEMCheckBox
 
 class BusinessServicesViewController: UIViewController, BusinessServicesViewProtocol {
-
+	
 	var presenter: BusinessServicesPresenterProtocol?
-
+	
 	@IBOutlet weak var servicesCollectionView: UICollectionView!
 	@IBOutlet weak var petCollectionView: UICollectionView!
 	@IBOutlet weak var servicesTableView: UITableView!
@@ -23,9 +24,10 @@ class BusinessServicesViewController: UIViewController, BusinessServicesViewProt
 	var serviceCategoryList:ServiceCategoryList = ServiceCategoryList()
 	var serviceList:ServiceList = ServiceList()
 	var selectedPet:Pet?
+	var selectedServiceCategory:ServiceCategory?
 	
 	override func viewDidLoad() {
-        super.viewDidLoad()
+		super.viewDidLoad()
 		
 		petCollectionView.register(UINib(nibName: "PetCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PetCollectionViewCell")
 		
@@ -51,7 +53,7 @@ class BusinessServicesViewController: UIViewController, BusinessServicesViewProt
 		
 		servicesTableView.register(UINib(nibName: "ServiceTableViewCell", bundle: nil), forCellReuseIdentifier: "ServiceTableViewCell")
 		
-    }
+	}
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
@@ -64,7 +66,7 @@ class BusinessServicesViewController: UIViewController, BusinessServicesViewProt
 		presenter?.getCategories(business: business)
 		
 	}
-
+	
 	func loadPets(petList: PetList) {
 		
 		self.petList = petList
@@ -83,6 +85,14 @@ class BusinessServicesViewController: UIViewController, BusinessServicesViewProt
 		
 		self.servicesCollectionView.reloadData()
 		
+		if selectedServiceCategory == nil {
+			
+			guard let business = self.business, let pet = self.selectedPet, let service = self.serviceCategoryList.categories.first else {
+				return
+			}
+			
+			self.presenter?.getServices(business: business, service: service, pet: pet)
+		}
 	}
 	
 	func loadServices(serviceList: ServiceList) {
@@ -93,8 +103,8 @@ class BusinessServicesViewController: UIViewController, BusinessServicesViewProt
 		
 	}
 	
-
-
+	
+	
 }
 
 extension BusinessServicesViewController: UICollectionViewDataSource, UICollectionViewDelegate{
@@ -151,6 +161,7 @@ extension BusinessServicesViewController: UICollectionViewDataSource, UICollecti
 		
 		switch collectionView {
 		case petCollectionView:
+			selectedPet = petList.pets[indexPath.item]
 			break
 		case servicesCollectionView:
 			
@@ -195,7 +206,7 @@ extension BusinessServicesViewController: UICollectionViewDataSource, UICollecti
 		cell.pictureImageView.image = UIImage(named: service.slug)
 		
 		return cell
-
+		
 	}
 	
 }
@@ -213,20 +224,56 @@ extension BusinessServicesViewController: UITableViewDelegate, UITableViewDataSo
 	}
 	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-		return 80
+		
+		let service = serviceList.services[indexPath.section]
+		let count = service.services.count
+		
+		return CGFloat(120 + count * 40)
+		
+	}
+	
+	func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+		return 10
+	}
+	
+	func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+		return UITableViewAutomaticDimension
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		
 		let cell = tableView.dequeueReusableCell(withIdentifier: "ServiceTableViewCell") as! ServiceTableViewCell
-		
+		cell.delegate = self
 		let service = serviceList.services[indexPath.section]
+		cell.service = service
+		cell.reloadTable()
 		
 		cell.nameLabel?.text = service.name
-		cell.priceLabel.text = "R$ \(service.price)"
+		cell.priceLabel.text = String(format: "R$ %.2f", service.price)
+		cell.priceLabel.sizeToFit()
 		
 		return cell
 		
+	}
+	
+	func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+		let view = UIView()
+		
+		view.backgroundColor = .clear
+		
+		return view
+	}
+	
+}
+
+extension BusinessServicesViewController : ServiceTableViewDelegate {
+	
+	
+	func didSelectedService(service: Service) {
+		
+		let	calendar = ScheduleCalendarRouter.createModule(business: self.business!, service: service, pet: selectedPet!)
+		
+		self.navigationController?.pushViewController(calendar, animated: true)
 	}
 	
 }

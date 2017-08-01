@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="TImeCollectionViewCell" customModule="petbooking_ios_v2" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="129" height="40"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="129" height="40"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kkg-BV-U8G">
+                        <rect key="frame" x="35.5" y="5" width="58" height="30"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iau-3D-NhB">
+                                <rect key="frame" x="8.5" y="4.5" width="41" height="22"/>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
+                                <color key="textColor" red="0.31764705882352939" green="0.31764705882352939" blue="0.31764705882352939" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="6h9-yC-IYm"/>
+                            <constraint firstAttribute="width" constant="58" id="Drk-Gm-9h9"/>
+                            <constraint firstItem="Iau-3D-NhB" firstAttribute="centerX" secondItem="Kkg-BV-U8G" secondAttribute="centerX" id="boi-or-TtA"/>
+                            <constraint firstItem="Iau-3D-NhB" firstAttribute="centerY" secondItem="Kkg-BV-U8G" secondAttribute="centerY" id="wBg-fo-YuR"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="Kkg-BV-U8G" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="6yo-rt-6oS"/>
+                <constraint firstItem="Kkg-BV-U8G" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="Lwr-i2-12i"/>
+            </constraints>
+            <size key="customSize" width="129" height="50"/>
+            <connections>
+                <outlet property="timeContainer" destination="Kkg-BV-U8G" id="LF5-1x-0j2"/>
+                <outlet property="timeLabel" destination="Iau-3D-NhB" id="DqS-Mb-8cO"/>
+            </connections>
+            <point key="canvasLocation" x="-5.5" y="74"/>
+        </collectionViewCell>
+    </objects>
+</document>

@@ -16,13 +16,38 @@ class Service: MTLModel, MTLJSONSerializing {
 	dynamic var name = ""
 	dynamic var duration = 0
 	dynamic var price = 0.0
+	dynamic var services = [SubService]()
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
 		return [
 			"id": "id",
 			"name": "attributes.name",
 			"duration": "attributes.duration",
-			"price": "attributes.price"
+			"price": "attributes.price",
+			"services": "attributes.childs"
+		]
+	}
+	
+	static func servicesJSONTransformer() -> ValueTransformer {
+		
+		return MTLJSONAdapter.arrayTransformer(withModelClass: SubService.self)
+		
+	}
+	
+}
+
+class SubService: MTLModel, MTLJSONSerializing {
+	
+	dynamic var name = ""
+	dynamic var duration = 0
+	dynamic var price = 0.0
+	
+	
+	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
+		return [
+			"name": "name",
+			"duration": "duration",
+			"price": "price",
 		]
 	}
 	
