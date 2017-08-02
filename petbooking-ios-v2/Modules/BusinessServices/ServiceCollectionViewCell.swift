@@ -13,9 +13,20 @@ class ServiceCollectionViewCell: UICollectionViewCell {
 	@IBOutlet weak var pictureImageView: UIImageView!
 	@IBOutlet weak var nameLabel: UILabel!
 	
+	override var isSelected: Bool {
+		didSet {
+			if isSelected {
+				pictureImageView.dropShadow()
+			} else {
+				pictureImageView.removeShadow()
+			}
+		}
+	}
+	
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+			pictureImageView.round()
     }
 
 }

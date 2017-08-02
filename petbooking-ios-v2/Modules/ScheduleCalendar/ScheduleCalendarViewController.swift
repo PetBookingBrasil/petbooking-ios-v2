@@ -38,6 +38,7 @@ class ScheduleCalendarViewController: UIViewController, ScheduleCalendarViewProt
 	var dateSelected = Date()
 	
 	var business:Business = Business()
+	var serviceCategory:ServiceCategory = ServiceCategory()
 	var service:Service = Service()
 	var pet:Pet = Pet()
 	
@@ -105,9 +106,18 @@ class ScheduleCalendarViewController: UIViewController, ScheduleCalendarViewProt
 			self.professionalCollectionView.reloadData()
 			
 		}
+		
 
     }
 
+	@IBAction func didTapContinueSchedule(_ sender: Any) {
+		
+		
+		ScheduleManager.sharedInstance.addServiceToSchedule(business: business, pet: pet, serviceCategory: serviceCategory, service: service)
+		
+		self.navigationController?.popViewController(animated: true)
+		
+	}
 }
 
 extension ScheduleCalendarViewController:JTCalendarDelegate {

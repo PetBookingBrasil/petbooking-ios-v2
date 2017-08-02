@@ -15,7 +15,6 @@ class ServiceTableViewCell: UITableViewCell {
 	@IBOutlet weak var nameLabel: UILabel!
 	@IBOutlet weak var descriptionLabel: UILabel!
 	@IBOutlet weak var priceLabel: UILabel!
-	@IBOutlet weak var tableView: UITableView!
 	
 	weak var delegate:ServiceTableViewDelegate?
 	
@@ -26,10 +25,6 @@ class ServiceTableViewCell: UITableViewCell {
         // Initialization code
 			checkBox.boxType = .square
 			checkBox.delegate = self
-			tableView.delegate = self
-			tableView.dataSource = self
-			tableView.register(UINib(nibName: "AdditionalServiceTableViewCell", bundle: nil), forCellReuseIdentifier: "AdditionalServiceTableViewCell")
-			tableView.estimatedRowHeight = 2000
     }
 	
 	override func layoutSubviews() {
@@ -45,47 +40,21 @@ class ServiceTableViewCell: UITableViewCell {
     }
 	
 	func reloadTable() {
-		tableView.reloadData()
 	}
     
 }
 
-extension ServiceTableViewCell: UITableViewDelegate, UITableViewDataSource {
-	
-	func numberOfSections(in tableView: UITableView) -> Int {
-		
-		return 1
-		
-	}
-	
-	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return service.services.count
-	}
-	
-	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-		return 40
-	}
-	
-	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		
-		let cell = tableView.dequeueReusableCell(withIdentifier: "AdditionalServiceTableViewCell") as! AdditionalServiceTableViewCell
-		
-		let subService = service.services[indexPath.row]
-		
-		cell.nameLabel.text = subService.name
-		cell.priceLabel.text = String(format: "R$ %.2f", subService.price)
-		
-		return cell
-		
-	}
-	
-}
+
 
 extension ServiceTableViewCell : BEMCheckBoxDelegate {
 	
 	func didTap(_ checkBox: BEMCheckBox) {
 		
-		self.delegate?.didSelectedService(service: self.service)
+		if checkBox.on {
+			self.delegate?.didSelectedService(service: self.service)
+		} else {
+			self.delegate?.didUnselectedService(service: self.service)
+		}
 		
 	}
 	
@@ -95,6 +64,8 @@ protocol ServiceTableViewDelegate: class {
 	
 	
 	func didSelectedService(service:Service)
+	
+	func didUnselectedService(service:Service)
 	
 	
 }

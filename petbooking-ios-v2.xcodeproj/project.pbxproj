@@ -81,6 +81,7 @@
 		414862A21F2FF71800F210D8 /* TImeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 414862A01F2FF71800F210D8 /* TImeCollectionViewCell.xib */; };
 		414862A51F3014D000F210D8 /* ProfessionalCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414862A31F3014D000F210D8 /* ProfessionalCollectionViewCell.swift */; };
 		414862A61F3014D000F210D8 /* ProfessionalCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 414862A41F3014D000F210D8 /* ProfessionalCollectionViewCell.xib */; };
+		414862AA1F30E4DA00F210D8 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414862A91F30E4DA00F210D8 /* Schedule.swift */; };
 		4149E96D1EF8404C00D6C44B /* SegmentioBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4149E96C1EF8404C00D6C44B /* SegmentioBuilder.swift */; };
 		4149E96F1EF8416400D6C44B /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4149E96E1EF8416400D6C44B /* UIFontExtension.swift */; };
 		4149E9771EF9628100D6C44B /* BusinessListViewControllerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4149E9711EF9628100D6C44B /* BusinessListViewControllerInteractor.swift */; };
@@ -120,6 +121,7 @@
 		418DAA321ECE93FB006265CF /* SideMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418DAA301ECE93FB006265CF /* SideMenuTableViewCell.swift */; };
 		418DAA331ECE93FB006265CF /* SideMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 418DAA311ECE93FB006265CF /* SideMenuTableViewCell.xib */; };
 		418DAA461ED12FAF006265CF /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418DAA451ED12FAF006265CF /* Pet.swift */; };
+		419C89041F313FA800BDBE8E /* ScheduleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419C89031F313FA800BDBE8E /* ScheduleManager.swift */; };
 		41A0BAE71ED7A8FA00671F3C /* AddPetViewControllerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A0BAE11ED7A8FA00671F3C /* AddPetViewControllerInteractor.swift */; };
 		41A0BAE81ED7A8FA00671F3C /* AddPetViewControllerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A0BAE21ED7A8FA00671F3C /* AddPetViewControllerPresenter.swift */; };
 		41A0BAE91ED7A8FA00671F3C /* AddPetViewControllerProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A0BAE31ED7A8FA00671F3C /* AddPetViewControllerProtocols.swift */; };
@@ -280,6 +282,7 @@
 		414862A01F2FF71800F210D8 /* TImeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TImeCollectionViewCell.xib; sourceTree = "<group>"; };
 		414862A31F3014D000F210D8 /* ProfessionalCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfessionalCollectionViewCell.swift; sourceTree = "<group>"; };
 		414862A41F3014D000F210D8 /* ProfessionalCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfessionalCollectionViewCell.xib; sourceTree = "<group>"; };
+		414862A91F30E4DA00F210D8 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		4149E96C1EF8404C00D6C44B /* SegmentioBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentioBuilder.swift; sourceTree = "<group>"; };
 		4149E96E1EF8416400D6C44B /* UIFontExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		4149E9711EF9628100D6C44B /* BusinessListViewControllerInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessListViewControllerInteractor.swift; sourceTree = "<group>"; };
@@ -319,6 +322,7 @@
 		418DAA301ECE93FB006265CF /* SideMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewCell.swift; sourceTree = "<group>"; };
 		418DAA311ECE93FB006265CF /* SideMenuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SideMenuTableViewCell.xib; sourceTree = "<group>"; };
 		418DAA451ED12FAF006265CF /* Pet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
+		419C89031F313FA800BDBE8E /* ScheduleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleManager.swift; sourceTree = "<group>"; };
 		41A0BAE11ED7A8FA00671F3C /* AddPetViewControllerInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPetViewControllerInteractor.swift; sourceTree = "<group>"; };
 		41A0BAE21ED7A8FA00671F3C /* AddPetViewControllerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPetViewControllerPresenter.swift; sourceTree = "<group>"; };
 		41A0BAE31ED7A8FA00671F3C /* AddPetViewControllerProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPetViewControllerProtocols.swift; sourceTree = "<group>"; };
@@ -638,6 +642,7 @@
 			isa = PBXGroup;
 			children = (
 				4168AA4E1EB6A4DD001E2D6D /* Consumer.swift */,
+				414862A91F30E4DA00F210D8 /* Schedule.swift */,
 				4168AA531EB6BB56001E2D6D /* User.swift */,
 				4168AA551EB79399001E2D6D /* Session.swift */,
 				4168AA5B1EB80A24001E2D6D /* ErrorRest.swift */,
@@ -658,6 +663,7 @@
 		4168AA501EB6A819001E2D6D /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				419C89031F313FA800BDBE8E /* ScheduleManager.swift */,
 				4168AA511EB6A828001E2D6D /* UserManager.swift */,
 				4168AA571EB794D5001E2D6D /* SessionManager.swift */,
 			);
@@ -1113,6 +1119,7 @@
 				4120ED2E1EB500A6009D35B0 /* UINavigationControllerExtension.swift in Sources */,
 				41D86F741F263EB00038ADA8 /* HomeBusinessSegmentioBuilder.swift in Sources */,
 				41BDC2A31EE79FE100F28434 /* PetSizePopupViewController.swift in Sources */,
+				414862AA1F30E4DA00F210D8 /* Schedule.swift in Sources */,
 				41D86F801F266D7A0038ADA8 /* BusinessServicesViewController.swift in Sources */,
 				418DAA2D1ECE7EAE006265CF /* SideMenuRouter.swift in Sources */,
 				41AAB4F41EF1F9AF00E52857 /* HomeContentViewControllerProtocols.swift in Sources */,
@@ -1151,6 +1158,7 @@
 				418DAA2E1ECE7EAE006265CF /* SideMenuViewController.swift in Sources */,
 				4149E9781EF9628100D6C44B /* BusinessListViewControllerPresenter.swift in Sources */,
 				413715881EBE7D0300258C6F /* SelectPhotoSourcePopupPresenter.swift in Sources */,
+				419C89041F313FA800BDBE8E /* ScheduleManager.swift in Sources */,
 				4149E99A1EFF196A00D6C44B /* Business.swift in Sources */,
 				41A0BAEB1ED7A8FA00671F3C /* AddPetViewControllerViewController.swift in Sources */,
 				4129D9E41ED86E9B0067EDC3 /* MyPetsPresenter.swift in Sources */,

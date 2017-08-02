@@ -20,7 +20,7 @@ class HomeBusinessViewController: UIViewController, HomeBusinessViewProtocol {
 	@IBOutlet weak var containerView: UIView!
 	@IBOutlet weak var scrollView: UIScrollView!
 	
-	var business:Business?
+	var business:Business = Business()
 	
 	fileprivate lazy var viewControllers: [UIViewController] = {
 		return self.preparedViewControllers()
@@ -48,7 +48,7 @@ class HomeBusinessViewController: UIViewController, HomeBusinessViewProtocol {
 			}
 		}
 		
-		title = business?.name
+		title = business.name
     }
 	
 	// MARK: - Setup container view

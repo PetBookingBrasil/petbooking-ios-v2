@@ -14,10 +14,11 @@ class ScheduleCalendarRouter: ScheduleCalendarWireframeProtocol {
     
     weak var viewController: UIViewController?
     
-	static func createModule(business:Business, service:Service, pet:Pet) -> UIViewController {
+	static func createModule(business:Business, service:Service, serviceCategory:ServiceCategory, pet:Pet) -> UIViewController {
         // Change to get view from storyboard if not using progammatic UI
         let view = ScheduleCalendarViewController(nibName: nil, bundle: nil)
 				view.business = business
+				view.serviceCategory = serviceCategory
 				view.service = service
 				view.pet = pet
         let interactor = ScheduleCalendarInteractor()

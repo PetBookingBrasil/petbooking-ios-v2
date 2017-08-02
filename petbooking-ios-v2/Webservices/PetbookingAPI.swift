@@ -591,7 +591,7 @@ extension PetbookingAPI {
 				
 				switch response.result{
 				case .success(let jsonObject):
-					print(jsonObject)
+
 					if let dic = jsonObject as? [String: Any] {
 						
 						do {
@@ -896,7 +896,7 @@ extension PetbookingAPI {
 				switch response.result{
 				case .success(let jsonObject):
 					if let dic = jsonObject as? [String: Any] {
-						print(dic)
+						
 						do {
 							let serviceList = try MTLJSONAdapter.model(of: ServiceCategoryList.self, fromJSONDictionary: dic) as! ServiceCategoryList
 							
@@ -954,7 +954,7 @@ extension PetbookingAPI {
 				switch response.result{
 				case .success(let jsonObject):
 					if let dic = jsonObject as? [String: Any] {
-						print(dic)
+						
 						do {
 							let serviceList = try MTLJSONAdapter.model(of: ServiceList.self, fromJSONDictionary: dic) as! ServiceList
 							
@@ -1010,7 +1010,7 @@ extension PetbookingAPI {
 				switch response.result{
 				case .success(let jsonObject):
 					if let dic = jsonObject as? [String: Any] {
-						print(dic)
+						
 						do {
 							let professionalList = try MTLJSONAdapter.model(of: ProfessionalList.self, fromJSONDictionary: dic) as! ProfessionalList
 							

@@ -19,12 +19,12 @@ class BusinessServicesViewController: UIViewController, BusinessServicesViewProt
 	@IBOutlet weak var petCollectionView: UICollectionView!
 	@IBOutlet weak var servicesTableView: UITableView!
 	
-	var business:Business?
+	var business:Business = Business()
 	var petList:PetList = PetList()
 	var serviceCategoryList:ServiceCategoryList = ServiceCategoryList()
 	var serviceList:ServiceList = ServiceList()
-	var selectedPet:Pet?
-	var selectedServiceCategory:ServiceCategory?
+	var selectedPet:Pet = Pet()
+	var selectedServiceCategory:ServiceCategory = ServiceCategory()
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -52,30 +52,43 @@ class BusinessServicesViewController: UIViewController, BusinessServicesViewProt
 		servicesCollectionView.collectionViewLayout = layout2
 		
 		servicesTableView.register(UINib(nibName: "ServiceTableViewCell", bundle: nil), forCellReuseIdentifier: "ServiceTableViewCell")
+		servicesTableView.estimatedRowHeight = 300
+		
+		presenter?.getPets()
+		
+		
+		ScheduleManager.sharedInstance.createNewSchedule(business: business)
 		
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		
-		presenter?.getPets()
+		servicesCollectionView.reloadData()
+		petCollectionView.reloadData()
+		servicesTableView.reloadData()
 		
-		guard let business = self.business else {
-			return
-		}
-		presenter?.getCategories(business: business)
-		
+	}
+	
+	deinit {
+		ScheduleManager.sharedInstance.cleanSchedule()
 	}
 	
 	func loadPets(petList: PetList) {
 		
 		self.petList = petList
 		
-		if selectedPet == nil {
-			selectedPet = self.petList.pets.first
-		}
-		
 		self.petCollectionView.reloadData()
+		
+		if self.selectedPet.id.isBlank {
+			
+			guard let pet = self.petList.pets.first else {
+				return
+			}
+			selectedPet = pet
+			presenter?.getCategories(business: business)
+			self.petCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: false, scrollPosition: .left)
+		}
 		
 	}
 	
@@ -85,13 +98,16 @@ class BusinessServicesViewController: UIViewController, BusinessServicesViewProt
 		
 		self.servicesCollectionView.reloadData()
 		
-		if selectedServiceCategory == nil {
+		if selectedServiceCategory.id.isBlank{
 			
-			guard let business = self.business, let pet = self.selectedPet, let service = self.serviceCategoryList.categories.first else {
+			guard let service = self.serviceCategoryList.categories.first else {
 				return
 			}
+			selectedServiceCategory = service
 			
-			self.presenter?.getServices(business: business, service: service, pet: pet)
+			presenter?.getServices(business: business, service: selectedServiceCategory, pet: selectedPet)
+			
+			self.servicesCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: false, scrollPosition: .left)
 		}
 	}
 	
@@ -162,16 +178,15 @@ extension BusinessServicesViewController: UICollectionViewDataSource, UICollecti
 		switch collectionView {
 		case petCollectionView:
 			selectedPet = petList.pets[indexPath.item]
+			servicesTableView.reloadData()
+			
 			break
 		case servicesCollectionView:
 			
 			let service = serviceCategoryList.categories[indexPath.item]
-			
-			guard let business = self.business, let pet = self.selectedPet else {
-				return
-			}
-			
-			self.presenter?.getServices(business: business, service: service, pet: pet)
+			selectedServiceCategory = service
+						
+			self.presenter?.getServices(business: business, service: service, pet: selectedPet)
 			
 			break
 		default:
@@ -185,6 +200,8 @@ extension BusinessServicesViewController: UICollectionViewDataSource, UICollecti
 		let cell = petCollectionView.dequeueReusableCell(withReuseIdentifier: "PetCollectionViewCell", for: indexPath) as! PetCollectionViewCell
 		
 		let pet = petList.pets[indexPath.item]
+		
+		cell.isSelected = pet == selectedPet
 		
 		cell.nameLabel.text = pet.name
 		
@@ -201,6 +218,8 @@ extension BusinessServicesViewController: UICollectionViewDataSource, UICollecti
 		let cell = servicesCollectionView.dequeueReusableCell(withReuseIdentifier: "ServiceCollectionViewCell", for: indexPath) as! ServiceCollectionViewCell
 		
 		let service = serviceCategoryList.categories[indexPath.item]
+		
+		cell.isSelected = service == selectedServiceCategory
 		
 		cell.nameLabel.text = service.name
 		cell.pictureImageView.image = UIImage(named: service.slug)
@@ -225,10 +244,7 @@ extension BusinessServicesViewController: UITableViewDelegate, UITableViewDataSo
 	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		
-		let service = serviceList.services[indexPath.section]
-		let count = service.services.count
-		
-		return CGFloat(120 + count * 40)
+		return 78
 		
 	}
 	
@@ -246,11 +262,17 @@ extension BusinessServicesViewController: UITableViewDelegate, UITableViewDataSo
 		cell.delegate = self
 		let service = serviceList.services[indexPath.section]
 		cell.service = service
-		cell.reloadTable()
 		
 		cell.nameLabel?.text = service.name
 		cell.priceLabel.text = String(format: "R$ %.2f", service.price)
 		cell.priceLabel.sizeToFit()
+		
+		if ScheduleManager.sharedInstance.hasServiceFromSchedule(business: business, pet: selectedPet, serviceCategory: selectedServiceCategory, service: service) {
+			cell.checkBox.setOn(true, animated: false)
+		} else {
+			cell.checkBox.setOn(false, animated: false)
+		}
+		
 		
 		return cell
 		
@@ -259,7 +281,7 @@ extension BusinessServicesViewController: UITableViewDelegate, UITableViewDataSo
 	func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
 		let view = UIView()
 		
-		view.backgroundColor = .clear
+		view.backgroundColor = UIColor.lightGray
 		
 		return view
 	}
@@ -271,9 +293,16 @@ extension BusinessServicesViewController : ServiceTableViewDelegate {
 	
 	func didSelectedService(service: Service) {
 		
-		let	calendar = ScheduleCalendarRouter.createModule(business: self.business!, service: service, pet: selectedPet!)
+		
+		let	calendar = ScheduleCalendarRouter.createModule(business: self.business, service: service, serviceCategory: selectedServiceCategory, pet: selectedPet)
 		
 		self.navigationController?.pushViewController(calendar, animated: true)
+	}
+	
+	func didUnselectedService(service:Service) {
+		
+		ScheduleManager.sharedInstance.removeServiceFromSchedule(business: business, pet: selectedPet, serviceCategory: selectedServiceCategory, service: service)
+		
 	}
 	
 }

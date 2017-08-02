@@ -25,7 +25,7 @@
                 <outlet property="calendarHeightConstraint" destination="3ex-7Q-EJ2" id="WCj-XN-NCt"/>
                 <outlet property="calendarMenuView" destination="lKn-9M-cgY" id="tfP-RP-s70"/>
                 <outlet property="checkBox" destination="vYf-YY-F2k" id="X37-wN-kGi"/>
-                <outlet property="continueScheduleButton" destination="IYH-Bf-aqI" id="EkU-tV-3nn"/>
+                <outlet property="continueScheduleButton" destination="IYH-Bf-aqI" id="dzC-Va-BvV"/>
                 <outlet property="descriptionLabel" destination="aQI-ld-gck" id="Ax8-bN-pJi"/>
                 <outlet property="nameLabel" destination="rZw-Lh-2Gw" id="tUQ-Zu-xzw"/>
                 <outlet property="petCheckBox" destination="Ksb-3l-m0u" id="Y6p-3I-WRU"/>
@@ -99,6 +99,9 @@
                             <state key="normal" title="Continuar Agendamento">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="didTapContinueSchedule:" destination="-1" eventType="touchUpInside" id="CGK-Ju-rwr"/>
+                            </connections>
                         </button>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Qcs-B6-tLu">
                             <rect key="frame" x="0.0" y="230" width="414" height="62"/>
