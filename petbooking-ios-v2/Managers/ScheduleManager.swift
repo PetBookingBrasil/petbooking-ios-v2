@@ -217,6 +217,12 @@ class ScheduleManager: NSObject {
 			scheduleService.serviceId = ScheduleService.generateId(business: business, pet: pet, serviceCategory: serviceCategory, service: service)
 			scheduleService.name = service.name
 			scheduleService.price = service.price
+			scheduleService.professionalId = service.professionalId
+			scheduleService.professionalName = service.professionalName
+			scheduleService.professionalPicture = service.professionalPicture
+			scheduleService.startDate = service.startDate
+			scheduleService.startTime = service.startTime
+			
 			addServiceToSchedule(scheduleService: scheduleService, scheduleCategory: scheduleCategory)
 			return
 		}

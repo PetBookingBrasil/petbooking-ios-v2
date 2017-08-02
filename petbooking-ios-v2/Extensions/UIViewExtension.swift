@@ -11,6 +11,13 @@ import UIKit
 
 extension UIView {
 	
+	class func loadFromNibNamed(_ nibNamed: String, bundle : Bundle? = nil) -> UIView? {
+		return UINib(
+			nibName: nibNamed,
+			bundle: bundle
+			).instantiate(withOwner: nil, options: nil)[0] as? UIView
+	}
+	
 	func round() {
 		layer.cornerRadius = self.frame.height / 2
 		layer.masksToBounds = true

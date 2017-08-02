@@ -122,6 +122,10 @@
 		418DAA331ECE93FB006265CF /* SideMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 418DAA311ECE93FB006265CF /* SideMenuTableViewCell.xib */; };
 		418DAA461ED12FAF006265CF /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418DAA451ED12FAF006265CF /* Pet.swift */; };
 		419C89041F313FA800BDBE8E /* ScheduleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419C89031F313FA800BDBE8E /* ScheduleManager.swift */; };
+		419C89061F3162EC00BDBE8E /* ServiceTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419C89051F3162EC00BDBE8E /* ServiceTableHeaderView.swift */; };
+		419C89081F3162FD00BDBE8E /* ServiceTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 419C89071F3162FD00BDBE8E /* ServiceTableHeaderView.xib */; };
+		419C890A1F3168BB00BDBE8E /* ServiceTableFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419C89091F3168BB00BDBE8E /* ServiceTableFooterView.swift */; };
+		419C890C1F3168CF00BDBE8E /* ServiceTableFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 419C890B1F3168CF00BDBE8E /* ServiceTableFooterView.xib */; };
 		41A0BAE71ED7A8FA00671F3C /* AddPetViewControllerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A0BAE11ED7A8FA00671F3C /* AddPetViewControllerInteractor.swift */; };
 		41A0BAE81ED7A8FA00671F3C /* AddPetViewControllerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A0BAE21ED7A8FA00671F3C /* AddPetViewControllerPresenter.swift */; };
 		41A0BAE91ED7A8FA00671F3C /* AddPetViewControllerProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A0BAE31ED7A8FA00671F3C /* AddPetViewControllerProtocols.swift */; };
@@ -323,6 +327,10 @@
 		418DAA311ECE93FB006265CF /* SideMenuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SideMenuTableViewCell.xib; sourceTree = "<group>"; };
 		418DAA451ED12FAF006265CF /* Pet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
 		419C89031F313FA800BDBE8E /* ScheduleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleManager.swift; sourceTree = "<group>"; };
+		419C89051F3162EC00BDBE8E /* ServiceTableHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceTableHeaderView.swift; sourceTree = "<group>"; };
+		419C89071F3162FD00BDBE8E /* ServiceTableHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceTableHeaderView.xib; sourceTree = "<group>"; };
+		419C89091F3168BB00BDBE8E /* ServiceTableFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceTableFooterView.swift; sourceTree = "<group>"; };
+		419C890B1F3168CF00BDBE8E /* ServiceTableFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceTableFooterView.xib; sourceTree = "<group>"; };
 		41A0BAE11ED7A8FA00671F3C /* AddPetViewControllerInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPetViewControllerInteractor.swift; sourceTree = "<group>"; };
 		41A0BAE21ED7A8FA00671F3C /* AddPetViewControllerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPetViewControllerPresenter.swift; sourceTree = "<group>"; };
 		41A0BAE31ED7A8FA00671F3C /* AddPetViewControllerProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPetViewControllerProtocols.swift; sourceTree = "<group>"; };
@@ -797,6 +805,10 @@
 				41D86F931F298C360038ADA8 /* AdditionalServiceTableViewCell.xib */,
 				41D86F961F2ACC490038ADA8 /* SubServiceTableViewCell.swift */,
 				41D86F971F2ACC490038ADA8 /* SubServiceTableViewCell.xib */,
+				419C89051F3162EC00BDBE8E /* ServiceTableHeaderView.swift */,
+				419C89071F3162FD00BDBE8E /* ServiceTableHeaderView.xib */,
+				419C89091F3168BB00BDBE8E /* ServiceTableFooterView.swift */,
+				419C890B1F3168CF00BDBE8E /* ServiceTableFooterView.xib */,
 			);
 			path = BusinessServices;
 			sourceTree = "<group>";
@@ -940,6 +952,7 @@
 				41E7E2EE1EC27833002C0A55 /* OpenSans-Italic.ttf in Resources */,
 				4120ED101EB128A5009D35B0 /* Localizable.strings in Resources */,
 				4127768F1F13084800EC6488 /* BusinessMapListViewController.xib in Resources */,
+				419C89081F3162FD00BDBE8E /* ServiceTableHeaderView.xib in Resources */,
 				4149E9981EFF0D0100D6C44B /* BusinessTableViewCell.xib in Resources */,
 				4149E97C1EF9628100D6C44B /* BusinessListViewControllerViewController.xib in Resources */,
 				41D86F811F266D7A0038ADA8 /* BusinessServicesViewController.xib in Resources */,
@@ -971,6 +984,7 @@
 				41E7E2F11EC27833002C0A55 /* OpenSans-Regular.ttf in Resources */,
 				41BDC2A41EE79FE100F28434 /* PetSizePopupViewController.xib in Resources */,
 				41E7E2EC1EC27833002C0A55 /* OpenSans-ExtraBold.ttf in Resources */,
+				419C890C1F3168CF00BDBE8E /* ServiceTableFooterView.xib in Resources */,
 				41D86F911F29802C0038ADA8 /* ServiceTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1106,6 +1120,7 @@
 				41D86F7E1F266D7A0038ADA8 /* BusinessServicesProtocols.swift in Sources */,
 				41E7E2DD1EC106FC002C0A55 /* UITextFieldExtension.swift in Sources */,
 				41D86F7C1F266D7A0038ADA8 /* BusinessServicesInteractor.swift in Sources */,
+				419C890A1F3168BB00BDBE8E /* ServiceTableFooterView.swift in Sources */,
 				41D86FA51F2D525E0038ADA8 /* ScheduleCalendarViewController.swift in Sources */,
 				41AAB4F51EF1F9AF00E52857 /* HomeContentViewControllerRouter.swift in Sources */,
 				41D86F7F1F266D7A0038ADA8 /* BusinessServicesRouter.swift in Sources */,
@@ -1121,6 +1136,7 @@
 				41BDC2A31EE79FE100F28434 /* PetSizePopupViewController.swift in Sources */,
 				414862AA1F30E4DA00F210D8 /* Schedule.swift in Sources */,
 				41D86F801F266D7A0038ADA8 /* BusinessServicesViewController.swift in Sources */,
+				419C89061F3162EC00BDBE8E /* ServiceTableHeaderView.swift in Sources */,
 				418DAA2D1ECE7EAE006265CF /* SideMenuRouter.swift in Sources */,
 				41AAB4F41EF1F9AF00E52857 /* HomeContentViewControllerProtocols.swift in Sources */,
 				4148629A1F2E9F1900F210D8 /* JTCalendarWeekView.m in Sources */,

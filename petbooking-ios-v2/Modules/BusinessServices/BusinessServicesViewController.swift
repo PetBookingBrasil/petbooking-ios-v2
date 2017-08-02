@@ -42,7 +42,7 @@ class BusinessServicesViewController: UIViewController, BusinessServicesViewProt
 		
 		servicesCollectionView.register(UINib(nibName: "ServiceCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ServiceCollectionViewCell")
 		
-		let cellSize2 = CGSize(width:100 , height:120)
+		let cellSize2 = CGSize(width:60 , height:120)
 		let layout2 = UICollectionViewFlowLayout()
 		layout2.itemSize = cellSize2
 		layout2.scrollDirection = .horizontal
@@ -255,7 +255,25 @@ extension BusinessServicesViewController: UITableViewDelegate, UITableViewDataSo
 	}
 	
 	func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-		return 10
+		
+		let service = serviceList.services[section]
+		
+		if ScheduleManager.sharedInstance.hasServiceFromSchedule(business: business, pet: selectedPet, serviceCategory: selectedServiceCategory, service: service) {
+			return 60
+		} else {
+			return 10
+		}
+	}
+	
+	func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+		
+		let service = serviceList.services[section]
+		
+		if ScheduleManager.sharedInstance.hasServiceFromSchedule(business: business, pet: selectedPet, serviceCategory: selectedServiceCategory, service: service) {
+			return 30
+		} else {
+			return 0
+		}
 	}
 	
 	func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -284,12 +302,45 @@ extension BusinessServicesViewController: UITableViewDelegate, UITableViewDataSo
 		
 	}
 	
+	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+		
+		let service = serviceList.services[section]
+		guard let scheduleService = ScheduleManager.sharedInstance.getServiceFromSchedule(business: business, pet: selectedPet, serviceCategory: selectedServiceCategory, service: service) else {
+			return nil
+		}
+		
+		let headerView = ServiceTableHeaderView.loadFromNibNamed("ServiceTableHeaderView") as? ServiceTableHeaderView
+		headerView?.frame = CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 18)
+		
+		headerView?.timeLabel.text = "\(scheduleService.startDate), \(scheduleService.startTime)"
+		
+		return headerView
+	}
+	
 	func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-		let view = UIView()
 		
-		view.backgroundColor = UIColor.lightGray
+		let service = serviceList.services[section]
+		guard let scheduleService = ScheduleManager.sharedInstance.getServiceFromSchedule(business: business, pet: selectedPet, serviceCategory: selectedServiceCategory, service: service) else {
+			let view = UIView()
+			
+			view.backgroundColor = UIColor.lightGray
+			
+			return view
+		}
 		
-		return view
+		let footerView = ServiceTableFooterView.loadFromNibNamed("ServiceTableFooterView") as? ServiceTableFooterView
+		footerView?.frame = CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 60)
+		
+		footerView?.nameLabel.text = scheduleService.professionalName
+		var totalValue = scheduleService.price
+		
+		for subService in scheduleService.services {
+			totalValue += subService.price
+		}
+		footerView?.totalValueLabel.text = String(format: "R$ %.2f", totalValue)
+		
+		
+		return footerView
 	}
 	
 }

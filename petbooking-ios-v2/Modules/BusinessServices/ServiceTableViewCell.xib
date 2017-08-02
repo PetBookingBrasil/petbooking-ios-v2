@@ -25,13 +25,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P1L-pF-SeK">
-                        <rect key="frame" x="83" y="29" width="130" height="20.5"/>
+                        <rect key="frame" x="83" y="22" width="130" height="20.5"/>
                         <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="15"/>
                         <color key="textColor" red="0.31764705882352939" green="0.31764705882352939" blue="0.31764705882352939" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eg5-Z9-Ppf" customClass="BEMCheckBox">
-                        <rect key="frame" x="35" y="25" width="28" height="28"/>
+                        <rect key="frame" x="35" y="18" width="28" height="28"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -61,7 +61,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R$ 1000,00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bNF-d5-gZ2">
-                        <rect key="frame" x="221" y="29.5" width="80" height="19.5"/>
+                        <rect key="frame" x="221" y="22.5" width="80" height="19.5"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="80" id="KG2-BU-pIY"/>
                         </constraints>
@@ -73,7 +73,7 @@
                 <constraints>
                     <constraint firstItem="P1L-pF-SeK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="75" id="5bt-iT-fnF"/>
                     <constraint firstItem="P1L-pF-SeK" firstAttribute="centerY" secondItem="eg5-Z9-Ppf" secondAttribute="centerY" id="Qtf-aC-KUL"/>
-                    <constraint firstItem="eg5-Z9-Ppf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="17" id="X73-ag-v52"/>
+                    <constraint firstItem="eg5-Z9-Ppf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="X73-ag-v52"/>
                     <constraint firstAttribute="trailingMargin" secondItem="bNF-d5-gZ2" secondAttribute="trailing" constant="11" id="byC-DP-nZm"/>
                     <constraint firstItem="eg5-Z9-Ppf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="27" id="r6S-TD-bSn"/>
                     <constraint firstItem="bNF-d5-gZ2" firstAttribute="leading" secondItem="P1L-pF-SeK" secondAttribute="trailing" constant="8" id="rVi-6x-jXJ"/>
