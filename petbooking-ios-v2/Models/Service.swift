@@ -16,6 +16,11 @@ class Service: MTLModel, MTLJSONSerializing {
 	dynamic var name = ""
 	dynamic var duration = 0
 	dynamic var price = 0.0
+	dynamic var startDate = ""
+	dynamic var startTime = ""
+	dynamic var professionalId = ""
+	dynamic var professionalName = ""
+	dynamic var professionalPicture = ""
 	dynamic var services = [SubService]()
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {

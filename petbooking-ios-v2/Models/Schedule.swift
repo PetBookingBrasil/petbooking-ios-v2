@@ -60,6 +60,11 @@ class ScheduleService: Object {
 	dynamic var serviceId = ""
 	dynamic var name = ""
 	dynamic var price = 0.0
+	dynamic var startDate = ""
+	dynamic var startTime = ""
+	dynamic var professionalId = ""
+	dynamic var professionalName = ""
+	dynamic var professionalPicture = ""
 	let services = List<ScheduleSubService>()
 	
 	override static func primaryKey() -> String? {

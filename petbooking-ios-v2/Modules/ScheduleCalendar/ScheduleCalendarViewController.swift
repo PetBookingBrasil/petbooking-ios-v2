@@ -44,6 +44,7 @@ class ScheduleCalendarViewController: UIViewController, ScheduleCalendarViewProt
 	
 	var professionalList:ProfessionalList! = ProfessionalList()
 	var availableDates = [String]()
+	var selectedProfessional:Professional?
 
 	var presenter: ScheduleCalendarPresenterProtocol?
 
@@ -106,7 +107,6 @@ class ScheduleCalendarViewController: UIViewController, ScheduleCalendarViewProt
 			self.professionalCollectionView.reloadData()
 			
 		}
-		
 
     }
 
@@ -118,6 +118,20 @@ class ScheduleCalendarViewController: UIViewController, ScheduleCalendarViewProt
 		self.navigationController?.popViewController(animated: true)
 		
 	}
+	
+	func validateFields() {
+		
+		if !service.professionalId.isBlank && !service.startDate.isBlank && !service.startTime.isBlank{
+			continueScheduleButton.backgroundColor = UIColor(hex: "E4002B")
+			continueScheduleButton.isEnabled = true
+		} else {
+			continueScheduleButton.backgroundColor = UIColor(hex: "D8D8D8")
+			continueScheduleButton.isEnabled = false
+		}
+		
+	}
+	
+	
 }
 
 extension ScheduleCalendarViewController:JTCalendarDelegate {
@@ -146,6 +160,10 @@ extension ScheduleCalendarViewController:JTCalendarDelegate {
 		
 		dateSelected = dayView.date
 		
+		if let professional = selectedProfessional {
+			reloadTimeColletion(professional: professional)
+		}
+
 		dayView.circleView.transform = dayView.transform.scaledBy(x: 0.1, y: 0.1)
 		
 		UIView.transition(with: dayView, duration: 0.3, options: UIViewAnimationOptions(rawValue: 0), animations: {
@@ -259,25 +277,27 @@ extension ScheduleCalendarViewController: UICollectionViewDataSource, UICollecti
 		
 		switch collectionView {
 		case timeCollectionView:
+			
+			let time = availableDates[indexPath.item]
+			service.startTime = time
+			
 			break
 		case professionalCollectionView:
 
 			let professional = professionalList.professionals[indexPath.item]
+			selectedProfessional = professional
 			
-			let dateKey = dateFormatter.string(from: dateSelected)
+			service.professionalId = professional.id
+			service.professionalName = professional.name
+			service.professionalPicture = professional.photoThumbUrl
 			
-			guard let times = professional.schedule[dateKey] else {
-				availableDates = []
-				timeCollectionView.reloadData()
-				return
-			}
-			availableDates = times
-			timeCollectionView.reloadData()
+			reloadTimeColletion(professional: professional)
+			
 			break
 		default:
 			break
 		}
-		
+		validateFields()
 	}
 	
 	func getPetCell(indexPath: IndexPath) -> ProfessionalCollectionViewCell {
@@ -305,6 +325,22 @@ extension ScheduleCalendarViewController: UICollectionViewDataSource, UICollecti
 		cell.timeLabel.text = date
 		
 		return cell
+		
+	}
+	
+	func reloadTimeColletion(professional:Professional) {
+		
+		let dateKey = dateFormatter.string(from: dateSelected)
+		
+		service.startDate = dateKey
+		
+		guard let times = professional.schedule[dateKey] else {
+			availableDates = []
+			timeCollectionView.reloadData()
+			return
+		}
+		availableDates = times
+		timeCollectionView.reloadData()
 		
 	}
 	

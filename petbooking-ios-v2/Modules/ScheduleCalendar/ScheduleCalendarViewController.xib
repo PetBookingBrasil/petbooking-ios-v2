@@ -47,13 +47,13 @@
                     <rect key="frame" x="0.0" y="378" width="414" height="358"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ESCOLHA O PROFISSIONAL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oNH-QU-9Je">
-                            <rect key="frame" x="16" y="8" width="128.66666666666666" height="14"/>
+                            <rect key="frame" x="16" y="8" width="128.33333333333334" height="13.666666666666686"/>
                             <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="10"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Alh-rU-34P">
-                            <rect key="frame" x="0.0" y="30" width="414" height="50"/>
+                            <rect key="frame" x="0.0" y="29.666666666666686" width="414" height="50"/>
                             <color key="backgroundColor" red="0.72941176470000002" green="0.72941176470000002" blue="0.72941176470000002" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="gXL-B7-ELP"/>
@@ -70,26 +70,26 @@
                             </connections>
                         </collectionView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LWM-Rk-fww" customClass="JTHorizontalCalendarView">
-                            <rect key="frame" x="0.0" y="130" width="414" height="100"/>
+                            <rect key="frame" x="0.0" y="129.66666666666669" width="414" height="99.999999999999943"/>
                             <color key="backgroundColor" red="0.45490196078431372" green="0.45490196078431372" blue="0.45490196078431372" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="100" id="3ex-7Q-EJ2"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lKn-9M-cgY" customClass="JTCalendarMenuView">
-                            <rect key="frame" x="0.0" y="80" width="414" height="50"/>
+                            <rect key="frame" x="0.0" y="79.666666666666686" width="414" height="50"/>
                             <color key="backgroundColor" red="0.45490196078431372" green="0.45490196078431372" blue="0.45490196078431372" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="ODF-3r-4qy"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O2h-tJ-WNb">
-                            <rect key="frame" x="0.0" y="292" width="414" height="66"/>
+                            <rect key="frame" x="0.0" y="291.66666666666663" width="414" height="66.333333333333371"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IYH-Bf-aqI">
+                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IYH-Bf-aqI">
                             <rect key="frame" x="60" y="292" width="294" height="50"/>
-                            <color key="backgroundColor" red="0.89411764705882346" green="0.0" blue="0.16862745098039217" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="IYH-Bf-aqI" secondAttribute="height" multiplier="288:49" id="RfV-Zy-0eV"/>
                                 <constraint firstAttribute="height" constant="50" id="X3c-zd-IRa"/>
@@ -104,7 +104,7 @@
                             </connections>
                         </button>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Qcs-B6-tLu">
-                            <rect key="frame" x="0.0" y="230" width="414" height="62"/>
+                            <rect key="frame" x="0.0" y="229.66666666666663" width="414" height="62"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="62" id="Juk-LD-b61"/>
@@ -189,7 +189,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cAn-FN-PSR">
-                                                    <rect key="frame" x="72" y="20" width="39.666666666666671" height="20.666666666666664"/>
+                                                    <rect key="frame" x="72" y="20.333333333333329" width="39.333333333333329" height="20.666666666666671"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="15"/>
                                                     <color key="textColor" red="0.31764705879999999" green="0.31764705879999999" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -205,13 +205,13 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SERVIÇOS ADICIONAIS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oqX-7G-DSY">
-                                            <rect key="frame" x="72" y="124.99999999999999" width="95.666666666666657" height="12.666666666666643"/>
+                                            <rect key="frame" x="72" y="125.33333333333334" width="95.666666666666657" height="12.333333333333343"/>
                                             <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="9"/>
                                             <color key="textColor" red="0.52156862749999999" green="0.52156862749999999" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rZw-Lh-2Gw">
-                                            <rect key="frame" x="72" y="80" width="238" height="20.666666666666671"/>
+                                            <rect key="frame" x="72" y="80.333333333333314" width="238" height="20.666666666666671"/>
                                             <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="15"/>
                                             <color key="textColor" red="0.31764705879999999" green="0.31764705879999999" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -247,7 +247,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R$ 1000,00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yiS-yh-No9">
-                                            <rect key="frame" x="318" y="80" width="80" height="19.666666666666671"/>
+                                            <rect key="frame" x="318" y="80.333333333333329" width="80" height="19.333333333333343"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="80" id="atK-rG-Anx"/>
                                             </constraints>
@@ -256,7 +256,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aQI-ld-gck">
-                                            <rect key="frame" x="72" y="100" width="31.666666666666671" height="16.666666666666671"/>
+                                            <rect key="frame" x="72" y="100.33333333333331" width="31.333333333333329" height="16.666666666666671"/>
                                             <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="12"/>
                                             <color key="textColor" red="0.52156862749999999" green="0.52156862749999999" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>

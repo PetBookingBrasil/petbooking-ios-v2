@@ -202,6 +202,9 @@ extension BusinessServicesViewController: UICollectionViewDataSource, UICollecti
 		let pet = petList.pets[indexPath.item]
 		
 		cell.isSelected = pet == selectedPet
+		if pet == selectedPet {
+			petCollectionView.selectItem(at: indexPath, animated: false, scrollPosition: .left)
+		}
 		
 		cell.nameLabel.text = pet.name
 		
@@ -220,6 +223,9 @@ extension BusinessServicesViewController: UICollectionViewDataSource, UICollecti
 		let service = serviceCategoryList.categories[indexPath.item]
 		
 		cell.isSelected = service == selectedServiceCategory
+		if service == selectedServiceCategory {
+			servicesCollectionView.selectItem(at: indexPath, animated: false, scrollPosition: .left)
+		}
 		
 		cell.nameLabel.text = service.name
 		cell.pictureImageView.image = UIImage(named: service.slug)
