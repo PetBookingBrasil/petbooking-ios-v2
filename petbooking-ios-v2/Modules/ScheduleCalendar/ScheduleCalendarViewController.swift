@@ -45,6 +45,8 @@ class ScheduleCalendarViewController: UIViewController, ScheduleCalendarViewProt
 	var professionalList:ProfessionalList! = ProfessionalList()
 	var availableDates = [String]()
 	var selectedProfessional:Professional?
+	
+	var subServices = [SubService]()
 
 	var presenter: ScheduleCalendarPresenterProtocol?
 
@@ -114,6 +116,10 @@ class ScheduleCalendarViewController: UIViewController, ScheduleCalendarViewProt
 		
 		
 		ScheduleManager.sharedInstance.addServiceToSchedule(business: business, pet: pet, serviceCategory: serviceCategory, service: service)
+		
+		for subService in subServices {
+			ScheduleManager.sharedInstance.addSubServiceToSchedule(business: business, pet: pet, serviceCategory: serviceCategory, service: service, subService: subService)
+		}
 		
 		self.navigationController?.popViewController(animated: true)
 		
@@ -211,8 +217,9 @@ extension ScheduleCalendarViewController: UITableViewDelegate, UITableViewDataSo
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		
 		let cell = tableView.dequeueReusableCell(withIdentifier: "AdditionalServiceTableViewCell") as! AdditionalServiceTableViewCell
-		
+		cell.delegate = self
 		let subService = service.services[indexPath.row]
+		cell.service = subService
 		
 		cell.nameLabel.text = subService.name
 		cell.priceLabel.text = String(format: "R$ %.2f", subService.price)
@@ -341,6 +348,27 @@ extension ScheduleCalendarViewController: UICollectionViewDataSource, UICollecti
 		}
 		availableDates = times
 		timeCollectionView.reloadData()
+		
+	}
+	
+}
+
+extension ScheduleCalendarViewController:AdditionalServiceTableViewDelegate {
+	
+	func didSelectedService(subService: SubService) {
+		
+		subServices.append(subService)
+
+	}
+	
+	func didUnselectedService(subService: SubService) {
+		
+		guard let index = subServices.index(of: subService) else {
+			return
+		}
+		
+		subServices.remove(at: index)
+
 		
 	}
 	
