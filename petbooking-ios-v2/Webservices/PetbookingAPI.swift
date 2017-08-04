@@ -652,7 +652,7 @@ extension PetbookingAPI {
 			
 			let coords = "\(coordinate.latitude),\(coordinate.longitude)"
 			
-			let parameters: Parameters = ["user_id":session.userId, "coords":coords,"fields[businesses]":"id,name,slug,location,distance,street,street_number,imported,neighborhood,rating_average,rating_count,favorite_count,cover_image,pictures,transportation_fee,user_favorite,bitmask_values", "page[number]":page, "page[size]":20]
+			let parameters: Parameters = ["user_id":session.userId, "coords":coords,"fields[businesses]":"id,name,slug,location,distance,street,street_number,imported,neighborhood,rating_average,rating_count,favorite_count,cover_image,pictures,transportation_fee,user_favorite,bitmask_values,phone,city,description,state", "page[number]":page, "page[size]":20]
 			
 			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/businesses", method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString), headers: auth_headers).responseJSON { (response) in
 				

@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4113B2C81F3414CB007DC89F /* BusinessInformationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4113B2C21F3414CB007DC89F /* BusinessInformationInteractor.swift */; };
+		4113B2C91F3414CB007DC89F /* BusinessInformationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4113B2C31F3414CB007DC89F /* BusinessInformationPresenter.swift */; };
+		4113B2CA1F3414CB007DC89F /* BusinessInformationProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4113B2C41F3414CB007DC89F /* BusinessInformationProtocols.swift */; };
+		4113B2CB1F3414CB007DC89F /* BusinessInformationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4113B2C51F3414CB007DC89F /* BusinessInformationRouter.swift */; };
+		4113B2CC1F3414CB007DC89F /* BusinessInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4113B2C61F3414CB007DC89F /* BusinessInformationViewController.swift */; };
+		4113B2CD1F3414CB007DC89F /* BusinessInformationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4113B2C71F3414CB007DC89F /* BusinessInformationViewController.xib */; };
 		4120ED001EB0DE9F009D35B0 /* PresentationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ECFA1EB0DE9F009D35B0 /* PresentationInteractor.swift */; };
 		4120ED011EB0DE9F009D35B0 /* PresentationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ECFB1EB0DE9F009D35B0 /* PresentationPresenter.swift */; };
 		4120ED021EB0DE9F009D35B0 /* PresentationProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ECFC1EB0DE9F009D35B0 /* PresentationProtocols.swift */; };
@@ -203,6 +209,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4113B2C21F3414CB007DC89F /* BusinessInformationInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessInformationInteractor.swift; sourceTree = "<group>"; };
+		4113B2C31F3414CB007DC89F /* BusinessInformationPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessInformationPresenter.swift; sourceTree = "<group>"; };
+		4113B2C41F3414CB007DC89F /* BusinessInformationProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessInformationProtocols.swift; sourceTree = "<group>"; };
+		4113B2C51F3414CB007DC89F /* BusinessInformationRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessInformationRouter.swift; sourceTree = "<group>"; };
+		4113B2C61F3414CB007DC89F /* BusinessInformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessInformationViewController.swift; sourceTree = "<group>"; };
+		4113B2C71F3414CB007DC89F /* BusinessInformationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusinessInformationViewController.xib; sourceTree = "<group>"; };
 		4120ECFA1EB0DE9F009D35B0 /* PresentationInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationInteractor.swift; sourceTree = "<group>"; };
 		4120ECFB1EB0DE9F009D35B0 /* PresentationPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationPresenter.swift; sourceTree = "<group>"; };
 		4120ECFC1EB0DE9F009D35B0 /* PresentationProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationProtocols.swift; sourceTree = "<group>"; };
@@ -437,6 +449,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4113B2C11F3414B0007DC89F /* BusinessInformation */ = {
+			isa = PBXGroup;
+			children = (
+				4113B2C21F3414CB007DC89F /* BusinessInformationInteractor.swift */,
+				4113B2C31F3414CB007DC89F /* BusinessInformationPresenter.swift */,
+				4113B2C41F3414CB007DC89F /* BusinessInformationProtocols.swift */,
+				4113B2C51F3414CB007DC89F /* BusinessInformationRouter.swift */,
+				4113B2C61F3414CB007DC89F /* BusinessInformationViewController.swift */,
+				4113B2C71F3414CB007DC89F /* BusinessInformationViewController.xib */,
+			);
+			path = BusinessInformation;
+			sourceTree = "<group>";
+		};
 		4120ED061EB11188009D35B0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -712,6 +737,7 @@
 		418D099C1EB0D71200FCD5A6 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				4113B2C11F3414B0007DC89F /* BusinessInformation */,
 				419C890D1F33A16B00BDBE8E /* CartViewController */,
 				419C890E1F33A16B00BDBE8E /* CartWebViewController */,
 				41D86F9A1F2D52500038ADA8 /* ScheduleCalendar */,
@@ -1012,6 +1038,7 @@
 				4129D9EA1ED86E9B0067EDC3 /* MyPetsViewController.xib in Resources */,
 				419C891A1F33A18700BDBE8E /* CartWebViewController.xib in Resources */,
 				414BB1F81EBFF4AF000BE2CC /* AlertPopupViewController.xib in Resources */,
+				4113B2CD1F3414CB007DC89F /* BusinessInformationViewController.xib in Resources */,
 				41E7E2EE1EC27833002C0A55 /* OpenSans-Italic.ttf in Resources */,
 				4120ED101EB128A5009D35B0 /* Localizable.strings in Resources */,
 				4127768F1F13084800EC6488 /* BusinessMapListViewController.xib in Resources */,
@@ -1135,6 +1162,7 @@
 				41A0BAEA1ED7A8FA00671F3C /* AddPetViewControllerRouter.swift in Sources */,
 				414862931F2E9F1900F210D8 /* JTDateHelper.m in Sources */,
 				414862991F2E9F1900F210D8 /* JTCalendarWeekDayView.m in Sources */,
+				4113B2CC1F3414CB007DC89F /* BusinessInformationViewController.swift in Sources */,
 				4120ED291EB4F136009D35B0 /* ForgotPasswordProtocols.swift in Sources */,
 				4129D9DA1ED85C3D0067EDC3 /* UIImageViewExtension.swift in Sources */,
 				415F73D61EBAA033000D9B14 /* ViaCepAddress.swift in Sources */,
@@ -1187,6 +1215,7 @@
 				418DAA2A1ECE7EAE006265CF /* SideMenuInteractor.swift in Sources */,
 				419C892B1F33A95C00BDBE8E /* CartTableViewCell.swift in Sources */,
 				41D86FA31F2D525E0038ADA8 /* ScheduleCalendarProtocols.swift in Sources */,
+				4113B2C91F3414CB007DC89F /* BusinessInformationPresenter.swift in Sources */,
 				414862961F2E9F1900F210D8 /* JTCalendarDayView.m in Sources */,
 				41D86F7E1F266D7A0038ADA8 /* BusinessServicesProtocols.swift in Sources */,
 				419C89251F33A8BB00BDBE8E /* CartProtocols.swift in Sources */,
@@ -1220,6 +1249,7 @@
 				4149E9791EF9628100D6C44B /* BusinessListViewControllerProtocols.swift in Sources */,
 				414BB1F51EBFF4AF000BE2CC /* AlertPopupProtocols.swift in Sources */,
 				41D86F701F263AB30038ADA8 /* HomeBusinessRouter.swift in Sources */,
+				4113B2CA1F3414CB007DC89F /* BusinessInformationProtocols.swift in Sources */,
 				4148629E1F2FE92F00F210D8 /* Professional.swift in Sources */,
 				419C89271F33A8BB00BDBE8E /* CartViewController.swift in Sources */,
 				4168AA4C1EB69217001E2D6D /* PetbookingAPI.swift in Sources */,
@@ -1239,6 +1269,7 @@
 				4120ED181EB38650009D35B0 /* LoginInteractor.swift in Sources */,
 				414862A51F3014D000F210D8 /* ProfessionalCollectionViewCell.swift in Sources */,
 				41D86F871F26A4A70038ADA8 /* Service.swift in Sources */,
+				4113B2C81F3414CB007DC89F /* BusinessInformationInteractor.swift in Sources */,
 				414BB1F71EBFF4AF000BE2CC /* AlertPopupViewController.swift in Sources */,
 				4149E96F1EF8416400D6C44B /* UIFontExtension.swift in Sources */,
 				41D86F901F29802C0038ADA8 /* ServiceTableViewCell.swift in Sources */,
@@ -1252,6 +1283,7 @@
 				413715881EBE7D0300258C6F /* SelectPhotoSourcePopupPresenter.swift in Sources */,
 				419C89041F313FA800BDBE8E /* ScheduleManager.swift in Sources */,
 				4149E99A1EFF196A00D6C44B /* Business.swift in Sources */,
+				4113B2CB1F3414CB007DC89F /* BusinessInformationRouter.swift in Sources */,
 				41A0BAEB1ED7A8FA00671F3C /* AddPetViewControllerViewController.swift in Sources */,
 				4129D9E41ED86E9B0067EDC3 /* MyPetsPresenter.swift in Sources */,
 			);

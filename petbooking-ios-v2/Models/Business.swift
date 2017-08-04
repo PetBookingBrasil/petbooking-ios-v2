@@ -25,6 +25,11 @@ class Business: MTLModel, MTLJSONSerializing {
 	dynamic var ratingCount:Int  = 0
 	dynamic var location:CLLocationCoordinate2D = CLLocationCoordinate2D()
 	dynamic var favoriteId = 0
+	dynamic var phone = ""
+	dynamic var city = ""
+	dynamic var businessDescription = ""
+	dynamic var state = ""
+	dynamic var website = ""
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
 		return [
@@ -40,7 +45,12 @@ class Business: MTLModel, MTLJSONSerializing {
 			"photoUrl": "attributes.cover_image.url",
 			"photoThumbUrl": "attributes.cover_image.thumb.url",
 			"location": "attributes.location",
-			"favoriteId": "attributes.user_favorite.id"
+			"favoriteId": "attributes.user_favorite.id",
+			"phone": "attributes.phone",
+			"city": "attributes.city",
+			"businessDescription": "attributes.businessDescription",
+			"state": "attributes.state",
+			"website": "attributes.website"
 		]
 	}
 	

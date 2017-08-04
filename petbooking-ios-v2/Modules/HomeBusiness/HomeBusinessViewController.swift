@@ -74,7 +74,7 @@ class HomeBusinessViewController: UIViewController, HomeBusinessViewProtocol {
 	
 	fileprivate func preparedViewControllers() -> [UIViewController] {
 		let listViewController = BusinessServicesRouter.createModule(business: self.business)
-		let mapViewController = BusinessListViewControllerRouter.createModule(businessListType: .map)
+		let mapViewController = BusinessInformationRouter.createModule(business: self.business)
 		
 		return [
 			listViewController,

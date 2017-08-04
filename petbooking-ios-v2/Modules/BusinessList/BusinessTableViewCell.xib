@@ -39,13 +39,13 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="znr-tB-bGY">
-                        <rect key="frame" x="16" y="116" width="351" height="25"/>
+                        <rect key="frame" x="16" y="116.33333333333331" width="351" height="24.666666666666686"/>
                         <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="18"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5,0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YDs-lH-ktS">
-                        <rect key="frame" x="35" y="101" width="20" height="19.333333333333329"/>
+                        <rect key="frame" x="35" y="100.66666666666669" width="20" height="19.333333333333329"/>
                         <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="14"/>
                         <color key="textColor" red="0.94901960784313721" green="0.78823529411764703" blue="0.29803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -105,10 +105,10 @@
                         </connections>
                     </button>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starIcon" translatesAutoresizingMaskIntoConstraints="NO" id="HCO-21-dY3">
-                        <rect key="frame" x="16" y="103.33333333333333" width="14" height="13"/>
+                        <rect key="frame" x="16" y="103.66666666666667" width="14" height="13"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Nb-vq-d78">
-                        <rect key="frame" x="67" y="101.66666666666667" width="29.666666666666671" height="16.666666666666657"/>
+                        <rect key="frame" x="67" y="101" width="29.666666666666671" height="16.666666666666671"/>
                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="12"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
