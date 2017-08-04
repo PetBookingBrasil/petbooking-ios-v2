@@ -10,6 +10,7 @@
 
 import UIKit
 import BEMCheckBox
+import ALLoadingView
 
 class BusinessServicesViewController: UIViewController, BusinessServicesViewProtocol {
 	
@@ -112,13 +113,20 @@ class BusinessServicesViewController: UIViewController, BusinessServicesViewProt
 	}
 	
 	func loadServices(serviceList: ServiceList) {
-		
+
 		self.serviceList = serviceList
 		
 		servicesTableView.reloadData()
 		
 	}
 	
+	@IBAction func goToCart(_ sender: Any) {
+		
+		let cart = CartRouter.createModule(business: self.business)
+		
+		self.navigationController?.pushViewController(cart, animated: true)
+		
+	}
 	
 	
 }
@@ -312,7 +320,19 @@ extension BusinessServicesViewController: UITableViewDelegate, UITableViewDataSo
 		let headerView = ServiceTableHeaderView.loadFromNibNamed("ServiceTableHeaderView") as? ServiceTableHeaderView
 		headerView?.frame = CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 18)
 		
-		headerView?.timeLabel.text = "\(scheduleService.startDate), \(scheduleService.startTime)"
+		let dateFormatter = DateFormatter()
+		dateFormatter.dateFormat = "yyyy-MM-dd hh:mm"
+		let date = dateFormatter.date(from: "\(scheduleService.startDate) \(scheduleService.startTime)")
+		
+		let dateString = dateFormatter.convertDateFormater(dateString: "\(scheduleService.startDate) \(scheduleService.startTime)", fromFormat: "yyyy-MM-dd hh:mm", toFormat: "dd 'de' MMMM")
+		
+		let endDate = date?.addingTimeInterval(scheduleService.duration)
+		
+		dateFormatter.dateFormat = "hh:mm"
+		
+		let endDateString = dateFormatter.string(from: endDate!)
+		
+		headerView?.timeLabel.text = "\(dateString), \(scheduleService.startTime) — \(endDateString)"
 		
 		return headerView
 	}
@@ -359,6 +379,8 @@ extension BusinessServicesViewController : ServiceTableViewDelegate {
 	func didUnselectedService(service:Service) {
 		
 		ScheduleManager.sharedInstance.removeServiceFromSchedule(business: business, pet: selectedPet, serviceCategory: selectedServiceCategory, service: service)
+		
+		servicesTableView.reloadData()
 		
 	}
 	

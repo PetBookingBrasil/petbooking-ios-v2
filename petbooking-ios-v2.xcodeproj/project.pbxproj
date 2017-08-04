@@ -126,6 +126,21 @@
 		419C89081F3162FD00BDBE8E /* ServiceTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 419C89071F3162FD00BDBE8E /* ServiceTableHeaderView.xib */; };
 		419C890A1F3168BB00BDBE8E /* ServiceTableFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419C89091F3168BB00BDBE8E /* ServiceTableFooterView.swift */; };
 		419C890C1F3168CF00BDBE8E /* ServiceTableFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 419C890B1F3168CF00BDBE8E /* ServiceTableFooterView.xib */; };
+		419C89151F33A18700BDBE8E /* CartWebInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419C890F1F33A18700BDBE8E /* CartWebInteractor.swift */; };
+		419C89161F33A18700BDBE8E /* CartWebPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419C89101F33A18700BDBE8E /* CartWebPresenter.swift */; };
+		419C89171F33A18700BDBE8E /* CartWebProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419C89111F33A18700BDBE8E /* CartWebProtocols.swift */; };
+		419C89181F33A18700BDBE8E /* CartWebRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419C89121F33A18700BDBE8E /* CartWebRouter.swift */; };
+		419C89191F33A18700BDBE8E /* CartWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419C89131F33A18700BDBE8E /* CartWebViewController.swift */; };
+		419C891A1F33A18700BDBE8E /* CartWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 419C89141F33A18700BDBE8E /* CartWebViewController.xib */; };
+		419C891C1F33A23800BDBE8E /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419C891B1F33A23800BDBE8E /* Cart.swift */; };
+		419C89231F33A8BB00BDBE8E /* CartInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419C891D1F33A8BB00BDBE8E /* CartInteractor.swift */; };
+		419C89241F33A8BB00BDBE8E /* CartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419C891E1F33A8BB00BDBE8E /* CartPresenter.swift */; };
+		419C89251F33A8BB00BDBE8E /* CartProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419C891F1F33A8BB00BDBE8E /* CartProtocols.swift */; };
+		419C89261F33A8BB00BDBE8E /* CartRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419C89201F33A8BB00BDBE8E /* CartRouter.swift */; };
+		419C89271F33A8BB00BDBE8E /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419C89211F33A8BB00BDBE8E /* CartViewController.swift */; };
+		419C89281F33A8BB00BDBE8E /* CartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 419C89221F33A8BB00BDBE8E /* CartViewController.xib */; };
+		419C892B1F33A95C00BDBE8E /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419C89291F33A95C00BDBE8E /* CartTableViewCell.swift */; };
+		419C892C1F33A95C00BDBE8E /* CartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 419C892A1F33A95C00BDBE8E /* CartTableViewCell.xib */; };
 		41A0BAE71ED7A8FA00671F3C /* AddPetViewControllerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A0BAE11ED7A8FA00671F3C /* AddPetViewControllerInteractor.swift */; };
 		41A0BAE81ED7A8FA00671F3C /* AddPetViewControllerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A0BAE21ED7A8FA00671F3C /* AddPetViewControllerPresenter.swift */; };
 		41A0BAE91ED7A8FA00671F3C /* AddPetViewControllerProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A0BAE31ED7A8FA00671F3C /* AddPetViewControllerProtocols.swift */; };
@@ -331,6 +346,21 @@
 		419C89071F3162FD00BDBE8E /* ServiceTableHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceTableHeaderView.xib; sourceTree = "<group>"; };
 		419C89091F3168BB00BDBE8E /* ServiceTableFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceTableFooterView.swift; sourceTree = "<group>"; };
 		419C890B1F3168CF00BDBE8E /* ServiceTableFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceTableFooterView.xib; sourceTree = "<group>"; };
+		419C890F1F33A18700BDBE8E /* CartWebInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartWebInteractor.swift; sourceTree = "<group>"; };
+		419C89101F33A18700BDBE8E /* CartWebPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartWebPresenter.swift; sourceTree = "<group>"; };
+		419C89111F33A18700BDBE8E /* CartWebProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartWebProtocols.swift; sourceTree = "<group>"; };
+		419C89121F33A18700BDBE8E /* CartWebRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartWebRouter.swift; sourceTree = "<group>"; };
+		419C89131F33A18700BDBE8E /* CartWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartWebViewController.swift; sourceTree = "<group>"; };
+		419C89141F33A18700BDBE8E /* CartWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CartWebViewController.xib; sourceTree = "<group>"; };
+		419C891B1F33A23800BDBE8E /* Cart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
+		419C891D1F33A8BB00BDBE8E /* CartInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartInteractor.swift; sourceTree = "<group>"; };
+		419C891E1F33A8BB00BDBE8E /* CartPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartPresenter.swift; sourceTree = "<group>"; };
+		419C891F1F33A8BB00BDBE8E /* CartProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartProtocols.swift; sourceTree = "<group>"; };
+		419C89201F33A8BB00BDBE8E /* CartRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartRouter.swift; sourceTree = "<group>"; };
+		419C89211F33A8BB00BDBE8E /* CartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		419C89221F33A8BB00BDBE8E /* CartViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CartViewController.xib; sourceTree = "<group>"; };
+		419C89291F33A95C00BDBE8E /* CartTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
+		419C892A1F33A95C00BDBE8E /* CartTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CartTableViewCell.xib; sourceTree = "<group>"; };
 		41A0BAE11ED7A8FA00671F3C /* AddPetViewControllerInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPetViewControllerInteractor.swift; sourceTree = "<group>"; };
 		41A0BAE21ED7A8FA00671F3C /* AddPetViewControllerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPetViewControllerPresenter.swift; sourceTree = "<group>"; };
 		41A0BAE31ED7A8FA00671F3C /* AddPetViewControllerProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPetViewControllerProtocols.swift; sourceTree = "<group>"; };
@@ -664,6 +694,7 @@
 				41D86F861F26A4A70038ADA8 /* Service.swift */,
 				41D86F8C1F2973C70038ADA8 /* ServiceCategory.swift */,
 				4148629D1F2FE92F00F210D8 /* Professional.swift */,
+				419C891B1F33A23800BDBE8E /* Cart.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -681,6 +712,8 @@
 		418D099C1EB0D71200FCD5A6 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				419C890D1F33A16B00BDBE8E /* CartViewController */,
+				419C890E1F33A16B00BDBE8E /* CartWebViewController */,
 				41D86F9A1F2D52500038ADA8 /* ScheduleCalendar */,
 				41D86F751F266D640038ADA8 /* BusinessServices */,
 				41D86F661F263A9B0038ADA8 /* HomeBusiness */,
@@ -741,6 +774,34 @@
 				4129D9E21ED86E9B0067EDC3 /* MyPetsViewController.xib */,
 			);
 			path = MyPets;
+			sourceTree = "<group>";
+		};
+		419C890D1F33A16B00BDBE8E /* CartViewController */ = {
+			isa = PBXGroup;
+			children = (
+				419C891D1F33A8BB00BDBE8E /* CartInteractor.swift */,
+				419C891E1F33A8BB00BDBE8E /* CartPresenter.swift */,
+				419C891F1F33A8BB00BDBE8E /* CartProtocols.swift */,
+				419C89201F33A8BB00BDBE8E /* CartRouter.swift */,
+				419C89211F33A8BB00BDBE8E /* CartViewController.swift */,
+				419C89221F33A8BB00BDBE8E /* CartViewController.xib */,
+				419C89291F33A95C00BDBE8E /* CartTableViewCell.swift */,
+				419C892A1F33A95C00BDBE8E /* CartTableViewCell.xib */,
+			);
+			path = CartViewController;
+			sourceTree = "<group>";
+		};
+		419C890E1F33A16B00BDBE8E /* CartWebViewController */ = {
+			isa = PBXGroup;
+			children = (
+				419C890F1F33A18700BDBE8E /* CartWebInteractor.swift */,
+				419C89101F33A18700BDBE8E /* CartWebPresenter.swift */,
+				419C89111F33A18700BDBE8E /* CartWebProtocols.swift */,
+				419C89121F33A18700BDBE8E /* CartWebRouter.swift */,
+				419C89131F33A18700BDBE8E /* CartWebViewController.swift */,
+				419C89141F33A18700BDBE8E /* CartWebViewController.xib */,
+			);
+			path = CartWebViewController;
 			sourceTree = "<group>";
 		};
 		41A0BAE01ED7A8E600671F3C /* AddPet */ = {
@@ -944,10 +1005,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				419C892C1F33A95C00BDBE8E /* CartTableViewCell.xib in Resources */,
 				41E7E2EA1EC27833002C0A55 /* OpenSans-Bold.ttf in Resources */,
 				418DAA331ECE93FB006265CF /* SideMenuTableViewCell.xib in Resources */,
 				41E7E2ED1EC27833002C0A55 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
 				4129D9EA1ED86E9B0067EDC3 /* MyPetsViewController.xib in Resources */,
+				419C891A1F33A18700BDBE8E /* CartWebViewController.xib in Resources */,
 				414BB1F81EBFF4AF000BE2CC /* AlertPopupViewController.xib in Resources */,
 				41E7E2EE1EC27833002C0A55 /* OpenSans-Italic.ttf in Resources */,
 				4120ED101EB128A5009D35B0 /* Localizable.strings in Resources */,
@@ -955,6 +1018,7 @@
 				419C89081F3162FD00BDBE8E /* ServiceTableHeaderView.xib in Resources */,
 				4149E9981EFF0D0100D6C44B /* BusinessTableViewCell.xib in Resources */,
 				4149E97C1EF9628100D6C44B /* BusinessListViewControllerViewController.xib in Resources */,
+				419C89281F33A8BB00BDBE8E /* CartViewController.xib in Resources */,
 				41D86F811F266D7A0038ADA8 /* BusinessServicesViewController.xib in Resources */,
 				414862A61F3014D000F210D8 /* ProfessionalCollectionViewCell.xib in Resources */,
 				413682CB1E9C2B2D008C463B /* LaunchScreen.storyboard in Resources */,
@@ -1045,12 +1109,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				4129D9EC1EDF8BCF0067EDC3 /* Breed.swift in Sources */,
+				419C89151F33A18700BDBE8E /* CartWebInteractor.swift in Sources */,
 				4120ED1C1EB38650009D35B0 /* LoginViewController.swift in Sources */,
 				41AAB4F31EF1F9AF00E52857 /* HomeContentViewControllerPresenter.swift in Sources */,
 				4120ED031EB0DE9F009D35B0 /* PresentationRouter.swift in Sources */,
 				4120ED1F1EB390C3009D35B0 /* UIViewControllerExtension.swift in Sources */,
 				4120ED381EB529FE009D35B0 /* SignupProtocols.swift in Sources */,
 				414862951F2E9F1900F210D8 /* JTCalendarScrollManager.m in Sources */,
+				419C89241F33A8BB00BDBE8E /* CartPresenter.swift in Sources */,
 				4120ED081EB111A7009D35B0 /* UIViewExtension.swift in Sources */,
 				4148629C1F2E9F1A00F210D8 /* JTVerticalCalendarView.m in Sources */,
 				4129D9E71ED86E9B0067EDC3 /* MyPetsTableViewCell.swift in Sources */,
@@ -1072,12 +1138,15 @@
 				4120ED291EB4F136009D35B0 /* ForgotPasswordProtocols.swift in Sources */,
 				4129D9DA1ED85C3D0067EDC3 /* UIImageViewExtension.swift in Sources */,
 				415F73D61EBAA033000D9B14 /* ViaCepAddress.swift in Sources */,
+				419C89191F33A18700BDBE8E /* CartWebViewController.swift in Sources */,
 				4120ED2A1EB4F136009D35B0 /* ForgotPasswordRouter.swift in Sources */,
 				414862971F2E9F1900F210D8 /* JTCalendarMenuView.m in Sources */,
+				419C89181F33A18700BDBE8E /* CartWebRouter.swift in Sources */,
 				4120ED011EB0DE9F009D35B0 /* PresentationPresenter.swift in Sources */,
 				414862911F2E9F1900F210D8 /* JTCalendarManager.m in Sources */,
 				41D86F8A1F294F1E0038ADA8 /* ServiceCollectionViewCell.swift in Sources */,
 				4149E9971EFF0D0100D6C44B /* BusinessTableViewCell.swift in Sources */,
+				419C89261F33A8BB00BDBE8E /* CartRouter.swift in Sources */,
 				41432E791F0B3088002789CE /* UIButtonExtension.swift in Sources */,
 				4127768E1F13084800EC6488 /* BusinessMapListViewController.swift in Sources */,
 				41A0BAE81ED7A8FA00671F3C /* AddPetViewControllerPresenter.swift in Sources */,
@@ -1100,6 +1169,7 @@
 				41D86FA11F2D525E0038ADA8 /* ScheduleCalendarInteractor.swift in Sources */,
 				4120ED041EB0DE9F009D35B0 /* PresentationViewController.swift in Sources */,
 				4149E9771EF9628100D6C44B /* BusinessListViewControllerInteractor.swift in Sources */,
+				419C89161F33A18700BDBE8E /* CartWebPresenter.swift in Sources */,
 				4149E96D1EF8404C00D6C44B /* SegmentioBuilder.swift in Sources */,
 				414BB1F61EBFF4AF000BE2CC /* AlertPopupRouter.swift in Sources */,
 				4168AA5C1EB80A24001E2D6D /* ErrorRest.swift in Sources */,
@@ -1115,17 +1185,21 @@
 				412776981F143F2500EC6488 /* Token.swift in Sources */,
 				41A0BAE71ED7A8FA00671F3C /* AddPetViewControllerInteractor.swift in Sources */,
 				418DAA2A1ECE7EAE006265CF /* SideMenuInteractor.swift in Sources */,
+				419C892B1F33A95C00BDBE8E /* CartTableViewCell.swift in Sources */,
 				41D86FA31F2D525E0038ADA8 /* ScheduleCalendarProtocols.swift in Sources */,
 				414862961F2E9F1900F210D8 /* JTCalendarDayView.m in Sources */,
 				41D86F7E1F266D7A0038ADA8 /* BusinessServicesProtocols.swift in Sources */,
+				419C89251F33A8BB00BDBE8E /* CartProtocols.swift in Sources */,
 				41E7E2DD1EC106FC002C0A55 /* UITextFieldExtension.swift in Sources */,
 				41D86F7C1F266D7A0038ADA8 /* BusinessServicesInteractor.swift in Sources */,
 				419C890A1F3168BB00BDBE8E /* ServiceTableFooterView.swift in Sources */,
+				419C89171F33A18700BDBE8E /* CartWebProtocols.swift in Sources */,
 				41D86FA51F2D525E0038ADA8 /* ScheduleCalendarViewController.swift in Sources */,
 				41AAB4F51EF1F9AF00E52857 /* HomeContentViewControllerRouter.swift in Sources */,
 				41D86F7F1F266D7A0038ADA8 /* BusinessServicesRouter.swift in Sources */,
 				4168AA4F1EB6A4DD001E2D6D /* Consumer.swift in Sources */,
 				415F73D41EBA9F08000D9B14 /* ViaCepAPI.swift in Sources */,
+				419C891C1F33A23800BDBE8E /* Cart.swift in Sources */,
 				413715871EBE7D0300258C6F /* SelectPhotoSourcePopupInteractor.swift in Sources */,
 				4129D9E91ED86E9B0067EDC3 /* MyPetsViewController.swift in Sources */,
 				4137158A1EBE7D0300258C6F /* SelectPhotoSourcePopupRouter.swift in Sources */,
@@ -1147,6 +1221,7 @@
 				414BB1F51EBFF4AF000BE2CC /* AlertPopupProtocols.swift in Sources */,
 				41D86F701F263AB30038ADA8 /* HomeBusinessRouter.swift in Sources */,
 				4148629E1F2FE92F00F210D8 /* Professional.swift in Sources */,
+				419C89271F33A8BB00BDBE8E /* CartViewController.swift in Sources */,
 				4168AA4C1EB69217001E2D6D /* PetbookingAPI.swift in Sources */,
 				4149E97B1EF9628100D6C44B /* BusinessListViewControllerViewController.swift in Sources */,
 				41D86F941F298C360038ADA8 /* AdditionalServiceTableViewCell.swift in Sources */,
@@ -1172,6 +1247,7 @@
 				4120ED021EB0DE9F009D35B0 /* PresentationProtocols.swift in Sources */,
 				41AAB4F61EF1F9AF00E52857 /* HomeContentViewControllerViewController.swift in Sources */,
 				418DAA2E1ECE7EAE006265CF /* SideMenuViewController.swift in Sources */,
+				419C89231F33A8BB00BDBE8E /* CartInteractor.swift in Sources */,
 				4149E9781EF9628100D6C44B /* BusinessListViewControllerPresenter.swift in Sources */,
 				413715881EBE7D0300258C6F /* SelectPhotoSourcePopupPresenter.swift in Sources */,
 				419C89041F313FA800BDBE8E /* ScheduleManager.swift in Sources */,
@@ -1304,7 +1380,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5EC8A11A3CAAE140E557AF6F /* Pods-petbooking-ios-v2.debug.xcconfig */;
 			buildSettings = {
-				API_BASE_URL_ENDPOINT = staging.petbooking.com.br/api;
+				API_BASE_URL_ENDPOINT = beta.petbooking.com.br/api;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				AUTH_KEY = "2fe5ec0e-3a9b-4b77-824a-4b3a0a2e55ef";
 				CODE_SIGN_ENTITLEMENTS = "petbooking-ios-v2/petbooking-ios-v2.entitlements";
@@ -1334,6 +1410,7 @@
 				DEVELOPMENT_TEAM = 77828RW9EP;
 				INFOPLIST_FILE = "petbooking-ios-v2/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.petbooking;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

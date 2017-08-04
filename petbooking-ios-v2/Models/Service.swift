@@ -14,7 +14,7 @@ class Service: MTLModel, MTLJSONSerializing {
 	
 	dynamic var id = ""
 	dynamic var name = ""
-	dynamic var duration = 0
+	dynamic var duration = 0.0
 	dynamic var price = 0.0
 	dynamic var startDate = ""
 	dynamic var startTime = ""
@@ -43,6 +43,7 @@ class Service: MTLModel, MTLJSONSerializing {
 
 class SubService: MTLModel, MTLJSONSerializing {
 	
+	dynamic var id = ""
 	dynamic var name = ""
 	dynamic var duration = 0
 	dynamic var price = 0.0
@@ -50,6 +51,7 @@ class SubService: MTLModel, MTLJSONSerializing {
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
 		return [
+			"id": "id",
 			"name": "name",
 			"duration": "duration",
 			"price": "price",

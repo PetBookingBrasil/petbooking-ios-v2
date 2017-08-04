@@ -74,12 +74,13 @@ class ScheduleManager: NSObject {
 		
 		guard let schedulePet = getPetFromSchedule(business: business, pet: pet) else {
 			let schedulePet = SchedulePet()
-			schedulePet.petId = SchedulePet.generateId(business: business, pet: pet)
+			schedulePet.id = SchedulePet.generateId(business: business, pet: pet)
+			schedulePet.petId = pet.id
 			addPetToSchedule(schedulePet: schedulePet, schedule: schedule)
 			return
 		}
 		
-		addPetToSchedule(schedulePet: schedulePet, schedule: schedule)
+		//addPetToSchedule(schedulePet: schedulePet, schedule: schedule)
 	}
 	
 	
@@ -126,7 +127,7 @@ class ScheduleManager: NSObject {
 		
 		let schedule = getSchedule(business: business)
 		
-		let predicate = NSPredicate(format: "petId = '\(SchedulePet.generateId(business: business, pet: pet))'")
+		let predicate = NSPredicate(format: "id = '\(SchedulePet.generateId(business: business, pet: pet))'")
 		guard let schedulePet = schedule.petsSchedule.filter(predicate).first else {
 			return nil
 		}
@@ -143,12 +144,13 @@ class ScheduleManager: NSObject {
 		guard let scheduleCategory = getCategoryFromSchedule(business: business, pet: pet, serviceCategory: serviceCategory) else {
 			
 			let scheduleCategory = ScheduleCategory()
-			scheduleCategory.categoryId = ScheduleCategory.generateId(business: business, pet: pet, serviceCategory: serviceCategory)
+			scheduleCategory.id = ScheduleCategory.generateId(business: business, pet: pet, serviceCategory: serviceCategory)
+			scheduleCategory.categoryId = serviceCategory.id
 			addCategory(scheduleCategory: scheduleCategory, schedulePet: schedulePet)
 			return
 		}
 		
-		addCategory(scheduleCategory: scheduleCategory, schedulePet: schedulePet)
+		//addCategory(scheduleCategory: scheduleCategory, schedulePet: schedulePet)
 	}
 	
 	private func addCategory(scheduleCategory:ScheduleCategory, schedulePet:SchedulePet) {
@@ -195,7 +197,7 @@ class ScheduleManager: NSObject {
 			return nil
 		}
 		
-		let predicate = NSPredicate(format: "categoryId = '\(ScheduleCategory.generateId(business: business, pet: pet, serviceCategory: serviceCategory))'")
+		let predicate = NSPredicate(format: "id = '\(ScheduleCategory.generateId(business: business, pet: pet, serviceCategory: serviceCategory))'")
 		guard let scheduleCategory = schedulePet.categories.filter(predicate).first else {
 			return nil
 		}
@@ -214,7 +216,8 @@ class ScheduleManager: NSObject {
 		
 		guard let scheduleService = getServiceFromSchedule(business: business, pet: pet, serviceCategory: serviceCategory, service: service) else {
 			let scheduleService = ScheduleService()
-			scheduleService.serviceId = ScheduleService.generateId(business: business, pet: pet, serviceCategory: serviceCategory, service: service)
+			scheduleService.id = ScheduleService.generateId(business: business, pet: pet, serviceCategory: serviceCategory, service: service)
+			scheduleService.serviceId = service.id
 			scheduleService.name = service.name
 			scheduleService.price = service.price
 			scheduleService.professionalId = service.professionalId
@@ -222,12 +225,14 @@ class ScheduleManager: NSObject {
 			scheduleService.professionalPicture = service.professionalPicture
 			scheduleService.startDate = service.startDate
 			scheduleService.startTime = service.startTime
+			scheduleService.duration = service.duration
+			scheduleService.petId = pet.id
 			
 			addServiceToSchedule(scheduleService: scheduleService, scheduleCategory: scheduleCategory)
 			return
 		}
 		
-		addServiceToSchedule(scheduleService: scheduleService, scheduleCategory: scheduleCategory)
+		//addServiceToSchedule(scheduleService: scheduleService, scheduleCategory: scheduleCategory)
 	}
 	
 	func addServiceToSchedule(scheduleService:ScheduleService, scheduleCategory:ScheduleCategory) {
@@ -272,7 +277,7 @@ class ScheduleManager: NSObject {
 			return nil
 		}
 		
-		let predicate = NSPredicate(format: "serviceId = '\(ScheduleService.generateId(business: business, pet: pet, serviceCategory: serviceCategory, service: service))'")
+		let predicate = NSPredicate(format: "id = '\(ScheduleService.generateId(business: business, pet: pet, serviceCategory: serviceCategory, service: service))'")
 		guard let scheduleService = scheduleCategory.services.filter(predicate).first else {
 			
 			return nil
@@ -287,7 +292,7 @@ class ScheduleManager: NSObject {
 			return false
 		}
 		
-		let predicate = NSPredicate(format: "serviceId = '\(ScheduleService.generateId(business: business, pet: pet, serviceCategory: serviceCategory, service: service))'")
+		let predicate = NSPredicate(format: "id = '\(ScheduleService.generateId(business: business, pet: pet, serviceCategory: serviceCategory, service: service))'")
 		guard let _ = scheduleCategory.services.filter(predicate).first else {
 			
 			return false
@@ -305,14 +310,16 @@ class ScheduleManager: NSObject {
 		guard let scheduleSubService = getSubServiceFromSchedule(business: business, pet: pet, serviceCategory: serviceCategory, service: service, subService: subService) else {
 			let scheduleSubService = ScheduleSubService()
 			scheduleSubService.id = ScheduleSubService.generateId(business: business, pet: pet, serviceCategory: serviceCategory, service: service, subService: subService)
+			scheduleSubService.subServiceId = subService.id
 			scheduleSubService.name = subService.name
 			scheduleSubService.price = subService.price
+			scheduleSubService.duration = subService.duration
 			
 			addSubServiceToSchedule(scheduleSubService: scheduleSubService, scheduleService: scheduleService)
 			return
 		}
 		
-		addSubServiceToSchedule(scheduleSubService: scheduleSubService, scheduleService: scheduleService)
+		//addSubServiceToSchedule(scheduleSubService: scheduleSubService, scheduleService: scheduleService)
 	}
 	
 	func addSubServiceToSchedule(scheduleSubService:ScheduleSubService, scheduleService:ScheduleService ) {
@@ -358,13 +365,29 @@ class ScheduleManager: NSObject {
 			return nil
 		}
 		
-		let predicate = NSPredicate(format: "name = '\(subService.name)'")
+		let predicate = NSPredicate(format: "id = '\(ScheduleSubService.generateId(business: business, pet: pet, serviceCategory: serviceCategory, service: service, subService: subService))'")
 		guard let scheduleSubService = scheduleService.services.filter(predicate).first else {
 			
 			return nil
 		}
 		
 		return scheduleSubService
+	}
+	
+	func getServicesByPet(schedulePet:SchedulePet) -> Results<ScheduleService>? {
+		
+		do {
+			let realm = try Realm()
+
+			let predicate = NSPredicate(format: "petId == '\(schedulePet.petId)'")
+			let result = realm.objects(ScheduleService.self).filter(predicate)
+
+			return 	result
+		} catch {
+			//TODO: Handle error
+			print(error.localizedDescription)
+			return nil
+		}
 	}
 	
 	func cleanSchedule() {

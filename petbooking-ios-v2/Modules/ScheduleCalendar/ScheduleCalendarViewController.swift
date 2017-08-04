@@ -13,6 +13,7 @@ import BEMCheckBox
 
 class ScheduleCalendarViewController: UIViewController, ScheduleCalendarViewProtocol {
 	
+	@IBOutlet weak var subServicesLabel: UILabel!
 	@IBOutlet weak var calendarContainer: UIView!
 	
 	@IBOutlet weak var continueScheduleButton: UIButton!
@@ -207,6 +208,9 @@ extension ScheduleCalendarViewController: UITableViewDelegate, UITableViewDataSo
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		
+		subServicesLabel.isHidden = service.services.count == 0
+		
 		return service.services.count
 	}
 	
