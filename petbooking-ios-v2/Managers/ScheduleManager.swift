@@ -76,6 +76,7 @@ class ScheduleManager: NSObject {
 			let schedulePet = SchedulePet()
 			schedulePet.id = SchedulePet.generateId(business: business, pet: pet)
 			schedulePet.petId = pet.id
+			schedulePet.businessId = business.id
 			addPetToSchedule(schedulePet: schedulePet, schedule: schedule)
 			return
 		}
@@ -227,6 +228,7 @@ class ScheduleManager: NSObject {
 			scheduleService.startTime = service.startTime
 			scheduleService.duration = service.duration
 			scheduleService.petId = pet.id
+			scheduleService.businessId = business.id
 			
 			addServiceToSchedule(scheduleService: scheduleService, scheduleCategory: scheduleCategory)
 			return
@@ -382,6 +384,22 @@ class ScheduleManager: NSObject {
 			let predicate = NSPredicate(format: "petId == '\(schedulePet.petId)'")
 			let result = realm.objects(ScheduleService.self).filter(predicate)
 
+			return 	result
+		} catch {
+			//TODO: Handle error
+			print(error.localizedDescription)
+			return nil
+		}
+	}
+	
+	func getServicesByBusiness(business:Business) -> Results<ScheduleService>? {
+		
+		do {
+			let realm = try Realm()
+			
+			let predicate = NSPredicate(format: "businessId == '\(business.id)'")
+			let result = realm.objects(ScheduleService.self).filter(predicate)
+			
 			return 	result
 		} catch {
 			//TODO: Handle error

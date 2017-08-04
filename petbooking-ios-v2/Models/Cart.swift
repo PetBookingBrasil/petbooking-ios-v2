@@ -19,10 +19,10 @@ class Cart: MTLModel, MTLJSONSerializing {
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
 		return [
-			"id": "id",
-			"link": "links.self",
-			"itens":"attributes.itens",
-			"totalPrice":"attributes.total_price"
+			"id": "data.id",
+			"link": "data.links.self",
+			"itens":"data.attributes.itens",
+			"totalPrice":"data.attributes.total_price"
 		]
 	}
 	

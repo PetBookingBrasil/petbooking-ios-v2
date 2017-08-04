@@ -8,6 +8,7 @@
 
 import UIKit
 import BEMCheckBox
+import RealmSwift
 
 class ServiceTableViewCell: UITableViewCell {
 
@@ -15,16 +16,24 @@ class ServiceTableViewCell: UITableViewCell {
 	@IBOutlet weak var nameLabel: UILabel!
 	@IBOutlet weak var descriptionLabel: UILabel!
 	@IBOutlet weak var priceLabel: UILabel!
-	
+	@IBOutlet weak var tableView: UITableView!
 	weak var delegate:ServiceTableViewDelegate?
-	
 	var service:Service! = Service()
+	var subServices:List<ScheduleSubService> = List<ScheduleSubService>()
+	
+	@IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
 	
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
 			checkBox.boxType = .square
 			checkBox.delegate = self
+			
+			tableView.register(UINib(nibName: "AdditionalServiceTableViewCell", bundle: nil), forCellReuseIdentifier: "AdditionalServiceTableViewCell")
+			tableViewHeightConstraint.constant = CGFloat(subServices.count * 40)
+			tableView.delegate = self
+			tableView.dataSource = self
+			
     }
 	
 	override func layoutSubviews() {
@@ -40,11 +49,61 @@ class ServiceTableViewCell: UITableViewCell {
     }
 	
 	func reloadTable() {
+		tableViewHeightConstraint.constant = CGFloat(subServices.count * 40)
+		tableView.reloadData()
 	}
     
 }
 
+extension ServiceTableViewCell : UITableViewDelegate, UITableViewDataSource {
+	
 
+	func numberOfSections(in tableView: UITableView) -> Int {
+		return 1
+	}
+	
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return subServices.count
+	}
+	
+	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		return 40
+	}
+	
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		
+		let cell = tableView.dequeueReusableCell(withIdentifier: "AdditionalServiceTableViewCell") as! AdditionalServiceTableViewCell
+		cell.delegate = self
+		let subService = subServices[indexPath.row]
+		let service:SubService! = SubService()
+		service.id = subService.subServiceId
+		service.name = subService.name
+		
+		cell.service = service
+		
+		cell.nameLabel.text = subService.name
+		cell.priceLabel.text = String(format: "R$ %.2f", subService.price)
+		
+		return cell
+	}
+	
+}
+
+extension ServiceTableViewCell:AdditionalServiceTableViewDelegate {
+	
+	func didSelectedService(subService: SubService) {
+		
+		
+		
+	}
+	
+	func didUnselectedService(subService: SubService) {
+		
+		
+		
+	}
+	
+}
 
 extension ServiceTableViewCell : BEMCheckBoxDelegate {
 	

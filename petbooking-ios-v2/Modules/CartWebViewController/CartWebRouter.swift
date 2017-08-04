@@ -14,9 +14,10 @@ class CartWebRouter: CartWebWireframeProtocol {
     
     weak var viewController: UIViewController?
     
-    static func createModule() -> UIViewController {
+	static func createModule(cart:Cart) -> UIViewController {
         // Change to get view from storyboard if not using progammatic UI
         let view = CartWebViewController(nibName: nil, bundle: nil)
+				view.cart = cart
         let interactor = CartWebInteractor()
         let router = CartWebRouter()
         let presenter = CartWebPresenter(interface: view, interactor: interactor, router: router)

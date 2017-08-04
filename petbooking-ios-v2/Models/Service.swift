@@ -39,6 +39,24 @@ class Service: MTLModel, MTLJSONSerializing {
 		
 	}
 	
+	class func idJSONTransformer() -> ValueTransformer {
+		
+		let _forwardBlock: MTLValueTransformerBlock? = { (value, success, error) in
+			
+			if let id = value as? NSNumber {
+				return id.stringValue
+			}
+			
+			if let id = value as? String {
+				return id
+			}
+			
+			return ""
+		}
+		
+		return MTLValueTransformer(usingForwardBlock: _forwardBlock)
+	}
+	
 }
 
 class SubService: MTLModel, MTLJSONSerializing {
@@ -56,6 +74,24 @@ class SubService: MTLModel, MTLJSONSerializing {
 			"duration": "duration",
 			"price": "price",
 		]
+	}
+	
+	class func idJSONTransformer() -> ValueTransformer {
+		
+		let _forwardBlock: MTLValueTransformerBlock? = { (value, success, error) in
+			
+			if let id = value as? NSNumber {
+				return id.stringValue
+			}
+			
+			if let id = value as? String {
+				return id
+			}
+			
+			return ""
+		}
+		
+		return MTLValueTransformer(usingForwardBlock: _forwardBlock)
 	}
 	
 }

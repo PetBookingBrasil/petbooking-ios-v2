@@ -11,6 +11,7 @@
 import UIKit
 import BEMCheckBox
 import ALLoadingView
+import RealmSwift
 
 class BusinessServicesViewController: UIViewController, BusinessServicesViewProtocol {
 	
@@ -29,6 +30,8 @@ class BusinessServicesViewController: UIViewController, BusinessServicesViewProt
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+		ScheduleManager.sharedInstance.cleanSchedule()
 		
 		petCollectionView.register(UINib(nibName: "PetCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PetCollectionViewCell")
 		
@@ -53,7 +56,7 @@ class BusinessServicesViewController: UIViewController, BusinessServicesViewProt
 		servicesCollectionView.collectionViewLayout = layout2
 		
 		servicesTableView.register(UINib(nibName: "ServiceTableViewCell", bundle: nil), forCellReuseIdentifier: "ServiceTableViewCell")
-		servicesTableView.estimatedRowHeight = 300
+		servicesTableView.estimatedRowHeight = 2000
 		
 		presenter?.getPets()
 		
@@ -258,7 +261,12 @@ extension BusinessServicesViewController: UITableViewDelegate, UITableViewDataSo
 	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		
-		return 78
+		let service = serviceList.services[indexPath.section]
+		guard let scheduleService = ScheduleManager.sharedInstance.getServiceFromSchedule(business: business, pet: selectedPet, serviceCategory: selectedServiceCategory, service: service) else {
+			return 78
+		}
+		
+		return CGFloat(78 + scheduleService.services.count * 40) 
 		
 	}
 	
@@ -299,13 +307,18 @@ extension BusinessServicesViewController: UITableViewDelegate, UITableViewDataSo
 		cell.priceLabel.text = String(format: "R$ %.2f", service.price)
 		cell.priceLabel.sizeToFit()
 		
-		if ScheduleManager.sharedInstance.hasServiceFromSchedule(business: business, pet: selectedPet, serviceCategory: selectedServiceCategory, service: service) {
-			cell.checkBox.setOn(true, animated: false)
-		} else {
+		guard let scheduleService = ScheduleManager.sharedInstance.getServiceFromSchedule(business: business, pet: selectedPet, serviceCategory: selectedServiceCategory, service: service) else {
 			cell.checkBox.setOn(false, animated: false)
+			cell.subServices = List<ScheduleSubService>()
+			cell.reloadTable()
+			return cell
 		}
 		
+		cell.checkBox.setOn(true, animated: false)
+		cell.subServices = scheduleService.services
+		cell.reloadTable()
 		
+
 		return cell
 		
 	}
@@ -321,10 +334,10 @@ extension BusinessServicesViewController: UITableViewDelegate, UITableViewDataSo
 		headerView?.frame = CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 18)
 		
 		let dateFormatter = DateFormatter()
-		dateFormatter.dateFormat = "yyyy-MM-dd hh:mm"
+		dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
 		let date = dateFormatter.date(from: "\(scheduleService.startDate) \(scheduleService.startTime)")
 		
-		let dateString = dateFormatter.convertDateFormater(dateString: "\(scheduleService.startDate) \(scheduleService.startTime)", fromFormat: "yyyy-MM-dd hh:mm", toFormat: "dd 'de' MMMM")
+		let dateString = dateFormatter.convertDateFormater(dateString: "\(scheduleService.startDate) \(scheduleService.startTime)", fromFormat: "yyyy-MM-dd HH:mm", toFormat: "dd 'de' MMMM")
 		
 		let endDate = date?.addingTimeInterval(scheduleService.duration)
 		
@@ -343,7 +356,7 @@ extension BusinessServicesViewController: UITableViewDelegate, UITableViewDataSo
 		guard let scheduleService = ScheduleManager.sharedInstance.getServiceFromSchedule(business: business, pet: selectedPet, serviceCategory: selectedServiceCategory, service: service) else {
 			let view = UIView()
 			
-			view.backgroundColor = UIColor.lightGray
+			view.backgroundColor = UIColor(hex: "EDEDED")
 			
 			return view
 		}

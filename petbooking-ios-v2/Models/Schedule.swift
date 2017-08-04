@@ -26,6 +26,7 @@ class SchedulePet: Object {
 	dynamic var id = ""
 	dynamic var petId = ""
 	let categories = List<ScheduleCategory>()
+	dynamic var businessId = ""
 	
 	override static func primaryKey() -> String? {
 		return "id"
@@ -44,6 +45,7 @@ class ScheduleCategory: Object {
 	dynamic var id = ""
 	dynamic var categoryId = ""
 	let services = List<ScheduleService>()
+	dynamic var businessId = ""
 	
 	let parentPet = LinkingObjects(fromType: SchedulePet.self, property: "categories")
 	
@@ -73,6 +75,7 @@ class ScheduleService: Object {
 	dynamic var professionalPicture = ""
 	let services = List<ScheduleSubService>()
 	dynamic var petId = ""
+	dynamic var businessId = ""
 	
 	let parentCategory = LinkingObjects(fromType: ScheduleCategory.self, property: "services")
 	
@@ -103,7 +106,7 @@ class ScheduleSubService: Object {
 	
 	static func generateId(business:Business, pet:Pet, serviceCategory:ServiceCategory, service:Service, subService:SubService) -> String {
 		
-		return "\(business.id)-\(pet.id)-\(serviceCategory.id)-\(service.id)-\(service.name)"
+		return "\(business.id)-\(pet.id)-\(serviceCategory.id)-\(service.id)-\(subService.id)"
 		
 	}
 	

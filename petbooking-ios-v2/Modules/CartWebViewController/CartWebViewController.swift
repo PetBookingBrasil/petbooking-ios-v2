@@ -12,11 +12,43 @@ import UIKit
 
 class CartWebViewController: UIViewController, CartWebViewProtocol {
 
+	static let HTTP_PROTOCOL = "https://"
+	
+	static let BASE_URL = Bundle.main.infoDictionary!["BASE_URL"] as! String
+	
+	static let API_VERSION = "/v2"
+	
+	static let WEB_BASE_URL = "\(HTTP_PROTOCOL)\(BASE_URL)\(API_VERSION)"
+	
 	@IBOutlet weak var webView: UIWebView!
 	var presenter: CartWebPresenterProtocol?
+	
+	var cart:Cart! = Cart()
 
 	override func viewDidLoad() {
         super.viewDidLoad()
-    }
+		
+		var authToken = ""
+		var userId = 0
+		if let session = SessionManager.sharedInstance.getCurrentSession() {
+			authToken = session.authToken
+			userId = session.userId
+		}
+		var token = ""
+		guard let user = UserManager.sharedInstance.getCurrentUser() else {
+			return
+		}
+		
+		guard let url = URL(string: "\(CartWebViewController.WEB_BASE_URL)/webviews/payments/\(cart.id)/\(user.authToken)/new") else {
+			return
+		}
+		
+		var request = URLRequest(url: url)
+		request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+		request.addValue("Token token=\"\(authToken)\"", forHTTPHeaderField: "X-Petbooking-Session-Token")
+
+		webView.loadRequest(URLRequest(url: url))
+		
+	}
 
 }

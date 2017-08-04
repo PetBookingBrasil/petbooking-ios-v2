@@ -1046,4 +1046,68 @@ extension PetbookingAPI {
 		}
 	}
 	
+	func createShoppingCart(itens: [Dictionary<String, Any>], completion: @escaping (_ cart: Cart?, _ message: String) -> Void) {
+		
+		if SessionManager.sharedInstance.isConsumerValid() {
+			var token = ""
+			if let consumer = SessionManager.sharedInstance.getCurrentConsumer() {
+				token = consumer.token
+			}
+			
+			var authToken = ""
+			var userId = 0
+			if let session = SessionManager.sharedInstance.getCurrentSession() {
+				authToken = session.authToken
+				userId = session.userId
+			}
+			
+			self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
+			self.auth_headers.updateValue("Token token=\"\(authToken)\"", forKey: "X-Petbooking-Session-Token")
+			
+			let parameters: Parameters = [
+				"data": ["type":"carts", "attributes":["itens":itens]]
+			]
+			
+			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/users/\(userId)/carts", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: auth_headers).responseJSON { (response) in
+				
+				switch response.result{
+				case .success(let jsonObject):
+					
+					if let dic = jsonObject as? [String: Any] {
+						
+						do {
+							
+							let cart = try MTLJSONAdapter.model(of: Cart.self, fromJSONDictionary: dic) as! Cart
+							
+							
+							completion(cart, "")
+							
+						} catch {
+							completion(nil, error.localizedDescription)
+						}
+					} else {
+						completion(nil, "")
+					}
+					break
+				case .failure(let error):
+					print(error)
+					completion(nil, error.localizedDescription)
+					break
+				}
+				
+			}
+		} else
+		{
+			getConsumer(completion: { (success, message) in
+				
+				if success {
+					self.createShoppingCart(itens:itens,completion: completion)
+				} else {
+					
+					completion(nil, "")
+					
+				}
+			})
+		}
+	}
 }

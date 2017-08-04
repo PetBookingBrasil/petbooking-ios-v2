@@ -39,6 +39,37 @@ class CartViewController: UIViewController, CartViewProtocol {
 	}
 	
 	@IBAction func schedule(_ sender: Any) {
+		
+		guard let services = ScheduleManager.sharedInstance.getServicesByBusiness(business: self.business) else {
+			return
+		}
+		
+		var itens = [Dictionary<String, Any>]()
+		for service in services {
+			
+			var subServiceIds = [String]()
+			for subService in service.services {
+				subServiceIds.append(subService.subServiceId)
+
+			}
+			
+			let item = ["start_date":service.startDate, "start_time":service.startTime,"business_id":service.businessId, "service_id":service.serviceId, "professional_id":service.professionalId, "pet_id": service.petId, "additional_service_ids":subServiceIds, "with_transportation":false, "notes":""] as [String : Any]
+			
+			itens.append(item)
+		}
+		
+		PetbookingAPI.sharedInstance.createShoppingCart(itens: itens) { (cart, message) in
+			
+			guard let cart = cart else {
+				return
+			}
+			
+			let cartVC = CartWebRouter.createModule(cart: cart)
+			
+			self.navigationController?.pushViewController(cartVC, animated: true)
+			
+		}
+		
 	}
 	
 }
@@ -99,10 +130,10 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource{
 		cell.totalPriceLabel.text =  String(format: "R$ %.2f", totalPrice)
 		
 		let dateFormatter = DateFormatter()
-		dateFormatter.dateFormat = "yyyy-MM-dd hh:mm"
+		dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
 		let date = dateFormatter.date(from: "\(service.startDate) \(service.startTime)")
 		
-		let dateString = dateFormatter.convertDateFormater(dateString: "\(service.startDate) \(service.startTime)", fromFormat: "yyyy-MM-dd hh:mm", toFormat: "dd 'de' MMMM")
+		let dateString = dateFormatter.convertDateFormater(dateString: "\(service.startDate) \(service.startTime)", fromFormat: "yyyy-MM-dd HH:mm", toFormat: "dd 'de' MMMM")
 		
 		let endDate = date?.addingTimeInterval(service.duration)
 		
