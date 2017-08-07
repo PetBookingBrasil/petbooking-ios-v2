@@ -9,6 +9,7 @@
 //
 
 import UIKit
+import WebKit
 
 class CartWebViewController: UIViewController, CartWebViewProtocol {
 
@@ -20,7 +21,7 @@ class CartWebViewController: UIViewController, CartWebViewProtocol {
 	
 	static let WEB_BASE_URL = "\(HTTP_PROTOCOL)\(BASE_URL)\(API_VERSION)"
 	
-	@IBOutlet weak var webView: UIWebView!
+	var webView: WKWebView!
 	var presenter: CartWebPresenterProtocol?
 	
 	var cart:Cart! = Cart()
@@ -28,13 +29,15 @@ class CartWebViewController: UIViewController, CartWebViewProtocol {
 	override func viewDidLoad() {
         super.viewDidLoad()
 		
-		var authToken = ""
-		var userId = 0
-		if let session = SessionManager.sharedInstance.getCurrentSession() {
-			authToken = session.authToken
-			userId = session.userId
-		}
-		var token = ""
+		let configuration = WKWebViewConfiguration()
+		let controller = WKUserContentController()
+		controller.add(self, name: "observe")
+		configuration.userContentController = controller
+		
+		webView = WKWebView(frame: view.frame, configuration: configuration)
+		
+		view.addSubview(webView)
+		
 		guard let user = UserManager.sharedInstance.getCurrentUser() else {
 			return
 		}
@@ -43,12 +46,18 @@ class CartWebViewController: UIViewController, CartWebViewProtocol {
 			return
 		}
 		
-		var request = URLRequest(url: url)
-		request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-		request.addValue("Token token=\"\(authToken)\"", forHTTPHeaderField: "X-Petbooking-Session-Token")
-
-		webView.loadRequest(URLRequest(url: url))
+		webView.load(URLRequest(url: url))
 		
 	}
 
+}
+
+extension CartWebViewController: WKScriptMessageHandler{
+	
+	func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+		
+		print("ryniere \(message.body)")
+		
+	}
+	
 }
