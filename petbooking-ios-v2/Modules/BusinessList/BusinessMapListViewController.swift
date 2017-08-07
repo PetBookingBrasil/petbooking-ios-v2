@@ -19,9 +19,12 @@ class BusinessMapListViewController: UIViewController, BusinessListViewControlle
 	var locationManager:CLLocationManager?
 	var businessList:BusinessList = BusinessList()
 	var businesses = [Business]()
+	var businessesCallout = [Business]()
 	var coordinates:CLLocationCoordinate2D = CLLocationCoordinate2D()
 	
 	@IBOutlet weak var mapView: MKMapView!
+	@IBOutlet weak var tableView: UITableView!
+	@IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +39,10 @@ class BusinessMapListViewController: UIViewController, BusinessListViewControlle
 			
 			// For use in foreground
 			self.locationManager?.requestWhenInUseAuthorization()
+			
+			tableView.register(UINib(nibName: "BusinessTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+			tableView.rowHeight = UITableViewAutomaticDimension
+			tableView.estimatedRowHeight = 2000
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -54,7 +61,9 @@ class BusinessMapListViewController: UIViewController, BusinessListViewControlle
 		
 		for business in businessList.businesses {
 			
-			let annotation = MKPointAnnotation()
+			let annotation = BussinessAnnotation()
+			annotation.business = business
+			annotation.title = business.name
 			
 			annotation.coordinate = CLLocationCoordinate2D(latitude: business.location.latitude, longitude: business.location.longitude)
 			mapView.addAnnotation(annotation)
@@ -118,6 +127,86 @@ extension BusinessMapListViewController: MKMapViewDelegate {
 		
 		return annotationView
 		
+		
+	}
+	
+	func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+		
+		guard let annotation  = view.annotation as? BussinessAnnotation else {
+			return
+		}
+		
+		businessesCallout = [annotation.business]
+		
+		tableView.reloadData()
+		
+	}
+	
+	func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+		
+		tableViewHeightConstraint.constant = 1
+		view.layoutIfNeeded()
+
+		
+	}
+	
+}
+
+extension BusinessMapListViewController: UITableViewDelegate, UITableViewDataSource, BusinessTableViewCellDelegate {
+	
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		
+		return businessesCallout.count
+	}
+	
+	public func numberOfSections(in tableView: UITableView) -> Int {
+		return 1
+	}
+
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		
+		let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! BusinessTableViewCell
+		
+		let business = businessesCallout[indexPath.row]
+		cell.delegate = self
+		
+		cell.business = business
+		cell.setFavorite(isFavorite: business.isFavorited())
+		cell.nameLabel.text = business.name
+		cell.addressLabel.text = "\(business.street), \(business.streetNumber), \(business.neighborhood)"
+		//cell.cityLabel.text = ""
+		cell.distanceLabel.text = "\(business.distance)km"
+		cell.distanceLabel.sizeToFit()
+		cell.distanceView.round()
+		cell.distanceView.setBorder(width: 1, color: .red)
+		cell.ratingLabel.text = "\(business.rating)"
+		cell.reviewQuantityLabel.text = "\(business.ratingCount) Avaliações"
+		
+		cell.businessImageView.image = nil
+		if let url = URL(string: business.photoUrl) {
+			cell.businessImageView.pin_setImage(from: url)
+		}
+		
+		tableViewHeightConstraint.constant = cell.frame.size.height
+		view.layoutIfNeeded()
+		
+		return cell
+	}
+	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		
+		tableView.deselectRow(at: indexPath, animated: true)
+		
+		let business = businessesCallout[indexPath.row]
+		
+		presenter?.showBusinessPage(business: business)
+		
+		
+	}
+
+	func addToFavorites(business: Business) {
+		
+		presenter?.addToFavorites(business: business)
 		
 	}
 	

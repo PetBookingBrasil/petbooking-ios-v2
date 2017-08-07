@@ -12,6 +12,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BusinessMapListViewController" customModule="petbooking_ios_v2" customModuleProvider="target">
             <connections>
                 <outlet property="mapView" destination="ueY-cr-C9t" id="JTX-kl-hc1"/>
+                <outlet property="tableView" destination="AON-8J-7Sf" id="08L-sp-YUZ"/>
+                <outlet property="tableViewHeightConstraint" destination="LgK-zG-5UF" id="Nlp-uM-QWb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,16 +23,31 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ueY-cr-C9t">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="666"/>
                 </mapView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AON-8J-7Sf">
+                    <rect key="frame" x="0.0" y="666" width="375" height="1"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="LgK-zG-5UF"/>
+                    </constraints>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="vFV-zp-Mw3"/>
+                        <outlet property="delegate" destination="-1" id="roW-2K-iEs"/>
+                    </connections>
+                </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="AON-8J-7Sf" firstAttribute="top" secondItem="ueY-cr-C9t" secondAttribute="bottom" id="8KX-PC-IZP"/>
                 <constraint firstItem="ueY-cr-C9t" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="9CZ-O4-c3z"/>
                 <constraint firstAttribute="trailing" secondItem="ueY-cr-C9t" secondAttribute="trailing" id="Izd-fk-dDz"/>
+                <constraint firstAttribute="trailing" secondItem="AON-8J-7Sf" secondAttribute="trailing" id="KUH-r7-1zo"/>
                 <constraint firstItem="ueY-cr-C9t" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Nag-zv-uh5"/>
-                <constraint firstAttribute="bottom" secondItem="ueY-cr-C9t" secondAttribute="bottom" id="wxN-eL-vZC"/>
+                <constraint firstItem="AON-8J-7Sf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="OsW-QX-bHx"/>
+                <constraint firstAttribute="bottom" secondItem="AON-8J-7Sf" secondAttribute="bottom" id="my6-fI-1EX"/>
             </constraints>
+            <point key="canvasLocation" x="33.5" y="54.5"/>
         </view>
     </objects>
 </document>

@@ -73,6 +73,7 @@
 		413D9FA41F381710007ABBEE /* CartTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413D9FA31F381710007ABBEE /* CartTableHeaderView.swift */; };
 		413D9FA71F381D4F007ABBEE /* CartTableSubServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413D9FA51F381D4F007ABBEE /* CartTableSubServiceTableViewCell.swift */; };
 		413D9FA81F381D4F007ABBEE /* CartTableSubServiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 413D9FA61F381D4F007ABBEE /* CartTableSubServiceTableViewCell.xib */; };
+		413D9FAA1F391909007ABBEE /* BussinessAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413D9FA91F391909007ABBEE /* BussinessAnnotation.swift */; };
 		41432E791F0B3088002789CE /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41432E781F0B3088002789CE /* UIButtonExtension.swift */; };
 		414862911F2E9F1900F210D8 /* JTCalendarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 414862711F2E9F1900F210D8 /* JTCalendarManager.m */; };
 		414862921F2E9F1900F210D8 /* JTCalendarSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 414862731F2E9F1900F210D8 /* JTCalendarSettings.m */; };
@@ -282,6 +283,7 @@
 		413D9FA31F381710007ABBEE /* CartTableHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartTableHeaderView.swift; sourceTree = "<group>"; };
 		413D9FA51F381D4F007ABBEE /* CartTableSubServiceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartTableSubServiceTableViewCell.swift; sourceTree = "<group>"; };
 		413D9FA61F381D4F007ABBEE /* CartTableSubServiceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CartTableSubServiceTableViewCell.xib; sourceTree = "<group>"; };
+		413D9FA91F391909007ABBEE /* BussinessAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BussinessAnnotation.swift; sourceTree = "<group>"; };
 		41432E781F0B3088002789CE /* UIButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		414862691F2E98F600F210D8 /* petbooking-ios-v2-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "petbooking-ios-v2-Bridging-Header.h"; sourceTree = "<group>"; };
 		4148626E1F2E9F1900F210D8 /* JTCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendar.h; sourceTree = "<group>"; };
@@ -683,6 +685,7 @@
 				4149E9961EFF0D0100D6C44B /* BusinessTableViewCell.xib */,
 				4127768C1F13084800EC6488 /* BusinessMapListViewController.swift */,
 				4127768D1F13084800EC6488 /* BusinessMapListViewController.xib */,
+				413D9FA91F391909007ABBEE /* BussinessAnnotation.swift */,
 			);
 			path = BusinessList;
 			sourceTree = "<group>";
@@ -1179,6 +1182,7 @@
 				4113B2CC1F3414CB007DC89F /* BusinessInformationViewController.swift in Sources */,
 				4120ED291EB4F136009D35B0 /* ForgotPasswordProtocols.swift in Sources */,
 				4129D9DA1ED85C3D0067EDC3 /* UIImageViewExtension.swift in Sources */,
+				413D9FAA1F391909007ABBEE /* BussinessAnnotation.swift in Sources */,
 				415F73D61EBAA033000D9B14 /* ViaCepAddress.swift in Sources */,
 				419C89191F33A18700BDBE8E /* CartWebViewController.swift in Sources */,
 				4120ED2A1EB4F136009D35B0 /* ForgotPasswordRouter.swift in Sources */,
