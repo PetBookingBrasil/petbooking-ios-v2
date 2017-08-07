@@ -342,18 +342,30 @@ class ScheduleManager: NSObject {
 	
 	func removeSubServiceFromSchedule(business:Business, pet:Pet, serviceCategory:ServiceCategory, service:Service, subService:SubService) {
 		
+		guard let scheduleService = getServiceFromSchedule(business: business, pet: pet, serviceCategory: serviceCategory, service: service) else {
+			return
+		}
+		
 		guard let scheduleSubService = getSubServiceFromSchedule(business: business, pet: pet, serviceCategory: serviceCategory, service: service, subService: subService) else {
 			return
 		}
 		
-		deleteSubService(scheduleSubService: scheduleSubService)
+		
+		deleteSubService(scheduleSubService: scheduleSubService, scheduleService: scheduleService)
 	}
 	
-	private func deleteSubService(scheduleSubService:ScheduleSubService)  {
+	private func deleteSubService(scheduleSubService:ScheduleSubService, scheduleService:ScheduleService)  {
+		
+		guard let index = scheduleService.services.index(of: scheduleSubService) else{
+			return
+		}
 		
 		do {
 			let realm = try Realm()
 			try realm.write {
+				
+				scheduleService.services.remove(objectAtIndex: index)
+				realm.add(scheduleService,update: true)
 				
 				realm.delete(scheduleSubService)
 				
@@ -364,18 +376,21 @@ class ScheduleManager: NSObject {
 	}
 	
 	func getSubServiceFromSchedule(business:Business, pet:Pet, serviceCategory:ServiceCategory, service:Service, subService:SubService) -> ScheduleSubService? {
-		
-		guard let scheduleService = getServiceFromSchedule(business: business, pet: pet, serviceCategory: serviceCategory, service: service) else {
-			return nil
-		}
-		
-		let predicate = NSPredicate(format: "id = '\(ScheduleSubService.generateId(business: business, pet: pet, serviceCategory: serviceCategory, service: service, subService: subService))'")
-		guard let scheduleSubService = scheduleService.services.filter(predicate).first else {
+
+		do {
+			let realm = try Realm()
+			let predicate = NSPredicate(format: "id = '\(ScheduleSubService.generateId(business: business, pet: pet, serviceCategory: serviceCategory, service: service, subService: subService))'")
+			guard let scheduleSubService = realm.objects(ScheduleSubService.self).filter(predicate).first else {
+				return nil
+			}
 			
+			return 	scheduleSubService
+		} catch {
+			//TODO: Handle error
+			print(error.localizedDescription)
 			return nil
 		}
 		
-		return scheduleSubService
 	}
 	
 	func getServicesByPet(schedulePet:SchedulePet) -> Results<ScheduleService>? {

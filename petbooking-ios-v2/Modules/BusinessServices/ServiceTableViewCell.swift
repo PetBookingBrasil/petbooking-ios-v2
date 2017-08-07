@@ -19,6 +19,9 @@ class ServiceTableViewCell: UITableViewCell {
 	@IBOutlet weak var tableView: UITableView!
 	weak var delegate:ServiceTableViewDelegate?
 	var service:Service! = Service()
+	var business:Business = Business()
+	var pet:Pet = Pet()
+	var serviceCategory:ServiceCategory = ServiceCategory()
 	var subServices:List<ScheduleSubService> = List<ScheduleSubService>()
 	
 	@IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
@@ -107,14 +110,14 @@ extension ServiceTableViewCell:AdditionalServiceTableViewDelegate {
 	
 	func didSelectedService(subService: SubService) {
 		
-		
-		
+		ScheduleManager.sharedInstance.addSubServiceToSchedule(business: business, pet: pet, serviceCategory: serviceCategory, service: service, subService: subService)
+		delegate?.updateValue(service: service)
 	}
 	
 	func didUnselectedService(subService: SubService) {
 		
-		
-		
+		ScheduleManager.sharedInstance.removeSubServiceFromSchedule(business: business, pet: pet, serviceCategory: serviceCategory, service: service, subService: subService)
+		delegate?.updateValue(service: service)
 	}
 	
 }
@@ -139,6 +142,8 @@ protocol ServiceTableViewDelegate: class {
 	func didSelectedService(service:Service)
 	
 	func didUnselectedService(service:Service)
+	
+	func updateValue(service:Service)
 	
 	
 }

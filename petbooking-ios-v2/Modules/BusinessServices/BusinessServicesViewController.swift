@@ -323,6 +323,9 @@ extension BusinessServicesViewController: UITableViewDelegate, UITableViewDataSo
 		cell.delegate = self
 		let service = serviceList.services[indexPath.section]
 		cell.service = service
+		cell.business = business
+		cell.serviceCategory = selectedServiceCategory
+		cell.pet = selectedPet
 		
 		cell.nameLabel?.text = service.name
 		cell.priceLabel.text = String(format: "R$ %.2f", service.price)
@@ -405,6 +408,18 @@ extension BusinessServicesViewController: UITableViewDelegate, UITableViewDataSo
 extension BusinessServicesViewController : ServiceTableViewDelegate {
 	
 	
+	func updateValue(service: Service) {
+		
+		guard let index = serviceList.services.index(of: service) else {
+			return
+		}
+		
+		self.servicesTableView.reloadSections(IndexSet(integersIn: index...index), with: .none)
+		
+	}
+
+	
+	
 	func didSelectedService(service: Service) {
 		
 		
@@ -424,3 +439,5 @@ extension BusinessServicesViewController : ServiceTableViewDelegate {
 	}
 	
 }
+
+
