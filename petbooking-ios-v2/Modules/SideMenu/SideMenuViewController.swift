@@ -17,7 +17,7 @@ class SideMenuViewController: UIViewController, SideMenuViewProtocol {
 	@IBOutlet weak var cityLabel: UILabel!
 	@IBOutlet weak var menuTableView: UITableView!
 	
-	var menuItens:[SideMenuItem] = [.myPets, .search, .agenda, .payments, .favorites, .settings, .logout]
+	var menuItens:[SideMenuItem] = [.myPets, .agenda, .favorites, .logout]
 	
 	var presenter: SideMenuPresenterProtocol?
 
@@ -65,7 +65,7 @@ class SideMenuViewController: UIViewController, SideMenuViewProtocol {
 extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 7
+		return menuItens.count
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -138,7 +138,8 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
 		let selectedCell:UITableViewCell = tableView.cellForRow(at: indexPath)!
-		selectedCell.contentView.backgroundColor = UIColor(hex: "FF4B4B")
+		selectedCell.contentView.backgroundColor = UIColor(hex: "E4002B")
 	}
+	
 	
 }
