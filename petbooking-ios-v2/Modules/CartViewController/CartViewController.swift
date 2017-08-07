@@ -36,6 +36,8 @@ class CartViewController: UIViewController, CartViewProtocol {
 		super.viewWillAppear(animated)
 		
 		tableView.reloadData()
+		
+		calculateTotal()
 	}
 	
 	@IBAction func schedule(_ sender: Any) {
@@ -72,6 +74,28 @@ class CartViewController: UIViewController, CartViewProtocol {
 		
 	}
 	
+	func calculateTotal() {
+		
+		guard let services = ScheduleManager.sharedInstance.getServicesByBusiness(business: self.business) else {
+			return
+		}
+		
+		var total = 0.0
+		for service in services {
+			
+			total += service.price
+			
+			for subService in service.services {
+    
+				total += subService.price
+			}
+			
+		}
+		
+		totalPriceLabel.text = String(format: "R$ %.2f", total)
+		
+	}
+	
 }
 
 extension CartViewController: UITableViewDelegate, UITableViewDataSource{
@@ -102,6 +126,12 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource{
 		return  UITableViewAutomaticDimension
 	}
 	
+	func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+		
+	return 66
+		
+	}
+	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		
 		let cell = tableView.dequeueReusableCell(withIdentifier: "CartTableViewCell") as! CartTableViewCell
@@ -116,7 +146,9 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource{
 		
 		let service = scheduleServices[indexPath.row]
 		
-		cell.tableViewHeightConstraint.constant = CGFloat(service.services.count * 30)
+		cell.subServices = service.services
+		cell.tableViewHeightConstraint.constant = CGFloat(service.services.count * 30 + 20)
+		cell.reloadTable()
 		
 		cell.serviceNameLabel.text = service.name
 		cell.professionalNameLabel.text = service.professionalName
@@ -146,6 +178,26 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource{
 		
 		return cell
 		
+	}
+	
+	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+		
+		
+		let headerView = ServiceTableHeaderView.loadFromNibNamed("CartTableHeaderView") as? CartTableHeaderView
+		headerView?.frame = CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 66)
+		
+		let schedule = ScheduleManager.sharedInstance.getSchedule(business: business)
+		
+		let schedulePet = schedule.petsSchedule[section]
+		
+		headerView?.nameLabel.text = schedulePet.name
+		headerView?.numberLabel.text = "#\(section + 1)"
+		
+		if let url = URL(string: schedulePet.photoThumbUrl) {
+			headerView?.pictureImageView.pin_setImage(from: url)
+		}
+		
+		return headerView
 	}
 	
 }

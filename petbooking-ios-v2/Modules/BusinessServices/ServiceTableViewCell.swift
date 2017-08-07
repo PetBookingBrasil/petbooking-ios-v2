@@ -30,7 +30,6 @@ class ServiceTableViewCell: UITableViewCell {
 			checkBox.delegate = self
 			
 			tableView.register(UINib(nibName: "AdditionalServiceTableViewCell", bundle: nil), forCellReuseIdentifier: "AdditionalServiceTableViewCell")
-			tableViewHeightConstraint.constant = CGFloat(subServices.count * 40)
 			tableView.delegate = self
 			tableView.dataSource = self
 			
@@ -49,7 +48,6 @@ class ServiceTableViewCell: UITableViewCell {
     }
 	
 	func reloadTable() {
-		tableViewHeightConstraint.constant = CGFloat(subServices.count * 40)
 		tableView.reloadData()
 	}
     
@@ -70,9 +68,14 @@ extension ServiceTableViewCell : UITableViewDelegate, UITableViewDataSource {
 		return 40
 	}
 	
+	func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+		return 20
+	}
+	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		
 		let cell = tableView.dequeueReusableCell(withIdentifier: "AdditionalServiceTableViewCell") as! AdditionalServiceTableViewCell
+		cell.checkBox.setOn(true, animated: false)
 		cell.delegate = self
 		let subService = subServices[indexPath.row]
 		let service:SubService! = SubService()
@@ -85,6 +88,17 @@ extension ServiceTableViewCell : UITableViewDelegate, UITableViewDataSource {
 		cell.priceLabel.text = String(format: "R$ %.2f", subService.price)
 		
 		return cell
+	}
+	
+	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+		
+		let label = UILabel()
+		label.text = "   SERVIÇOS ADICIONAIS"
+		label.font = UIFont.openSansSemiBold(ofSize: 9)
+		label.textColor = UIColor(hex:"858585")
+		
+		return label
+		
 	}
 	
 }

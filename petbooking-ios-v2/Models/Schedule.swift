@@ -25,6 +25,8 @@ class SchedulePet: Object {
 	
 	dynamic var id = ""
 	dynamic var petId = ""
+	dynamic var name = ""
+	dynamic var photoThumbUrl = ""
 	let categories = List<ScheduleCategory>()
 	dynamic var businessId = ""
 	

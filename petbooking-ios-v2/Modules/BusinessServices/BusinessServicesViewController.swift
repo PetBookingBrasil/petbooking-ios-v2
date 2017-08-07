@@ -20,6 +20,7 @@ class BusinessServicesViewController: UIViewController, BusinessServicesViewProt
 	@IBOutlet weak var servicesCollectionView: UICollectionView!
 	@IBOutlet weak var petCollectionView: UICollectionView!
 	@IBOutlet weak var servicesTableView: UITableView!
+	@IBOutlet weak var goToChartButton: UIButton!
 	
 	var business:Business = Business()
 	var petList:PetList = PetList()
@@ -32,6 +33,8 @@ class BusinessServicesViewController: UIViewController, BusinessServicesViewProt
 		super.viewDidLoad()
 		
 		ScheduleManager.sharedInstance.cleanSchedule()
+		
+		goToChartButton.round()
 		
 		petCollectionView.register(UINib(nibName: "PetCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PetCollectionViewCell")
 		
@@ -72,6 +75,7 @@ class BusinessServicesViewController: UIViewController, BusinessServicesViewProt
 		petCollectionView.reloadData()
 		servicesTableView.reloadData()
 		
+		checkServices()
 	}
 	
 	deinit {
@@ -131,7 +135,21 @@ class BusinessServicesViewController: UIViewController, BusinessServicesViewProt
 		
 	}
 	
-	
+	func checkServices() {
+		
+		guard let businessList = ScheduleManager.sharedInstance.getServicesByBusiness(business: self.business) else {
+			goToChartButton.isHidden = true
+			return
+		}
+		
+		if businessList.count > 0 {
+			goToChartButton.isHidden = false
+		} else {
+			goToChartButton.isHidden = true
+		}
+		
+	}
+
 }
 
 extension BusinessServicesViewController: UICollectionViewDataSource, UICollectionViewDelegate{
@@ -250,6 +268,7 @@ extension BusinessServicesViewController: UICollectionViewDataSource, UICollecti
 extension BusinessServicesViewController: UITableViewDelegate, UITableViewDataSource {
 	
 	func numberOfSections(in tableView: UITableView) -> Int {
+		
 		return serviceList.services.count
 	}
 	
@@ -266,7 +285,9 @@ extension BusinessServicesViewController: UITableViewDelegate, UITableViewDataSo
 			return 78
 		}
 		
-		return CGFloat(78 + scheduleService.services.count * 40) 
+		let headerSize = scheduleService.services.count > 0 ? 20 : 0
+		
+		return CGFloat(70 + headerSize + scheduleService.services.count * 40)
 		
 	}
 	
@@ -365,6 +386,9 @@ extension BusinessServicesViewController: UITableViewDelegate, UITableViewDataSo
 		footerView?.frame = CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 60)
 		
 		footerView?.nameLabel.text = scheduleService.professionalName
+		if let url = URL(string: scheduleService.professionalPicture) {
+			footerView?.pictureImageView.pin_setImage(from: url)
+		}
 		var totalValue = scheduleService.price
 		
 		for subService in scheduleService.services {
@@ -394,6 +418,8 @@ extension BusinessServicesViewController : ServiceTableViewDelegate {
 		ScheduleManager.sharedInstance.removeServiceFromSchedule(business: business, pet: selectedPet, serviceCategory: selectedServiceCategory, service: service)
 		
 		servicesTableView.reloadData()
+		
+		checkServices()
 		
 	}
 	

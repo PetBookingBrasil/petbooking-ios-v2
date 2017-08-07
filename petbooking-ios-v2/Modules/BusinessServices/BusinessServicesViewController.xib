@@ -17,6 +17,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BusinessServicesViewController" customModule="petbooking_ios_v2" customModuleProvider="target">
             <connections>
+                <outlet property="goToChartButton" destination="mLU-0d-YVn" id="z4o-3b-aPf"/>
                 <outlet property="petCollectionView" destination="yRp-FU-VnO" id="3Pk-a2-ojs"/>
                 <outlet property="servicesCollectionView" destination="qDW-FV-f5H" id="yHk-AG-Neq"/>
                 <outlet property="servicesTableView" destination="lvV-iL-ezs" id="99s-Qd-Z55"/>
@@ -69,7 +70,7 @@
                                     </connections>
                                 </collectionView>
                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" delaysContentTouches="NO" canCancelContentTouches="NO" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lvV-iL-ezs">
-                                    <rect key="frame" x="0.0" y="176" width="375" height="491"/>
+                                    <rect key="frame" x="0.0" y="176" width="375" height="425"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <connections>
                                         <outlet property="dataSource" destination="-1" id="h32-ZP-gdG"/>
@@ -86,7 +87,7 @@
                                 <constraint firstItem="lvV-iL-ezs" firstAttribute="top" secondItem="qDW-FV-f5H" secondAttribute="bottom" id="JyT-jh-noL"/>
                                 <constraint firstItem="qDW-FV-f5H" firstAttribute="top" secondItem="yRp-FU-VnO" secondAttribute="bottom" id="Ksh-2I-JmX"/>
                                 <constraint firstItem="yRp-FU-VnO" firstAttribute="leading" secondItem="EcN-8q-dQ0" secondAttribute="leading" id="LBS-K5-3sP"/>
-                                <constraint firstAttribute="bottom" secondItem="lvV-iL-ezs" secondAttribute="bottom" id="S3e-Z7-glj"/>
+                                <constraint firstAttribute="bottom" secondItem="lvV-iL-ezs" secondAttribute="bottom" constant="66" id="S3e-Z7-glj"/>
                                 <constraint firstAttribute="trailing" secondItem="qDW-FV-f5H" secondAttribute="trailing" id="p78-pi-q0x"/>
                                 <constraint firstAttribute="trailing" secondItem="lvV-iL-ezs" secondAttribute="trailing" id="t7C-gd-206"/>
                             </constraints>

@@ -77,6 +77,8 @@ class ScheduleManager: NSObject {
 			schedulePet.id = SchedulePet.generateId(business: business, pet: pet)
 			schedulePet.petId = pet.id
 			schedulePet.businessId = business.id
+			schedulePet.name = pet.name
+			schedulePet.photoThumbUrl = pet.photoThumbUrl
 			addPetToSchedule(schedulePet: schedulePet, schedule: schedule)
 			return
 		}
