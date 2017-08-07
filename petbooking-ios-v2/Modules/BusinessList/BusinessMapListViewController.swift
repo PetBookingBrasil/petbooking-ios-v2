@@ -60,6 +60,10 @@ class BusinessMapListViewController: UIViewController, BusinessListViewControlle
 			mapView.addAnnotation(annotation)
 			
 		}
+	}
+	
+	func removedFromFavorites(business: Business) {
+		
 		
 	}
 

@@ -52,6 +52,7 @@ class BusinessListViewControllerInteractor: BusinessListViewControllerInteractor
 			PetbookingAPI.sharedInstance.removeBusinessFromFavorite(business: business, completion: { (success, message) in
 				
 				if success {
+					self.presenter?.removedFromFavorites(business: business)
 					business.favoriteId = 0
 				}
 				

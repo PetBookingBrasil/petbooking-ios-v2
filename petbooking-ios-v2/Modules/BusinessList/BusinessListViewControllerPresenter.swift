@@ -44,4 +44,9 @@ class BusinessListViewControllerPresenter: BusinessListViewControllerPresenterPr
 	func showBusinessPage(business:Business) {
 		router.showBusinessPage(business: business)
 	}
+	
+	func removedFromFavorites(business: Business) {
+		
+		view?.removedFromFavorites(business: business)
+	}
 }

@@ -107,6 +107,20 @@ class BusinessListViewControllerViewController: UIViewController, BusinessListVi
 		
 	}
 	
+	func removedFromFavorites(business: Business) {
+		
+		if businessListType! == .favorites {
+			
+			guard let index = self.businesses.index(of: business) else {
+				return
+			}
+			self.businesses.remove(at: index)
+			self.tableView.reloadData()
+			
+		}
+		
+	}
+	
 }
 
 extension BusinessListViewControllerViewController: CLLocationManagerDelegate {

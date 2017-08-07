@@ -29,6 +29,7 @@ protocol BusinessListViewControllerPresenterProtocol: class {
 	func addToFavorites(business: Business)
 	
 	func showBusinessPage(business:Business)
+	
 }
 
 //MARK: Interactor -
@@ -37,6 +38,8 @@ protocol BusinessListViewControllerInteractorOutputProtocol: class {
 	/* Interactor -> Presenter */
 	
 	func updateBusinessList(businessList:BusinessList)
+	
+	func removedFromFavorites(business: Business)
 	
 }
 
@@ -52,6 +55,7 @@ protocol BusinessListViewControllerInteractorInputProtocol: class {
 	
 	func addToFavorites(business: Business)
 	
+	
 	/* Presenter -> Interactor */
 }
 
@@ -63,6 +67,8 @@ protocol BusinessListViewControllerViewProtocol: class {
 	var businessListType:BusinessListType? {get set}
 	
 	func updateBusinessList(businessList:BusinessList)
+	
+	func removedFromFavorites(business: Business)
 	
 	/* Presenter -> ViewController */
 }
