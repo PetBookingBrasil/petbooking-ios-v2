@@ -12,8 +12,10 @@ class CartTableSubServiceTableViewCell: UITableViewCell {
 	
 	@IBOutlet weak var nameLabel: UILabel!
 	@IBOutlet weak var priceLabel: UILabel!
-
-	var service:SubService = SubService()
+	weak var delegate:CartTableSubServiceTableViewCellDelegate?
+	
+	var service:ScheduleService = ScheduleService()
+	var subService:ScheduleSubService = ScheduleSubService()
 	
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,7 +29,19 @@ class CartTableSubServiceTableViewCell: UITableViewCell {
     }
 	
 	@IBAction func remove(_ sender: Any) {
+		
+		ScheduleManager.sharedInstance.deleteSubService(scheduleSubService: subService, scheduleService: service)
+		
+		delegate?.didRemoveService(subService: subService)
 	}
 	
     
 }
+
+protocol CartTableSubServiceTableViewCellDelegate: class {
+	
+	
+	func didRemoveService(subService:ScheduleSubService)
+	
+}
+

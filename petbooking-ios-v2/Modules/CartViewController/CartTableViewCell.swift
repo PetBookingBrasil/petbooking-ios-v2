@@ -21,7 +21,10 @@ class CartTableViewCell: UITableViewCell {
 	@IBOutlet weak var totalPriceLabel: UILabel!
 	@IBOutlet weak var professionalNameLabel: UILabel!
 
+	var service:ScheduleService = ScheduleService()
 	var subServices = List<ScheduleSubService>()
+	
+	weak var delegate:CartTableViewCellDelegate?
 	
 	@IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
     override func awakeFromNib() {
@@ -45,10 +48,18 @@ class CartTableViewCell: UITableViewCell {
 	func reloadTable() {
 		tableView.reloadData()
 	}
+	
+	
+	@IBAction func remove(_ sender: Any) {
+		
+		ScheduleManager.sharedInstance.deleteService(scheduleService: service)
+		
+		delegate?.update(service: service)
+	}
     
 }
 
-extension CartTableViewCell : UITableViewDelegate, UITableViewDataSource {
+extension CartTableViewCell : UITableViewDelegate, UITableViewDataSource, CartTableSubServiceTableViewCellDelegate {
 	
 	
 	func numberOfSections(in tableView: UITableView) -> Int {
@@ -70,13 +81,11 @@ extension CartTableViewCell : UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		
 		let cell = tableView.dequeueReusableCell(withIdentifier: "CartTableSubServiceTableViewCell") as! CartTableSubServiceTableViewCell
-		//cell.delegate = self
+		cell.delegate = self
 		let subService = subServices[indexPath.row]
-		let service:SubService! = SubService()
-		service.id = subService.subServiceId
-		service.name = subService.name
 		
 		cell.service = service
+		cell.subService = subService
 		
 		cell.nameLabel.text = subService.name
 		cell.priceLabel.text = String(format: "R$ %.2f", subService.price)
@@ -94,5 +103,20 @@ extension CartTableViewCell : UITableViewDelegate, UITableViewDataSource {
 		return label
 		
 	}
+	
+	func didRemoveService(subService: ScheduleSubService) {
+		
+		tableView.reloadData()
+		
+		delegate?.update(service: service)
+		
+	}
+	
+}
+
+protocol CartTableViewCellDelegate: class {
+	
+	
+	func update(service:ScheduleService)
 	
 }

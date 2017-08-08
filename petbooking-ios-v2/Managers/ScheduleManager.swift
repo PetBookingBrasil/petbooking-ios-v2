@@ -262,7 +262,7 @@ class ScheduleManager: NSObject {
 		deleteService(scheduleService: scheduleService)
 	}
 	
-	private func deleteService(scheduleService:ScheduleService) {
+	func deleteService(scheduleService:ScheduleService) {
 		
 		do {
 			let realm = try Realm()
@@ -354,7 +354,7 @@ class ScheduleManager: NSObject {
 		deleteSubService(scheduleSubService: scheduleSubService, scheduleService: scheduleService)
 	}
 	
-	private func deleteSubService(scheduleSubService:ScheduleSubService, scheduleService:ScheduleService)  {
+	func deleteSubService(scheduleSubService:ScheduleSubService, scheduleService:ScheduleService)  {
 		
 		guard let index = scheduleService.services.index(of: scheduleSubService) else{
 			return

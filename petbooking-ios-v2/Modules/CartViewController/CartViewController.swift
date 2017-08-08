@@ -80,6 +80,10 @@ class CartViewController: UIViewController, CartViewProtocol {
 			return
 		}
 		
+		if services.count == 0 {
+			navigationController?.popViewController(animated: true)
+		}
+		
 		var total = 0.0
 		for service in services {
 			
@@ -98,7 +102,7 @@ class CartViewController: UIViewController, CartViewProtocol {
 	
 }
 
-extension CartViewController: UITableViewDelegate, UITableViewDataSource{
+extension CartViewController: UITableViewDelegate, UITableViewDataSource, CartTableViewCellDelegate {
 	
 	func numberOfSections(in tableView: UITableView) -> Int {
 		
@@ -135,7 +139,7 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource{
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		
 		let cell = tableView.dequeueReusableCell(withIdentifier: "CartTableViewCell") as! CartTableViewCell
-		
+		cell.delegate = self
 		let schedule = ScheduleManager.sharedInstance.getSchedule(business: business)
 		
 		let schedulePet = schedule.petsSchedule[indexPath.section]
@@ -146,6 +150,7 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource{
 		
 		let service = scheduleServices[indexPath.row]
 		
+		cell.service = service
 		cell.subServices = service.services
 		cell.tableViewHeightConstraint.constant = CGFloat(service.services.count * 30 + 20)
 		cell.reloadTable()
@@ -198,6 +203,14 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource{
 		}
 		
 		return headerView
+	}
+	
+	func update(service: ScheduleService) {
+		
+		tableView.reloadData()
+		
+		calculateTotal()
+		
 	}
 	
 }
