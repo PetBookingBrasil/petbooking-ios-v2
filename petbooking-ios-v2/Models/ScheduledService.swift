@@ -33,6 +33,7 @@ class ScheduledService: MTLModel, MTLJSONSerializing {
 	
 	dynamic var professionalName = ""
 	dynamic var professionalId = 0
+	dynamic var professionalPicture = ""
 	
 	dynamic var notes:String = ""
 	
@@ -52,6 +53,7 @@ class ScheduledService: MTLModel, MTLJSONSerializing {
 			"duration": "duration",
 			"professionalName": "employment_name",
 			"professionalId": "employment_id",
+			"professionalPicture": "employment_avatar.thumb.url",
 			"paid": "paid",
 			"businessId": "business_id",
 			"businessName": "business_name",

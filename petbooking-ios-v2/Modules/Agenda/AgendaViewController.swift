@@ -23,6 +23,8 @@ class AgendaViewController: UIViewController, AgendaViewProtocol {
 	var scheduledServices:[ScheduledService]! = [ScheduledService]()
 	
 	var dateFormatter = DateFormatter()
+	
+	var currentDate = Date()
 
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +33,7 @@ class AgendaViewController: UIViewController, AgendaViewProtocol {
 		
 		dateCollectionView.register(UINib(nibName: "AgendaCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AgendaCollectionViewCell")
 		
-		let cellSize = CGSize(width:view.frame.width , height:130)
+		let cellSize = CGSize(width:Device.TheCurrentDeviceWidth , height:130)
 		let layout = UICollectionViewFlowLayout()
 		layout.itemSize = cellSize
 		layout.scrollDirection = .horizontal
@@ -54,9 +56,20 @@ class AgendaViewController: UIViewController, AgendaViewProtocol {
 		servicesTableView.register(UINib(nibName: "AgendaTableViewCell", bundle: nil), forCellReuseIdentifier: "AgendaTableViewCell")
 		servicesTableView.estimatedRowHeight = 2000
 		
+		getScheduledServices()
+		
+    }
+	
+	override func viewWillDisappear(_ animated: Bool) {
+		super.viewWillDisappear(animated)
+		
+		navigationController?.navigationBar.barTintColor = UIColor(hex: "E4002B")
+	}
+	
+	func getScheduledServices() {
 		
 		PetbookingAPI.sharedInstance.getScheduleList(page: 1) { (scheduledServiceList, message) in
-
+			
 			guard let scheduledServiceList = scheduledServiceList else {
 				return
 			}
@@ -66,22 +79,18 @@ class AgendaViewController: UIViewController, AgendaViewProtocol {
 			var index = -1
 			let today = Date()
 			for scheduledDate in scheduledServiceList.scheduledDates {
-
+				
 				index += 1
 				if NSCalendar.current.compare(scheduledDate.date, to: today, toGranularity: .day) != .orderedAscending {
 					break
 				}
 				
 			}
-			
-			self.dateCollectionView.scrollToItem(at: IndexPath(item: index, section: 0), at: .left, animated: false)
+			if index >= 0 {
+				self.dateCollectionView.scrollToItem(at: IndexPath(item: index, section: 0), at: .left, animated: false)
+			}
 		}
-    }
-	
-	override func viewWillDisappear(_ animated: Bool) {
-		super.viewWillDisappear(animated)
 		
-		navigationController?.navigationBar.barTintColor = UIColor(hex: "E4002B")
 	}
 
 }
@@ -109,6 +118,7 @@ extension AgendaViewController: UICollectionViewDelegate, UICollectionViewDataSo
 		let scheduledDate = scheduledServiceList.scheduledDates[indexPath.item]
 		
 		let today = Date()
+		currentDate = scheduledDate.date
 		if NSCalendar.current.compare(scheduledDate.date, to: today, toGranularity: .day) == .orderedAscending {
 			
 			dateCell.contentView.backgroundColor = UIColor(hex: "9A9A9A")
@@ -235,7 +245,7 @@ extension AgendaViewController: UICollectionViewDelegate, UICollectionViewDataSo
 	}
 }
 
-extension AgendaViewController: UITableViewDelegate, UITableViewDataSource {
+extension AgendaViewController: UITableViewDelegate, UITableViewDataSource, AgendaTableViewCellDelegate, AlertCancelScheduledDelegate {
 	
 	func numberOfSections(in tableView: UITableView) -> Int {
 		
@@ -265,9 +275,20 @@ extension AgendaViewController: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		
 		let cell = tableView.dequeueReusableCell(withIdentifier: "AgendaTableViewCell") as! AgendaTableViewCell
-		//cell.delegate = self
+		cell.delegate = self
+		
+		let today = Date()
+		if NSCalendar.current.compare(currentDate, to: today, toGranularity: .day) != .orderedDescending {
+			
+			cell.cancelButton.isHidden = true
+			
+		} else {
+			cell.cancelButton.isHidden = false
+		}
+		
 		let service = scheduledServices[indexPath.section]
 
+		cell.scheduledService = service
 		cell.subServices = service.subServices
 		cell.reloadTable()
 		
@@ -278,8 +299,34 @@ extension AgendaViewController: UITableViewDelegate, UITableViewDataSource {
 		cell.professionalNameLabel.text = service.professionalName
 		cell.timeLabel.text = "\(service.startTime) - \(service.endTime)"
 		
+		if let url = URL(string: service.professionalPicture) {
+			cell.professionalImageView.pin_setImage(from: url)
+		}
+		
 		return cell
 		
 	}
+	
+	func showCancelScheduledServiceAlert(scheduledService: ScheduledService) {
+		
+		let alertVC = AlertCancelScheduledViewController()
+		alertVC.delegate = self
+		alertVC.scheduledService = scheduledService
+		alertVC.modalPresentationStyle = .overCurrentContext
+		alertVC.modalTransitionStyle = .crossDissolve
+		self.present(alertVC, animated: true, completion: nil)
+		
+
+	}
+	
+	func cancelScheduledService(scheduledService: ScheduledService) {
+		
+				PetbookingAPI.sharedInstance.cancelScheduledService(scheduledService: scheduledService) { (item, message) in
+		
+					self.getScheduledServices()
+				}
+		
+	}
+	
 	
 }

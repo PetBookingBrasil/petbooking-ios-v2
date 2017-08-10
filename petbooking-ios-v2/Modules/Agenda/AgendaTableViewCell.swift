@@ -18,8 +18,12 @@ class AgendaTableViewCell: UITableViewCell {
 	@IBOutlet weak var professionalImageView: UIImageView!
 	
 	@IBOutlet weak var tableView: UITableView!
+	@IBOutlet weak var cancelButton: UIButton!
 	
 	var subServices:[SubService] = [SubService]()
+	var scheduledService:ScheduledService! = ScheduledService()
+	
+	weak var delegate:AgendaTableViewCellDelegate?
 	
 	
     override func awakeFromNib() {
@@ -28,6 +32,8 @@ class AgendaTableViewCell: UITableViewCell {
 			tableView.register(UINib(nibName: "AgendaSubServiceTableViewCell", bundle: nil), forCellReuseIdentifier: "AgendaSubServiceTableViewCell")
 			tableView.delegate = self
 			tableView.dataSource = self
+			cancelButton.round()
+			professionalImageView.round()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -39,6 +45,13 @@ class AgendaTableViewCell: UITableViewCell {
 	func reloadTable() {
 		tableView.reloadData()
 	}
+	
+	@IBAction func cancel(_ sender: Any) {
+		
+		delegate?.showCancelScheduledServiceAlert(scheduledService: scheduledService)
+		
+	}
+	
     
 }
 
@@ -82,5 +95,13 @@ extension AgendaTableViewCell : UITableViewDelegate, UITableViewDataSource {
 		return label
 		
 	}
+	
+}
+
+protocol AgendaTableViewCellDelegate: class {
+	
+	
+	func showCancelScheduledServiceAlert(scheduledService:ScheduledService)
+	
 	
 }
