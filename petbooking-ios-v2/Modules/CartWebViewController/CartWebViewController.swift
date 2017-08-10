@@ -56,7 +56,18 @@ extension CartWebViewController: WKScriptMessageHandler{
 	
 	func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
 		
-		print("ryniere \(message.body)")
+		guard let result = message.body as? String else {
+			return
+		}
+		
+		if result == "ok" {
+			let when = DispatchTime.now() + 2 // change 2 to desired number of seconds
+			DispatchQueue.main.asyncAfter(deadline: when) {
+				self.navigationController?.popToRootViewController(animated: true)
+				NotificationCenter.default.post(name: .goToAgenda, object: nil)
+			}
+			
+		}
 		
 	}
 	

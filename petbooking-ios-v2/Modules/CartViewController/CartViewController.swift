@@ -9,6 +9,7 @@
 //
 
 import UIKit
+import SideMenu
 
 class CartViewController: UIViewController, CartViewProtocol {
 

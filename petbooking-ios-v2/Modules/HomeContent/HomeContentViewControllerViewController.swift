@@ -70,12 +70,12 @@ class HomeContentViewControllerViewController: UIViewController, HomeContentView
 			}
 		}
 		
+		NotificationCenter.default.addObserver(self, selector: #selector(HomeContentViewControllerViewController.goToAgenda), name: .goToAgenda, object: nil)
+		
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
-		
-		
 		
 		guard let token = UserManager.sharedInstance.getAPNSToken() else {
 			return
@@ -88,6 +88,10 @@ class HomeContentViewControllerViewController: UIViewController, HomeContentView
 		
 	}
 	
+	
+	func goToAgenda() {
+		self.navigationController?.pushViewController(AgendaRouter.createModule(), animated: true)
+	}
 	func showLeftMenu() {
 		present(SideMenuManager.menuLeftNavigationController!, animated: true, completion: nil)
 	}

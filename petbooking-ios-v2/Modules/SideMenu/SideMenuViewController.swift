@@ -32,6 +32,8 @@ class SideMenuViewController: UIViewController, SideMenuViewProtocol {
 		
 		self.profileImageView.round()
 		
+		
+		
     }
 	
 	func setupUserData() {
@@ -58,6 +60,8 @@ class SideMenuViewController: UIViewController, SideMenuViewProtocol {
 	@IBAction func didTapProfileButton(_ sender: Any) {
 		presenter?.didTapProfile()
 	}
+	
+
 	
 	
 }
@@ -143,4 +147,8 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
 	}
 	
 	
+}
+
+extension Notification.Name {
+	static let goToAgenda = Notification.Name("goToAgenda")
 }
