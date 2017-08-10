@@ -50,4 +50,8 @@ class SideMenuRouter: SideMenuWireframeProtocol {
 	func showFavorites() {
 		self.viewController?.navigationController?.pushViewController(BusinessListViewControllerRouter.createModule(businessListType: .favorites), animated: true)
 	}
+	
+	func showAgenda() {
+		self.viewController?.navigationController?.pushViewController(AgendaRouter.createModule(), animated: true)
+	}
 }

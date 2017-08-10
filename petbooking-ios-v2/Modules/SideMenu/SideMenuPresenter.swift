@@ -42,5 +42,9 @@ class SideMenuPresenter: SideMenuPresenterProtocol {
 	func didTapFavorites() {
 		router.showFavorites()
 	}
+	
+	func didTapAgenda() {
+		router.showAgenda()
+	}
 
 }

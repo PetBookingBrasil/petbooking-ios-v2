@@ -121,6 +121,7 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
 		case .search:
 					break
 		case .agenda:
+			presenter?.didTapAgenda()
 			break
 		case .payments:
 			break

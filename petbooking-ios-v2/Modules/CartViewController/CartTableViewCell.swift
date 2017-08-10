@@ -31,7 +31,7 @@ class CartTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
 			
-			noteTextView.setBorder(width: 1, color: UIColor(hex: "515151"))
+			noteTextView.setBorder(width: 1, color: UIColor(hex: "D8D8D8"))
 			editButton.round()
 			
 			tableView.register(UINib(nibName: "CartTableSubServiceTableViewCell", bundle: nil), forCellReuseIdentifier: "CartTableSubServiceTableViewCell")
