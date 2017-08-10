@@ -100,6 +100,39 @@ extension AgendaViewController: UICollectionViewDelegate, UICollectionViewDataSo
 		}
 	}
 	
+	func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+		
+		guard let dateCell = cell as? AgendaCollectionViewCell else {
+			return
+		}
+		
+		let scheduledDate = scheduledServiceList.scheduledDates[indexPath.item]
+		
+		let today = Date()
+		if NSCalendar.current.compare(scheduledDate.date, to: today, toGranularity: .day) == .orderedAscending {
+			
+			dateCell.contentView.backgroundColor = UIColor(hex: "9A9A9A")
+			dateCell.dayView.setBorder(width: 2, color: .white)
+			dateCell.dayView.backgroundColor = .clear
+			dateCell.dayLabel.textColor = .white
+			navigationController?.navigationBar.barTintColor = UIColor(hex: "9A9A9A")
+			
+		} else {
+			dateCell.contentView.backgroundColor = UIColor(hex: "E4002B")
+			dateCell.dayView.setBorder(width: 0, color: .white)
+			dateCell.dayView.backgroundColor = .white
+			dateCell.dayLabel.textColor = UIColor(hex: "E4002B")
+			navigationController?.navigationBar.barTintColor = UIColor(hex: "E4002B")
+		}
+		
+		scheduledPets = scheduledDate.scheduledPets
+		petsCollectionView.reloadData()
+		petsCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .right)
+		scheduledServices = scheduledPets[0].services
+		servicesTableView.reloadData()
+		
+	}
+	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		
 		if collectionView == petsCollectionView {
@@ -142,31 +175,9 @@ extension AgendaViewController: UICollectionViewDelegate, UICollectionViewDataSo
 		} else {
 			cell.goFowardButton.isHidden = false
 		}
-		
 		let scheduledDate = scheduledServiceList.scheduledDates[indexPath.item]
 		
-		let today = Date()
-		if NSCalendar.current.compare(scheduledDate.date, to: today, toGranularity: .day) != .orderedDescending {
-			
-			cell.contentView.backgroundColor = UIColor(hex: "9A9A9A")
-			cell.dayView.setBorder(width: 2, color: .white)
-			cell.dayView.backgroundColor = .clear
-			cell.dayLabel.textColor = .white
-			navigationController?.navigationBar.barTintColor = UIColor(hex: "9A9A9A")
-			
-		} else {
-			cell.contentView.backgroundColor = UIColor(hex: "E4002B")
-			cell.dayView.setBorder(width: 0, color: .white)
-			cell.dayView.backgroundColor = .white
-			cell.dayLabel.textColor = UIColor(hex: "E4002B")
-			navigationController?.navigationBar.barTintColor = UIColor(hex: "E4002B")
-		}
 		
-		scheduledPets = scheduledDate.scheduledPets
-		petsCollectionView.reloadData()
-		petsCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .right)
-		scheduledServices = scheduledPets[0].services
-		servicesTableView.reloadData()
 		
 		dateFormatter.dateFormat = "dd"
 		cell.dayLabel.text = dateFormatter.string(from: scheduledDate.date)
