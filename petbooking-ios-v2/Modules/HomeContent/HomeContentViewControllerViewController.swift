@@ -77,15 +77,6 @@ class HomeContentViewControllerViewController: UIViewController, HomeContentView
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		
-		guard let token = UserManager.sharedInstance.getAPNSToken() else {
-			return
-		}
-		let alert = UIAlertController(title: "Push Token", message: "\(token.token)", preferredStyle: UIAlertControllerStyle.alert)
-		alert.addAction(UIAlertAction(title: "Copiar", style: .default, handler: { (alert) in
-			UIPasteboard.general.string = token.token
-		}))
-		self.present(alert, animated: true, completion: nil)
-		
 	}
 	
 	

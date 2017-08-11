@@ -152,7 +152,7 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 		
 		
 		
-		if !pet.birthday.isBlank {
+		if !pet.name.isBlank {
 			
 			if let url = URL(string: pet.photoUrl) {
 				profilePictureImageView.pin_setImage(from: url)
@@ -160,8 +160,10 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 			
 			petNameTextField.text = pet.name
 			
+			if !pet.birthday.isBlank {
 			let dateFormatter = DateFormatter()
 			birthdayTextField.text = dateFormatter.convertDateFormater(dateString: pet.birthday, fromFormat: "yyyy-MM-dd", toFormat: "dd/MM/yyyy")
+			}
 			
 			observationTextField.text = pet.petDescription
 			

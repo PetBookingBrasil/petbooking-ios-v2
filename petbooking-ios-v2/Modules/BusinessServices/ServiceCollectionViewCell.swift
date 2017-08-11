@@ -16,8 +16,10 @@ class ServiceCollectionViewCell: UICollectionViewCell {
 	override var isSelected: Bool {
 		didSet {
 			if isSelected {
+				pictureImageView.alpha = 1
 				pictureImageView.dropShadow()
 			} else {
+				pictureImageView.alpha = 0.5
 				pictureImageView.removeShadow()
 			}
 		}
