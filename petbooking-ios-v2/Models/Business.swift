@@ -30,6 +30,11 @@ class Business: MTLModel, MTLJSONSerializing {
 	dynamic var businessDescription = ""
 	dynamic var state = ""
 	dynamic var website = ""
+	dynamic var facebook = ""
+	dynamic var twitter = ""
+	dynamic var googleplus = ""
+	dynamic var instagram = ""
+	dynamic var snapchat = ""
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
 		return [
@@ -50,10 +55,15 @@ class Business: MTLModel, MTLJSONSerializing {
 			"city": "attributes.city",
 			"businessDescription": "attributes.businessDescription",
 			"state": "attributes.state",
-			"website": "attributes.website"
+			"website": "attributes.website",
+			"facebook": "attributes.facebook_fanpage",
+			"twitter": "attributes.twitter_profile",
+			"googleplus": "attributes.googleplus_profile",
+			"instagram": "attributes.instagram",
+			"snapchat": "attributes.snapchat"
 		]
 	}
-	
+		
 	class func distanceJSONTransformer() -> ValueTransformer {
 		let _forwardBlock: MTLValueTransformerBlock? = { (value, success, error) in
 			

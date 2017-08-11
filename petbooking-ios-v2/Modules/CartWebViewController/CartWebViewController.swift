@@ -29,6 +29,8 @@ class CartWebViewController: UIViewController, CartWebViewProtocol {
 	override func viewDidLoad() {
         super.viewDidLoad()
 		
+		title = "Pagamento"
+		
 		let configuration = WKWebViewConfiguration()
 		let controller = WKUserContentController()
 		controller.add(self, name: "observe")

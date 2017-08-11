@@ -160,6 +160,11 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource, CartTa
 		cell.professionalNameLabel.text = service.professionalName
 		cell.priceLabel.text =  String(format: "R$ %.2f", service.price)
 		
+		if let url = URL(string: service.professionalPicture) {
+			cell.professionalPictureImageView.pin_setImage(from: url)
+		}
+
+		
 		var totalPrice = service.price
 		
 		for subservice in service.services {

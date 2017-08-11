@@ -37,6 +37,7 @@ class CartTableViewCell: UITableViewCell {
 			tableView.register(UINib(nibName: "CartTableSubServiceTableViewCell", bundle: nil), forCellReuseIdentifier: "CartTableSubServiceTableViewCell")
 			tableView.delegate = self
 			tableView.dataSource = self
+			professionalPictureImageView.round()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -39,9 +39,9 @@ class Professional: MTLModel, MTLJSONSerializing {
 			"nickname": "attributes.nickname",
 			"phone": "attributes.phone",
 			"schedule":"attributes.available_slots",
-			"photoUrl": "attributes.photo.url",
-			"photoMediumUrl": "attributes.photo.medium.url",
-			"photoThumbUrl": "attributes.photo.thumb.url"
+			"photoUrl": "attributes.avatar.avatar.url",
+			"photoMediumUrl": "attributes.avatar.avatar.medium.url",
+			"photoThumbUrl": "attributes.avatar.avatar.thumb.url"
 
 		]
 	}

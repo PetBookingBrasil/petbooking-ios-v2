@@ -222,6 +222,8 @@
 		41E7E2F31EC27833002C0A55 /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 41E7E2E91EC27833002C0A55 /* OpenSans-SemiboldItalic.ttf */; };
 		41F1A0491F3D182E00CBC32D /* SelectPhotoSourcePopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41F1A0471F3D182E00CBC32D /* SelectPhotoSourcePopupViewController.xib */; };
 		41F1A04A1F3D182E00CBC32D /* SelectPhotoSourcePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F1A0481F3D182E00CBC32D /* SelectPhotoSourcePopupViewController.swift */; };
+		41F1A04D1F3D4F1D00CBC32D /* SocialNetworkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F1A04B1F3D4F1D00CBC32D /* SocialNetworkCollectionViewCell.swift */; };
+		41F1A04E1F3D4F1D00CBC32D /* SocialNetworkCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41F1A04C1F3D4F1D00CBC32D /* SocialNetworkCollectionViewCell.xib */; };
 		41F47DB41F144BD80004BC4E /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F47DB31F144BD80004BC4E /* Favorite.swift */; };
 		41FB2FF01F3CA8A900DF57B1 /* AlertCancelScheduledViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FB2FEE1F3CA8A900DF57B1 /* AlertCancelScheduledViewController.swift */; };
 		41FB2FF11F3CA8A900DF57B1 /* AlertCancelScheduledViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41FB2FEF1F3CA8A900DF57B1 /* AlertCancelScheduledViewController.xib */; };
@@ -468,6 +470,8 @@
 		41E7E2E91EC27833002C0A55 /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; };
 		41F1A0471F3D182E00CBC32D /* SelectPhotoSourcePopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectPhotoSourcePopupViewController.xib; sourceTree = "<group>"; };
 		41F1A0481F3D182E00CBC32D /* SelectPhotoSourcePopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectPhotoSourcePopupViewController.swift; sourceTree = "<group>"; };
+		41F1A04B1F3D4F1D00CBC32D /* SocialNetworkCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialNetworkCollectionViewCell.swift; sourceTree = "<group>"; };
+		41F1A04C1F3D4F1D00CBC32D /* SocialNetworkCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SocialNetworkCollectionViewCell.xib; sourceTree = "<group>"; };
 		41F47DB31F144BD80004BC4E /* Favorite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
 		41FB2FEE1F3CA8A900DF57B1 /* AlertCancelScheduledViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertCancelScheduledViewController.swift; sourceTree = "<group>"; };
 		41FB2FEF1F3CA8A900DF57B1 /* AlertCancelScheduledViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlertCancelScheduledViewController.xib; sourceTree = "<group>"; };
@@ -498,6 +502,8 @@
 				4113B2C51F3414CB007DC89F /* BusinessInformationRouter.swift */,
 				4113B2C61F3414CB007DC89F /* BusinessInformationViewController.swift */,
 				4113B2C71F3414CB007DC89F /* BusinessInformationViewController.xib */,
+				41F1A04B1F3D4F1D00CBC32D /* SocialNetworkCollectionViewCell.swift */,
+				41F1A04C1F3D4F1D00CBC32D /* SocialNetworkCollectionViewCell.xib */,
 			);
 			path = BusinessInformation;
 			sourceTree = "<group>";
@@ -1099,6 +1105,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41F1A04E1F3D4F1D00CBC32D /* SocialNetworkCollectionViewCell.xib in Resources */,
 				411C84C81F3BE82E008C6E0A /* AgendaSubServiceTableViewCell.xib in Resources */,
 				419C892C1F33A95C00BDBE8E /* CartTableViewCell.xib in Resources */,
 				41E7E2EA1EC27833002C0A55 /* OpenSans-Bold.ttf in Resources */,
@@ -1246,6 +1253,7 @@
 				411C84B71F3A8EF0008C6E0A /* AgendaProtocols.swift in Sources */,
 				415F73D61EBAA033000D9B14 /* ViaCepAddress.swift in Sources */,
 				419C89191F33A18700BDBE8E /* CartWebViewController.swift in Sources */,
+				41F1A04D1F3D4F1D00CBC32D /* SocialNetworkCollectionViewCell.swift in Sources */,
 				4120ED2A1EB4F136009D35B0 /* ForgotPasswordRouter.swift in Sources */,
 				414862971F2E9F1900F210D8 /* JTCalendarMenuView.m in Sources */,
 				419C89181F33A18700BDBE8E /* CartWebRouter.swift in Sources */,

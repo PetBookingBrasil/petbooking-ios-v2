@@ -12,7 +12,7 @@ import UIKit
 import MapKit
 
 class BusinessInformationViewController: UIViewController, BusinessInformationViewProtocol {
-
+	
 	
 	@IBOutlet weak var favoriteButton: UIButton!
 	@IBOutlet weak var businessNameLabel: UILabel!
@@ -21,21 +21,28 @@ class BusinessInformationViewController: UIViewController, BusinessInformationVi
 	@IBOutlet weak var websiteLabel: UILabel!
 	@IBOutlet weak var addressLabel: UILabel!
 	@IBOutlet weak var distanceLabel: UILabel!
-	@IBOutlet weak var businessImageView: UIView!
+	@IBOutlet weak var businessImageView: UIImageView!
 	@IBOutlet weak var mapView: MKMapView!
 	@IBOutlet weak var distanceView: UIView!
+	@IBOutlet weak var socialNetworksCollectionView: UICollectionView!
 	
 	var business:Business! = Business()
 	
+	var socialNetworks:[SocialNetworkEnum] = [SocialNetworkEnum]()
+	
 	var presenter: BusinessInformationPresenterProtocol?
-
+	
 	override func viewDidLoad() {
-        super.viewDidLoad()
+		super.viewDidLoad()
 		
 		
-			businessNameLabel.text = business.name
-			descriptionLabel.text = business.businessDescription
-			phoneNumberLabel.text = business.phone
+		if let url = URL(string: business.photoUrl) {
+			businessImageView.pin_setImage(from: url)
+		}
+		
+		businessNameLabel.text = business.name
+		descriptionLabel.text = business.businessDescription
+		phoneNumberLabel.text = business.phone
 		distanceLabel.text = "\(business.distance)km"
 		distanceLabel.sizeToFit()
 		distanceView.round()
@@ -51,8 +58,76 @@ class BusinessInformationViewController: UIViewController, BusinessInformationVi
 		
 		annotation.coordinate = CLLocationCoordinate2D(latitude: business.location.latitude, longitude: business.location.longitude)
 		mapView.addAnnotation(annotation)
-    }
-
+		
+		
+		socialNetworksCollectionView.register(UINib(nibName: "SocialNetworkCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "SocialNetworkCollectionViewCell")
+		
+		let cellSize = CGSize(width:20 , height:20)
+		let layout = UICollectionViewFlowLayout()
+		layout.itemSize = cellSize
+		layout.scrollDirection = .horizontal
+		layout.minimumLineSpacing = 5
+		layout.minimumInteritemSpacing = 0
+		layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+		socialNetworksCollectionView.collectionViewLayout = layout
+		
+		let imageName = business.isFavorited() ? "heartFilledIcon" : "heartIcon"
+		favoriteButton.setBackgroundImage(UIImage(named:imageName), for: .normal)
+		
+		if !business.facebook.isBlank {
+			socialNetworks.append(.facebook)
+		}
+		
+		if !business.instagram.isBlank {
+			socialNetworks.append(.instagram)
+		}
+		
+		if !business.twitter.isBlank {
+			socialNetworks.append(.twitter)
+		}
+		
+		if !business.googleplus.isBlank {
+			socialNetworks.append(.googleplus)
+		}
+		
+		if !business.snapchat.isBlank {
+			socialNetworks.append(.snapchat)
+		}
+		
+		socialNetworksCollectionView.reloadData()
+		
+	}
+	
+	@IBAction func addToFavorites(_ sender: Any) {
+		
+		let imageName = !business.isFavorited() ? "heartFilledIcon" : "heartIcon"
+		favoriteButton.setBackgroundImage(UIImage(named:imageName), for: .normal)
+		
+		if business.isFavorited() {
+			
+			PetbookingAPI.sharedInstance.removeBusinessFromFavorite(business: business, completion: { (success, message) in
+				
+				if success {
+					
+					self.business.favoriteId = 0
+				}
+				
+			})
+			
+		} else {
+			
+			PetbookingAPI.sharedInstance.addBusinessToFavorite(business: business) { (success, message) in
+				
+				if success {
+					//business.isFavorite = true
+				}
+				
+			}
+		}
+		
+	}
+	
+	
 }
 
 extension BusinessInformationViewController: MKMapViewDelegate {
@@ -76,6 +151,68 @@ extension BusinessInformationViewController: MKMapViewDelegate {
 		
 		return annotationView
 		
+		
+	}
+	
+}
+
+extension BusinessInformationViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+	
+	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+		return socialNetworks.count
+	}
+	
+	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+		
+		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SocialNetworkCollectionViewCell", for: indexPath) as! SocialNetworkCollectionViewCell
+		
+		let socialNetwork = socialNetworks[indexPath.item]
+		
+		cell.imageView.image = UIImage(named: socialNetwork.rawValue)
+		return cell
+	}
+	
+	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		
+		let socialNetwork = socialNetworks[indexPath.item]
+		
+		switch socialNetwork {
+		case .facebook:
+			if let url = URL(string: business.facebook) {
+				if UIApplication.shared.canOpenURL(url) {
+					UIApplication.shared.open(url, options: [:], completionHandler: nil)
+				}
+			}
+			break
+		case .instagram:
+			if let url = URL(string: business.instagram) {
+				if UIApplication.shared.canOpenURL(url) {
+					UIApplication.shared.open(url, options: [:], completionHandler: nil)
+				}
+			}
+			break
+		case .twitter:
+			if let url = URL(string: business.twitter) {
+				if UIApplication.shared.canOpenURL(url) {
+					UIApplication.shared.open(url, options: [:], completionHandler: nil)
+				}
+			}
+			break
+		case .googleplus:
+			if let url = URL(string: business.googleplus) {
+				if UIApplication.shared.canOpenURL(url) {
+					UIApplication.shared.open(url, options: [:], completionHandler: nil)
+				}
+			}
+			break
+		case .snapchat:
+			if let url = URL(string: business.snapchat) {
+				if UIApplication.shared.canOpenURL(url) {
+					UIApplication.shared.open(url, options: [:], completionHandler: nil)
+				}
+			}
+			break
+		}
 		
 	}
 	

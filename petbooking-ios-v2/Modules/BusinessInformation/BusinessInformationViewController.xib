@@ -21,7 +21,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BusinessInformationViewController" customModule="petbooking_ios_v2" customModuleProvider="target">
             <connections>
                 <outlet property="addressLabel" destination="VWd-Ze-AQZ" id="9sC-om-WaR"/>
-                <outlet property="businessImageView" destination="yda-qz-wlx" id="RSC-Xd-TRd"/>
+                <outlet property="businessImageView" destination="Wyw-oa-eaY" id="NwI-TO-Y38"/>
                 <outlet property="businessNameLabel" destination="eOi-lW-hPS" id="oez-eM-WL5"/>
                 <outlet property="descriptionLabel" destination="dek-ZM-SO8" id="Kgy-vd-Av6"/>
                 <outlet property="distanceLabel" destination="ma9-1n-uA0" id="0QC-HR-ij4"/>
@@ -29,6 +29,7 @@
                 <outlet property="favoriteButton" destination="agG-rA-hG3" id="J76-Ty-rJ4"/>
                 <outlet property="mapView" destination="BwU-ps-RPm" id="7u5-Lz-NLD"/>
                 <outlet property="phoneNumberLabel" destination="TY4-Yb-Xrw" id="B3A-VI-aOC"/>
+                <outlet property="socialNetworksCollectionView" destination="7qw-5h-6yw" id="bzJ-SA-ZkJ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="websiteLabel" destination="nv5-k5-4qw" id="pwl-Z6-dTr"/>
             </connections>
@@ -57,6 +58,9 @@
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="agG-rA-hG3">
                                     <rect key="frame" x="334" y="19" width="24" height="24"/>
                                     <state key="normal" backgroundImage="heartIcon"/>
+                                    <connections>
+                                        <action selector="addToFavorites:" destination="-1" eventType="touchUpInside" id="lQJ-ju-vqN"/>
+                                    </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eOi-lW-hPS">
                                     <rect key="frame" x="16" y="122" width="343" height="25"/>
@@ -89,7 +93,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="REDES SOCIAIS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iFq-Kt-5bo">
-                                    <rect key="frame" x="168.5" y="373" width="100" height="20"/>
+                                    <rect key="frame" x="168.5" y="373" width="99.5" height="19.5"/>
                                     <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="14"/>
                                     <color key="textColor" red="0.31764705879999999" green="0.31764705879999999" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -158,7 +162,7 @@
                                     <rect key="frame" x="307.5" y="687" width="51.5" height="20"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12km" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ma9-1n-uA0">
-                                            <rect key="frame" x="10" y="2.5" width="31.5" height="16.5"/>
+                                            <rect key="frame" x="10" y="2" width="31.5" height="16.5"/>
                                             <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="12"/>
                                             <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -179,6 +183,23 @@
                                         <constraint firstAttribute="height" constant="1" id="tbd-rY-EOd"/>
                                     </constraints>
                                 </view>
+                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="7qw-5h-6yw">
+                                    <rect key="frame" x="168.5" y="401" width="206.5" height="20"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="20" id="H0s-GN-JGm"/>
+                                    </constraints>
+                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vvB-iA-ceI">
+                                        <size key="itemSize" width="50" height="50"/>
+                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    </collectionViewFlowLayout>
+                                    <connections>
+                                        <outlet property="dataSource" destination="-1" id="Vws-6d-6As"/>
+                                        <outlet property="delegate" destination="-1" id="qfp-h7-c5H"/>
+                                    </connections>
+                                </collectionView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
@@ -187,6 +208,7 @@
                                 <constraint firstAttribute="trailing" secondItem="dek-ZM-SO8" secondAttribute="trailing" constant="16" id="0fF-sJ-PJE"/>
                                 <constraint firstItem="nv5-k5-4qw" firstAttribute="top" secondItem="rIV-TD-qf5" secondAttribute="bottom" constant="18" id="1Rf-4Z-VfB"/>
                                 <constraint firstItem="mdX-u6-XQ0" firstAttribute="top" secondItem="EFO-8A-CPi" secondAttribute="bottom" constant="15" id="2JW-GR-nbf"/>
+                                <constraint firstAttribute="trailing" secondItem="7qw-5h-6yw" secondAttribute="trailing" id="2yw-LJ-6qx"/>
                                 <constraint firstItem="VWd-Ze-AQZ" firstAttribute="leading" secondItem="mJ2-8G-ezY" secondAttribute="leading" constant="16" id="3mK-XF-dPt"/>
                                 <constraint firstItem="dwm-bK-Ee2" firstAttribute="leading" secondItem="mJ2-8G-ezY" secondAttribute="leading" constant="16" id="40F-Tp-7vP"/>
                                 <constraint firstItem="dek-ZM-SO8" firstAttribute="top" secondItem="c0r-s1-h3M" secondAttribute="bottom" constant="13" id="467-qM-buK"/>
@@ -220,6 +242,7 @@
                                 <constraint firstItem="c0r-s1-h3M" firstAttribute="leading" secondItem="mJ2-8G-ezY" secondAttribute="leading" constant="16" id="foB-2F-mys"/>
                                 <constraint firstItem="TY4-Yb-Xrw" firstAttribute="top" secondItem="mdX-u6-XQ0" secondAttribute="bottom" constant="8" id="ftQ-Pt-yG2"/>
                                 <constraint firstItem="VWd-Ze-AQZ" firstAttribute="top" secondItem="BwU-ps-RPm" secondAttribute="bottom" constant="18" id="g2U-FE-RaC"/>
+                                <constraint firstItem="7qw-5h-6yw" firstAttribute="leading" secondItem="iFq-Kt-5bo" secondAttribute="leading" id="haw-uQ-hgF"/>
                                 <constraint firstAttribute="trailing" secondItem="3c1-QL-anG" secondAttribute="trailing" constant="16" id="iFj-C4-sYG"/>
                                 <constraint firstItem="BwU-ps-RPm" firstAttribute="leading" secondItem="mJ2-8G-ezY" secondAttribute="leading" id="ivu-cE-y0m"/>
                                 <constraint firstItem="a7G-Za-Jqp" firstAttribute="top" secondItem="k3F-Ey-jGw" secondAttribute="bottom" constant="18" id="mgH-C8-iX7"/>
@@ -230,6 +253,7 @@
                                 <constraint firstItem="nv5-k5-4qw" firstAttribute="leading" secondItem="mJ2-8G-ezY" secondAttribute="leading" constant="16" id="uNr-AO-sce"/>
                                 <constraint firstAttribute="trailing" secondItem="BwU-ps-RPm" secondAttribute="trailing" id="uhl-vh-a4Y"/>
                                 <constraint firstItem="vzB-lW-H5I" firstAttribute="top" secondItem="BwU-ps-RPm" secondAttribute="bottom" constant="22" id="vNx-7n-zUZ"/>
+                                <constraint firstItem="7qw-5h-6yw" firstAttribute="top" secondItem="iFq-Kt-5bo" secondAttribute="bottom" constant="8.5" id="vsV-fz-W6K"/>
                                 <constraint firstAttribute="trailing" secondItem="agG-rA-hG3" secondAttribute="trailing" constant="17" id="wUX-bP-yAN"/>
                                 <constraint firstItem="Wyw-oa-eaY" firstAttribute="top" secondItem="mJ2-8G-ezY" secondAttribute="top" id="x23-ZN-XWV"/>
                                 <constraint firstItem="BwU-ps-RPm" firstAttribute="top" secondItem="a7G-Za-Jqp" secondAttribute="bottom" constant="18" id="xf1-T9-eqr"/>
