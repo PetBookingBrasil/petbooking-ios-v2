@@ -78,8 +78,6 @@
 		413715881EBE7D0300258C6F /* SelectPhotoSourcePopupPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413715821EBE7D0300258C6F /* SelectPhotoSourcePopupPresenter.swift */; };
 		413715891EBE7D0300258C6F /* SelectPhotoSourcePopupProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413715831EBE7D0300258C6F /* SelectPhotoSourcePopupProtocols.swift */; };
 		4137158A1EBE7D0300258C6F /* SelectPhotoSourcePopupRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413715841EBE7D0300258C6F /* SelectPhotoSourcePopupRouter.swift */; };
-		4137158B1EBE7D0300258C6F /* SelectPhotoSourcePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413715851EBE7D0300258C6F /* SelectPhotoSourcePopupViewController.swift */; };
-		4137158C1EBE7D0300258C6F /* SelectPhotoSourcePopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 413715861EBE7D0300258C6F /* SelectPhotoSourcePopupViewController.xib */; };
 		4137158F1EBEAFFA00258C6F /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4137158E1EBEAFFA00258C6F /* Device.swift */; };
 		413715931EBEB3B400258C6F /* MIBlurPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413715921EBEB3B400258C6F /* MIBlurPopup.swift */; };
 		413D9FA21F3816FC007ABBEE /* CartTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 413D9FA11F3816FC007ABBEE /* CartTableHeaderView.xib */; };
@@ -222,6 +220,8 @@
 		41E7E2F11EC27833002C0A55 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 41E7E2E71EC27833002C0A55 /* OpenSans-Regular.ttf */; };
 		41E7E2F21EC27833002C0A55 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 41E7E2E81EC27833002C0A55 /* OpenSans-Semibold.ttf */; };
 		41E7E2F31EC27833002C0A55 /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 41E7E2E91EC27833002C0A55 /* OpenSans-SemiboldItalic.ttf */; };
+		41F1A0491F3D182E00CBC32D /* SelectPhotoSourcePopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41F1A0471F3D182E00CBC32D /* SelectPhotoSourcePopupViewController.xib */; };
+		41F1A04A1F3D182E00CBC32D /* SelectPhotoSourcePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F1A0481F3D182E00CBC32D /* SelectPhotoSourcePopupViewController.swift */; };
 		41F47DB41F144BD80004BC4E /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F47DB31F144BD80004BC4E /* Favorite.swift */; };
 		41FB2FF01F3CA8A900DF57B1 /* AlertCancelScheduledViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FB2FEE1F3CA8A900DF57B1 /* AlertCancelScheduledViewController.swift */; };
 		41FB2FF11F3CA8A900DF57B1 /* AlertCancelScheduledViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41FB2FEF1F3CA8A900DF57B1 /* AlertCancelScheduledViewController.xib */; };
@@ -303,8 +303,6 @@
 		413715821EBE7D0300258C6F /* SelectPhotoSourcePopupPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectPhotoSourcePopupPresenter.swift; sourceTree = "<group>"; };
 		413715831EBE7D0300258C6F /* SelectPhotoSourcePopupProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectPhotoSourcePopupProtocols.swift; sourceTree = "<group>"; };
 		413715841EBE7D0300258C6F /* SelectPhotoSourcePopupRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectPhotoSourcePopupRouter.swift; sourceTree = "<group>"; };
-		413715851EBE7D0300258C6F /* SelectPhotoSourcePopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectPhotoSourcePopupViewController.swift; sourceTree = "<group>"; };
-		413715861EBE7D0300258C6F /* SelectPhotoSourcePopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectPhotoSourcePopupViewController.xib; sourceTree = "<group>"; };
 		4137158E1EBEAFFA00258C6F /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		413715921EBEB3B400258C6F /* MIBlurPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIBlurPopup.swift; sourceTree = "<group>"; };
 		413D9FA11F3816FC007ABBEE /* CartTableHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CartTableHeaderView.xib; sourceTree = "<group>"; };
@@ -468,6 +466,8 @@
 		41E7E2E71EC27833002C0A55 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		41E7E2E81EC27833002C0A55 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
 		41E7E2E91EC27833002C0A55 /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; };
+		41F1A0471F3D182E00CBC32D /* SelectPhotoSourcePopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectPhotoSourcePopupViewController.xib; sourceTree = "<group>"; };
+		41F1A0481F3D182E00CBC32D /* SelectPhotoSourcePopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectPhotoSourcePopupViewController.swift; sourceTree = "<group>"; };
 		41F47DB31F144BD80004BC4E /* Favorite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
 		41FB2FEE1F3CA8A900DF57B1 /* AlertCancelScheduledViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertCancelScheduledViewController.swift; sourceTree = "<group>"; };
 		41FB2FEF1F3CA8A900DF57B1 /* AlertCancelScheduledViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlertCancelScheduledViewController.xib; sourceTree = "<group>"; };
@@ -625,12 +625,12 @@
 		413715801EBE7CEA00258C6F /* SelectPhotoSourcePopup */ = {
 			isa = PBXGroup;
 			children = (
+				41F1A0471F3D182E00CBC32D /* SelectPhotoSourcePopupViewController.xib */,
+				41F1A0481F3D182E00CBC32D /* SelectPhotoSourcePopupViewController.swift */,
 				413715811EBE7D0300258C6F /* SelectPhotoSourcePopupInteractor.swift */,
 				413715821EBE7D0300258C6F /* SelectPhotoSourcePopupPresenter.swift */,
 				413715831EBE7D0300258C6F /* SelectPhotoSourcePopupProtocols.swift */,
 				413715841EBE7D0300258C6F /* SelectPhotoSourcePopupRouter.swift */,
-				413715851EBE7D0300258C6F /* SelectPhotoSourcePopupViewController.swift */,
-				413715861EBE7D0300258C6F /* SelectPhotoSourcePopupViewController.xib */,
 			);
 			path = SelectPhotoSourcePopup;
 			sourceTree = "<group>";
@@ -1143,10 +1143,10 @@
 				41D86F951F298C360038ADA8 /* AdditionalServiceTableViewCell.xib in Resources */,
 				41D86F991F2ACC490038ADA8 /* SubServiceTableViewCell.xib in Resources */,
 				411C84C41F3BBFF0008C6E0A /* AgendaTableViewCell.xib in Resources */,
+				41F1A0491F3D182E00CBC32D /* SelectPhotoSourcePopupViewController.xib in Resources */,
 				41E7E2F31EC27833002C0A55 /* OpenSans-SemiboldItalic.ttf in Resources */,
 				41D86FA61F2D525E0038ADA8 /* ScheduleCalendarViewController.xib in Resources */,
 				418DAA2F1ECE7EAE006265CF /* SideMenuViewController.xib in Resources */,
-				4137158C1EBE7D0300258C6F /* SelectPhotoSourcePopupViewController.xib in Resources */,
 				41E7E2F11EC27833002C0A55 /* OpenSans-Regular.ttf in Resources */,
 				41BDC2A41EE79FE100F28434 /* PetSizePopupViewController.xib in Resources */,
 				41E7E2EC1EC27833002C0A55 /* OpenSans-ExtraBold.ttf in Resources */,
@@ -1213,6 +1213,7 @@
 				4129D9EC1EDF8BCF0067EDC3 /* Breed.swift in Sources */,
 				419C89151F33A18700BDBE8E /* CartWebInteractor.swift in Sources */,
 				4120ED1C1EB38650009D35B0 /* LoginViewController.swift in Sources */,
+				41F1A04A1F3D182E00CBC32D /* SelectPhotoSourcePopupViewController.swift in Sources */,
 				41AAB4F31EF1F9AF00E52857 /* HomeContentViewControllerPresenter.swift in Sources */,
 				4120ED031EB0DE9F009D35B0 /* PresentationRouter.swift in Sources */,
 				4120ED1F1EB390C3009D35B0 /* UIViewControllerExtension.swift in Sources */,
@@ -1265,7 +1266,6 @@
 				414BB1F31EBFF4AF000BE2CC /* AlertPopupInteractor.swift in Sources */,
 				418DAA2C1ECE7EAE006265CF /* SideMenuProtocols.swift in Sources */,
 				41F47DB41F144BD80004BC4E /* Favorite.swift in Sources */,
-				4137158B1EBE7D0300258C6F /* SelectPhotoSourcePopupViewController.swift in Sources */,
 				414862981F2E9F1900F210D8 /* JTCalendarPageView.m in Sources */,
 				4129D9E51ED86E9B0067EDC3 /* MyPetsProtocols.swift in Sources */,
 				414862A11F2FF71800F210D8 /* TImeCollectionViewCell.swift in Sources */,

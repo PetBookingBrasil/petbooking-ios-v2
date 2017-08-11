@@ -243,7 +243,7 @@ extension PetbookingAPI {
 			self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
 			
 			let parameters: Parameters = [
-				"data": ["type":"users", "attributes":["provider":provider, "provider_token":providerToken, "email":email, "password":password, "name":name, "phone":mobile, "cpf":cpf, "city":city, "state":state, "zipcode":zipcode, "street":street, "street_number":streetNumber, "neighborhood":neighborhood, "avatar":avatar]]
+				"data": ["type":"users", "attributes":["provider":provider, "provider_token":providerToken, "email":email, "password":password, "name":name, "phone":mobile, "cpf":cpf, "city":city, "state":state, "zipcode":zipcode, "street":street, "street_number":streetNumber, "neighborhood":neighborhood, "avatar":avatar, "birthday":birthday]]
 				
 			]
 			
@@ -326,11 +326,11 @@ extension PetbookingAPI {
 			self.auth_headers.updateValue("Token token=\"\(authToken)\"", forKey: "X-Petbooking-Session-Token")
 			
 			let parameters: Parameters = [
-				"data": ["type":"users", "id":userId, "attributes":["email":email, "name":name, "phone":mobile, "cpf":cpf, "city":city, "state":state, "zipcode":zipcode, "street":street, "street_number":streetNumber, "neighborhood":neighborhood, "avatar":avatar]]
+				"data": ["type":"users", "id":"\(userId)", "attributes":["email":email, "name":name, "phone":mobile, "cpf":cpf, "city":city, "state":state, "zipcode":zipcode, "street":street, "street_number":streetNumber, "neighborhood":neighborhood, "avatar":avatar, "birthday":birthday]]
 				
 			]
 			
-			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/users/\(userId)", method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: auth_headers).responseJSON { (response) in
+			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/users/\(userId)", method: .put, parameters: parameters, encoding: JSONEncoding.prettyPrinted, headers: auth_headers).responseJSON { (response) in
 				
 				switch response.result{
 				case .success(let jsonObject):
@@ -596,6 +596,72 @@ extension PetbookingAPI {
 						
 						do {
 
+							let pet = try MTLJSONAdapter.model(of: Pet.self, fromJSONDictionary: dic) as! Pet
+							
+							
+							completion(pet, "")
+							
+						} catch {
+							completion(nil, error.localizedDescription)
+						}
+					} else {
+						completion(nil, "")
+					}
+					break
+				case .failure(let error):
+					print(error)
+					completion(nil, error.localizedDescription)
+					break
+				}
+				
+			}
+		} else
+		{
+			getConsumer(completion: { (success, message) in
+				
+				if success {
+					self.createPet(pet:pet,completion: completion)
+				} else {
+					
+					completion(nil, "")
+					
+				}
+			})
+		}
+	}
+	
+	func updatePet(pet:Pet, completion: @escaping (_ pet: Pet?, _ message: String) -> Void) {
+		
+		if SessionManager.sharedInstance.isConsumerValid() {
+			var token = ""
+			if let consumer = SessionManager.sharedInstance.getCurrentConsumer() {
+				token = consumer.token
+			}
+			
+			var authToken = ""
+			var userId = 0
+			if let session = SessionManager.sharedInstance.getCurrentSession() {
+				authToken = session.authToken
+				userId = session.userId
+			}
+			
+			self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
+			self.auth_headers.updateValue("Token token=\"\(authToken)\"", forKey: "X-Petbooking-Session-Token")
+			
+			let parameters: Parameters = [
+				"data": ["type":"pets", "id":pet.id, "attributes":["size":pet.size, "breed_id":pet.breedId, "name":pet.name, "gender":pet.gender, "mood":pet.mood, "description":pet.petDescription, "birth_date":pet.birthday, "coat_type":pet.coatSize, "photo":pet.photoUrl]]
+				
+			]
+			
+			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/users/\(userId)/pets/\(pet.id)", method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: auth_headers).responseJSON { (response) in
+				
+				switch response.result{
+				case .success(let jsonObject):
+					
+					if let dic = jsonObject as? [String: Any] {
+						
+						do {
+							
 							let pet = try MTLJSONAdapter.model(of: Pet.self, fromJSONDictionary: dic) as! Pet
 							
 							

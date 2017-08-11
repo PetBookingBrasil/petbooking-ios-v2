@@ -58,7 +58,6 @@ class SignupInteractor: SignupInteractorProtocol {
 			
 			let dateFormatter = DateFormatter()
 			let birthday = dateFormatter.convertDateFormater(dateString: user.birthday, fromFormat: "yyyy-MM-dd", toFormat: "dd/MM/yyyy")
-			print(birthday)
 			self.presenter?.setProfileImageView(urlString: user.avatarUrlLarge)
 			self.presenter?.setNameLabel(name: user.name)
 			self.presenter?.setEmail(email:user.email)

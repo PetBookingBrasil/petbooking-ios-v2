@@ -152,6 +152,71 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 		
 		
 		
+		if !pet.birthday.isBlank {
+			
+			if let url = URL(string: pet.photoUrl) {
+				profilePictureImageView.pin_setImage(from: url)
+			}
+			
+			petNameTextField.text = pet.name
+			
+			let dateFormatter = DateFormatter()
+			birthdayTextField.text = dateFormatter.convertDateFormater(dateString: pet.birthday, fromFormat: "yyyy-MM-dd", toFormat: "dd/MM/yyyy")
+			
+			observationTextField.text = pet.petDescription
+			
+			guard let coat = PetCoatEnum(rawValue: pet.coatSize) else {
+				return
+			}
+			guard let indexCoat = coatList.index(of: coat) else {
+				return
+			}
+			petCoatIndex = indexCoat
+			coatLabel.text = "pet_coat_size_\(pet.coatSize)".localized
+			
+			guard let type = PetTypeEnum(rawValue: pet.type) else {
+				return
+			}
+			guard let indexType = petTypeList.index(of: type) else {
+				return
+			}
+			petTypeIndex = indexType
+			petTypeLabel.text = "pet_type_\(pet.type)".localized
+			
+			self.breedLabel.text = self.pet.breedName
+			
+			PetbookingAPI.sharedInstance.getBreedList(petType: pet.type, completion: { (breedList, message) in
+				
+				guard let breedList = breedList else {
+					return
+				}
+				self.breedList = breedList.breeds
+			})
+			
+			guard let gender = PetGenderEnum(rawValue: pet.gender) else {
+				return
+			}
+			guard let indexGender = genderList.index(of: gender) else {
+				return
+			}
+			petGenderIndex = indexGender
+			genderLabel.text = "pet_gender_\(pet.gender)".localized
+			
+			guard let size = PetSizeEnum(rawValue: pet.size) else {
+				return
+			}
+			guard let indexSize = petSizeList.index(of: size) else {
+				return
+			}
+			petSizeIndex = indexSize
+			petSizeLabel.text = "pet_size_\(pet.size)".localized
+			
+			moodLabel.text = pet.mood
+			
+		}
+		
+		
+		
 	}
 	
 	@IBAction func changeAvatar(_ sender: Any) {
@@ -213,9 +278,9 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 		case .breed:
 			
 			pet.breedName = breedList[index].name
-			pet.breedId = breedList[index].id
+			pet.breedId = Int(breedList[index].id)!
 			
-			if !pet.breedId.isBlank {
+			if pet.breedId != 0 {
 				breedLabel.text = pet.breedName
 			}
 			petBreedIndex = index
@@ -253,6 +318,7 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 				
 				self.breedList = breedList.breeds
 				
+				
 			})
 			
 			break
@@ -288,7 +354,7 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 			isValid = false
 		}
 		
-		if pet.breedId.isBlank {
+		if pet.breedId == 0 {
 			isValid = false
 			_ = checkValidField(value: nil, alertLabel: petBreedAlertMessageLabel, alertMessage: NSLocalizedString("invalid_pet_breed", comment: ""))
 		} else {

@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="OpenSans-Regular.ttf">
-            <string>OpenSans</string>
-        </array>
         <array key="OpenSans-Semibold.ttf">
             <string>OpenSans-Semibold</string>
         </array>
@@ -19,6 +16,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SelectPhotoSourcePopupViewController" customModule="petbooking_ios_v2" customModuleProvider="target">
             <connections>
+                <outlet property="cameraButton" destination="i6P-wY-azR" id="Vxk-gR-csS"/>
+                <outlet property="cancelButton" destination="Hp7-1H-mh9" id="T35-qQ-Viv"/>
+                <outlet property="libraryButton" destination="Rc2-BL-cCu" id="g3i-Qn-ha0"/>
                 <outlet property="popupContentContainerView" destination="Pbi-Iw-OMH" id="so8-CX-zaX"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -36,66 +36,72 @@
                     </connections>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pbi-Iw-OMH">
-                    <rect key="frame" x="22" y="239.5" width="331" height="188"/>
+                    <rect key="frame" x="22" y="195" width="331" height="277.5"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rc2-BL-cCu">
-                            <rect key="frame" x="78.5" y="106" width="57" height="49"/>
+                            <rect key="frame" x="28.5" y="87.5" width="275" height="50"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="49" id="IMF-Jl-IuH"/>
-                                <constraint firstAttribute="width" constant="57" id="SaK-yB-yRP"/>
+                                <constraint firstAttribute="height" constant="50" id="IMF-Jl-IuH"/>
+                                <constraint firstAttribute="width" constant="275" id="SaK-yB-yRP"/>
                             </constraints>
-                            <state key="normal" backgroundImage="picture"/>
+                            <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="16"/>
+                            <state key="normal" title="Escolher na biblioteca">
+                                <color key="titleColor" red="0.89411764709999997" green="0.0" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
                             <connections>
                                 <action selector="showAlbum:" destination="-1" eventType="touchUpInside" id="tUy-rR-tqa"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i6P-wY-azR">
-                            <rect key="frame" x="195.5" y="106" width="60" height="49"/>
+                            <rect key="frame" x="28" y="157.5" width="275" height="50"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="49" id="hPN-JS-Jpq"/>
-                                <constraint firstAttribute="width" constant="60" id="veI-iZ-b77"/>
+                                <constraint firstAttribute="height" constant="50" id="hPN-JS-Jpq"/>
+                                <constraint firstAttribute="width" constant="275" id="veI-iZ-b77"/>
                             </constraints>
-                            <state key="normal" backgroundImage="cameraColor"/>
+                            <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="16"/>
+                            <state key="normal" title="Tirar foto">
+                                <color key="titleColor" red="0.89411764709999997" green="0.0" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
                             <connections>
                                 <action selector="showCamera:" destination="-1" eventType="touchUpInside" id="wHJ-vK-nJH"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selecionar Foto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UR1-3c-utR">
-                            <rect key="frame" x="102.5" y="20" width="126.5" height="23.5"/>
-                            <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="17"/>
-                            <color key="textColor" red="0.3294117647" green="0.3294117647" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selecionar foto de perfil" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UR1-3c-utR">
+                            <rect key="frame" x="50.5" y="20" width="230.5" height="27.5"/>
+                            <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="20"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selecione método de entrada de imagens que deseja usar" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pB6-9L-75W">
-                            <rect key="frame" x="53" y="55.5" width="225" height="33"/>
-                            <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="12"/>
-                            <color key="textColor" red="0.3294117647" green="0.3294117647" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="whK-U7-hQr">
-                            <rect key="frame" x="165.5" y="95" width="0.0" height="60"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hp7-1H-mh9">
+                            <rect key="frame" x="28" y="227.5" width="275" height="50"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="60" id="Udg-du-WUg"/>
-                                <constraint firstAttribute="width" id="e4Y-ef-4ey"/>
+                                <constraint firstAttribute="height" constant="50" id="C0c-RU-jlp"/>
+                                <constraint firstAttribute="width" constant="275" id="rfa-Xk-tXC"/>
                             </constraints>
-                        </view>
+                            <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="16"/>
+                            <state key="normal" title="Cancelar">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="cancel:" destination="-1" eventType="touchUpInside" id="w9u-iM-0xL"/>
+                                <action selector="showCamera:" destination="-1" eventType="touchUpInside" id="QnD-MX-csq"/>
+                            </connections>
+                        </button>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="i6P-wY-azR" secondAttribute="bottom" constant="33" id="Aji-oO-J0O"/>
-                        <constraint firstItem="whK-U7-hQr" firstAttribute="leading" secondItem="Rc2-BL-cCu" secondAttribute="trailing" constant="30" id="LJT-Py-D74"/>
-                        <constraint firstAttribute="bottom" secondItem="Rc2-BL-cCu" secondAttribute="bottom" constant="33" id="OMX-FS-S2w"/>
+                        <constraint firstItem="Rc2-BL-cCu" firstAttribute="top" secondItem="UR1-3c-utR" secondAttribute="bottom" constant="40" id="7s1-e4-v2l"/>
+                        <constraint firstItem="i6P-wY-azR" firstAttribute="top" secondItem="Rc2-BL-cCu" secondAttribute="bottom" constant="20" id="Nz5-Sv-xmw"/>
                         <constraint firstItem="UR1-3c-utR" firstAttribute="centerX" secondItem="Pbi-Iw-OMH" secondAttribute="centerX" id="OP2-xL-h9q"/>
-                        <constraint firstAttribute="bottom" secondItem="whK-U7-hQr" secondAttribute="bottom" constant="33" id="SFA-i3-oTP"/>
                         <constraint firstItem="UR1-3c-utR" firstAttribute="top" secondItem="Pbi-Iw-OMH" secondAttribute="top" constant="20" id="SXw-rt-Xee"/>
-                        <constraint firstAttribute="trailing" secondItem="pB6-9L-75W" secondAttribute="trailing" constant="53" id="Yh7-gf-tfy"/>
-                        <constraint firstItem="pB6-9L-75W" firstAttribute="centerX" secondItem="Pbi-Iw-OMH" secondAttribute="centerX" id="cOV-X0-mqI"/>
-                        <constraint firstItem="pB6-9L-75W" firstAttribute="leading" secondItem="Pbi-Iw-OMH" secondAttribute="leading" constant="53" id="f4a-Tu-tgq"/>
-                        <constraint firstAttribute="height" constant="188" id="f76-TC-Qcb"/>
-                        <constraint firstItem="whK-U7-hQr" firstAttribute="centerX" secondItem="Pbi-Iw-OMH" secondAttribute="centerX" id="rj0-ds-LVn"/>
-                        <constraint firstItem="pB6-9L-75W" firstAttribute="top" secondItem="UR1-3c-utR" secondAttribute="bottom" constant="12" id="soz-kX-Fru"/>
-                        <constraint firstItem="i6P-wY-azR" firstAttribute="leading" secondItem="whK-U7-hQr" secondAttribute="trailing" constant="30" id="vo8-td-K98"/>
+                        <constraint firstItem="i6P-wY-azR" firstAttribute="centerX" secondItem="Pbi-Iw-OMH" secondAttribute="centerX" id="Sqo-Tr-O8d"/>
+                        <constraint firstAttribute="height" constant="277.5" id="f76-TC-Qcb"/>
+                        <constraint firstItem="Hp7-1H-mh9" firstAttribute="centerX" secondItem="Pbi-Iw-OMH" secondAttribute="centerX" id="gMM-dn-neH"/>
+                        <constraint firstItem="Rc2-BL-cCu" firstAttribute="centerX" secondItem="Pbi-Iw-OMH" secondAttribute="centerX" id="gl0-pW-gWt"/>
+                        <constraint firstItem="Hp7-1H-mh9" firstAttribute="top" secondItem="i6P-wY-azR" secondAttribute="bottom" constant="20" id="kfZ-Sc-pqv"/>
                     </constraints>
                 </view>
             </subviews>
@@ -121,8 +127,4 @@
             </connections>
         </tapGestureRecognizer>
     </objects>
-    <resources>
-        <image name="cameraColor" width="72" height="60"/>
-        <image name="picture" width="57" height="57"/>
-    </resources>
 </document>

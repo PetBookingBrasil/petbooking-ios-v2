@@ -74,6 +74,13 @@ extension MyPetsViewController: UITableViewDelegate, UITableViewDataSource {
 		
 	}
 	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		let pet = pets[indexPath.row]
+		
+		navigationController?.pushViewController(AddPetViewControllerRouter.createModule(pet: pet, petViewType: .edit), animated: true)
+		
+	}
+	
 	func fillTableData(petList: PetList) {
 		
 		self.pets = petList.pets
