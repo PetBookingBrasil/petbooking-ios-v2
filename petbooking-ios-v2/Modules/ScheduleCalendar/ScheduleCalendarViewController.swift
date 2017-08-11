@@ -197,6 +197,23 @@ extension ScheduleCalendarViewController:JTCalendarDelegate {
 		
 	}
 	
+	func calendar(_ calendar: JTCalendarManager!, canDisplayPageWith date: Date!) -> Bool {
+		
+		return calendarManager.dateHelper.date(date, isEqualOrAfter: Date())
+		
+	}
+	
+	func calendarBuildWeekView(_ calendar: JTCalendarManager!) -> UIView! {
+		
+		let calendarWeekView = JTCalendarWeekView()
+		calendarWeekView.manager = calendarManager
+		
+		calendarWeekView.setStart(Date(), updateAnotherMonth: false, monthDate: Date())
+		
+		return calendarWeekView
+		
+	}
+	
 }
 
 extension ScheduleCalendarViewController: UITableViewDelegate, UITableViewDataSource {

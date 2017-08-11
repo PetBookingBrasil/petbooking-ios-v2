@@ -36,6 +36,9 @@ class ServiceTableViewCell: UITableViewCell {
 			tableView.delegate = self
 			tableView.dataSource = self
 			
+			let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ServiceTableViewCell.didTapServiceNameLabel(_:)))
+			nameLabel.addGestureRecognizer(tapGesture)
+			
     }
 	
 	override func layoutSubviews() {
@@ -54,6 +57,13 @@ class ServiceTableViewCell: UITableViewCell {
 		tableView.reloadData()
 	}
     
+	@IBAction func didTapServiceNameLabel(_ sender: Any) {
+		
+		if !checkBox.on {
+			self.delegate?.didSelectedService(service: self.service)
+		}
+		
+	}
 }
 
 extension ServiceTableViewCell : UITableViewDelegate, UITableViewDataSource {

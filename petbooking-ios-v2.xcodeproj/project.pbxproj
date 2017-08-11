@@ -13,6 +13,8 @@
 		4113B2CB1F3414CB007DC89F /* BusinessInformationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4113B2C51F3414CB007DC89F /* BusinessInformationRouter.swift */; };
 		4113B2CC1F3414CB007DC89F /* BusinessInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4113B2C61F3414CB007DC89F /* BusinessInformationViewController.swift */; };
 		4113B2CD1F3414CB007DC89F /* BusinessInformationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4113B2C71F3414CB007DC89F /* BusinessInformationViewController.xib */; };
+		411B4E4F1F3E031A00B9244B /* ServiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 411B4E4D1F3E031A00B9244B /* ServiceTableViewCell.xib */; };
+		411B4E501F3E031A00B9244B /* ServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411B4E4E1F3E031A00B9244B /* ServiceTableViewCell.swift */; };
 		411C84B51F3A8EF0008C6E0A /* AgendaInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411C84AF1F3A8EF0008C6E0A /* AgendaInteractor.swift */; };
 		411C84B61F3A8EF0008C6E0A /* AgendaPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411C84B01F3A8EF0008C6E0A /* AgendaPresenter.swift */; };
 		411C84B71F3A8EF0008C6E0A /* AgendaProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411C84B11F3A8EF0008C6E0A /* AgendaProtocols.swift */; };
@@ -196,8 +198,6 @@
 		41D86F8A1F294F1E0038ADA8 /* ServiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D86F881F294F1E0038ADA8 /* ServiceCollectionViewCell.swift */; };
 		41D86F8B1F294F1E0038ADA8 /* ServiceCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41D86F891F294F1E0038ADA8 /* ServiceCollectionViewCell.xib */; };
 		41D86F8D1F2973C70038ADA8 /* ServiceCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D86F8C1F2973C70038ADA8 /* ServiceCategory.swift */; };
-		41D86F901F29802C0038ADA8 /* ServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D86F8E1F29802C0038ADA8 /* ServiceTableViewCell.swift */; };
-		41D86F911F29802C0038ADA8 /* ServiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41D86F8F1F29802C0038ADA8 /* ServiceTableViewCell.xib */; };
 		41D86F941F298C360038ADA8 /* AdditionalServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D86F921F298C360038ADA8 /* AdditionalServiceTableViewCell.swift */; };
 		41D86F951F298C360038ADA8 /* AdditionalServiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41D86F931F298C360038ADA8 /* AdditionalServiceTableViewCell.xib */; };
 		41D86F981F2ACC490038ADA8 /* SubServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D86F961F2ACC490038ADA8 /* SubServiceTableViewCell.swift */; };
@@ -239,6 +239,8 @@
 		4113B2C51F3414CB007DC89F /* BusinessInformationRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessInformationRouter.swift; sourceTree = "<group>"; };
 		4113B2C61F3414CB007DC89F /* BusinessInformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessInformationViewController.swift; sourceTree = "<group>"; };
 		4113B2C71F3414CB007DC89F /* BusinessInformationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusinessInformationViewController.xib; sourceTree = "<group>"; };
+		411B4E4D1F3E031A00B9244B /* ServiceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceTableViewCell.xib; sourceTree = "<group>"; };
+		411B4E4E1F3E031A00B9244B /* ServiceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceTableViewCell.swift; sourceTree = "<group>"; };
 		411C84AF1F3A8EF0008C6E0A /* AgendaInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaInteractor.swift; sourceTree = "<group>"; };
 		411C84B01F3A8EF0008C6E0A /* AgendaPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaPresenter.swift; sourceTree = "<group>"; };
 		411C84B11F3A8EF0008C6E0A /* AgendaProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaProtocols.swift; sourceTree = "<group>"; };
@@ -446,8 +448,6 @@
 		41D86F881F294F1E0038ADA8 /* ServiceCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceCollectionViewCell.swift; sourceTree = "<group>"; };
 		41D86F891F294F1E0038ADA8 /* ServiceCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceCollectionViewCell.xib; sourceTree = "<group>"; };
 		41D86F8C1F2973C70038ADA8 /* ServiceCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceCategory.swift; sourceTree = "<group>"; };
-		41D86F8E1F29802C0038ADA8 /* ServiceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceTableViewCell.swift; sourceTree = "<group>"; };
-		41D86F8F1F29802C0038ADA8 /* ServiceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceTableViewCell.xib; sourceTree = "<group>"; };
 		41D86F921F298C360038ADA8 /* AdditionalServiceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdditionalServiceTableViewCell.swift; sourceTree = "<group>"; };
 		41D86F931F298C360038ADA8 /* AdditionalServiceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdditionalServiceTableViewCell.xib; sourceTree = "<group>"; };
 		41D86F961F2ACC490038ADA8 /* SubServiceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubServiceTableViewCell.swift; sourceTree = "<group>"; };
@@ -955,6 +955,8 @@
 		41D86F751F266D640038ADA8 /* BusinessServices */ = {
 			isa = PBXGroup;
 			children = (
+				41D86F921F298C360038ADA8 /* AdditionalServiceTableViewCell.swift */,
+				41D86F931F298C360038ADA8 /* AdditionalServiceTableViewCell.xib */,
 				41D86F761F266D7A0038ADA8 /* BusinessServicesInteractor.swift */,
 				41D86F771F266D7A0038ADA8 /* BusinessServicesPresenter.swift */,
 				41D86F781F266D7A0038ADA8 /* BusinessServicesProtocols.swift */,
@@ -965,16 +967,14 @@
 				41D86F831F2678D30038ADA8 /* PetCollectionViewCell.xib */,
 				41D86F881F294F1E0038ADA8 /* ServiceCollectionViewCell.swift */,
 				41D86F891F294F1E0038ADA8 /* ServiceCollectionViewCell.xib */,
-				41D86F8E1F29802C0038ADA8 /* ServiceTableViewCell.swift */,
-				41D86F8F1F29802C0038ADA8 /* ServiceTableViewCell.xib */,
-				41D86F921F298C360038ADA8 /* AdditionalServiceTableViewCell.swift */,
-				41D86F931F298C360038ADA8 /* AdditionalServiceTableViewCell.xib */,
-				41D86F961F2ACC490038ADA8 /* SubServiceTableViewCell.swift */,
-				41D86F971F2ACC490038ADA8 /* SubServiceTableViewCell.xib */,
-				419C89051F3162EC00BDBE8E /* ServiceTableHeaderView.swift */,
-				419C89071F3162FD00BDBE8E /* ServiceTableHeaderView.xib */,
 				419C89091F3168BB00BDBE8E /* ServiceTableFooterView.swift */,
 				419C890B1F3168CF00BDBE8E /* ServiceTableFooterView.xib */,
+				419C89051F3162EC00BDBE8E /* ServiceTableHeaderView.swift */,
+				419C89071F3162FD00BDBE8E /* ServiceTableHeaderView.xib */,
+				411B4E4E1F3E031A00B9244B /* ServiceTableViewCell.swift */,
+				411B4E4D1F3E031A00B9244B /* ServiceTableViewCell.xib */,
+				41D86F961F2ACC490038ADA8 /* SubServiceTableViewCell.swift */,
+				41D86F971F2ACC490038ADA8 /* SubServiceTableViewCell.xib */,
 			);
 			path = BusinessServices;
 			sourceTree = "<group>";
@@ -1148,6 +1148,7 @@
 				413D9FA81F381D4F007ABBEE /* CartTableSubServiceTableViewCell.xib in Resources */,
 				41E7E2F01EC27833002C0A55 /* OpenSans-LightItalic.ttf in Resources */,
 				414862A21F2FF71800F210D8 /* TImeCollectionViewCell.xib in Resources */,
+				411B4E4F1F3E031A00B9244B /* ServiceTableViewCell.xib in Resources */,
 				41E7E2EB1EC27833002C0A55 /* OpenSans-BoldItalic.ttf in Resources */,
 				413682C81E9C2B2D008C463B /* Assets.xcassets in Resources */,
 				41D86F851F2678D30038ADA8 /* PetCollectionViewCell.xib in Resources */,
@@ -1173,7 +1174,6 @@
 				41BDC2A41EE79FE100F28434 /* PetSizePopupViewController.xib in Resources */,
 				41E7E2EC1EC27833002C0A55 /* OpenSans-ExtraBold.ttf in Resources */,
 				419C890C1F3168CF00BDBE8E /* ServiceTableFooterView.xib in Resources */,
-				41D86F911F29802C0038ADA8 /* ServiceTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1299,6 +1299,7 @@
 				41D86FA21F2D525E0038ADA8 /* ScheduleCalendarPresenter.swift in Sources */,
 				4137157F1EBD5B3F00258C6F /* PresentationPageViewController.swift in Sources */,
 				41D86FA11F2D525E0038ADA8 /* ScheduleCalendarInteractor.swift in Sources */,
+				411B4E501F3E031A00B9244B /* ServiceTableViewCell.swift in Sources */,
 				4120ED041EB0DE9F009D35B0 /* PresentationViewController.swift in Sources */,
 				4149E9771EF9628100D6C44B /* BusinessListViewControllerInteractor.swift in Sources */,
 				419C89161F33A18700BDBE8E /* CartWebPresenter.swift in Sources */,
@@ -1384,7 +1385,6 @@
 				4113B2C81F3414CB007DC89F /* BusinessInformationInteractor.swift in Sources */,
 				414BB1F71EBFF4AF000BE2CC /* AlertPopupViewController.swift in Sources */,
 				4149E96F1EF8416400D6C44B /* UIFontExtension.swift in Sources */,
-				41D86F901F29802C0038ADA8 /* ServiceTableViewCell.swift in Sources */,
 				41D86F7D1F266D7A0038ADA8 /* BusinessServicesPresenter.swift in Sources */,
 				4120ED1B1EB38650009D35B0 /* LoginRouter.swift in Sources */,
 				4120ED021EB0DE9F009D35B0 /* PresentationProtocols.swift in Sources */,
