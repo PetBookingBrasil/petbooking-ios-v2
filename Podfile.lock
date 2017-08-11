@@ -9,6 +9,7 @@ PODS:
   - Bolts/AppLinks (1.8.4):
     - Bolts/Tasks
   - Bolts/Tasks (1.8.4)
+  - DZNEmptyDataSet (1.8.1)
   - FacebookCore (0.2.0):
     - Bolts (~> 1.8)
     - FBSDKCoreKit (~> 4.15)
@@ -48,6 +49,7 @@ DEPENDENCIES:
   - Alamofire (~> 4.4)
   - ALLoadingView
   - BEMCheckBox
+  - DZNEmptyDataSet
   - FacebookCore
   - FacebookLogin
   - IQKeyboardManager
@@ -64,6 +66,7 @@ SPEC CHECKSUMS:
   ALLoadingView: 64344433e904ed512c4dc5776524783e123eb543
   BEMCheckBox: e18e4a148905b290bd03d98b767651c104f4eda3
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   FacebookCore: 2cb3f0fbff218e9d3119cec84bae983b232412de
   FacebookLogin: c9d606504735780a9e3002465a615512e0a691a5
   FBSDKCoreKit: c693bad19feb225469eeff14452ba364522ee48b
@@ -79,6 +82,6 @@ SPEC CHECKSUMS:
   Segmentio: f85114993e305bd9c522952eef8c2c4db732fd17
   SideMenu: 3fa07dd05d4bade2b6f9889fb1877e312e1ba319
 
-PODFILE CHECKSUM: 560a2f9f95b1911ff1deb425d9839fe327d42db7
+PODFILE CHECKSUM: 632f3aad977bc641092e83ca337d097a755de110
 
 COCOAPODS: 1.2.1

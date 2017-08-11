@@ -225,6 +225,8 @@
 		41F1A04D1F3D4F1D00CBC32D /* SocialNetworkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F1A04B1F3D4F1D00CBC32D /* SocialNetworkCollectionViewCell.swift */; };
 		41F1A04E1F3D4F1D00CBC32D /* SocialNetworkCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41F1A04C1F3D4F1D00CBC32D /* SocialNetworkCollectionViewCell.xib */; };
 		41F47DB41F144BD80004BC4E /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F47DB31F144BD80004BC4E /* Favorite.swift */; };
+		41F70EF61F3DE6EF0089DDE2 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F70EF51F3DE6EF0089DDE2 /* EmptyView.swift */; };
+		41F70EF81F3DE6FE0089DDE2 /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41F70EF71F3DE6FE0089DDE2 /* EmptyView.xib */; };
 		41FB2FF01F3CA8A900DF57B1 /* AlertCancelScheduledViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FB2FEE1F3CA8A900DF57B1 /* AlertCancelScheduledViewController.swift */; };
 		41FB2FF11F3CA8A900DF57B1 /* AlertCancelScheduledViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41FB2FEF1F3CA8A900DF57B1 /* AlertCancelScheduledViewController.xib */; };
 		DFC90A17A5F8AA2CE20F8375 /* Pods_petbooking_ios_v2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9D68A4E19945C41B8E9EDFE /* Pods_petbooking_ios_v2.framework */; };
@@ -473,6 +475,8 @@
 		41F1A04B1F3D4F1D00CBC32D /* SocialNetworkCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialNetworkCollectionViewCell.swift; sourceTree = "<group>"; };
 		41F1A04C1F3D4F1D00CBC32D /* SocialNetworkCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SocialNetworkCollectionViewCell.xib; sourceTree = "<group>"; };
 		41F47DB31F144BD80004BC4E /* Favorite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
+		41F70EF51F3DE6EF0089DDE2 /* EmptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		41F70EF71F3DE6FE0089DDE2 /* EmptyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyView.xib; sourceTree = "<group>"; };
 		41FB2FEE1F3CA8A900DF57B1 /* AlertCancelScheduledViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertCancelScheduledViewController.swift; sourceTree = "<group>"; };
 		41FB2FEF1F3CA8A900DF57B1 /* AlertCancelScheduledViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlertCancelScheduledViewController.xib; sourceTree = "<group>"; };
 		5EC8A11A3CAAE140E557AF6F /* Pods-petbooking-ios-v2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petbooking-ios-v2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-petbooking-ios-v2/Pods-petbooking-ios-v2.debug.xcconfig"; sourceTree = "<group>"; };
@@ -607,6 +611,7 @@
 		413682BF1E9C2B2D008C463B /* petbooking-ios-v2 */ = {
 			isa = PBXGroup;
 			children = (
+				41F70EF41F3DE6CC0089DDE2 /* Views */,
 				412776961F143E1500EC6488 /* petbooking-ios-v2.entitlements */,
 				41E7E2DE1EC27821002C0A55 /* Fonts */,
 				413715901EBEB38C00258C6F /* Libraries */,
@@ -1016,6 +1021,15 @@
 			path = OpenSans;
 			sourceTree = "<group>";
 		};
+		41F70EF41F3DE6CC0089DDE2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				41F70EF51F3DE6EF0089DDE2 /* EmptyView.swift */,
+				41F70EF71F3DE6FE0089DDE2 /* EmptyView.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		6BC186A20FCE32BA04CC64D7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1149,6 +1163,7 @@
 				413682C61E9C2B2D008C463B /* Main.storyboard in Resources */,
 				41D86F951F298C360038ADA8 /* AdditionalServiceTableViewCell.xib in Resources */,
 				41D86F991F2ACC490038ADA8 /* SubServiceTableViewCell.xib in Resources */,
+				41F70EF81F3DE6FE0089DDE2 /* EmptyView.xib in Resources */,
 				411C84C41F3BBFF0008C6E0A /* AgendaTableViewCell.xib in Resources */,
 				41F1A0491F3D182E00CBC32D /* SelectPhotoSourcePopupViewController.xib in Resources */,
 				41E7E2F31EC27833002C0A55 /* OpenSans-SemiboldItalic.ttf in Resources */,
@@ -1235,6 +1250,7 @@
 				4168AA5E1EB8181B001E2D6D /* FacebookGraphModel.swift in Sources */,
 				4120ED001EB0DE9F009D35B0 /* PresentationInteractor.swift in Sources */,
 				41D86F711F263AB30038ADA8 /* HomeBusinessViewController.swift in Sources */,
+				41F70EF61F3DE6EF0089DDE2 /* EmptyView.swift in Sources */,
 				414BB1FA1EC00722000BE2CC /* StringExtension.swift in Sources */,
 				4168AA521EB6A828001E2D6D /* UserManager.swift in Sources */,
 				413715931EBEB3B400258C6F /* MIBlurPopup.swift in Sources */,

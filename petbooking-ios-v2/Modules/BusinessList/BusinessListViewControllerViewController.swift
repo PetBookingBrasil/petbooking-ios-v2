@@ -10,6 +10,7 @@
 
 import UIKit
 import CoreLocation
+import DZNEmptyDataSet
 
 class BusinessListViewControllerViewController: UIViewController, BusinessListViewControllerViewProtocol {
 	
@@ -47,6 +48,8 @@ class BusinessListViewControllerViewController: UIViewController, BusinessListVi
 		tableView.register(UINib(nibName: "BusinessTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
 		tableView.rowHeight = UITableViewAutomaticDimension
 		tableView.estimatedRowHeight = 2000
+		tableView.emptyDataSetSource = self
+		tableView.emptyDataSetDelegate = self
 		
 	}
 	
@@ -231,6 +234,38 @@ extension BusinessListViewControllerViewController: UITableViewDelegate, UITable
 	func addToFavorites(business: Business) {
 		
 		presenter?.addToFavorites(business: business)
+		
+	}
+	
+}
+
+extension BusinessListViewControllerViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+	
+	func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+		
+		switch businessListType! {
+		case .favorites:
+			return UIImage(named: "favoritesEmpty")
+		case .list, .map:
+			return UIImage()
+		}
+	}
+	
+	func customView(forEmptyDataSet scrollView: UIScrollView!) -> UIView! {
+		
+		switch businessListType! {
+		case .favorites:
+			self.view.backgroundColor = .white
+			let emptyView = EmptyView.loadFromNibNamed("EmptyView") as? EmptyView
+			return emptyView
+		case .list, .map:
+			let indicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+			indicator.startAnimating()
+			
+			return indicator
+		}
+		
+		
 		
 	}
 	

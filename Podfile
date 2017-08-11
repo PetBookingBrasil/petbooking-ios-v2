@@ -23,5 +23,6 @@ target 'petbooking-ios-v2' do
 	pod 'SideMenu'
 	pod 'Segmentio', '~> 2.1'
 	pod 'BEMCheckBox'
+	pod 'DZNEmptyDataSet'
 	
 end

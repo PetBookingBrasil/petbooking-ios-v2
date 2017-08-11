@@ -15,7 +15,7 @@ class Favorite: MTLModel, MTLJSONSerializing {
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
 		return [
-			"favoriteId": "id"
+			"favoriteId": "data.attributes.favorable_id"
 		]
 	}
 	
