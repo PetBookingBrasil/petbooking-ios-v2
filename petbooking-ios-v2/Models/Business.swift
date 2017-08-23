@@ -35,6 +35,7 @@ class Business: MTLModel, MTLJSONSerializing {
 	dynamic var googleplus = ""
 	dynamic var instagram = ""
 	dynamic var snapchat = ""
+	dynamic var imported = false
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
 		return [
@@ -53,14 +54,15 @@ class Business: MTLModel, MTLJSONSerializing {
 			"favoriteId": "attributes.user_favorite.id",
 			"phone": "attributes.phone",
 			"city": "attributes.city",
-			"businessDescription": "attributes.businessDescription",
+			"businessDescription": "attributes.description",
 			"state": "attributes.state",
 			"website": "attributes.website",
 			"facebook": "attributes.facebook_fanpage",
 			"twitter": "attributes.twitter_profile",
 			"googleplus": "attributes.googleplus_profile",
 			"instagram": "attributes.instagram",
-			"snapchat": "attributes.snapchat"
+			"snapchat": "attributes.snapchat",
+			"imported": "attributes.imported"
 		]
 	}
 		

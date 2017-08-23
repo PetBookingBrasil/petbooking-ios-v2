@@ -45,7 +45,8 @@ class BusinessListViewControllerViewController: UIViewController, BusinessListVi
 			
 		}
 		
-		tableView.register(UINib(nibName: "BusinessTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+		tableView.register(UINib(nibName: "BusinessTableViewCell", bundle: nil), forCellReuseIdentifier: "BusinessTableViewCell")
+		tableView.register(UINib(nibName: "BusinessImportedTableViewCell", bundle: nil), forCellReuseIdentifier: "BusinessImportedTableViewCell")
 		tableView.rowHeight = UITableViewAutomaticDimension
 		tableView.estimatedRowHeight = 2000
 		tableView.emptyDataSetSource = self
@@ -88,8 +89,9 @@ class BusinessListViewControllerViewController: UIViewController, BusinessListVi
 				
 				
 				businesses = businessList.businesses
-				
+				UIView.setAnimationsEnabled(false)
 				tableView.reloadData()
+				UIView.setAnimationsEnabled(true)
 			} else {
 				let count = self.businesses.count
 				self.businesses += businessList.businesses
@@ -162,7 +164,7 @@ extension BusinessListViewControllerViewController: UITableViewDelegate, UITable
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		
-		if indexPath.section < businesses.count - 1 {
+		if indexPath.section >= businesses.count - 1 {
 			
 			switch businessListType! {
 			case .favorites:
@@ -176,7 +178,20 @@ extension BusinessListViewControllerViewController: UITableViewDelegate, UITable
 			}
 		}
 		
-		let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! BusinessTableViewCell
+		let business = businesses[indexPath.section]
+		if business.imported {
+			return getImportedBusinessCell(indexPath: indexPath)
+		} else {
+			return getBusinessCell(indexPath: indexPath)
+		}
+		
+		
+		
+	}
+	
+	func getBusinessCell(indexPath: IndexPath) -> BusinessTableViewCell {
+		
+		let cell = tableView.dequeueReusableCell(withIdentifier: "BusinessTableViewCell") as! BusinessTableViewCell
 		
 		let business = businesses[indexPath.section]
 		cell.delegate = self
@@ -185,7 +200,6 @@ extension BusinessListViewControllerViewController: UITableViewDelegate, UITable
 		cell.setFavorite(isFavorite: business.isFavorited())
 		cell.nameLabel.text = business.name
 		cell.addressLabel.text = "\(business.street), \(business.streetNumber), \(business.neighborhood)"
-		//cell.cityLabel.text = ""
 		cell.distanceLabel.text = "\(business.distance)km"
 		cell.distanceLabel.sizeToFit()
 		cell.distanceView.round()
@@ -194,16 +208,50 @@ extension BusinessListViewControllerViewController: UITableViewDelegate, UITable
 		cell.reviewQuantityLabel.text = "\(business.ratingCount) Avaliações"
 		
 		cell.businessImageView.image = nil
-		if let url = URL(string: business.photoUrl) {
+		if let url = URL(string: business.photoThumbUrl) {
 			cell.businessImageView.pin_setImage(from: url)
 		}
 		
 		return cell
+		
 	}
+	
+	func getImportedBusinessCell(indexPath: IndexPath) -> BusinessImportedTableViewCell {
+		
+		let cell = tableView.dequeueReusableCell(withIdentifier: "BusinessImportedTableViewCell") as! BusinessImportedTableViewCell
+		
+		let business = businesses[indexPath.section]
+		cell.delegate = self
+		
+		if business.phone.isBlank {
+			cell.callButton.isHidden = true
+		} else {
+			cell.callButton.isHidden = false
+		}
+		
+		cell.business = business
+		cell.setFavorite(isFavorite: business.isFavorited())
+		cell.nameLabel.text = business.name
+		cell.addressLabel.text = "\(business.street), \(business.streetNumber), \(business.neighborhood)"
+		cell.distanceLabel.text = "\(business.distance)km"
+		cell.distanceLabel.sizeToFit()
+		cell.distanceView.round()
+		cell.distanceView.setBorder(width: 1, color: .red)
+
+		
+		return cell
+		
+	}
+	
+
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
 		let business = businesses[indexPath.section]
+		
+		if business.imported {
+			return
+		}
 		
 		presenter?.showBusinessPage(business: business)
 		
@@ -212,6 +260,17 @@ extension BusinessListViewControllerViewController: UITableViewDelegate, UITable
 	
 	public func numberOfSections(in tableView: UITableView) -> Int {
 		return businesses.count
+	}
+	
+	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		
+		let business = businesses[indexPath.section]
+		
+		if business.imported {
+			return 105
+		}
+		return UITableViewAutomaticDimension
+		
 	}
 	
 	// Set the spacing between sections

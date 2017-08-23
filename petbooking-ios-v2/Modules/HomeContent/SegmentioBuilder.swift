@@ -50,7 +50,7 @@ struct SegmentioBuilder {
 		return SegmentioOptions(
 			backgroundColor: UIColor(hex: "B00021"),
 			maxVisibleItems: 2,
-			scrollEnabled: true,
+			scrollEnabled: false,
 			indicatorOptions: segmentioIndicatorOptions(),
 			horizontalSeparatorOptions: horizontalSeparatorOptions,
 			verticalSeparatorOptions: verticalSeparatorOptions,

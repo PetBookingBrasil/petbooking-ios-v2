@@ -40,7 +40,8 @@ class BusinessMapListViewController: UIViewController, BusinessListViewControlle
 			// For use in foreground
 			self.locationManager?.requestWhenInUseAuthorization()
 			
-			tableView.register(UINib(nibName: "BusinessTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+			tableView.register(UINib(nibName: "BusinessTableViewCell", bundle: nil), forCellReuseIdentifier: "BusinessTableViewCell")
+			tableView.register(UINib(nibName: "BusinessImportedTableViewCell", bundle: nil), forCellReuseIdentifier: "BusinessImportedTableViewCell")
 			tableView.rowHeight = UITableViewAutomaticDimension
 			tableView.estimatedRowHeight = 2000
     }
@@ -162,10 +163,34 @@ extension BusinessMapListViewController: UITableViewDelegate, UITableViewDataSou
 	public func numberOfSections(in tableView: UITableView) -> Int {
 		return 1
 	}
+	
+	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		
+		let business = businessesCallout[indexPath.row]
+		
+		if business.imported {
+			return 105
+		}
+		return UITableViewAutomaticDimension
+		
+	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		
-		let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! BusinessTableViewCell
+		let business = businessesCallout[indexPath.row]
+		if business.imported {
+			return getImportedBusinessCell(indexPath: indexPath)
+		} else {
+			return getBusinessCell(indexPath: indexPath)
+		}
+		
+
+		
+	}
+	
+	func getBusinessCell(indexPath: IndexPath) -> BusinessTableViewCell {
+		
+		let cell = tableView.dequeueReusableCell(withIdentifier: "BusinessTableViewCell") as! BusinessTableViewCell
 		
 		let business = businessesCallout[indexPath.row]
 		cell.delegate = self
@@ -174,7 +199,6 @@ extension BusinessMapListViewController: UITableViewDelegate, UITableViewDataSou
 		cell.setFavorite(isFavorite: business.isFavorited())
 		cell.nameLabel.text = business.name
 		cell.addressLabel.text = "\(business.street), \(business.streetNumber), \(business.neighborhood)"
-		//cell.cityLabel.text = ""
 		cell.distanceLabel.text = "\(business.distance)km"
 		cell.distanceLabel.sizeToFit()
 		cell.distanceView.round()
@@ -183,7 +207,7 @@ extension BusinessMapListViewController: UITableViewDelegate, UITableViewDataSou
 		cell.reviewQuantityLabel.text = "\(business.ratingCount) Avaliações"
 		
 		cell.businessImageView.image = nil
-		if let url = URL(string: business.photoUrl) {
+		if let url = URL(string: business.photoThumbUrl) {
 			cell.businessImageView.pin_setImage(from: url)
 		}
 		
@@ -191,6 +215,36 @@ extension BusinessMapListViewController: UITableViewDelegate, UITableViewDataSou
 		view.layoutIfNeeded()
 		
 		return cell
+		
+	}
+	
+	func getImportedBusinessCell(indexPath: IndexPath) -> BusinessImportedTableViewCell {
+		
+		let cell = tableView.dequeueReusableCell(withIdentifier: "BusinessImportedTableViewCell") as! BusinessImportedTableViewCell
+		
+		let business = businessesCallout[indexPath.row]
+		cell.delegate = self
+		
+		if business.phone.isBlank {
+			cell.callButton.isHidden = true
+		} else {
+			cell.callButton.isHidden = false
+		}
+		
+		cell.business = business
+		cell.setFavorite(isFavorite: business.isFavorited())
+		cell.nameLabel.text = business.name
+		cell.addressLabel.text = "\(business.street), \(business.streetNumber), \(business.neighborhood)"
+		cell.distanceLabel.text = "\(business.distance)km"
+		cell.distanceLabel.sizeToFit()
+		cell.distanceView.round()
+		cell.distanceView.setBorder(width: 1, color: .red)
+		
+		tableViewHeightConstraint.constant = cell.frame.size.height
+		view.layoutIfNeeded()
+		
+		return cell
+		
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -198,6 +252,10 @@ extension BusinessMapListViewController: UITableViewDelegate, UITableViewDataSou
 		tableView.deselectRow(at: indexPath, animated: true)
 		
 		let business = businessesCallout[indexPath.row]
+		
+		if business.imported {
+			return
+		}
 		
 		presenter?.showBusinessPage(business: business)
 		

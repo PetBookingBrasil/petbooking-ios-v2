@@ -11,7 +11,7 @@
 import UIKit
 import Segmentio
 
-class HomeBusinessViewController: UIViewController, HomeBusinessViewProtocol {
+class HomeBusinessViewController: UIViewController, HomeBusinessViewProtocol, UIScrollViewDelegate {
 
 	var presenter: HomeBusinessPresenterProtocol?
 	
@@ -54,10 +54,12 @@ class HomeBusinessViewController: UIViewController, HomeBusinessViewProtocol {
 	// MARK: - Setup container view
 	
 	fileprivate func setupScrollView() {
+		scrollView.delegate = self
 		scrollView.contentSize = CGSize(
 			width: UIScreen.main.bounds.width * CGFloat(viewControllers.count),
 			height: containerView.frame.height
 		)
+		scrollView.isScrollEnabled = false
 		
 		for (index, viewController) in viewControllers.enumerated() {
 			viewController.view.frame = CGRect(
@@ -85,5 +87,6 @@ class HomeBusinessViewController: UIViewController, HomeBusinessViewProtocol {
 	fileprivate func selectedSegmentioIndex() -> Int {
 		return 0
 	}
+	
 
 }

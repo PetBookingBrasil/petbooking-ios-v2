@@ -94,7 +94,7 @@ class HomeContentViewControllerViewController: UIViewController, HomeContentView
 			width: UIScreen.main.bounds.width * CGFloat(viewControllers.count),
 			height: containerView.frame.height
 		)
-		
+		scrollView.isScrollEnabled = false
 		for (index, viewController) in viewControllers.enumerated() {
 			viewController.view.frame = CGRect(
 				x: UIScreen.main.bounds.width * CGFloat(index),

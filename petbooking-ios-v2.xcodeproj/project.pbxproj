@@ -15,6 +15,14 @@
 		4113B2CD1F3414CB007DC89F /* BusinessInformationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4113B2C71F3414CB007DC89F /* BusinessInformationViewController.xib */; };
 		411B4E4F1F3E031A00B9244B /* ServiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 411B4E4D1F3E031A00B9244B /* ServiceTableViewCell.xib */; };
 		411B4E501F3E031A00B9244B /* ServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411B4E4E1F3E031A00B9244B /* ServiceTableViewCell.swift */; };
+		411B4E581F3E4CFA00B9244B /* BusinessSearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411B4E521F3E4CFA00B9244B /* BusinessSearchInteractor.swift */; };
+		411B4E591F3E4CFA00B9244B /* BusinessSearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411B4E531F3E4CFA00B9244B /* BusinessSearchPresenter.swift */; };
+		411B4E5A1F3E4CFA00B9244B /* BusinessSearchProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411B4E541F3E4CFA00B9244B /* BusinessSearchProtocols.swift */; };
+		411B4E5B1F3E4CFA00B9244B /* BusinessSearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411B4E551F3E4CFA00B9244B /* BusinessSearchRouter.swift */; };
+		411B4E5C1F3E4CFA00B9244B /* BusinessSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411B4E561F3E4CFA00B9244B /* BusinessSearchViewController.swift */; };
+		411B4E5D1F3E4CFA00B9244B /* BusinessSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 411B4E571F3E4CFA00B9244B /* BusinessSearchViewController.xib */; };
+		411B4E601F3E567000B9244B /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411B4E5E1F3E567000B9244B /* CategoryCollectionViewCell.swift */; };
+		411B4E611F3E567000B9244B /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 411B4E5F1F3E567000B9244B /* CategoryCollectionViewCell.xib */; };
 		411C84B51F3A8EF0008C6E0A /* AgendaInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411C84AF1F3A8EF0008C6E0A /* AgendaInteractor.swift */; };
 		411C84B61F3A8EF0008C6E0A /* AgendaPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411C84B01F3A8EF0008C6E0A /* AgendaPresenter.swift */; };
 		411C84B71F3A8EF0008C6E0A /* AgendaProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411C84B11F3A8EF0008C6E0A /* AgendaProtocols.swift */; };
@@ -177,6 +185,9 @@
 		41AAB4F51EF1F9AF00E52857 /* HomeContentViewControllerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AAB4EF1EF1F9AF00E52857 /* HomeContentViewControllerRouter.swift */; };
 		41AAB4F61EF1F9AF00E52857 /* HomeContentViewControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AAB4F01EF1F9AF00E52857 /* HomeContentViewControllerViewController.swift */; };
 		41AAB4F71EF1F9AF00E52857 /* HomeContentViewControllerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41AAB4F11EF1F9AF00E52857 /* HomeContentViewControllerViewController.xib */; };
+		41B85F101F4DE00500355073 /* BusinessImportedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B85F0E1F4DE00500355073 /* BusinessImportedTableViewCell.swift */; };
+		41B85F111F4DE00500355073 /* BusinessImportedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41B85F0F1F4DE00500355073 /* BusinessImportedTableViewCell.xib */; };
+		41B85F141F4DE46000355073 /* PhoneCodesConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B85F131F4DE46000355073 /* PhoneCodesConstants.m */; };
 		41BDC2A31EE79FE100F28434 /* PetSizePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BDC2A11EE79FE100F28434 /* PetSizePopupViewController.swift */; };
 		41BDC2A41EE79FE100F28434 /* PetSizePopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41BDC2A21EE79FE100F28434 /* PetSizePopupViewController.xib */; };
 		41D86F6D1F263AB30038ADA8 /* HomeBusinessInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D86F671F263AB30038ADA8 /* HomeBusinessInteractor.swift */; };
@@ -241,6 +252,14 @@
 		4113B2C71F3414CB007DC89F /* BusinessInformationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusinessInformationViewController.xib; sourceTree = "<group>"; };
 		411B4E4D1F3E031A00B9244B /* ServiceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceTableViewCell.xib; sourceTree = "<group>"; };
 		411B4E4E1F3E031A00B9244B /* ServiceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceTableViewCell.swift; sourceTree = "<group>"; };
+		411B4E521F3E4CFA00B9244B /* BusinessSearchInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessSearchInteractor.swift; sourceTree = "<group>"; };
+		411B4E531F3E4CFA00B9244B /* BusinessSearchPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessSearchPresenter.swift; sourceTree = "<group>"; };
+		411B4E541F3E4CFA00B9244B /* BusinessSearchProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessSearchProtocols.swift; sourceTree = "<group>"; };
+		411B4E551F3E4CFA00B9244B /* BusinessSearchRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessSearchRouter.swift; sourceTree = "<group>"; };
+		411B4E561F3E4CFA00B9244B /* BusinessSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessSearchViewController.swift; sourceTree = "<group>"; };
+		411B4E571F3E4CFA00B9244B /* BusinessSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusinessSearchViewController.xib; sourceTree = "<group>"; };
+		411B4E5E1F3E567000B9244B /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		411B4E5F1F3E567000B9244B /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		411C84AF1F3A8EF0008C6E0A /* AgendaInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaInteractor.swift; sourceTree = "<group>"; };
 		411C84B01F3A8EF0008C6E0A /* AgendaPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaPresenter.swift; sourceTree = "<group>"; };
 		411C84B11F3A8EF0008C6E0A /* AgendaProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaProtocols.swift; sourceTree = "<group>"; };
@@ -427,6 +446,10 @@
 		41AAB4EF1EF1F9AF00E52857 /* HomeContentViewControllerRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeContentViewControllerRouter.swift; sourceTree = "<group>"; };
 		41AAB4F01EF1F9AF00E52857 /* HomeContentViewControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeContentViewControllerViewController.swift; sourceTree = "<group>"; };
 		41AAB4F11EF1F9AF00E52857 /* HomeContentViewControllerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeContentViewControllerViewController.xib; sourceTree = "<group>"; };
+		41B85F0E1F4DE00500355073 /* BusinessImportedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessImportedTableViewCell.swift; sourceTree = "<group>"; };
+		41B85F0F1F4DE00500355073 /* BusinessImportedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusinessImportedTableViewCell.xib; sourceTree = "<group>"; };
+		41B85F121F4DE46000355073 /* PhoneCodesConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneCodesConstants.h; sourceTree = "<group>"; };
+		41B85F131F4DE46000355073 /* PhoneCodesConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneCodesConstants.m; sourceTree = "<group>"; };
 		41BDC2A11EE79FE100F28434 /* PetSizePopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetSizePopupViewController.swift; sourceTree = "<group>"; };
 		41BDC2A21EE79FE100F28434 /* PetSizePopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PetSizePopupViewController.xib; sourceTree = "<group>"; };
 		41D86F671F263AB30038ADA8 /* HomeBusinessInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeBusinessInteractor.swift; sourceTree = "<group>"; };
@@ -510,6 +533,21 @@
 				41F1A04C1F3D4F1D00CBC32D /* SocialNetworkCollectionViewCell.xib */,
 			);
 			path = BusinessInformation;
+			sourceTree = "<group>";
+		};
+		411B4E511F3E4CE600B9244B /* BusinessSearch */ = {
+			isa = PBXGroup;
+			children = (
+				411B4E521F3E4CFA00B9244B /* BusinessSearchInteractor.swift */,
+				411B4E531F3E4CFA00B9244B /* BusinessSearchPresenter.swift */,
+				411B4E541F3E4CFA00B9244B /* BusinessSearchProtocols.swift */,
+				411B4E551F3E4CFA00B9244B /* BusinessSearchRouter.swift */,
+				411B4E561F3E4CFA00B9244B /* BusinessSearchViewController.swift */,
+				411B4E571F3E4CFA00B9244B /* BusinessSearchViewController.xib */,
+				411B4E5E1F3E567000B9244B /* CategoryCollectionViewCell.swift */,
+				411B4E5F1F3E567000B9244B /* CategoryCollectionViewCell.xib */,
+			);
+			path = BusinessSearch;
 			sourceTree = "<group>";
 		};
 		411C84AE1F3A8ED3008C6E0A /* Agenda */ = {
@@ -649,6 +687,8 @@
 		4137158D1EBEAFDD00258C6F /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				41B85F121F4DE46000355073 /* PhoneCodesConstants.h */,
+				41B85F131F4DE46000355073 /* PhoneCodesConstants.m */,
 				4137158E1EBEAFFA00258C6F /* Device.swift */,
 			);
 			name = Helpers;
@@ -748,6 +788,8 @@
 				4127768C1F13084800EC6488 /* BusinessMapListViewController.swift */,
 				4127768D1F13084800EC6488 /* BusinessMapListViewController.xib */,
 				413D9FA91F391909007ABBEE /* BussinessAnnotation.swift */,
+				41B85F0E1F4DE00500355073 /* BusinessImportedTableViewCell.swift */,
+				41B85F0F1F4DE00500355073 /* BusinessImportedTableViewCell.xib */,
 			);
 			path = BusinessList;
 			sourceTree = "<group>";
@@ -811,6 +853,7 @@
 		418D099C1EB0D71200FCD5A6 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				411B4E511F3E4CE600B9244B /* BusinessSearch */,
 				411C84AE1F3A8ED3008C6E0A /* Agenda */,
 				4113B2C11F3414B0007DC89F /* BusinessInformation */,
 				419C890D1F33A16B00BDBE8E /* CartViewController */,
@@ -1124,6 +1167,7 @@
 				419C892C1F33A95C00BDBE8E /* CartTableViewCell.xib in Resources */,
 				41E7E2EA1EC27833002C0A55 /* OpenSans-Bold.ttf in Resources */,
 				411C84C01F3B870D008C6E0A /* AgendaCollectionViewCell.xib in Resources */,
+				41B85F111F4DE00500355073 /* BusinessImportedTableViewCell.xib in Resources */,
 				418DAA331ECE93FB006265CF /* SideMenuTableViewCell.xib in Resources */,
 				41FB2FF11F3CA8A900DF57B1 /* AlertCancelScheduledViewController.xib in Resources */,
 				41E7E2ED1EC27833002C0A55 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
@@ -1155,11 +1199,13 @@
 				41E7E2F21EC27833002C0A55 /* OpenSans-Semibold.ttf in Resources */,
 				41D86F721F263AB30038ADA8 /* HomeBusinessViewController.xib in Resources */,
 				41A0BAEC1ED7A8FA00671F3C /* AddPetViewControllerViewController.xib in Resources */,
+				411B4E5D1F3E4CFA00B9244B /* BusinessSearchViewController.xib in Resources */,
 				41E7E2EF1EC27833002C0A55 /* OpenSans-Light.ttf in Resources */,
 				41D86F8B1F294F1E0038ADA8 /* ServiceCollectionViewCell.xib in Resources */,
 				4129D9E81ED86E9B0067EDC3 /* MyPetsTableViewCell.xib in Resources */,
 				4120ED051EB0DE9F009D35B0 /* PresentationViewController.xib in Resources */,
 				41AAB4F71EF1F9AF00E52857 /* HomeContentViewControllerViewController.xib in Resources */,
+				411B4E611F3E567000B9244B /* CategoryCollectionViewCell.xib in Resources */,
 				4120ED3B1EB529FE009D35B0 /* SignupViewController.xib in Resources */,
 				413682C61E9C2B2D008C463B /* Main.storyboard in Resources */,
 				41D86F951F298C360038ADA8 /* AdditionalServiceTableViewCell.xib in Resources */,
@@ -1258,6 +1304,7 @@
 				4120ED191EB38650009D35B0 /* LoginPresenter.swift in Sources */,
 				4137158F1EBEAFFA00258C6F /* Device.swift in Sources */,
 				414862921F2E9F1900F210D8 /* JTCalendarSettings.m in Sources */,
+				411B4E591F3E4CFA00B9244B /* BusinessSearchPresenter.swift in Sources */,
 				41A0BAEA1ED7A8FA00671F3C /* AddPetViewControllerRouter.swift in Sources */,
 				414862931F2E9F1900F210D8 /* JTDateHelper.m in Sources */,
 				414862991F2E9F1900F210D8 /* JTCalendarWeekDayView.m in Sources */,
@@ -1277,6 +1324,7 @@
 				414862911F2E9F1900F210D8 /* JTCalendarManager.m in Sources */,
 				41D86F8A1F294F1E0038ADA8 /* ServiceCollectionViewCell.swift in Sources */,
 				41FB2FF01F3CA8A900DF57B1 /* AlertCancelScheduledViewController.swift in Sources */,
+				411B4E5B1F3E4CFA00B9244B /* BusinessSearchRouter.swift in Sources */,
 				4149E9971EFF0D0100D6C44B /* BusinessTableViewCell.swift in Sources */,
 				419C89261F33A8BB00BDBE8E /* CartRouter.swift in Sources */,
 				41432E791F0B3088002789CE /* UIButtonExtension.swift in Sources */,
@@ -1286,6 +1334,7 @@
 				4168AA581EB794D5001E2D6D /* SessionManager.swift in Sources */,
 				41D86F841F2678D30038ADA8 /* PetCollectionViewCell.swift in Sources */,
 				4120ED0A1EB11BA0009D35B0 /* UIColorExtension.swift in Sources */,
+				411B4E601F3E567000B9244B /* CategoryCollectionViewCell.swift in Sources */,
 				4129D9E61ED86E9B0067EDC3 /* MyPetsRouter.swift in Sources */,
 				414BB1F31EBFF4AF000BE2CC /* AlertPopupInteractor.swift in Sources */,
 				418DAA2C1ECE7EAE006265CF /* SideMenuProtocols.swift in Sources */,
@@ -1299,6 +1348,7 @@
 				41D86FA21F2D525E0038ADA8 /* ScheduleCalendarPresenter.swift in Sources */,
 				4137157F1EBD5B3F00258C6F /* PresentationPageViewController.swift in Sources */,
 				41D86FA11F2D525E0038ADA8 /* ScheduleCalendarInteractor.swift in Sources */,
+				411B4E581F3E4CFA00B9244B /* BusinessSearchInteractor.swift in Sources */,
 				411B4E501F3E031A00B9244B /* ServiceTableViewCell.swift in Sources */,
 				4120ED041EB0DE9F009D35B0 /* PresentationViewController.swift in Sources */,
 				4149E9771EF9628100D6C44B /* BusinessListViewControllerInteractor.swift in Sources */,
@@ -1322,6 +1372,7 @@
 				41A0BAE71ED7A8FA00671F3C /* AddPetViewControllerInteractor.swift in Sources */,
 				418DAA2A1ECE7EAE006265CF /* SideMenuInteractor.swift in Sources */,
 				419C892B1F33A95C00BDBE8E /* CartTableViewCell.swift in Sources */,
+				411B4E5C1F3E4CFA00B9244B /* BusinessSearchViewController.swift in Sources */,
 				413D9FA71F381D4F007ABBEE /* CartTableSubServiceTableViewCell.swift in Sources */,
 				41D86FA31F2D525E0038ADA8 /* ScheduleCalendarProtocols.swift in Sources */,
 				4113B2C91F3414CB007DC89F /* BusinessInformationPresenter.swift in Sources */,
@@ -1334,6 +1385,7 @@
 				419C89171F33A18700BDBE8E /* CartWebProtocols.swift in Sources */,
 				41D86FA51F2D525E0038ADA8 /* ScheduleCalendarViewController.swift in Sources */,
 				41AAB4F51EF1F9AF00E52857 /* HomeContentViewControllerRouter.swift in Sources */,
+				411B4E5A1F3E4CFA00B9244B /* BusinessSearchProtocols.swift in Sources */,
 				41D86F7F1F266D7A0038ADA8 /* BusinessServicesRouter.swift in Sources */,
 				4168AA4F1EB6A4DD001E2D6D /* Consumer.swift in Sources */,
 				411C84B81F3A8EF0008C6E0A /* AgendaRouter.swift in Sources */,
@@ -1373,6 +1425,8 @@
 				41D86F8D1F2973C70038ADA8 /* ServiceCategory.swift in Sources */,
 				4120ED391EB529FE009D35B0 /* SignupRouter.swift in Sources */,
 				4148629B1F2E9F1A00F210D8 /* JTHorizontalCalendarView.m in Sources */,
+				41B85F141F4DE46000355073 /* PhoneCodesConstants.m in Sources */,
+				41B85F101F4DE00500355073 /* BusinessImportedTableViewCell.swift in Sources */,
 				4120ED1A1EB38650009D35B0 /* LoginProtocols.swift in Sources */,
 				4129D9E31ED86E9B0067EDC3 /* MyPetsInteractor.swift in Sources */,
 				4120ED2B1EB4F136009D35B0 /* ForgotPasswordViewController.swift in Sources */,
