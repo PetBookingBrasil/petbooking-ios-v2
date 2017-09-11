@@ -204,8 +204,18 @@ extension BusinessListViewControllerViewController: UITableViewDelegate, UITable
 		cell.distanceLabel.sizeToFit()
 		cell.distanceView.round()
 		cell.distanceView.setBorder(width: 1, color: .red)
-		cell.ratingLabel.text = "\(business.rating)"
-		cell.reviewQuantityLabel.text = "\(business.ratingCount) Avaliações"
+		
+		if business.ratingCount > 0 {
+			cell.ratingLabel.isHidden = false
+			cell.reviewQuantityLabel.isHidden = false
+			cell.starImageView.isHidden = false
+			cell.ratingLabel.text = "\(business.rating)"
+			cell.reviewQuantityLabel.text = "\(business.ratingCount) Avaliações"
+		} else {
+			cell.ratingLabel.isHidden = true
+			cell.reviewQuantityLabel.isHidden = true
+			cell.starImageView.isHidden = true
+		}
 		
 		cell.businessImageView.image = nil
 		if let url = URL(string: business.photoThumbUrl) {

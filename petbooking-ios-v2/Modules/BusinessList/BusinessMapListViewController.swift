@@ -111,9 +111,10 @@ extension BusinessMapListViewController: MKMapViewDelegate {
 	
 	func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
 		
-		if !(annotation is MKPointAnnotation) {
+		guard let businessAnnotation = annotation as? BussinessAnnotation else {
 			return nil
 		}
+
 		
 		var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "demo")
 		if annotationView == nil {
@@ -123,8 +124,9 @@ extension BusinessMapListViewController: MKMapViewDelegate {
 		else {
 			annotationView!.annotation = annotation
 		}
+
 		
-		annotationView!.image = UIImage(named: "business_pin")
+		annotationView!.image = businessAnnotation.business.imported ? UIImage(named: "business_pin_imported") : UIImage(named: "business_pin")
 		
 		return annotationView
 		

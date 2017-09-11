@@ -19,6 +19,7 @@ class BusinessTableViewCell: UITableViewCell {
 	@IBOutlet weak var distanceView: UIView!
 	@IBOutlet weak var distanceLabel: UILabel!
 	@IBOutlet weak var favoriteButton: UIButton!
+	@IBOutlet weak var starImageView: UIImageView!
 	
 	var delegate: BusinessTableViewCellDelegate?
 	var business:Business?

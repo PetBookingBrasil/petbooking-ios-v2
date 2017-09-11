@@ -522,7 +522,7 @@ extension PetbookingAPI {
 			
 			self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
 			
-			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/breeds/\(petType)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: auth_headers).responseJSON { (response) in
+			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/breeds/\(petType)?page[size]=250", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: auth_headers).responseJSON { (response) in
 				
 				switch response.result{
 				case .success(let jsonObject):
