@@ -9,8 +9,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="OpenSans-Semibold.ttf">
-            <string>OpenSans-Semibold</string>
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
         </array>
     </customFonts>
     <objects>
@@ -39,13 +39,13 @@
                     <rect key="frame" x="22" y="195" width="331" height="277.5"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rc2-BL-cCu">
-                            <rect key="frame" x="28.5" y="87.5" width="275" height="50"/>
+                            <rect key="frame" x="28.5" y="83.5" width="275" height="50"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="IMF-Jl-IuH"/>
                                 <constraint firstAttribute="width" constant="275" id="SaK-yB-yRP"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="16"/>
+                            <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
                             <state key="normal" title="Escolher na biblioteca">
                                 <color key="titleColor" red="0.89411764709999997" green="0.0" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
@@ -54,13 +54,13 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i6P-wY-azR">
-                            <rect key="frame" x="28" y="157.5" width="275" height="50"/>
+                            <rect key="frame" x="28" y="153.5" width="275" height="50"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="hPN-JS-Jpq"/>
                                 <constraint firstAttribute="width" constant="275" id="veI-iZ-b77"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="16"/>
+                            <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
                             <state key="normal" title="Tirar foto">
                                 <color key="titleColor" red="0.89411764709999997" green="0.0" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
@@ -69,19 +69,19 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selecionar foto de perfil" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UR1-3c-utR">
-                            <rect key="frame" x="50.5" y="20" width="230.5" height="27.5"/>
-                            <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="20"/>
+                            <rect key="frame" x="58.5" y="20" width="214" height="23.5"/>
+                            <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="20"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hp7-1H-mh9">
-                            <rect key="frame" x="28" y="227.5" width="275" height="50"/>
+                            <rect key="frame" x="28" y="223.5" width="275" height="50"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="C0c-RU-jlp"/>
                                 <constraint firstAttribute="width" constant="275" id="rfa-Xk-tXC"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="16"/>
+                            <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
                             <state key="normal" title="Cancelar">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>

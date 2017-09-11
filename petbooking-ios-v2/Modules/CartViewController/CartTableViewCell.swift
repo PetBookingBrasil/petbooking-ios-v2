@@ -98,7 +98,7 @@ extension CartTableViewCell : UITableViewDelegate, UITableViewDataSource, CartTa
 		
 		let label = UILabel()
 		label.text = "   ADICIONAIS"
-		label.font = UIFont.openSansSemiBold(ofSize: 9)
+		label.font = UIFont.robotoMedium(ofSize: 9)
 		label.textColor = UIColor(hex:"858585")
 		
 		return label

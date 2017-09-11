@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="OpenSans-Regular.ttf">
-            <string>OpenSans</string>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
         </array>
     </customFonts>
     <objects>
@@ -76,7 +76,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="878"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5qx-pr-Bjw" userLabel="Content View">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="801"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="771"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kOW-vR-FwE" userLabel="Profile Picture View">
                                     <rect key="frame" x="131" y="25" width="112" height="112"/>
@@ -116,12 +116,12 @@
                                     </connections>
                                 </view>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="F9I-Xz-x5i">
-                                    <rect key="frame" x="33" y="174.5" width="12" height="12"/>
+                                    <rect key="frame" x="33" y="173" width="12" height="12"/>
                                 </imageView>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nome completo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hQO-TA-ZSe">
-                                    <rect key="frame" x="61" y="170" width="253" height="20"/>
+                                    <rect key="frame" x="61" y="170" width="253" height="17"/>
                                     <color key="textColor" red="0.3294117647" green="0.3294117647" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
+                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
@@ -130,19 +130,19 @@
                                     </userDefinedRuntimeAttributes>
                                 </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ObW-8Y-ZvI">
-                                    <rect key="frame" x="16" y="202" width="343" height="1"/>
+                                    <rect key="frame" x="16" y="199" width="343" height="1"/>
                                     <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="1" id="HAb-Ue-dRB"/>
                                     </constraints>
                                 </view>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cpf" translatesAutoresizingMaskIntoConstraints="NO" id="iOe-a6-lTn">
-                                    <rect key="frame" x="32" y="228.5" width="14" height="12"/>
+                                    <rect key="frame" x="32" y="224" width="14" height="12"/>
                                 </imageView>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="CPF" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Ui-93-gPg" customClass="AKMaskField" customModule="AKMaskField">
-                                    <rect key="frame" x="61" y="225" width="118.5" height="20"/>
+                                    <rect key="frame" x="61" y="222" width="118.5" height="17"/>
                                     <color key="textColor" red="0.3294117647" green="0.3294117647" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
+                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
@@ -151,12 +151,12 @@
                                     </userDefinedRuntimeAttributes>
                                 </textField>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="birthday" translatesAutoresizingMaskIntoConstraints="NO" id="Frb-5N-OLb">
-                                    <rect key="frame" x="200" y="228" width="13" height="13"/>
+                                    <rect key="frame" x="200" y="223.5" width="13" height="13"/>
                                 </imageView>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Data Nasc." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cu7-m9-Zvc" customClass="AKMaskField" customModule="AKMaskField">
-                                    <rect key="frame" x="229" y="225" width="118" height="20"/>
+                                    <rect key="frame" x="229" y="222" width="118" height="17"/>
                                     <color key="textColor" red="0.3294117647" green="0.3294117647" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
+                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
@@ -165,14 +165,14 @@
                                     </userDefinedRuntimeAttributes>
                                 </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bVg-Na-0Yv">
-                                    <rect key="frame" x="16" y="257" width="343" height="1"/>
+                                    <rect key="frame" x="16" y="251" width="343" height="1"/>
                                     <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="1" id="bIb-5L-TGX"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nj3-YT-MRm">
-                                    <rect key="frame" x="183" y="257" width="8" height="1"/>
+                                    <rect key="frame" x="183" y="251" width="8" height="1"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="8" id="NT8-cF-dqO"/>
@@ -180,12 +180,12 @@
                                     </constraints>
                                 </view>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="password" translatesAutoresizingMaskIntoConstraints="NO" id="bzi-C4-EIy">
-                                    <rect key="frame" x="33.5" y="667.5" width="12" height="15"/>
+                                    <rect key="frame" x="33.5" y="639" width="12" height="15"/>
                                 </imageView>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sdh-zK-rgf">
-                                    <rect key="frame" x="61" y="665" width="118" height="20"/>
+                                    <rect key="frame" x="61" y="638" width="118" height="17"/>
                                     <color key="textColor" red="0.3294117647" green="0.3294117647" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
+                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
@@ -194,12 +194,12 @@
                                     </userDefinedRuntimeAttributes>
                                 </textField>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="password" translatesAutoresizingMaskIntoConstraints="NO" id="SH9-Ha-kMw">
-                                    <rect key="frame" x="200.5" y="667" width="12" height="15"/>
+                                    <rect key="frame" x="200.5" y="638.5" width="12" height="15"/>
                                 </imageView>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Conf. senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iyM-7A-dmi">
-                                    <rect key="frame" x="228" y="665" width="81.5" height="20"/>
+                                    <rect key="frame" x="228" y="638" width="79" height="17"/>
                                     <color key="textColor" red="0.3294117647" green="0.3294117647" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
+                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
@@ -208,14 +208,14 @@
                                     </userDefinedRuntimeAttributes>
                                 </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EhN-cT-j53">
-                                    <rect key="frame" x="16" y="697" width="343" height="1"/>
+                                    <rect key="frame" x="16" y="667" width="343" height="1"/>
                                     <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="1" id="oar-aK-AUy"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qFv-lo-eZd">
-                                    <rect key="frame" x="183" y="697" width="8" height="1"/>
+                                    <rect key="frame" x="183" y="667" width="8" height="1"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="8" id="88c-pn-uE7"/>
@@ -223,12 +223,12 @@
                                     </constraints>
                                 </view>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cityIcon" translatesAutoresizingMaskIntoConstraints="NO" id="KFZ-rJ-bgZ">
-                                    <rect key="frame" x="33.5" y="502.5" width="12" height="15"/>
+                                    <rect key="frame" x="33.5" y="483" width="12" height="15"/>
                                 </imageView>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Cidade" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1aP-Ez-srv">
-                                    <rect key="frame" x="61" y="500" width="253" height="20"/>
+                                    <rect key="frame" x="61" y="482" width="253" height="17"/>
                                     <color key="textColor" red="0.3294117647" green="0.3294117647" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
+                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
@@ -237,12 +237,12 @@
                                     </userDefinedRuntimeAttributes>
                                 </textField>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stateIcon" translatesAutoresizingMaskIntoConstraints="NO" id="pbf-dr-h13">
-                                    <rect key="frame" x="32" y="557.5" width="15" height="15"/>
+                                    <rect key="frame" x="32" y="535" width="15" height="15"/>
                                 </imageView>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Estado" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D0r-5t-QDv">
-                                    <rect key="frame" x="61" y="555" width="253" height="20"/>
+                                    <rect key="frame" x="61" y="534" width="253" height="17"/>
                                     <color key="textColor" red="0.3294117647" green="0.3294117647" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
+                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
@@ -254,19 +254,19 @@
                                     </connections>
                                 </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="583-Rg-DJf">
-                                    <rect key="frame" x="16" y="532" width="343" height="1"/>
+                                    <rect key="frame" x="16" y="511" width="343" height="1"/>
                                     <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="1" id="d8G-su-BwS"/>
                                     </constraints>
                                 </view>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location" translatesAutoresizingMaskIntoConstraints="NO" id="5Xg-KX-KgO">
-                                    <rect key="frame" x="34" y="392.5" width="11" height="15"/>
+                                    <rect key="frame" x="34" y="379" width="11" height="15"/>
                                 </imageView>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Número" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Aq-IX-3hn">
-                                    <rect key="frame" x="61" y="390" width="118" height="20"/>
+                                    <rect key="frame" x="61" y="378" width="118" height="17"/>
                                     <color key="textColor" red="0.3294117647" green="0.3294117647" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
+                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
@@ -275,12 +275,12 @@
                                     </userDefinedRuntimeAttributes>
                                 </textField>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location" translatesAutoresizingMaskIntoConstraints="NO" id="9xM-gb-PDW">
-                                    <rect key="frame" x="34" y="448" width="11" height="15"/>
+                                    <rect key="frame" x="34" y="431.5" width="11" height="15"/>
                                 </imageView>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Bairro" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hfC-Kr-zMT">
-                                    <rect key="frame" x="61" y="445" width="253" height="20"/>
+                                    <rect key="frame" x="61" y="430" width="253" height="17"/>
                                     <color key="textColor" red="0.3294117647" green="0.3294117647" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
+                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
@@ -289,21 +289,21 @@
                                     </userDefinedRuntimeAttributes>
                                 </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WFs-jH-bnl">
-                                    <rect key="frame" x="16" y="422" width="343" height="1"/>
+                                    <rect key="frame" x="16" y="407" width="343" height="1"/>
                                     <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="1" id="5De-8D-CNv"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZOa-yG-OX2">
-                                    <rect key="frame" x="16" y="477" width="343" height="1"/>
+                                    <rect key="frame" x="16" y="459" width="343" height="1"/>
                                     <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="1" id="sZs-Oj-vCr"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6LL-tJ-oGv">
-                                    <rect key="frame" x="183" y="422" width="8" height="1"/>
+                                    <rect key="frame" x="183" y="407" width="8" height="1"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="8" id="NgJ-6Z-GvJ"/>
@@ -311,12 +311,12 @@
                                     </constraints>
                                 </view>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="email" translatesAutoresizingMaskIntoConstraints="NO" id="REh-HA-40r">
-                                    <rect key="frame" x="31" y="284.5" width="16" height="12"/>
+                                    <rect key="frame" x="31" y="277" width="16" height="12"/>
                                 </imageView>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v7R-vM-Abz">
-                                    <rect key="frame" x="61" y="280" width="253" height="20"/>
+                                    <rect key="frame" x="61" y="274" width="253" height="17"/>
                                     <color key="textColor" red="0.3294117647" green="0.3294117647" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
+                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
@@ -325,19 +325,19 @@
                                     </userDefinedRuntimeAttributes>
                                 </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1pX-BI-tOg">
-                                    <rect key="frame" x="16" y="312" width="343" height="1"/>
+                                    <rect key="frame" x="16" y="303" width="343" height="1"/>
                                     <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="1" id="LLq-YK-p03"/>
                                     </constraints>
                                 </view>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location" translatesAutoresizingMaskIntoConstraints="NO" id="gCu-wK-XEY">
-                                    <rect key="frame" x="34" y="337.5" width="11" height="15"/>
+                                    <rect key="frame" x="34" y="327" width="11" height="15"/>
                                 </imageView>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Rua" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fed-MD-GGM">
-                                    <rect key="frame" x="61" y="335" width="253" height="20"/>
+                                    <rect key="frame" x="61" y="326" width="253" height="17"/>
                                     <color key="textColor" red="0.3294117647" green="0.3294117647" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
+                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
@@ -346,30 +346,30 @@
                                     </userDefinedRuntimeAttributes>
                                 </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hql-0S-5Ub">
-                                    <rect key="frame" x="16" y="367" width="343" height="1"/>
+                                    <rect key="frame" x="16" y="355" width="343" height="1"/>
                                     <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="1" id="k7Z-Wf-ldf"/>
                                     </constraints>
                                 </view>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="phone" translatesAutoresizingMaskIntoConstraints="NO" id="7E4-EU-BMO">
-                                    <rect key="frame" x="32.5" y="613" width="14" height="14"/>
+                                    <rect key="frame" x="32.5" y="587.5" width="14" height="14"/>
                                 </imageView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Whb-CM-Ve1">
-                                    <rect key="frame" x="16" y="642" width="343" height="1"/>
+                                    <rect key="frame" x="16" y="615" width="343" height="1"/>
                                     <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="1" id="STq-YT-AVk"/>
                                     </constraints>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vOC-BY-xpr">
-                                    <rect key="frame" x="43" y="738" width="288" height="49"/>
+                                    <rect key="frame" x="43" y="708" width="288" height="49"/>
                                     <color key="backgroundColor" red="1" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="vOC-BY-xpr" secondAttribute="height" multiplier="288:49" id="6bo-ln-zMX"/>
                                         <constraint firstAttribute="height" constant="49" id="9bL-FG-8Jb"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
+                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="30" maxY="0.0"/>
                                     <state key="normal" title="Salvar">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -379,9 +379,9 @@
                                     </connections>
                                 </button>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Celular" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4tu-i9-ZPO" customClass="AKMaskField" customModule="AKMaskField">
-                                    <rect key="frame" x="61" y="610" width="253" height="20"/>
+                                    <rect key="frame" x="61" y="586" width="253" height="17"/>
                                     <color key="textColor" red="0.3294117647" green="0.3294117647" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
+                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
@@ -390,12 +390,12 @@
                                     </userDefinedRuntimeAttributes>
                                 </textField>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zipcodeIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Htj-A7-QzL">
-                                    <rect key="frame" x="199" y="392" width="15" height="15"/>
+                                    <rect key="frame" x="199" y="378.5" width="15" height="15"/>
                                 </imageView>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="CEP" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WDU-pb-FKl" customClass="AKMaskField" customModule="AKMaskField">
-                                    <rect key="frame" x="229" y="390" width="118" height="20"/>
+                                    <rect key="frame" x="229" y="378" width="118" height="17"/>
                                     <color key="textColor" red="0.3294117647" green="0.3294117647" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
+                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
@@ -404,93 +404,93 @@
                                     </userDefinedRuntimeAttributes>
                                 </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8oP-kb-UBe">
-                                    <rect key="frame" x="16" y="587" width="343" height="1"/>
+                                    <rect key="frame" x="16" y="563" width="343" height="1"/>
                                     <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="1" id="xJt-DA-Btj"/>
                                     </constraints>
                                 </view>
                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Por favor, insira seu nome e sobrenome." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Upd-yY-wxt">
-                                    <rect key="frame" x="16" y="204" width="343" height="11"/>
-                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="8"/>
+                                    <rect key="frame" x="16" y="201" width="343" height="9.5"/>
+                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="8"/>
                                     <color key="textColor" red="1" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Por favor, insira seu nome e sobrenome." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yIi-WM-zNY">
-                                    <rect key="frame" x="16" y="314" width="343" height="11"/>
-                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="8"/>
+                                    <rect key="frame" x="16" y="305" width="343" height="9.5"/>
+                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="8"/>
                                     <color key="textColor" red="1" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Por favor, insira seu nome e sobrenome." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRk-s0-WfU">
-                                    <rect key="frame" x="16" y="369" width="343" height="11"/>
-                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="8"/>
+                                    <rect key="frame" x="16" y="357" width="343" height="9.5"/>
+                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="8"/>
                                     <color key="textColor" red="1" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Por favor, insira seu nome e sobrenome." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YWT-nw-vUC">
-                                    <rect key="frame" x="16" y="479" width="343" height="11"/>
-                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="8"/>
+                                    <rect key="frame" x="16" y="461" width="343" height="9.5"/>
+                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="8"/>
                                     <color key="textColor" red="1" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Por favor, insira seu nome e sobrenome." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gKx-GI-Kk9">
-                                    <rect key="frame" x="16" y="534" width="343" height="11"/>
-                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="8"/>
+                                    <rect key="frame" x="16" y="513" width="343" height="9.5"/>
+                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="8"/>
                                     <color key="textColor" red="1" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Por favor, insira seu nome e sobrenome." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YAC-IP-WhH">
-                                    <rect key="frame" x="16" y="589" width="343" height="11"/>
-                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="8"/>
+                                    <rect key="frame" x="16" y="565" width="343" height="9.5"/>
+                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="8"/>
                                     <color key="textColor" red="1" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Por favor, insira seu nome e sobrenome." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eyo-X8-eQJ">
-                                    <rect key="frame" x="16" y="644" width="343" height="11"/>
-                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="8"/>
+                                    <rect key="frame" x="16" y="617" width="343" height="9.5"/>
+                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="8"/>
                                     <color key="textColor" red="1" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CPF do titular do cartão." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b80-42-p48">
-                                    <rect key="frame" x="16" y="259" width="164" height="11"/>
-                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="8"/>
+                                    <rect key="frame" x="16" y="253" width="164" height="9.5"/>
+                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="8"/>
                                     <color key="textColor" red="1" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CPF do titular do cartão." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HCV-bz-X5M">
-                                    <rect key="frame" x="16" y="424" width="164" height="11"/>
-                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="8"/>
+                                    <rect key="frame" x="16" y="409" width="164" height="9.5"/>
+                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="8"/>
                                     <color key="textColor" red="1" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CPF do titular do cartão." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V5J-7p-oOw">
-                                    <rect key="frame" x="16" y="699" width="164" height="11"/>
-                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="8"/>
+                                    <rect key="frame" x="16" y="669" width="164" height="9.5"/>
+                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="8"/>
                                     <color key="textColor" red="1" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CPF do titular do cartão." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WfV-zV-R9b">
-                                    <rect key="frame" x="195" y="699" width="164" height="11"/>
-                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="8"/>
+                                    <rect key="frame" x="195" y="669" width="164" height="9.5"/>
+                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="8"/>
                                     <color key="textColor" red="1" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insira sua data de nascimento" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ypm-VY-wyp">
-                                    <rect key="frame" x="195" y="259" width="164" height="11"/>
-                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="8"/>
+                                    <rect key="frame" x="195" y="253" width="164" height="9.5"/>
+                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="8"/>
                                     <color key="textColor" red="1" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insira sua data de nascimento" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YeY-Lx-oic">
-                                    <rect key="frame" x="195" y="424" width="164" height="11"/>
-                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="8"/>
+                                    <rect key="frame" x="195" y="409" width="164" height="9.5"/>
+                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="8"/>
                                     <color key="textColor" red="1" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Por favor, insira seu nome e sobrenome." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VbC-oO-wSv">
-                                    <rect key="frame" x="16" y="140" width="343" height="11"/>
-                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="8"/>
+                                    <rect key="frame" x="16" y="140" width="343" height="9.5"/>
+                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="8"/>
                                     <color key="textColor" red="1" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>

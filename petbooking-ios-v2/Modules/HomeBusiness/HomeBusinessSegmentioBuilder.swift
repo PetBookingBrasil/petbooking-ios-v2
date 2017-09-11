@@ -63,7 +63,7 @@ struct HomeBusinessSegmentioBuilder {
 	}
 	
 	private static func segmentioStates() -> SegmentioStates {
-		let font = UIFont.openSansRegular(ofSize: 13)
+		let font = UIFont.robotoRegular(ofSize: 13)
 		return SegmentioStates(
 			defaultState: segmentioState(
 				backgroundColor: .clear,

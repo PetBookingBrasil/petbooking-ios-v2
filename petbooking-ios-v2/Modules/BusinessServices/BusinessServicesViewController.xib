@@ -10,8 +10,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="OpenSans-Semibold.ttf">
-            <string>OpenSans-Semibold</string>
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
         </array>
     </customFonts>
     <objects>
@@ -107,7 +107,7 @@
                         <constraint firstAttribute="height" constant="50" id="UIT-JG-Q5H"/>
                         <constraint firstAttribute="width" secondItem="mLU-0d-YVn" secondAttribute="height" multiplier="288:49" id="eQH-ly-fSS"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="14"/>
+                    <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="30" maxY="0.0"/>
                     <state key="normal" title="Ir para o carrinho">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

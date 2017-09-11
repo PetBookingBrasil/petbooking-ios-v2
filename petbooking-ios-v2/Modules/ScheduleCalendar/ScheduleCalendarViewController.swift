@@ -152,11 +152,11 @@ extension ScheduleCalendarViewController:JTCalendarDelegate {
 			dayView.circleView.isHidden = false
 			dayView.circleView.backgroundColor = UIColor(hex: "E4002B")
 			dayView.textLabel.textColor = UIColor.white
-			dayView.textLabel.font = UIFont.openSansSemiBold(ofSize: 17)
+			dayView.textLabel.font = UIFont.robotoMedium(ofSize: 17)
 		}	else{
 			dayView.circleView.isHidden = true
 			dayView.textLabel.textColor = UIColor.white
-			dayView.textLabel.font = UIFont.openSansRegular(ofSize: 17)
+			dayView.textLabel.font = UIFont.robotoRegular(ofSize: 17)
 		}
 		
 	}
@@ -190,7 +190,7 @@ extension ScheduleCalendarViewController:JTCalendarDelegate {
 	 let dateformattter =	DateFormatter()
 		dateformattter.dateFormat = "MMMM YYYY"
 		
-		label.font = UIFont.openSansSemiBold(ofSize: 14)
+		label.font = UIFont.robotoMedium(ofSize: 14)
 		label.textColor = .white
 		label.text = dateformattter.string(from: date).uppercased()
 		

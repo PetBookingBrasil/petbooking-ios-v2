@@ -42,11 +42,11 @@ class LoginViewController: UIViewController, LoginViewProtocol {
 		loginButton.round()
 		signupButton.round()
 		facebookLoginButton.round()
-		facebookLoginButton.setSubTextTitleFont("Facebook", font: UIFont.openSansBold(ofSize: 16), controlState: .normal)
+		facebookLoginButton.setSubTextTitleFont("Facebook", font: UIFont.robotoBold(ofSize: 16), controlState: .normal)
 		signupButton.setBorder(width: 2, color: .white)
 		
 		let attributes : [String: Any] = [
-			NSFontAttributeName : UIFont.openSansRegular(ofSize: 16),
+			NSFontAttributeName : UIFont.robotoRegular(ofSize: 16),
 			NSForegroundColorAttributeName : UIColor.white,
 			NSUnderlineStyleAttributeName : NSUnderlineStyle.styleSingle.rawValue]
 				let attributeString = NSMutableAttributedString(string: NSLocalizedString("forgot_passowrd", comment: ""),

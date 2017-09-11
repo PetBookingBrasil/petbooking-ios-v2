@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="OpenSans-Regular.ttf">
-            <string>OpenSans</string>
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
         </array>
-        <array key="OpenSans-Semibold.ttf">
-            <string>OpenSans-Semibold</string>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
         </array>
     </customFonts>
     <objects>
@@ -47,7 +47,7 @@
                         <constraint firstAttribute="width" constant="100" id="8bu-Tc-7Nf"/>
                         <constraint firstAttribute="height" constant="50" id="SlV-2d-zpA"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="12"/>
+                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                     <state key="normal" title="Próximo">
                         <color key="titleColor" red="0.98431372549019602" green="0.81176470588235294" blue="0.83529411764705885" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
@@ -62,7 +62,7 @@
                         <constraint firstAttribute="height" constant="50" id="ZJE-zZ-HWG"/>
                         <constraint firstAttribute="width" constant="100" id="tE4-CG-Rqv"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="12"/>
+                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                     <state key="normal" title="Pular">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -79,14 +79,14 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Banho, tosa, consultas veterinárias e muito mais!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4J-Pb-DgN">
-                    <rect key="frame" x="20" y="466.33333333333331" width="374" height="19.333333333333371"/>
-                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
+                    <rect key="frame" x="20" y="454.66666666666669" width="374" height="16.666666666666629"/>
+                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Encontre e agende serviçoe para seus Pets, em poucos segundos, a qualquer hora do dia!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PhN-WV-wvo">
-                    <rect key="frame" x="10" y="377" width="394" height="82"/>
-                    <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="20"/>
+                    <rect key="frame" x="10" y="377" width="394" height="70.333333333333314"/>
+                    <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="20"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
