@@ -143,10 +143,28 @@ class ScheduleCalendarViewController: UIViewController, ScheduleCalendarViewProt
 
 extension ScheduleCalendarViewController:JTCalendarDelegate {
 	
+	func isProfessionalAvailable(date:Date) -> Bool {
+		
+		var isProfissionalAvailable = false
+		let dateKey = dateFormatter.string(from: date)
+		if let professional = selectedProfessional {
+			
+			if let times = professional.schedule[dateKey] {
+				if times.count > 0 {
+					isProfissionalAvailable = true
+				}
+			}
+		}
+		
+		return isProfissionalAvailable
+	}
+	
 	func calendar(_ calendar: JTCalendarManager!, prepareDayView dayView: UIView!) {
 		
 		// Today
 		let dayView = dayView as! JTCalendarDayView
+		let date = dayView.date
+		let isProfissionalAvailable = self.isProfessionalAvailable(date: date!)
 		
 		if calendarManager.dateHelper.date(dateSelected, isTheSameDayThan: dayView.date) {
 			dayView.circleView.isHidden = false
@@ -155,7 +173,7 @@ extension ScheduleCalendarViewController:JTCalendarDelegate {
 			dayView.textLabel.font = UIFont.robotoMedium(ofSize: 17)
 		}	else{
 			dayView.circleView.isHidden = true
-			dayView.textLabel.textColor = UIColor.white
+			dayView.textLabel.textColor = isProfissionalAvailable ? UIColor.white : UIColor.lightGray
 			dayView.textLabel.font = UIFont.robotoRegular(ofSize: 17)
 		}
 		
@@ -164,6 +182,10 @@ extension ScheduleCalendarViewController:JTCalendarDelegate {
 	func calendar(_ calendar: JTCalendarManager!, didTouchDayView dayView: UIView!) {
 		
 		let dayView = dayView as! JTCalendarDayView
+		
+		if !self.isProfessionalAvailable(date: dayView.date!) {
+			return
+		}
 		
 		dateSelected = dayView.date
 		
@@ -319,6 +341,7 @@ extension ScheduleCalendarViewController: UICollectionViewDataSource, UICollecti
 			service.professionalName = professional.name
 			service.professionalPicture = professional.photoThumbUrl
 			
+			calendarManager.reload()
 			reloadTimeColletion(professional: professional)
 			
 			break
