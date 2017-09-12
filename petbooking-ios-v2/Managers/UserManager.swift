@@ -46,6 +46,7 @@ class UserManager: NSObject {
 			user?.streetNumber = userRealm.streetNumber
 			user?.zipcode = userRealm.zipcode
 			user?.validForScheduling = userRealm.validForScheduling
+			user?.complement = userRealm.complement
 			
 			return 	user
 		} catch _ as NSError {
@@ -82,6 +83,7 @@ class UserManager: NSObject {
 		userRealm.streetNumber = user.streetNumber
 		userRealm.zipcode = user.zipcode
 		userRealm.validForScheduling = user.validForScheduling
+		userRealm.complement = user.complement
 		
 		do {
 			let realm = try Realm()

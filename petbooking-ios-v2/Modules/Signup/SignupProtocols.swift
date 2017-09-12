@@ -32,9 +32,9 @@ protocol SignupPresenterProtocol: class {
 	
 	func fillAdrressWithZipcode(zipcode:String)
 	
-	func fillAdrressFields(street:String, streetNumber:String, neighborhood:String, city:String, state:String)
+	func fillAdrressFields(street:String, streetNumber:String, neighborhood:String, city:String, state:String, complement:String)
 	
-	func createUser(name:String, cpf:String, birthday:String, email:String, mobile:String, zipcode:String, street:String, streetNumber:String, neighborhood:String, city:String, state:String, password:String, avatar:String)
+	func createUser(name:String, cpf:String, birthday:String, email:String, mobile:String, zipcode:String, street:String, streetNumber:String, neighborhood:String, city:String, state:String, password:String, avatar:String, complement:String)
 	
 	func createUserWithSuccess()
 	
@@ -52,7 +52,7 @@ protocol SignupInteractorProtocol: class {
 	
 	func fillAdrressWithZipcode(zipcode:String)
 	
-	func createUser(name:String, cpf:String, birthday:String, email:String, mobile:String, zipcode:String, street:String, streetNumber:String, neighborhood:String, city:String, state:String, password:String, avatar:String)
+	func createUser(name:String, cpf:String, birthday:String, email:String, mobile:String, zipcode:String, street:String, streetNumber:String, neighborhood:String, city:String, state:String, password:String, avatar:String, complement:String)
 	
 }
 
@@ -69,5 +69,5 @@ protocol SignupViewProtocol: class {
 	
 	func setUserDetails(mobile:String, cpf:String, birthday:String, zipcode:String)
 	
-	func fillAdrressFields(street:String, streetNumber:String, neighborhood:String, city:String, state:String)
+	func fillAdrressFields(street:String, streetNumber:String, neighborhood:String, city:String, state:String, complement:String)
 }

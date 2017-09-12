@@ -28,6 +28,7 @@ class SignupViewController: UIViewController, SignupViewProtocol {
 	@IBOutlet weak var numberTextField: UITextField!
 	@IBOutlet weak var cityTextField: UITextField!
 	@IBOutlet weak var neighborhoodTextField: UITextField!
+	@IBOutlet weak var complementTextField: AKMaskField!
 	@IBOutlet weak var zipcodeTextField: AKMaskField!
 	@IBOutlet weak var stateTextField: UITextField!
 	@IBOutlet weak var streetTextField: UITextField!
@@ -42,6 +43,7 @@ class SignupViewController: UIViewController, SignupViewProtocol {
 	@IBOutlet weak var phoneIconImageView: UIImageView!
 	@IBOutlet weak var cepIconImageView: UIImageView!
 	@IBOutlet weak var numberIconImageView: UIImageView!
+	@IBOutlet weak var complementIconImageView: UIImageView!
 	@IBOutlet weak var stateIconImageView: UIImageView!
 	@IBOutlet weak var cityIconImageView: UIImageView!
 	@IBOutlet weak var confirmPasswordIconImageView: UIImageView!
@@ -60,6 +62,7 @@ class SignupViewController: UIViewController, SignupViewProtocol {
 	
 	@IBOutlet weak var zipcodeAlertMessageLabel: UILabel!
 	
+	@IBOutlet weak var complementAlertMessageLabel: UILabel!
 	@IBOutlet weak var neighborhoodAlertMessageLabel: UILabel!
 	
 	@IBOutlet weak var cityAlertMessageLabel: UILabel!
@@ -151,6 +154,9 @@ class SignupViewController: UIViewController, SignupViewProtocol {
 		
 		phoneIconImageView.image = phoneIconImageView.image!.withRenderingMode(.alwaysTemplate)
 		phoneIconImageView.tintColor = .black
+		
+		complementIconImageView.image = complementIconImageView.image!.withRenderingMode(.alwaysTemplate)
+		complementIconImageView.tintColor = .black
 		
 		if signupType == .editProfile {
 			confirmPasswordTextField.isHidden = true
@@ -291,13 +297,18 @@ class SignupViewController: UIViewController, SignupViewProtocol {
 			} else {
 				let _ = checkValidField(value: "ok", alertLabel: profileImageAlertMessage, alertMessage: NSLocalizedString("invalid_profileImage", comment: ""))
 		}
+		
+		var complement = complementTextField.checkField()
+		if complement == nil || complement!.isEmpty {
+			complement = ""
+		}
 
 		if isValid {
 			guard let base64Avatar = image!.toBase64String() else {
 				return
 			}
 			
-			presenter?.createUser(name: name!, cpf: cpf!, birthday: birthday!, email: email!, mobile: mobile!, zipcode: zipcode!, street: street!, streetNumber: streetNumber!, neighborhood: neighborhood!, city: city!, state: state!, password: password!, avatar:"data:image/jpeg;base64,\(base64Avatar)")
+			presenter?.createUser(name: name!, cpf: cpf!, birthday: birthday!, email: email!, mobile: mobile!, zipcode: zipcode!, street: street!, streetNumber: streetNumber!, neighborhood: neighborhood!, city: city!, state: state!, password: password!, avatar:"data:image/jpeg;base64,\(base64Avatar)", complement:complement!)
 		}
 		
 	}
@@ -329,13 +340,14 @@ class SignupViewController: UIViewController, SignupViewProtocol {
 		
 	}
 	
-	func fillAdrressFields(street:String, streetNumber:String, neighborhood:String, city:String, state:String) {
+	func fillAdrressFields(street:String, streetNumber:String, neighborhood:String, city:String, state:String, complement:String) {
 		
 		streetTextField.text = street
 		neighborhoodTextField.text = neighborhood
 		cityTextField.text = city
 		stateTextField.text = state
 		numberTextField.text = streetNumber
+		complementTextField.text = complement
 		
 	}
 	

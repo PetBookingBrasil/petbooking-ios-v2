@@ -233,7 +233,7 @@ extension PetbookingAPI {
 
 extension PetbookingAPI {
 	
-	func createUser(name:String, cpf:String, birthday:String, email:String, mobile:String, zipcode:String, street:String, streetNumber:String, neighborhood:String, city:String, state:String, password:String, provider:String, providerToken:String, avatar:String, _ completion: @escaping (_ user: Bool, _ message: String) -> Void) {
+	func createUser(name:String, cpf:String, birthday:String, email:String, mobile:String, zipcode:String, street:String, streetNumber:String, neighborhood:String, city:String, state:String, password:String, provider:String, providerToken:String, avatar:String, complement:String, _ completion: @escaping (_ user: Bool, _ message: String) -> Void) {
 		
 		if SessionManager.sharedInstance.isConsumerValid() {
 			var token = ""
@@ -245,7 +245,7 @@ extension PetbookingAPI {
 			self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
 			
 			let parameters: Parameters = [
-				"data": ["type":"users", "attributes":["provider":provider, "provider_token":providerToken, "email":email, "password":password, "name":name, "phone":mobile, "cpf":cpf, "city":city, "state":state, "zipcode":zipcode, "street":street, "street_number":streetNumber, "neighborhood":neighborhood, "avatar":avatar, "birthday":birthday]]
+				"data": ["type":"users", "attributes":["provider":provider, "provider_token":providerToken, "email":email, "password":password, "name":name, "phone":mobile, "cpf":cpf, "city":city, "state":state, "zipcode":zipcode, "street":street, "street_number":streetNumber, "neighborhood":neighborhood, "avatar":avatar, "birthday":birthday, "complement":complement]]
 				
 			]
 			
@@ -297,7 +297,7 @@ extension PetbookingAPI {
 			getConsumer(completion: { (success, message) in
 				
 				if success {
-					self.createUser(name: name, cpf: cpf, birthday: birthday, email: email, mobile: mobile, zipcode: zipcode, street: street, streetNumber: streetNumber, neighborhood: neighborhood, city: city, state: state, password: password, provider: provider, providerToken: providerToken, avatar: avatar, completion)
+					self.createUser(name: name, cpf: cpf, birthday: birthday, email: email, mobile: mobile, zipcode: zipcode, street: street, streetNumber: streetNumber, neighborhood: neighborhood, city: city, state: state, password: password, provider: provider, providerToken: providerToken, avatar: avatar, complement: complement, completion)
 				} else {
 					
 					completion(false, "")
@@ -308,7 +308,7 @@ extension PetbookingAPI {
 		}
 	}
 	
-	func updateUser(name:String, cpf:String, birthday:String, email:String, mobile:String, zipcode:String, street:String, streetNumber:String, neighborhood:String, city:String, state:String, avatar:String, _ completion: @escaping (_ user: Bool, _ message: String) -> Void) {
+	func updateUser(name:String, cpf:String, birthday:String, email:String, mobile:String, zipcode:String, street:String, streetNumber:String, neighborhood:String, city:String, state:String, avatar:String, complement:String, _ completion: @escaping (_ user: Bool, _ message: String) -> Void) {
 		
 		if SessionManager.sharedInstance.isConsumerValid() {
 			var token = ""
@@ -328,7 +328,7 @@ extension PetbookingAPI {
 			self.auth_headers.updateValue("Token token=\"\(authToken)\"", forKey: "X-Petbooking-Session-Token")
 			
 			let parameters: Parameters = [
-				"data": ["type":"users", "id":"\(userId)", "attributes":["email":email, "name":name, "phone":mobile, "cpf":cpf, "city":city, "state":state, "zipcode":zipcode, "street":street, "street_number":streetNumber, "neighborhood":neighborhood, "avatar":avatar, "birthday":birthday]]
+				"data": ["type":"users", "id":"\(userId)", "attributes":["email":email, "name":name, "phone":mobile, "cpf":cpf, "city":city, "state":state, "zipcode":zipcode, "street":street, "street_number":streetNumber, "neighborhood":neighborhood, "avatar":avatar, "birthday":birthday, "complement":complement]]
 				
 			]
 			
@@ -345,6 +345,9 @@ extension PetbookingAPI {
 							if user.errors.count == 0 {
 								
 								try UserManager.sharedInstance.saveUser(user: user)
+								
+								PetbookingAPI.sharedInstance.userInfo { (user, message) in
+								}
 								
 								completion(true, "")
 								
@@ -371,7 +374,7 @@ extension PetbookingAPI {
 			getConsumer(completion: { (success, message) in
 				
 				if success {
-					self.updateUser(name: name, cpf: cpf, birthday: birthday, email: email, mobile: mobile, zipcode: zipcode, street: street, streetNumber: streetNumber, neighborhood: neighborhood, city: city, state: state, avatar: avatar, completion)
+					self.updateUser(name: name, cpf: cpf, birthday: birthday, email: email, mobile: mobile, zipcode: zipcode, street: street, streetNumber: streetNumber, neighborhood: neighborhood, city: city, state: state, avatar: avatar, complement: complement, completion)
 				} else {
 					
 					completion(false, "")
