@@ -29,7 +29,7 @@ class HomeContentViewControllerViewController: UIViewController, HomeContentView
 		super.viewDidLoad()
 		
 		
-		navigationItem.titleView = UIImageView(image: UIImage(named: "logoNavigationBar"))
+		navigationItem.title = "Estabelecimentos"//UIImageView(image: UIImage(named: "logoNavigationBar"))
 		
 		// Define the menus
 		let menuLeftNavigationController = UISideMenuNavigationController(rootViewController: SideMenuRouter.createModule())
