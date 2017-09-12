@@ -208,7 +208,7 @@ extension BusinessMapListViewController: UITableViewDelegate, UITableViewDataSou
 		cell.ratingLabel.text = "\(business.rating)"
 		cell.reviewQuantityLabel.text = "\(business.ratingCount) Avaliações"
 		
-		cell.businessImageView.image = nil
+		cell.businessImageView.image = UIImage(named: "business-placeholder-image")
 		if let url = URL(string: business.photoThumbUrl) {
 			cell.businessImageView.pin_setImage(from: url)
 		}

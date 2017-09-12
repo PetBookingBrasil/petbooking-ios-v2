@@ -204,6 +204,11 @@ extension BusinessListViewControllerViewController: UITableViewDelegate, UITable
 		cell.distanceLabel.sizeToFit()
 		cell.distanceView.round()
 		cell.distanceView.setBorder(width: 1, color: .red)
+		if self.businessListType == .favorites {
+			cell.distanceView.isHidden = true
+		} else {
+			cell.distanceView.isHidden = false
+		}
 		
 		if business.ratingCount > 0 {
 			cell.ratingLabel.isHidden = false
@@ -217,7 +222,7 @@ extension BusinessListViewControllerViewController: UITableViewDelegate, UITable
 			cell.starImageView.isHidden = true
 		}
 		
-		cell.businessImageView.image = nil
+		cell.businessImageView.image = UIImage(named: "business-placeholder-image")
 		if let url = URL(string: business.photoThumbUrl) {
 			cell.businessImageView.pin_setImage(from: url)
 		}

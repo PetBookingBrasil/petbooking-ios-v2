@@ -77,16 +77,18 @@ extension PetbookingAPI {
 					if let dic = jsonObject as? [String: Any] {
 						let consumer = try MTLJSONAdapter.model(of: Consumer.self, fromJSONDictionary: dic) as! Consumer
 						try SessionManager.sharedInstance.saveConsumer(consumer: consumer)
+						completion(true, "")
 					}
 					
 					
 				} catch {
-					
+					completion(true, error.localizedDescription)
 				}
 				
 				break
 			case .failure(let error):
 				print(error)
+				completion(true, error.localizedDescription)
 				break
 			}
 			

@@ -59,6 +59,12 @@ extension MyPetsViewController: UITableViewDelegate, UITableViewDataSource {
 		cell.petNameLabel.text = pet.name
 		cell.petBreedLabel.text = pet.breedName
 		
+		if pet.type == "dog" {
+			cell.petPictureImageView.image = UIImage(named:"avatar-padrao-cachorro")
+		} else {
+			cell.petPictureImageView.image = UIImage(named:"avatar-padrao-gato")
+		}
+		
 		
 		if pet.photoThumbUrl.contains("http") {
 			if let url = URL(string: pet.photoThumbUrl) {

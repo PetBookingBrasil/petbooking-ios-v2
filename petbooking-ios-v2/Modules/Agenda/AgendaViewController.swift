@@ -213,6 +213,11 @@ extension AgendaViewController: UICollectionViewDelegate, UICollectionViewDataSo
 		
 		cell.nameLabel.text = pet.name
 		
+		if pet.type == "dog" {
+			cell.pictureImageView.image = UIImage(named:"avatar-padrao-cachorro")
+		} else {
+			cell.pictureImageView.image = UIImage(named:"avatar-padrao-gato")
+		}
 		if let url = URL(string: pet.photoThumbUrl) {
 			cell.pictureImageView.pin_setImage(from: url)
 		}

@@ -79,6 +79,7 @@ class ScheduleManager: NSObject {
 			schedulePet.businessId = business.id
 			schedulePet.name = pet.name
 			schedulePet.photoThumbUrl = pet.photoThumbUrl
+			schedulePet.type = pet.type
 			addPetToSchedule(schedulePet: schedulePet, schedule: schedule)
 			return
 		}

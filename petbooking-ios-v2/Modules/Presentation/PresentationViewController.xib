@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -34,11 +33,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="apt_01" translatesAutoresizingMaskIntoConstraints="NO" id="DeZ-yo-5MN">
-                    <rect key="frame" x="80.666666666666686" y="88" width="253" height="253.66666666666669"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="DeZ-yo-5MN" secondAttribute="height" multiplier="1:1" id="Fag-6G-FFw"/>
-                        <constraint firstAttribute="width" secondItem="DeZ-yo-5MN" secondAttribute="height" multiplier="1:1" id="kgz-rD-BKA"/>
-                    </constraints>
+                    <rect key="frame" x="77.333333333333314" y="88" width="260" height="260"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EGv-Vs-Po0">
                     <rect key="frame" x="217" y="646" width="100" height="50"/>
@@ -79,13 +74,13 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Banho, tosa, consultas veterinárias e muito mais!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4J-Pb-DgN">
-                    <rect key="frame" x="20" y="454.66666666666669" width="374" height="16.666666666666629"/>
+                    <rect key="frame" x="20" y="461" width="374" height="16.666666666666686"/>
                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Encontre e agende serviçoe para seus Pets, em poucos segundos, a qualquer hora do dia!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PhN-WV-wvo">
-                    <rect key="frame" x="10" y="377" width="394" height="70.333333333333314"/>
+                    <rect key="frame" x="10" y="383.33333333333331" width="394" height="70.333333333333371"/>
                     <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="20"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
@@ -94,8 +89,6 @@
             <color key="backgroundColor" red="0.98431372549019602" green="0.81176470588235294" blue="0.83529411764705885" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="J4J-Pb-DgN" firstAttribute="top" secondItem="PhN-WV-wvo" secondAttribute="bottom" constant="8" id="3f2-RL-JB7"/>
-                <constraint firstItem="DeZ-yo-5MN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="80.670000000000002" id="3hO-1B-NrI"/>
-                <constraint firstAttribute="trailing" secondItem="DeZ-yo-5MN" secondAttribute="trailing" constant="80.329999999999998" id="HxS-hE-PVT"/>
                 <constraint firstItem="jAE-J5-Tcg" firstAttribute="leading" secondItem="LX7-qH-9Wn" secondAttribute="trailing" constant="10" id="M2w-pT-o8Y"/>
                 <constraint firstItem="J4J-Pb-DgN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="V2K-NT-dHO"/>
                 <constraint firstItem="jAE-J5-Tcg" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="VaK-1Y-HQR"/>
@@ -106,6 +99,7 @@
                 <constraint firstItem="EGv-Vs-Po0" firstAttribute="leading" secondItem="jAE-J5-Tcg" secondAttribute="trailing" constant="10" id="hE3-Vx-fgM"/>
                 <constraint firstItem="PhN-WV-wvo" firstAttribute="top" secondItem="DeZ-yo-5MN" secondAttribute="bottom" constant="35" id="hWm-7b-59g"/>
                 <constraint firstAttribute="bottom" secondItem="EGv-Vs-Po0" secondAttribute="bottom" constant="40" id="iM8-S5-Gwp"/>
+                <constraint firstItem="DeZ-yo-5MN" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="mpk-nV-dMp"/>
                 <constraint firstAttribute="trailing" secondItem="PhN-WV-wvo" secondAttribute="trailing" constant="10" id="n0l-Xw-Xiv"/>
                 <constraint firstItem="PhN-WV-wvo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="pYf-gn-PC1"/>
                 <constraint firstAttribute="bottom" secondItem="LX7-qH-9Wn" secondAttribute="bottom" constant="40" id="r7I-1g-YlL"/>
@@ -115,6 +109,6 @@
         </view>
     </objects>
     <resources>
-        <image name="apt_01" width="253" height="253"/>
+        <image name="apt_01" width="260" height="260"/>
     </resources>
 </document>

@@ -204,6 +204,11 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource, CartTa
 		headerView?.nameLabel.text = schedulePet.name
 		headerView?.numberLabel.text = "#\(section + 1)"
 		
+		if schedulePet.type == "dog" {
+			headerView?.pictureImageView.image = UIImage(named:"avatar-padrao-cachorro")
+		} else {
+			headerView?.pictureImageView.image = UIImage(named:"avatar-padrao-gato")
+		}
 		if let url = URL(string: schedulePet.photoThumbUrl) {
 			headerView?.pictureImageView.pin_setImage(from: url)
 		}

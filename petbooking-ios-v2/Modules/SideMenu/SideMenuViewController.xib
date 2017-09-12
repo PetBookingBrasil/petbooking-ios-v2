@@ -31,7 +31,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uUV-gG-xb9">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar-padrao-m" translatesAutoresizingMaskIntoConstraints="NO" id="uUV-gG-xb9">
                     <rect key="frame" x="14" y="55" width="57" height="57"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="57" id="ZIe-1U-dlj"/>
@@ -95,5 +95,6 @@
     </objects>
     <resources>
         <image name="arrow" width="9" height="16"/>
+        <image name="avatar-padrao-m" width="85" height="85"/>
     </resources>
 </document>

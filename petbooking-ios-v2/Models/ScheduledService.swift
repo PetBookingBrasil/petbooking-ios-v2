@@ -79,6 +79,7 @@ class ScheduledPet: MTLModel, MTLJSONSerializing {
 	
 	dynamic var id = 0
 	dynamic var name = ""
+	dynamic var type = ""
 	dynamic var photoThumbUrl = ""
 	dynamic var services = [ScheduledService]()
 	
@@ -86,6 +87,7 @@ class ScheduledPet: MTLModel, MTLJSONSerializing {
 		return [
 			"id": "id",
 			"name": "name",
+			"type":"kind",
 			"photoThumbUrl": "photo.thumb.url",
 			"services": "events"
 		]

@@ -44,6 +44,11 @@ class SideMenuViewController: UIViewController, SideMenuViewProtocol {
 		
 		nameLabel.text = user.name
 		cityLabel.text = "\(user.city), \(user.state)"
+		if user.gender == "male" {
+			self.profileImageView.image = UIImage(named:"avatar-padrao-m")
+		} else {
+			self.profileImageView.image = UIImage(named:"avatar-padrao-f")
+		}
 		
 		if user.avatarUrlThumb.contains("http") {
 			if let url = URL(string: user.avatarUrlThumb) {
