@@ -22,6 +22,7 @@
                 <outlet property="descriptionLabel" destination="J4J-Pb-DgN" id="HXX-5A-DQJ"/>
                 <outlet property="logoImageView" destination="DeZ-yo-5MN" id="mzc-hw-1ZR"/>
                 <outlet property="nextButton" destination="EGv-Vs-Po0" id="XN2-vA-nuC"/>
+                <outlet property="pageControl" destination="PQX-Je-TZu" id="aze-Kd-7bT"/>
                 <outlet property="skipButton" destination="LX7-qH-9Wn" id="iva-Ol-Jiv"/>
                 <outlet property="titleLabel" destination="PhN-WV-wvo" id="KQ6-48-lSh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -85,15 +86,32 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QpQ-iu-wkq">
+                    <rect key="frame" x="0.0" y="477.66666666666674" width="414" height="168.33333333333326"/>
+                    <subviews>
+                        <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="PQX-Je-TZu">
+                            <rect key="frame" x="187" y="65.333333333333314" width="39" height="37"/>
+                        </pageControl>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="PQX-Je-TZu" firstAttribute="centerY" secondItem="QpQ-iu-wkq" secondAttribute="centerY" id="jvF-eF-RiQ"/>
+                        <constraint firstItem="PQX-Je-TZu" firstAttribute="centerX" secondItem="QpQ-iu-wkq" secondAttribute="centerX" id="msf-1o-34c"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="0.98431372549019602" green="0.81176470588235294" blue="0.83529411764705885" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="J4J-Pb-DgN" firstAttribute="top" secondItem="PhN-WV-wvo" secondAttribute="bottom" constant="8" id="3f2-RL-JB7"/>
+                <constraint firstItem="QpQ-iu-wkq" firstAttribute="top" secondItem="J4J-Pb-DgN" secondAttribute="bottom" id="Hzq-hD-DMH"/>
                 <constraint firstItem="jAE-J5-Tcg" firstAttribute="leading" secondItem="LX7-qH-9Wn" secondAttribute="trailing" constant="10" id="M2w-pT-o8Y"/>
                 <constraint firstItem="J4J-Pb-DgN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="V2K-NT-dHO"/>
                 <constraint firstItem="jAE-J5-Tcg" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="VaK-1Y-HQR"/>
                 <constraint firstItem="PhN-WV-wvo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Y41-YR-apg"/>
+                <constraint firstAttribute="trailing" secondItem="QpQ-iu-wkq" secondAttribute="trailing" id="d3i-Aj-HaJ"/>
+                <constraint firstItem="QpQ-iu-wkq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="eAx-WS-d0s"/>
                 <constraint firstItem="J4J-Pb-DgN" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="eqx-Qw-0TC"/>
+                <constraint firstItem="LX7-qH-9Wn" firstAttribute="top" secondItem="QpQ-iu-wkq" secondAttribute="bottom" id="faH-XY-XfZ"/>
                 <constraint firstItem="DeZ-yo-5MN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="88" id="gUW-j6-z7R"/>
                 <constraint firstAttribute="bottom" secondItem="jAE-J5-Tcg" secondAttribute="bottom" constant="40" id="gWM-oC-0sU"/>
                 <constraint firstItem="EGv-Vs-Po0" firstAttribute="leading" secondItem="jAE-J5-Tcg" secondAttribute="trailing" constant="10" id="hE3-Vx-fgM"/>
