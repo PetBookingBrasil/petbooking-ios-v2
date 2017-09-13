@@ -13,7 +13,18 @@ import MapKit
 
 class BusinessInformationViewController: UIViewController, BusinessInformationViewProtocol {
 	
+	@IBOutlet weak var webviewHeightConstraint: NSLayoutConstraint!
 	
+	@IBOutlet weak var contactViewHeightConstraint: NSLayoutConstraint!
+	
+	@IBOutlet weak var socialNetworkViewWidthConstraint: NSLayoutConstraint!
+	@IBOutlet weak var websiteViewWidthConstraint: NSLayoutConstraint!
+	@IBOutlet weak var descriptionTitleLabel: UILabel!
+	@IBOutlet weak var descripitionSeparatorView: UIView!
+	@IBOutlet weak var descriptionTitleViewHeightConstraint: NSLayoutConstraint!
+	@IBOutlet weak var descriptionLabelBottonSpaceConstraint: NSLayoutConstraint!
+	@IBOutlet weak var descriptionViewHeightConstraint: NSLayoutConstraint!
+	@IBOutlet weak var descriptionView: UIView!
 	@IBOutlet weak var favoriteButton: UIButton!
 	@IBOutlet weak var businessNameLabel: UILabel!
 	@IBOutlet weak var descriptionLabel: UILabel!
@@ -35,7 +46,7 @@ class BusinessInformationViewController: UIViewController, BusinessInformationVi
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		
+		businessImageView.image = UIImage(named: "business-placeholder-image")
 		if let url = URL(string: business.photoUrl) {
 			businessImageView.pin_setImage(from: url)
 		}
@@ -96,6 +107,38 @@ class BusinessInformationViewController: UIViewController, BusinessInformationVi
 		
 		socialNetworksCollectionView.reloadData()
 		
+	}
+	
+	override func viewDidLayoutSubviews() {
+		super.viewDidLayoutSubviews()
+		
+		if business.businessDescription.isBlank {
+			descriptionViewHeightConstraint.constant = 0
+			descriptionLabelBottonSpaceConstraint.constant = 0
+			descriptionTitleViewHeightConstraint.constant = 0
+			descripitionSeparatorView.isHidden = true
+			descriptionTitleLabel.isHidden = true
+			
+		}
+		
+		if business.phone.isBlank
+		{
+			contactViewHeightConstraint.constant = 0
+		}
+		
+		if business.website.isBlank {
+			websiteViewWidthConstraint.constant = 0
+		}
+		
+		if socialNetworks.isEmpty {
+			socialNetworkViewWidthConstraint.constant = 0
+		}
+		
+		if socialNetworks.isEmpty && business.website.isBlank {
+			webviewHeightConstraint.constant = 0
+		}
+		
+		self.view.setNeedsUpdateConstraints()
 	}
 	
 	@IBAction func addToFavorites(_ sender: Any) {
