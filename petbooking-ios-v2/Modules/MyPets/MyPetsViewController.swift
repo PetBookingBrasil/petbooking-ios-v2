@@ -14,6 +14,7 @@ import DZNEmptyDataSet
 
 class MyPetsViewController: UIViewController, MyPetsViewProtocol {
 	
+	@IBOutlet weak var emptyView: UIView!
 	@IBOutlet weak var tableView: UITableView!
 	
 	var presenter: MyPetsPresenterProtocol?
@@ -50,6 +51,9 @@ class MyPetsViewController: UIViewController, MyPetsViewProtocol {
 extension MyPetsViewController: UITableViewDelegate, UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		
+		emptyView.isHidden = pets.count > 0
+		
 		return pets.count
 	}
 	

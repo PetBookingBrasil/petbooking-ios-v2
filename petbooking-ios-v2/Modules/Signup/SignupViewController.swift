@@ -164,7 +164,6 @@ class SignupViewController: UIViewController, SignupViewProtocol {
 			passwordTextField.isHidden = true
 			confirmPasswordIconImageView.isHidden = true
 			passwordIconImageView.isHidden = true
-			passwordViewTopDistanceConstraint.constant = -33
 			passwordSeparatorView.isHidden = true
 			
 			self.title = "Editar Informações"

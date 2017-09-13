@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyPetsViewController" customModule="petbooking_ios_v2" customModuleProvider="target">
             <connections>
+                <outlet property="emptyView" destination="K7B-Cv-q8G" id="1QW-Rx-b8e"/>
                 <outlet property="tableView" destination="m4p-Tn-vxI" id="kB4-Lr-Kvi"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -24,14 +30,53 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K7B-Cv-q8G">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icone-favoritos" translatesAutoresizingMaskIntoConstraints="NO" id="aBh-IS-UYC">
+                            <rect key="frame" x="71" y="100" width="232" height="232"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Você ainda não adicionou seus pets" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUH-iO-Snm">
+                            <rect key="frame" x="70" y="362" width="235" height="47"/>
+                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
+                            <color key="textColor" red="0.31764705879999999" green="0.31764705879999999" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clique no botão de + logo acima para adicioná-los." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LmH-hw-Y1a">
+                            <rect key="frame" x="44" y="429" width="286" height="37.5"/>
+                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                            <color key="textColor" red="0.52156862749999999" green="0.52156862749999999" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="JUH-iO-Snm" firstAttribute="centerX" secondItem="K7B-Cv-q8G" secondAttribute="centerX" id="19E-VH-Gq4"/>
+                        <constraint firstItem="LmH-hw-Y1a" firstAttribute="leading" secondItem="K7B-Cv-q8G" secondAttribute="leading" constant="44" id="1nP-RE-eVW"/>
+                        <constraint firstItem="aBh-IS-UYC" firstAttribute="centerX" secondItem="K7B-Cv-q8G" secondAttribute="centerX" id="JdL-aa-Mw8"/>
+                        <constraint firstItem="JUH-iO-Snm" firstAttribute="top" secondItem="aBh-IS-UYC" secondAttribute="bottom" constant="30" id="Vc5-bx-eBx"/>
+                        <constraint firstItem="JUH-iO-Snm" firstAttribute="leading" secondItem="K7B-Cv-q8G" secondAttribute="leading" constant="70" id="bUY-Vw-gur"/>
+                        <constraint firstItem="aBh-IS-UYC" firstAttribute="top" secondItem="K7B-Cv-q8G" secondAttribute="top" constant="100" id="nCK-i3-cO3"/>
+                        <constraint firstItem="LmH-hw-Y1a" firstAttribute="top" secondItem="JUH-iO-Snm" secondAttribute="bottom" constant="20" id="pkU-tC-XI8"/>
+                        <constraint firstAttribute="trailing" secondItem="JUH-iO-Snm" secondAttribute="trailing" constant="70" id="qj2-FV-X05"/>
+                        <constraint firstAttribute="trailing" secondItem="LmH-hw-Y1a" secondAttribute="trailing" constant="45" id="zgu-Ez-ngp"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="m4p-Tn-vxI" secondAttribute="trailing" id="4qr-VZ-hdU"/>
+                <constraint firstAttribute="trailing" secondItem="K7B-Cv-q8G" secondAttribute="trailing" id="DKO-UG-E8q"/>
+                <constraint firstItem="K7B-Cv-q8G" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Dfq-CC-p5p"/>
+                <constraint firstItem="K7B-Cv-q8G" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="DgB-G9-RC7"/>
                 <constraint firstAttribute="bottom" secondItem="m4p-Tn-vxI" secondAttribute="bottom" id="SEc-Hr-Jnd"/>
+                <constraint firstAttribute="bottom" secondItem="K7B-Cv-q8G" secondAttribute="bottom" id="SFd-ku-ywA"/>
                 <constraint firstItem="m4p-Tn-vxI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="nRf-pd-QrN"/>
                 <constraint firstItem="m4p-Tn-vxI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="oCt-ol-JUl"/>
             </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="icone-favoritos" width="232" height="232"/>
+    </resources>
 </document>
