@@ -157,6 +157,21 @@
 		4168AA581EB794D5001E2D6D /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4168AA571EB794D5001E2D6D /* SessionManager.swift */; };
 		4168AA5C1EB80A24001E2D6D /* ErrorRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4168AA5B1EB80A24001E2D6D /* ErrorRest.swift */; };
 		4168AA5E1EB8181B001E2D6D /* FacebookGraphModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4168AA5D1EB8181B001E2D6D /* FacebookGraphModel.swift */; };
+		417969671F69676700C47936 /* BadgeViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417969541F69676700C47936 /* BadgeViewPresenter.swift */; };
+		417969681F69676700C47936 /* BadgeWithCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417969561F69676700C47936 /* BadgeWithCounterView.swift */; };
+		417969691F69676700C47936 /* BadgeWithCounterViewBigSized.xib in Resources */ = {isa = PBXBuildFile; fileRef = 417969571F69676700C47936 /* BadgeWithCounterViewBigSized.xib */; };
+		4179696A1F69676700C47936 /* BadgeWithCounterViewStandardSized.xib in Resources */ = {isa = PBXBuildFile; fileRef = 417969581F69676700C47936 /* BadgeWithCounterViewStandardSized.xib */; };
+		4179696B1F69676700C47936 /* SegmentioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4179695A1F69676700C47936 /* SegmentioCell.swift */; };
+		4179696C1F69676700C47936 /* SegmentioCellWithImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4179695B1F69676700C47936 /* SegmentioCellWithImage.swift */; };
+		4179696D1F69676700C47936 /* SegmentioCellWithImageAfterLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4179695C1F69676700C47936 /* SegmentioCellWithImageAfterLabel.swift */; };
+		4179696E1F69676700C47936 /* SegmentioCellWithImageBeforeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4179695D1F69676700C47936 /* SegmentioCellWithImageBeforeLabel.swift */; };
+		4179696F1F69676700C47936 /* SegmentioCellWithImageOverLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4179695E1F69676700C47936 /* SegmentioCellWithImageOverLabel.swift */; };
+		417969701F69676700C47936 /* SegmentioCellWithImageUnderLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4179695F1F69676700C47936 /* SegmentioCellWithImageUnderLabel.swift */; };
+		417969711F69676700C47936 /* SegmentioCellWithLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417969601F69676700C47936 /* SegmentioCellWithLabel.swift */; };
+		417969721F69676700C47936 /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417969621F69676700C47936 /* RoundImageView.swift */; };
+		417969731F69676700C47936 /* UIView+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417969631F69676700C47936 /* UIView+Appearance.swift */; };
+		417969741F69676700C47936 /* Segmentio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417969641F69676700C47936 /* Segmentio.swift */; };
+		417969751F69676700C47936 /* SegmentioOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417969651F69676700C47936 /* SegmentioOptions.swift */; };
 		418DAA2A1ECE7EAE006265CF /* SideMenuInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418DAA241ECE7EAE006265CF /* SideMenuInteractor.swift */; };
 		418DAA2B1ECE7EAE006265CF /* SideMenuPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418DAA251ECE7EAE006265CF /* SideMenuPresenter.swift */; };
 		418DAA2C1ECE7EAE006265CF /* SideMenuProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418DAA261ECE7EAE006265CF /* SideMenuProtocols.swift */; };
@@ -431,6 +446,22 @@
 		4168AA571EB794D5001E2D6D /* SessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		4168AA5B1EB80A24001E2D6D /* ErrorRest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorRest.swift; sourceTree = "<group>"; };
 		4168AA5D1EB8181B001E2D6D /* FacebookGraphModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookGraphModel.swift; sourceTree = "<group>"; };
+		417969511F69676700C47936 /* Segmentio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Segmentio.h; sourceTree = "<group>"; };
+		417969541F69676700C47936 /* BadgeViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeViewPresenter.swift; sourceTree = "<group>"; };
+		417969561F69676700C47936 /* BadgeWithCounterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeWithCounterView.swift; sourceTree = "<group>"; };
+		417969571F69676700C47936 /* BadgeWithCounterViewBigSized.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BadgeWithCounterViewBigSized.xib; sourceTree = "<group>"; };
+		417969581F69676700C47936 /* BadgeWithCounterViewStandardSized.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BadgeWithCounterViewStandardSized.xib; sourceTree = "<group>"; };
+		4179695A1F69676700C47936 /* SegmentioCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentioCell.swift; sourceTree = "<group>"; };
+		4179695B1F69676700C47936 /* SegmentioCellWithImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentioCellWithImage.swift; sourceTree = "<group>"; };
+		4179695C1F69676700C47936 /* SegmentioCellWithImageAfterLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentioCellWithImageAfterLabel.swift; sourceTree = "<group>"; };
+		4179695D1F69676700C47936 /* SegmentioCellWithImageBeforeLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentioCellWithImageBeforeLabel.swift; sourceTree = "<group>"; };
+		4179695E1F69676700C47936 /* SegmentioCellWithImageOverLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentioCellWithImageOverLabel.swift; sourceTree = "<group>"; };
+		4179695F1F69676700C47936 /* SegmentioCellWithImageUnderLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentioCellWithImageUnderLabel.swift; sourceTree = "<group>"; };
+		417969601F69676700C47936 /* SegmentioCellWithLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentioCellWithLabel.swift; sourceTree = "<group>"; };
+		417969621F69676700C47936 /* RoundImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
+		417969631F69676700C47936 /* UIView+Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Appearance.swift"; sourceTree = "<group>"; };
+		417969641F69676700C47936 /* Segmentio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Segmentio.swift; sourceTree = "<group>"; };
+		417969651F69676700C47936 /* SegmentioOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentioOptions.swift; sourceTree = "<group>"; };
 		418DAA241ECE7EAE006265CF /* SideMenuInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuInteractor.swift; sourceTree = "<group>"; };
 		418DAA251ECE7EAE006265CF /* SideMenuPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuPresenter.swift; sourceTree = "<group>"; };
 		418DAA261ECE7EAE006265CF /* SideMenuProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuProtocols.swift; sourceTree = "<group>"; };
@@ -723,6 +754,7 @@
 		413715901EBEB38C00258C6F /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				4179694F1F69676700C47936 /* Segmentio */,
 				4148626D1F2E9F1900F210D8 /* JTCalendar */,
 				413715911EBEB3B400258C6F /* MIBlurPopup */,
 			);
@@ -894,6 +926,69 @@
 				4168AA571EB794D5001E2D6D /* SessionManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		4179694F1F69676700C47936 /* Segmentio */ = {
+			isa = PBXGroup;
+			children = (
+				417969511F69676700C47936 /* Segmentio.h */,
+				417969521F69676700C47936 /* Source */,
+			);
+			path = Segmentio;
+			sourceTree = "<group>";
+		};
+		417969521F69676700C47936 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				417969531F69676700C47936 /* Badge */,
+				417969591F69676700C47936 /* Cells */,
+				417969611F69676700C47936 /* Extensions */,
+				417969641F69676700C47936 /* Segmentio.swift */,
+				417969651F69676700C47936 /* SegmentioOptions.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		417969531F69676700C47936 /* Badge */ = {
+			isa = PBXGroup;
+			children = (
+				417969541F69676700C47936 /* BadgeViewPresenter.swift */,
+				417969551F69676700C47936 /* Views */,
+			);
+			path = Badge;
+			sourceTree = "<group>";
+		};
+		417969551F69676700C47936 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				417969561F69676700C47936 /* BadgeWithCounterView.swift */,
+				417969571F69676700C47936 /* BadgeWithCounterViewBigSized.xib */,
+				417969581F69676700C47936 /* BadgeWithCounterViewStandardSized.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		417969591F69676700C47936 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				4179695A1F69676700C47936 /* SegmentioCell.swift */,
+				4179695B1F69676700C47936 /* SegmentioCellWithImage.swift */,
+				4179695C1F69676700C47936 /* SegmentioCellWithImageAfterLabel.swift */,
+				4179695D1F69676700C47936 /* SegmentioCellWithImageBeforeLabel.swift */,
+				4179695E1F69676700C47936 /* SegmentioCellWithImageOverLabel.swift */,
+				4179695F1F69676700C47936 /* SegmentioCellWithImageUnderLabel.swift */,
+				417969601F69676700C47936 /* SegmentioCellWithLabel.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		417969611F69676700C47936 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				417969621F69676700C47936 /* RoundImageView.swift */,
+				417969631F69676700C47936 /* UIView+Appearance.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		418D099C1EB0D71200FCD5A6 /* Modules */ = {
@@ -1261,6 +1356,7 @@
 				411B4E611F3E567000B9244B /* CategoryCollectionViewCell.xib in Resources */,
 				4120ED3B1EB529FE009D35B0 /* SignupViewController.xib in Resources */,
 				4160D8A81F66AB81005D361B /* LICENSE.txt in Resources */,
+				4179696A1F69676700C47936 /* BadgeWithCounterViewStandardSized.xib in Resources */,
 				413682C61E9C2B2D008C463B /* Main.storyboard in Resources */,
 				4160D8A91F66AB81005D361B /* Roboto-Black.ttf in Resources */,
 				41D86F951F298C360038ADA8 /* AdditionalServiceTableViewCell.xib in Resources */,
@@ -1269,6 +1365,7 @@
 				411C84C41F3BBFF0008C6E0A /* AgendaTableViewCell.xib in Resources */,
 				41F1A0491F3D182E00CBC32D /* SelectPhotoSourcePopupViewController.xib in Resources */,
 				41E7E2F31EC27833002C0A55 /* OpenSans-SemiboldItalic.ttf in Resources */,
+				417969691F69676700C47936 /* BadgeWithCounterViewBigSized.xib in Resources */,
 				4160D8AF1F66AB81005D361B /* Roboto-LightItalic.ttf in Resources */,
 				4160D8AC1F66AB81005D361B /* Roboto-BoldItalic.ttf in Resources */,
 				41D86FA61F2D525E0038ADA8 /* ScheduleCalendarViewController.xib in Resources */,
@@ -1341,9 +1438,11 @@
 				4129D9EC1EDF8BCF0067EDC3 /* Breed.swift in Sources */,
 				419C89151F33A18700BDBE8E /* CartWebInteractor.swift in Sources */,
 				4120ED1C1EB38650009D35B0 /* LoginViewController.swift in Sources */,
+				4179696F1F69676700C47936 /* SegmentioCellWithImageOverLabel.swift in Sources */,
 				41F1A04A1F3D182E00CBC32D /* SelectPhotoSourcePopupViewController.swift in Sources */,
 				41AAB4F31EF1F9AF00E52857 /* HomeContentViewControllerPresenter.swift in Sources */,
 				4120ED031EB0DE9F009D35B0 /* PresentationRouter.swift in Sources */,
+				417969671F69676700C47936 /* BadgeViewPresenter.swift in Sources */,
 				4120ED1F1EB390C3009D35B0 /* UIViewControllerExtension.swift in Sources */,
 				4120ED381EB529FE009D35B0 /* SignupProtocols.swift in Sources */,
 				414862951F2E9F1900F210D8 /* JTCalendarScrollManager.m in Sources */,
@@ -1352,10 +1451,12 @@
 				4148629C1F2E9F1A00F210D8 /* JTVerticalCalendarView.m in Sources */,
 				4129D9E71ED86E9B0067EDC3 /* MyPetsTableViewCell.swift in Sources */,
 				41D86F981F2ACC490038ADA8 /* SubServiceTableViewCell.swift in Sources */,
+				417969681F69676700C47936 /* BadgeWithCounterView.swift in Sources */,
 				413682C31E9C2B2D008C463B /* ViewController.swift in Sources */,
 				4168AA5E1EB8181B001E2D6D /* FacebookGraphModel.swift in Sources */,
 				4120ED001EB0DE9F009D35B0 /* PresentationInteractor.swift in Sources */,
 				41D86F711F263AB30038ADA8 /* HomeBusinessViewController.swift in Sources */,
+				417969701F69676700C47936 /* SegmentioCellWithImageUnderLabel.swift in Sources */,
 				41F70EF61F3DE6EF0089DDE2 /* EmptyView.swift in Sources */,
 				414BB1FA1EC00722000BE2CC /* StringExtension.swift in Sources */,
 				4168AA521EB6A828001E2D6D /* UserManager.swift in Sources */,
@@ -1364,6 +1465,7 @@
 				4120ED191EB38650009D35B0 /* LoginPresenter.swift in Sources */,
 				4137158F1EBEAFFA00258C6F /* Device.swift in Sources */,
 				414862921F2E9F1900F210D8 /* JTCalendarSettings.m in Sources */,
+				417969711F69676700C47936 /* SegmentioCellWithLabel.swift in Sources */,
 				411B4E591F3E4CFA00B9244B /* BusinessSearchPresenter.swift in Sources */,
 				41A0BAEA1ED7A8FA00671F3C /* AddPetViewControllerRouter.swift in Sources */,
 				414862931F2E9F1900F210D8 /* JTDateHelper.m in Sources */,
@@ -1390,7 +1492,9 @@
 				41432E791F0B3088002789CE /* UIButtonExtension.swift in Sources */,
 				4127768E1F13084800EC6488 /* BusinessMapListViewController.swift in Sources */,
 				41A0BAE81ED7A8FA00671F3C /* AddPetViewControllerPresenter.swift in Sources */,
+				417969741F69676700C47936 /* Segmentio.swift in Sources */,
 				4120ED271EB4F136009D35B0 /* ForgotPasswordInteractor.swift in Sources */,
+				4179696E1F69676700C47936 /* SegmentioCellWithImageBeforeLabel.swift in Sources */,
 				4168AA581EB794D5001E2D6D /* SessionManager.swift in Sources */,
 				41D86F841F2678D30038ADA8 /* PetCollectionViewCell.swift in Sources */,
 				4120ED0A1EB11BA0009D35B0 /* UIColorExtension.swift in Sources */,
@@ -1423,6 +1527,7 @@
 				411C84B61F3A8EF0008C6E0A /* AgendaPresenter.swift in Sources */,
 				411C84BF1F3B870D008C6E0A /* AgendaCollectionViewCell.swift in Sources */,
 				41AAB4F21EF1F9AF00E52857 /* HomeContentViewControllerInteractor.swift in Sources */,
+				4179696C1F69676700C47936 /* SegmentioCellWithImage.swift in Sources */,
 				418DAA2B1ECE7EAE006265CF /* SideMenuPresenter.swift in Sources */,
 				4120ED361EB529FE009D35B0 /* SignupInteractor.swift in Sources */,
 				415F73D81EBC16E2000D9B14 /* UIImageExtension.swift in Sources */,
@@ -1441,8 +1546,10 @@
 				419C89251F33A8BB00BDBE8E /* CartProtocols.swift in Sources */,
 				41E7E2DD1EC106FC002C0A55 /* UITextFieldExtension.swift in Sources */,
 				41D86F7C1F266D7A0038ADA8 /* BusinessServicesInteractor.swift in Sources */,
+				4179696B1F69676700C47936 /* SegmentioCell.swift in Sources */,
 				419C890A1F3168BB00BDBE8E /* ServiceTableFooterView.swift in Sources */,
 				419C89171F33A18700BDBE8E /* CartWebProtocols.swift in Sources */,
+				417969731F69676700C47936 /* UIView+Appearance.swift in Sources */,
 				41D86FA51F2D525E0038ADA8 /* ScheduleCalendarViewController.swift in Sources */,
 				41AAB4F51EF1F9AF00E52857 /* HomeContentViewControllerRouter.swift in Sources */,
 				411B4E5A1F3E4CFA00B9244B /* BusinessSearchProtocols.swift in Sources */,
@@ -1455,6 +1562,7 @@
 				4129D9E91ED86E9B0067EDC3 /* MyPetsViewController.swift in Sources */,
 				4137158A1EBE7D0300258C6F /* SelectPhotoSourcePopupRouter.swift in Sources */,
 				41D86F6F1F263AB30038ADA8 /* HomeBusinessProtocols.swift in Sources */,
+				417969721F69676700C47936 /* RoundImageView.swift in Sources */,
 				418DAA321ECE93FB006265CF /* SideMenuTableViewCell.swift in Sources */,
 				4120ED2E1EB500A6009D35B0 /* UINavigationControllerExtension.swift in Sources */,
 				41D86F741F263EB00038ADA8 /* HomeBusinessSegmentioBuilder.swift in Sources */,
@@ -1463,6 +1571,7 @@
 				41D86F801F266D7A0038ADA8 /* BusinessServicesViewController.swift in Sources */,
 				419C89061F3162EC00BDBE8E /* ServiceTableHeaderView.swift in Sources */,
 				418DAA2D1ECE7EAE006265CF /* SideMenuRouter.swift in Sources */,
+				4179696D1F69676700C47936 /* SegmentioCellWithImageAfterLabel.swift in Sources */,
 				41AAB4F41EF1F9AF00E52857 /* HomeContentViewControllerProtocols.swift in Sources */,
 				411C84BC1F3A945B008C6E0A /* ScheduledService.swift in Sources */,
 				4148629A1F2E9F1900F210D8 /* JTCalendarWeekView.m in Sources */,
@@ -1508,6 +1617,7 @@
 				4149E9781EF9628100D6C44B /* BusinessListViewControllerPresenter.swift in Sources */,
 				413715881EBE7D0300258C6F /* SelectPhotoSourcePopupPresenter.swift in Sources */,
 				419C89041F313FA800BDBE8E /* ScheduleManager.swift in Sources */,
+				417969751F69676700C47936 /* SegmentioOptions.swift in Sources */,
 				4149E99A1EFF196A00D6C44B /* Business.swift in Sources */,
 				4113B2CB1F3414CB007DC89F /* BusinessInformationRouter.swift in Sources */,
 				41A0BAEB1ED7A8FA00671F3C /* AddPetViewControllerViewController.swift in Sources */,

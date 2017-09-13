@@ -241,6 +241,7 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 	
 	func tapField(_ sender: UITapGestureRecognizer) {
 		
+		self.view.endEditing(true)
 		guard let label = sender.view as? UILabel else {
 			return
 		}

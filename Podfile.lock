@@ -41,7 +41,6 @@ PODS:
   - Realm/Headers (2.10.0)
   - RealmSwift (2.10.0):
     - Realm (= 2.10.0)
-  - Segmentio (2.1.2)
   - SideMenu (2.3.3)
 
 DEPENDENCIES:
@@ -57,7 +56,6 @@ DEPENDENCIES:
   - Pageboy
   - PINRemoteImage
   - RealmSwift
-  - Segmentio
   - SideMenu
 
 SPEC CHECKSUMS:
@@ -79,9 +77,8 @@ SPEC CHECKSUMS:
   PINRemoteImage: 4ac4011c5caefd6befd99758e09becede05d3226
   Realm: 98b3a25643cf6b3e07d2b99fb43fe0eb9c801dec
   RealmSwift: 34073ad3a31232bbaf7c0db898c037940284cba2
-  Segmentio: f85114993e305bd9c522952eef8c2c4db732fd17
   SideMenu: a447554ae5c982e8077666389e1c8b0c8656e065
 
-PODFILE CHECKSUM: dea9c228350a2587f18ad52f5283a303e89c0ca9
+PODFILE CHECKSUM: fe93331ca8f9bd00889fd11dde95b8dd3fcfdb4e
 
 COCOAPODS: 1.2.1

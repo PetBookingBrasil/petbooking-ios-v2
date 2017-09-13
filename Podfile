@@ -21,7 +21,6 @@ target 'petbooking-ios-v2' do
 	pod 'AKMaskField'
 	pod 'Pageboy'
 	pod 'SideMenu'
-	pod 'Segmentio'
 	pod 'BEMCheckBox'
 	pod 'DZNEmptyDataSet'
 	

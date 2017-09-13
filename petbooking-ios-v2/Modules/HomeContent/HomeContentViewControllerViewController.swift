@@ -9,7 +9,6 @@
 //
 
 import UIKit
-import Segmentio
 import SideMenu
 
 class HomeContentViewControllerViewController: UIViewController, HomeContentViewControllerViewProtocol {

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Segmentio
 import UIKit
 
 struct SegmentioBuilder {
@@ -30,8 +29,8 @@ struct SegmentioBuilder {
 	
 	private static func segmentioContent() -> [SegmentioItem] {
 		return [
-			SegmentioItem(title: "", image: UIImage(named: "listIcon")),
-			SegmentioItem(title: "", image: UIImage(named: "mapIcon"))
+			SegmentioItem(title: "", image: UIImage(named: "listIcon_unselected"), selectedImage: UIImage(named: "listIcon")),
+			SegmentioItem(title: "", image: UIImage(named: "mapIcon_unselected"), selectedImage: UIImage(named: "mapIcon"))
 		]
 	}
 	

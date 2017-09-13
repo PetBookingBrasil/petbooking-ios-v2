@@ -245,6 +245,7 @@ extension AgendaViewController: UICollectionViewDelegate, UICollectionViewDataSo
 	
 	func goFoward() {
 		
+		
 		guard let currentIndexPath = dateCollectionView.indexPathsForVisibleItems.first else {
 			return
 		}
@@ -345,6 +346,11 @@ extension AgendaViewController: UITableViewDelegate, UITableViewDataSource, Agen
 		
 				PetbookingAPI.sharedInstance.cancelScheduledService(scheduledService: scheduledService) { (item, message) in
 		
+					let alertVC = AlertPopupRouter.createModule(title: "Agendamento Cancelado!", message: "O seu agendamento foi cancelado com sucesso.")
+					alertVC.modalPresentationStyle = .overCurrentContext
+					alertVC.modalTransitionStyle = .crossDissolve
+					self.present(alertVC, animated: true, completion: nil)
+					
 					self.getScheduledServices()
 				}
 		
