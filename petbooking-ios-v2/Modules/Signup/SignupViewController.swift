@@ -88,7 +88,7 @@ class SignupViewController: UIViewController, SignupViewProtocol {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		self.navigationController?.isNavigationBarHidden = false
+		
 		self.title = "Preencha os seus dados"
 		hideKeyboardWhenTappedAround()
 		setupView()
@@ -97,6 +97,7 @@ class SignupViewController: UIViewController, SignupViewProtocol {
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		
+		self.navigationController?.isNavigationBarHidden = false
 		presenter?.fillFields()
 	}
 	

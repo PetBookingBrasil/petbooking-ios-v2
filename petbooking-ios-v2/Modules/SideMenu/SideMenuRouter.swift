@@ -33,7 +33,20 @@ class SideMenuRouter: SideMenuWireframeProtocol {
 		
 		let loginViewController = LoginRouter.createModule()
 		
-		self.viewController?.navigationController?.pushViewController(loginViewController, animated: true)
+		self.viewController?.dismiss(animated: true, completion: {
+			let window = UIApplication.shared.windows[0]
+			UIView.transition(
+				from: window.rootViewController!.view,
+				to: loginViewController.view,
+				duration: 0.65,
+				options: .transitionFlipFromBottom,
+				completion: {
+					finished in
+					
+					window.rootViewController = loginViewController
+			})
+		})
+		
 		
 	}
 	

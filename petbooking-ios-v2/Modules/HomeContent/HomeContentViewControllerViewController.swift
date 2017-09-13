@@ -38,6 +38,7 @@ class HomeContentViewControllerViewController: UIViewController, HomeContentView
 		// of it here like setting its viewControllers. If you're using storyboards, you'll want to do something like:
 		// let menuLeftNavigationController = storyboard!.instantiateViewController(withIdentifier: "LeftMenuNavigationController") as! UISideMenuNavigationController
 		SideMenuManager.menuLeftNavigationController = menuLeftNavigationController
+		SideMenuManager.menuEnableSwipeGestures = false
 		
 		// Enable gestures. The left and/or right menus must be set up above for these to work.
 		// Note that these continue to work on the Navigation Controller independent of the view controller it displays!
