@@ -9,6 +9,7 @@
 //
 
 import UIKit
+import ALLoadingView
 
 class BusinessServicesInteractor: BusinessServicesInteractorProtocol {
 
@@ -20,6 +21,7 @@ class BusinessServicesInteractor: BusinessServicesInteractorProtocol {
 		PetbookingAPI.sharedInstance.getUserPets { (petList, message) in
 			
 			guard let petList = petList else {
+				ALLoadingView.manager.hideLoadingView()
 				return
 			}
 			
@@ -34,6 +36,7 @@ class BusinessServicesInteractor: BusinessServicesInteractorProtocol {
 		PetbookingAPI.sharedInstance.getBusinessServicesCategoryList(business: business) { (serviceCategoryList, message) in
 			
 			guard let serviceCategoryList = serviceCategoryList else {
+				ALLoadingView.manager.hideLoadingView()
 				return
 			}
 			
@@ -48,6 +51,7 @@ class BusinessServicesInteractor: BusinessServicesInteractorProtocol {
 		PetbookingAPI.sharedInstance.getBusinessServicesList(business: business, service: service, pet:pet) { (serviceList, message) in
 			
 			guard let serviceList = serviceList else {
+				ALLoadingView.manager.hideLoadingView()
 				return
 			}
 			

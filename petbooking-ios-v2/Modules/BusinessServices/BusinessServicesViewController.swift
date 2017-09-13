@@ -61,6 +61,7 @@ class BusinessServicesViewController: UIViewController, BusinessServicesViewProt
 		servicesTableView.register(UINib(nibName: "ServiceTableViewCell", bundle: nil), forCellReuseIdentifier: "ServiceTableViewCell")
 		servicesTableView.estimatedRowHeight = 2000
 		
+		ALLoadingView.manager.showLoadingView(ofType: .basic, windowMode: .fullscreen)
 		presenter?.getPets()
 		
 		
@@ -121,6 +122,7 @@ class BusinessServicesViewController: UIViewController, BusinessServicesViewProt
 	
 	func loadServices(serviceList: ServiceList) {
 
+		ALLoadingView.manager.hideLoadingView()
 		self.serviceList = serviceList
 		
 		servicesTableView.reloadData()
