@@ -10,6 +10,7 @@
 
 import UIKit
 import AKMaskField
+import ALLoadingView
 
 class AddPetViewControllerViewController: UIViewController, AddPetViewControllerViewProtocol {
 	
@@ -75,6 +76,8 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 	@IBOutlet weak var petSIzeInfoButton: UIButton!
 	
 	@IBOutlet weak var petBreedAlertMessageLabel: UILabel!
+	
+	var petViewType:PetViewType?
 	
 	var breedList = [Breed]()
 	var petBreedIndex = 0
@@ -148,6 +151,17 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 		picker.dataSource = self
 		picker.delegate = self
 		
+		if petViewType == .edit {
+		
+			title = NSLocalizedString("edit_pet_title", comment: "")
+		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Salvar", style: .plain, target: self, action: #selector(AddPetViewControllerViewController.save(_:)))
+			saveButton.backgroundColor = UIColor(hex: "FCE5EA")
+			saveButton.setTitle("remove_pet".localized, for: .normal)
+			saveButton.setTitleColor(UIColor(hex: "E4002B"), for: .normal)
+			saveButton.removeTarget(nil, action: nil, for: .allEvents)
+			
+			saveButton.addTarget(self, action: #selector(AddPetViewControllerViewController.removePet), for: .touchUpInside)
+		}
 		hideKeyboardWhenTappedAround()
 		
 		
@@ -337,6 +351,15 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 	
 	@IBAction func showPetSizeInfo(_ sender: Any) {
 		MIBlurPopup.show(PetSizePopupViewController(), on: self)
+	}
+	
+	func removePet() {
+		ALLoadingView.manager.showLoadingView(ofType: .basic)
+		PetbookingAPI.sharedInstance.deletePet(pet: self.pet) { (pet, message) in
+			ALLoadingView.manager.hideLoadingView()
+			self.navigationController?.popViewController(animated: true)
+		}
+		
 	}
 	
 	@IBAction func save(_ sender: Any) {

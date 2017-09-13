@@ -700,6 +700,68 @@ extension PetbookingAPI {
 			})
 		}
 	}
+	
+	func deletePet(pet:Pet, completion: @escaping (_ pet: Pet?, _ message: String) -> Void) {
+		
+		if SessionManager.sharedInstance.isConsumerValid() {
+			var token = ""
+			if let consumer = SessionManager.sharedInstance.getCurrentConsumer() {
+				token = consumer.token
+			}
+			
+			var authToken = ""
+			var userId = 0
+			if let session = SessionManager.sharedInstance.getCurrentSession() {
+				authToken = session.authToken
+				userId = session.userId
+			}
+			
+			self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
+			self.auth_headers.updateValue("Token token=\"\(authToken)\"", forKey: "X-Petbooking-Session-Token")
+			
+			
+			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/users/\(userId)/pets/\(pet.id)", method: .delete, parameters: nil, encoding: JSONEncoding.default, headers: auth_headers).responseJSON { (response) in
+				
+				switch response.result{
+				case .success(let jsonObject):
+					
+					if let dic = jsonObject as? [String: Any] {
+						
+						do {
+							
+							let pet = try MTLJSONAdapter.model(of: Pet.self, fromJSONDictionary: dic) as! Pet
+							
+							
+							completion(pet, "")
+							
+						} catch {
+							completion(nil, error.localizedDescription)
+						}
+					} else {
+						completion(nil, "")
+					}
+					break
+				case .failure(let error):
+					print(error)
+					completion(nil, error.localizedDescription)
+					break
+				}
+				
+			}
+		} else
+		{
+			getConsumer(completion: { (success, message) in
+				
+				if success {
+					self.deletePet(pet:pet,completion: completion)
+				} else {
+					
+					completion(nil, "")
+					
+				}
+			})
+		}
+	}
 }
 
 // MARK: Business

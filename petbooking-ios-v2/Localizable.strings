@@ -56,6 +56,8 @@
 "pet_breed_field" = "Raça";
 
 "add_pet_title" = "Preencha os dados do pet";
+"edit_pet_title" = "Editando seu pet";
+"remove_pet" = "Remover pet";
 
 "pet_type_dog" = "Cão";
 "pet_type_cat" = "Gato";

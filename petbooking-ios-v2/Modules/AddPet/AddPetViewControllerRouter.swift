@@ -17,7 +17,8 @@ class AddPetViewControllerRouter: AddPetViewControllerWireframeProtocol {
 	static func createModule(pet:Pet = Pet(), petViewType:PetViewType = .create) -> UIViewController {
         // Change to get view from storyboard if not using progammatic UI
         let view = AddPetViewControllerViewController(nibName: nil, bundle: nil)
-				view.pet = pet
+		view.pet = pet
+		view.petViewType = petViewType
         let interactor = AddPetViewControllerInteractor()
 				interactor.petViewType = petViewType
         let router = AddPetViewControllerRouter()
