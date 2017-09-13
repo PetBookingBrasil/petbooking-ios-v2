@@ -12,7 +12,7 @@ import UIKit
 import WebKit
 
 class CartWebViewController: UIViewController, CartWebViewProtocol {
-
+	
 	static let HTTP_PROTOCOL = "https://"
 	
 	static let BASE_URL = Bundle.main.infoDictionary!["BASE_URL"] as! String
@@ -25,11 +25,19 @@ class CartWebViewController: UIViewController, CartWebViewProtocol {
 	var presenter: CartWebPresenterProtocol?
 	
 	var cart:Cart! = Cart()
-
+	
 	override func viewDidLoad() {
-        super.viewDidLoad()
+		super.viewDidLoad()
 		
 		title = "Pagamento"
+		
+		PetbookingAPI.sharedInstance.userInfo({ (user, message) in
+			self.loadWebView()
+		})
+		
+	}
+	
+	func loadWebView() {
 		
 		let configuration = WKWebViewConfiguration()
 		let controller = WKUserContentController()
@@ -51,7 +59,7 @@ class CartWebViewController: UIViewController, CartWebViewProtocol {
 		webView.load(URLRequest(url: url))
 		
 	}
-
+	
 }
 
 extension CartWebViewController: WKScriptMessageHandler{
