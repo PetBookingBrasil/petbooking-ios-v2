@@ -31,7 +31,7 @@ class SideMenuRouter: SideMenuWireframeProtocol {
 	
 	func didTapLogout() {
 		
-		let loginViewController = LoginRouter.createModule()
+		let loginViewController = UINavigationController(rootViewController: LoginRouter.createModule())
 		
 		self.viewController?.dismiss(animated: true, completion: {
 			let window = UIApplication.shared.windows[0]
