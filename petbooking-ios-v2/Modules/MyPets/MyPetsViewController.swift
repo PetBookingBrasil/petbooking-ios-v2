@@ -10,6 +10,7 @@
 
 import UIKit
 import PINRemoteImage
+import DZNEmptyDataSet
 
 class MyPetsViewController: UIViewController, MyPetsViewProtocol {
 	
@@ -26,6 +27,8 @@ class MyPetsViewController: UIViewController, MyPetsViewProtocol {
 		
 		tableView.delegate = self
 		tableView.dataSource = self
+		tableView.emptyDataSetDelegate = self
+		tableView.emptyDataSetSource = self
 		
 		tableView.register(UINib(nibName: "MyPetsTableViewCell", bundle: nil), forCellReuseIdentifier: "MyPetsCell")
 		
@@ -94,5 +97,26 @@ extension MyPetsViewController: UITableViewDelegate, UITableViewDataSource {
 		self.tableView.reloadData()
 		
 	}
+	
+}
+
+extension MyPetsViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+	
+	func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+		
+		
+		return UIImage()
+		
+	}
+	
+	func customView(forEmptyDataSet scrollView: UIScrollView!) -> UIView! {
+		
+		
+		let indicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+		indicator.startAnimating()
+		
+		return indicator
+	}
+	
 	
 }

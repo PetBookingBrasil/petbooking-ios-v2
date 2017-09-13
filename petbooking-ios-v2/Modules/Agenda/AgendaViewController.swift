@@ -9,12 +9,15 @@
 //
 
 import UIKit
+import DZNEmptyDataSet
+import ALLoadingView
 
 class AgendaViewController: UIViewController, AgendaViewProtocol {
 
 	@IBOutlet weak var dateCollectionView: UICollectionView!
 	@IBOutlet weak var petsCollectionView: UICollectionView!
 	@IBOutlet weak var servicesTableView: UITableView!
+	@IBOutlet weak var emptyView: UIView!
 	
 	var presenter: AgendaPresenterProtocol?
 	
@@ -56,6 +59,10 @@ class AgendaViewController: UIViewController, AgendaViewProtocol {
 		servicesTableView.register(UINib(nibName: "AgendaTableViewCell", bundle: nil), forCellReuseIdentifier: "AgendaTableViewCell")
 		servicesTableView.estimatedRowHeight = 2000
 		
+		servicesTableView.emptyDataSetSource = self
+		servicesTableView.emptyDataSetDelegate = self
+		
+		ALLoadingView.manager.showLoadingView(ofType: .basic, windowMode: .fullscreen)
 		getScheduledServices()
 		
     }
@@ -70,9 +77,19 @@ class AgendaViewController: UIViewController, AgendaViewProtocol {
 		
 		PetbookingAPI.sharedInstance.getScheduleList(page: 1) { (scheduledServiceList, message) in
 			
+			ALLoadingView.manager.hideLoadingView(withDelay: 1) {
+				
+				
+			}
+			
 			guard let scheduledServiceList = scheduledServiceList else {
 				return
 			}
+			
+			if scheduledServiceList.scheduledDates.count > 0 {
+				self.emptyView.isHidden = true
+			}
+			
 			self.scheduledServiceList = scheduledServiceList
 			self.dateCollectionView.reloadData()
 			
@@ -331,6 +348,27 @@ extension AgendaViewController: UITableViewDelegate, UITableViewDataSource, Agen
 					self.getScheduledServices()
 				}
 		
+	}
+	
+	
+}
+
+extension AgendaViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+	
+	func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+		
+
+		return UIImage()
+
+	}
+	
+	func customView(forEmptyDataSet scrollView: UIScrollView!) -> UIView! {
+		
+	
+		let indicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+		indicator.startAnimating()
+		
+		return indicator
 	}
 	
 	

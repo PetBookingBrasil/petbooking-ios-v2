@@ -8,10 +8,16 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AgendaViewController" customModule="petbooking_ios_v2" customModuleProvider="target">
             <connections>
                 <outlet property="dateCollectionView" destination="9O0-fe-Vei" id="qj2-Ob-uGw"/>
+                <outlet property="emptyView" destination="laT-Rc-yor" id="qrO-yS-qqq"/>
                 <outlet property="petsCollectionView" destination="slZ-Ox-taf" id="YhM-qC-SzI"/>
                 <outlet property="servicesTableView" destination="4zB-X0-09j" id="2Ur-n7-k5s"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -67,16 +73,52 @@
                                 <outlet property="delegate" destination="-1" id="dil-e6-WcX"/>
                             </connections>
                         </tableView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="laT-Rc-yor">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emptyAgenda" translatesAutoresizingMaskIntoConstraints="NO" id="KLs-Ms-EfM">
+                                    <rect key="frame" x="105" y="100" width="164" height="164"/>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ops, sua agenda encontra-se vazia." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SdN-Pa-by7">
+                                    <rect key="frame" x="70" y="294" width="235" height="47"/>
+                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
+                                    <color key="textColor" red="0.31764705882352939" green="0.31764705882352939" blue="0.31764705882352939" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O que você esta esperando para agendar os mais variados serviços para seus pets no Pet Booking?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QXc-rp-wgG">
+                                    <rect key="frame" x="44" y="361" width="286" height="56.5"/>
+                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                    <color key="textColor" red="0.52156862745098043" green="0.52156862745098043" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="QXc-rp-wgG" secondAttribute="trailing" constant="45" id="9uK-P0-RM1"/>
+                                <constraint firstItem="QXc-rp-wgG" firstAttribute="top" secondItem="SdN-Pa-by7" secondAttribute="bottom" constant="20" id="DPa-gn-5Ba"/>
+                                <constraint firstItem="QXc-rp-wgG" firstAttribute="leading" secondItem="laT-Rc-yor" secondAttribute="leading" constant="44" id="Eog-Qd-HXZ"/>
+                                <constraint firstItem="SdN-Pa-by7" firstAttribute="centerX" secondItem="laT-Rc-yor" secondAttribute="centerX" id="KFE-64-cgE"/>
+                                <constraint firstItem="SdN-Pa-by7" firstAttribute="top" secondItem="KLs-Ms-EfM" secondAttribute="bottom" constant="30" id="Mut-qt-Z1U"/>
+                                <constraint firstItem="KLs-Ms-EfM" firstAttribute="centerX" secondItem="laT-Rc-yor" secondAttribute="centerX" id="ZkF-60-ejT"/>
+                                <constraint firstItem="KLs-Ms-EfM" firstAttribute="top" secondItem="laT-Rc-yor" secondAttribute="top" constant="100" id="dbk-cR-cIR"/>
+                                <constraint firstAttribute="trailing" secondItem="SdN-Pa-by7" secondAttribute="trailing" constant="70" id="kJ8-Ew-7wa"/>
+                                <constraint firstItem="SdN-Pa-by7" firstAttribute="leading" secondItem="laT-Rc-yor" secondAttribute="leading" constant="70" id="uuG-0L-AQS"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="4zB-X0-09j" firstAttribute="leading" secondItem="rlb-UQ-vIG" secondAttribute="leading" id="9Yi-iO-3cv"/>
+                        <constraint firstItem="laT-Rc-yor" firstAttribute="leading" secondItem="rlb-UQ-vIG" secondAttribute="leading" id="ApX-QQ-SOI"/>
+                        <constraint firstAttribute="bottom" secondItem="laT-Rc-yor" secondAttribute="bottom" id="DGL-Ba-TuI"/>
                         <constraint firstAttribute="trailing" secondItem="slZ-Ox-taf" secondAttribute="trailing" id="Dtc-zv-ck7"/>
                         <constraint firstItem="slZ-Ox-taf" firstAttribute="leading" secondItem="rlb-UQ-vIG" secondAttribute="leading" id="GgB-d7-Hrg"/>
                         <constraint firstItem="9O0-fe-Vei" firstAttribute="top" secondItem="rlb-UQ-vIG" secondAttribute="top" id="Lpr-5f-RTZ"/>
                         <constraint firstAttribute="trailing" secondItem="4zB-X0-09j" secondAttribute="trailing" id="NgT-js-fbD"/>
                         <constraint firstItem="9O0-fe-Vei" firstAttribute="leading" secondItem="rlb-UQ-vIG" secondAttribute="leading" id="P2a-BK-bAP"/>
                         <constraint firstItem="slZ-Ox-taf" firstAttribute="top" secondItem="9O0-fe-Vei" secondAttribute="bottom" id="bjB-65-dDr"/>
+                        <constraint firstAttribute="trailing" secondItem="laT-Rc-yor" secondAttribute="trailing" id="bz5-gA-CyR"/>
+                        <constraint firstItem="laT-Rc-yor" firstAttribute="top" secondItem="rlb-UQ-vIG" secondAttribute="top" id="dXZ-1D-cFh"/>
                         <constraint firstItem="4zB-X0-09j" firstAttribute="top" secondItem="slZ-Ox-taf" secondAttribute="bottom" id="o9E-uQ-2I2"/>
                         <constraint firstAttribute="bottom" secondItem="4zB-X0-09j" secondAttribute="bottom" id="rGo-rQ-7y3"/>
                         <constraint firstAttribute="trailing" secondItem="9O0-fe-Vei" secondAttribute="trailing" id="tZv-CV-xvF"/>
@@ -94,4 +136,7 @@
             <point key="canvasLocation" x="34.5" y="54.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="emptyAgenda" width="164" height="164"/>
+    </resources>
 </document>
