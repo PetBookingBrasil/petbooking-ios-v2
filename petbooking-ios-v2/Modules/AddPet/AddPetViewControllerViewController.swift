@@ -213,7 +213,7 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 			petSizeIndex = indexSize
 			petSizeLabel.text = "pet_size_\(pet.size)".localized
 			
-			moodLabel.text = pet.mood
+			moodLabel.text = "pet_mood_\(pet.mood)".localized
 			
 		}
 		
@@ -308,9 +308,15 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 			moodLabel.text = "pet_mood_\(pet.mood)".localized
 			break
 		case .petType:
+			let currentPetType = pet.type
 			pet.type = petTypeList[index].rawValue
 			petTypeLabel.text = "pet_type_\(pet.type)".localized
 			petTypeIndex = index
+			if currentPetType != pet.type {
+				pet.breedName = ""
+				pet.breedId = 0
+				self.breedLabel.text = "pet_breed_field".localized
+			}
 			
 			PetbookingAPI.sharedInstance.getBreedList(petType: pet.type, completion: { (breedList, message) in
 				

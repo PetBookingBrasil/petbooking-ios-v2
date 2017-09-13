@@ -53,6 +53,8 @@
 
 // Add Pet
 
+"pet_breed_field" = "Raça";
+
 "add_pet_title" = "Preencha os dados do pet";
 
 "pet_type_dog" = "Cão";
