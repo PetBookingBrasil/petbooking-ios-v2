@@ -8,8 +8,12 @@
 	<string>$(AUTH_KEY)</string>
 	<key>BASE_URL</key>
 	<string>$(BASE_URL)</string>
-	<key>CFBundleDevelopmentRegion</key>
-	<string>en</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>en</string>
+		<string>Portuguese</string>
+		<string>Spanish</string>
+	</array>
 	<key>CFBundleDisplayName</key>
 	<string>Pet Booking</string>
 	<key>CFBundleExecutable</key>
