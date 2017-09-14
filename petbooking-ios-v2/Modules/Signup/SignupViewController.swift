@@ -102,6 +102,9 @@ class SignupViewController: UIViewController, SignupViewProtocol {
 	}
 	
 	func setupView() {
+		
+		setBackButton()
+		
 		profilePictureView.round()
 		profilePictureFrameView.setBorder(width: 2, color: .white)
 		profilePictureFrameView.round()

@@ -104,8 +104,8 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		title = NSLocalizedString("add_pet_title", comment: "")
-		
+		setBackButton()
+		setTitle(title: NSLocalizedString("add_pet_title", comment: ""))
 		profilePictureView.round()
 		profilePictureFrameView.setBorder(width: 2, color: .white)
 		profilePictureFrameView.round()
@@ -153,7 +153,7 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 		
 		if petViewType == .edit {
 		
-			title = NSLocalizedString("edit_pet_title", comment: "")
+			setTitle(title: NSLocalizedString("edit_pet_title", comment: ""))
 		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Salvar", style: .plain, target: self, action: #selector(AddPetViewControllerViewController.save(_:)))
 			saveButton.backgroundColor = UIColor(hex: "FCE5EA")
 			saveButton.setTitle("remove_pet".localized, for: .normal)

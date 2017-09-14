@@ -32,6 +32,8 @@ class AgendaViewController: UIViewController, AgendaViewProtocol {
 	override func viewDidLoad() {
         super.viewDidLoad()
 		
+		setBackButton()
+		
 		title = "Agenda"
 		
 		dateCollectionView.register(UINib(nibName: "AgendaCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AgendaCollectionViewCell")

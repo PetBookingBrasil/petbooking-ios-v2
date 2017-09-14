@@ -54,6 +54,7 @@ class ScheduleCalendarViewController: UIViewController, ScheduleCalendarViewProt
 	override func viewDidLoad() {
         super.viewDidLoad()
 		
+		setBackButton()
 		
 		continueScheduleButton.round()
 

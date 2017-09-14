@@ -28,6 +28,7 @@ class HomeBusinessViewController: UIViewController, HomeBusinessViewProtocol, UI
 	override func viewDidLoad() {
         super.viewDidLoad()
 		
+		setBackButton()
 		setupScrollView()
 		
 		HomeBusinessSegmentioBuilder.buildSegmentioView(

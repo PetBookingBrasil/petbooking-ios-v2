@@ -24,6 +24,7 @@ class CartViewController: UIViewController, CartViewProtocol {
 	override func viewDidLoad() {
         super.viewDidLoad()
 		
+		setBackButton()
 		scheduleButton.round()
 		
 		tableView.register(UINib(nibName: "CartTableViewCell", bundle: nil), forCellReuseIdentifier: "CartTableViewCell")

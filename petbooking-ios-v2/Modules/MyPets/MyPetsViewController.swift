@@ -24,6 +24,7 @@ class MyPetsViewController: UIViewController, MyPetsViewProtocol {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		setBackButton()
 		title = NSLocalizedString("my_pets_title", comment: "")
 		
 		tableView.delegate = self

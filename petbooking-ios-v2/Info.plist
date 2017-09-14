@@ -8,12 +8,6 @@
 	<string>$(AUTH_KEY)</string>
 	<key>BASE_URL</key>
 	<string>$(BASE_URL)</string>
-	<key>CFBundleLocalizations</key>
-	<array>
-		<string>en</string>
-		<string>Portuguese</string>
-		<string>Spanish</string>
-	</array>
 	<key>CFBundleDisplayName</key>
 	<string>Pet Booking</string>
 	<key>CFBundleExecutable</key>
@@ -22,6 +16,12 @@
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>en</string>
+		<string>Portuguese</string>
+		<string>Spanish</string>
+	</array>
 	<key>CFBundleName</key>
 	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundlePackageType</key>
@@ -54,7 +54,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>16</string>
+	<string>17</string>
 	<key>FacebookAppID</key>
 	<string>1579605499022071</string>
 	<key>FacebookDisplayName</key>

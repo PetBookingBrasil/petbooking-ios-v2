@@ -32,6 +32,8 @@ class BusinessServicesViewController: UIViewController, BusinessServicesViewProt
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		setBackButton()
+		
 		ScheduleManager.sharedInstance.cleanSchedule()
 		
 		goToChartButton.round()

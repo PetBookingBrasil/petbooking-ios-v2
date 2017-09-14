@@ -29,6 +29,7 @@ class CartWebViewController: UIViewController, CartWebViewProtocol {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		setBackButton()
 		title = "Pagamento"
 		
 		PetbookingAPI.sharedInstance.userInfo({ (user, message) in

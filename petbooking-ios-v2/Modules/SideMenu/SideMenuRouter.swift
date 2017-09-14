@@ -57,6 +57,7 @@ class SideMenuRouter: SideMenuWireframeProtocol {
 	}
 	
 	func showProfile() {
+		self.viewController?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
 		self.viewController?.navigationController?.pushViewController(SignupRouter.createModule(signupType: .editProfile), animated: true)
 	}
 	

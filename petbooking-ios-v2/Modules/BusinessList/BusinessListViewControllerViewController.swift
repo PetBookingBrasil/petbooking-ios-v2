@@ -29,6 +29,7 @@ class BusinessListViewControllerViewController: UIViewController, BusinessListVi
 		
 		switch businessListType! {
 		case .favorites:
+			setBackButton()
 			presenter?.getFavoriteBusiness(page:1)
 			title = "Favoritos"
 			break
