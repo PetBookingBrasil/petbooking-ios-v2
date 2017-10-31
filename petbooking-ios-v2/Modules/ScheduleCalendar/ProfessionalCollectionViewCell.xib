@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -17,40 +17,39 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ProfessionalCollectionViewCell" customModule="petbooking_ios_v2" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="148" height="50"/>
+            <rect key="frame" x="0.0" y="0.0" width="122" height="125"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="148" height="50"/>
+                <rect key="frame" x="0.0" y="0.0" width="122" height="125"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zpc-SB-8r4">
+                        <rect key="frame" x="30" y="15" width="62" height="62"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="62" id="rgz-EG-yQt"/>
+                            <constraint firstAttribute="height" constant="62" id="zXV-J9-jmI"/>
+                        </constraints>
+                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZJU-PO-xcS">
-                        <rect key="frame" x="57" y="16" width="91" height="18"/>
+                        <rect key="frame" x="45" y="87" width="33" height="18"/>
                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="13"/>
                         <color key="textColor" red="0.52156862749999999" green="0.52156862749999999" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zpc-SB-8r4">
-                        <rect key="frame" x="16" y="9" width="32" height="32"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="32" id="rgz-EG-yQt"/>
-                            <constraint firstAttribute="height" constant="32" id="zXV-J9-jmI"/>
-                        </constraints>
-                    </imageView>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="Zpc-SB-8r4" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="0ac-wM-sv0"/>
-                <constraint firstItem="ZJU-PO-xcS" firstAttribute="leading" secondItem="Zpc-SB-8r4" secondAttribute="trailing" constant="9" id="CQF-EW-Omd"/>
-                <constraint firstItem="Zpc-SB-8r4" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="NhP-54-t6d"/>
-                <constraint firstAttribute="trailing" secondItem="ZJU-PO-xcS" secondAttribute="trailing" id="hGg-wL-ATC"/>
-                <constraint firstItem="ZJU-PO-xcS" firstAttribute="centerY" secondItem="Zpc-SB-8r4" secondAttribute="centerY" id="qfa-yL-0ns"/>
+                <constraint firstItem="ZJU-PO-xcS" firstAttribute="top" secondItem="Zpc-SB-8r4" secondAttribute="bottom" constant="10" id="2fR-CV-Ci3"/>
+                <constraint firstItem="Zpc-SB-8r4" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="AU0-bs-ruv"/>
+                <constraint firstItem="ZJU-PO-xcS" firstAttribute="centerX" secondItem="Zpc-SB-8r4" secondAttribute="centerX" id="GLl-u5-jNX"/>
+                <constraint firstItem="Zpc-SB-8r4" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="15" id="r62-9U-1zP"/>
             </constraints>
-            <size key="customSize" width="449" height="80"/>
+            <size key="customSize" width="423" height="155"/>
             <connections>
                 <outlet property="nameLabel" destination="ZJU-PO-xcS" id="a6m-US-sfP"/>
                 <outlet property="profileImageView" destination="Zpc-SB-8r4" id="1r0-t9-rJM"/>
             </connections>
-            <point key="canvasLocation" x="93.5" y="89"/>
+            <point key="canvasLocation" x="103" y="126.5"/>
         </collectionViewCell>
     </objects>
 </document>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="265" id="KGk-i7-Jjw" customClass="SelectPetTableViewCell" customModule="petbooking_ios_v2" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="265"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="264.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selecionar Pet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dw6-nU-zDR">
+                        <rect key="frame" x="96" y="23" width="128" height="23.5"/>
+                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
+                        <color key="textColor" red="0.89411764705882346" green="0.0" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="NoD-1C-yBa">
+                        <rect key="frame" x="8" y="56.5" width="304" height="161"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="161" id="FUM-BJ-zz7"/>
+                        </constraints>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="KIN-Y3-LQY">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                    </collectionView>
+                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="PBO-E5-Uya">
+                        <rect key="frame" x="141" y="225" width="39" height="37"/>
+                        <color key="pageIndicatorTintColor" red="0.52156862745098043" green="0.52156862745098043" blue="0.52156862745098043" alpha="0.29524293664383561" colorSpace="calibratedRGB"/>
+                        <color key="currentPageIndicatorTintColor" red="0.52156862745098043" green="0.52156862745098043" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
+                    </pageControl>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Dw6-nU-zDR" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="1th-hN-Zyk"/>
+                    <constraint firstItem="Dw6-nU-zDR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="15" id="73f-Tr-o7W"/>
+                    <constraint firstItem="PBO-E5-Uya" firstAttribute="top" secondItem="NoD-1C-yBa" secondAttribute="bottom" constant="7" id="LZd-w0-UtG"/>
+                    <constraint firstItem="PBO-E5-Uya" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="RzS-22-cDY"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="NoD-1C-yBa" secondAttribute="trailing" id="hla-Sw-jBQ"/>
+                    <constraint firstItem="NoD-1C-yBa" firstAttribute="top" secondItem="Dw6-nU-zDR" secondAttribute="bottom" constant="10" id="spW-uE-39x"/>
+                    <constraint firstItem="NoD-1C-yBa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="zUH-0T-PQM"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="collectionView" destination="NoD-1C-yBa" id="hfq-Yk-Oyc"/>
+                <outlet property="pageControl" destination="PBO-E5-Uya" id="fiF-1n-ipC"/>
+            </connections>
+            <point key="canvasLocation" x="34" y="164.5"/>
+        </tableViewCell>
+    </objects>
+</document>

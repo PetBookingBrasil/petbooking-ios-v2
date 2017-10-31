@@ -29,7 +29,7 @@ struct HomeBusinessSegmentioBuilder {
 	
 	private static func segmentioContent() -> [SegmentioItem] {
 		return [
-			SegmentioItem(title: "SERVIÇOS", image: nil),
+			SegmentioItem(title: "AGENDAR", image: nil),
 			SegmentioItem(title: "INFORMAÇÕES", image: nil)
 		]
 	}

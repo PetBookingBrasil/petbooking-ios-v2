@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Roboto-Medium.ttf">
-            <string>Roboto-Medium</string>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
         </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="PetCollectionViewCell" customModule="petbooking_ios_v2" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="100" height="66"/>
+            <rect key="frame" x="0.0" y="0.0" width="171" height="161"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="100" height="66"/>
+                <rect key="frame" x="0.0" y="0.0" width="171" height="161"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0ic-3q-qqI">
-                        <rect key="frame" x="34" y="8" width="32" height="32"/>
+                        <rect key="frame" x="34.5" y="8" width="102" height="102"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="32" id="E37-Rf-3Yh"/>
-                            <constraint firstAttribute="height" constant="32" id="iSH-H6-TTV"/>
+                            <constraint firstAttribute="width" constant="102" id="E37-Rf-3Yh"/>
+                            <constraint firstAttribute="height" constant="102" id="iSH-H6-TTV"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lgA-7d-MSL">
-                        <rect key="frame" x="5" y="48" width="90" height="14.5"/>
-                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="12"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Big name name name name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lgA-7d-MSL">
+                        <rect key="frame" x="5" y="118" width="161" height="37.5"/>
+                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                         <color key="textColor" red="0.52156862749999999" green="0.52156862749999999" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -47,12 +47,12 @@
                 <constraint firstItem="0ic-3q-qqI" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="ZBI-fQ-XRz"/>
                 <constraint firstItem="lgA-7d-MSL" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="fIv-N5-Biu"/>
             </constraints>
-            <size key="customSize" width="116" height="177"/>
+            <size key="customSize" width="187" height="272"/>
             <connections>
                 <outlet property="nameLabel" destination="lgA-7d-MSL" id="sRR-Us-t0t"/>
                 <outlet property="pictureImageView" destination="0ic-3q-qqI" id="Nik-JA-N4L"/>
             </connections>
-            <point key="canvasLocation" x="67" y="116.5"/>
+            <point key="canvasLocation" x="38.5" y="163.5"/>
         </collectionViewCell>
     </objects>
 </document>

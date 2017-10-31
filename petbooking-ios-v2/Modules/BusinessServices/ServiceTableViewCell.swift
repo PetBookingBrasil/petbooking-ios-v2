@@ -22,14 +22,14 @@ class ServiceTableViewCell: UITableViewCell {
 	var business:Business = Business()
 	var pet:Pet = Pet()
 	var serviceCategory:ServiceCategory = ServiceCategory()
-	var subServices:List<ScheduleSubService> = List<ScheduleSubService>()
+	var subServices = [SubService]()
 	
 	@IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
 	
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-			checkBox.boxType = .square
+			checkBox.boxType = .circle
 			checkBox.delegate = self
 			
 			tableView.register(UINib(nibName: "AdditionalServiceTableViewCell", bundle: nil), forCellReuseIdentifier: "AdditionalServiceTableViewCell")
@@ -91,11 +91,11 @@ extension ServiceTableViewCell : UITableViewDelegate, UITableViewDataSource {
 		cell.checkBox.setOn(true, animated: false)
 		cell.delegate = self
 		let subService = subServices[indexPath.row]
-		let service:SubService! = SubService()
-		service.id = subService.subServiceId
-		service.name = subService.name
+//		let service:SubService! = SubService()
+//		service.id = subService.subServiceId
+//		service.name = subService.name
 		
-		cell.service = service
+		cell.service = subService
 		
 		cell.nameLabel.text = subService.name
 		cell.priceLabel.text = String(format: "R$ %.2f", subService.price)
