@@ -37,7 +37,7 @@ class BusinessServicesViewController: ExpandableTableViewController, BusinessSer
 		
 		setBackButton()
 		
-		ScheduleManager.sharedInstance.cleanSchedule()
+		//ScheduleManager.sharedInstance.cleanSchedule()
 		
 		goToChartButton.round()
 	
@@ -53,14 +53,14 @@ class BusinessServicesViewController: ExpandableTableViewController, BusinessSer
 		
 		ALLoadingView.manager.showLoadingView(ofType: .basic, windowMode: .fullscreen)
 		presenter?.getPets()
-		
-		
-		ScheduleManager.sharedInstance.createNewSchedule(business: business)
-		
+	
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
+		
+		ScheduleManager.sharedInstance.cleanSchedule()
+		ScheduleManager.sharedInstance.createNewSchedule(business: business)
 		
 		//servicesCollectionView.reloadData()
 		//petCollectionView.reloadData()
@@ -86,7 +86,11 @@ class BusinessServicesViewController: ExpandableTableViewController, BusinessSer
 			selectedPet = pet
 			presenter?.getCategories(business: business)
 		}
+		
+		
 		self.expandableTableView.reloadData()
+		
+		showContent(indexPath: IndexPath(row: 1, section: 0))
 		
 		selectPetDelegate?.loadPets(petList: petList)
 		
@@ -94,18 +98,20 @@ class BusinessServicesViewController: ExpandableTableViewController, BusinessSer
 	
 	func loadCategories(serviceCategoryList: ServiceCategoryList) {
 		
+		ALLoadingView.manager.hideLoadingView()
+		
 		self.serviceCategoryList = serviceCategoryList
 		
-		//self.servicesCollectionView.reloadData()
+		expandableTableView.reloadData()
 		
 		if selectedServiceCategory.id.isBlank{
 			
 			guard let service = self.serviceCategoryList.categories.first else {
 				return
 			}
-			selectedServiceCategory = service
+			//selectedServiceCategory = service
 			
-			presenter?.getServices(business: business, service: selectedServiceCategory, pet: selectedPet)
+			//presenter?.getServices(business: business, service: selectedServiceCategory, pet: selectedPet)
 			
 			//self.servicesCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: false, scrollPosition: .left)
 		}
@@ -117,6 +123,7 @@ class BusinessServicesViewController: ExpandableTableViewController, BusinessSer
 		self.serviceList = serviceList
 		
 		expandableTableView.reloadData()
+		//showContent(indexPath: IndexPath(row: 2, section: 0))
 		
 	}
 	
@@ -457,7 +464,7 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
 		switch expandableIndexPath.row {
 		case 0:
 			if !self.selectedPet.id.isBlank {
-				
+				cell.contentView.isHidden = false
 				if selectedPet.type == "dog" {
 					cell.iconImageView.image = UIImage(named:"avatar-padrao-cachorro")
 				} else {
@@ -469,20 +476,45 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
 				
 				cell.titleLabel.text = self.selectedPet.name
 				
+			} else {
+				cell.contentView.isHidden = true
 			}
 			
 			break
 		case 1:
-			cell.titleLabel.text = "Banho e Tosa"
+			if !selectedServiceCategory.id.isBlank{
+				cell.contentView.isHidden = false
+				cell.titleLabel.text = selectedServiceCategory.name
+				cell.iconImageView.image = UIImage(named:selectedServiceCategory.slug)
+			} else {
+				cell.contentView.isHidden = true
+			}
+			
 			break
 		case 2:
-			cell.titleLabel.text = "Banho Tropical"
+			if !selectedService.id.isBlank{
+				cell.contentView.isHidden = false
+				cell.titleLabel.text = selectedService.name
+				cell.iconImageView.image = UIImage(named:"checkedIcon")
+			} else {
+				cell.contentView.isHidden = true
+			}
 			break
 		case 3:
-			cell.titleLabel.text = "Professional Name"
+			if !selectedProfessional.id.isBlank{
+				cell.contentView.isHidden = false
+				cell.titleLabel.text = selectedProfessional.name
+				cell.iconImageView.image = UIImage(named:"avatar-padrao-m")
+				if let url = URL(string: selectedProfessional.photoThumbUrl) {
+					cell.iconImageView.pin_setImage(from: url)
+				}
+			} else {
+				cell.contentView.isHidden = true
+			}
 			break
 		case 4:
-			cell.titleLabel.text = "Pet Name"
+			cell.contentView.isHidden = true
+
 			break
 		default:
 			break
@@ -497,34 +529,39 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
 		
 		
 		
-//		switch expandableIndexPath.row {
-//		case 0:
-//			
-//			break
-//		case 1:
-//			
-//			guard let pet = schedule.petsSchedule.first else {
-//				return 0
-//			}
-//			
-//			if pet.categories.count > 0 {
-//				return 50
-//			} else {
-//				return 0
-//			}
-//			
-//		case 2:
-//			
-//			break
-//		case 3:
-//			
-//			break
-//		case 4:
-//			
-//			break
-//		default:
-//			break
-//		}
+		switch expandableIndexPath.row {
+		case 0:
+			
+			break
+		case 1:
+			
+			if selectedServiceCategory.id.isBlank {
+				return 0
+			}
+
+			
+			break
+			
+		case 2:
+			
+			if selectedService.id.isBlank {
+				return 0
+			}
+			
+			break
+		case 3:
+			
+			if selectedProfessional.id.isBlank {
+				return 0
+			}
+			break
+		case 4:
+			
+			return 0
+			
+		default:
+			break
+		}
 		
 		return 60
 	}
@@ -551,6 +588,7 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
 			return cell
 		case 1:
 			let cell = expandableTableView.dequeueReusableCellWithIdentifier("SelectCategoryTableViewCell", forIndexPath: expandableIndexPath) as!SelectCategoryTableViewCell
+			cell.delegate = self
 			cell.serviceCategoryList = serviceCategoryList
 			cell.selectedServiceCategory = selectedServiceCategory
 			cell.collectionView.reloadData()
@@ -575,6 +613,7 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
 			let cell = expandableTableView.dequeueReusableCellWithIdentifier("SelectDateTableViewCell", forIndexPath: expandableIndexPath) as!SelectDateTableViewCell
 			cell.selectedService = selectedService
 			cell.selectedProfessional = self.selectedProfessional
+			cell.reloadTimeColletion(professional: selectedProfessional)
 			cell.delegate = self
 			return cell
 		default:
@@ -625,6 +664,10 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
 	
 	func setSelectedCategory(selectedServiceCategory: ServiceCategory) {
 		self.selectedServiceCategory = selectedServiceCategory
+		showContent(indexPath: IndexPath(row: 1, section: 0))
+		self.expandableTableView.reloadData()
+		
+		showContent(indexPath: IndexPath(row: 2, section: 0))
 		
 		self.presenter?.getServices(business: business, service: selectedServiceCategory, pet: selectedPet)
 	}
@@ -632,11 +675,16 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
 	func setSelectedService(selectedService: Service) {
 		
 		self.selectedService = selectedService
+		if selectedService.services.count == 0 {
+			showContent(indexPath: IndexPath(row: 2, section: 0))
+		}
+		
 		
 		PetbookingAPI.sharedInstance.getProfessionalsList(service: self.selectedService) { (professionalList, message) in
 			
 			self.professionalList = professionalList
-			
+			self.expandableTableView.reloadData()
+			self.showContent(indexPath: IndexPath(row: 3, section: 0))
 			
 		}
 	}
@@ -644,10 +692,17 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
 	func setSelectedProfessional(professional: Professional) {
 		
 		self.selectedProfessional = professional
+		self.showContent(indexPath: IndexPath(row: 3, section: 0))
+		self.expandableTableView.reloadData()
+		
 		
 		selectedService.professionalId = professional.id
 		selectedService.professionalName = professional.name
 		selectedService.professionalPicture =  professional.photoThumbUrl
+		
+		self.showContent(indexPath: IndexPath(row: 4, section: 0))
+		
+		self.expandableTableView.scrollToRow(at: IndexPath(row: 4, section: 0), at: .top, animated: true)
 	}
 	
 	func setSelectedTime(service: Service) {

@@ -31,6 +31,9 @@ class SelectDateTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
 		
+		numberLabel.round()
+		numberLabel.setBorder(width: 1, color: UIColor(hex: "E4002B"))
+		
 		calendarManager = JTCalendarManager()
 		calendarManager.settings.weekModeEnabled = true
 		calendarManager.delegate = self
@@ -99,8 +102,8 @@ extension SelectDateTableViewCell:JTCalendarDelegate {
 			dayView.textLabel.font = UIFont.robotoMedium(ofSize: 17)
 		}	else{
 			dayView.circleView.isHidden = true
-			dayView.textLabel.textColor = isProfissionalAvailable ? UIColor.white : UIColor.lightGray
-			dayView.textLabel.font = UIFont.robotoRegular(ofSize: 17)
+			dayView.textLabel.textColor = isProfissionalAvailable ? UIColor(hex: "515151") : UIColor.lightGray
+			dayView.textLabel.font = UIFont.robotoMedium(ofSize: 17)
 		}
 		
 	}
@@ -134,10 +137,10 @@ extension SelectDateTableViewCell:JTCalendarDelegate {
 		}
 		
 		let dateformattter =	DateFormatter()
-		dateformattter.dateFormat = "MMMM YYYY"
+		dateformattter.dateFormat = "MMMM, YYYY"
 		
 		label.font = UIFont.robotoMedium(ofSize: 14)
-		label.textColor = .white
+		label.textColor = UIColor(hex: "298FC2")
 		label.text = dateformattter.string(from: date).uppercased()
 		
 		

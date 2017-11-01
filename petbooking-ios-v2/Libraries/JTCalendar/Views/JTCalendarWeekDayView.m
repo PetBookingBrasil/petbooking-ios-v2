@@ -8,6 +8,8 @@
 #import "JTCalendarWeekDayView.h"
 
 #import "JTCalendarManager.h"
+#import "petbooking_ios_v2-Swift.h"
+
 
 #define NUMBER_OF_DAY_BY_WEEK 7.
 
@@ -47,8 +49,8 @@
         [dayViews addObject:label];
         
         label.textAlignment = NSTextAlignmentCenter;
-        label.textColor = [UIColor whiteColor];
-        label.font = [UIFont systemFontOfSize:11];
+        label.textColor = [[UIColor alloc] initWithHex:@"515151"];
+        label.font = [UIFont robotoLightOfSize:11];
     }
     
     _dayViews = dayViews;

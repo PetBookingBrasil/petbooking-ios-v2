@@ -108,6 +108,7 @@ open class ExpandableTableViewController: UIViewController, UITableViewDelegate,
             }
         }
     }
+	
     
     // MARK: - Private methods
     

@@ -31,6 +31,10 @@ extension UIFont {
 		return UIFont(name: "Roboto-Regular", size: size) ?? UIFont.systemFont(ofSize: size)
 	}
 	
+	class func robotoLight(ofSize size: CGFloat) -> UIFont {
+		return UIFont(name: "Roboto-Light", size: size) ?? UIFont.boldSystemFont(ofSize: size)
+	}
+	
 	class func robotoBold(ofSize size: CGFloat) -> UIFont {
 		return UIFont(name: "Roboto-Bold", size: size) ?? UIFont.boldSystemFont(ofSize: size)
 	}

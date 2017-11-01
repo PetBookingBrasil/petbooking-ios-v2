@@ -10,6 +10,7 @@ import UIKit
 
 class SelectPetTableViewCell: UITableViewCell {
 
+	@IBOutlet weak var panelView: UIView!
 	@IBOutlet weak var pageControl: UIPageControl!
 	@IBOutlet weak var collectionView: UICollectionView!
 	
@@ -22,6 +23,9 @@ class SelectPetTableViewCell: UITableViewCell {
 	override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+		
+		panelView.layer.cornerRadius = 4
+		panelView.dropShadow()
 		
 		thisWidth = CGFloat(self.frame.width/2)
 		collectionView.delegate = self

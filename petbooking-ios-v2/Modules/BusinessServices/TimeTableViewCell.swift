@@ -17,22 +17,33 @@ class TimeTableViewCell: UITableViewCell {
 		didSet {
 			if isSelected {
 				timeLabel.textColor = UIColor.white
-				timeContainer.setBorder(width: 0, color: UIColor(hex: "515151"))
 				timeContainer.backgroundColor = UIColor(hex: "E4002B")
 			} else {
 				timeLabel.textColor = UIColor(hex: "515151")
-				timeContainer.setBorder(width: 1, color: UIColor(hex: "515151"))
 				timeContainer.backgroundColor = UIColor.white
 			}
 		}
+	}
+	
+	override func setSelected(_ selected: Bool, animated: Bool) {
+		
+		if selected {
+			timeLabel.textColor = UIColor(hex: "E4002B")
+			timeContainer.backgroundColor =  UIColor(hex: "E4002B").withAlphaComponent(0.1)
+
+		} else {
+			timeLabel.textColor = UIColor(hex: "515151")
+			timeContainer.backgroundColor = UIColor.white
+		}
+		
 	}
 	
 	override func awakeFromNib() {
 		super.awakeFromNib()
 		// Initialization code
 		
-		timeContainer.layer.cornerRadius = 4
-		timeContainer.setBorder(width: 1, color: UIColor(hex: "515151"))
+		timeContainer.round()
+		
 	}
     
 }

@@ -78,6 +78,7 @@ extension SelectProfessionalTableViewCell: UICollectionViewDelegate, UICollectio
 		
 		cell.nameLabel.text = professional.name
 		
+		cell.profileImageView.image = UIImage(named:"avatar-padrao-m")
 		if let url = URL(string: professional.photoThumbUrl) {
 			cell.profileImageView.pin_setImage(from: url)
 		}

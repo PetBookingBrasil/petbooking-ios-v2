@@ -25,6 +25,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="264.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DQy-Hy-vbY">
+                        <rect key="frame" x="16" y="0.0" width="288" height="259.5"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selecionar Pet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dw6-nU-zDR">
                         <rect key="frame" x="96" y="23" width="128" height="23.5"/>
                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
@@ -50,12 +54,17 @@
                         <color key="currentPageIndicatorTintColor" red="0.52156862745098043" green="0.52156862745098043" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                     </pageControl>
                 </subviews>
+                <color key="backgroundColor" red="0.92941176469999998" green="0.92941176469999998" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstItem="Dw6-nU-zDR" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="1th-hN-Zyk"/>
                     <constraint firstItem="Dw6-nU-zDR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="15" id="73f-Tr-o7W"/>
+                    <constraint firstAttribute="bottom" secondItem="DQy-Hy-vbY" secondAttribute="bottom" constant="5" id="8ih-No-Ybx"/>
+                    <constraint firstItem="DQy-Hy-vbY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="BgG-Nr-ARp"/>
+                    <constraint firstItem="DQy-Hy-vbY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="F3m-Cx-ml1"/>
                     <constraint firstItem="PBO-E5-Uya" firstAttribute="top" secondItem="NoD-1C-yBa" secondAttribute="bottom" constant="7" id="LZd-w0-UtG"/>
                     <constraint firstItem="PBO-E5-Uya" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="RzS-22-cDY"/>
                     <constraint firstAttribute="trailingMargin" secondItem="NoD-1C-yBa" secondAttribute="trailing" id="hla-Sw-jBQ"/>
+                    <constraint firstAttribute="trailing" secondItem="DQy-Hy-vbY" secondAttribute="trailing" constant="16" id="r5Q-R5-D3W"/>
                     <constraint firstItem="NoD-1C-yBa" firstAttribute="top" secondItem="Dw6-nU-zDR" secondAttribute="bottom" constant="10" id="spW-uE-39x"/>
                     <constraint firstItem="NoD-1C-yBa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="zUH-0T-PQM"/>
                 </constraints>
@@ -64,6 +73,7 @@
             <connections>
                 <outlet property="collectionView" destination="NoD-1C-yBa" id="hfq-Yk-Oyc"/>
                 <outlet property="pageControl" destination="PBO-E5-Uya" id="fiF-1n-ipC"/>
+                <outlet property="panelView" destination="DQy-Hy-vbY" id="QZh-Vv-O26"/>
             </connections>
             <point key="canvasLocation" x="34" y="164.5"/>
         </tableViewCell>
