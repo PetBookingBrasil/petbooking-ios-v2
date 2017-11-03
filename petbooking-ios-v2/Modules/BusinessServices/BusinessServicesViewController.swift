@@ -66,6 +66,7 @@ class BusinessServicesViewController: ExpandableTableViewController, BusinessSer
 		expandableTableView.reloadData()
 		
 		checkServices()
+		
 	}
 	
 	deinit {
@@ -124,10 +125,7 @@ class BusinessServicesViewController: ExpandableTableViewController, BusinessSer
 		}
 		
 		
-		let nc = NotificationCenter.default
-		nc.post(name:Notification.Name(rawValue:"cartUpdateNotification"),
-		        object: nil,
-		        userInfo:nil)
+		checkServices()
 		
 		let alertVC = ScheduleToTheCartAlertViewController()
 		alertVC.delegate = self
@@ -139,16 +137,10 @@ class BusinessServicesViewController: ExpandableTableViewController, BusinessSer
 	
 	func checkServices() {
 		
-		guard let businessList = ScheduleManager.sharedInstance.getServicesByBusiness(business: self.business) else {
-			goToChartButton.isHidden = true
-			return
-		}
-		
-		if businessList.count > 0 {
-			goToChartButton.isHidden = false
-		} else {
-			goToChartButton.isHidden = true
-		}
+		let nc = NotificationCenter.default
+		nc.post(name:Notification.Name(rawValue:"cartUpdateNotification"),
+		        object: nil,
+		        userInfo:nil)
 		
 	}
 	
@@ -337,6 +329,7 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
 				cell.services = serviceList.services
 			}
 			
+			cell.serviceList = serviceList
 			cell.selectedSubServices = self.selectedSubServices
 			cell.selectedServiceCategory = self.selectedServiceCategory
 			cell.selectedPet = self.selectedPet
@@ -394,6 +387,7 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
 	}
 	
 	func showContent(indexPath: IndexPath) {
+		unexpandAllCells()
 		
 		tableView(expandableTableView, didSelectRowAt: indexPath)
 		
@@ -402,13 +396,13 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
 	func setSelectedPet(selectedPet: Pet) {
 		
 		self.selectedPet = selectedPet
-		showContent(indexPath: IndexPath(row: 0, section: 0))
+		showContent(indexPath: IndexPath(row: 1, section: 0))
 		self.expandableTableView.reloadData()
 	}
 	
 	func setSelectedCategory(selectedServiceCategory: ServiceCategory) {
 		self.selectedServiceCategory = selectedServiceCategory
-		showContent(indexPath: IndexPath(row: 1, section: 0))
+		
 		self.expandableTableView.reloadData()
 		
 		showContent(indexPath: IndexPath(row: 2, section: 0))
@@ -420,8 +414,6 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
 		
 		self.selectedService = selectedService
 		self.selectedSubServices = selectedSubServices
-		showContent(indexPath: IndexPath(row: 2, section: 0))
-
 		
 		PetbookingAPI.sharedInstance.getProfessionalsList(service: self.selectedService) { (professionalList, message) in
 			
@@ -435,7 +427,7 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
 	func setSelectedProfessional(professional: Professional) {
 		
 		self.selectedProfessional = professional
-		self.showContent(indexPath: IndexPath(row: 3, section: 0))
+		
 		self.expandableTableView.reloadData()
 		
 		
@@ -453,6 +445,8 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
 		selectedService = service
 		
 		goToChartButton.isHidden = false
+		
+		
 	}
 }
 

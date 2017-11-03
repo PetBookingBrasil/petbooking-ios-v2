@@ -59,7 +59,7 @@
                         <constraint firstItem="EcN-8q-dQ0" firstAttribute="leading" secondItem="hJ5-gA-lkP" secondAttribute="leading" id="ZQ2-gV-AhT"/>
                     </constraints>
                 </scrollView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mLU-0d-YVn">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mLU-0d-YVn">
                     <rect key="frame" x="40.5" y="601" width="294" height="50"/>
                     <color key="backgroundColor" red="0.89411764709999997" green="0.0" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>

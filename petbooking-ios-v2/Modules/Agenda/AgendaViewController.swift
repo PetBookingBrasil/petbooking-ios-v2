@@ -47,7 +47,7 @@ class AgendaViewController: UIViewController, AgendaViewProtocol {
 		layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
 		dateCollectionView.collectionViewLayout = layout
 		
-		petsCollectionView.register(UINib(nibName: "PetCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PetCollectionViewCell")
+		petsCollectionView.register(UINib(nibName: "AgendaPetCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AgendaPetCollectionViewCell")
 		
 		let cellSize2 = CGSize(width:100 , height:66)
 		let layout2 = UICollectionViewFlowLayout()
@@ -219,16 +219,11 @@ extension AgendaViewController: UICollectionViewDelegate, UICollectionViewDataSo
 		return cell
 	}
 	
-	func getPetCell(indexPath: IndexPath) -> PetCollectionViewCell {
+	func getPetCell(indexPath: IndexPath) -> AgendaPetCollectionViewCell {
 		
-		let cell = petsCollectionView.dequeueReusableCell(withReuseIdentifier: "PetCollectionViewCell", for: indexPath) as! PetCollectionViewCell
+		let cell = petsCollectionView.dequeueReusableCell(withReuseIdentifier: "AgendaPetCollectionViewCell", for: indexPath) as! AgendaPetCollectionViewCell
 		
 		let pet = scheduledPets[indexPath.item]
-		
-		//cell.isSelected = pet == selectedPet
-//		if pet == selectedPet {
-//			petCollectionView.selectItem(at: indexPath, animated: false, scrollPosition: .left)
-//		}
 		
 		cell.nameLabel.text = pet.name
 		

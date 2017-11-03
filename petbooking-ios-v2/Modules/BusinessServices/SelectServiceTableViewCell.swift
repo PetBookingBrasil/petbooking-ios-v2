@@ -73,33 +73,13 @@ extension SelectServiceTableViewCell: UITableViewDelegate, UITableViewDataSource
 		}
 
 		
-		let headerSize = selectedService.services.count > 0 ? 20 : 0
+		let headerSize = selectedService.services.count > 0 ? 40 : 0
 
 		return CGFloat(70 + headerSize + selectedService.services.count * 40)
 
 	}
 
-//	func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-//
-//		let service = serviceList.services[section]
-//
-//		if ScheduleManager.sharedInstance.hasServiceFromSchedule(business: business, pet: selectedPet, serviceCategory: selectedServiceCategory, service: service) {
-//			return 60
-//		} else {
-//			return 10
-//		}
-//	}
 
-//	func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//
-//		let service = serviceList.services[section]
-//
-//		if ScheduleManager.sharedInstance.hasServiceFromSchedule(business: business, pet: selectedPet, serviceCategory: selectedServiceCategory, service: service) {
-//			return 30
-//		} else {
-//			return 0
-//		}
-//	}
 
 	func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
 		return UITableViewAutomaticDimension
@@ -138,61 +118,7 @@ extension SelectServiceTableViewCell: UITableViewDelegate, UITableViewDataSource
 
 	}
 
-//	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//
-//		let service = serviceList.services[section]
-//		guard let scheduleService = ScheduleManager.sharedInstance.getServiceFromSchedule(business: business, pet: selectedPet, serviceCategory: selectedServiceCategory, service: service) else {
-//			return nil
-//		}
-//
-//		let headerView = ServiceTableHeaderView.loadFromNibNamed("ServiceTableHeaderView") as? ServiceTableHeaderView
-//		headerView?.frame = CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 18)
-//
-//		let dateFormatter = DateFormatter()
-//		dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
-//		let date = dateFormatter.date(from: "\(scheduleService.startDate) \(scheduleService.startTime)")
-//
-//		let dateString = dateFormatter.convertDateFormater(dateString: "\(scheduleService.startDate) \(scheduleService.startTime)", fromFormat: "yyyy-MM-dd HH:mm", toFormat: "dd 'de' MMMM")
-//
-//		let endDate = date?.addingTimeInterval(scheduleService.duration)
-//
-//		dateFormatter.dateFormat = "hh:mm"
-//
-//		let endDateString = dateFormatter.string(from: endDate!)
-//
-//		headerView?.timeLabel.text = "\(dateString), \(scheduleService.startTime) — \(endDateString)"
-//
-//		return headerView
-//	}
 
-//	func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-//
-//		let service = serviceList.services[section]
-//		guard let scheduleService = ScheduleManager.sharedInstance.getServiceFromSchedule(business: business, pet: selectedPet, serviceCategory: selectedServiceCategory, service: service) else {
-//			let view = UIView()
-//
-//			view.backgroundColor = UIColor(hex: "EDEDED")
-//
-//			return view
-//		}
-//
-//		let footerView = ServiceTableFooterView.loadFromNibNamed("ServiceTableFooterView") as? ServiceTableFooterView
-//		footerView?.frame = CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 60)
-//
-//		footerView?.nameLabel.text = scheduleService.professionalName
-//		if let url = URL(string: scheduleService.professionalPicture) {
-//			footerView?.pictureImageView.pin_setImage(from: url)
-//		}
-//		var totalValue = scheduleService.price
-//
-//		for subService in scheduleService.services {
-//			totalValue += subService.price
-//		}
-//		footerView?.totalValueLabel.text = String(format: "R$ %.2f", totalValue)
-//
-//
-//		return footerView
-//	}
 
 }
 
@@ -228,6 +154,8 @@ extension SelectServiceTableViewCell : ServiceTableViewDelegate {
 	
 	func didUnselectedService(service:Service) {
 		
+		selectedService = Service()
+		selectedSubServices.removeAll()
 		services = serviceList.services
 		tableView.reloadData()
 

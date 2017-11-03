@@ -148,6 +148,8 @@
 		415191E51FAB774600CACCFE /* MJBadgeBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415191E41FAB774600CACCFE /* MJBadgeBarButton.swift */; };
 		415191E81FABE9B400CACCFE /* ScheduleToTheCartAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415191E61FABE9B400CACCFE /* ScheduleToTheCartAlertViewController.swift */; };
 		415191E91FABE9B400CACCFE /* ScheduleToTheCartAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 415191E71FABE9B400CACCFE /* ScheduleToTheCartAlertViewController.xib */; };
+		415191EC1FAC102B00CACCFE /* AgendaPetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415191EA1FAC102B00CACCFE /* AgendaPetCollectionViewCell.swift */; };
+		415191ED1FAC102B00CACCFE /* AgendaPetCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 415191EB1FAC102B00CACCFE /* AgendaPetCollectionViewCell.xib */; };
 		415BCAE01EB534C40015BB0C /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415BCADF1EB534C40015BB0C /* SignupViewController.swift */; };
 		415F73D41EBA9F08000D9B14 /* ViaCepAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415F73D31EBA9F08000D9B14 /* ViaCepAPI.swift */; };
 		415F73D61EBAA033000D9B14 /* ViaCepAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415F73D51EBAA033000D9B14 /* ViaCepAddress.swift */; };
@@ -457,6 +459,8 @@
 		415191E41FAB774600CACCFE /* MJBadgeBarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MJBadgeBarButton.swift; sourceTree = "<group>"; };
 		415191E61FABE9B400CACCFE /* ScheduleToTheCartAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleToTheCartAlertViewController.swift; sourceTree = "<group>"; };
 		415191E71FABE9B400CACCFE /* ScheduleToTheCartAlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScheduleToTheCartAlertViewController.xib; sourceTree = "<group>"; };
+		415191EA1FAC102B00CACCFE /* AgendaPetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaPetCollectionViewCell.swift; sourceTree = "<group>"; };
+		415191EB1FAC102B00CACCFE /* AgendaPetCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AgendaPetCollectionViewCell.xib; sourceTree = "<group>"; };
 		415BCADF1EB534C40015BB0C /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		415F73D31EBA9F08000D9B14 /* ViaCepAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViaCepAPI.swift; sourceTree = "<group>"; };
 		415F73D51EBAA033000D9B14 /* ViaCepAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViaCepAddress.swift; sourceTree = "<group>"; };
@@ -674,6 +678,8 @@
 				411C84C61F3BE82E008C6E0A /* AgendaSubServiceTableViewCell.xib */,
 				41FB2FEE1F3CA8A900DF57B1 /* AlertCancelScheduledViewController.swift */,
 				41FB2FEF1F3CA8A900DF57B1 /* AlertCancelScheduledViewController.xib */,
+				415191EA1FAC102B00CACCFE /* AgendaPetCollectionViewCell.swift */,
+				415191EB1FAC102B00CACCFE /* AgendaPetCollectionViewCell.xib */,
 			);
 			path = Agenda;
 			sourceTree = "<group>";
@@ -1447,6 +1453,7 @@
 				41D86F951F298C360038ADA8 /* AdditionalServiceTableViewCell.xib in Resources */,
 				41D86F991F2ACC490038ADA8 /* SubServiceTableViewCell.xib in Resources */,
 				41F70EF81F3DE6FE0089DDE2 /* EmptyView.xib in Resources */,
+				415191ED1FAC102B00CACCFE /* AgendaPetCollectionViewCell.xib in Resources */,
 				411C84C41F3BBFF0008C6E0A /* AgendaTableViewCell.xib in Resources */,
 				41F1A0491F3D182E00CBC32D /* SelectPhotoSourcePopupViewController.xib in Resources */,
 				41E7E2F31EC27833002C0A55 /* OpenSans-SemiboldItalic.ttf in Resources */,
@@ -1582,6 +1589,7 @@
 				41D86F981F2ACC490038ADA8 /* SubServiceTableViewCell.swift in Sources */,
 				417969681F69676700C47936 /* BadgeWithCounterView.swift in Sources */,
 				413682C31E9C2B2D008C463B /* ViewController.swift in Sources */,
+				415191EC1FAC102B00CACCFE /* AgendaPetCollectionViewCell.swift in Sources */,
 				4168AA5E1EB8181B001E2D6D /* FacebookGraphModel.swift in Sources */,
 				4120ED001EB0DE9F009D35B0 /* PresentationInteractor.swift in Sources */,
 				41D86F711F263AB30038ADA8 /* HomeBusinessViewController.swift in Sources */,
