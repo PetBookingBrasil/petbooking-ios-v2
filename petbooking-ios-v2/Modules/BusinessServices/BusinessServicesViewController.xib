@@ -60,15 +60,16 @@
                     </constraints>
                 </scrollView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mLU-0d-YVn">
-                    <rect key="frame" x="40" y="601" width="294" height="50"/>
+                    <rect key="frame" x="40.5" y="601" width="294" height="50"/>
                     <color key="backgroundColor" red="0.89411764709999997" green="0.0" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="UIT-JG-Q5H"/>
                         <constraint firstAttribute="width" secondItem="mLU-0d-YVn" secondAttribute="height" multiplier="288:49" id="eQH-ly-fSS"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
-                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="30" maxY="0.0"/>
-                    <state key="normal" title="Adicionar ao carrinho">
+                    <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="63" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="200" minY="0.0" maxX="30" maxY="0.0"/>
+                    <state key="normal" title="Adicionar ao carrinho" image="addToCartIcon">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -90,4 +91,7 @@
             <nil key="simulatedStatusBarMetrics"/>
         </view>
     </objects>
+    <resources>
+        <image name="addToCartIcon" width="24" height="21"/>
+    </resources>
 </document>

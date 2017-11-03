@@ -62,11 +62,7 @@ class BusinessServicesViewController: ExpandableTableViewController, BusinessSer
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		
-		
-		
-		//servicesCollectionView.reloadData()
-		//petCollectionView.reloadData()
+
 		expandableTableView.reloadData()
 		
 		checkServices()
@@ -107,17 +103,6 @@ class BusinessServicesViewController: ExpandableTableViewController, BusinessSer
 		
 		expandableTableView.reloadData()
 		
-		if selectedServiceCategory.id.isBlank{
-			
-			guard let service = self.serviceCategoryList.categories.first else {
-				return
-			}
-			//selectedServiceCategory = service
-			
-			//presenter?.getServices(business: business, service: selectedServiceCategory, pet: selectedPet)
-			
-			//self.servicesCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: false, scrollPosition: .left)
-		}
 	}
 	
 	func loadServices(serviceList: ServiceList) {
@@ -196,299 +181,6 @@ class BusinessServicesViewController: ExpandableTableViewController, BusinessSer
 
 }
 
-extension BusinessServicesViewController: UICollectionViewDataSource, UICollectionViewDelegate{
-	
-	
-	func numberOfSections(in collectionView: UICollectionView) -> Int {
-		
-		return 1
-	}
-	
-	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		
-//		switch collectionView {
-//		case petCollectionView:
-//			return petList.pets.count
-//		case servicesCollectionView:
-//			return serviceCategoryList.categories.count
-//		default:
-//			return 0
-//		}
-		return 0
-	}
-	
-	func collectionView(_ collectionView: UICollectionView,
-	                    layout collectionViewLayout: UICollectionViewLayout,
-	                    sizeForItemAt indexPath: IndexPath) -> CGSize {
-		
-		return CGSize(width: 100, height: 66)
-	}
-	
-	func collectionView(_ collectionView: UICollectionView,
-	                    layout collectionViewLayout: UICollectionViewLayout,
-	                    minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-		return 1.0
-	}
-	
-	func collectionView(_ collectionView: UICollectionView, layout
-		collectionViewLayout: UICollectionViewLayout,
-	                    minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-		return 1.0
-	}
-	
-	
-	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		
-//		if collectionView == petCollectionView {
-//			return getPetCell(indexPath: indexPath)
-//		} else {
-//			return getServiceCategoryCell(indexPath: indexPath)
-//		}
-		return UICollectionViewCell()
-	}
-	
-	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		
-//		switch collectionView {
-//		case petCollectionView:
-//			selectedPet = petList.pets[indexPath.item]
-//			servicesTableView.reloadData()
-//
-//			break
-//		case servicesCollectionView:
-//
-//			let service = serviceCategoryList.categories[indexPath.item]
-//			selectedServiceCategory = service
-//
-//			self.presenter?.getServices(business: business, service: service, pet: selectedPet)
-//
-//			break
-//		default:
-//			break
-//		}
-		
-	}
-	
-//	func getPetCell(indexPath: IndexPath) -> PetCollectionViewCell {
-//
-//		let cell = petCollectionView.dequeueReusableCell(withReuseIdentifier: "PetCollectionViewCell", for: indexPath) as! PetCollectionViewCell
-//
-//		let pet = petList.pets[indexPath.item]
-//
-//		cell.isSelected = pet == selectedPet
-//		if pet == selectedPet {
-//			petCollectionView.selectItem(at: indexPath, animated: false, scrollPosition: .left)
-//		}
-//
-//		cell.nameLabel.text = pet.name
-//
-//		if pet.type == "dog" {
-//			cell.pictureImageView.image = UIImage(named:"avatar-padrao-cachorro")
-//		} else {
-//			cell.pictureImageView.image = UIImage(named:"avatar-padrao-gato")
-//		}
-//		if let url = URL(string: pet.photoThumbUrl) {
-//			cell.pictureImageView.pin_setImage(from: url)
-//		}
-//
-//		return cell
-//
-//	}
-	
-//	func getServiceCategoryCell(indexPath: IndexPath) -> ServiceCollectionViewCell {
-//
-//		let cell = servicesCollectionView.dequeueReusableCell(withReuseIdentifier: "ServiceCollectionViewCell", for: indexPath) as! ServiceCollectionViewCell
-//
-//		let service = serviceCategoryList.categories[indexPath.item]
-//
-//		cell.isSelected = service == selectedServiceCategory
-//		if service == selectedServiceCategory {
-//			//servicesCollectionView.selectItem(at: indexPath, animated: false, scrollPosition: .left)
-//		}
-//
-//		cell.nameLabel.text = service.name
-//		cell.pictureImageView.image = UIImage(named: service.slug)
-//
-//		return cell
-//
-//	}
-	
-}
-
-//extension BusinessServicesViewController: UITableViewDelegate, UITableViewDataSource {
-//	
-//	func numberOfSections(in tableView: UITableView) -> Int {
-//		
-//		return serviceList.services.count
-//	}
-//	
-//	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//		
-//		return 1
-//		
-//	}
-//	
-//	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//		
-//		let service = serviceList.services[indexPath.section]
-//		guard let scheduleService = ScheduleManager.sharedInstance.getServiceFromSchedule(business: business, pet: selectedPet, serviceCategory: selectedServiceCategory, service: service) else {
-//			return 78
-//		}
-//		
-//		let headerSize = scheduleService.services.count > 0 ? 20 : 0
-//		
-//		return CGFloat(70 + headerSize + scheduleService.services.count * 40)
-//		
-//	}
-//	
-//	func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-//		
-//		let service = serviceList.services[section]
-//		
-//		if ScheduleManager.sharedInstance.hasServiceFromSchedule(business: business, pet: selectedPet, serviceCategory: selectedServiceCategory, service: service) {
-//			return 60
-//		} else {
-//			return 10
-//		}
-//	}
-//	
-//	func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//		
-//		let service = serviceList.services[section]
-//		
-//		if ScheduleManager.sharedInstance.hasServiceFromSchedule(business: business, pet: selectedPet, serviceCategory: selectedServiceCategory, service: service) {
-//			return 30
-//		} else {
-//			return 0
-//		}
-//	}
-//	
-//	func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-//		return UITableViewAutomaticDimension
-//	}
-//	
-//	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//		
-//		let cell = tableView.dequeueReusableCell(withIdentifier: "ServiceTableViewCell") as! ServiceTableViewCell
-//		cell.delegate = self
-//		let service = serviceList.services[indexPath.section]
-//		cell.service = service
-//		cell.business = business
-//		cell.serviceCategory = selectedServiceCategory
-//		cell.pet = selectedPet
-//		
-//		cell.nameLabel?.text = service.name
-//		cell.priceLabel.text = String(format: "R$ %.2f", service.price)
-//		cell.priceLabel.sizeToFit()
-//		
-//		guard let scheduleService = ScheduleManager.sharedInstance.getServiceFromSchedule(business: business, pet: selectedPet, serviceCategory: selectedServiceCategory, service: service) else {
-//			cell.checkBox.setOn(false, animated: false)
-//			cell.subServices = List<ScheduleSubService>()
-//			cell.reloadTable()
-//			return cell
-//		}
-//		
-//		cell.checkBox.setOn(true, animated: false)
-//		cell.subServices = scheduleService.services
-//		cell.reloadTable()
-//		
-//
-//		return cell
-//		
-//	}
-//	
-//	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//		
-//		let service = serviceList.services[section]
-//		guard let scheduleService = ScheduleManager.sharedInstance.getServiceFromSchedule(business: business, pet: selectedPet, serviceCategory: selectedServiceCategory, service: service) else {
-//			return nil
-//		}
-//		
-//		let headerView = ServiceTableHeaderView.loadFromNibNamed("ServiceTableHeaderView") as? ServiceTableHeaderView
-//		headerView?.frame = CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 18)
-//		
-//		let dateFormatter = DateFormatter()
-//		dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
-//		let date = dateFormatter.date(from: "\(scheduleService.startDate) \(scheduleService.startTime)")
-//		
-//		let dateString = dateFormatter.convertDateFormater(dateString: "\(scheduleService.startDate) \(scheduleService.startTime)", fromFormat: "yyyy-MM-dd HH:mm", toFormat: "dd 'de' MMMM")
-//		
-//		let endDate = date?.addingTimeInterval(scheduleService.duration)
-//		
-//		dateFormatter.dateFormat = "hh:mm"
-//		
-//		let endDateString = dateFormatter.string(from: endDate!)
-//		
-//		headerView?.timeLabel.text = "\(dateString), \(scheduleService.startTime) — \(endDateString)"
-//		
-//		return headerView
-//	}
-//	
-//	func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-//		
-//		let service = serviceList.services[section]
-//		guard let scheduleService = ScheduleManager.sharedInstance.getServiceFromSchedule(business: business, pet: selectedPet, serviceCategory: selectedServiceCategory, service: service) else {
-//			let view = UIView()
-//			
-//			view.backgroundColor = UIColor(hex: "EDEDED")
-//			
-//			return view
-//		}
-//		
-//		let footerView = ServiceTableFooterView.loadFromNibNamed("ServiceTableFooterView") as? ServiceTableFooterView
-//		footerView?.frame = CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 60)
-//		
-//		footerView?.nameLabel.text = scheduleService.professionalName
-//		if let url = URL(string: scheduleService.professionalPicture) {
-//			footerView?.pictureImageView.pin_setImage(from: url)
-//		}
-//		var totalValue = scheduleService.price
-//		
-//		for subService in scheduleService.services {
-//			totalValue += subService.price
-//		}
-//		footerView?.totalValueLabel.text = String(format: "R$ %.2f", totalValue)
-//		
-//		
-//		return footerView
-//	}
-//	
-//}
-
-//extension BusinessServicesViewController : ServiceTableViewDelegate {
-//
-//
-//	func updateValue(service: Service) {
-//
-//		guard let index = serviceList.services.index(of: service) else {
-//			return
-//		}
-//
-//		self.expandableTableView.reloadSections(IndexSet(integersIn: index...index), with: .none)
-//
-//	}
-//
-//
-//
-//	func didSelectedService(service: Service) {
-//
-//
-//		let	calendar = ScheduleCalendarRouter.createModule(business: self.business, service: service, serviceCategory: selectedServiceCategory, pet: selectedPet)
-//
-//		self.navigationController?.pushViewController(calendar, animated: true)
-//	}
-//
-//	func didUnselectedService(service:Service) {
-//
-//		ScheduleManager.sharedInstance.removeServiceFromSchedule(business: business, pet: selectedPet, serviceCategory: selectedServiceCategory, service: service)
-//
-//		expandableTableView.reloadData()
-//
-//		checkServices()
-//
-//	}
-//
-//}
 
 extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRowTableViewCellDelegate, SelectPetTableViewCellDelegate, SelectCategoryTableViewCellDelegate, SelectServiceTableViewCellDelegate, SelectProfessionalTableViewCellDelegate, SelectDateTableViewCellDelegate {
 	
@@ -626,6 +318,7 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
 			cell.petList = self.petList
 			cell.collectionView.reloadData()
 			cell.selectedPet = self.selectedPet
+			cell.delegate = self
 			selectPetDelegate = cell
 			return cell
 		case 1:
@@ -709,6 +402,8 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
 	func setSelectedPet(selectedPet: Pet) {
 		
 		self.selectedPet = selectedPet
+		showContent(indexPath: IndexPath(row: 0, section: 0))
+		self.expandableTableView.reloadData()
 	}
 	
 	func setSelectedCategory(selectedServiceCategory: ServiceCategory) {
