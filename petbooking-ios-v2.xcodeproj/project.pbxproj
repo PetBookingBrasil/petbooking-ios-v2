@@ -145,6 +145,9 @@
 		414BB1F71EBFF4AF000BE2CC /* AlertPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414BB1F11EBFF4AF000BE2CC /* AlertPopupViewController.swift */; };
 		414BB1F81EBFF4AF000BE2CC /* AlertPopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 414BB1F21EBFF4AF000BE2CC /* AlertPopupViewController.xib */; };
 		414BB1FA1EC00722000BE2CC /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414BB1F91EC00722000BE2CC /* StringExtension.swift */; };
+		415191E51FAB774600CACCFE /* MJBadgeBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415191E41FAB774600CACCFE /* MJBadgeBarButton.swift */; };
+		415191E81FABE9B400CACCFE /* ScheduleToTheCartAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415191E61FABE9B400CACCFE /* ScheduleToTheCartAlertViewController.swift */; };
+		415191E91FABE9B400CACCFE /* ScheduleToTheCartAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 415191E71FABE9B400CACCFE /* ScheduleToTheCartAlertViewController.xib */; };
 		415BCAE01EB534C40015BB0C /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415BCADF1EB534C40015BB0C /* SignupViewController.swift */; };
 		415F73D41EBA9F08000D9B14 /* ViaCepAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415F73D31EBA9F08000D9B14 /* ViaCepAPI.swift */; };
 		415F73D61EBAA033000D9B14 /* ViaCepAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415F73D51EBAA033000D9B14 /* ViaCepAddress.swift */; };
@@ -451,6 +454,9 @@
 		414BB1F11EBFF4AF000BE2CC /* AlertPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertPopupViewController.swift; sourceTree = "<group>"; };
 		414BB1F21EBFF4AF000BE2CC /* AlertPopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlertPopupViewController.xib; sourceTree = "<group>"; };
 		414BB1F91EC00722000BE2CC /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		415191E41FAB774600CACCFE /* MJBadgeBarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MJBadgeBarButton.swift; sourceTree = "<group>"; };
+		415191E61FABE9B400CACCFE /* ScheduleToTheCartAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleToTheCartAlertViewController.swift; sourceTree = "<group>"; };
+		415191E71FABE9B400CACCFE /* ScheduleToTheCartAlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScheduleToTheCartAlertViewController.xib; sourceTree = "<group>"; };
 		415BCADF1EB534C40015BB0C /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		415F73D31EBA9F08000D9B14 /* ViaCepAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViaCepAPI.swift; sourceTree = "<group>"; };
 		415F73D51EBAA033000D9B14 /* ViaCepAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViaCepAddress.swift; sourceTree = "<group>"; };
@@ -798,6 +804,7 @@
 		413715901EBEB38C00258C6F /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				415191E31FAB773200CACCFE /* MJBadgeBarButton */,
 				410AA9931FA7A3DC00A90377 /* ExpandableTableView */,
 				4179694F1F69676700C47936 /* Segmentio */,
 				4148626D1F2E9F1900F210D8 /* JTCalendar */,
@@ -908,6 +915,15 @@
 				414BB1F21EBFF4AF000BE2CC /* AlertPopupViewController.xib */,
 			);
 			path = AlertPopup;
+			sourceTree = "<group>";
+		};
+		415191E31FAB773200CACCFE /* MJBadgeBarButton */ = {
+			isa = PBXGroup;
+			children = (
+				415191E41FAB774600CACCFE /* MJBadgeBarButton.swift */,
+			);
+			name = MJBadgeBarButton;
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		4160D89A1F66AB81005D361B /* Roboto */ = {
@@ -1218,6 +1234,8 @@
 				419F2B3A1FA8D07F0097C9A7 /* SelectDateTableViewCell.xib */,
 				419F2B3D1FA915A50097C9A7 /* TimeTableViewCell.swift */,
 				419F2B3E1FA915A50097C9A7 /* TimeTableViewCell.xib */,
+				415191E61FABE9B400CACCFE /* ScheduleToTheCartAlertViewController.swift */,
+				415191E71FABE9B400CACCFE /* ScheduleToTheCartAlertViewController.xib */,
 			);
 			path = BusinessServices;
 			sourceTree = "<group>";
@@ -1322,7 +1340,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Pet Booking Serviços e Desenvolvimento de Softwares SA";
 				TargetAttributes = {
 					413682BC1E9C2B2D008C463B = {
@@ -1381,6 +1399,7 @@
 				413D9FA21F3816FC007ABBEE /* CartTableHeaderView.xib in Resources */,
 				4113B2CD1F3414CB007DC89F /* BusinessInformationViewController.xib in Resources */,
 				41E7E2EE1EC27833002C0A55 /* OpenSans-Italic.ttf in Resources */,
+				415191E91FABE9B400CACCFE /* ScheduleToTheCartAlertViewController.xib in Resources */,
 				4120ED101EB128A5009D35B0 /* Localizable.strings in Resources */,
 				4160D8B21F66AB81005D361B /* Roboto-Regular.ttf in Resources */,
 				4127768F1F13084800EC6488 /* BusinessMapListViewController.xib in Resources */,
@@ -1603,6 +1622,7 @@
 				41432E791F0B3088002789CE /* UIButtonExtension.swift in Sources */,
 				4127768E1F13084800EC6488 /* BusinessMapListViewController.swift in Sources */,
 				41A0BAE81ED7A8FA00671F3C /* AddPetViewControllerPresenter.swift in Sources */,
+				415191E81FABE9B400CACCFE /* ScheduleToTheCartAlertViewController.swift in Sources */,
 				417969741F69676700C47936 /* Segmentio.swift in Sources */,
 				4120ED271EB4F136009D35B0 /* ForgotPasswordInteractor.swift in Sources */,
 				4179696E1F69676700C47936 /* SegmentioCellWithImageBeforeLabel.swift in Sources */,
@@ -1665,6 +1685,7 @@
 				419C89171F33A18700BDBE8E /* CartWebProtocols.swift in Sources */,
 				417969731F69676700C47936 /* UIView+Appearance.swift in Sources */,
 				41D86FA51F2D525E0038ADA8 /* ScheduleCalendarViewController.swift in Sources */,
+				415191E51FAB774600CACCFE /* MJBadgeBarButton.swift in Sources */,
 				41AAB4F51EF1F9AF00E52857 /* HomeContentViewControllerRouter.swift in Sources */,
 				411B4E5A1F3E4CFA00B9244B /* BusinessSearchProtocols.swift in Sources */,
 				41D86F7F1F266D7A0038ADA8 /* BusinessServicesRouter.swift in Sources */,
@@ -1777,7 +1798,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -1785,7 +1808,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1829,7 +1856,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -1837,7 +1866,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

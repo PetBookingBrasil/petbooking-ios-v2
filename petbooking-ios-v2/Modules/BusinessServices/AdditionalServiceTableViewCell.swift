@@ -21,7 +21,7 @@ class AdditionalServiceTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-			checkBox.boxType = .square
+			checkBox.boxType = .circle
 			checkBox.delegate = self
     }
 

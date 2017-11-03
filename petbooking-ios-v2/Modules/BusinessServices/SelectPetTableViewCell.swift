@@ -60,7 +60,7 @@ extension SelectPetTableViewCell: UICollectionViewDelegate, UICollectionViewData
 	func collectionView(_ collectionView: UICollectionView,
 	                    layout collectionViewLayout: UICollectionViewLayout,
 	                    sizeForItemAt indexPath: IndexPath) -> CGSize {
-		thisWidth = CGFloat(self.frame.width/2)
+		thisWidth = CGFloat(self.panelView.frame.width/2)
 		return CGSize(width: thisWidth, height: 161)
 	}
 	

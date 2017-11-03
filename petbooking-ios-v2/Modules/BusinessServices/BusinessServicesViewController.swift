@@ -13,11 +13,13 @@ import BEMCheckBox
 import ALLoadingView
 import RealmSwift
 
-class BusinessServicesViewController: ExpandableTableViewController, BusinessServicesViewProtocol {
+class BusinessServicesViewController: ExpandableTableViewController, BusinessServicesViewProtocol, ScheduleToTheCartAlertDelegate {
 	
 	var presenter: BusinessServicesPresenterProtocol?
 	
 	@IBOutlet weak var goToChartButton: UIButton!
+	
+	
 	
 	var business:Business = Business()
 	var petList:PetList = PetList()
@@ -26,6 +28,7 @@ class BusinessServicesViewController: ExpandableTableViewController, BusinessSer
 	var selectedPet:Pet = Pet()
 	var selectedServiceCategory:ServiceCategory = ServiceCategory()
 	var selectedService:Service = Service()
+	var selectedSubServices = [SubService]()
 	var professionalList:ProfessionalList! = ProfessionalList()
 	var selectedProfessional:Professional = Professional()
 	
@@ -37,7 +40,8 @@ class BusinessServicesViewController: ExpandableTableViewController, BusinessSer
 		
 		setBackButton()
 		
-		//ScheduleManager.sharedInstance.cleanSchedule()
+		ScheduleManager.sharedInstance.cleanSchedule()
+		ScheduleManager.sharedInstance.createNewSchedule(business: business)
 		
 		goToChartButton.round()
 	
@@ -59,8 +63,7 @@ class BusinessServicesViewController: ExpandableTableViewController, BusinessSer
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		
-		ScheduleManager.sharedInstance.cleanSchedule()
-		ScheduleManager.sharedInstance.createNewSchedule(business: business)
+		
 		
 		//servicesCollectionView.reloadData()
 		//petCollectionView.reloadData()
@@ -131,9 +134,21 @@ class BusinessServicesViewController: ExpandableTableViewController, BusinessSer
 		
 		ScheduleManager.sharedInstance.addServiceToSchedule(business: business, pet: selectedPet, serviceCategory: selectedServiceCategory, service: selectedService)
 		
-		let cart = CartRouter.createModule(business: self.business)
+		for subService in selectedSubServices {
+			ScheduleManager.sharedInstance.addSubServiceToSchedule(business: business, pet: selectedPet, serviceCategory: selectedServiceCategory, service: selectedService, subService: subService)
+		}
 		
-		self.navigationController?.pushViewController(cart, animated: true)
+		
+		let nc = NotificationCenter.default
+		nc.post(name:Notification.Name(rawValue:"cartUpdateNotification"),
+		        object: nil,
+		        userInfo:nil)
+		
+		let alertVC = ScheduleToTheCartAlertViewController()
+		alertVC.delegate = self
+		alertVC.modalPresentationStyle = .overCurrentContext
+		alertVC.modalTransitionStyle = .crossDissolve
+		self.present(alertVC, animated: true, completion: nil)
 		
 	}
 	
@@ -150,6 +165,33 @@ class BusinessServicesViewController: ExpandableTableViewController, BusinessSer
 			goToChartButton.isHidden = true
 		}
 		
+	}
+	
+	func goToCart() {
+		
+		let cart = CartRouter.createModule(business:business)
+		
+		self.navigationController?.pushViewController(cart, animated: true)
+		
+		clearSchedule()
+		
+	}
+	
+	func scheduleMore() {
+		
+		clearSchedule()
+		
+	}
+	
+	func clearSchedule() {
+		selectedService = Service()
+		selectedServiceCategory = ServiceCategory()
+		selectedProfessional = Professional()
+		selectedSubServices = [SubService]()
+		self.showContent(indexPath: IndexPath(row: 4, section: 0))
+		self.expandableTableView.reloadData()
+		self.showContent(indexPath: IndexPath(row: 1, section: 0))
+		goToChartButton.isHidden = true
 	}
 
 }
@@ -413,40 +455,40 @@ extension BusinessServicesViewController: UICollectionViewDataSource, UICollecti
 //	
 //}
 
-extension BusinessServicesViewController : ServiceTableViewDelegate {
-	
-	
-	func updateValue(service: Service) {
-		
-		guard let index = serviceList.services.index(of: service) else {
-			return
-		}
-		
-		self.expandableTableView.reloadSections(IndexSet(integersIn: index...index), with: .none)
-		
-	}
-
-	
-	
-	func didSelectedService(service: Service) {
-		
-		
-		let	calendar = ScheduleCalendarRouter.createModule(business: self.business, service: service, serviceCategory: selectedServiceCategory, pet: selectedPet)
-		
-		self.navigationController?.pushViewController(calendar, animated: true)
-	}
-	
-	func didUnselectedService(service:Service) {
-		
-		ScheduleManager.sharedInstance.removeServiceFromSchedule(business: business, pet: selectedPet, serviceCategory: selectedServiceCategory, service: service)
-		
-		expandableTableView.reloadData()
-		
-		checkServices()
-		
-	}
-	
-}
+//extension BusinessServicesViewController : ServiceTableViewDelegate {
+//
+//
+//	func updateValue(service: Service) {
+//
+//		guard let index = serviceList.services.index(of: service) else {
+//			return
+//		}
+//
+//		self.expandableTableView.reloadSections(IndexSet(integersIn: index...index), with: .none)
+//
+//	}
+//
+//
+//
+//	func didSelectedService(service: Service) {
+//
+//
+//		let	calendar = ScheduleCalendarRouter.createModule(business: self.business, service: service, serviceCategory: selectedServiceCategory, pet: selectedPet)
+//
+//		self.navigationController?.pushViewController(calendar, animated: true)
+//	}
+//
+//	func didUnselectedService(service:Service) {
+//
+//		ScheduleManager.sharedInstance.removeServiceFromSchedule(business: business, pet: selectedPet, serviceCategory: selectedServiceCategory, service: service)
+//
+//		expandableTableView.reloadData()
+//
+//		checkServices()
+//
+//	}
+//
+//}
 
 extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRowTableViewCellDelegate, SelectPetTableViewCellDelegate, SelectCategoryTableViewCellDelegate, SelectServiceTableViewCellDelegate, SelectProfessionalTableViewCellDelegate, SelectDateTableViewCellDelegate {
 	
@@ -595,10 +637,17 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
 			return cell
 		case 2:
 			let cell = expandableTableView.dequeueReusableCellWithIdentifier("SelectServiceTableViewCell", forIndexPath: expandableIndexPath) as!SelectServiceTableViewCell
-			cell.serviceList = self.serviceList
-			cell.services = self.serviceList.services
+			
+			if !self.selectedService.id.isBlank {
+				cell.services = [selectedService]
+			} else {
+				cell.services = serviceList.services
+			}
+			
+			cell.selectedSubServices = self.selectedSubServices
 			cell.selectedServiceCategory = self.selectedServiceCategory
 			cell.selectedPet = self.selectedPet
+			cell.selectedService = self.selectedService
 			cell.business = self.business
 			cell.delegate = self
 			cell.tableView.reloadData()
@@ -633,7 +682,7 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
 			let height = qty <= 3 ? qty * 120 : 360
 			return CGFloat(height + 100)
 		case 2:
-			return 460
+			return 360
 		case 3:
 			return 265
 		case 4:
@@ -672,13 +721,12 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
 		self.presenter?.getServices(business: business, service: selectedServiceCategory, pet: selectedPet)
 	}
 	
-	func setSelectedService(selectedService: Service) {
+	func setSelectedService(selectedService: Service, selectedSubServices:[SubService]) {
 		
 		self.selectedService = selectedService
-		if selectedService.services.count == 0 {
-			showContent(indexPath: IndexPath(row: 2, section: 0))
-		}
-		
+		self.selectedSubServices = selectedSubServices
+		showContent(indexPath: IndexPath(row: 2, section: 0))
+
 		
 		PetbookingAPI.sharedInstance.getProfessionalsList(service: self.selectedService) { (professionalList, message) in
 			

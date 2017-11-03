@@ -34,7 +34,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             <subviews>
                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" delaysContentTouches="NO" canCancelContentTouches="NO" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lvV-iL-ezs" customClass="ExpandableTableView" customModule="petbooking_ios_v2">
-                                    <rect key="frame" x="0.0" y="15" width="375" height="586"/>
+                                    <rect key="frame" x="0.0" y="15" width="375" height="652"/>
                                     <color key="backgroundColor" red="0.92941176469999998" green="0.92941176469999998" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <connections>
                                         <outlet property="dataSource" destination="-1" id="lrS-Ni-Rhi"/>
@@ -45,7 +45,7 @@
                             <color key="backgroundColor" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstItem="lvV-iL-ezs" firstAttribute="leading" secondItem="EcN-8q-dQ0" secondAttribute="leading" id="6zQ-Ka-p0t"/>
-                                <constraint firstAttribute="bottom" secondItem="lvV-iL-ezs" secondAttribute="bottom" constant="66" id="S3e-Z7-glj"/>
+                                <constraint firstAttribute="bottom" secondItem="lvV-iL-ezs" secondAttribute="bottom" id="S3e-Z7-glj"/>
                                 <constraint firstItem="lvV-iL-ezs" firstAttribute="top" secondItem="EcN-8q-dQ0" secondAttribute="top" constant="15" id="Yfb-tG-K8n"/>
                                 <constraint firstAttribute="trailing" secondItem="lvV-iL-ezs" secondAttribute="trailing" id="t7C-gd-206"/>
                             </constraints>
@@ -68,7 +68,7 @@
                     </constraints>
                     <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="30" maxY="0.0"/>
-                    <state key="normal" title="Ir para o carrinho">
+                    <state key="normal" title="Adicionar ao carrinho">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>

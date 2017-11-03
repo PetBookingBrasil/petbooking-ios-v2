@@ -23,6 +23,7 @@ class ServiceTableViewCell: UITableViewCell {
 	var pet:Pet = Pet()
 	var serviceCategory:ServiceCategory = ServiceCategory()
 	var subServices = [SubService]()
+	var selectedSubServices = [SubService]()
 	
 	@IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
 	
@@ -30,6 +31,14 @@ class ServiceTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
 			checkBox.boxType = .circle
+		checkBox.onFillColor = UIColor(hex: "00CD6B")
+		checkBox.onTintColor = UIColor(hex: "00CD6B")
+		checkBox.onCheckColor = UIColor.white
+		
+		checkBox.offFillColor = UIColor(hex: "EDEDED")
+		checkBox.tintColor = UIColor(hex: "858585")
+		
+		
 			checkBox.delegate = self
 			
 			tableView.register(UINib(nibName: "AdditionalServiceTableViewCell", bundle: nil), forCellReuseIdentifier: "AdditionalServiceTableViewCell")
@@ -88,9 +97,12 @@ extension ServiceTableViewCell : UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		
 		let cell = tableView.dequeueReusableCell(withIdentifier: "AdditionalServiceTableViewCell") as! AdditionalServiceTableViewCell
-		cell.checkBox.setOn(true, animated: false)
+		
+		
 		cell.delegate = self
 		let subService = subServices[indexPath.row]
+		
+		cell.checkBox.setOn(selectedSubServices.contains(subService), animated: false)
 //		let service:SubService! = SubService()
 //		service.id = subService.subServiceId
 //		service.name = subService.name
@@ -120,14 +132,17 @@ extension ServiceTableViewCell:AdditionalServiceTableViewDelegate {
 	
 	func didSelectedService(subService: SubService) {
 		
-		ScheduleManager.sharedInstance.addSubServiceToSchedule(business: business, pet: pet, serviceCategory: serviceCategory, service: service, subService: subService)
-		delegate?.updateValue(service: service)
+		delegate?.didSelectedSubService(service: subService)
+		
+//		ScheduleManager.sharedInstance.addSubServiceToSchedule(business: business, pet: pet, serviceCategory: serviceCategory, service: service, subService: subService)
+//		delegate?.updateValue(service: service)
 	}
 	
 	func didUnselectedService(subService: SubService) {
 		
-		ScheduleManager.sharedInstance.removeSubServiceFromSchedule(business: business, pet: pet, serviceCategory: serviceCategory, service: service, subService: subService)
-		delegate?.updateValue(service: service)
+		delegate?.didUnselectedSubService(service: subService)
+//		ScheduleManager.sharedInstance.removeSubServiceFromSchedule(business: business, pet: pet, serviceCategory: serviceCategory, service: service, subService: subService)
+//		delegate?.updateValue(service: service)
 	}
 	
 }
@@ -152,6 +167,10 @@ protocol ServiceTableViewDelegate: class {
 	func didSelectedService(service:Service)
 	
 	func didUnselectedService(service:Service)
+	
+	func didSelectedSubService(service:SubService)
+	
+	func didUnselectedSubService(service:SubService)
 	
 	func updateValue(service:Service)
 	

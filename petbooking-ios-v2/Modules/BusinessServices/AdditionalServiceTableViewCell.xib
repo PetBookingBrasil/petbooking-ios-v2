@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -43,10 +43,10 @@
                                 <color key="value" red="0.0" green="0.80392156859999997" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="offFillColor">
-                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="value" red="0.92941176469999998" green="0.92941176469999998" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                <color key="value" red="0.0" green="0.80392156859999997" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="value" red="0.52156862749999999" green="0.52156862749999999" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="onFillColor">
                                 <color key="value" red="0.0" green="0.80392156859999997" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -67,6 +67,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" red="0.92941176469999998" green="0.92941176469999998" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstItem="h4P-fh-8li" firstAttribute="centerY" secondItem="Qrr-lU-otb" secondAttribute="centerY" id="0aY-9w-8LJ"/>
                     <constraint firstAttribute="trailingMargin" secondItem="ri8-u5-tFh" secondAttribute="trailing" constant="11" id="8rC-hT-gVy"/>

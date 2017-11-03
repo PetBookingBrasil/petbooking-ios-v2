@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 
 extension UIViewController {
+	
+	
 	func hideKeyboardWhenTappedAround() {
 		let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
 		view.addGestureRecognizer(tap)
@@ -37,9 +39,9 @@ extension UIViewController {
 	
 	func setBackButton() {
 		
-		self.navigationItem.rightBarButtonItem = UIBarButtonItem()
-		self.navigationItem.rightBarButtonItem?.title = ""
-		self.navigationItem.rightBarButtonItem?.action = nil
+//		self.navigationItem.rightBarButtonItem = UIBarButtonItem()
+//		self.navigationItem.rightBarButtonItem?.title = ""
+//		self.navigationItem.rightBarButtonItem?.action = nil
 		
 		
 		let backButton = UIBarButtonItem()
@@ -49,6 +51,30 @@ extension UIViewController {
 		self.navigationItem.leftBarButtonItem = backButton
 		self.navigationItem.leftBarButtonItem?.image = UIImage(named: "back_icon")
 	}
+	
+	func setCartButton(business:Business = Business()) {
+		
+		
+		
+//		let schedule = ScheduleManager.sharedInstance.getSchedule(business:business)
+//		var quantity = 0
+//		for petSchedule in schedule.petsSchedule {
+//
+//			for categories in petSchedule.categories {
+//				quantity += categories.services.count
+//			}
+//
+//		}
+//
+//		cartButton.badgeValue = "\(quantity)"
+//		cartButton.badgeOriginX = 20.0
+//		cartButton.badgeOriginY = -4
+//
+//
+//		self.navigationItem.rightBarButtonItem = cartButton
+	}
+	
+
 	
 	func cancelButtonPressed(_ sender: AnyObject) {
 		

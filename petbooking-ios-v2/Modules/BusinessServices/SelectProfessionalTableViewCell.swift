@@ -52,7 +52,15 @@ extension SelectProfessionalTableViewCell: UICollectionViewDelegate, UICollectio
 	func collectionView(_ collectionView: UICollectionView,
 	                    layout collectionViewLayout: UICollectionViewLayout,
 	                    sizeForItemAt indexPath: IndexPath) -> CGSize {
-		return CGSize(width: self.frame.width / 3, height: 120)
+		
+		let numberOfItemsPerRow = 3
+		let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
+		let totalSpace = flowLayout.sectionInset.left
+			+ flowLayout.sectionInset.right
+			+ (flowLayout.minimumInteritemSpacing * CGFloat(numberOfItemsPerRow - 1))
+		let size = Int((collectionView.bounds.width - totalSpace) / CGFloat(numberOfItemsPerRow))
+		
+		return CGSize(width: size, height: 120)
 	}
 	
 	func collectionView(_ collectionView: UICollectionView,

@@ -66,6 +66,7 @@
                     <constraint firstItem="Naq-o6-fIf" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="jII-rC-iuM"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" red="0.92941176469999998" green="0.92941176469999998" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="iconImageView" destination="PvV-Ra-KuX" id="vgY-oy-OXd"/>

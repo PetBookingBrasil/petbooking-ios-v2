@@ -14,11 +14,14 @@ class SelectServiceTableViewCell: UITableViewCell {
 	var serviceList:ServiceList = ServiceList()
 	var services = [Service]()
 	var selectedServiceCategory:ServiceCategory = ServiceCategory()
+	var selectedService:Service = Service()
+	var selectedSubServices = [SubService]()
 	var selectedPet:Pet = Pet()
 	var business:Business = Business()
 	
 	weak var delegate:SelectServiceTableViewCellDelegate?
 	
+	@IBOutlet weak var continueButton: UIButton!
 	@IBOutlet weak var tableView: UITableView!
 	@IBOutlet weak var numberLabel: UILabel!
 	@IBOutlet weak var titleLabel: UILabel!
@@ -26,6 +29,7 @@ class SelectServiceTableViewCell: UITableViewCell {
 	override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+		continueButton.round()
 		numberLabel.round()
 		numberLabel.setBorder(width: 1, color: UIColor(hex: "E4002B"))
 		
@@ -39,7 +43,12 @@ class SelectServiceTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+	
+	@IBAction func continueSchedule(_ sender: Any) {
+		delegate?.setSelectedService(selectedService: selectedService, selectedSubServices: selectedSubServices)
+	}
+	
+	
 }
 
 extension SelectServiceTableViewCell: UITableViewDelegate, UITableViewDataSource {
@@ -57,14 +66,16 @@ extension SelectServiceTableViewCell: UITableViewDelegate, UITableViewDataSource
 
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 
-		let service = serviceList.services[indexPath.section]
-		guard let scheduleService = ScheduleManager.sharedInstance.getServiceFromSchedule(business: business, pet: selectedPet, serviceCategory: selectedServiceCategory, service: service) else {
-			return 78
+		let service = services[indexPath.section]
+		
+		if selectedService.id.isBlank {
+			return 61
 		}
 
-		let headerSize = scheduleService.services.count > 0 ? 20 : 0
+		
+		let headerSize = selectedService.services.count > 0 ? 20 : 0
 
-		return CGFloat(70 + headerSize + scheduleService.services.count * 40)
+		return CGFloat(70 + headerSize + selectedService.services.count * 40)
 
 	}
 
@@ -109,15 +120,17 @@ extension SelectServiceTableViewCell: UITableViewDelegate, UITableViewDataSource
 		cell.priceLabel.sizeToFit()
 
 		
-		guard let _ = ScheduleManager.sharedInstance.getServiceFromSchedule(business: business, pet: selectedPet, serviceCategory: selectedServiceCategory, service: service) else {
+		if selectedService.id.isBlank {
 			cell.checkBox.setOn(false, animated: false)
 			cell.subServices = [SubService]()
 			cell.reloadTable()
 			return cell
 		}
 
-		cell.checkBox.setOn(true, animated: false)
+
+		cell.checkBox.setOn(selectedService.id == service.id, animated: false)
 		cell.subServices = service.services
+		cell.selectedSubServices = self.selectedSubServices
 		cell.reloadTable()
 
 
@@ -200,21 +213,37 @@ extension SelectServiceTableViewCell : ServiceTableViewDelegate {
 	func didSelectedService(service: Service) {
 		
 		services = [service]
-		tableView.reloadData()
 		
-		delegate?.setSelectedService(selectedService: service)
+		selectedService = service
+		
+		if selectedService.services.count == 0 {
+			delegate?.setSelectedService(selectedService: service, selectedSubServices: selectedSubServices)
+		} else {
+			continueButton.isHidden = false
+			tableView.reloadData()
+		}
+		
 		
 	}
 	
 	func didUnselectedService(service:Service) {
 		
-		ScheduleManager.sharedInstance.removeServiceFromSchedule(business: business, pet: selectedPet, serviceCategory: selectedServiceCategory, service: service)
-		
 		services = serviceList.services
 		tableView.reloadData()
-		
-		
-		
+
+	}
+	
+	func didSelectedSubService(service:SubService) {
+		if !selectedSubServices.contains(service){
+			selectedSubServices.append(service)
+		}
+	}
+	
+	func didUnselectedSubService(service:SubService) {
+		guard let index = selectedSubServices.index(of: service) else {
+			return
+		}
+		selectedSubServices.remove(at: index)
 	}
 	
 }
@@ -222,7 +251,7 @@ extension SelectServiceTableViewCell : ServiceTableViewDelegate {
 protocol SelectServiceTableViewCellDelegate: class {
 	
 	
-	func setSelectedService(selectedService:Service)
+	func setSelectedService(selectedService:Service, selectedSubServices:[SubService])
 	
 }
 
