@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="171" id="KGk-i7-Jjw" customClass="SubServiceTableViewCell" customModule="petbooking_ios_v2" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="171"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="170.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="n7t-Hq-5HV">
+                        <rect key="frame" x="8" y="8" width="304" height="154.5"/>
+                        <color key="backgroundColor" red="0.92941176469999998" green="0.92941176469999998" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <connections>
+                            <outlet property="dataSource" destination="-1" id="ULz-8j-pwU"/>
+                            <outlet property="delegate" destination="-1" id="HUd-2O-jjC"/>
+                        </connections>
+                    </tableView>
+                </subviews>
+                <color key="backgroundColor" red="0.92941176469999998" green="0.92941176469999998" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstItem="n7t-Hq-5HV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="4hx-y3-0yV"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="n7t-Hq-5HV" secondAttribute="bottom" id="Fjv-dg-KLM"/>
+                    <constraint firstItem="n7t-Hq-5HV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="Mof-g0-GSR"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="n7t-Hq-5HV" secondAttribute="trailing" id="R5k-p9-qWc"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="tableView" destination="n7t-Hq-5HV" id="wB5-sS-dQP"/>
+            </connections>
+            <point key="canvasLocation" x="34" y="136.5"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -12,7 +12,7 @@ import Mantle
 
 class Breed: MTLModel, MTLJSONSerializing {
 	
-	dynamic var id = ""
+	dynamic var id = "0"
 	dynamic var kind = ""
 	dynamic var name = ""
 	dynamic var size = ""

@@ -22,6 +22,7 @@ class ForgotPasswordViewController: UIViewController, ForgotPasswordViewProtocol
 
 	override func viewDidLoad() {
         super.viewDidLoad()
+		setBackButton()
 		self.navigationController?.isNavigationBarHidden = false
 		self.title = "Esqueci a senha"
 		hideKeyboardWhenTappedAround()

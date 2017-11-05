@@ -18,6 +18,10 @@ protocol SideMenuWireframeProtocol: class {
 	func didTapMyPets()
 	
 	func showProfile()
+	
+	func showFavorites()
+	
+	func showAgenda()
 
 }
 //MARK: Presenter -
@@ -28,6 +32,10 @@ protocol SideMenuPresenterProtocol: class {
 	func didTapMyPets()
 	
 	func didTapProfile()
+	
+	func didTapFavorites()
+	
+	func didTapAgenda()
 
 }
 

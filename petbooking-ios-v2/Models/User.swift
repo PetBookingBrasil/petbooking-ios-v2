@@ -34,6 +34,7 @@ class User: MTLModel, MTLJSONSerializing {
 	dynamic var state:String = ""
 	dynamic var street:String = ""
 	dynamic var streetNumber:String = ""
+	dynamic var complement:String = ""
 	dynamic var zipcode:String = ""
 	dynamic var validForScheduling:Bool = false
 	dynamic var errors = [ErrorRest]()
@@ -61,6 +62,7 @@ class User: MTLModel, MTLJSONSerializing {
 			"phone": "data.attributes.phone",
 			"state": "data.attributes.state",
 			"street": "data.attributes.street",
+			"complement":"data.attributes.complement",
 			"streetNumber": "data.attributes.street_number",
 			"zipcode": "data.attributes.zipcode",
 			"validForScheduling": "data.attributes.valid_for_scheduling",
@@ -92,6 +94,7 @@ class UserRealm: Object {
 	dynamic var state:String = ""
 	dynamic var street:String = ""
 	dynamic var streetNumber:String = ""
+	dynamic var complement:String = ""
 	dynamic var zipcode:String = ""
 	dynamic var validForScheduling:Bool = false
 	

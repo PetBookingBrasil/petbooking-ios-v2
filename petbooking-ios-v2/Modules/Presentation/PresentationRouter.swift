@@ -31,6 +31,7 @@ class PresentationRouter: PresentationWireframeProtocol {
 	static func createModule(index:PresentationIndex, navigationController:UINavigationController? = nil, parentViewController:PresentationParentProtocol? = nil) -> UIViewController {
 		// Change to get view from storyboard if not using progammatic UI
 		let view = PresentationViewController(nibName: nil, bundle: nil)
+		view.index = index
 		let interactor = PresentationInteractor()
 		let router = PresentationRouter()
 		let presenter = PresentationPresenter(interface: view, interactor: interactor, router: router)

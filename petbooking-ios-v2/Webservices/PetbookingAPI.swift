@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import Mantle
+import CoreLocation
 
 class PetbookingAPI: NSObject {
 	
@@ -36,9 +37,15 @@ class PetbookingAPI: NSObject {
 			token = consumer.token
 		}
 		
+		var language = ""
+		if let langStr = Locale.current.languageCode {
+			language = langStr
+		}
+		
 		auth_headers	= [
 			"Authorization": "Bearer \(token)",
-			"Content-Type": "application/vnd.api+json"
+			"Content-Type": "application/vnd.api+json",
+			"X-BDT-language": language
 		]
 		
 		consumer_headers	= [
@@ -70,16 +77,18 @@ extension PetbookingAPI {
 					if let dic = jsonObject as? [String: Any] {
 						let consumer = try MTLJSONAdapter.model(of: Consumer.self, fromJSONDictionary: dic) as! Consumer
 						try SessionManager.sharedInstance.saveConsumer(consumer: consumer)
+						completion(true, "")
 					}
 					
 					
 				} catch {
-					
+					completion(true, error.localizedDescription)
 				}
 				
 				break
 			case .failure(let error):
 				print(error)
+				completion(true, error.localizedDescription)
 				break
 			}
 			
@@ -110,6 +119,9 @@ extension PetbookingAPI {
 							if session.errors.count == 0 {
 								
 								try SessionManager.sharedInstance.saveSession(session: session)
+								
+								PetbookingAPI.sharedInstance.userInfo { (user, message) in
+								}
 								
 								completion(true, "")
 							} else {
@@ -221,7 +233,7 @@ extension PetbookingAPI {
 
 extension PetbookingAPI {
 	
-	func createUser(name:String, cpf:String, birthday:String, email:String, mobile:String, zipcode:String, street:String, streetNumber:String, neighborhood:String, city:String, state:String, password:String, provider:String, providerToken:String, avatar:String, _ completion: @escaping (_ user: Bool, _ message: String) -> Void) {
+	func createUser(name:String, cpf:String, birthday:String, email:String, mobile:String, zipcode:String, street:String, streetNumber:String, neighborhood:String, city:String, state:String, password:String, provider:String, providerToken:String, avatar:String, complement:String, _ completion: @escaping (_ user: Bool, _ message: String) -> Void) {
 		
 		if SessionManager.sharedInstance.isConsumerValid() {
 			var token = ""
@@ -233,7 +245,7 @@ extension PetbookingAPI {
 			self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
 			
 			let parameters: Parameters = [
-				"data": ["type":"users", "attributes":["provider":provider, "provider_token":providerToken, "email":email, "password":password, "name":name, "phone":mobile, "cpf":cpf, "city":city, "state":state, "zipcode":zipcode, "street":street, "street_number":streetNumber, "neighborhood":neighborhood, "avatar":avatar]]
+				"data": ["type":"users", "attributes":["provider":provider, "provider_token":providerToken, "email":email, "password":password, "name":name, "phone":mobile, "cpf":cpf, "city":city, "state":state, "zipcode":zipcode, "street":street, "street_number":streetNumber, "neighborhood":neighborhood, "avatar":avatar, "birthday":birthday, "complement":complement]]
 				
 			]
 			
@@ -285,7 +297,7 @@ extension PetbookingAPI {
 			getConsumer(completion: { (success, message) in
 				
 				if success {
-					self.createUser(name: name, cpf: cpf, birthday: birthday, email: email, mobile: mobile, zipcode: zipcode, street: street, streetNumber: streetNumber, neighborhood: neighborhood, city: city, state: state, password: password, provider: provider, providerToken: providerToken, avatar: avatar, completion)
+					self.createUser(name: name, cpf: cpf, birthday: birthday, email: email, mobile: mobile, zipcode: zipcode, street: street, streetNumber: streetNumber, neighborhood: neighborhood, city: city, state: state, password: password, provider: provider, providerToken: providerToken, avatar: avatar, complement: complement, completion)
 				} else {
 					
 					completion(false, "")
@@ -296,7 +308,7 @@ extension PetbookingAPI {
 		}
 	}
 	
-	func updateUser(name:String, cpf:String, birthday:String, email:String, mobile:String, zipcode:String, street:String, streetNumber:String, neighborhood:String, city:String, state:String, avatar:String, _ completion: @escaping (_ user: Bool, _ message: String) -> Void) {
+	func updateUser(name:String, cpf:String, birthday:String, email:String, mobile:String, zipcode:String, street:String, streetNumber:String, neighborhood:String, city:String, state:String, avatar:String, complement:String, _ completion: @escaping (_ user: Bool, _ message: String) -> Void) {
 		
 		if SessionManager.sharedInstance.isConsumerValid() {
 			var token = ""
@@ -316,11 +328,11 @@ extension PetbookingAPI {
 			self.auth_headers.updateValue("Token token=\"\(authToken)\"", forKey: "X-Petbooking-Session-Token")
 			
 			let parameters: Parameters = [
-				"data": ["type":"users", "id":userId, "attributes":["email":email, "name":name, "phone":mobile, "cpf":cpf, "city":city, "state":state, "zipcode":zipcode, "street":street, "street_number":streetNumber, "neighborhood":neighborhood, "avatar":avatar]]
+				"data": ["type":"users", "id":"\(userId)", "attributes":["email":email, "name":name, "phone":mobile, "cpf":cpf, "city":city, "state":state, "zipcode":zipcode, "street":street, "street_number":streetNumber, "neighborhood":neighborhood, "avatar":avatar, "birthday":birthday, "complement":complement]]
 				
 			]
 			
-			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/users/\(userId)", method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: auth_headers).responseJSON { (response) in
+			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/users/\(userId)", method: .put, parameters: parameters, encoding: JSONEncoding.prettyPrinted, headers: auth_headers).responseJSON { (response) in
 				
 				switch response.result{
 				case .success(let jsonObject):
@@ -333,6 +345,9 @@ extension PetbookingAPI {
 							if user.errors.count == 0 {
 								
 								try UserManager.sharedInstance.saveUser(user: user)
+								
+								PetbookingAPI.sharedInstance.userInfo { (user, message) in
+								}
 								
 								completion(true, "")
 								
@@ -359,7 +374,7 @@ extension PetbookingAPI {
 			getConsumer(completion: { (success, message) in
 				
 				if success {
-					self.updateUser(name: name, cpf: cpf, birthday: birthday, email: email, mobile: mobile, zipcode: zipcode, street: street, streetNumber: streetNumber, neighborhood: neighborhood, city: city, state: state, avatar: avatar, completion)
+					self.updateUser(name: name, cpf: cpf, birthday: birthday, email: email, mobile: mobile, zipcode: zipcode, street: street, streetNumber: streetNumber, neighborhood: neighborhood, city: city, state: state, avatar: avatar, complement: complement, completion)
 				} else {
 					
 					completion(false, "")
@@ -512,7 +527,7 @@ extension PetbookingAPI {
 			
 			self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
 			
-			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/breeds/\(petType)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: auth_headers).responseJSON { (response) in
+			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/breeds/\(petType)?page[size]=250", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: auth_headers).responseJSON { (response) in
 				
 				switch response.result{
 				case .success(let jsonObject):
@@ -581,7 +596,7 @@ extension PetbookingAPI {
 				
 				switch response.result{
 				case .success(let jsonObject):
-					print(jsonObject)
+
 					if let dic = jsonObject as? [String: Any] {
 						
 						do {
@@ -620,5 +635,740 @@ extension PetbookingAPI {
 		}
 	}
 	
+	func updatePet(pet:Pet, completion: @escaping (_ pet: Pet?, _ message: String) -> Void) {
+		
+		if SessionManager.sharedInstance.isConsumerValid() {
+			var token = ""
+			if let consumer = SessionManager.sharedInstance.getCurrentConsumer() {
+				token = consumer.token
+			}
+			
+			var authToken = ""
+			var userId = 0
+			if let session = SessionManager.sharedInstance.getCurrentSession() {
+				authToken = session.authToken
+				userId = session.userId
+			}
+			
+			self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
+			self.auth_headers.updateValue("Token token=\"\(authToken)\"", forKey: "X-Petbooking-Session-Token")
+			
+			let parameters: Parameters = [
+				"data": ["type":"pets", "id":pet.id, "attributes":["size":pet.size, "breed_id":pet.breedId, "name":pet.name, "gender":pet.gender, "mood":pet.mood, "description":pet.petDescription, "birth_date":pet.birthday, "coat_type":pet.coatSize, "photo":pet.photoUrl]]
+				
+			]
+			
+			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/users/\(userId)/pets/\(pet.id)", method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: auth_headers).responseJSON { (response) in
+				
+				switch response.result{
+				case .success(let jsonObject):
+					
+					if let dic = jsonObject as? [String: Any] {
+						
+						do {
+							
+							let pet = try MTLJSONAdapter.model(of: Pet.self, fromJSONDictionary: dic) as! Pet
+							
+							
+							completion(pet, "")
+							
+						} catch {
+							completion(nil, error.localizedDescription)
+						}
+					} else {
+						completion(nil, "")
+					}
+					break
+				case .failure(let error):
+					print(error)
+					completion(nil, error.localizedDescription)
+					break
+				}
+				
+			}
+		} else
+		{
+			getConsumer(completion: { (success, message) in
+				
+				if success {
+					self.createPet(pet:pet,completion: completion)
+				} else {
+					
+					completion(nil, "")
+					
+				}
+			})
+		}
+	}
+	
+	func deletePet(pet:Pet, completion: @escaping (_ pet: Pet?, _ message: String) -> Void) {
+		
+		if SessionManager.sharedInstance.isConsumerValid() {
+			var token = ""
+			if let consumer = SessionManager.sharedInstance.getCurrentConsumer() {
+				token = consumer.token
+			}
+			
+			var authToken = ""
+			var userId = 0
+			if let session = SessionManager.sharedInstance.getCurrentSession() {
+				authToken = session.authToken
+				userId = session.userId
+			}
+			
+			self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
+			self.auth_headers.updateValue("Token token=\"\(authToken)\"", forKey: "X-Petbooking-Session-Token")
+			
+			
+			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/users/\(userId)/pets/\(pet.id)", method: .delete, parameters: nil, encoding: JSONEncoding.default, headers: auth_headers).responseJSON { (response) in
+				
+				switch response.result{
+				case .success(let jsonObject):
+					
+					if let dic = jsonObject as? [String: Any] {
+						
+						do {
+							
+							let pet = try MTLJSONAdapter.model(of: Pet.self, fromJSONDictionary: dic) as! Pet
+							
+							
+							completion(pet, "")
+							
+						} catch {
+							completion(nil, error.localizedDescription)
+						}
+					} else {
+						completion(nil, "")
+					}
+					break
+				case .failure(let error):
+					print(error)
+					completion(nil, error.localizedDescription)
+					break
+				}
+				
+			}
+		} else
+		{
+			getConsumer(completion: { (success, message) in
+				
+				if success {
+					self.deletePet(pet:pet,completion: completion)
+				} else {
+					
+					completion(nil, "")
+					
+				}
+			})
+		}
+	}
+}
+
+// MARK: Business
+
+extension PetbookingAPI {
+	
+	func getBusinessList(coordinate:CLLocationCoordinate2D, page:Int = 1, completion: @escaping (_ businessList: BusinessList?, _ message: String) -> Void ) {
+		
+		if SessionManager.sharedInstance.isConsumerValid() {
+			var token = ""
+			if let consumer = SessionManager.sharedInstance.getCurrentConsumer() {
+				token = consumer.token
+			}
+			
+			guard let session = SessionManager.sharedInstance.getCurrentSession() else {
+				return
+			}
+			
+			self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
+			self.auth_headers.updateValue("Token token=\"\(session.authToken)\"", forKey: "X-Petbooking-Session-Token")
+			
+			let coords = "\(coordinate.latitude),\(coordinate.longitude)"
+			
+			let parameters: Parameters = ["user_id":session.userId, "coords":coords,"fields[businesses]":"id,name,slug,location,distance,street,street_number,imported,neighborhood,rating_average,rating_count,favorite_count,cover_image,pictures,transportation_fee,user_favorite,bitmask_values,phone,city,description,state,website,facebook_fanpage,twitter_profile,googleplus_profile,instagram,snapchat", "page[number]":page, "page[size]":20]
+			
+			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/businesses", method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString), headers: auth_headers).responseJSON { (response) in
+				
+				switch response.result{
+				case .success(let jsonObject):
+					if let dic = jsonObject as? [String: Any] {
+						
+						do {
+							let businessList = try MTLJSONAdapter.model(of: BusinessList.self, fromJSONDictionary: dic) as! BusinessList
+							businessList.page = page
+							
+							completion(businessList, "")
+							
+						} catch {
+							completion(nil, error.localizedDescription)
+						}
+					} else {
+						completion(nil, "")
+					}
+					break
+				case .failure(let error):
+					print(error)
+					completion(nil, error.localizedDescription)
+					break
+				}
+				
+			}
+		} else
+		{
+			getConsumer(completion: { (success, message) in
+				
+				if success {
+					self.getBusinessList(coordinate: coordinate, completion: completion)
+				} else {
+					
+					completion(nil, "")
+					
+				}
+				
+			})
+		}
+	}
+	
+	func removeBusinessFromFavorite(business:Business, completion: @escaping (_ success: Bool, _ message: String) -> Void ) {
+		
+		if SessionManager.sharedInstance.isConsumerValid() {
+			var token = ""
+			if let consumer = SessionManager.sharedInstance.getCurrentConsumer() {
+				token = consumer.token
+			}
+			
+			guard let session = SessionManager.sharedInstance.getCurrentSession() else {
+				return
+			}
+			
+			
+			self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
+			self.auth_headers.updateValue("Token token=\"\(session.authToken)\"", forKey: "X-Petbooking-Session-Token")
+			
+			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/favorites/\(business.favoriteId)", method: .delete, parameters: nil, encoding: URLEncoding(destination: .queryString), headers: auth_headers).responseJSON { (response) in
+				
+				switch response.result{
+				case .success(let jsonObject):
+					if let dic = jsonObject as? [String: Any] {
+						
+						do {
+							
+							
+							completion(true, "")
+							
+						} catch {
+							completion(false, error.localizedDescription)
+						}
+					} else {
+						completion(false, "")
+					}
+					break
+				case .failure(let error):
+					completion(false, error.localizedDescription)
+					break
+				}
+				
+			}
+		} else
+		{
+			getConsumer(completion: { (success, message) in
+				
+				if success {
+					self.removeBusinessFromFavorite(business: business, completion: completion)
+				} else {
+					
+					completion(false, "")
+					
+				}
+				
+			})
+		}
+	}
+
+	func addBusinessToFavorite(business:Business, completion: @escaping (_ success: Bool, _ message: String) -> Void ) {
+		
+		if SessionManager.sharedInstance.isConsumerValid() {
+			var token = ""
+			if let consumer = SessionManager.sharedInstance.getCurrentConsumer() {
+				token = consumer.token
+			}
+			
+			guard let session = SessionManager.sharedInstance.getCurrentSession() else {
+				return
+			}
+			
+			self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
+			self.auth_headers.updateValue("Token token=\"\(session.authToken)\"", forKey: "X-Petbooking-Session-Token")
+			
+			let parameters: Parameters = [
+				"data": ["type":"favorites", "attributes":["favorable_type":"Business", "favorable_id":business.id]]
+				
+			]
+			
+			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/users/\(session.userId)/favorites", method: .post, parameters: parameters, encoding: URLEncoding(destination: .queryString), headers: auth_headers).responseJSON { (response) in
+				
+				switch response.result{
+				case .success(let jsonObject):
+					if let dic = jsonObject as? [String: Any] {
+						
+						do {
+
+							
+							let favorite = try MTLJSONAdapter.model(of: Favorite.self, fromJSONDictionary: dic) as! Favorite
+							business.favoriteId = favorite.favoriteId
+							
+							completion(true, "")
+							
+						} catch {
+							completion(false, error.localizedDescription)
+						}
+					} else {
+						completion(false, "")
+					}
+					break
+				case .failure(let error):
+					completion(false, error.localizedDescription)
+					break
+				}
+				
+			}
+		} else
+		{
+			getConsumer(completion: { (success, message) in
+				
+				if success {
+					self.addBusinessToFavorite(business: business, completion: completion)
+				} else {
+					
+					completion(false, "")
+					
+				}
+				
+			})
+		}
+	}
+
+	func getFavoriteBusinessList(page:Int = 1, completion: @escaping (_ businessList: BusinessList?, _ message: String) -> Void ) {
+		
+		if SessionManager.sharedInstance.isConsumerValid() {
+			var token = ""
+			if let consumer = SessionManager.sharedInstance.getCurrentConsumer() {
+				token = consumer.token
+			}
+			
+			guard let session = SessionManager.sharedInstance.getCurrentSession() else {
+				return
+			}
+			
+			self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
+			self.auth_headers.updateValue("Token token=\"\(session.authToken)\"", forKey: "X-Petbooking-Session-Token")
+			
+			let parameters: Parameters = ["type":"businesses", "fields[businesses]":"id,name,slug,location,distance,street,street_number,imported,neighborhood,rating_average,rating_count,favorite_count,cover_image,pictures,transportation_fee,user_favorite,bitmask_values", "page[number]":page, "page[size]":20]
+			
+			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/users/\(session.userId)/favorites", method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString), headers: auth_headers).responseJSON { (response) in
+				
+				switch response.result{
+				case .success(let jsonObject):
+					if let dic = jsonObject as? [String: Any] {
+						
+						do {
+							let businessList = try MTLJSONAdapter.model(of: BusinessList.self, fromJSONDictionary: dic) as! BusinessList
+							businessList.page = page
+							
+							completion(businessList, "")
+							
+						} catch {
+							completion(nil, error.localizedDescription)
+						}
+					} else {
+						completion(nil, "")
+					}
+					break
+				case .failure(let error):
+					print(error)
+					completion(nil, error.localizedDescription)
+					break
+				}
+				
+			}
+		} else
+		{
+			getConsumer(completion: { (success, message) in
+				
+				if success {
+					self.getFavoriteBusinessList(page:page, completion: completion)
+				} else {
+					
+					completion(nil, "")
+					
+				}
+				
+			})
+		}
+	}
+	
+	func getBusinessServicesCategoryList(business:Business, completion: @escaping (_ serviceList: ServiceCategoryList?, _ message: String) -> Void ) {
+		
+		if SessionManager.sharedInstance.isConsumerValid() {
+			var token = ""
+			if let consumer = SessionManager.sharedInstance.getCurrentConsumer() {
+				token = consumer.token
+			}
+			
+			guard let session = SessionManager.sharedInstance.getCurrentSession() else {
+				return
+			}
+			
+			self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
+			self.auth_headers.updateValue("Token token=\"\(session.authToken)\"", forKey: "X-Petbooking-Session-Token")
+			
+			let parameters: Parameters = ["type":"service_categories", "fields[service_categories]":"name,service_count,slug,services,category_template_id"]
+			
+			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/businesses/\(business.id)/service-categories", method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString), headers: auth_headers).responseJSON { (response) in
+				
+				switch response.result{
+				case .success(let jsonObject):
+					if let dic = jsonObject as? [String: Any] {
+						
+						do {
+							let serviceList = try MTLJSONAdapter.model(of: ServiceCategoryList.self, fromJSONDictionary: dic) as! ServiceCategoryList
+							
+							completion(serviceList, "")
+							
+						} catch {
+							completion(nil, error.localizedDescription)
+						}
+					} else {
+						completion(nil, "")
+					}
+					break
+				case .failure(let error):
+					print(error)
+					completion(nil, error.localizedDescription)
+					break
+				}
+				
+			}
+		} else
+		{
+			getConsumer(completion: { (success, message) in
+				
+				if success {
+					self.getBusinessServicesCategoryList(business:business, completion: completion)
+				} else {
+					
+					completion(nil, "")
+					
+				}
+				
+			})
+		}
+	}
+	
+	func getBusinessServicesList(business:Business, service: ServiceCategory, pet:Pet, completion: @escaping (_ serviceList: ServiceList?, _ message: String) -> Void ) {
+		
+		if SessionManager.sharedInstance.isConsumerValid() {
+			var token = ""
+			if let consumer = SessionManager.sharedInstance.getCurrentConsumer() {
+				token = consumer.token
+			}
+			
+			guard let session = SessionManager.sharedInstance.getCurrentSession() else {
+				return
+			}
+			
+			self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
+			self.auth_headers.updateValue("Token token=\"\(session.authToken)\"", forKey: "X-Petbooking-Session-Token")
+			
+			let parameters: Parameters = ["type":"services", "fields[services]":"name,duration,price,childs", "pet_id":pet.id]
+			
+			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/service-categories/\(service.id)/services", method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString), headers: auth_headers).responseJSON { (response) in
+				
+				switch response.result{
+				case .success(let jsonObject):
+					if let dic = jsonObject as? [String: Any] {
+						
+						do {
+							let serviceList = try MTLJSONAdapter.model(of: ServiceList.self, fromJSONDictionary: dic) as! ServiceList
+							
+							completion(serviceList, "")
+							
+						} catch {
+							completion(nil, error.localizedDescription)
+						}
+					} else {
+						completion(nil, "")
+					}
+					break
+				case .failure(let error):
+					print(error)
+					completion(nil, error.localizedDescription)
+					break
+				}
+				
+			}
+		} else
+		{
+			getConsumer(completion: { (success, message) in
+				
+				if success {
+					self.getBusinessServicesList(business:business, service: service, pet: pet, completion: completion)
+				} else {
+					
+					completion(nil, "")
+					
+				}
+				
+			})
+		}
+	}
+	
+	func getProfessionalsList(service: Service, completion: @escaping (_ professionalList: ProfessionalList?, _ message: String) -> Void ) {
+		
+		if SessionManager.sharedInstance.isConsumerValid() {
+			var token = ""
+			if let consumer = SessionManager.sharedInstance.getCurrentConsumer() {
+				token = consumer.token
+			}
+			
+			guard let session = SessionManager.sharedInstance.getCurrentSession() else {
+				return
+			}
+			
+			self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
+			self.auth_headers.updateValue("Token token=\"\(session.authToken)\"", forKey: "X-Petbooking-Session-Token")
+			
+			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/services/\(service.id)/employments", method: .get, parameters: nil, encoding: URLEncoding(destination: .queryString), headers: auth_headers).responseJSON { (response) in
+				
+				switch response.result{
+				case .success(let jsonObject):
+					if let dic = jsonObject as? [String: Any] {
+						
+						do {
+							let professionalList = try MTLJSONAdapter.model(of: ProfessionalList.self, fromJSONDictionary: dic) as! ProfessionalList
+							
+							completion(professionalList, "")
+							
+						} catch {
+							completion(nil, error.localizedDescription)
+						}
+					} else {
+						completion(nil, "")
+					}
+					break
+				case .failure(let error):
+					print(error)
+					completion(nil, error.localizedDescription)
+					break
+				}
+				
+			}
+		} else
+		{
+			getConsumer(completion: { (success, message) in
+				
+				if success {
+					self.getProfessionalsList(service: service, completion: completion)
+				} else {
+					
+					completion(nil, "")
+					
+				}
+				
+			})
+		}
+	}
+	
+	func createShoppingCart(itens: [Dictionary<String, Any>], completion: @escaping (_ cart: Cart?, _ message: String) -> Void) {
+		
+		if SessionManager.sharedInstance.isConsumerValid() {
+			var token = ""
+			if let consumer = SessionManager.sharedInstance.getCurrentConsumer() {
+				token = consumer.token
+			}
+			
+			var authToken = ""
+			var userId = 0
+			if let session = SessionManager.sharedInstance.getCurrentSession() {
+				authToken = session.authToken
+				userId = session.userId
+			}
+			
+			self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
+			self.auth_headers.updateValue("Token token=\"\(authToken)\"", forKey: "X-Petbooking-Session-Token")
+			
+			let parameters: Parameters = [
+				"data": ["type":"carts", "attributes":["itens":itens]]
+			]
+			
+			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/users/\(userId)/carts", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: auth_headers).responseJSON { (response) in
+				
+				switch response.result{
+				case .success(let jsonObject):
+					
+					if let dic = jsonObject as? [String: Any] {
+						
+						do {
+							
+							let cart = try MTLJSONAdapter.model(of: Cart.self, fromJSONDictionary: dic) as! Cart
+							
+							
+							completion(cart, "")
+							
+						} catch {
+							completion(nil, error.localizedDescription)
+						}
+					} else {
+						completion(nil, "")
+					}
+					break
+				case .failure(let error):
+					print(error)
+					completion(nil, error.localizedDescription)
+					break
+				}
+				
+			}
+		} else
+		{
+			getConsumer(completion: { (success, message) in
+				
+				if success {
+					self.createShoppingCart(itens:itens,completion: completion)
+				} else {
+					
+					completion(nil, "")
+					
+				}
+			})
+		}
+	}
+	
+	func getScheduleList(page:Int = 1, completion: @escaping (_ businessList: ScheduledServiceList?, _ message: String) -> Void ) {
+		
+		if SessionManager.sharedInstance.isConsumerValid() {
+			var token = ""
+			if let consumer = SessionManager.sharedInstance.getCurrentConsumer() {
+				token = consumer.token
+			}
+			
+			var authToken = ""
+			var userId = 0
+			if let session = SessionManager.sharedInstance.getCurrentSession() {
+				authToken = session.authToken
+				userId = session.userId
+			}
+			
+			self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
+			self.auth_headers.updateValue("Token token=\"\(authToken)\"", forKey: "X-Petbooking-Session-Token")
+						
+			let today = Date()
+			let dateFormatter = DateFormatter()
+			dateFormatter.dateFormat = "yyyy-MM-dd"
+			
+			let todayString = dateFormatter.string(from: today)
+			
+			let parameters: Parameters = ["date":todayString, "page[number]":page, "page[size]":200]
+			
+			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/users/\(userId)/schedules", method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString), headers: auth_headers).responseJSON { (response) in
+				
+				switch response.result{
+				case .success(let jsonObject):
+					if let dic = jsonObject as? [String: Any] {
+						
+						do {
+							let scheduledServiceList = try MTLJSONAdapter.model(of: ScheduledServiceList.self, fromJSONDictionary: dic) as! ScheduledServiceList
+							scheduledServiceList.page = page
+							
+							completion(scheduledServiceList, "")
+							
+						} catch {
+							completion(nil, error.localizedDescription)
+						}
+					} else {
+						completion(nil, "")
+					}
+					break
+				case .failure(let error):
+					print(error)
+					completion(nil, error.localizedDescription)
+					break
+				}
+				
+			}
+		} else
+		{
+			getConsumer(completion: { (success, message) in
+				
+				if success {
+					self.getScheduleList(page: page, completion: completion)
+				} else {
+					
+					completion(nil, "")
+					
+				}
+				
+			})
+		}
+	}
+	
+	func cancelScheduledService(scheduledService:ScheduledService, completion: @escaping (_ businessList: ScheduledServiceList?, _ message: String) -> Void ) {
+		
+		if SessionManager.sharedInstance.isConsumerValid() {
+			var token = ""
+			if let consumer = SessionManager.sharedInstance.getCurrentConsumer() {
+				token = consumer.token
+			}
+			
+			var authToken = ""
+			var userId = 0
+			if let session = SessionManager.sharedInstance.getCurrentSession() {
+				authToken = session.authToken
+				userId = session.userId
+			}
+			
+			self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
+			self.auth_headers.updateValue("Token token=\"\(authToken)\"", forKey: "X-Petbooking-Session-Token")
+			
+			
+			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/users/\(userId)/events/\(scheduledService.id)", method: .delete, parameters: nil, encoding: URLEncoding(destination: .queryString), headers: auth_headers).responseJSON { (response) in
+				
+				switch response.result{
+				case .success(let jsonObject):
+					if let dic = jsonObject as? [String: Any] {
+						
+						do {
+							let scheduledServiceList = try MTLJSONAdapter.model(of: ScheduledServiceList.self, fromJSONDictionary: dic) as! ScheduledServiceList
+							
+							completion(scheduledServiceList, "")
+							
+						} catch {
+							completion(nil, error.localizedDescription)
+						}
+					} else {
+						completion(nil, "")
+					}
+					break
+				case .failure(let error):
+					print(error)
+					completion(nil, error.localizedDescription)
+					break
+				}
+				
+			}
+		} else
+		{
+			getConsumer(completion: { (success, message) in
+				
+				if success {
+					self.cancelScheduledService(scheduledService: scheduledService, completion: completion)
+				} else {
+					completion(nil, "")
+					
+				}
+				
+			})
+		}
+	}
 	
 }

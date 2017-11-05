@@ -12,6 +12,9 @@ import UIKit
 
 class SelectPhotoSourcePopupViewController: UIViewController, SelectPhotoSourcePopupViewProtocol {
 
+	@IBOutlet weak var libraryButton: UIButton!
+	@IBOutlet weak var cameraButton: UIButton!
+	@IBOutlet weak var cancelButton: UIButton!
 	
 	@IBOutlet weak var popupContentContainerView: UIView!
 	
@@ -24,6 +27,11 @@ class SelectPhotoSourcePopupViewController: UIViewController, SelectPhotoSourceP
 		
 		popupContentContainerView.layer.masksToBounds = true
 		popupContentContainerView.layer.cornerRadius = 10
+		
+		libraryButton.round()
+		cameraButton.round()
+		cancelButton.round()
+		cancelButton.setBorder(width: 1, color: .white)
 		
 		
     }
@@ -40,6 +48,9 @@ class SelectPhotoSourcePopupViewController: UIViewController, SelectPhotoSourceP
 			self.delegate?.showCamera()
 		}
 		
+	}
+	@IBAction func cancel(_ sender: Any) {
+		dismiss(animated: true)
 	}
 	
 	@IBAction func tappedOutsidePopup(_ sender: Any) {

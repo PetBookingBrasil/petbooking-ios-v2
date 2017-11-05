@@ -58,12 +58,11 @@ class SignupInteractor: SignupInteractorProtocol {
 			
 			let dateFormatter = DateFormatter()
 			let birthday = dateFormatter.convertDateFormater(dateString: user.birthday, fromFormat: "yyyy-MM-dd", toFormat: "dd/MM/yyyy")
-			print(birthday)
 			self.presenter?.setProfileImageView(urlString: user.avatarUrlLarge)
 			self.presenter?.setNameLabel(name: user.name)
 			self.presenter?.setEmail(email:user.email)
 			self.presenter?.setUserDetails(mobile: user.phone, cpf: user.cpf, birthday: birthday, zipcode: user.zipcode)
-			self.presenter?.fillAdrressFields(street: user.street, streetNumber: user.streetNumber, neighborhood: user.neighborhood, city: user.city, state: user.state)
+			self.presenter?.fillAdrressFields(street: user.street, streetNumber: user.streetNumber, neighborhood: user.neighborhood, city: user.city, state: user.state, complement: user.complement)
 			
 			break
 		}
@@ -77,12 +76,12 @@ class SignupInteractor: SignupInteractorProtocol {
 			guard let address = address else {
 				return
 			}
-			self.presenter?.fillAdrressFields(street: address.street, streetNumber: "", neighborhood: address.neighborhood, city: address.city, state: address.state)
+			self.presenter?.fillAdrressFields(street: address.street, streetNumber: "", neighborhood: address.neighborhood, city: address.city, state: address.state, complement: "")
 			
 		}
 	}
 	
-	func createUser(name:String, cpf:String, birthday:String, email:String, mobile:String, zipcode:String, street:String, streetNumber:String, neighborhood:String, city:String, state:String, password:String, avatar:String) {
+	func createUser(name:String, cpf:String, birthday:String, email:String, mobile:String, zipcode:String, street:String, streetNumber:String, neighborhood:String, city:String, state:String, password:String, avatar:String, complement:String) {
 		
 		var provider = "b2beauty"
 		var providerToken = ""
@@ -98,7 +97,7 @@ class SignupInteractor: SignupInteractorProtocol {
 		
 		if signupType == .editProfile {
 			
-			PetbookingAPI.sharedInstance.updateUser(name: name, cpf: cpf, birthday: birthdaySaveFormat, email: email, mobile: mobile, zipcode: zipcode, street: street, streetNumber: streetNumber, neighborhood: neighborhood, city: city, state: state,avatar:avatar) { (success, message) in
+			PetbookingAPI.sharedInstance.updateUser(name: name, cpf: cpf, birthday: birthdaySaveFormat, email: email, mobile: mobile, zipcode: zipcode, street: street, streetNumber: streetNumber, neighborhood: neighborhood, city: city, state: state,avatar:avatar, complement: complement) { (success, message) in
 				
 				if success {
 				 self.presenter?.updatedUserWithSuccess()
@@ -109,7 +108,7 @@ class SignupInteractor: SignupInteractorProtocol {
 			
 		} else {
 			
-			PetbookingAPI.sharedInstance.createUser(name: name, cpf: cpf, birthday: birthdaySaveFormat, email: email, mobile: mobile, zipcode: zipcode, street: street, streetNumber: streetNumber, neighborhood: neighborhood, city: city, state: state, password: password, provider: provider, providerToken: providerToken, avatar:avatar) { (success, message) in
+			PetbookingAPI.sharedInstance.createUser(name: name, cpf: cpf, birthday: birthdaySaveFormat, email: email, mobile: mobile, zipcode: zipcode, street: street, streetNumber: streetNumber, neighborhood: neighborhood, city: city, state: state, password: password, provider: provider, providerToken: providerToken, avatar:avatar, complement:complement) { (success, message) in
 				
 				if success {
 				 self.presenter?.createUserWithSuccess()

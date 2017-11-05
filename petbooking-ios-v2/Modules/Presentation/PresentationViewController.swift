@@ -11,6 +11,7 @@ import UIKit
 
 class PresentationViewController: UIViewController, PresentationViewProtocol {
 	
+	@IBOutlet weak var pageControl: UIPageControl!
 	@IBOutlet weak var nextButton: UIButton!
 	@IBOutlet weak var skipButton: UIButton!
 	@IBOutlet weak var titleLabel: UILabel!
@@ -19,12 +20,25 @@ class PresentationViewController: UIViewController, PresentationViewProtocol {
 	
 	
 	var presenter: PresentationPresenterProtocol?
+	var index:PresentationIndex?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
 		presenter?.setupView()
 		self.navigationController?.isNavigationBarHidden = true
+		
+		switch index! {
+		case .first:
+			pageControl.currentPage = 0
+			break
+		case .second:
+			pageControl.currentPage = 1
+			break
+		case .third:
+			pageControl.currentPage = 2
+			break
+		}
 	}
 	
 	override func viewDidLayoutSubviews() {

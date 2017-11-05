@@ -17,7 +17,7 @@ class SideMenuViewController: UIViewController, SideMenuViewProtocol {
 	@IBOutlet weak var cityLabel: UILabel!
 	@IBOutlet weak var menuTableView: UITableView!
 	
-	var menuItens:[SideMenuItem] = [.myPets, .search, .agenda, .payments, .favorites, .settings, .logout]
+	var menuItens:[SideMenuItem] = [.myPets, .agenda, .favorites, .logout]
 	
 	var presenter: SideMenuPresenterProtocol?
 
@@ -32,6 +32,8 @@ class SideMenuViewController: UIViewController, SideMenuViewProtocol {
 		
 		self.profileImageView.round()
 		
+		
+		
     }
 	
 	func setupUserData() {
@@ -42,6 +44,11 @@ class SideMenuViewController: UIViewController, SideMenuViewProtocol {
 		
 		nameLabel.text = user.name
 		cityLabel.text = "\(user.city), \(user.state)"
+		if user.gender == "male" {
+			self.profileImageView.image = UIImage(named:"avatar-padrao-m")
+		} else {
+			self.profileImageView.image = UIImage(named:"avatar-padrao-f")
+		}
 		
 		if user.avatarUrlThumb.contains("http") {
 			if let url = URL(string: user.avatarUrlThumb) {
@@ -59,13 +66,15 @@ class SideMenuViewController: UIViewController, SideMenuViewProtocol {
 		presenter?.didTapProfile()
 	}
 	
+
+	
 	
 }
 
 extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 7
+		return menuItens.count
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -97,8 +106,6 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
 			break
 		case .settings:
 			cell.iconImageView.image = UIImage(named:"settings")
-			cell.iconImageView.image = cell.iconImageView.image!.withRenderingMode(.alwaysTemplate)
-			cell.iconImageView.tintColor = .white
 			cell.titleLabel.text = NSLocalizedString("side_menu_settings", comment: "")
 			break
 		case .logout:
@@ -123,10 +130,12 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
 		case .search:
 					break
 		case .agenda:
+			presenter?.didTapAgenda()
 			break
 		case .payments:
 			break
 		case .favorites:
+			presenter?.didTapFavorites()
 			break
 		case .settings:
 			break
@@ -139,7 +148,12 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
 		let selectedCell:UITableViewCell = tableView.cellForRow(at: indexPath)!
-		selectedCell.contentView.backgroundColor = UIColor(hex: "FF4B4B")
+		selectedCell.contentView.backgroundColor = UIColor(hex: "E4002B")
 	}
 	
+	
+}
+
+extension Notification.Name {
+	static let goToAgenda = Notification.Name("goToAgenda")
 }

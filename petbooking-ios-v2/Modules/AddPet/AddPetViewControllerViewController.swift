@@ -10,6 +10,7 @@
 
 import UIKit
 import AKMaskField
+import ALLoadingView
 
 class AddPetViewControllerViewController: UIViewController, AddPetViewControllerViewProtocol {
 	
@@ -76,6 +77,8 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 	
 	@IBOutlet weak var petBreedAlertMessageLabel: UILabel!
 	
+	var petViewType:PetViewType?
+	
 	var breedList = [Breed]()
 	var petBreedIndex = 0
 	
@@ -101,8 +104,8 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		title = NSLocalizedString("add_pet_title", comment: "")
-		
+		setBackButton()
+		setTitle(title: NSLocalizedString("add_pet_title", comment: ""))
 		profilePictureView.round()
 		profilePictureFrameView.setBorder(width: 2, color: .white)
 		profilePictureFrameView.round()
@@ -148,7 +151,85 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 		picker.dataSource = self
 		picker.delegate = self
 		
+		if petViewType == .edit {
+		
+			setTitle(title: NSLocalizedString("edit_pet_title", comment: ""))
+		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Salvar", style: .plain, target: self, action: #selector(AddPetViewControllerViewController.save(_:)))
+			saveButton.backgroundColor = UIColor(hex: "FCE5EA")
+			saveButton.setTitle("remove_pet".localized, for: .normal)
+			saveButton.setTitleColor(UIColor(hex: "E4002B"), for: .normal)
+			saveButton.removeTarget(nil, action: nil, for: .allEvents)
+			
+			saveButton.addTarget(self, action: #selector(AddPetViewControllerViewController.removePet), for: .touchUpInside)
+		}
 		hideKeyboardWhenTappedAround()
+		
+		
+		
+		if !pet.name.isBlank {
+			
+			if let url = URL(string: pet.photoUrl) {
+				profilePictureImageView.pin_setImage(from: url)
+			}
+			
+			petNameTextField.text = pet.name
+			
+			if !pet.birthday.isBlank {
+			let dateFormatter = DateFormatter()
+			birthdayTextField.text = dateFormatter.convertDateFormater(dateString: pet.birthday, fromFormat: "yyyy-MM-dd", toFormat: "dd/MM/yyyy")
+			}
+			
+			observationTextField.text = pet.petDescription
+			
+			guard let coat = PetCoatEnum(rawValue: pet.coatSize) else {
+				return
+			}
+			guard let indexCoat = coatList.index(of: coat) else {
+				return
+			}
+			petCoatIndex = indexCoat
+			coatLabel.text = "pet_coat_size_\(pet.coatSize)".localized
+			
+			guard let type = PetTypeEnum(rawValue: pet.type) else {
+				return
+			}
+			guard let indexType = petTypeList.index(of: type) else {
+				return
+			}
+			petTypeIndex = indexType
+			petTypeLabel.text = "pet_type_\(pet.type)".localized
+			
+			self.breedLabel.text = self.pet.breedName
+			
+			PetbookingAPI.sharedInstance.getBreedList(petType: pet.type, completion: { (breedList, message) in
+				
+				guard let breedList = breedList else {
+					return
+				}
+				self.breedList = breedList.breeds
+			})
+			
+			guard let gender = PetGenderEnum(rawValue: pet.gender) else {
+				return
+			}
+			guard let indexGender = genderList.index(of: gender) else {
+				return
+			}
+			petGenderIndex = indexGender
+			genderLabel.text = "pet_gender_\(pet.gender)".localized
+			
+			guard let size = PetSizeEnum(rawValue: pet.size) else {
+				return
+			}
+			guard let indexSize = petSizeList.index(of: size) else {
+				return
+			}
+			petSizeIndex = indexSize
+			petSizeLabel.text = "pet_size_\(pet.size)".localized
+			
+			moodLabel.text = "pet_mood_\(pet.mood)".localized
+			
+		}
 		
 		
 		
@@ -160,6 +241,7 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 	
 	func tapField(_ sender: UITapGestureRecognizer) {
 		
+		self.view.endEditing(true)
 		guard let label = sender.view as? UILabel else {
 			return
 		}
@@ -213,9 +295,9 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 		case .breed:
 			
 			pet.breedName = breedList[index].name
-			pet.breedId = breedList[index].id
+			pet.breedId = Int(breedList[index].id)!
 			
-			if !pet.breedId.isBlank {
+			if pet.breedId != 0 {
 				breedLabel.text = pet.breedName
 			}
 			petBreedIndex = index
@@ -241,9 +323,15 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 			moodLabel.text = "pet_mood_\(pet.mood)".localized
 			break
 		case .petType:
+			let currentPetType = pet.type
 			pet.type = petTypeList[index].rawValue
 			petTypeLabel.text = "pet_type_\(pet.type)".localized
 			petTypeIndex = index
+			if currentPetType != pet.type {
+				pet.breedName = ""
+				pet.breedId = 0
+				self.breedLabel.text = "pet_breed_field".localized
+			}
 			
 			PetbookingAPI.sharedInstance.getBreedList(petType: pet.type, completion: { (breedList, message) in
 				
@@ -252,6 +340,7 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 				}
 				
 				self.breedList = breedList.breeds
+				
 				
 			})
 			
@@ -263,6 +352,15 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 	
 	@IBAction func showPetSizeInfo(_ sender: Any) {
 		MIBlurPopup.show(PetSizePopupViewController(), on: self)
+	}
+	
+	func removePet() {
+		ALLoadingView.manager.showLoadingView(ofType: .basic)
+		PetbookingAPI.sharedInstance.deletePet(pet: self.pet) { (pet, message) in
+			ALLoadingView.manager.hideLoadingView()
+			self.navigationController?.popViewController(animated: true)
+		}
+		
 	}
 	
 	@IBAction func save(_ sender: Any) {
@@ -288,7 +386,7 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 			isValid = false
 		}
 		
-		if pet.breedId.isBlank {
+		if pet.breedId == 0 {
 			isValid = false
 			_ = checkValidField(value: nil, alertLabel: petBreedAlertMessageLabel, alertMessage: NSLocalizedString("invalid_pet_breed", comment: ""))
 		} else {

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="OpenSans-Regular.ttf">
-            <string>OpenSans</string>
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
         </array>
-        <array key="OpenSans-Semibold.ttf">
-            <string>OpenSans-Semibold</string>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
         </array>
     </customFonts>
     <objects>
@@ -31,7 +31,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uUV-gG-xb9">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar-padrao-m" translatesAutoresizingMaskIntoConstraints="NO" id="uUV-gG-xb9">
                     <rect key="frame" x="14" y="55" width="57" height="57"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="57" id="ZIe-1U-dlj"/>
@@ -42,14 +42,14 @@
                     <rect key="frame" x="77" y="66" width="128" height="35"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fernanda Camargo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eHQ-LF-d81">
-                            <rect key="frame" x="0.0" y="0.0" width="128" height="18"/>
-                            <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="13"/>
+                            <rect key="frame" x="0.0" y="0.0" width="128" height="15.5"/>
+                            <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="13"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="São Paulo, SP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oWo-vi-fvc">
-                            <rect key="frame" x="0.0" y="18" width="63" height="14"/>
-                            <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="10"/>
+                            <rect key="frame" x="0.0" y="15.5" width="62" height="12"/>
+                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -65,13 +65,9 @@
                         <constraint firstItem="eHQ-LF-d81" firstAttribute="top" secondItem="WjL-ec-Qve" secondAttribute="top" id="zg6-z0-Mwy"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Zx-7U-32b">
-                    <rect key="frame" x="205" y="62" width="22" height="22"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="22" id="NF0-q8-0N1"/>
-                        <constraint firstAttribute="width" constant="22" id="Phx-DN-aIr"/>
-                    </constraints>
-                    <state key="normal" backgroundImage="editProfile"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Zx-7U-32b">
+                    <rect key="frame" x="215" y="72.5" width="9" height="22"/>
+                    <state key="normal" image="arrow"/>
                     <connections>
                         <action selector="didTapProfileButton:" destination="-1" eventType="touchUpInside" id="g4I-U4-D4h"/>
                     </connections>
@@ -81,23 +77,24 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </tableView>
             </subviews>
-            <color key="backgroundColor" red="1" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.89411764705882346" green="0.0" blue="0.16862745098039217" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="uUV-gG-xb9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="55" id="0lE-7L-Bca"/>
                 <constraint firstAttribute="trailing" secondItem="28c-uH-teb" secondAttribute="trailing" id="Fcs-t3-8Ew"/>
                 <constraint firstAttribute="bottom" secondItem="28c-uH-teb" secondAttribute="bottom" id="Hmh-An-hkU"/>
                 <constraint firstItem="uUV-gG-xb9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="14" id="PJz-cg-Jvc"/>
                 <constraint firstItem="28c-uH-teb" firstAttribute="top" secondItem="uUV-gG-xb9" secondAttribute="bottom" constant="50" id="Tjx-3u-XkD"/>
-                <constraint firstItem="2Zx-7U-32b" firstAttribute="bottom" secondItem="eHQ-LF-d81" secondAttribute="bottom" id="crE-7F-JDc"/>
                 <constraint firstItem="WjL-ec-Qve" firstAttribute="centerY" secondItem="uUV-gG-xb9" secondAttribute="centerY" id="ftr-Mw-5df"/>
+                <constraint firstItem="2Zx-7U-32b" firstAttribute="centerY" secondItem="WjL-ec-Qve" secondAttribute="centerY" id="kNM-1E-enK"/>
                 <constraint firstItem="WjL-ec-Qve" firstAttribute="leading" secondItem="uUV-gG-xb9" secondAttribute="trailing" constant="6" id="tTa-37-yjM"/>
-                <constraint firstItem="2Zx-7U-32b" firstAttribute="leading" secondItem="WjL-ec-Qve" secondAttribute="trailing" id="vSs-k5-PeQ"/>
+                <constraint firstItem="2Zx-7U-32b" firstAttribute="leading" secondItem="WjL-ec-Qve" secondAttribute="trailing" constant="10" id="vSs-k5-PeQ"/>
                 <constraint firstItem="28c-uH-teb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="zwp-58-dd3"/>
             </constraints>
             <point key="canvasLocation" x="34.5" y="53.5"/>
         </view>
     </objects>
     <resources>
-        <image name="editProfile" width="22" height="22"/>
+        <image name="arrow" width="9" height="16"/>
+        <image name="avatar-padrao-m" width="85" height="85"/>
     </resources>
 </document>

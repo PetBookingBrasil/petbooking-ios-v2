@@ -32,10 +32,9 @@ class SignupRouter: SignupWireframeProtocol {
 	
 	func createUserWithSuccess(){
 		
-		let storyboard = UIStoryboard(name: "Main", bundle: nil)
-		let viewController = storyboard.instantiateViewController(withIdentifier :"ViewController")
+		let viewController = HomeContentViewControllerRouter.createModule()
 		
-		self.viewController?.present(viewController, animated: true, completion: nil)
+		self.viewController?.present(UINavigationController(rootViewController: viewController), animated: true, completion: nil)
 	}
 	
 	func updatedUserWithSuccess(){

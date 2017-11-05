@@ -46,6 +46,7 @@ class UserManager: NSObject {
 			user?.streetNumber = userRealm.streetNumber
 			user?.zipcode = userRealm.zipcode
 			user?.validForScheduling = userRealm.validForScheduling
+			user?.complement = userRealm.complement
 			
 			return 	user
 		} catch _ as NSError {
@@ -82,6 +83,7 @@ class UserManager: NSObject {
 		userRealm.streetNumber = user.streetNumber
 		userRealm.zipcode = user.zipcode
 		userRealm.validForScheduling = user.validForScheduling
+		userRealm.complement = user.complement
 		
 		do {
 			let realm = try Realm()
@@ -97,6 +99,44 @@ class UserManager: NSObject {
 		}
 	}
 	
+	func saveAPNSToken(tokenValue:String) {
+		
+		let token = Token()
+		token.token = tokenValue
+		token.type = "APNS"
+		
+		
+		do {
+			let realm = try Realm()
+			try realm.write {
+				
+				realm.add(token, update: true)
+				
+			}
+		}catch {
+			print(error.localizedDescription)
+		}
+	}
+	
+	func getAPNSToken() -> Token? {
+		
+		do {
+			let realm = try Realm()
+			let predicate = NSPredicate(format: "type = 'APNS'")
+			guard let token = realm.objects(Token.self).filter(predicate).first else {
+				return nil
+			}
+			
+			return 	token
+		} catch {
+			//TODO: Handle error
+			print(error.localizedDescription)
+			return nil
+		}
+		
+	}
+	
+	
 	func logOut() {
 		
 		do {
@@ -105,6 +145,8 @@ class UserManager: NSObject {
 				
 				let objects = realm.objects(UserRealm.self)
 				realm.delete(objects)
+				let session = realm.objects(SessionRealm.self)
+				realm.delete(session)
 								
 			}
 		}catch {

@@ -16,6 +16,9 @@
 "ap3_title" = "Simples, rápido e seguro!";
 "ap3_description" = "Cuidar dos seus Pets nunca foi tão fácil!";
 
+// Login Screen
+
+"forgot_passowrd" = "Esqueceu a senha?";
 
 // Signup Screen
 
@@ -50,7 +53,11 @@
 
 // Add Pet
 
+"pet_breed_field" = "Raça";
+
 "add_pet_title" = "Preencha os dados do pet";
+"edit_pet_title" = "Editando seu pet";
+"remove_pet" = "Remover pet";
 
 "pet_type_dog" = "Cão";
 "pet_type_cat" = "Gato";

@@ -10,9 +10,11 @@
 
 import UIKit
 import PINRemoteImage
+import DZNEmptyDataSet
 
 class MyPetsViewController: UIViewController, MyPetsViewProtocol {
 	
+	@IBOutlet weak var emptyView: UIView!
 	@IBOutlet weak var tableView: UITableView!
 	
 	var presenter: MyPetsPresenterProtocol?
@@ -22,10 +24,13 @@ class MyPetsViewController: UIViewController, MyPetsViewProtocol {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		setBackButton()
 		title = NSLocalizedString("my_pets_title", comment: "")
 		
 		tableView.delegate = self
 		tableView.dataSource = self
+		tableView.emptyDataSetDelegate = self
+		tableView.emptyDataSetSource = self
 		
 		tableView.register(UINib(nibName: "MyPetsTableViewCell", bundle: nil), forCellReuseIdentifier: "MyPetsCell")
 		
@@ -47,6 +52,9 @@ class MyPetsViewController: UIViewController, MyPetsViewProtocol {
 extension MyPetsViewController: UITableViewDelegate, UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		
+		emptyView.isHidden = pets.count > 0
+		
 		return pets.count
 	}
 	
@@ -58,6 +66,12 @@ extension MyPetsViewController: UITableViewDelegate, UITableViewDataSource {
 		
 		cell.petNameLabel.text = pet.name
 		cell.petBreedLabel.text = pet.breedName
+		
+		if pet.type == "dog" {
+			cell.petPictureImageView.image = UIImage(named:"avatar-padrao-cachorro")
+		} else {
+			cell.petPictureImageView.image = UIImage(named:"avatar-padrao-gato")
+		}
 		
 		
 		if pet.photoThumbUrl.contains("http") {
@@ -74,6 +88,13 @@ extension MyPetsViewController: UITableViewDelegate, UITableViewDataSource {
 		
 	}
 	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		let pet = pets[indexPath.row]
+		
+		navigationController?.pushViewController(AddPetViewControllerRouter.createModule(pet: pet, petViewType: .edit), animated: true)
+		
+	}
+	
 	func fillTableData(petList: PetList) {
 		
 		self.pets = petList.pets
@@ -83,3 +104,25 @@ extension MyPetsViewController: UITableViewDelegate, UITableViewDataSource {
 	}
 	
 }
+
+extension MyPetsViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+	
+	func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+		
+		
+		return UIImage()
+		
+	}
+	
+	func customView(forEmptyDataSet scrollView: UIScrollView!) -> UIView! {
+		
+		
+		let indicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+		indicator.startAnimating()
+		
+		return indicator
+	}
+	
+	
+}
+

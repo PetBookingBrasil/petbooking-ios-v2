@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Semibold.ttf">
+            <string>OpenSans-Semibold</string>
+        </array>
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="131" id="KGk-i7-Jjw" customClass="BusinessImportedTableViewCell" customModule="petbooking_ios_v2" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="131"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="130.66666666666666"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TMl-Td-3IO">
+                        <rect key="frame" x="16" y="16" width="47" height="24.666666666666664"/>
+                        <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="18"/>
+                        <color key="textColor" red="0.31764705882352939" green="0.31764705882352939" blue="0.31764705882352939" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xEL-cy-DAI">
+                        <rect key="frame" x="374" y="16" width="24" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="24" id="1so-PD-RqJ"/>
+                            <constraint firstAttribute="height" constant="24" id="Z1c-GA-94h"/>
+                        </constraints>
+                        <state key="normal" backgroundImage="heartIconImported"/>
+                        <connections>
+                            <action selector="didTapAddFavorite:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="YnE-jc-Iyw"/>
+                        </connections>
+                    </button>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H2u-KX-1Mj">
+                        <rect key="frame" x="346" y="94.666666666666671" width="51.333333333333314" height="20"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12km" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9kA-SM-u2G">
+                                <rect key="frame" x="10" y="3.6666666666666572" width="31.333333333333314" height="14.333333333333343"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="9kA-SM-u2G" secondAttribute="width" constant="20" id="Io7-i3-EIE"/>
+                            <constraint firstAttribute="height" constant="20" id="da5-bW-Lq9"/>
+                            <constraint firstItem="9kA-SM-u2G" firstAttribute="centerY" secondItem="H2u-KX-1Mj" secondAttribute="centerY" id="nml-LW-Rjn"/>
+                            <constraint firstItem="9kA-SM-u2G" firstAttribute="centerX" secondItem="H2u-KX-1Mj" secondAttribute="centerX" id="y0r-tL-PtR"/>
+                        </constraints>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vk0-MZ-T1Q">
+                        <rect key="frame" x="277" y="12" width="67" height="32"/>
+                        <color key="backgroundColor" red="0.16078431372549018" green="0.5607843137254902" blue="0.76078431372549016" alpha="0.30693493150684931" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="67" id="dR1-tq-i7E"/>
+                            <constraint firstAttribute="height" constant="32" id="eWw-pu-7XK"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
+                        <state key="normal" title="Ligar">
+                            <color key="titleColor" red="0.16078431372549018" green="0.5607843137254902" blue="0.76078431372549016" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="didTapCallButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="MyU-eh-2r0"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BpN-Yx-sMg">
+                        <rect key="frame" x="16" y="100.33333333333333" width="29" height="14.333333333333343"/>
+                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                        <color key="textColor" red="0.31764705882352939" green="0.31764705882352939" blue="0.31764705882352939" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="H2u-KX-1Mj" secondAttribute="trailing" constant="8" id="AdT-8l-tnN"/>
+                    <constraint firstItem="xEL-cy-DAI" firstAttribute="leading" secondItem="vk0-MZ-T1Q" secondAttribute="trailing" constant="30" id="H7W-Ao-7KS"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="BpN-Yx-sMg" secondAttribute="bottom" constant="8" id="OF7-tb-0tQ"/>
+                    <constraint firstItem="vk0-MZ-T1Q" firstAttribute="centerY" secondItem="xEL-cy-DAI" secondAttribute="centerY" id="OIn-Ub-emt"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="xEL-cy-DAI" secondAttribute="trailing" constant="8" id="Uyg-Hx-1lg"/>
+                    <constraint firstItem="BpN-Yx-sMg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="VDu-U8-ML5"/>
+                    <constraint firstItem="vk0-MZ-T1Q" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="TMl-Td-3IO" secondAttribute="trailing" constant="30" id="cUk-Ba-Py4"/>
+                    <constraint firstItem="TMl-Td-3IO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="gAI-Uz-c0C"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="H2u-KX-1Mj" secondAttribute="bottom" constant="8" id="kYE-8d-mb0"/>
+                    <constraint firstItem="TMl-Td-3IO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="qJO-fe-Of5"/>
+                    <constraint firstItem="xEL-cy-DAI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="xd9-al-Ve0"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="addressLabel" destination="BpN-Yx-sMg" id="Oc0-8O-sQ9"/>
+                <outlet property="callButton" destination="vk0-MZ-T1Q" id="0zo-AR-NV6"/>
+                <outlet property="distanceLabel" destination="9kA-SM-u2G" id="dHF-bX-WLI"/>
+                <outlet property="distanceView" destination="H2u-KX-1Mj" id="za5-KA-uaQ"/>
+                <outlet property="favoriteButton" destination="xEL-cy-DAI" id="GUI-nd-Vga"/>
+                <outlet property="nameLabel" destination="TMl-Td-3IO" id="EFb-Rn-pKE"/>
+            </connections>
+            <point key="canvasLocation" x="-22" y="49.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="heartIconImported" width="24" height="24"/>
+    </resources>
+</document>

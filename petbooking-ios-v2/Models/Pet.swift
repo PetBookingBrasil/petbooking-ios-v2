@@ -19,7 +19,7 @@ class Pet: MTLModel, MTLJSONSerializing {
 	dynamic var photoUrl = ""
 	dynamic var photoMediumUrl = ""
 	dynamic var photoThumbUrl = ""
-	dynamic var breedId = ""
+	dynamic var breedId = 0
 	dynamic var mood = ""
 	dynamic var size = ""
 	dynamic var coatSize = ""
@@ -30,10 +30,16 @@ class Pet: MTLModel, MTLJSONSerializing {
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
 		return [
 			"id": "id",
-			"type": "type",
 			"name": "attributes.name",
 			"breedName": "attributes.breed_name",
+			"breedId": "attributes.breed_id",
+			"coatSize": "attributes.coat_type",
+			"mood": "attributes.mood",
+			"size": "attributes.size",
+			"type": "attributes.kind",
 			"gender": "attributes.gender",
+			"petDescription": "attributes.description",
+			"birthday": "attributes.birthday",
 			"photoUrl": "attributes.photo.url",
 			"photoMediumUrl": "attributes.photo.medium.url",
 			"photoThumbUrl": "attributes.photo.thumb.url"

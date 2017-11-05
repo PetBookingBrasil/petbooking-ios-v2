@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeBusinessViewController" customModule="petbooking_ios_v2" customModuleProvider="target">
+            <connections>
+                <outlet property="containerView" destination="AbZ-qv-hsK" id="brH-dx-cSH"/>
+                <outlet property="scrollView" destination="fqd-nd-csJ" id="XSl-KM-Ret"/>
+                <outlet property="segmentioView" destination="j4I-1M-knY" id="30m-WR-Stv"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AbZ-qv-hsK" userLabel="Container">
+                    <rect key="frame" x="0.0" y="60" width="375" height="607"/>
+                    <subviews>
+                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqd-nd-csJ">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="607"/>
+                        </scrollView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="fqd-nd-csJ" secondAttribute="trailing" id="69l-Rj-iaA"/>
+                        <constraint firstAttribute="bottom" secondItem="fqd-nd-csJ" secondAttribute="bottom" id="On1-86-2kU"/>
+                        <constraint firstItem="fqd-nd-csJ" firstAttribute="top" secondItem="AbZ-qv-hsK" secondAttribute="top" id="afe-g2-vOm"/>
+                        <constraint firstItem="fqd-nd-csJ" firstAttribute="leading" secondItem="AbZ-qv-hsK" secondAttribute="leading" id="eOr-pF-ule"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j4I-1M-knY" customClass="Segmentio" customModule="petbooking_ios_v2">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="BQT-bO-M5G"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="opd-sp-U6C"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="j4I-1M-knY" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Idi-LP-Jw7"/>
+                <constraint firstAttribute="trailing" secondItem="j4I-1M-knY" secondAttribute="trailing" id="P2L-Pk-UbJ"/>
+                <constraint firstAttribute="bottom" secondItem="AbZ-qv-hsK" secondAttribute="bottom" id="RfM-1t-6ys"/>
+                <constraint firstItem="j4I-1M-knY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="XWG-TU-uIv"/>
+                <constraint firstItem="AbZ-qv-hsK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="g36-1f-Q8n"/>
+                <constraint firstItem="AbZ-qv-hsK" firstAttribute="top" secondItem="j4I-1M-knY" secondAttribute="bottom" id="rbt-kj-K3F"/>
+                <constraint firstAttribute="trailing" secondItem="AbZ-qv-hsK" secondAttribute="trailing" id="w9T-4U-IFo"/>
+            </constraints>
+        </view>
+    </objects>
+</document>
