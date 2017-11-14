@@ -10,9 +10,15 @@
 
 import UIKit
 import MapKit
+import RateView
 
-class BusinessInformationViewController: UIViewController, BusinessInformationViewProtocol {
+class BusinessInformationViewController: ExpandableTableViewController, BusinessInformationViewProtocol {
 	
+	@IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
+	@IBOutlet weak var rateLabel: UILabel!
+	@IBOutlet weak var rateCountLabel: UILabel!
+	@IBOutlet weak var rateView: RateView!
+	@IBOutlet weak var tableView: ExpandableTableView!
 	@IBOutlet weak var webviewHeightConstraint: NSLayoutConstraint!
 	
 	@IBOutlet weak var contactViewHeightConstraint: NSLayoutConstraint!
@@ -38,6 +44,7 @@ class BusinessInformationViewController: UIViewController, BusinessInformationVi
 	@IBOutlet weak var socialNetworksCollectionView: UICollectionView!
 	
 	var business:Business! = Business()
+	var reviewList:ReviewList = ReviewList()
 	
 	var socialNetworks:[SocialNetworkEnum] = [SocialNetworkEnum]()
 	
@@ -51,6 +58,7 @@ class BusinessInformationViewController: UIViewController, BusinessInformationVi
 			businessImageView.pin_setImage(from: url)
 		}
 		
+		
 		businessNameLabel.text = business.name
 		descriptionLabel.text = business.businessDescription
 		phoneNumberLabel.text = business.phone
@@ -60,6 +68,20 @@ class BusinessInformationViewController: UIViewController, BusinessInformationVi
 		distanceView.setBorder(width: 1, color: .red)
 		websiteLabel.text = business.website
 		addressLabel.text = "\(business.street), \(business.streetNumber), \(business.neighborhood)"
+		
+		rateView.starFillColor = UIColor(hex: "F2C94C")
+		rateView.starFillMode = .init(1)
+		rateView.starSize = 16
+		rateView.rating = Float(business.rating)
+		rateLabel.text = "\(business.rating)"
+		rateCountLabel.round()
+		rateCountLabel.setBorder(width: 1, color: UIColor(hex: "BFBFBF"))
+		rateCountLabel.text = "\(business.ratingCount)"
+		
+		expandableTableView.expandableDelegate = self
+		expandableTableView.register(UINib(nibName: "ReviewsHeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "ReviewsHeaderTableViewCell")
+		expandableTableView.register(UINib(nibName: "ReviewCommentSubRowTableViewCell", bundle: nil), forCellReuseIdentifier: "ReviewCommentSubRowTableViewCell")
+		
 		
 		let coordinateRegion = MKCoordinateRegionMakeWithDistance(business.location, 1000, 1000)
 		
@@ -107,6 +129,20 @@ class BusinessInformationViewController: UIViewController, BusinessInformationVi
 		
 		socialNetworksCollectionView.reloadData()
 		
+	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		
+		PetbookingAPI.sharedInstance.getBusinessReviews(business: business) { (reviewList, message) in
+			
+			guard let reviewList = reviewList else {
+				return
+			}
+			self.reviewList = reviewList
+			self.tableViewHeightConstraint.constant = CGFloat((self.reviewList.reviews.count + 1) * 60)
+			self.expandableTableView.reloadData()
+		}
 	}
 	
 	override func viewDidLayoutSubviews() {
@@ -260,3 +296,82 @@ extension BusinessInformationViewController: UICollectionViewDelegate, UICollect
 	}
 	
 }
+
+extension BusinessInformationViewController: ExpandableTableViewDelegate {
+	
+	
+	// Rows
+	func expandableTableView(_ expandableTableView: ExpandableTableView, numberOfRowsInSection section: Int) -> Int {
+		return reviewList.reviews.count
+	}
+	func expandableTableView(_ expandableTableView: ExpandableTableView, cellForRowAtExpandableIndexPath expandableIndexPath: ExpandableIndexPath) -> UITableViewCell {
+		
+		let cell = expandableTableView.dequeueReusableCellWithIdentifier("ReviewsHeaderTableViewCell", forIndexPath: expandableIndexPath) as!ReviewsHeaderTableViewCell
+		
+		let review = reviewList.reviews[expandableIndexPath.row]
+		
+		PetbookingAPI.sharedInstance.getUserInfo(userId: review.userId) { (user, message) in
+			
+			guard let user = user else {
+				return
+			}
+			cell.nameLabel.text = user.name
+			
+			if let url = URL(string: user.avatarUrlThumb) {
+				cell.profileImageView.pin_setImage(from: url)
+			}
+		}
+		
+		cell.rateView.rating = Float(review.businessRating)
+		
+		return cell
+	}
+	
+	func expandableTableView(_ expandableTableView: ExpandableTableView, heightForRowAtExpandableIndexPath expandableIndexPath: ExpandableIndexPath) -> CGFloat {
+		
+
+		
+		return 60
+	}
+	func expandableTableView(_ expandableTableView: ExpandableTableView, estimatedHeightForRowAtExpandableIndexPath expandableIndexPath: ExpandableIndexPath) -> CGFloat {
+		return 50
+	}
+	func expandableTableView(_ expandableTableView: ExpandableTableView, didSelectRowAtExpandableIndexPath expandableIndexPath: ExpandableIndexPath) {
+		
+	}
+	
+	// Subrows
+	func expandableTableView(_ expandableTableView: ExpandableTableView, numberOfSubRowsInRowAtExpandableIndexPath expandableIndexPath: ExpandableIndexPath) -> Int {
+		return 1
+	}
+	func expandableTableView(_ expandableTableView: ExpandableTableView, subCellForRowAtExpandableIndexPath expandableIndexPath: ExpandableIndexPath) -> UITableViewCell {
+
+		let cell = expandableTableView.dequeueReusableCellWithIdentifier("ReviewCommentSubRowTableViewCell", forIndexPath: expandableIndexPath) as!ReviewCommentSubRowTableViewCell
+		
+		let review = reviewList.reviews[expandableIndexPath.row]
+		
+		cell.commentLabel.text = review.comment
+		
+		return cell
+	}
+	func expandableTableView(_ expandableTableView: ExpandableTableView, heightForSubRowAtExpandableIndexPath expandableIndexPath: ExpandableIndexPath) -> CGFloat {
+		
+		return 60
+	}
+	
+	func expandableTableView(_ expandableTableView: ExpandableTableView, estimatedHeightForSubRowAtExpandableIndexPath expandableIndexPath: ExpandableIndexPath) -> CGFloat {
+		return 60
+	}
+	func expandableTableView(_ expandableTableView: ExpandableTableView, didSelectSubRowAtExpandableIndexPath expandableIndexPath: ExpandableIndexPath) {
+		
+	}
+	
+	func showContent(indexPath: IndexPath) {
+		unexpandAllCells()
+		
+		tableView(expandableTableView, didSelectRowAt: indexPath)
+		
+	}
+	
+}
+

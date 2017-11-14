@@ -175,6 +175,8 @@
 		4168AA581EB794D5001E2D6D /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4168AA571EB794D5001E2D6D /* SessionManager.swift */; };
 		4168AA5C1EB80A24001E2D6D /* ErrorRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4168AA5B1EB80A24001E2D6D /* ErrorRest.swift */; };
 		4168AA5E1EB8181B001E2D6D /* FacebookGraphModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4168AA5D1EB8181B001E2D6D /* FacebookGraphModel.swift */; };
+		4168DFE91FAFE4CE00111FB3 /* ReviewsHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4168DFE71FAFE4CE00111FB3 /* ReviewsHeaderTableViewCell.swift */; };
+		4168DFEA1FAFE4CE00111FB3 /* ReviewsHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4168DFE81FAFE4CE00111FB3 /* ReviewsHeaderTableViewCell.xib */; };
 		417969671F69676700C47936 /* BadgeViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417969541F69676700C47936 /* BadgeViewPresenter.swift */; };
 		417969681F69676700C47936 /* BadgeWithCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417969561F69676700C47936 /* BadgeWithCounterView.swift */; };
 		417969691F69676700C47936 /* BadgeWithCounterViewBigSized.xib in Resources */ = {isa = PBXBuildFile; fileRef = 417969571F69676700C47936 /* BadgeWithCounterViewBigSized.xib */; };
@@ -219,6 +221,9 @@
 		419C89281F33A8BB00BDBE8E /* CartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 419C89221F33A8BB00BDBE8E /* CartViewController.xib */; };
 		419C892B1F33A95C00BDBE8E /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419C89291F33A95C00BDBE8E /* CartTableViewCell.swift */; };
 		419C892C1F33A95C00BDBE8E /* CartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 419C892A1F33A95C00BDBE8E /* CartTableViewCell.xib */; };
+		419E95801FBB1616008E1D10 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419E957F1FBB1616008E1D10 /* Review.swift */; };
+		419E95831FBB223B008E1D10 /* ReviewCommentSubRowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419E95811FBB223B008E1D10 /* ReviewCommentSubRowTableViewCell.swift */; };
+		419E95841FBB223B008E1D10 /* ReviewCommentSubRowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 419E95821FBB223B008E1D10 /* ReviewCommentSubRowTableViewCell.xib */; };
 		419F2B3B1FA8D07F0097C9A7 /* SelectDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F2B391FA8D07F0097C9A7 /* SelectDateTableViewCell.swift */; };
 		419F2B3C1FA8D07F0097C9A7 /* SelectDateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 419F2B3A1FA8D07F0097C9A7 /* SelectDateTableViewCell.xib */; };
 		419F2B3F1FA915A50097C9A7 /* TimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F2B3D1FA915A50097C9A7 /* TimeTableViewCell.swift */; };
@@ -486,6 +491,8 @@
 		4168AA571EB794D5001E2D6D /* SessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		4168AA5B1EB80A24001E2D6D /* ErrorRest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorRest.swift; sourceTree = "<group>"; };
 		4168AA5D1EB8181B001E2D6D /* FacebookGraphModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookGraphModel.swift; sourceTree = "<group>"; };
+		4168DFE71FAFE4CE00111FB3 /* ReviewsHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		4168DFE81FAFE4CE00111FB3 /* ReviewsHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewsHeaderTableViewCell.xib; sourceTree = "<group>"; };
 		417969511F69676700C47936 /* Segmentio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Segmentio.h; sourceTree = "<group>"; };
 		417969541F69676700C47936 /* BadgeViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeViewPresenter.swift; sourceTree = "<group>"; };
 		417969561F69676700C47936 /* BadgeWithCounterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeWithCounterView.swift; sourceTree = "<group>"; };
@@ -531,6 +538,9 @@
 		419C89221F33A8BB00BDBE8E /* CartViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CartViewController.xib; sourceTree = "<group>"; };
 		419C89291F33A95C00BDBE8E /* CartTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
 		419C892A1F33A95C00BDBE8E /* CartTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CartTableViewCell.xib; sourceTree = "<group>"; };
+		419E957F1FBB1616008E1D10 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		419E95811FBB223B008E1D10 /* ReviewCommentSubRowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCommentSubRowTableViewCell.swift; sourceTree = "<group>"; };
+		419E95821FBB223B008E1D10 /* ReviewCommentSubRowTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewCommentSubRowTableViewCell.xib; sourceTree = "<group>"; };
 		419F2B391FA8D07F0097C9A7 /* SelectDateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDateTableViewCell.swift; sourceTree = "<group>"; };
 		419F2B3A1FA8D07F0097C9A7 /* SelectDateTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectDateTableViewCell.xib; sourceTree = "<group>"; };
 		419F2B3D1FA915A50097C9A7 /* TimeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableViewCell.swift; sourceTree = "<group>"; };
@@ -642,6 +652,10 @@
 				4113B2C71F3414CB007DC89F /* BusinessInformationViewController.xib */,
 				41F1A04B1F3D4F1D00CBC32D /* SocialNetworkCollectionViewCell.swift */,
 				41F1A04C1F3D4F1D00CBC32D /* SocialNetworkCollectionViewCell.xib */,
+				4168DFE71FAFE4CE00111FB3 /* ReviewsHeaderTableViewCell.swift */,
+				4168DFE81FAFE4CE00111FB3 /* ReviewsHeaderTableViewCell.xib */,
+				419E95811FBB223B008E1D10 /* ReviewCommentSubRowTableViewCell.swift */,
+				419E95821FBB223B008E1D10 /* ReviewCommentSubRowTableViewCell.xib */,
 			);
 			path = BusinessInformation;
 			sourceTree = "<group>";
@@ -981,6 +995,7 @@
 				4148629D1F2FE92F00F210D8 /* Professional.swift */,
 				419C891B1F33A23800BDBE8E /* Cart.swift */,
 				411C84BB1F3A945B008C6E0A /* ScheduledService.swift */,
+				419E957F1FBB1616008E1D10 /* Review.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1412,6 +1427,7 @@
 				419F2B3C1FA8D07F0097C9A7 /* SelectDateTableViewCell.xib in Resources */,
 				410AA96F1FA6A76C00A90377 /* SelectCategoryTableViewCell.xib in Resources */,
 				419C89081F3162FD00BDBE8E /* ServiceTableHeaderView.xib in Resources */,
+				4168DFEA1FAFE4CE00111FB3 /* ReviewsHeaderTableViewCell.xib in Resources */,
 				419F2B401FA915A50097C9A7 /* TimeTableViewCell.xib in Resources */,
 				4149E9981EFF0D0100D6C44B /* BusinessTableViewCell.xib in Resources */,
 				4149E97C1EF9628100D6C44B /* BusinessListViewControllerViewController.xib in Resources */,
@@ -1445,6 +1461,7 @@
 				41AAB4F71EF1F9AF00E52857 /* HomeContentViewControllerViewController.xib in Resources */,
 				411B4E611F3E567000B9244B /* CategoryCollectionViewCell.xib in Resources */,
 				4120ED3B1EB529FE009D35B0 /* SignupViewController.xib in Resources */,
+				419E95841FBB223B008E1D10 /* ReviewCommentSubRowTableViewCell.xib in Resources */,
 				4160D8A81F66AB81005D361B /* LICENSE.txt in Resources */,
 				410AA9671FA69AC700A90377 /* ServiceRowTableViewCell.xib in Resources */,
 				4179696A1F69676700C47936 /* BadgeWithCounterViewStandardSized.xib in Resources */,
@@ -1516,6 +1533,7 @@
 				"${BUILT_PRODUCTS_DIR}/PINCache/PINCache.framework",
 				"${BUILT_PRODUCTS_DIR}/PINRemoteImage/PINRemoteImage.framework",
 				"${BUILT_PRODUCTS_DIR}/Pageboy/Pageboy.framework",
+				"${BUILT_PRODUCTS_DIR}/RateView/RateView.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
@@ -1538,6 +1556,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINCache.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINRemoteImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pageboy.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RateView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
@@ -1599,6 +1618,7 @@
 				410AA9761FA7751900A90377 /* SelectProfessionalTableViewCell.swift in Sources */,
 				4168AA521EB6A828001E2D6D /* UserManager.swift in Sources */,
 				413715931EBEB3B400258C6F /* MIBlurPopup.swift in Sources */,
+				419E95831FBB223B008E1D10 /* ReviewCommentSubRowTableViewCell.swift in Sources */,
 				4168AA541EB6BB56001E2D6D /* User.swift in Sources */,
 				4120ED191EB38650009D35B0 /* LoginPresenter.swift in Sources */,
 				4137158F1EBEAFFA00258C6F /* Device.swift in Sources */,
@@ -1614,6 +1634,7 @@
 				4129D9DA1ED85C3D0067EDC3 /* UIImageViewExtension.swift in Sources */,
 				413D9FAA1F391909007ABBEE /* BussinessAnnotation.swift in Sources */,
 				411C84B71F3A8EF0008C6E0A /* AgendaProtocols.swift in Sources */,
+				419E95801FBB1616008E1D10 /* Review.swift in Sources */,
 				415F73D61EBAA033000D9B14 /* ViaCepAddress.swift in Sources */,
 				419C89191F33A18700BDBE8E /* CartWebViewController.swift in Sources */,
 				41F1A04D1F3D4F1D00CBC32D /* SocialNetworkCollectionViewCell.swift in Sources */,
@@ -1757,6 +1778,7 @@
 				4149E96F1EF8416400D6C44B /* UIFontExtension.swift in Sources */,
 				41D86F7D1F266D7A0038ADA8 /* BusinessServicesPresenter.swift in Sources */,
 				4120ED1B1EB38650009D35B0 /* LoginRouter.swift in Sources */,
+				4168DFE91FAFE4CE00111FB3 /* ReviewsHeaderTableViewCell.swift in Sources */,
 				4120ED021EB0DE9F009D35B0 /* PresentationProtocols.swift in Sources */,
 				41AAB4F61EF1F9AF00E52857 /* HomeContentViewControllerViewController.swift in Sources */,
 				418DAA2E1ECE7EAE006265CF /* SideMenuViewController.swift in Sources */,

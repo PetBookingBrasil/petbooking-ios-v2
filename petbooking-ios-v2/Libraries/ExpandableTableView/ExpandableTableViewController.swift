@@ -308,7 +308,10 @@ open class ExpandableTableViewController: UIViewController, UITableViewDelegate,
     }
 
     // MARK: - Table view delegate
-    
+	
+	public func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+		return true
+	}
      open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let expandableIndexPath = expandableIndexPathForIndexPath(indexPath)
         
