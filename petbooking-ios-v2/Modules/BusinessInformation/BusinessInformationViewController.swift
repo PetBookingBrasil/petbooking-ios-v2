@@ -71,7 +71,7 @@ class BusinessInformationViewController: ExpandableTableViewController, Business
 		
 		rateView.starFillColor = UIColor(hex: "F2C94C")
 		rateView.starFillMode = .init(1)
-		rateView.starSize = 16
+		rateView.starSize = 13
 		rateView.rating = Float(business.rating)
 		rateLabel.text = "\(business.rating)"
 		rateCountLabel.round()

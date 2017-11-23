@@ -21,7 +21,7 @@ class ReviewsHeaderTableViewCell: UITableViewCell {
 		profileImageView.round()
 		rateView.starFillColor = UIColor(hex: "F2C94C")
 		rateView.starFillMode = .init(1)
-		rateView.starSize = 16
+		rateView.starSize = 13
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
