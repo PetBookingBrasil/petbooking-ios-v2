@@ -31,6 +31,7 @@ class BusinessServicesViewController: ExpandableTableViewController, BusinessSer
 	var selectedSubServices = [SubService]()
 	var professionalList:ProfessionalList! = ProfessionalList()
 	var selectedProfessional:Professional = Professional()
+	var currentIndexPath: ExpandableIndexPath = ExpandableIndexPath(forSection: 0, forRow: 0, forSubRow: 0)
 	
 	// Delegates
 	weak var selectPetDelegate:BusinessServicesViewControllerDelegate?
@@ -304,6 +305,7 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
 	}
 	func expandableTableView(_ expandableTableView: ExpandableTableView, subCellForRowAtExpandableIndexPath expandableIndexPath: ExpandableIndexPath) -> UITableViewCell {
 
+		currentIndexPath = expandableIndexPath
 		switch expandableIndexPath.row {
 		case 0:
 			let cell = expandableTableView.dequeueReusableCellWithIdentifier("SelectPetTableViewCell", forIndexPath: expandableIndexPath) as!SelectPetTableViewCell
@@ -387,9 +389,16 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
 	}
 	
 	func showContent(indexPath: IndexPath) {
-		unexpandAllCells()
 		
-		tableView(expandableTableView, didSelectRowAt: indexPath)
+		if indexPath.row != currentIndexPath.row {
+			unexpandAllCells()
+			tableView(expandableTableView, didSelectRowAt: indexPath)
+		} else {
+			tableView(expandableTableView, didSelectRowAt: indexPath)
+			let nextIndexPath = IndexPath(row: indexPath.row + 1, section: indexPath.section)
+			tableView(expandableTableView, didSelectRowAt: nextIndexPath)
+		}
+		
 		
 	}
 	
