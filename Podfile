@@ -24,5 +24,6 @@ target 'petbooking-ios-v2' do
 	pod 'BEMCheckBox'
 	pod 'DZNEmptyDataSet'
 	pod 'RateView'
+	pod 'AKNumericFormatter'
 
 end

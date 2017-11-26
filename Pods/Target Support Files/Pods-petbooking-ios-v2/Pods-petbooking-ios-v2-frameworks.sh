@@ -103,6 +103,7 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/AKMaskField/AKMaskField.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/AKNumericFormatter/AKNumericFormatter.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ALLoadingView/ALLoadingView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/BEMCheckBox/BEMCheckBox.framework"
@@ -125,6 +126,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/AKMaskField/AKMaskField.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/AKNumericFormatter/AKNumericFormatter.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ALLoadingView/ALLoadingView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/BEMCheckBox/BEMCheckBox.framework"

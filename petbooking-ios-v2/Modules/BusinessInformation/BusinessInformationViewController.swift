@@ -11,6 +11,7 @@
 import UIKit
 import MapKit
 import RateView
+import AKNumericFormatter
 
 class BusinessInformationViewController: ExpandableTableViewController, BusinessInformationViewProtocol {
 	
@@ -61,7 +62,15 @@ class BusinessInformationViewController: ExpandableTableViewController, Business
 		
 		businessNameLabel.text = business.name
 		descriptionLabel.text = business.businessDescription
-		phoneNumberLabel.text = business.phone
+		
+		var phoneMask = "(**) ****-****"
+		
+		if business.phone.count == 11 {
+			phoneMask = "(**) *****-****"
+		}
+		
+		let phoneFormatted = AKNumericFormatter.formatString(business.phone, usingMask: phoneMask, placeholderCharacter: "*".utf16.first!)
+		phoneNumberLabel.text = phoneFormatted
 		distanceLabel.text = "\(business.distance)km"
 		distanceLabel.sizeToFit()
 		distanceView.round()
