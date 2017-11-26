@@ -45,7 +45,7 @@ class AddPetViewControllerInteractor: AddPetViewControllerInteractorProtocol {
 }
 
 enum PetPickerType {
-	case gender, petType, petSize, breed, coat, temper
+	case gender, petType, petSize, breed, coat, temper, coatColor
 }
 
 enum PetViewType {

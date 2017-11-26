@@ -62,6 +62,7 @@
 
 "pet_type_dog" = "Cão";
 "pet_type_cat" = "Gato";
+"pet_type_pig" = "Porco";
 
 "pet_gender_male" = "Macho";
 "pet_gender_female" = "Fêmea";
@@ -75,6 +76,16 @@
 "pet_coat_size_medium_coat" = "Média";
 "pet_coat_size_long_coat" = "Longa";
 
+"pet_coat_color_0" = "Amarelo";
+"pet_coat_color_1" = "Azul";
+"pet_coat_color_2" = "Branco";
+"pet_coat_color_3" = "Cinza";
+"pet_coat_color_4" = "Chocolate";
+"pet_coat_color_5" = "Creme";
+"pet_coat_color_6" = "Dourado";
+"pet_coat_color_7" = "Prateado";
+"pet_coat_color_8" = "Preto";
+"pet_coat_color_9" = "Vermelho";
 
 "pet_mood_calm" = "Tranquilo";
 "pet_mood_agitated" = "Agitado";

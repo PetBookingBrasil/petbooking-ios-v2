@@ -23,6 +23,7 @@ class Pet: MTLModel, MTLJSONSerializing {
 	dynamic var mood = ""
 	dynamic var size = ""
 	dynamic var coatSize = ""
+	dynamic var coatColor = -1
 	dynamic var birthday = ""
 	dynamic var petDescription = ""
 	
@@ -37,6 +38,7 @@ class Pet: MTLModel, MTLJSONSerializing {
 			"mood": "attributes.mood",
 			"size": "attributes.size",
 			"type": "attributes.kind",
+			"coatColor": "attributes.coat_colors",
 			"gender": "attributes.gender",
 			"petDescription": "attributes.description",
 			"birthday": "attributes.birthday",
@@ -44,6 +46,24 @@ class Pet: MTLModel, MTLJSONSerializing {
 			"photoMediumUrl": "attributes.photo.medium.url",
 			"photoThumbUrl": "attributes.photo.thumb.url"
 		]
+	}
+	
+	class func coatColorJSONTransformer() -> ValueTransformer {
+		
+		let _forwardBlock: MTLValueTransformerBlock? = { (value, success, error) in
+			
+			guard let colors = value as? [Int] else {
+				return -1
+			}
+			
+			guard let firstColor = colors.first else {
+				return -1
+			}
+			
+			return firstColor
+		}
+		
+		return MTLValueTransformer(usingForwardBlock: _forwardBlock)
 	}
 	
 	
@@ -69,6 +89,7 @@ class PetList: MTLModel, MTLJSONSerializing {
 enum PetTypeEnum:String {
 	case dog = "dog"
 	case cat = "cat"
+	case pig = "pig"
 }
 
 enum PetGenderEnum:String {
@@ -87,6 +108,19 @@ enum PetCoatEnum:String {
 	case short = "short_coat"
 	case medium = "medium_coat"
 	case long = "long_coat"
+}
+
+enum PetCoatColorEnum:Int {
+	case yellow = 0
+	case blue = 1
+	case white = 2
+	case gray = 3
+	case chocolate = 4
+	case cream = 5
+	case gold = 6
+	case silver = 7
+	case black = 8
+	case red = 9
 }
 
 enum PetMoodEnum:String {

@@ -649,7 +649,7 @@ extension PetbookingAPI {
 			self.auth_headers.updateValue("Token token=\"\(authToken)\"", forKey: "X-Petbooking-Session-Token")
 			
 			let parameters: Parameters = [
-				"data": ["type":"pets", "attributes":["size":pet.size, "breed_id":pet.breedId, "user_id":userId, "name":pet.name, "gender":pet.gender, "mood":pet.mood, "description":pet.petDescription, "birth_date":pet.birthday, "coat_type":pet.coatSize, "photo":pet.photoUrl]]
+				"data": ["type":"pets", "attributes":["size":pet.size, "breed_id":pet.breedId, "user_id":userId, "name":pet.name, "gender":pet.gender, "mood":pet.mood, "description":pet.petDescription, "birth_date":pet.birthday, "coat_type":pet.coatSize, "photo":pet.photoUrl, "coat_colors":[pet.coatColor]]]
 				
 			]
 			
@@ -715,7 +715,7 @@ extension PetbookingAPI {
 			self.auth_headers.updateValue("Token token=\"\(authToken)\"", forKey: "X-Petbooking-Session-Token")
 			
 			let parameters: Parameters = [
-				"data": ["type":"pets", "id":pet.id, "attributes":["size":pet.size, "breed_id":pet.breedId, "name":pet.name, "gender":pet.gender, "mood":pet.mood, "description":pet.petDescription, "birth_date":pet.birthday, "coat_type":pet.coatSize, "photo":pet.photoUrl]]
+				"data": ["type":"pets", "id":pet.id, "attributes":["size":pet.size, "breed_id":pet.breedId, "name":pet.name, "gender":pet.gender, "mood":pet.mood, "description":pet.petDescription, "birth_date":pet.birthday, "coat_type":pet.coatSize, "photo":pet.photoUrl, "coat_colors":[pet.coatColor]]]
 				
 			]
 			
