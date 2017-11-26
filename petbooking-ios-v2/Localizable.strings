@@ -57,7 +57,8 @@
 
 "add_pet_title" = "Preencha os dados do pet";
 "edit_pet_title" = "Editando seu pet";
-"remove_pet" = "Remover pet";
+"remove_pet" = "Remover";
+"save_pet" = "Salvar";
 
 "pet_type_dog" = "Cão";
 "pet_type_cat" = "Gato";

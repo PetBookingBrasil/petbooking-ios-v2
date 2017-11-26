@@ -154,13 +154,13 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 		if petViewType == .edit {
 		
 			setTitle(title: NSLocalizedString("edit_pet_title", comment: ""))
-		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Salvar", style: .plain, target: self, action: #selector(AddPetViewControllerViewController.save(_:)))
-			saveButton.backgroundColor = UIColor(hex: "FCE5EA")
-			saveButton.setTitle("remove_pet".localized, for: .normal)
-			saveButton.setTitleColor(UIColor(hex: "E4002B"), for: .normal)
+		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "remove_pet".localized, style: .plain, target: self, action: #selector(AddPetViewControllerViewController.removePet))
+			saveButton.backgroundColor = UIColor(hex: "E4002B")
+			saveButton.setTitle("save_pet".localized, for: .normal)
+			saveButton.setTitleColor(UIColor.white, for: .normal)
 			saveButton.removeTarget(nil, action: nil, for: .allEvents)
 			
-			saveButton.addTarget(self, action: #selector(AddPetViewControllerViewController.removePet), for: .touchUpInside)
+			saveButton.addTarget(self, action: #selector(AddPetViewControllerViewController.save(_:)), for: .touchUpInside)
 		}
 		hideKeyboardWhenTappedAround()
 		
