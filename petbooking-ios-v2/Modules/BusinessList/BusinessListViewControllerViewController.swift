@@ -302,7 +302,7 @@ extension BusinessListViewControllerViewController: UITableViewDelegate, UITable
 	// Make the background color show through
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 		let headerView = UIView()
-		headerView.backgroundColor = UIColor.clear
+		headerView.backgroundColor = UIColor(hex: "EDEDED")
 		return headerView
 	}
 	
