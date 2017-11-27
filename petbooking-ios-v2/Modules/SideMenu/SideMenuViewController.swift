@@ -14,6 +14,7 @@ class SideMenuViewController: UIViewController, SideMenuViewProtocol {
 	@IBOutlet weak var profileImageView: UIImageView!
 	@IBOutlet weak var nameLabel: UILabel!
 
+	@IBOutlet weak var profilePanelView: UIView!
 	@IBOutlet weak var cityLabel: UILabel!
 	@IBOutlet weak var menuTableView: UITableView!
 	
@@ -66,7 +67,10 @@ class SideMenuViewController: UIViewController, SideMenuViewProtocol {
 		presenter?.didTapProfile()
 	}
 	
-
+	@IBAction func goToProfile(_ sender: Any) {
+		presenter?.didTapProfile()
+	}
+	
 	
 	
 }
