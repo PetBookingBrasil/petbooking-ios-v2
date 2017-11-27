@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DZNEmptyDataSet
 
 class SelectDateTableViewCell: UITableViewCell {
 
@@ -46,6 +47,8 @@ class SelectDateTableViewCell: UITableViewCell {
 		
 		tableView.delegate = self
 		tableView.dataSource = self
+		tableView.emptyDataSetSource = self
+		tableView.emptyDataSetDelegate = self
 		tableView.register(UINib(nibName: "TimeTableViewCell", bundle: nil), forCellReuseIdentifier: "TimeTableViewCell")
     }
 
@@ -210,6 +213,20 @@ extension SelectDateTableViewCell: UITableViewDelegate, UITableViewDataSource {
 		
 		delegate?.setSelectedTime(service: selectedService)
 	}
+	
+}
+
+extension SelectDateTableViewCell: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+	
+	func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+		
+		
+		let attributedString = NSAttributedString(string: "Nenhum horário disponível", attributes: [NSFontAttributeName : UIFont.robotoMedium(ofSize: 14), NSForegroundColorAttributeName : UIColor(hex: "515151")])
+		
+		return attributedString
+	}
+	
+
 	
 }
 
