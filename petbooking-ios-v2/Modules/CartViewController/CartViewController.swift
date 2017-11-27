@@ -24,7 +24,12 @@ class CartViewController: UIViewController, CartViewProtocol {
 	override func viewDidLoad() {
         super.viewDidLoad()
 		
-		setBackButton()
+		let backButton = UIBarButtonItem()
+		backButton.target = self
+		backButton.action = #selector(cancelButtonPressed)
+		self.navigationItem.leftBarButtonItem = backButton
+		self.navigationItem.leftBarButtonItem?.image = UIImage(named: "addToCartIcon")
+		
 		scheduleButton.round()
 		
 		tableView.register(UINib(nibName: "CartTableViewCell", bundle: nil), forCellReuseIdentifier: "CartTableViewCell")

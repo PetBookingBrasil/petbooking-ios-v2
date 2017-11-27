@@ -9,6 +9,8 @@
 //
 
 import UIKit
+import DZNEmptyDataSet
+import ALLoadingView
 
 class BusinessSearchViewController: UIViewController, BusinessSearchViewProtocol {
 
@@ -41,8 +43,8 @@ class BusinessSearchViewController: UIViewController, BusinessSearchViewProtocol
 		tableView.register(UINib(nibName: "BusinessImportedTableViewCell", bundle: nil), forCellReuseIdentifier: "BusinessImportedTableViewCell")
 		tableView.rowHeight = UITableViewAutomaticDimension
 		tableView.estimatedRowHeight = 2000
-		//tableView.emptyDataSetSource = self
-		//tableView.emptyDataSetDelegate = self
+		tableView.emptyDataSetSource = self
+		tableView.emptyDataSetDelegate = self
 		
 		searchButton.round()
 		
@@ -77,6 +79,7 @@ class BusinessSearchViewController: UIViewController, BusinessSearchViewProtocol
 	
 	@IBAction func search(_ sender: Any) {
 		
+		ALLoadingView.manager.showLoadingView(ofType: .basic, windowMode: .fullscreen)
 		
 		let query = searchTextField.text!
 		
@@ -102,6 +105,7 @@ class BusinessSearchViewController: UIViewController, BusinessSearchViewProtocol
 		
 		PetbookingAPI.sharedInstance.getBusinessListFiltered(query: query, categoryId: selectedServiceCategory.id, page: 0) { (businessList, message) in
 			
+				ALLoadingView.manager.hideLoadingView()
 				self.title = "Buscar"
 			
 				guard let businessList = businessList else {
@@ -340,6 +344,24 @@ extension BusinessSearchViewController: UITableViewDelegate, UITableViewDataSour
 	func addToFavorites(business: Business) {
 		
 		presenter?.addToFavorites(business: business)
+		
+	}
+	
+}
+
+extension BusinessSearchViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+	
+	
+	func customView(forEmptyDataSet scrollView: UIScrollView!) -> UIView! {
+		
+		self.view.backgroundColor = .white
+		let emptyView = EmptyView.loadFromNibNamed("EmptyView") as? EmptyView
+		emptyView?.imageView.image = UIImage(named: "filterEmpty")
+		emptyView?.titleLabel.text = "Ops! Infelizmente não encontramos nenhum estabelecimento."
+		emptyView?.subtitleLabel.text = "Para facilitar o processo de pagamento, cadastre uma ou mais formas de pagamento."
+		return emptyView
+		
+		
 		
 	}
 	
