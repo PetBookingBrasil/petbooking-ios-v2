@@ -1,16 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BusinessMapListViewController" customModule="petbooking_ios_v2" customModuleProvider="target">
             <connections>
+                <outlet property="filterButton" destination="4Zh-qs-b9W" id="sqr-BV-pNY"/>
+                <outlet property="filterCollectionView" destination="bpf-Cb-y2p" id="eLV-CY-Fen"/>
+                <outlet property="filterLabel" destination="NPW-9a-Tfk" id="Rf9-0Y-Xhf"/>
+                <outlet property="filterMenuHeightConstraint" destination="unP-5G-Dbg" id="Ad7-Hr-4s8"/>
+                <outlet property="filterMenuView" destination="UFM-oc-lxt" id="RMl-FL-dfx"/>
+                <outlet property="filterPanelView" destination="wuv-3I-ewq" id="QZl-E9-mue"/>
                 <outlet property="mapView" destination="ueY-cr-C9t" id="JTX-kl-hc1"/>
                 <outlet property="tableView" destination="AON-8J-7Sf" id="08L-sp-YUZ"/>
                 <outlet property="tableViewHeightConstraint" destination="LgK-zG-5UF" id="Nlp-uM-QWb"/>
@@ -22,8 +37,38 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UFM-oc-lxt">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QDd-vL-Ba9">
+                            <rect key="frame" x="16" y="5" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="QLF-V5-lbo"/>
+                                <constraint firstAttribute="width" constant="40" id="ga8-KM-bg6"/>
+                            </constraints>
+                            <state key="normal" image="closeIcon"/>
+                            <connections>
+                                <action selector="resetFilter:" destination="-1" eventType="touchUpInside" id="lEa-je-Bl5"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NPW-9a-Tfk">
+                            <rect key="frame" x="66" y="15.5" width="39" height="19"/>
+                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.69019607839999997" green="0.0" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="QDd-vL-Ba9" firstAttribute="leading" secondItem="UFM-oc-lxt" secondAttribute="leading" constant="16" id="FUb-L3-Rsm"/>
+                        <constraint firstItem="NPW-9a-Tfk" firstAttribute="leading" secondItem="QDd-vL-Ba9" secondAttribute="trailing" constant="10" id="Z6S-so-Wp5"/>
+                        <constraint firstItem="NPW-9a-Tfk" firstAttribute="centerY" secondItem="UFM-oc-lxt" secondAttribute="centerY" id="eaM-M2-D7Q"/>
+                        <constraint firstAttribute="height" constant="50" id="unP-5G-Dbg"/>
+                        <constraint firstItem="QDd-vL-Ba9" firstAttribute="centerY" secondItem="UFM-oc-lxt" secondAttribute="centerY" id="zrR-4y-Y7j"/>
+                    </constraints>
+                </view>
                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ueY-cr-C9t">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="666"/>
+                    <rect key="frame" x="0.0" y="50" width="375" height="616"/>
                 </mapView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AON-8J-7Sf">
                     <rect key="frame" x="0.0" y="666" width="375" height="1"/>
@@ -36,18 +81,103 @@
                         <outlet property="delegate" destination="-1" id="roW-2K-iEs"/>
                     </connections>
                 </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Zm-3B-Rgh">
+                    <rect key="frame" x="293" y="586" width="72" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="72" id="MEC-2n-1fi"/>
+                        <constraint firstAttribute="height" constant="80" id="SOT-KL-8YU"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="filterButton"/>
+                    <connections>
+                        <action selector="openFilter:" destination="-1" eventType="touchUpInside" id="M0P-bP-LJe"/>
+                    </connections>
+                </button>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wuv-3I-ewq">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filtre por Categoria" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lXr-z7-wI7">
+                            <rect key="frame" x="16" y="16" width="112" height="15.5"/>
+                            <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="13"/>
+                            <color key="textColor" red="0.31764705879999999" green="0.31764705879999999" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="bpf-Cb-y2p">
+                            <rect key="frame" x="0.0" y="50" width="375" height="547"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vWz-Z4-GDP">
+                                <size key="itemSize" width="50" height="50"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                        </collectionView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Zh-qs-b9W">
+                            <rect key="frame" x="15" y="601" width="345" height="50"/>
+                            <color key="backgroundColor" red="0.89411764709999997" green="0.0" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="4Zh-qs-b9W" secondAttribute="height" multiplier="69:10" id="ESs-gU-dG5"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
+                            <state key="normal" title="Filtrar">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="filter:" destination="-1" eventType="touchUpInside" id="Vbq-xm-D5m"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FXB-q9-oYp">
+                            <rect key="frame" x="320" y="4" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="G7J-CD-TCj"/>
+                                <constraint firstAttribute="height" constant="40" id="gly-qx-SAm"/>
+                            </constraints>
+                            <state key="normal" image="closeIconDarkGray"/>
+                            <connections>
+                                <action selector="closeFilter:" destination="-1" eventType="touchUpInside" id="0gO-Ea-Wp7"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="lXr-z7-wI7" firstAttribute="leading" secondItem="wuv-3I-ewq" secondAttribute="leading" constant="16" id="1Cf-th-Vua"/>
+                        <constraint firstAttribute="bottom" secondItem="bpf-Cb-y2p" secondAttribute="bottom" constant="70" id="6ea-LI-UTb"/>
+                        <constraint firstItem="lXr-z7-wI7" firstAttribute="top" secondItem="wuv-3I-ewq" secondAttribute="top" constant="16" id="NRa-fI-nRT"/>
+                        <constraint firstAttribute="trailing" secondItem="bpf-Cb-y2p" secondAttribute="trailing" id="PpV-Jb-hCs"/>
+                        <constraint firstAttribute="trailing" secondItem="FXB-q9-oYp" secondAttribute="trailing" constant="15" id="UFh-op-eNm"/>
+                        <constraint firstItem="FXB-q9-oYp" firstAttribute="centerY" secondItem="lXr-z7-wI7" secondAttribute="centerY" id="YAf-ox-hid"/>
+                        <constraint firstItem="4Zh-qs-b9W" firstAttribute="leading" secondItem="wuv-3I-ewq" secondAttribute="leading" constant="15" id="eeC-Da-xfm"/>
+                        <constraint firstItem="bpf-Cb-y2p" firstAttribute="leading" secondItem="wuv-3I-ewq" secondAttribute="leading" id="gLv-eR-gNR"/>
+                        <constraint firstAttribute="bottom" secondItem="4Zh-qs-b9W" secondAttribute="bottom" constant="16" id="hKL-DF-hRh"/>
+                        <constraint firstAttribute="trailing" secondItem="4Zh-qs-b9W" secondAttribute="trailing" constant="15" id="hSP-vN-qbT"/>
+                        <constraint firstItem="bpf-Cb-y2p" firstAttribute="top" secondItem="wuv-3I-ewq" secondAttribute="top" constant="50" id="p12-fi-dQ3"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="ueY-cr-C9t" firstAttribute="top" secondItem="UFM-oc-lxt" secondAttribute="bottom" id="0FZ-JW-Jcq"/>
                 <constraint firstItem="AON-8J-7Sf" firstAttribute="top" secondItem="ueY-cr-C9t" secondAttribute="bottom" id="8KX-PC-IZP"/>
                 <constraint firstItem="ueY-cr-C9t" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="9CZ-O4-c3z"/>
+                <constraint firstItem="UFM-oc-lxt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="BWs-9B-nVO"/>
                 <constraint firstAttribute="trailing" secondItem="ueY-cr-C9t" secondAttribute="trailing" id="Izd-fk-dDz"/>
                 <constraint firstAttribute="trailing" secondItem="AON-8J-7Sf" secondAttribute="trailing" id="KUH-r7-1zo"/>
-                <constraint firstItem="ueY-cr-C9t" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Nag-zv-uh5"/>
                 <constraint firstItem="AON-8J-7Sf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="OsW-QX-bHx"/>
+                <constraint firstAttribute="trailing" secondItem="UFM-oc-lxt" secondAttribute="trailing" id="Q84-l8-enl"/>
+                <constraint firstItem="wuv-3I-ewq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="THi-b4-xN7"/>
+                <constraint firstItem="UFM-oc-lxt" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="TQo-tR-6io"/>
+                <constraint firstAttribute="bottom" secondItem="wuv-3I-ewq" secondAttribute="bottom" id="XTr-YN-KWH"/>
+                <constraint firstAttribute="trailing" secondItem="1Zm-3B-Rgh" secondAttribute="trailing" constant="10" id="beQ-jn-uik"/>
+                <constraint firstItem="1Zm-3B-Rgh" firstAttribute="bottom" secondItem="ueY-cr-C9t" secondAttribute="bottom" id="ddz-Dl-aiC"/>
+                <constraint firstAttribute="trailing" secondItem="wuv-3I-ewq" secondAttribute="trailing" id="i5s-XW-wBA"/>
                 <constraint firstAttribute="bottom" secondItem="AON-8J-7Sf" secondAttribute="bottom" id="my6-fI-1EX"/>
+                <constraint firstItem="wuv-3I-ewq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="sbJ-NQ-xQH"/>
             </constraints>
             <point key="canvasLocation" x="33.5" y="54.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="closeIcon" width="16" height="16"/>
+        <image name="closeIconDarkGray" width="16" height="16"/>
+        <image name="filterButton" width="72" height="80"/>
+    </resources>
 </document>

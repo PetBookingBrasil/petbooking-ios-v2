@@ -11,21 +11,30 @@
 import UIKit
 import CoreLocation
 import DZNEmptyDataSet
+import ALLoadingView
 
 class BusinessListViewControllerViewController: UIViewController, BusinessListViewControllerViewProtocol {
 	
+	@IBOutlet weak var filterMenuView: UIView!
+	@IBOutlet weak var filterMenuHeightConstraint: NSLayoutConstraint!
 	@IBOutlet weak var tableView: UITableView!
-	
+	@IBOutlet weak var filterPanelView: UIView!
+	@IBOutlet weak var filterCollectionView: UICollectionView!
+	@IBOutlet weak var filterLabel: UILabel!
+	@IBOutlet weak var filterButton: UIButton!
 	var presenter: BusinessListViewControllerPresenterProtocol?
 	var businessListType:BusinessListType?
 	var locationManager:CLLocationManager?
 	var businessList:BusinessList = BusinessList()
 	var businesses = [Business]()
+	var serviceCategoryList:ServiceCategoryList = ServiceCategoryList()
+	var selectedServiceCategory:ServiceCategory = ServiceCategory()
 	var coordinates:CLLocationCoordinate2D = CLLocationCoordinate2D()
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		filterPanelView.isHidden = true
 		
 		switch businessListType! {
 		case .favorites:
@@ -34,6 +43,12 @@ class BusinessListViewControllerViewController: UIViewController, BusinessListVi
 			title = "Favoritos"
 			break
 		case .list, .map:
+			
+			filterButton.round()
+			filterCollectionView.delegate = self
+			filterCollectionView.dataSource = self
+			filterCollectionView.register(UINib(nibName: "CategoryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CategoryCollectionViewCell")
+			
 			locationManager = CLLocationManager()
 			
 			locationManager?.delegate = self
@@ -42,6 +57,19 @@ class BusinessListViewControllerViewController: UIViewController, BusinessListVi
 			
 			// For use in foreground
 			self.locationManager?.requestWhenInUseAuthorization()
+			
+			PetbookingAPI.sharedInstance.getCategoryList { (serviceCategoryList, message) in
+				
+				
+				guard let serviceCategoryList = serviceCategoryList else {
+					return
+				}
+				
+				self.serviceCategoryList = serviceCategoryList
+				self.filterCollectionView.reloadData()
+				
+			}
+			
 			break
 			
 		}
@@ -63,10 +91,13 @@ class BusinessListViewControllerViewController: UIViewController, BusinessListVi
 			break
 		case .list, .map:
 			
-			if CLLocationManager.locationServicesEnabled() {
-				locationManager?.delegate = self
-				locationManager?.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-				locationManager?.startUpdatingLocation()
+			if selectedServiceCategory.id.isBlank {
+				
+				if CLLocationManager.locationServicesEnabled() {
+					locationManager?.delegate = self
+					locationManager?.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+					locationManager?.startUpdatingLocation()
+				}
 			}
 			break
 			
@@ -122,6 +153,77 @@ class BusinessListViewControllerViewController: UIViewController, BusinessListVi
 			}
 			self.businesses.remove(at: index)
 			self.tableView.reloadData()
+			
+		}
+		
+	}
+	
+	@IBAction func openFilter(_ sender: Any) {
+		
+		filterPanelView.isHidden = false
+		
+	}
+	
+	@IBAction func closeFilter(_ sender: Any) {
+		
+		filterPanelView.isHidden = true
+	}
+	
+	
+	@IBAction func resetFilter(_ sender: Any) {
+		filterMenuHeightConstraint.constant = 0
+		filterMenuView.isHidden = true
+		selectedServiceCategory = ServiceCategory()
+		
+		if CLLocationManager.locationServicesEnabled() {
+			locationManager?.delegate = self
+			locationManager?.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+			locationManager?.startUpdatingLocation()
+		}
+		
+	}
+	
+	@IBAction func filter(_ sender: Any) {
+		
+		ALLoadingView.manager.showLoadingView(ofType: .basic, windowMode: .fullscreen)
+		
+		
+		if selectedServiceCategory.id.isBlank {
+			return
+		}
+		
+		filterMenuView.isHidden = false
+		filterMenuHeightConstraint.constant = 50
+		var filterLabelText = ""
+		
+		if !selectedServiceCategory.id.isBlank{
+			if !filterLabelText.isEmpty {
+				filterLabelText.append(", ")
+			}
+			
+			filterLabelText.append("\(selectedServiceCategory.name)")
+		}
+		
+		filterLabel.text = filterLabelText
+		
+		
+		PetbookingAPI.sharedInstance.getBusinessListFiltered(query: "", categoryId: selectedServiceCategory.id, page: 0) { (businessList, message) in
+			
+			ALLoadingView.manager.hideLoadingView()
+			
+			guard let businessList = businessList else {
+				return
+			}
+			
+			self.businessList = businessList
+			
+			self.businesses = businessList.businesses
+			UIView.setAnimationsEnabled(false)
+			self.tableView.reloadData()
+			UIView.setAnimationsEnabled(true)
+			
+			self.filterPanelView.isHidden = true
+			
 			
 		}
 		
@@ -337,9 +439,76 @@ extension BusinessListViewControllerViewController: DZNEmptyDataSetSource, DZNEm
 			
 			return indicator
 		}
+
+	}
+	
+}
+
+extension BusinessListViewControllerViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+	
+	func numberOfSections(in collectionView: UICollectionView) -> Int {
+		
+		return 1
+	}
+	
+	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+		
+		return serviceCategoryList.categories.count
+	}
+	
+	func collectionView(_ collectionView: UICollectionView,
+						layout collectionViewLayout: UICollectionViewLayout,
+						sizeForItemAt indexPath: IndexPath) -> CGSize {
+		
+		let numberOfItemsPerRow = 2
+		let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
+		let totalSpace = flowLayout.sectionInset.left
+			+ flowLayout.sectionInset.right
+			+ (flowLayout.minimumInteritemSpacing * CGFloat(numberOfItemsPerRow - 1))
+		let size = Int((collectionView.bounds.width - totalSpace) / CGFloat(numberOfItemsPerRow))
+		
+		return CGSize(width: size, height: 60)
+	}
+	
+	func collectionView(_ collectionView: UICollectionView,
+						layout collectionViewLayout: UICollectionViewLayout,
+						minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+		return 1.0
+	}
+	
+	func collectionView(_ collectionView: UICollectionView, layout
+		collectionViewLayout: UICollectionViewLayout,
+						minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+		return 1.0
+	}
+	
+	
+	
+	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		
 		
+		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell", for: indexPath) as! CategoryCollectionViewCell
+		
+		let service = serviceCategoryList.categories[indexPath.item]
+		
+		cell.isSelected = service == selectedServiceCategory
+		if service == selectedServiceCategory {
+			collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .left)
+		}
+		
+		cell.nameLabel.text = service.name
+		cell.pictureImageView.image = UIImage(named: service.slug)
+		
+		return cell
 		
 	}
 	
+	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		
+		let service = serviceCategoryList.categories[indexPath.item]
+		
+		selectedServiceCategory = service
+		
+		
+	}
 }
