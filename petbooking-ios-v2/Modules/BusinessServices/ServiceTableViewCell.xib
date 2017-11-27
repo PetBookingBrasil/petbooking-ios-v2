@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,14 +25,14 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P1L-pF-SeK">
-                        <rect key="frame" x="56" y="23" width="157" height="18"/>
+                        <rect key="frame" x="64" y="26" width="141" height="18"/>
                         <gestureRecognizers/>
                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
                         <color key="textColor" red="0.31764705882352939" green="0.31764705882352939" blue="0.31764705882352939" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R$ 1000,00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bNF-d5-gZ2">
-                        <rect key="frame" x="221" y="24" width="80" height="16.5"/>
+                        <rect key="frame" x="213" y="27" width="80" height="16.5"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="80" id="KG2-BU-pIY"/>
                         </constraints>
@@ -41,7 +41,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TCX-Gd-1PL">
-                        <rect key="frame" x="56" y="50" width="264" height="104.5"/>
+                        <rect key="frame" x="64" y="53" width="256" height="99"/>
                         <color key="backgroundColor" red="0.92941176469999998" green="0.92941176469999998" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                         <connections>
                             <outlet property="dataSource" destination="-1" id="Q95-Id-oVc"/>
@@ -49,7 +49,7 @@
                         </connections>
                     </tableView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="joq-UF-bR2" customClass="BEMCheckBox">
-                        <rect key="frame" x="18" y="18" width="28" height="28"/>
+                        <rect key="frame" x="26" y="21" width="28" height="28"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="28" id="9sL-Tu-CwU"/>

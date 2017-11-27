@@ -370,7 +370,8 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
 			let height = qty <= 3 ? qty * 120 : 360
 			return CGFloat(height + 100)
 		case 2:
-			return 360
+			let qty = serviceList.services.count
+			return CGFloat(90 + qty * 61)
 		case 3:
 			return 265
 		case 4:

@@ -21,7 +21,6 @@ class SelectServiceTableViewCell: UITableViewCell {
 	
 	weak var delegate:SelectServiceTableViewCellDelegate?
 	
-	@IBOutlet weak var continueButton: UIButton!
 	@IBOutlet weak var tableView: UITableView!
 	@IBOutlet weak var numberLabel: UILabel!
 	@IBOutlet weak var titleLabel: UILabel!
@@ -29,7 +28,6 @@ class SelectServiceTableViewCell: UITableViewCell {
 	override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-		continueButton.round()
 		numberLabel.round()
 		numberLabel.setBorder(width: 1, color: UIColor(hex: "E4002B"))
 		
@@ -78,6 +76,15 @@ extension SelectServiceTableViewCell: UITableViewDelegate, UITableViewDataSource
 		return CGFloat(70 + headerSize + selectedService.services.count * 40)
 
 	}
+	
+	func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+		
+		if selectedService.id.isBlank {
+			return 0
+		}
+		
+		return 60
+	}
 
 
 
@@ -117,6 +124,15 @@ extension SelectServiceTableViewCell: UITableViewDelegate, UITableViewDataSource
 		return cell
 
 	}
+	
+	func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+		
+		let footerView = ServiceTableFooterView.loadFromNibNamed("ServiceTableFooterView") as! ServiceTableFooterView
+		
+		footerView.continueButton.addTarget(self, action: #selector(continueSchedule(_:)), for: .touchUpInside)
+		
+		return footerView
+	}
 
 
 
@@ -145,7 +161,6 @@ extension SelectServiceTableViewCell : ServiceTableViewDelegate {
 		if selectedService.services.count == 0 {
 			delegate?.setSelectedService(selectedService: service, selectedSubServices: selectedSubServices)
 		} else {
-			continueButton.isHidden = false
 			tableView.reloadData()
 		}
 		

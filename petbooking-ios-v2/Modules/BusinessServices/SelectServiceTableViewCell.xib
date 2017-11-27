@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,9 +13,6 @@
     <customFonts key="customFonts">
         <array key="Roboto-Light.ttf">
             <string>Roboto-Light</string>
-        </array>
-        <array key="Roboto-Medium.ttf">
-            <string>Roboto-Medium</string>
         </array>
         <array key="Roboto-Regular.ttf">
             <string>Roboto-Regular</string>
@@ -32,11 +29,11 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="V2Y-un-C9N">
-                        <rect key="frame" x="8" y="78" width="304" height="337.5"/>
+                        <rect key="frame" x="16" y="81" width="288" height="332"/>
                         <color key="backgroundColor" red="0.92941176469999998" green="0.92941176469999998" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                     </tableView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vG2-vx-eTh">
-                        <rect key="frame" x="46" y="22" width="229" height="26"/>
+                        <rect key="frame" x="46" y="25" width="229" height="26"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Serviço e adicionais" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UMZ-wS-23y">
                                 <rect key="frame" x="36" y="1.5" width="177.5" height="23.5"/>
@@ -66,37 +63,19 @@
                             <constraint firstAttribute="bottom" secondItem="gho-7r-THU" secondAttribute="bottom" id="qjg-2P-5oP"/>
                         </constraints>
                     </view>
-                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T2Q-MM-x0O">
-                        <rect key="frame" x="8.5" y="355.5" width="303" height="50"/>
-                        <color key="backgroundColor" red="0.89411764705882346" green="0.0" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="303" id="M4L-qN-XT1"/>
-                            <constraint firstAttribute="height" constant="50" id="p2j-Zs-P0C"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
-                        <state key="normal" title="Continuar Agendamento">
-                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </state>
-                        <connections>
-                            <action selector="continueSchedule:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Nex-ZT-7pK"/>
-                        </connections>
-                    </button>
                 </subviews>
                 <color key="backgroundColor" red="0.92941176469999998" green="0.92941176469999998" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
-                    <constraint firstItem="T2Q-MM-x0O" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="3Ve-jH-U5V"/>
                     <constraint firstItem="V2Y-un-C9N" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="9cV-7a-hX5"/>
                     <constraint firstAttribute="bottomMargin" secondItem="V2Y-un-C9N" secondAttribute="bottom" id="KLD-aU-hKu"/>
                     <constraint firstAttribute="trailingMargin" secondItem="V2Y-un-C9N" secondAttribute="trailing" id="MeZ-Vm-l1C"/>
                     <constraint firstItem="vG2-vx-eTh" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="bBY-El-bbg"/>
                     <constraint firstItem="V2Y-un-C9N" firstAttribute="top" secondItem="vG2-vx-eTh" secondAttribute="bottom" constant="30" id="irf-9I-u4b"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="T2Q-MM-x0O" secondAttribute="bottom" constant="10" id="kUg-vO-X65"/>
                     <constraint firstItem="vG2-vx-eTh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="14" id="uXF-J1-ZNV"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="continueButton" destination="T2Q-MM-x0O" id="yK2-qU-voF"/>
                 <outlet property="numberLabel" destination="gho-7r-THU" id="lFO-NO-56X"/>
                 <outlet property="tableView" destination="V2Y-un-C9N" id="jIV-NA-Hyq"/>
                 <outlet property="titleLabel" destination="UMZ-wS-23y" id="7aN-bS-INM"/>
