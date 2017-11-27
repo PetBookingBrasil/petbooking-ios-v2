@@ -185,9 +185,7 @@ extension BusinessListViewControllerViewController: UITableViewDelegate, UITable
 		} else {
 			return getBusinessCell(indexPath: indexPath)
 		}
-		
-		
-		
+
 	}
 	
 	func getBusinessCell(indexPath: IndexPath) -> BusinessTableViewCell {

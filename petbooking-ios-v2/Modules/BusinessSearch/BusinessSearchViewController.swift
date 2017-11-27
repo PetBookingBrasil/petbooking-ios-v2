@@ -12,34 +12,335 @@ import UIKit
 
 class BusinessSearchViewController: UIViewController, BusinessSearchViewProtocol {
 
+	@IBOutlet weak var filterLabel: UILabel!
+	@IBOutlet weak var contentPanelView: UIView!
 	@IBOutlet weak var searchTextField: UITextField!
+	@IBOutlet weak var tableView: UITableView!
 	@IBOutlet weak var categoriesCollectionView: UICollectionView!
 	@IBOutlet weak var searchButton: UIButton!
+	
+	var serviceCategoryList:ServiceCategoryList = ServiceCategoryList()
+	var selectedServiceCategory:ServiceCategory = ServiceCategory()
+	var businessList:BusinessList = BusinessList()
+	var businesses = [Business]()
 	
 	var presenter: BusinessSearchPresenterProtocol?
 
 	override func viewDidLoad() {
         super.viewDidLoad()
 		
-		categoriesCollectionView.register(UINib(nibName: "ServiceCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ServiceCollectionViewCell")
+		setBackButton()
 		
+		self.title = "Filtre sua busca"
 		
-		let cellSize = CGSize(width:Device.TheCurrentDeviceWidth/2 , height:62.5)
-		let layout = UICollectionViewFlowLayout()
-		layout.itemSize = cellSize
-		layout.scrollDirection = .horizontal
-		layout.minimumLineSpacing = 5
-		layout.minimumInteritemSpacing = 0
-		layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-		categoriesCollectionView.collectionViewLayout = layout
+		categoriesCollectionView.delegate = self
+		categoriesCollectionView.dataSource = self
+		categoriesCollectionView.register(UINib(nibName: "CategoryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CategoryCollectionViewCell")
+		
+		tableView.register(UINib(nibName: "BusinessTableViewCell", bundle: nil), forCellReuseIdentifier: "BusinessTableViewCell")
+		tableView.register(UINib(nibName: "BusinessImportedTableViewCell", bundle: nil), forCellReuseIdentifier: "BusinessImportedTableViewCell")
+		tableView.rowHeight = UITableViewAutomaticDimension
+		tableView.estimatedRowHeight = 2000
+		//tableView.emptyDataSetSource = self
+		//tableView.emptyDataSetDelegate = self
+		
+		searchButton.round()
+		
+		PetbookingAPI.sharedInstance.getCategoryList { (serviceCategoryList, message) in
+			
+			
+			guard let serviceCategoryList = serviceCategoryList else {
+				return
+			}
+			
+			self.serviceCategoryList = serviceCategoryList
+			self.categoriesCollectionView.reloadData()
+			
+		}
+		
 		
     }
-
+	
+	
+	@IBAction func close(_ sender: Any) {
+		
+		self.title = "Filtre sua busca"
+		self.contentPanelView.isHidden = true
+	}
+	
+	@IBAction func openFilter(_ sender: Any) {
+		
+		self.title = "Filtre sua busca"
+		self.contentPanelView.isHidden = true
+	}
+	
+	
 	@IBAction func search(_ sender: Any) {
 		
+		
+		let query = searchTextField.text!
+		
+		if selectedServiceCategory.id.isBlank && query.isBlank {
+			return
+		}
+		
+		var filterLabelText = ""
+		if !query.isBlank{
+			filterLabelText.append("\"\(query)\"")
+		}
+		
+		if !selectedServiceCategory.id.isBlank{
+			if !filterLabelText.isEmpty {
+				filterLabelText.append(", ")
+			}
+			
+			filterLabelText.append("\(selectedServiceCategory.name)")
+		}
+		
+		filterLabel.text = filterLabelText
+		
+		
+		PetbookingAPI.sharedInstance.getBusinessListFiltered(query: query, categoryId: selectedServiceCategory.id, page: 0) { (businessList, message) in
+			
+				self.title = "Buscar"
+			
+				guard let businessList = businessList else {
+					return
+				}
+			
+				self.businessList = businessList
+			
+				self.businesses = businessList.businesses
+				UIView.setAnimationsEnabled(false)
+				self.tableView.reloadData()
+				UIView.setAnimationsEnabled(true)
+			
+				self.contentPanelView.isHidden = false
+			
+			
+		}
+		
+	}
+	
+	
+}
+
+extension BusinessSearchViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+	
+	func numberOfSections(in collectionView: UICollectionView) -> Int {
+		
+		return 1
+	}
+	
+	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+		
+		return serviceCategoryList.categories.count
+	}
+	
+	func collectionView(_ collectionView: UICollectionView,
+						layout collectionViewLayout: UICollectionViewLayout,
+						sizeForItemAt indexPath: IndexPath) -> CGSize {
+		
+		let numberOfItemsPerRow = 2
+		let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
+		let totalSpace = flowLayout.sectionInset.left
+			+ flowLayout.sectionInset.right
+			+ (flowLayout.minimumInteritemSpacing * CGFloat(numberOfItemsPerRow - 1))
+		let size = Int((collectionView.bounds.width - totalSpace) / CGFloat(numberOfItemsPerRow))
+		
+		return CGSize(width: size, height: 60)
+	}
+	
+	func collectionView(_ collectionView: UICollectionView,
+						layout collectionViewLayout: UICollectionViewLayout,
+						minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+		return 1.0
+	}
+	
+	func collectionView(_ collectionView: UICollectionView, layout
+		collectionViewLayout: UICollectionViewLayout,
+						minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+		return 1.0
+	}
+	
+	
+	
+	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+		
+		
+		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell", for: indexPath) as! CategoryCollectionViewCell
+		
+		let service = serviceCategoryList.categories[indexPath.item]
+		
+		cell.isSelected = service == selectedServiceCategory
+		if service == selectedServiceCategory {
+			collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .left)
+		}
+		
+		cell.nameLabel.text = service.name
+		cell.pictureImageView.image = UIImage(named: service.slug)
+		
+		return cell
+		
+	}
+	
+	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		
+		let service = serviceCategoryList.categories[indexPath.item]
+		
+		selectedServiceCategory = service
+		
+		searchButton.isEnabled = true
+		searchButton.backgroundColor = UIColor(hex: "E4002B")
+		
+				
+	}
+}
+
+extension BusinessSearchViewController: UITextFieldDelegate{
+	
+
+	
+}
+
+extension BusinessSearchViewController: UITableViewDelegate, UITableViewDataSource, BusinessTableViewCellDelegate {
+	
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		
+		return 1
+	}
+	
+	
+	
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		
+		
+		let business = businesses[indexPath.section]
+		if business.imported {
+			return getImportedBusinessCell(indexPath: indexPath)
+		} else {
+			return getBusinessCell(indexPath: indexPath)
+		}
+		
+	}
+	
+	func getBusinessCell(indexPath: IndexPath) -> BusinessTableViewCell {
+		
+		let cell = tableView.dequeueReusableCell(withIdentifier: "BusinessTableViewCell") as! BusinessTableViewCell
+		
+		let business = businesses[indexPath.section]
+		cell.delegate = self
+		
+		cell.business = business
+		cell.setFavorite(isFavorite: business.isFavorited())
+		cell.nameLabel.text = business.name
+		cell.addressLabel.text = "\(business.street), \(business.streetNumber), \(business.neighborhood)"
+		cell.distanceLabel.text = "\(business.distance)km"
+		cell.distanceLabel.sizeToFit()
+		cell.distanceView.round()
+		cell.distanceView.setBorder(width: 1, color: .red)
+		cell.distanceView.isHidden = true
+
+		
+		if business.ratingCount > 0 {
+			cell.ratingLabel.isHidden = false
+			cell.reviewQuantityLabel.isHidden = false
+			cell.starImageView.isHidden = false
+			cell.ratingLabel.text = "\(business.rating)"
+			cell.reviewQuantityLabel.text = "\(business.ratingCount) Avaliações"
+		} else {
+			cell.ratingLabel.isHidden = true
+			cell.reviewQuantityLabel.isHidden = true
+			cell.starImageView.isHidden = true
+		}
+		
+		cell.businessImageView.image = UIImage(named: "business-placeholder-image")
+		if let url = URL(string: business.photoThumbUrl) {
+			cell.businessImageView.pin_setImage(from: url)
+		}
+		
+		return cell
+		
+	}
+	
+	func getImportedBusinessCell(indexPath: IndexPath) -> BusinessImportedTableViewCell {
+		
+		let cell = tableView.dequeueReusableCell(withIdentifier: "BusinessImportedTableViewCell") as! BusinessImportedTableViewCell
+		
+		let business = businesses[indexPath.section]
+		cell.delegate = self
+		
+		if business.phone.isBlank {
+			cell.callButton.isHidden = true
+		} else {
+			cell.callButton.isHidden = false
+		}
+		
+		cell.business = business
+		cell.setFavorite(isFavorite: business.isFavorited())
+		cell.nameLabel.text = business.name
+		cell.addressLabel.text = "\(business.street), \(business.streetNumber), \(business.neighborhood)"
+		cell.distanceLabel.text = "\(business.distance)km"
+		cell.distanceLabel.sizeToFit()
+		cell.distanceView.round()
+		cell.distanceView.setBorder(width: 1, color: .red)
+		
+		
+		return cell
+		
+	}
+	
+	
+	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		tableView.deselectRow(at: indexPath, animated: true)
+		let business = businesses[indexPath.section]
+		
+		if business.imported {
+			return
+		}
+		
+		presenter?.showBusinessPage(business: business)
 		
 		
 	}
 	
+	public func numberOfSections(in tableView: UITableView) -> Int {
+		return businesses.count
+	}
+	
+	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		
+		let business = businesses[indexPath.section]
+		
+		if business.imported {
+			return 105
+		}
+		return UITableViewAutomaticDimension
+		
+	}
+	
+	// Set the spacing between sections
+	func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+		
+		if section == 0 {
+			return 0
+		}
+		
+		return 10
+	}
+	
+	// Make the background color show through
+	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+		let headerView = UIView()
+		headerView.backgroundColor = UIColor(hex: "EDEDED")
+		return headerView
+	}
+	
+	func addToFavorites(business: Business) {
+		
+		presenter?.addToFavorites(business: business)
+		
+	}
 	
 }

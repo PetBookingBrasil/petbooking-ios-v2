@@ -17,7 +17,7 @@ class SideMenuViewController: UIViewController, SideMenuViewProtocol {
 	@IBOutlet weak var cityLabel: UILabel!
 	@IBOutlet weak var menuTableView: UITableView!
 	
-	var menuItens:[SideMenuItem] = [.myPets, .agenda, .favorites, .logout]
+	var menuItens:[SideMenuItem] = [.myPets, .search, .agenda, .favorites, .logout]
 	
 	var presenter: SideMenuPresenterProtocol?
 
@@ -128,6 +128,7 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
 			presenter?.didTapMyPets()
 					break
 		case .search:
+			presenter?.didTapSearch()
 					break
 		case .agenda:
 			presenter?.didTapAgenda()

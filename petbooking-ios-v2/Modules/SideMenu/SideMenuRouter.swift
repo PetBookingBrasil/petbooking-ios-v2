@@ -68,4 +68,8 @@ class SideMenuRouter: SideMenuWireframeProtocol {
 	func showAgenda() {
 		self.viewController?.navigationController?.pushViewController(AgendaRouter.createModule(), animated: true)
 	}
+	
+	func showSearch() {
+		self.viewController?.navigationController?.pushViewController(BusinessSearchRouter.createModule(), animated: true)
+	}
 }

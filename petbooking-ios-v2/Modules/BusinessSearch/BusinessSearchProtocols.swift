@@ -13,20 +13,30 @@ import Foundation
 //MARK: Wireframe -
 protocol BusinessSearchWireframeProtocol: class {
 
+	func showBusinessPage(business:Business)
 }
 //MARK: Presenter -
 protocol BusinessSearchPresenterProtocol: class {
 
+	func showBusinessPage(business:Business)
+	
+	func removedFromFavorites(business: Business)
+	
+	func addToFavorites(business: Business)
 }
 
 //MARK: Interactor -
 protocol BusinessSearchInteractorProtocol: class {
 
   var presenter: BusinessSearchPresenterProtocol?  { get set }
+	
+	func addToFavorites(business: Business)
+	
 }
 
 //MARK: View -
 protocol BusinessSearchViewProtocol: class {
 
   var presenter: BusinessSearchPresenterProtocol?  { get set }
+	
 }
