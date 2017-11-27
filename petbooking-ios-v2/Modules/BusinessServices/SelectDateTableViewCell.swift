@@ -63,7 +63,7 @@ class SelectDateTableViewCell: UITableViewCell {
 		let dateKey = dateFormatter.string(from: dateSelected)
 		
 		selectedService.startDate = dateKey
-		
+		calendarManager.setDate(dateSelected)
 		guard let times = selectedProfessional.schedule[dateKey] else {
 			availableDates = []
 			tableView.reloadData()
@@ -71,6 +71,7 @@ class SelectDateTableViewCell: UITableViewCell {
 		}
 		availableDates = times
 		tableView.reloadData()
+		
 		
 	}
     
