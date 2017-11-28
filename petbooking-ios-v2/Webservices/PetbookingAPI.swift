@@ -1319,7 +1319,7 @@ extension PetbookingAPI {
 			self.auth_headers.updateValue("Token token=\"\(authToken)\"", forKey: "X-Petbooking-Session-Token")
 			
 			let parameters: Parameters = [
-				"data": ["type":"carts", "attributes":["itens":itens]]
+				"data": ["type":"carts", "attributes":["items":itens]]
 			]
 			
 			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/users/\(userId)/carts", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: auth_headers).responseJSON { (response) in
