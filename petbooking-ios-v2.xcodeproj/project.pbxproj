@@ -77,6 +77,12 @@
 		4120ED381EB529FE009D35B0 /* SignupProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ED321EB529FE009D35B0 /* SignupProtocols.swift */; };
 		4120ED391EB529FE009D35B0 /* SignupRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120ED331EB529FE009D35B0 /* SignupRouter.swift */; };
 		4120ED3B1EB529FE009D35B0 /* SignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4120ED351EB529FE009D35B0 /* SignupViewController.xib */; };
+		41231A341FCD9FF7001EA867 /* Localide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41231A2D1FCD9FF7001EA867 /* Localide.swift */; };
+		41231A351FCD9FF7001EA867 /* NSUserDetauls+Localide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41231A2E1FCD9FF7001EA867 /* NSUserDetauls+Localide.swift */; };
+		41231A361FCD9FF7001EA867 /* LocalideAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41231A2F1FCD9FF7001EA867 /* LocalideAlertAction.swift */; };
+		41231A371FCD9FF7001EA867 /* LocalideMapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41231A301FCD9FF7001EA867 /* LocalideMapApp.swift */; };
+		41231A381FCD9FF7001EA867 /* UIApplication+Localide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41231A311FCD9FF7001EA867 /* UIApplication+Localide.swift */; };
+		41231A391FCD9FF7001EA867 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41231A331FCD9FF7001EA867 /* Info.plist */; };
 		4127768E1F13084800EC6488 /* BusinessMapListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4127768C1F13084800EC6488 /* BusinessMapListViewController.swift */; };
 		4127768F1F13084800EC6488 /* BusinessMapListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4127768D1F13084800EC6488 /* BusinessMapListViewController.xib */; };
 		412776911F130AE100EC6488 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 412776901F130AE100EC6488 /* MapKit.framework */; };
@@ -369,6 +375,13 @@
 		4120ED321EB529FE009D35B0 /* SignupProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupProtocols.swift; sourceTree = "<group>"; };
 		4120ED331EB529FE009D35B0 /* SignupRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupRouter.swift; sourceTree = "<group>"; };
 		4120ED351EB529FE009D35B0 /* SignupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignupViewController.xib; sourceTree = "<group>"; };
+		41231A2D1FCD9FF7001EA867 /* Localide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localide.swift; sourceTree = "<group>"; };
+		41231A2E1FCD9FF7001EA867 /* NSUserDetauls+Localide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSUserDetauls+Localide.swift"; sourceTree = "<group>"; };
+		41231A2F1FCD9FF7001EA867 /* LocalideAlertAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalideAlertAction.swift; sourceTree = "<group>"; };
+		41231A301FCD9FF7001EA867 /* LocalideMapApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalideMapApp.swift; sourceTree = "<group>"; };
+		41231A311FCD9FF7001EA867 /* UIApplication+Localide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Localide.swift"; sourceTree = "<group>"; };
+		41231A321FCD9FF7001EA867 /* Localide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Localide.h; sourceTree = "<group>"; };
+		41231A331FCD9FF7001EA867 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4127768C1F13084800EC6488 /* BusinessMapListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessMapListViewController.swift; sourceTree = "<group>"; };
 		4127768D1F13084800EC6488 /* BusinessMapListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusinessMapListViewController.xib; sourceTree = "<group>"; };
 		412776901F130AE100EC6488 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -755,6 +768,28 @@
 			path = Signup;
 			sourceTree = "<group>";
 		};
+		41231A2B1FCD9FF7001EA867 /* Localide */ = {
+			isa = PBXGroup;
+			children = (
+				41231A2C1FCD9FF7001EA867 /* Classes */,
+				41231A321FCD9FF7001EA867 /* Localide.h */,
+				41231A331FCD9FF7001EA867 /* Info.plist */,
+			);
+			path = Localide;
+			sourceTree = "<group>";
+		};
+		41231A2C1FCD9FF7001EA867 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				41231A2D1FCD9FF7001EA867 /* Localide.swift */,
+				41231A2E1FCD9FF7001EA867 /* NSUserDetauls+Localide.swift */,
+				41231A2F1FCD9FF7001EA867 /* LocalideAlertAction.swift */,
+				41231A301FCD9FF7001EA867 /* LocalideMapApp.swift */,
+				41231A311FCD9FF7001EA867 /* UIApplication+Localide.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		413682B41E9C2B2D008C463B = {
 			isa = PBXGroup;
 			children = (
@@ -824,6 +859,7 @@
 		413715901EBEB38C00258C6F /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				41231A2B1FCD9FF7001EA867 /* Localide */,
 				415191E31FAB773200CACCFE /* MJBadgeBarButton */,
 				410AA9931FA7A3DC00A90377 /* ExpandableTableView */,
 				4179694F1F69676700C47936 /* Segmentio */,
@@ -1480,6 +1516,7 @@
 				41D86FA61F2D525E0038ADA8 /* ScheduleCalendarViewController.xib in Resources */,
 				4160D8B01F66AB81005D361B /* Roboto-Medium.ttf in Resources */,
 				4160D8AA1F66AB81005D361B /* Roboto-BlackItalic.ttf in Resources */,
+				41231A391FCD9FF7001EA867 /* Info.plist in Resources */,
 				418DAA2F1ECE7EAE006265CF /* SideMenuViewController.xib in Resources */,
 				41E7E2F11EC27833002C0A55 /* OpenSans-Regular.ttf in Resources */,
 				41BDC2A41EE79FE100F28434 /* PetSizePopupViewController.xib in Resources */,
@@ -1520,6 +1557,7 @@
 				"${BUILT_PRODUCTS_DIR}/AKMaskField/AKMaskField.framework",
 				"${BUILT_PRODUCTS_DIR}/AKNumericFormatter/AKNumericFormatter.framework",
 				"${BUILT_PRODUCTS_DIR}/ALLoadingView/ALLoadingView.framework",
+				"${BUILT_PRODUCTS_DIR}/ASMapLauncher/ASMapLauncher.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/BEMCheckBox/BEMCheckBox.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
@@ -1544,6 +1582,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AKMaskField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AKNumericFormatter.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ALLoadingView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ASMapLauncher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BEMCheckBox.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
@@ -1591,6 +1630,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4129D9EC1EDF8BCF0067EDC3 /* Breed.swift in Sources */,
+				41231A381FCD9FF7001EA867 /* UIApplication+Localide.swift in Sources */,
 				419C89151F33A18700BDBE8E /* CartWebInteractor.swift in Sources */,
 				4120ED1C1EB38650009D35B0 /* LoginViewController.swift in Sources */,
 				4179696F1F69676700C47936 /* SegmentioCellWithImageOverLabel.swift in Sources */,
@@ -1670,12 +1710,14 @@
 				4129D9E51ED86E9B0067EDC3 /* MyPetsProtocols.swift in Sources */,
 				414862A11F2FF71800F210D8 /* TImeCollectionViewCell.swift in Sources */,
 				414862941F2E9F1900F210D8 /* JTCalendarDelegateManager.m in Sources */,
+				41231A351FCD9FF7001EA867 /* NSUserDetauls+Localide.swift in Sources */,
 				411C84B91F3A8EF0008C6E0A /* AgendaViewController.swift in Sources */,
 				413682C11E9C2B2D008C463B /* AppDelegate.swift in Sources */,
 				41D86FA21F2D525E0038ADA8 /* ScheduleCalendarPresenter.swift in Sources */,
 				4137157F1EBD5B3F00258C6F /* PresentationPageViewController.swift in Sources */,
 				41D86FA11F2D525E0038ADA8 /* ScheduleCalendarInteractor.swift in Sources */,
 				411B4E581F3E4CFA00B9244B /* BusinessSearchInteractor.swift in Sources */,
+				41231A341FCD9FF7001EA867 /* Localide.swift in Sources */,
 				411B4E501F3E031A00B9244B /* ServiceTableViewCell.swift in Sources */,
 				4120ED041EB0DE9F009D35B0 /* PresentationViewController.swift in Sources */,
 				4149E9771EF9628100D6C44B /* BusinessListViewControllerInteractor.swift in Sources */,
@@ -1752,6 +1794,7 @@
 				41D86F701F263AB30038ADA8 /* HomeBusinessRouter.swift in Sources */,
 				4113B2CA1F3414CB007DC89F /* BusinessInformationProtocols.swift in Sources */,
 				4148629E1F2FE92F00F210D8 /* Professional.swift in Sources */,
+				41231A371FCD9FF7001EA867 /* LocalideMapApp.swift in Sources */,
 				419C89271F33A8BB00BDBE8E /* CartViewController.swift in Sources */,
 				410AA9991FA7A3DC00A90377 /* ExpandableTableViewDelegate.swift in Sources */,
 				411C84C71F3BE82E008C6E0A /* AgendaSubServiceTableViewCell.swift in Sources */,
@@ -1759,6 +1802,7 @@
 				4149E97B1EF9628100D6C44B /* BusinessListViewControllerViewController.swift in Sources */,
 				41D86F941F298C360038ADA8 /* AdditionalServiceTableViewCell.swift in Sources */,
 				41D86FA41F2D525E0038ADA8 /* ScheduleCalendarRouter.swift in Sources */,
+				41231A361FCD9FF7001EA867 /* LocalideAlertAction.swift in Sources */,
 				4120ED281EB4F136009D35B0 /* ForgotPasswordPresenter.swift in Sources */,
 				41D86F8D1F2973C70038ADA8 /* ServiceCategory.swift in Sources */,
 				4120ED391EB529FE009D35B0 /* SignupRouter.swift in Sources */,

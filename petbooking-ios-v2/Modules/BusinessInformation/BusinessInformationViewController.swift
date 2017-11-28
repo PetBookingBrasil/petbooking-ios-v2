@@ -239,8 +239,22 @@ extension BusinessInformationViewController: MKMapViewDelegate {
 		
 		return annotationView
 		
+	}
+	
+	@IBAction func openMapsOptions(_ sender: Any) {
+		
+		
+		let location = business.location
+		
+		Localide.sharedManager.promptForDirections(toLocation: location) { (usedApp, fromMemory, openedLinkSuccessfully) in
+			print("The user picked \(usedApp.appName)")
+		}
+		
 		
 	}
+		
+		
+
 	
 }
 
