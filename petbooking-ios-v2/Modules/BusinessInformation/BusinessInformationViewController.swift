@@ -215,6 +215,23 @@ class BusinessInformationViewController: ExpandableTableViewController, Business
 		
 	}
 	
+	@IBAction func callPhoneNumber(_ sender: Any) {
+		
+		guard let business = self.business else {
+			return
+		}
+		
+		let localCode = PhoneCodesConstants.getLocalCodeforCarrier()
+		
+		if let url = URL(string: "tel://0\(localCode!)\(business.phone)"), UIApplication.shared.canOpenURL(url) {
+			if #available(iOS 10, *) {
+				UIApplication.shared.open(url)
+			} else {
+				UIApplication.shared.openURL(url)
+			}
+		}
+		
+	}
 	
 }
 

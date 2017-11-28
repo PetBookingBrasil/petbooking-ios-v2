@@ -74,7 +74,7 @@ public final class Localide {
             return
         }
 
-        self.discoverUserPreferenceOfMapApps("Navigação", message: "Qual app você gostaria de usar?", apps: appChoices) { app in
+        self.discoverUserPreferenceOfMapApps("Navegação", message: "Qual app você gostaria de usar?", apps: appChoices) { app in
             if remember {
                 UserDefaults.setPreferredMapApp(app, fromMapAppChoices: appChoices)
             }
