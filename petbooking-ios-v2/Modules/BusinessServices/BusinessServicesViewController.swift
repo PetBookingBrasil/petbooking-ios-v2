@@ -118,7 +118,7 @@ class BusinessServicesViewController: ExpandableTableViewController, BusinessSer
 	}
 	
 	@IBAction func goToCart(_ sender: Any) {
-		
+
 		ScheduleManager.sharedInstance.addServiceToSchedule(business: business, pet: selectedPet, serviceCategory: selectedServiceCategory, service: selectedService)
 		
 		for subService in selectedSubServices {
@@ -348,6 +348,7 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
 			return cell
 		case 4:
 			let cell = expandableTableView.dequeueReusableCellWithIdentifier("SelectDateTableViewCell", forIndexPath: expandableIndexPath) as!SelectDateTableViewCell
+			cell.selectedPet = selectedPet
 			cell.selectedService = selectedService
 			cell.selectedProfessional = self.selectedProfessional
 			cell.reloadTimeColletion(professional: selectedProfessional)

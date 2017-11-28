@@ -410,6 +410,22 @@ class ScheduleManager: NSObject {
 		}
 	}
 	
+	func getServicesByPet(pet:Pet) -> Results<ScheduleService>? {
+		
+		do {
+			let realm = try Realm()
+			
+			let predicate = NSPredicate(format: "petId == '\(pet.id)'")
+			let result = realm.objects(ScheduleService.self).filter(predicate)
+			
+			return 	result
+		} catch {
+			//TODO: Handle error
+			print(error.localizedDescription)
+			return nil
+		}
+	}
+	
 	func getServicesByBusiness(business:Business) -> Results<ScheduleService>? {
 		
 		do {
