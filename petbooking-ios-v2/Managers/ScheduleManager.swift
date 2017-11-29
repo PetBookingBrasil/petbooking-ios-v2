@@ -426,6 +426,22 @@ class ScheduleManager: NSObject {
 		}
 	}
 	
+	func getServicesByProfessional(professional:Professional) -> Results<ScheduleService>? {
+		
+		do {
+			let realm = try Realm()
+			
+			let predicate = NSPredicate(format: "professionalId == '\(professional.id)'")
+			let result = realm.objects(ScheduleService.self).filter(predicate)
+			
+			return 	result
+		} catch {
+			//TODO: Handle error
+			print(error.localizedDescription)
+			return nil
+		}
+	}
+	
 	func getServicesByBusiness(business:Business) -> Results<ScheduleService>? {
 		
 		do {

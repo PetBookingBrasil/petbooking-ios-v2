@@ -226,7 +226,27 @@ extension SelectDateTableViewCell: UITableViewDelegate, UITableViewDataSource {
 				}
 				
 			}
-		} 
+		}
+		
+		if let services = ScheduleManager.sharedInstance.getServicesByProfessional(professional: selectedProfessional) {
+			
+			for service in services {
+				
+				if dateKey == service.startDate {
+					
+					if date == service.startTime {
+						cell.selectionStyle = UITableViewCellSelectionStyle.none
+						cell.isUserInteractionEnabled = false
+						
+						cell.timeLabel.text = "\(date) (indisponível)"
+						cell.timeLabel.textColor = UIColor(hex: "E4002B")
+						
+					}
+					
+				}
+				
+			}
+		}
 		
 		
 		return cell
