@@ -26,6 +26,7 @@
                 <outlet property="filterMenuHeightConstraint" destination="SrF-Ug-pXE" id="zHm-Mw-m0m"/>
                 <outlet property="filterMenuView" destination="vIH-Ia-t1a" id="0Cr-dX-x54"/>
                 <outlet property="filterPanelView" destination="gu2-VI-gt3" id="CJo-OS-JTI"/>
+                <outlet property="openFilterButton" destination="lhw-8s-7NS" id="hZD-5B-LTG"/>
                 <outlet property="tableView" destination="puR-UF-6Lw" id="wjK-Mt-W1q"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

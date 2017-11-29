@@ -15,6 +15,7 @@ import ALLoadingView
 
 class BusinessListViewControllerViewController: UIViewController, BusinessListViewControllerViewProtocol {
 	
+	@IBOutlet weak var openFilterButton: UIButton!
 	@IBOutlet weak var filterMenuView: UIView!
 	@IBOutlet weak var filterMenuHeightConstraint: NSLayoutConstraint!
 	@IBOutlet weak var tableView: UITableView!
@@ -41,9 +42,11 @@ class BusinessListViewControllerViewController: UIViewController, BusinessListVi
 			setBackButton()
 			presenter?.getFavoriteBusiness(page:1)
 			title = "Favoritos"
+			openFilterButton.isHidden = true
 			break
 		case .list, .map:
 			
+			openFilterButton.isHidden = false
 			filterButton.round()
 			filterCollectionView.delegate = self
 			filterCollectionView.dataSource = self
