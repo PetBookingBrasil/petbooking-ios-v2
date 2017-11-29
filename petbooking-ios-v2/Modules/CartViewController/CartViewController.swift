@@ -186,7 +186,7 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource, CartTa
 		
 		let endDate = date?.addingTimeInterval(service.duration)
 		
-		dateFormatter.dateFormat = "hh:mm"
+		dateFormatter.dateFormat = "HH:mm"
 		
 		let endDateString = dateFormatter.string(from: endDate!)
 		

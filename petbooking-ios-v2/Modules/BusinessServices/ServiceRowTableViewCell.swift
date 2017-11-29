@@ -22,6 +22,7 @@ class ServiceRowTableViewCell: UITableViewCell {
 	override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+		iconImageView.round()
 		panelView.dropShadow()
 		panelView.layer.cornerRadius = 4
     }
