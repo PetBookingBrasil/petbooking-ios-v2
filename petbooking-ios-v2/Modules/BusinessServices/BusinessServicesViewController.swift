@@ -31,6 +31,7 @@ class BusinessServicesViewController: ExpandableTableViewController, BusinessSer
 	var selectedSubServices = [SubService]()
 	var professionalList:ProfessionalList! = ProfessionalList()
 	var selectedProfessional:Professional = Professional()
+	var currentIndexPath: ExpandableIndexPath = ExpandableIndexPath(forSection: 0, forRow: 0, forSubRow: 0)
 	
 	// Delegates
 	weak var selectPetDelegate:BusinessServicesViewControllerDelegate?
@@ -117,7 +118,7 @@ class BusinessServicesViewController: ExpandableTableViewController, BusinessSer
 	}
 	
 	@IBAction func goToCart(_ sender: Any) {
-		
+
 		ScheduleManager.sharedInstance.addServiceToSchedule(business: business, pet: selectedPet, serviceCategory: selectedServiceCategory, service: selectedService)
 		
 		for subService in selectedSubServices {
@@ -304,6 +305,7 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
 	}
 	func expandableTableView(_ expandableTableView: ExpandableTableView, subCellForRowAtExpandableIndexPath expandableIndexPath: ExpandableIndexPath) -> UITableViewCell {
 
+		currentIndexPath = expandableIndexPath
 		switch expandableIndexPath.row {
 		case 0:
 			let cell = expandableTableView.dequeueReusableCellWithIdentifier("SelectPetTableViewCell", forIndexPath: expandableIndexPath) as!SelectPetTableViewCell
@@ -346,6 +348,7 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
 			return cell
 		case 4:
 			let cell = expandableTableView.dequeueReusableCellWithIdentifier("SelectDateTableViewCell", forIndexPath: expandableIndexPath) as!SelectDateTableViewCell
+			cell.selectedPet = selectedPet
 			cell.selectedService = selectedService
 			cell.selectedProfessional = self.selectedProfessional
 			cell.reloadTimeColletion(professional: selectedProfessional)
@@ -368,7 +371,8 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
 			let height = qty <= 3 ? qty * 120 : 360
 			return CGFloat(height + 100)
 		case 2:
-			return 360
+			let qty = serviceList.services.count
+			return CGFloat(90 + qty * 61)
 		case 3:
 			return 265
 		case 4:
@@ -387,9 +391,16 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
 	}
 	
 	func showContent(indexPath: IndexPath) {
-		unexpandAllCells()
 		
-		tableView(expandableTableView, didSelectRowAt: indexPath)
+		if indexPath.row != currentIndexPath.row {
+			unexpandAllCells()
+			tableView(expandableTableView, didSelectRowAt: indexPath)
+		} else {
+			tableView(expandableTableView, didSelectRowAt: indexPath)
+			let nextIndexPath = IndexPath(row: indexPath.row + 1, section: indexPath.section)
+			tableView(expandableTableView, didSelectRowAt: nextIndexPath)
+		}
+		
 		
 	}
 	

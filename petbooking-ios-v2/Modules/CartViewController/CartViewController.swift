@@ -24,7 +24,12 @@ class CartViewController: UIViewController, CartViewProtocol {
 	override func viewDidLoad() {
         super.viewDidLoad()
 		
-		setBackButton()
+		let backButton = UIBarButtonItem()
+		backButton.target = self
+		backButton.action = #selector(cancelButtonPressed)
+		self.navigationItem.leftBarButtonItem = backButton
+		self.navigationItem.leftBarButtonItem?.image = UIImage(named: "addToCartIcon")
+		
 		scheduleButton.round()
 		
 		tableView.register(UINib(nibName: "CartTableViewCell", bundle: nil), forCellReuseIdentifier: "CartTableViewCell")
@@ -181,7 +186,7 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource, CartTa
 		
 		let endDate = date?.addingTimeInterval(service.duration)
 		
-		dateFormatter.dateFormat = "hh:mm"
+		dateFormatter.dateFormat = "HH:mm"
 		
 		let endDateString = dateFormatter.string(from: endDate!)
 		

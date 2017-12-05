@@ -77,12 +77,16 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 	
 	@IBOutlet weak var petBreedAlertMessageLabel: UILabel!
 	
+	@IBOutlet weak var petColorAletMessageLabel: UILabel!
+	@IBOutlet weak var petColorIconImageView: UIImageView!
+	
+	@IBOutlet weak var petColorLabel: UILabel!
 	var petViewType:PetViewType?
 	
 	var breedList = [Breed]()
 	var petBreedIndex = 0
 	
-	var petTypeList:[PetTypeEnum] = [.dog, .cat]
+	var petTypeList:[PetTypeEnum] = [.dog, .cat, .pig]
 	var petTypeIndex = 0
 	
 	var genderList:[PetGenderEnum] = [.male, .female]
@@ -96,6 +100,9 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 	
 	var petSizeList:[PetSizeEnum] = [.small, .medium, .big, .giant]
 	var petSizeIndex = 0
+	
+	var petCoatColorList:[PetCoatColorEnum] = [.yellow, .blue, .white, .gray, .chocolate, .cream, .gold, .silver, .black, .red]
+	var petCoatColorIndex = 0
 	
 	var presenter: AddPetViewControllerPresenterProtocol?
 	
@@ -120,6 +127,7 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 		breedIconImageView.changeImageColor(color: .black)
 		kindIconImageView.changeImageColor(color: .black)
 		temperIconImageView.changeImageColor(color: .black)
+		petColorIconImageView.changeImageColor(color: .black)
 		
 		let image = UIImage(named: "info")?.withRenderingMode(.alwaysTemplate)
 		petSIzeInfoButton.setImage(image, for: .normal)
@@ -148,19 +156,22 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 		let tapGesture6 = UITapGestureRecognizer(target: self, action: #selector(AddPetViewControllerViewController.tapField(_:)))
 		petSizeLabel.addGestureRecognizer(tapGesture6)
 		
+		let tapGesture7 = UITapGestureRecognizer(target: self, action: #selector(AddPetViewControllerViewController.tapField(_:)))
+		petColorLabel.addGestureRecognizer(tapGesture7)
+		
 		picker.dataSource = self
 		picker.delegate = self
 		
 		if petViewType == .edit {
 		
 			setTitle(title: NSLocalizedString("edit_pet_title", comment: ""))
-		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Salvar", style: .plain, target: self, action: #selector(AddPetViewControllerViewController.save(_:)))
-			saveButton.backgroundColor = UIColor(hex: "FCE5EA")
-			saveButton.setTitle("remove_pet".localized, for: .normal)
-			saveButton.setTitleColor(UIColor(hex: "E4002B"), for: .normal)
+		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "remove_pet".localized, style: .plain, target: self, action: #selector(AddPetViewControllerViewController.removePet))
+			saveButton.backgroundColor = UIColor(hex: "E4002B")
+			saveButton.setTitle("save_pet".localized, for: .normal)
+			saveButton.setTitleColor(UIColor.white, for: .normal)
 			saveButton.removeTarget(nil, action: nil, for: .allEvents)
 			
-			saveButton.addTarget(self, action: #selector(AddPetViewControllerViewController.removePet), for: .touchUpInside)
+			saveButton.addTarget(self, action: #selector(AddPetViewControllerViewController.save(_:)), for: .touchUpInside)
 		}
 		hideKeyboardWhenTappedAround()
 		
@@ -189,6 +200,8 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 			}
 			petCoatIndex = indexCoat
 			coatLabel.text = "pet_coat_size_\(pet.coatSize)".localized
+			
+			petColorLabel.text = "pet_coat_color_\(pet.coatColor)".localized
 			
 			guard let type = PetTypeEnum(rawValue: pet.type) else {
 				return
@@ -278,6 +291,10 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 			petPickerType = .petSize
 			index = petSizeIndex
 			break
+		case petColorLabel:
+			petPickerType = .coatColor
+			index = petCoatColorIndex
+			break
 		default: break
 		}
 		
@@ -321,6 +338,11 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 			petTemperIndex = index
 			pet.mood = temperList[index].rawValue
 			moodLabel.text = "pet_mood_\(pet.mood)".localized
+			break
+		case .coatColor:
+			petCoatColorIndex = index
+			pet.coatColor = petCoatColorList[index].rawValue
+			petColorLabel.text = "pet_coat_color_\(pet.coatColor)".localized
 			break
 		case .petType:
 			let currentPetType = pet.type
@@ -386,7 +408,7 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 			isValid = false
 		}
 		
-		if pet.breedId == 0 {
+		if pet.breedId == 0 && pet.type != PetTypeEnum.pig.rawValue {
 			isValid = false
 			_ = checkValidField(value: nil, alertLabel: petBreedAlertMessageLabel, alertMessage: NSLocalizedString("invalid_pet_breed", comment: ""))
 		} else {
@@ -541,6 +563,8 @@ extension AddPetViewControllerViewController:UIPickerViewDataSource, UIPickerVie
 			return temperList.count
 		case .petType:
 			return petTypeList.count
+		case .coatColor:
+			return petCoatColorList.count
 		}
 		
 	}
@@ -562,6 +586,8 @@ extension AddPetViewControllerViewController:UIPickerViewDataSource, UIPickerVie
 			key = "pet_mood_\(temperList[row].rawValue)"
 		case .petType:
 			key = "pet_type_\(petTypeList[row].rawValue)"
+		case .coatColor:
+			key = "pet_coat_color_\(petCoatColorList[row].rawValue)"
 		}
 		
 		return key.localized

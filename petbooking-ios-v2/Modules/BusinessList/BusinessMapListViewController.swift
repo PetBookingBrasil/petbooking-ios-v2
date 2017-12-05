@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import CoreLocation
+import ALLoadingView
 
 class BusinessMapListViewController: UIViewController, BusinessListViewControllerViewProtocol {
 
@@ -19,6 +20,8 @@ class BusinessMapListViewController: UIViewController, BusinessListViewControlle
 	var locationManager:CLLocationManager?
 	var businessList:BusinessList = BusinessList()
 	var businesses = [Business]()
+	var serviceCategoryList:ServiceCategoryList = ServiceCategoryList()
+	var selectedServiceCategory:ServiceCategory = ServiceCategory()
 	var businessesCallout = [Business]()
 	var coordinates:CLLocationCoordinate2D = CLLocationCoordinate2D()
 	
@@ -26,9 +29,24 @@ class BusinessMapListViewController: UIViewController, BusinessListViewControlle
 	@IBOutlet weak var tableView: UITableView!
 	@IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
 	
+	@IBOutlet weak var filterMenuView: UIView!
+	@IBOutlet weak var filterMenuHeightConstraint: NSLayoutConstraint!
+	@IBOutlet weak var filterPanelView: UIView!
+	@IBOutlet weak var filterCollectionView: UICollectionView!
+	@IBOutlet weak var filterLabel: UILabel!
+	@IBOutlet weak var filterButton: UIButton!
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 
+		
+		
+			filterMenuHeightConstraint.constant = 0
+			filterButton.round()
+			filterCollectionView.delegate = self
+			filterCollectionView.dataSource = self
+			filterCollectionView.register(UINib(nibName: "CategoryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CategoryCollectionViewCell")
+		
 			mapView.delegate = self
 			locationManager = CLLocationManager()
 			
@@ -44,12 +62,25 @@ class BusinessMapListViewController: UIViewController, BusinessListViewControlle
 			tableView.register(UINib(nibName: "BusinessImportedTableViewCell", bundle: nil), forCellReuseIdentifier: "BusinessImportedTableViewCell")
 			tableView.rowHeight = UITableViewAutomaticDimension
 			tableView.estimatedRowHeight = 2000
+		
+			PetbookingAPI.sharedInstance.getCategoryList { (serviceCategoryList, message) in
+			
+			
+				guard let serviceCategoryList = serviceCategoryList else {
+					return
+				}
+			
+				self.serviceCategoryList = serviceCategoryList
+				self.filterCollectionView.reloadData()
+			
+		}
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		
-		locationManager?.startUpdatingLocation()
+		if selectedServiceCategory.id.isBlank {
+			locationManager?.startUpdatingLocation()
+		}
 	}
 
     override func didReceiveMemoryWarning() {
@@ -74,6 +105,84 @@ class BusinessMapListViewController: UIViewController, BusinessListViewControlle
 	
 	func removedFromFavorites(business: Business) {
 		
+		
+	}
+	
+	@IBAction func openFilter(_ sender: Any) {
+		
+		filterPanelView.isHidden = false
+		
+	}
+	
+	@IBAction func closeFilter(_ sender: Any) {
+		
+		filterPanelView.isHidden = true
+	}
+	
+	
+	@IBAction func resetFilter(_ sender: Any) {
+		filterMenuHeightConstraint.constant = 0
+		filterMenuView.isHidden = true
+		selectedServiceCategory = ServiceCategory()
+		
+		if CLLocationManager.locationServicesEnabled() {
+			locationManager?.delegate = self
+			locationManager?.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+			locationManager?.startUpdatingLocation()
+		}
+		
+	}
+	
+	@IBAction func filter(_ sender: Any) {
+		
+		ALLoadingView.manager.showLoadingView(ofType: .basic, windowMode: .fullscreen)
+		
+		
+		if selectedServiceCategory.id.isBlank {
+			return
+		}
+		
+		filterMenuView.isHidden = false
+		filterMenuHeightConstraint.constant = 50
+		var filterLabelText = ""
+		
+		if !selectedServiceCategory.id.isBlank{
+			if !filterLabelText.isEmpty {
+				filterLabelText.append(", ")
+			}
+			
+			filterLabelText.append("\(selectedServiceCategory.name)")
+		}
+		
+		filterLabel.text = filterLabelText
+		
+		
+		PetbookingAPI.sharedInstance.getBusinessListFiltered(query: "", categoryId: selectedServiceCategory.id, page: 0) { (businessList, message) in
+			
+			ALLoadingView.manager.hideLoadingView()
+			
+			guard let businessList = businessList else {
+				return
+			}
+			
+			self.businessList = businessList
+			
+			self.mapView.removeAnnotations(self.mapView.annotations)
+			for business in businessList.businesses {
+				
+				let annotation = BussinessAnnotation()
+				annotation.business = business
+				annotation.title = business.name
+				
+				annotation.coordinate = CLLocationCoordinate2D(latitude: business.location.latitude, longitude: business.location.longitude)
+				self.mapView.addAnnotation(annotation)
+				
+			}
+			
+			self.filterPanelView.isHidden = true
+			
+			
+		}
 		
 	}
 
@@ -270,4 +379,73 @@ extension BusinessMapListViewController: UITableViewDelegate, UITableViewDataSou
 		
 	}
 	
+}
+
+extension BusinessMapListViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+	
+	func numberOfSections(in collectionView: UICollectionView) -> Int {
+		
+		return 1
+	}
+	
+	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+		
+		return serviceCategoryList.categories.count
+	}
+	
+	func collectionView(_ collectionView: UICollectionView,
+						layout collectionViewLayout: UICollectionViewLayout,
+						sizeForItemAt indexPath: IndexPath) -> CGSize {
+		
+		let numberOfItemsPerRow = 2
+		let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
+		let totalSpace = flowLayout.sectionInset.left
+			+ flowLayout.sectionInset.right
+			+ (flowLayout.minimumInteritemSpacing * CGFloat(numberOfItemsPerRow - 1))
+		let size = Int((collectionView.bounds.width - totalSpace) / CGFloat(numberOfItemsPerRow))
+		
+		return CGSize(width: size, height: 60)
+	}
+	
+	func collectionView(_ collectionView: UICollectionView,
+						layout collectionViewLayout: UICollectionViewLayout,
+						minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+		return 1.0
+	}
+	
+	func collectionView(_ collectionView: UICollectionView, layout
+		collectionViewLayout: UICollectionViewLayout,
+						minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+		return 1.0
+	}
+	
+	
+	
+	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+		
+		
+		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell", for: indexPath) as! CategoryCollectionViewCell
+		
+		let service = serviceCategoryList.categories[indexPath.item]
+		
+		cell.isSelected = service == selectedServiceCategory
+		if service == selectedServiceCategory {
+			collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .left)
+		}
+		
+		cell.nameLabel.text = service.name
+		cell.pictureImageView.image = UIImage(named: service.slug)
+		
+		return cell
+		
+	}
+	
+	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		
+		let service = serviceCategoryList.categories[indexPath.item]
+		
+		selectedServiceCategory = service
+		
+		
+	}
 }

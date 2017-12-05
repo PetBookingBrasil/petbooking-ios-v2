@@ -11,6 +11,7 @@
 import UIKit
 import MapKit
 import RateView
+import AKNumericFormatter
 
 class BusinessInformationViewController: ExpandableTableViewController, BusinessInformationViewProtocol {
 	
@@ -61,7 +62,15 @@ class BusinessInformationViewController: ExpandableTableViewController, Business
 		
 		businessNameLabel.text = business.name
 		descriptionLabel.text = business.businessDescription
-		phoneNumberLabel.text = business.phone
+		
+		var phoneMask = "(**) ****-****"
+		
+		if business.phone.count == 11 {
+			phoneMask = "(**) *****-****"
+		}
+		
+		let phoneFormatted = AKNumericFormatter.formatString(business.phone, usingMask: phoneMask, placeholderCharacter: "*".utf16.first!)
+		phoneNumberLabel.text = phoneFormatted
 		distanceLabel.text = "\(business.distance)km"
 		distanceLabel.sizeToFit()
 		distanceView.round()
@@ -206,6 +215,23 @@ class BusinessInformationViewController: ExpandableTableViewController, Business
 		
 	}
 	
+	@IBAction func callPhoneNumber(_ sender: Any) {
+		
+		guard let business = self.business else {
+			return
+		}
+		
+		let localCode = PhoneCodesConstants.getLocalCodeforCarrier()
+		
+		if let url = URL(string: "tel://0\(localCode!)\(business.phone)"), UIApplication.shared.canOpenURL(url) {
+			if #available(iOS 10, *) {
+				UIApplication.shared.open(url)
+			} else {
+				UIApplication.shared.openURL(url)
+			}
+		}
+		
+	}
 	
 }
 
@@ -230,8 +256,22 @@ extension BusinessInformationViewController: MKMapViewDelegate {
 		
 		return annotationView
 		
+	}
+	
+	@IBAction func openMapsOptions(_ sender: Any) {
+		
+		
+		let location = business.location
+		
+		Localide.sharedManager.promptForDirections(toLocation: location) { (usedApp, fromMemory, openedLinkSuccessfully) in
+			print("The user picked \(usedApp.appName)")
+		}
+		
 		
 	}
+		
+		
+
 	
 }
 

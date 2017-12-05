@@ -46,5 +46,9 @@ class SideMenuPresenter: SideMenuPresenterProtocol {
 	func didTapAgenda() {
 		router.showAgenda()
 	}
+	
+	func didTapSearch() {
+		router.showSearch()
+	}
 
 }

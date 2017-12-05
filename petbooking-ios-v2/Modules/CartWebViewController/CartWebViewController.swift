@@ -10,6 +10,7 @@
 
 import UIKit
 import WebKit
+import ALLoadingView
 
 class CartWebViewController: UIViewController, CartWebViewProtocol {
 	
@@ -32,6 +33,7 @@ class CartWebViewController: UIViewController, CartWebViewProtocol {
 		setBackButton()
 		title = "Pagamento"
 		
+		ALLoadingView.manager.showLoadingView(ofType: .basic, windowMode: .fullscreen)
 		PetbookingAPI.sharedInstance.userInfo({ (user, message) in
 			self.loadWebView()
 		})
@@ -46,6 +48,7 @@ class CartWebViewController: UIViewController, CartWebViewProtocol {
 		configuration.userContentController = controller
 		
 		webView = WKWebView(frame: view.frame, configuration: configuration)
+		webView.navigationDelegate = self
 		
 		view.addSubview(webView)
 		
@@ -61,6 +64,19 @@ class CartWebViewController: UIViewController, CartWebViewProtocol {
 		
 	}
 	
+}
+
+extension CartWebViewController: WKNavigationDelegate {
+	
+	func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+		
+		ALLoadingView.manager.hideLoadingView()
+	}
+	
+	func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+		
+		ALLoadingView.manager.hideLoadingView()
+	}
 }
 
 extension CartWebViewController: WKScriptMessageHandler{

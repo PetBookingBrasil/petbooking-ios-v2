@@ -32,6 +32,8 @@ class CartTableViewCell: UITableViewCell {
         // Initialization code
 			
 			noteTextView.setBorder(width: 1, color: UIColor(hex: "D8D8D8"))
+			noteTextView.textColor = UIColor.lightGray
+			noteTextView.delegate = self
 			editButton.round()
 			
 			tableView.register(UINib(nibName: "CartTableSubServiceTableViewCell", bundle: nil), forCellReuseIdentifier: "CartTableSubServiceTableViewCell")
@@ -111,6 +113,25 @@ extension CartTableViewCell : UITableViewDelegate, UITableViewDataSource, CartTa
 		
 		delegate?.update(service: service)
 		
+	}
+	
+}
+
+extension CartTableViewCell: UITextViewDelegate {
+	
+	func textViewDidBeginEditing(_ textView: UITextView) {
+		
+		if textView.textColor == UIColor.lightGray {
+			textView.text = nil
+			textView.textColor = UIColor(hex: "515151")
+		}
+	}
+	
+	func textViewDidEndEditing(_ textView: UITextView) {
+		if textView.text.isEmpty {
+			textView.text = "cart_observation".localized
+			textView.textColor = UIColor.lightGray
+		}
 	}
 	
 }

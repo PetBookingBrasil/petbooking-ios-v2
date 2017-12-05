@@ -21,5 +21,20 @@ class BusinessSearchPresenter: BusinessSearchPresenterProtocol {
         self.interactor = interactor
         self.router = router
     }
+	
+	func addToFavorites(business: Business) {
+		
+		interactor?.addToFavorites(business: business)
+		
+	}
+	
+	func showBusinessPage(business:Business) {
+		router.showBusinessPage(business: business)
+	}
+	
+	func removedFromFavorites(business: Business) {
+		
+		
+	}
 
 }

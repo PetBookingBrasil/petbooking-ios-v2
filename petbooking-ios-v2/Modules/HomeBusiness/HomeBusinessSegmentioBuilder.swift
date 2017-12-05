@@ -67,7 +67,7 @@ struct HomeBusinessSegmentioBuilder {
 			defaultState: segmentioState(
 				backgroundColor: .clear,
 				titleFont: font,
-				titleTextColor: .gray
+				titleTextColor: UIColor.white.withAlphaComponent(0.7)
 			),
 			selectedState: segmentioState(
 				backgroundColor: .clear,

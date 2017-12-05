@@ -54,7 +54,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>20</string>
+	<string>27</string>
 	<key>FacebookAppID</key>
 	<string>1579605499022071</string>
 	<key>FacebookDisplayName</key>
@@ -121,7 +121,7 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Upload profile picture</string>
-	<key>NSLocationAlwaysUsageDescription</key>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>O Pet Booking precisa da sua localização para encontrar estabelecimentos próximos à você.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>O Pet Booking precisa da sua localização para encontrar estabelecimentos próximos à você.</string>

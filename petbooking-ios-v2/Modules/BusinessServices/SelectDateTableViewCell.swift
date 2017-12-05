@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DZNEmptyDataSet
 
 class SelectDateTableViewCell: UITableViewCell {
 
@@ -20,10 +21,12 @@ class SelectDateTableViewCell: UITableViewCell {
 	
 	var dateFormatter = DateFormatter()
 	var dateSelected = Date()
+	var dateKey = ""
 	
 	var availableDates = [String]()
 	var selectedProfessional:Professional = Professional()
 	var selectedService:Service = Service()
+	var selectedPet:Pet = Pet()
 	
 	weak var delegate:SelectDateTableViewCellDelegate?
 	
@@ -43,9 +46,12 @@ class SelectDateTableViewCell: UITableViewCell {
 		calendarManager.setDate(Date())
 		
 		dateFormatter.dateFormat = "yyyy-MM-dd"
+		dateKey = dateFormatter.string(from: dateSelected)
 		
 		tableView.delegate = self
 		tableView.dataSource = self
+		tableView.emptyDataSetSource = self
+		tableView.emptyDataSetDelegate = self
 		tableView.register(UINib(nibName: "TimeTableViewCell", bundle: nil), forCellReuseIdentifier: "TimeTableViewCell")
     }
 
@@ -57,10 +63,10 @@ class SelectDateTableViewCell: UITableViewCell {
 	
 	func reloadTimeColletion(professional:Professional) {
 		
-		let dateKey = dateFormatter.string(from: dateSelected)
+		dateKey = dateFormatter.string(from: dateSelected)
 		
 		selectedService.startDate = dateKey
-		
+		calendarManager.setDate(dateSelected)
 		guard let times = selectedProfessional.schedule[dateKey] else {
 			availableDates = []
 			tableView.reloadData()
@@ -68,6 +74,7 @@ class SelectDateTableViewCell: UITableViewCell {
 		}
 		availableDates = times
 		tableView.reloadData()
+		
 		
 	}
     
@@ -197,6 +204,49 @@ extension SelectDateTableViewCell: UITableViewDelegate, UITableViewDataSource {
 		let date = availableDates[indexPath.row]
 		
 		cell.timeLabel.text = date
+		cell.timeLabel.textColor = UIColor(hex: "515151")
+		cell.selectionStyle = UITableViewCellSelectionStyle.default
+		cell.isUserInteractionEnabled = true
+		
+		if let services = ScheduleManager.sharedInstance.getServicesByPet(pet: selectedPet) {
+			
+			for service in services {
+				
+				if dateKey == service.startDate {
+					
+					if date == service.startTime {
+						cell.selectionStyle = UITableViewCellSelectionStyle.none
+						cell.isUserInteractionEnabled = false
+						
+						cell.timeLabel.text = "\(date) (indisponível)"
+						cell.timeLabel.textColor = UIColor(hex: "E4002B")
+						
+					}
+					
+				}
+				
+			}
+		}
+		
+		if let services = ScheduleManager.sharedInstance.getServicesByProfessional(professional: selectedProfessional) {
+			
+			for service in services {
+				
+				if dateKey == service.startDate {
+					
+					if date == service.startTime {
+						cell.selectionStyle = UITableViewCellSelectionStyle.none
+						cell.isUserInteractionEnabled = false
+						
+						cell.timeLabel.text = "\(date) (indisponível)"
+						cell.timeLabel.textColor = UIColor(hex: "E4002B")
+						
+					}
+					
+				}
+				
+			}
+		}
 		
 		
 		return cell
@@ -210,6 +260,20 @@ extension SelectDateTableViewCell: UITableViewDelegate, UITableViewDataSource {
 		
 		delegate?.setSelectedTime(service: selectedService)
 	}
+	
+}
+
+extension SelectDateTableViewCell: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+	
+	func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+		
+		
+		let attributedString = NSAttributedString(string: "Nenhum horário disponível", attributes: [NSFontAttributeName : UIFont.robotoMedium(ofSize: 14), NSForegroundColorAttributeName : UIColor(hex: "515151")])
+		
+		return attributedString
+	}
+	
+
 	
 }
 

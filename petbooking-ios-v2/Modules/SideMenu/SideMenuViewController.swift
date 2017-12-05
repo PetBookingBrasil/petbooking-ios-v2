@@ -14,10 +14,11 @@ class SideMenuViewController: UIViewController, SideMenuViewProtocol {
 	@IBOutlet weak var profileImageView: UIImageView!
 	@IBOutlet weak var nameLabel: UILabel!
 
+	@IBOutlet weak var profilePanelView: UIView!
 	@IBOutlet weak var cityLabel: UILabel!
 	@IBOutlet weak var menuTableView: UITableView!
 	
-	var menuItens:[SideMenuItem] = [.myPets, .agenda, .favorites, .logout]
+	var menuItens:[SideMenuItem] = [.myPets, .search, .agenda, .favorites, .logout]
 	
 	var presenter: SideMenuPresenterProtocol?
 
@@ -66,7 +67,10 @@ class SideMenuViewController: UIViewController, SideMenuViewProtocol {
 		presenter?.didTapProfile()
 	}
 	
-
+	@IBAction func goToProfile(_ sender: Any) {
+		presenter?.didTapProfile()
+	}
+	
 	
 	
 }
@@ -128,6 +132,7 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
 			presenter?.didTapMyPets()
 					break
 		case .search:
+			presenter?.didTapSearch()
 					break
 		case .agenda:
 			presenter?.didTapAgenda()

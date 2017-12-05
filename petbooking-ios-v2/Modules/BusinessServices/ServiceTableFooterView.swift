@@ -10,16 +10,15 @@ import UIKit
 
 class ServiceTableFooterView: UIView {
 
-	@IBOutlet weak var pictureImageView: UIImageView!
-	@IBOutlet weak var nameLabel: UILabel!
-	@IBOutlet weak var totalValueLabel: UILabel!
+	
+	@IBOutlet weak var continueButton: UIButton!
 	
 	
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
     override func draw(_ rect: CGRect) {
         // Drawing code
-			pictureImageView.round()
+			continueButton.round()
     }
 
 }

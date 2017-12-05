@@ -69,9 +69,7 @@ extension PetbookingAPI {
 			
 			switch response.result{
 			case .success(let jsonObject):
-				print(jsonObject)
-				
-				
+
 				do {
 					
 					if let dic = jsonObject as? [String: Any] {
@@ -649,7 +647,7 @@ extension PetbookingAPI {
 			self.auth_headers.updateValue("Token token=\"\(authToken)\"", forKey: "X-Petbooking-Session-Token")
 			
 			let parameters: Parameters = [
-				"data": ["type":"pets", "attributes":["size":pet.size, "breed_id":pet.breedId, "user_id":userId, "name":pet.name, "gender":pet.gender, "mood":pet.mood, "description":pet.petDescription, "birth_date":pet.birthday, "coat_type":pet.coatSize, "photo":pet.photoUrl]]
+				"data": ["type":"pets", "attributes":["size":pet.size, "breed_id":pet.breedId, "user_id":userId, "name":pet.name, "gender":pet.gender, "mood":pet.mood, "description":pet.petDescription, "birth_date":pet.birthday, "coat_type":pet.coatSize, "photo":pet.photoUrl, "coat_colors":[pet.coatColor]]]
 				
 			]
 			
@@ -715,7 +713,7 @@ extension PetbookingAPI {
 			self.auth_headers.updateValue("Token token=\"\(authToken)\"", forKey: "X-Petbooking-Session-Token")
 			
 			let parameters: Parameters = [
-				"data": ["type":"pets", "id":pet.id, "attributes":["size":pet.size, "breed_id":pet.breedId, "name":pet.name, "gender":pet.gender, "mood":pet.mood, "description":pet.petDescription, "birth_date":pet.birthday, "coat_type":pet.coatSize, "photo":pet.photoUrl]]
+				"data": ["type":"pets", "id":pet.id, "attributes":["size":pet.size, "breed_id":pet.breedId, "name":pet.name, "gender":pet.gender, "mood":pet.mood, "description":pet.petDescription, "birth_date":pet.birthday, "coat_type":pet.coatSize, "photo":pet.photoUrl, "coat_colors":[pet.coatColor]]]
 				
 			]
 			
@@ -880,6 +878,66 @@ extension PetbookingAPI {
 				
 				if success {
 					self.getBusinessList(coordinate: coordinate, completion: completion)
+				} else {
+					
+					completion(nil, "")
+					
+				}
+				
+			})
+		}
+	}
+	
+	func getBusinessListFiltered(query:String?, categoryId:String, page:Int = 1, completion: @escaping (_ businessList: BusinessList?, _ message: String) -> Void ) {
+		
+		if SessionManager.sharedInstance.isConsumerValid() {
+			var token = ""
+			if let consumer = SessionManager.sharedInstance.getCurrentConsumer() {
+				token = consumer.token
+			}
+			
+			guard let session = SessionManager.sharedInstance.getCurrentSession() else {
+				return
+			}
+			
+			self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
+			self.auth_headers.updateValue("Token token=\"\(session.authToken)\"", forKey: "X-Petbooking-Session-Token")
+			
+			
+			let parameters: Parameters = ["user_id":session.userId, "q":query ?? "","category_template_id":categoryId,"fields[businesses]":"id,name,slug,location,distance,street,street_number,imported,neighborhood,rating_average,rating_count,favorite_count,cover_image,pictures,transportation_fee,user_favorite,bitmask_values,phone,city,description,state,website,facebook_fanpage,twitter_profile,googleplus_profile,instagram,snapchat", "page[number]":page, "page[size]":20]
+			
+			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/businesses/search", method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString), headers: auth_headers).responseJSON { (response) in
+				
+				switch response.result{
+				case .success(let jsonObject):
+					if let dic = jsonObject as? [String: Any] {
+						
+						do {
+							let businessList = try MTLJSONAdapter.model(of: BusinessList.self, fromJSONDictionary: dic) as! BusinessList
+							businessList.page = page
+							
+							completion(businessList, "")
+							
+						} catch {
+							completion(nil, error.localizedDescription)
+						}
+					} else {
+						completion(nil, "")
+					}
+					break
+				case .failure(let error):
+					print(error)
+					completion(nil, error.localizedDescription)
+					break
+				}
+				
+			}
+		} else
+		{
+			getConsumer(completion: { (success, message) in
+				
+				if success {
+					self.getBusinessListFiltered(query: query,categoryId: categoryId, completion: completion)
 				} else {
 					
 					completion(nil, "")
@@ -1259,7 +1317,7 @@ extension PetbookingAPI {
 			self.auth_headers.updateValue("Token token=\"\(authToken)\"", forKey: "X-Petbooking-Session-Token")
 			
 			let parameters: Parameters = [
-				"data": ["type":"carts", "attributes":["itens":itens]]
+				"data": ["type":"carts", "attributes":["items":itens]]
 			]
 			
 			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/users/\(userId)/carts", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: auth_headers).responseJSON { (response) in
@@ -1482,6 +1540,64 @@ extension PetbookingAPI {
 				if success {
 					self.cancelScheduledService(scheduledService: scheduledService, completion: completion)
 				} else {
+					completion(nil, "")
+					
+				}
+				
+			})
+		}
+	}
+	
+	func getCategoryList( completion: @escaping (_ serviceList: ServiceCategoryList?, _ message: String) -> Void ) {
+		
+		if SessionManager.sharedInstance.isConsumerValid() {
+			var token = ""
+			if let consumer = SessionManager.sharedInstance.getCurrentConsumer() {
+				token = consumer.token
+			}
+			
+			guard let session = SessionManager.sharedInstance.getCurrentSession() else {
+				return
+			}
+			
+			self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
+			self.auth_headers.updateValue("Token token=\"\(session.authToken)\"", forKey: "X-Petbooking-Session-Token")
+			
+			let parameters: Parameters = ["type":"category_templates", "fields[category_templates]":"id,slug,name"]
+			
+			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/category-templates", method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString), headers: auth_headers).responseJSON { (response) in
+				
+				switch response.result{
+				case .success(let jsonObject):
+					if let dic = jsonObject as? [String: Any] {
+						
+						do {
+							let serviceList = try MTLJSONAdapter.model(of: ServiceCategoryList.self, fromJSONDictionary: dic) as! ServiceCategoryList
+							
+							completion(serviceList, "")
+							
+						} catch {
+							completion(nil, error.localizedDescription)
+						}
+					} else {
+						completion(nil, "")
+					}
+					break
+				case .failure(let error):
+					print(error)
+					completion(nil, error.localizedDescription)
+					break
+				}
+				
+			}
+		} else
+		{
+			getConsumer(completion: { (success, message) in
+				
+				if success {
+					self.getCategoryList(completion: completion)
+				} else {
+					
 					completion(nil, "")
 					
 				}
