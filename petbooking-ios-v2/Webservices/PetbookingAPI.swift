@@ -69,9 +69,7 @@ extension PetbookingAPI {
 			
 			switch response.result{
 			case .success(let jsonObject):
-				print(jsonObject)
-				
-				
+
 				do {
 					
 					if let dic = jsonObject as? [String: Any] {
