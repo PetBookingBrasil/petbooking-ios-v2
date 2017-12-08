@@ -25,6 +25,10 @@ class ServiceRowTableViewCell: UITableViewCell {
 		iconImageView.round()
 		panelView.dropShadow()
 		panelView.layer.cornerRadius = 4
+		
+		let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapCell(_:)))
+		panelView.isUserInteractionEnabled = true
+		panelView.addGestureRecognizer(tap)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -43,6 +47,9 @@ class ServiceRowTableViewCell: UITableViewCell {
 		
 	}
 	
+	@IBAction func didTapCell(_ sender: Any) {
+		editAction(sender)
+	}
 }
 
 protocol ServiceRowTableViewCellDelegate: class {
