@@ -17,7 +17,7 @@ extension UIViewController {
 		view.addGestureRecognizer(tap)
 	}
 	
-	func dismissKeyboard() {
+	@objc func dismissKeyboard() {
 		view.endEditing(true)
 	}
 	
@@ -76,7 +76,7 @@ extension UIViewController {
 	
 
 	
-	func cancelButtonPressed(_ sender: AnyObject) {
+	@objc func cancelButtonPressed(_ sender: AnyObject) {
 		
 		if let _ =  self.navigationController?.popViewController(animated: true) {
 			

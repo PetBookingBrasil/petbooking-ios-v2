@@ -971,10 +971,7 @@ extension PetbookingAPI {
 					if let dic = jsonObject as? [String: Any] {
 						
 						do {
-							
-							
 							completion(true, "")
-							
 						} catch {
 							completion(false, error.localizedDescription)
 						}

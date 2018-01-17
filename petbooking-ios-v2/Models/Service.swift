@@ -12,16 +12,16 @@ import Mantle
 class Service: MTLModel, MTLJSONSerializing {
 
 	
-	dynamic var id = ""
-	dynamic var name = ""
-	dynamic var duration = 0.0
-	dynamic var price = 0.0
-	dynamic var startDate = ""
-	dynamic var startTime = ""
-	dynamic var professionalId = ""
-	dynamic var professionalName = ""
-	dynamic var professionalPicture = ""
-	dynamic var services = [SubService]()
+	@objc dynamic var id = ""
+	@objc dynamic var name = ""
+	@objc dynamic var duration = 0.0
+	@objc dynamic var price = 0.0
+	@objc dynamic var startDate = ""
+	@objc dynamic var startTime = ""
+	@objc dynamic var professionalId = ""
+	@objc dynamic var professionalName = ""
+	@objc dynamic var professionalPicture = ""
+	@objc dynamic var services = [SubService]()
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
 		return [
@@ -61,10 +61,10 @@ class Service: MTLModel, MTLJSONSerializing {
 
 class SubService: MTLModel, MTLJSONSerializing {
 	
-	dynamic var id = ""
-	dynamic var name = ""
-	dynamic var duration = 0
-	dynamic var price = 0.0
+	@objc dynamic var id = ""
+	@objc dynamic var name = ""
+	@objc dynamic var duration = 0
+	@objc dynamic var price = 0.0
 	
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
@@ -98,7 +98,7 @@ class SubService: MTLModel, MTLJSONSerializing {
 
 class ServiceList: MTLModel, MTLJSONSerializing {
 	
-	dynamic var services = [Service]()
+	@objc dynamic var services = [Service]()
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
 		return [

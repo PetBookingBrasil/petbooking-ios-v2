@@ -365,7 +365,7 @@ class ScheduleManager: NSObject {
 			let realm = try Realm()
 			try realm.write {
 				
-				scheduleService.services.remove(objectAtIndex: index)
+				scheduleService.services.remove(at: index)
 				realm.add(scheduleService,update: true)
 				
 				realm.delete(scheduleSubService)

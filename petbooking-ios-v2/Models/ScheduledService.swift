@@ -11,36 +11,36 @@ import Mantle
 
 class ScheduledService: MTLModel, MTLJSONSerializing {
 
-	dynamic var id = 0
+	@objc dynamic var id = 0
 
-	dynamic var state = ""
+	@objc dynamic var state = ""
 	
-	dynamic var message = ""
+	@objc dynamic var message = ""
 	
-	dynamic var startTime = ""
-	dynamic var endTime = ""
-	dynamic var duration = 0
+	@objc dynamic var startTime = ""
+	@objc dynamic var endTime = ""
+	@objc dynamic var duration = 0
 	
-	dynamic var businessId = 0
-	dynamic var businessName = ""
+	@objc dynamic var businessId = 0
+	@objc dynamic var businessName = ""
 	
-	dynamic var serviceId = 0
-	dynamic var serviceName = ""
-	dynamic var serviceDescription = ""
-	dynamic var subServices = [SubService]()
+	@objc dynamic var serviceId = 0
+	@objc dynamic var serviceName = ""
+	@objc dynamic var serviceDescription = ""
+	@objc dynamic var subServices = [SubService]()
 	
-	dynamic var petId = 0
+	@objc dynamic var petId = 0
 	
-	dynamic var professionalName = ""
-	dynamic var professionalId = 0
-	dynamic var professionalPicture = ""
+	@objc dynamic var professionalName = ""
+	@objc dynamic var professionalId = 0
+	@objc dynamic var professionalPicture = ""
 	
-	dynamic var notes:String = ""
+	@objc dynamic var notes:String = ""
 	
-	dynamic var withTransportion = false
+	@objc dynamic var withTransportion = false
 	
-	dynamic var paid = false
-	dynamic var price = 0.0
+	@objc dynamic var paid = false
+	@objc dynamic var price = 0.0
 	
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
@@ -77,11 +77,11 @@ class ScheduledService: MTLModel, MTLJSONSerializing {
 
 class ScheduledPet: MTLModel, MTLJSONSerializing {
 	
-	dynamic var id = 0
-	dynamic var name = ""
-	dynamic var type = ""
-	dynamic var photoThumbUrl = ""
-	dynamic var services = [ScheduledService]()
+	@objc dynamic var id = 0
+	@objc dynamic var name = ""
+	@objc dynamic var type = ""
+	@objc dynamic var photoThumbUrl = ""
+	@objc dynamic var services = [ScheduledService]()
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
 		return [
@@ -102,9 +102,9 @@ class ScheduledPet: MTLModel, MTLJSONSerializing {
 
 class ScheduledDate: MTLModel, MTLJSONSerializing {
 	
-	dynamic var date = Date()
-	dynamic var dateKey = ""
-	dynamic var scheduledPets = [ScheduledPet]()
+	@objc dynamic var date = Date()
+	@objc dynamic var dateKey = ""
+	@objc dynamic var scheduledPets = [ScheduledPet]()
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
 		return [
@@ -149,7 +149,7 @@ class ScheduledDate: MTLModel, MTLJSONSerializing {
 class ScheduledServiceList: MTLModel, MTLJSONSerializing {
 	
 	var scheduledDates = [ScheduledDate]()
-	dynamic var page = 0
+	@objc dynamic var page = 0
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
 		return [

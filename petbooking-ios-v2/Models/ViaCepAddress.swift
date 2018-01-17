@@ -11,11 +11,11 @@ import Mantle
 
 class ViaCepAddress: MTLModel, MTLJSONSerializing {
 
-	dynamic var zipcode:String = ""
-	dynamic var street:String = ""
-	dynamic var neighborhood:String = ""
-	dynamic var city:String = ""
-	dynamic var state:String = ""
+	@objc dynamic var zipcode:String = ""
+	@objc dynamic var street:String = ""
+	@objc dynamic var neighborhood:String = ""
+	@objc dynamic var city:String = ""
+	@objc dynamic var state:String = ""
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
 		return [

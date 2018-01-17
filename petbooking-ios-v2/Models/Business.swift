@@ -12,30 +12,30 @@ import CoreLocation
 
 class Business: MTLModel, MTLJSONSerializing {
 
-	dynamic var id = ""
-	dynamic var type = ""
-	dynamic var name = ""
-	dynamic var photoUrl = ""
-	dynamic var photoThumbUrl = ""
-	dynamic var neighborhood:String = ""
-	dynamic var distance:Double = 0.0
-	dynamic var street:String = ""
-	dynamic var streetNumber:String = ""
-	dynamic var rating:Double  = 0.0
-	dynamic var ratingCount:Int  = 0
-	dynamic var location:CLLocationCoordinate2D = CLLocationCoordinate2D()
-	dynamic var favoriteId = 0
-	dynamic var phone = ""
-	dynamic var city = ""
-	dynamic var businessDescription = ""
-	dynamic var state = ""
-	dynamic var website = ""
-	dynamic var facebook = ""
-	dynamic var twitter = ""
-	dynamic var googleplus = ""
-	dynamic var instagram = ""
-	dynamic var snapchat = ""
-	dynamic var imported = false
+	@objc var id = ""
+	@objc var type = ""
+	@objc var name = ""
+	@objc var photoUrl = ""
+	@objc var photoThumbUrl = ""
+	@objc var neighborhood:String = ""
+	@objc var distance:Double = 0.0
+	@objc var street:String = ""
+	@objc var streetNumber:String = ""
+	@objc var rating:Double  = 0.0
+	@objc var ratingCount:Int  = 0
+	@objc var location:CLLocationCoordinate2D = CLLocationCoordinate2D()
+	@objc var favoriteId = 0
+	@objc var phone = ""
+	@objc var city = ""
+	@objc var businessDescription = ""
+	@objc var state = ""
+	@objc var website = ""
+	@objc var facebook = ""
+	@objc var twitter = ""
+	@objc var googleplus = ""
+	@objc var instagram = ""
+	@objc var snapchat = ""
+	@objc var imported = false
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
 		return [
@@ -131,8 +131,8 @@ class Business: MTLModel, MTLJSONSerializing {
 
 class BusinessList: MTLModel, MTLJSONSerializing {
 	
-	dynamic var businesses = [Business]()
-	dynamic var page = 0
+	@objc var businesses = [Business]()
+	@objc var page = 0
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
 		return [

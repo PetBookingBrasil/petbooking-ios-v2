@@ -97,7 +97,7 @@ class HomeBusinessViewController: UIViewController, HomeBusinessViewProtocol, UI
 
 	}
 	
-	func goToShoppingCart(_ sender: Any) {
+	@objc func goToShoppingCart(_ sender: Any) {
 		
 		let cart = CartRouter.createModule(business:business)
 		

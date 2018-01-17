@@ -68,7 +68,7 @@ class LoginInteractor: LoginInteractorProtocol {
 	func didTapFacebookLoginButton() {
 		
 		let loginManager = LoginManager()
-		loginManager.logIn([.publicProfile, .email], viewController: nil) { (loginResult) in
+		loginManager.logIn(readPermissions: [.publicProfile, .email], viewController: nil) { (loginResult) in
 			
 			switch loginResult {
 			case .failed(let error):

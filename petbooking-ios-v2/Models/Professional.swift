@@ -11,20 +11,20 @@ import Mantle
 
 class Professional: MTLModel, MTLJSONSerializing {
 	
-	dynamic var id = ""
-	dynamic var name = ""
-	dynamic var serviceCount = 0
-	dynamic var slug = ""
-	dynamic var birthday:String = ""
-	dynamic var cpf:String = ""
-	dynamic var email:String = ""
-	dynamic var gender:String = ""
-	dynamic var nickname:String = ""
-	dynamic var phone:String = ""
-	dynamic var schedule:[String: [String]] = [:]
-	dynamic var photoUrl = ""
-	dynamic var photoMediumUrl = ""
-	dynamic var photoThumbUrl = ""
+	@objc dynamic var id = ""
+	@objc dynamic var name = ""
+	@objc dynamic var serviceCount = 0
+	@objc dynamic var slug = ""
+	@objc dynamic var birthday:String = ""
+	@objc dynamic var cpf:String = ""
+	@objc dynamic var email:String = ""
+	@objc dynamic var gender:String = ""
+	@objc dynamic var nickname:String = ""
+	@objc dynamic var phone:String = ""
+	@objc dynamic var schedule:[String: [String]] = [:]
+	@objc dynamic var photoUrl = ""
+	@objc dynamic var photoMediumUrl = ""
+	@objc dynamic var photoThumbUrl = ""
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
 		return [
@@ -78,7 +78,7 @@ class Professional: MTLModel, MTLJSONSerializing {
 
 class ProfessionalList: MTLModel, MTLJSONSerializing {
 	
-	dynamic var professionals = [Professional]()
+	@objc dynamic var professionals = [Professional]()
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
 		return [
@@ -96,8 +96,8 @@ class ProfessionalList: MTLModel, MTLJSONSerializing {
 
 class Times: MTLModel, MTLJSONSerializing {
 	
-	dynamic var date = ""
-	dynamic var times = [String]()
+	@objc dynamic var date = ""
+	@objc dynamic var times = [String]()
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
 		return [

@@ -13,11 +13,11 @@ import RealmSwift
 
 class Session: MTLModel, MTLJSONSerializing {
 	
-	dynamic var userId:Int = 0
-	dynamic var authToken:String = ""
-	dynamic var tokenExpiresAt:Double = 0
-	dynamic var validForScheduling:Bool = false
-	dynamic var errors = [ErrorRest]()
+	@objc dynamic var userId:Int = 0
+	@objc dynamic var authToken:String = ""
+	@objc dynamic var tokenExpiresAt:Double = 0
+	@objc dynamic var validForScheduling:Bool = false
+	@objc dynamic var errors = [ErrorRest]()
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
 		return [
@@ -48,10 +48,10 @@ class Session: MTLModel, MTLJSONSerializing {
 
 class SessionRealm: Object {
 	
-	dynamic var userId:Int = 0
-	dynamic var authToken:String = ""
-	dynamic var tokenExpiresAt:Double = 0
-	dynamic var validForScheduling:Bool = false
+	@objc dynamic var userId:Int = 0
+	@objc dynamic var authToken:String = ""
+	@objc dynamic var tokenExpiresAt:Double = 0
+	@objc dynamic var validForScheduling:Bool = false
 	
 	override static func primaryKey() -> String? {
 		return "userId"

@@ -1,35 +1,34 @@
 PODS:
   - AKMaskField (2.0.3)
   - AKNumericFormatter (0.0.2)
-  - Alamofire (4.5.1)
-  - ALLoadingView (1.1.3)
-  - ASMapLauncher (1.0.5)
+  - Alamofire (4.6.0)
+  - ALLoadingView (1.1.4)
   - BEMCheckBox (1.4.1)
-  - Bolts (1.8.4):
-    - Bolts/AppLinks (= 1.8.4)
-    - Bolts/Tasks (= 1.8.4)
-  - Bolts/AppLinks (1.8.4):
+  - Bolts (1.9.0):
+    - Bolts/AppLinks (= 1.9.0)
+    - Bolts/Tasks (= 1.9.0)
+  - Bolts/AppLinks (1.9.0):
     - Bolts/Tasks
-  - Bolts/Tasks (1.8.4)
+  - Bolts/Tasks (1.9.0)
   - DZNEmptyDataSet (1.8.1)
-  - FacebookCore (0.2.0):
+  - FacebookCore (0.3.0):
     - Bolts (~> 1.8)
-    - FBSDKCoreKit (~> 4.15)
-  - FacebookLogin (0.2.0):
+    - FBSDKCoreKit (~> 4.27)
+  - FacebookLogin (0.3.0):
     - Bolts (~> 1.8)
-    - FacebookCore (~> 0.2)
-    - FBSDKCoreKit (~> 4.15)
-    - FBSDKLoginKit (~> 4.15)
-  - FBSDKCoreKit (4.26.0):
+    - FacebookCore (~> 0.3)
+    - FBSDKCoreKit (~> 4.27)
+    - FBSDKLoginKit (~> 4.27)
+  - FBSDKCoreKit (4.29.0):
     - Bolts (~> 1.7)
-  - FBSDKLoginKit (4.26.0):
+  - FBSDKLoginKit (4.29.0):
     - FBSDKCoreKit
   - FLAnimatedImage (1.0.12)
-  - IQKeyboardManager (4.0.13)
+  - IQKeyboardManager (5.0.7)
   - Mantle (2.1.0):
     - Mantle/extobjc (= 2.1.0)
   - Mantle/extobjc (2.1.0)
-  - Pageboy (1.4.1)
+  - Pageboy (2.3.1)
   - PINCache (2.3)
   - PINRemoteImage (2.1.4):
     - PINRemoteImage/FLAnimatedImage (= 2.1.4)
@@ -39,19 +38,18 @@ PODS:
     - FLAnimatedImage (>= 1.0)
     - PINRemoteImage/Core
   - RateView (1.2)
-  - Realm (2.10.0):
-    - Realm/Headers (= 2.10.0)
-  - Realm/Headers (2.10.0)
-  - RealmSwift (2.10.0):
-    - Realm (= 2.10.0)
-  - SideMenu (2.3.3)
+  - Realm (3.0.2):
+    - Realm/Headers (= 3.0.2)
+  - Realm/Headers (3.0.2)
+  - RealmSwift (3.0.2):
+    - Realm (= 3.0.2)
+  - SideMenu (3.1.5)
 
 DEPENDENCIES:
-  - AKMaskField
+  - AKMaskField (from `https://github.com/DRybochkin/AKMaskField.git`, branch `master`)
   - AKNumericFormatter
-  - Alamofire (~> 4.4)
-  - ALLoadingView
-  - ASMapLauncher (= 1.0.5)
+  - Alamofire (~> 4.5)
+  - ALLoadingView (~> 1.1)
   - BEMCheckBox
   - DZNEmptyDataSet
   - FacebookCore
@@ -64,30 +62,39 @@ DEPENDENCIES:
   - RealmSwift
   - SideMenu
 
+EXTERNAL SOURCES:
+  AKMaskField:
+    :branch: master
+    :git: https://github.com/DRybochkin/AKMaskField.git
+
+CHECKOUT OPTIONS:
+  AKMaskField:
+    :commit: ead50bea687b36937965df67ad0cd397ed9a8355
+    :git: https://github.com/DRybochkin/AKMaskField.git
+
 SPEC CHECKSUMS:
-  AKMaskField: b6d147524813e62cd3f15475fa2200ce7a3d2620
+  AKMaskField: 859c9ca3b8acfdfbf0834c016329a92a306b78aa
   AKNumericFormatter: de969ab13c504dca7aa119b558a934ccdbd1e376
-  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
-  ALLoadingView: 64344433e904ed512c4dc5776524783e123eb543
-  ASMapLauncher: 4e87f6bc6199c425cd14fba2fb7178cf3c32ce8f
+  Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
+  ALLoadingView: 86aea5ee564f034296e76a49f53779e0a85fe846
   BEMCheckBox: 5ba6e37ade3d3657b36caecc35c8b75c6c2b1a4e
-  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
-  FacebookCore: 2cb3f0fbff218e9d3119cec84bae983b232412de
-  FacebookLogin: c9d606504735780a9e3002465a615512e0a691a5
-  FBSDKCoreKit: c8b8582311ec11b145451d8b9717dc6cc2ae5a76
-  FBSDKLoginKit: f3f03b94c21eb834af243c0a881d48641f47ca60
+  FacebookCore: 3ffa190a3f1f96cec0e44d3fc221bc322c595ffa
+  FacebookLogin: 0af839ea858faef99550d16596b87b4a8e8906e6
+  FBSDKCoreKit: 6f139173dc63a1deaff4430a55f2fe5bb222d2af
+  FBSDKLoginKit: 56a057ca6822535ea0faa25f57a7c41edb697fd4
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
-  IQKeyboardManager: 8eab4d8111418414619d1df8e4779ce5d0f8d7e2
+  IQKeyboardManager: 0bfa4607d39924116b5c0c8b55b5d789288b5cba
   Mantle: 2fa750afa478cd625a94230fbf1c13462f29395b
-  Pageboy: c98cd4580c26b2f64c3b4232e616a42989819400
+  Pageboy: 761f33cb03c8ef27c69b803be1bccd04b71c80d1
   PINCache: ce36ed282031b92fc7733ffe831f474ff80fddc2
   PINRemoteImage: 4ac4011c5caefd6befd99758e09becede05d3226
   RateView: d4d12e9bb76dc23a77a56f4e5c5fb530a3f3f998
-  Realm: 98b3a25643cf6b3e07d2b99fb43fe0eb9c801dec
-  RealmSwift: 34073ad3a31232bbaf7c0db898c037940284cba2
-  SideMenu: a447554ae5c982e8077666389e1c8b0c8656e065
+  Realm: 6f23fd1f178a09342eac21bfa7c2bf4312a7a180
+  RealmSwift: 695393add1b8f9d5fa75dd16e6355cf3935f71e2
+  SideMenu: 47dbf9e4d878062d8994aed43f6e4bf6c1fea30b
 
-PODFILE CHECKSUM: 931a11869ae4ce8b1890d38bf4e34e8e5d83b9f9
+PODFILE CHECKSUM: 55daaab9bc24a0ce9724b70f6e2da9e486df998b
 
 COCOAPODS: 1.3.1

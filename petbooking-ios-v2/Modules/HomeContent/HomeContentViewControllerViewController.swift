@@ -80,10 +80,10 @@ class HomeContentViewControllerViewController: UIViewController, HomeContentView
 	}
 	
 	
-	func goToAgenda() {
+	@objc func goToAgenda() {
 		self.navigationController?.pushViewController(AgendaRouter.createModule(), animated: true)
 	}
-	func showLeftMenu() {
+	@objc func showLeftMenu() {
 		present(SideMenuManager.menuLeftNavigationController!, animated: true, completion: nil)
 	}
 	

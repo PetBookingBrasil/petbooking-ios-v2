@@ -43,7 +43,7 @@ class MyPetsViewController: UIViewController, MyPetsViewProtocol {
 		presenter?.reloadTableData()
 	}
 	
-	func addPet() {
+	@objc func addPet() {
 		presenter?.didTapAddPet()
 	}
 	

@@ -13,8 +13,8 @@ import RealmSwift
 
 class Consumer: MTLModel, MTLJSONSerializing {
 	
-	dynamic var token:String = ""
-	dynamic var tokenExpiresAt:Double = 0
+	@objc dynamic var token:String = ""
+	@objc dynamic var tokenExpiresAt:Double = 0
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
 		return [
@@ -36,8 +36,8 @@ class Consumer: MTLModel, MTLJSONSerializing {
 
 class ConsumerRealm: Object {
 	
-	dynamic var token:String = ""
-	dynamic var tokenExpiresAt:Double = 0
+	@objc dynamic var token:String = ""
+	@objc dynamic var tokenExpiresAt:Double = 0
 	
 	override static func primaryKey() -> String? {
 		return "token"

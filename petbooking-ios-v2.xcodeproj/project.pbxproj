@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F11C7ED019EC0D4E3FE0C3A /* Pods_petbooking_ios_v2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D1B26D2993D3FD4508B1E48 /* Pods_petbooking_ios_v2.framework */; };
 		410AA9661FA69AC700A90377 /* ServiceRowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410AA9641FA69AC700A90377 /* ServiceRowTableViewCell.swift */; };
 		410AA9671FA69AC700A90377 /* ServiceRowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 410AA9651FA69AC700A90377 /* ServiceRowTableViewCell.xib */; };
 		410AA96A1FA69EFA00A90377 /* SelectPetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410AA9681FA69EFA00A90377 /* SelectPetTableViewCell.swift */; };
@@ -301,10 +302,11 @@
 		41F70EF81F3DE6FE0089DDE2 /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41F70EF71F3DE6FE0089DDE2 /* EmptyView.xib */; };
 		41FB2FF01F3CA8A900DF57B1 /* AlertCancelScheduledViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FB2FEE1F3CA8A900DF57B1 /* AlertCancelScheduledViewController.swift */; };
 		41FB2FF11F3CA8A900DF57B1 /* AlertCancelScheduledViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41FB2FEF1F3CA8A900DF57B1 /* AlertCancelScheduledViewController.xib */; };
-		DFC90A17A5F8AA2CE20F8375 /* Pods_petbooking_ios_v2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9D68A4E19945C41B8E9EDFE /* Pods_petbooking_ios_v2.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		136BD67BC48E40083A3E71AC /* Pods-petbooking-ios-v2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petbooking-ios-v2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-petbooking-ios-v2/Pods-petbooking-ios-v2.debug.xcconfig"; sourceTree = "<group>"; };
+		3D1B26D2993D3FD4508B1E48 /* Pods_petbooking_ios_v2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_petbooking_ios_v2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		410AA9641FA69AC700A90377 /* ServiceRowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRowTableViewCell.swift; sourceTree = "<group>"; };
 		410AA9651FA69AC700A90377 /* ServiceRowTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServiceRowTableViewCell.xib; sourceTree = "<group>"; };
 		410AA9681FA69EFA00A90377 /* SelectPetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPetTableViewCell.swift; sourceTree = "<group>"; };
@@ -626,9 +628,7 @@
 		41F70EF71F3DE6FE0089DDE2 /* EmptyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyView.xib; sourceTree = "<group>"; };
 		41FB2FEE1F3CA8A900DF57B1 /* AlertCancelScheduledViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertCancelScheduledViewController.swift; sourceTree = "<group>"; };
 		41FB2FEF1F3CA8A900DF57B1 /* AlertCancelScheduledViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlertCancelScheduledViewController.xib; sourceTree = "<group>"; };
-		5EC8A11A3CAAE140E557AF6F /* Pods-petbooking-ios-v2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petbooking-ios-v2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-petbooking-ios-v2/Pods-petbooking-ios-v2.debug.xcconfig"; sourceTree = "<group>"; };
-		9908B75EC13330082A78645E /* Pods-petbooking-ios-v2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petbooking-ios-v2.release.xcconfig"; path = "Pods/Target Support Files/Pods-petbooking-ios-v2/Pods-petbooking-ios-v2.release.xcconfig"; sourceTree = "<group>"; };
-		C9D68A4E19945C41B8E9EDFE /* Pods_petbooking_ios_v2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_petbooking_ios_v2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8623691901623EF8AAEDE69 /* Pods-petbooking-ios-v2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petbooking-ios-v2.release.xcconfig"; path = "Pods/Target Support Files/Pods-petbooking-ios-v2/Pods-petbooking-ios-v2.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -637,7 +637,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				412776911F130AE100EC6488 /* MapKit.framework in Frameworks */,
-				DFC90A17A5F8AA2CE20F8375 /* Pods_petbooking_ios_v2.framework in Frameworks */,
+				3F11C7ED019EC0D4E3FE0C3A /* Pods_petbooking_ios_v2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -795,8 +795,8 @@
 			children = (
 				413682BF1E9C2B2D008C463B /* petbooking-ios-v2 */,
 				413682BE1E9C2B2D008C463B /* Products */,
-				6BC186A20FCE32BA04CC64D7 /* Pods */,
 				C4DC27CBAA13EC798434A677 /* Frameworks */,
+				67CD6A95B38D805D6E6105B7 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1349,11 +1349,11 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		6BC186A20FCE32BA04CC64D7 /* Pods */ = {
+		67CD6A95B38D805D6E6105B7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				5EC8A11A3CAAE140E557AF6F /* Pods-petbooking-ios-v2.debug.xcconfig */,
-				9908B75EC13330082A78645E /* Pods-petbooking-ios-v2.release.xcconfig */,
+				136BD67BC48E40083A3E71AC /* Pods-petbooking-ios-v2.debug.xcconfig */,
+				D8623691901623EF8AAEDE69 /* Pods-petbooking-ios-v2.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -1362,7 +1362,7 @@
 			isa = PBXGroup;
 			children = (
 				412776901F130AE100EC6488 /* MapKit.framework */,
-				C9D68A4E19945C41B8E9EDFE /* Pods_petbooking_ios_v2.framework */,
+				3D1B26D2993D3FD4508B1E48 /* Pods_petbooking_ios_v2.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1374,12 +1374,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 413682CF1E9C2B2D008C463B /* Build configuration list for PBXNativeTarget "petbooking-ios-v2" */;
 			buildPhases = (
-				4FB1F55EA32591231EB3CBD5 /* [CP] Check Pods Manifest.lock */,
+				FE57B65DFDB5F5D58A49BF1A /* [CP] Check Pods Manifest.lock */,
 				413682B91E9C2B2D008C463B /* Sources */,
 				413682BA1E9C2B2D008C463B /* Frameworks */,
 				413682BB1E9C2B2D008C463B /* Resources */,
-				BC86734ECD653476C12801FB /* [CP] Embed Pods Frameworks */,
-				CCDE22ABC7C6B67408128786 /* [CP] Copy Pods Resources */,
+				90D350B628A722CF1184E21F /* [CP] Embed Pods Frameworks */,
+				0C6EE660D488A3FD4A1EE6A7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1402,7 +1402,8 @@
 				TargetAttributes = {
 					413682BC1E9C2B2D008C463B = {
 						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = 77828RW9EP;
+						DevelopmentTeam = 2MQ2LA8HV9;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
@@ -1529,25 +1530,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4FB1F55EA32591231EB3CBD5 /* [CP] Check Pods Manifest.lock */ = {
+		0C6EE660D488A3FD4A1EE6A7 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-petbooking-ios-v2-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-petbooking-ios-v2/Pods-petbooking-ios-v2-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BC86734ECD653476C12801FB /* [CP] Embed Pods Frameworks */ = {
+		90D350B628A722CF1184E21F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1557,7 +1555,6 @@
 				"${BUILT_PRODUCTS_DIR}/AKMaskField/AKMaskField.framework",
 				"${BUILT_PRODUCTS_DIR}/AKNumericFormatter/AKNumericFormatter.framework",
 				"${BUILT_PRODUCTS_DIR}/ALLoadingView/ALLoadingView.framework",
-				"${BUILT_PRODUCTS_DIR}/ASMapLauncher/ASMapLauncher.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/BEMCheckBox/BEMCheckBox.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
@@ -1582,7 +1579,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AKMaskField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AKNumericFormatter.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ALLoadingView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ASMapLauncher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BEMCheckBox.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
@@ -1607,19 +1603,22 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-petbooking-ios-v2/Pods-petbooking-ios-v2-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CCDE22ABC7C6B67408128786 /* [CP] Copy Pods Resources */ = {
+		FE57B65DFDB5F5D58A49BF1A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "[CP] Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-petbooking-ios-v2-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-petbooking-ios-v2/Pods-petbooking-ios-v2-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1973,7 +1972,7 @@
 		};
 		413682D01E9C2B2D008C463B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5EC8A11A3CAAE140E557AF6F /* Pods-petbooking-ios-v2.debug.xcconfig */;
+			baseConfigurationReference = 136BD67BC48E40083A3E71AC /* Pods-petbooking-ios-v2.debug.xcconfig */;
 			buildSettings = {
 				API_BASE_URL_ENDPOINT = beta.petbooking.com.br/api;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1982,7 +1981,7 @@
 				CODE_SIGN_ENTITLEMENTS = "petbooking-ios-v2/petbooking-ios-v2.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 77828RW9EP;
+				DEVELOPMENT_TEAM = 2MQ2LA8HV9;
 				INFOPLIST_FILE = "petbooking-ios-v2/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.petbooking;
@@ -1990,14 +1989,15 @@
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "petbooking-ios-v2/petbooking-ios-v2-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		413682D11E9C2B2D008C463B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9908B75EC13330082A78645E /* Pods-petbooking-ios-v2.release.xcconfig */;
+			baseConfigurationReference = D8623691901623EF8AAEDE69 /* Pods-petbooking-ios-v2.release.xcconfig */;
 			buildSettings = {
 				API_BASE_URL_ENDPOINT = novo.petbooking.com.br/api;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -2006,7 +2006,7 @@
 				CODE_SIGN_ENTITLEMENTS = "petbooking-ios-v2/petbooking-ios-v2.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 77828RW9EP;
+				DEVELOPMENT_TEAM = 2MQ2LA8HV9;
 				INFOPLIST_FILE = "petbooking-ios-v2/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -2015,7 +2015,8 @@
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "petbooking-ios-v2/petbooking-ios-v2-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

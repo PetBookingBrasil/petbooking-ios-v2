@@ -77,7 +77,7 @@ class ViewController: UIViewController {
 		self.present(PresentationRouter.createFirstModule(), animated: true, completion: nil)
 	}
 	
-	func showLeftMenu() {
+	@objc func showLeftMenu() {
 		present(SideMenuManager.menuLeftNavigationController!, animated: true, completion: nil)
 	}
 

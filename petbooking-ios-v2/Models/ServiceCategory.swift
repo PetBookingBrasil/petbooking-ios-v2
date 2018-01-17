@@ -11,10 +11,10 @@ import Mantle
 
 class ServiceCategory: MTLModel, MTLJSONSerializing {
 
-	dynamic var id = ""
-	dynamic var name = ""
-	dynamic var serviceCount = 0
-	dynamic var slug = ""
+	@objc dynamic var id = ""
+	@objc dynamic var name = ""
+	@objc dynamic var serviceCount = 0
+	@objc dynamic var slug = ""
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
 		return [
@@ -28,7 +28,7 @@ class ServiceCategory: MTLModel, MTLJSONSerializing {
 
 class ServiceCategoryList: MTLModel, MTLJSONSerializing {
 	
-	dynamic var categories = [ServiceCategory]()
+	@objc dynamic var categories = [ServiceCategory]()
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
 		return [

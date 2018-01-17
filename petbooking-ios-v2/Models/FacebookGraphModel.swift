@@ -11,9 +11,9 @@ import Mantle
 
 class FacebookGraphModel: MTLModel, MTLJSONSerializing {
 
-		dynamic var name:String = ""
-		dynamic var email:String = ""
-		dynamic var profileUrl:String = ""
+		@objc dynamic var name:String = ""
+		@objc dynamic var email:String = ""
+		@objc dynamic var profileUrl:String = ""
 
 		
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {

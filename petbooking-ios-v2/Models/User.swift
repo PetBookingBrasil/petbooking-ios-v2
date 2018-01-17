@@ -13,31 +13,31 @@ import RealmSwift
 
 class User: MTLModel, MTLJSONSerializing {
 
-	dynamic var userId:String = ""
-	dynamic var acceptsEmail:Bool = false
-	dynamic var acceptsPush:Bool = false
-	dynamic var acceptsSms:Bool = false
-	dynamic var authToken:String = ""
-	dynamic var avatarUrlLarge:String = ""
-	dynamic var avatarUrlMedium:String = ""
-	dynamic var avatarUrlThumb:String = ""
-	dynamic var avatarUrlTiny:String = ""
-	dynamic var birthday:String = ""
-	dynamic var city:String = ""
-	dynamic var cpf:String = ""
-	dynamic var email:String = ""
-	dynamic var gender:String = ""
-	dynamic var name:String = ""
-	dynamic var neighborhood:String = ""
-	dynamic var nickname:String = ""
-	dynamic var phone:String = ""
-	dynamic var state:String = ""
-	dynamic var street:String = ""
-	dynamic var streetNumber:String = ""
-	dynamic var complement:String = ""
-	dynamic var zipcode:String = ""
-	dynamic var validForScheduling:Bool = false
-	dynamic var errors = [ErrorRest]()
+	@objc dynamic var userId:String = ""
+	@objc dynamic var acceptsEmail:Bool = false
+	@objc dynamic var acceptsPush:Bool = false
+	@objc dynamic var acceptsSms:Bool = false
+	@objc dynamic var authToken:String = ""
+	@objc dynamic var avatarUrlLarge:String = ""
+	@objc dynamic var avatarUrlMedium:String = ""
+	@objc dynamic var avatarUrlThumb:String = ""
+	@objc dynamic var avatarUrlTiny:String = ""
+	@objc dynamic var birthday:String = ""
+	@objc dynamic var city:String = ""
+	@objc dynamic var cpf:String = ""
+	@objc dynamic var email:String = ""
+	@objc dynamic var gender:String = ""
+	@objc dynamic var name:String = ""
+	@objc dynamic var neighborhood:String = ""
+	@objc dynamic var nickname:String = ""
+	@objc dynamic var phone:String = ""
+	@objc dynamic var state:String = ""
+	@objc dynamic var street:String = ""
+	@objc dynamic var streetNumber:String = ""
+	@objc dynamic var complement:String = ""
+	@objc dynamic var zipcode:String = ""
+	@objc dynamic var validForScheduling:Bool = false
+	@objc dynamic var errors = [ErrorRest]()
 	
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
@@ -73,30 +73,30 @@ class User: MTLModel, MTLJSONSerializing {
 
 class UserRealm: Object {
 	
-	dynamic var userId:String = ""
-	dynamic var acceptsEmail:Bool = false
-	dynamic var acceptsPush:Bool = false
-	dynamic var acceptsSms:Bool = false
-	dynamic var authToken:String = ""
-	dynamic var avatarUrlLarge:String = ""
-	dynamic var avatarUrlMedium:String = ""
-	dynamic var avatarUrlThumb:String = ""
-	dynamic var avatarUrlTiny:String = ""
-	dynamic var birthday:String = ""
-	dynamic var city:String = ""
-	dynamic var cpf:String = ""
-	dynamic var email:String = ""
-	dynamic var gender:String = ""
-	dynamic var name:String = ""
-	dynamic var neighborhood:String = ""
-	dynamic var nickname:String = ""
-	dynamic var phone:String = ""
-	dynamic var state:String = ""
-	dynamic var street:String = ""
-	dynamic var streetNumber:String = ""
-	dynamic var complement:String = ""
-	dynamic var zipcode:String = ""
-	dynamic var validForScheduling:Bool = false
+	@objc dynamic var userId:String = ""
+	@objc dynamic var acceptsEmail:Bool = false
+	@objc dynamic var acceptsPush:Bool = false
+	@objc dynamic var acceptsSms:Bool = false
+	@objc dynamic var authToken:String = ""
+	@objc dynamic var avatarUrlLarge:String = ""
+	@objc dynamic var avatarUrlMedium:String = ""
+	@objc dynamic var avatarUrlThumb:String = ""
+	@objc dynamic var avatarUrlTiny:String = ""
+	@objc dynamic var birthday:String = ""
+	@objc dynamic var city:String = ""
+	@objc dynamic var cpf:String = ""
+	@objc dynamic var email:String = ""
+	@objc dynamic var gender:String = ""
+	@objc dynamic var name:String = ""
+	@objc dynamic var neighborhood:String = ""
+	@objc dynamic var nickname:String = ""
+	@objc dynamic var phone:String = ""
+	@objc dynamic var state:String = ""
+	@objc dynamic var street:String = ""
+	@objc dynamic var streetNumber:String = ""
+	@objc dynamic var complement:String = ""
+	@objc dynamic var zipcode:String = ""
+	@objc dynamic var validForScheduling:Bool = false
 	
 	override static func primaryKey() -> String? {
 		return "userId"

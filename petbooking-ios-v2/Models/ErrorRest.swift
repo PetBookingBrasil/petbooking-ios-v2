@@ -11,10 +11,10 @@ import Mantle
 
 class ErrorRest: MTLModel, MTLJSONSerializing {
 
-	dynamic var errorCode:Int = 0
-	dynamic var errorDetail:String = ""
-	dynamic var errorStatus:Int = 0
-	dynamic var errorTitle:String = ""
+	@objc dynamic var errorCode:Int = 0
+	@objc dynamic var errorDetail:String = ""
+	@objc dynamic var errorStatus:Int = 0
+	@objc dynamic var errorTitle:String = ""
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
 		return [

@@ -138,25 +138,25 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 		birthdayTextField.maskTemplate = "dd/mm/aaaa"
 		
 		
-		let tapGesture = UITapGestureRecognizer(target: self, action: #selector(AddPetViewControllerViewController.tapField(_:)))
+		let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapField(_:)))
 		genderLabel.addGestureRecognizer(tapGesture)
 		
-		let tapGesture2 = UITapGestureRecognizer(target: self, action: #selector(AddPetViewControllerViewController.tapField(_:)))
+		let tapGesture2 = UITapGestureRecognizer(target: self, action: #selector(tapField(_:)))
 		petTypeLabel.addGestureRecognizer(tapGesture2)
 		
-		let tapGesture3 = UITapGestureRecognizer(target: self, action: #selector(AddPetViewControllerViewController.tapField(_:)))
+		let tapGesture3 = UITapGestureRecognizer(target: self, action: #selector(tapField(_:)))
 		breedLabel.addGestureRecognizer(tapGesture3)
 		
-		let tapGesture4 = UITapGestureRecognizer(target: self, action: #selector(AddPetViewControllerViewController.tapField(_:)))
+		let tapGesture4 = UITapGestureRecognizer(target: self, action: #selector(tapField(_:)))
 		moodLabel.addGestureRecognizer(tapGesture4)
 		
-		let tapGesture5 = UITapGestureRecognizer(target: self, action: #selector(AddPetViewControllerViewController.tapField(_:)))
+		let tapGesture5 = UITapGestureRecognizer(target: self, action: #selector(tapField(_:)))
 		coatLabel.addGestureRecognizer(tapGesture5)
 		
-		let tapGesture6 = UITapGestureRecognizer(target: self, action: #selector(AddPetViewControllerViewController.tapField(_:)))
+		let tapGesture6 = UITapGestureRecognizer(target: self, action: #selector(tapField(_:)))
 		petSizeLabel.addGestureRecognizer(tapGesture6)
 		
-		let tapGesture7 = UITapGestureRecognizer(target: self, action: #selector(AddPetViewControllerViewController.tapField(_:)))
+		let tapGesture7 = UITapGestureRecognizer(target: self, action: #selector(tapField(_:)))
 		petColorLabel.addGestureRecognizer(tapGesture7)
 		
 		picker.dataSource = self
@@ -165,7 +165,7 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 		if petViewType == .edit {
 		
 			setTitle(title: NSLocalizedString("edit_pet_title", comment: ""))
-		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "remove_pet".localized, style: .plain, target: self, action: #selector(AddPetViewControllerViewController.removePet))
+		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "remove_pet".localized, style: .plain, target: self, action: #selector(removePet))
 			saveButton.backgroundColor = UIColor(hex: "E4002B")
 			saveButton.setTitle("save_pet".localized, for: .normal)
 			saveButton.setTitleColor(UIColor.white, for: .normal)
@@ -252,7 +252,7 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 		MIBlurPopup.show(SelectPhotoSourcePopupRouter.createModule(delegate: self), on: self)
 	}
 	
-	func tapField(_ sender: UITapGestureRecognizer) {
+    @objc func tapField(_ sender: UITapGestureRecognizer) {
 		
 		self.view.endEditing(true)
 		guard let label = sender.view as? UILabel else {
@@ -376,7 +376,7 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 		MIBlurPopup.show(PetSizePopupViewController(), on: self)
 	}
 	
-	func removePet() {
+    @objc func removePet() {
 		ALLoadingView.manager.showLoadingView(ofType: .basic)
 		PetbookingAPI.sharedInstance.deletePet(pet: self.pet) { (pet, message) in
 			ALLoadingView.manager.hideLoadingView()

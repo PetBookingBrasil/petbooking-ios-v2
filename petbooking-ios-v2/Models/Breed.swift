@@ -12,10 +12,10 @@ import Mantle
 
 class Breed: MTLModel, MTLJSONSerializing {
 	
-	dynamic var id = "0"
-	dynamic var kind = ""
-	dynamic var name = ""
-	dynamic var size = ""
+	@objc dynamic var id = "0"
+	@objc dynamic var kind = ""
+	@objc dynamic var name = ""
+	@objc dynamic var size = ""
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
 		return [
@@ -29,7 +29,7 @@ class Breed: MTLModel, MTLJSONSerializing {
 
 class BreedList: MTLModel, MTLJSONSerializing {
 	
-	dynamic var breeds = [Breed]()
+	@objc dynamic var breeds = [Breed]()
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
 		return [

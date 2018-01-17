@@ -268,7 +268,7 @@ extension SelectDateTableViewCell: DZNEmptyDataSetSource, DZNEmptyDataSetDelegat
 	func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
 		
 		
-		let attributedString = NSAttributedString(string: "Nenhum horário disponível", attributes: [NSFontAttributeName : UIFont.robotoMedium(ofSize: 14), NSForegroundColorAttributeName : UIColor(hex: "515151")])
+		let attributedString = NSAttributedString(string: "Nenhum horário disponível", attributes: [NSAttributedStringKey.font : UIFont.robotoMedium(ofSize: 14), NSAttributedStringKey.foregroundColor : UIColor(hex: "515151")])
 		
 		return attributedString
 	}

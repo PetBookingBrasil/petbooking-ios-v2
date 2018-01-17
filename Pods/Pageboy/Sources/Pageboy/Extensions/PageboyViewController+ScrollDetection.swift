@@ -27,13 +27,13 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
                                      animated: Bool) {
         guard pageViewControllerIsActual(pageViewController) else { return }
         guard let viewController = pendingViewControllers.first,
-            let index = self.viewControllers?.index(of: viewController) else {
+            let index = viewControllerMap.index(forObjectAfter: { return $0.object === viewController }) else {
                 return
         }
         
         self.expectedTransitionIndex = index
         let direction = NavigationDirection.forPage(index, previousPage: self.currentIndex ?? index)
-        self.delegate?.pageboyViewController(self, willScrollToPageAtIndex: index,
+        self.delegate?.pageboyViewController(self, willScrollToPageAt: index,
                                              direction: direction,
                                              animated: animated)
     }
@@ -46,12 +46,30 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
         guard completed == true else { return }
         
         if let viewController = pageViewController.viewControllers?.first,
-            let index = self.viewControllers?.index(of: viewController) {
+            let index = viewControllerMap.index(forObjectAfter: { return $0.object === viewController }) {
             guard index == self.expectedTransitionIndex else { return }
             
             self.updateCurrentPageIndexIfNeeded(index)
         }
     }
+
+    // TODO - Enable this when issue in iOS 11.2 is resolved.
+    //
+    // See here: https://github.com/uias/Pageboy/issues/128
+    //
+//    public func presentationCount(for pageViewController: UIPageViewController) -> Int {
+//        guard showsPageControl else {
+//            return -1
+//        }
+//        return pageCount ?? 0
+//    }
+//
+//    public func presentationIndex(for pageViewController: UIPageViewController) -> Int {
+//        guard showsPageControl else {
+//            return -1
+//        }
+//        return targetIndex ?? 0
+//    }
     
     // MARK: UIScrollViewDelegate
     
@@ -127,7 +145,7 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
         guard self.currentPosition != positionPoint else { return }
         self.currentPosition = positionPoint
         self.delegate?.pageboyViewController(self,
-                                             didScrollToPosition: positionPoint,
+                                             didScrollTo: positionPoint,
                                              direction: direction,
                                              animated: self.isScrollingAnimated)
         
@@ -181,7 +199,7 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
             return
         }
         
-        let maxPagePosition = CGFloat((self.viewControllers?.count ?? 1) - 1)
+        let maxPagePosition = CGFloat((self.viewControllerCount ?? 1) - 1)
         var integral: Double = 0.0
         var progress = CGFloat(modf(fabs(Double(pagePosition)), &integral))
         var maxInfinitePosition: CGFloat!
@@ -205,7 +223,7 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
     /// - Parameter pagePosition: The position.
     /// - Returns: Whether the position is infinitely scrolling.
     private func isInfinitelyScrolling(forPosition pagePosition: CGFloat) -> Bool {
-        let maxPagePosition = CGFloat((self.viewControllers?.count ?? 1) - 1)
+        let maxPagePosition = CGFloat((self.viewControllerCount ?? 1) - 1)
         let overscrolling = pagePosition < 0.0 || pagePosition > maxPagePosition
         
         guard self.isInfiniteScrollEnabled && overscrolling else {
@@ -250,7 +268,7 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
     /// - Parameter index: the proposed index.
     private func updateCurrentPageIndexIfNeeded(_ index: Int) {
         guard self.currentIndex != index, index >= 0 &&
-            index < self.viewControllers?.count ?? 0 else {
+            index < self.viewControllerCount ?? 0 else {
                 return
         }
         self.currentIndex = index
@@ -315,7 +333,7 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
         if self.currentIndex == 0 && scrollView.contentOffset.x < scrollView.bounds.size.width {
             scrollView.contentOffset = CGPoint(x: scrollView.bounds.size.width, y: 0.0)
         }
-        if self.currentIndex == (self.viewControllers?.count ?? 1) - 1 && scrollView.contentOffset.x > scrollView.bounds.size.width {
+        if self.currentIndex == (self.viewControllerCount ?? 1) - 1 && scrollView.contentOffset.x > scrollView.bounds.size.width {
             scrollView.contentOffset = CGPoint(x: scrollView.bounds.size.width, y: 0.0)
         }
         return previousContentOffset != scrollView.contentOffset
@@ -368,5 +386,13 @@ internal extension PageboyViewController.NavigationDirection {
             return .neutral
         }
         return  position > previousPosition ? .forward : .reverse
+    }
+}
+
+internal extension UIScrollView {
+    
+    /// Whether the scroll view can be assumed to be interactively scrolling
+    var isProbablyActiveInScroll: Bool {
+        return self.isTracking || self.isDragging || self.isDecelerating
     }
 }

@@ -11,10 +11,10 @@ import Mantle
 
 class Cart: MTLModel, MTLJSONSerializing {
 
-	dynamic var id = ""
-	dynamic var link = ""
-	dynamic var itens = [CartItem]()
-	dynamic var totalPrice = ""
+	@objc dynamic var id = ""
+	@objc dynamic var link = ""
+	@objc dynamic var itens = [CartItem]()
+	@objc dynamic var totalPrice = ""
 
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
@@ -36,15 +36,15 @@ class Cart: MTLModel, MTLJSONSerializing {
 
 class CartItem: MTLModel, MTLJSONSerializing {
 	
-	dynamic var id = ""
-	dynamic var startDate = ""
-	dynamic var startTime = ""
-	dynamic var businessId = ""
-	dynamic var serviceId:String = ""
-	dynamic var petId:String = ""
-	dynamic var professionalId:String = ""
-	dynamic var notes:String = ""
-	dynamic var withTransportion = false
+	@objc dynamic var id = ""
+	@objc dynamic var startDate = ""
+	@objc dynamic var startTime = ""
+	@objc dynamic var businessId = ""
+	@objc dynamic var serviceId:String = ""
+	@objc dynamic var petId:String = ""
+	@objc dynamic var professionalId:String = ""
+	@objc dynamic var notes:String = ""
+	@objc dynamic var withTransportion = false
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
 		return [

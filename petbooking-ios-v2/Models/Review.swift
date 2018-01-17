@@ -11,11 +11,11 @@ import Mantle
 
 class Review: MTLModel, MTLJSONSerializing {
 
-	dynamic var id = ""
-	dynamic var businessId = 0
-	dynamic var businessRating:Double = 0.0
-	dynamic var comment = ""
-	dynamic var userId = 0
+	@objc dynamic var id = ""
+	@objc dynamic var businessId = 0
+	@objc dynamic var businessRating:Double = 0.0
+	@objc dynamic var comment = ""
+	@objc dynamic var userId = 0
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
 		return [
@@ -31,7 +31,7 @@ class Review: MTLModel, MTLJSONSerializing {
 
 class ReviewList: MTLModel, MTLJSONSerializing {
 	
-	dynamic var reviews = [Review]()
+	@objc dynamic var reviews = [Review]()
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
 		return [

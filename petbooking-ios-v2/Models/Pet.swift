@@ -11,21 +11,21 @@ import Mantle
 
 class Pet: MTLModel, MTLJSONSerializing {
 	
-	dynamic var id = ""
-	dynamic var type = ""
-	dynamic var name = ""
-	dynamic var breedName = ""
-	dynamic var gender = ""
-	dynamic var photoUrl = ""
-	dynamic var photoMediumUrl = ""
-	dynamic var photoThumbUrl = ""
-	dynamic var breedId = 0
-	dynamic var mood = ""
-	dynamic var size = ""
-	dynamic var coatSize = ""
-	dynamic var coatColor = -1
-	dynamic var birthday = ""
-	dynamic var petDescription = ""
+	@objc dynamic var id = ""
+	@objc dynamic var type = ""
+	@objc dynamic var name = ""
+	@objc dynamic var breedName = ""
+	@objc dynamic var gender = ""
+	@objc dynamic var photoUrl = ""
+	@objc dynamic var photoMediumUrl = ""
+	@objc dynamic var photoThumbUrl = ""
+	@objc dynamic var breedId = 0
+	@objc dynamic var mood = ""
+	@objc dynamic var size = ""
+	@objc dynamic var coatSize = ""
+	@objc dynamic var coatColor = -1
+	@objc dynamic var birthday = ""
+	@objc dynamic var petDescription = ""
 	
 
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
@@ -71,7 +71,7 @@ class Pet: MTLModel, MTLJSONSerializing {
 
 class PetList: MTLModel, MTLJSONSerializing {
 	
-	dynamic var pets = [Pet]()
+	@objc dynamic var pets = [Pet]()
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
 		return [

@@ -10,7 +10,9 @@ import UIKit
 import Pageboy
 
 class PresentationPageViewController: PageboyViewController, PageboyViewControllerDataSource, PageboyViewControllerDelegate, PresentationParentProtocol {
-	
+    
+    var viewControllers = [UIViewController]()
+    
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
@@ -18,6 +20,11 @@ class PresentationPageViewController: PageboyViewController, PageboyViewControll
 		self.view.backgroundColor = .white
 		self.delegate = self
 		self.dataSource = self
+        
+        // Make a view controllers array
+        viewControllers.append(PresentationRouter.createModule(index: .first, parentViewController: self))
+        viewControllers.append(PresentationRouter.createModule(index: .second, parentViewController: self))
+        viewControllers.append(PresentationRouter.createModule(index: .third, parentViewController: self))
 	}
 	
 	override func didReceiveMemoryWarning() {
@@ -36,25 +43,22 @@ class PresentationPageViewController: PageboyViewController, PageboyViewControll
 	//
 	// MARK: PageboyViewControllerDataSource
 	//
-	
-	func viewControllers(forPageboyViewController pageboyViewController: PageboyViewController) -> [UIViewController]? {
+    
+    func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> Int {
+        return 3
+    }
+    
+    func viewController(for pageboyViewController: PageboyViewController, at index: PageboyViewController.PageIndex) -> UIViewController? {
+        return viewControllers[index]
+    }
+    
+    func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
+        return nil
+    }
 		
-		var viewControllers = [UIViewController]()
-		viewControllers.append(PresentationRouter.createModule(index: .first, parentViewController: self))
-		viewControllers.append(PresentationRouter.createModule(index: .second, parentViewController: self))
-		viewControllers.append(PresentationRouter.createModule(index: .third, parentViewController: self))
-
-		return viewControllers
-	}
-	
-	func defaultPageIndex(forPageboyViewController pageboyViewController: PageboyViewController) -> PageboyViewController.PageIndex? {
-		return nil
-	}
-	
 	//
 	// MARK: PageboyViewControllerDelegate
 	//
-	
 	func pageboyViewController(_ pageboyViewController: PageboyViewController,
 	                           willScrollToPageAtIndex index: Int,
 	                           direction: PageboyViewController.NavigationDirection,

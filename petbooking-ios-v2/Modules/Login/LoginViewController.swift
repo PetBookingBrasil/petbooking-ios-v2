@@ -19,23 +19,23 @@ class LoginViewController: UIViewController, LoginViewProtocol {
 	@IBOutlet weak var emailTextField: UITextField!
 	@IBOutlet weak var passwordTextField: UITextField!
 	
-	
 	var presenter: LoginPresenterProtocol?
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+        
 		hideKeyboardWhenTappedAround()
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
+        
 		self.navigationController?.isNavigationBarHidden = true
 	}
 	
 	override func viewDidLayoutSubviews() {
 		super.viewDidLayoutSubviews()
 		setupButtons()
-		
 	}
 	
 	func setupButtons() {
@@ -45,22 +45,17 @@ class LoginViewController: UIViewController, LoginViewProtocol {
 		facebookLoginButton.setSubTextTitleFont("Facebook", font: UIFont.robotoBold(ofSize: 16), controlState: .normal)
 		signupButton.setBorder(width: 2, color: .white)
 		
-		let attributes : [String: Any] = [
-			NSFontAttributeName : UIFont.robotoRegular(ofSize: 16),
-			NSForegroundColorAttributeName : UIColor.white,
-			NSUnderlineStyleAttributeName : NSUnderlineStyle.styleSingle.rawValue]
-				let attributeString = NSMutableAttributedString(string: NSLocalizedString("forgot_passowrd", comment: ""),
-                                                  attributes: attributes)
+		let attributes: [NSAttributedStringKey: Any] = [NSAttributedStringKey.font : UIFont.robotoRegular(ofSize: 16),
+                                                        NSAttributedStringKey.foregroundColor : UIColor.white,
+                                                        NSAttributedStringKey.underlineStyle : NSUnderlineStyle.styleSingle.rawValue]
+        let attributeString = NSMutableAttributedString(string: NSLocalizedString("forgot_passowrd", comment: ""),
+                                                            attributes: attributes)
 		forgotPasswordButton.setAttributedTitle(attributeString, for: .normal)
-		
 	}
 
 	@IBAction func login(_ sender: Any) {
-		
 		guard let email = emailTextField.text else {
-			
 			MIBlurPopup.show(AlertPopupRouter.createModule(title: "E-mail obrigatório", message: "O campo e-mail não pode ficar vazio."), on: self)
-			
 			return
 		}
 		
@@ -97,11 +92,9 @@ class LoginViewController: UIViewController, LoginViewProtocol {
 		presenter?.didTapForgotPasswordButton()
 	}
 	
-	func didCompleteFacebookLoginWithError(error:Error?) {
-	}
+	func didCompleteFacebookLoginWithError(error:Error?) { }
 	
 	func didCompleteLoginWithError(error:Error?) {
 		MIBlurPopup.show(AlertPopupRouter.createModule(title: "Login incorreto", message: "E-mail/Senha não correspondem"), on: self)
 	}
-	
 }
