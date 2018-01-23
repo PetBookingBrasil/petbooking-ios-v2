@@ -34,14 +34,10 @@ class ReviewList: MTLModel, MTLJSONSerializing {
 	@objc dynamic var reviews = [Review]()
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
-		return [
-			"reviews": "data"
-		]
+		return ["reviews": "data"]
 	}
 	
-	static func reviewsJSONTransformer() -> ValueTransformer {
-		
+	@objc static func reviewsJSONTransformer() -> ValueTransformer {
 		return MTLJSONAdapter.arrayTransformer(withModelClass: Review.self)
-		
 	}
 }

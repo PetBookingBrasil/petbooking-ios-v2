@@ -11,11 +11,8 @@ import UIKit
 
 extension UIView {
 	
-	class func loadFromNibNamed(_ nibNamed: String, bundle : Bundle? = nil) -> UIView? {
-		return UINib(
-			nibName: nibNamed,
-			bundle: bundle
-			).instantiate(withOwner: nil, options: nil)[0] as? UIView
+	class func loadFromNibNamed(_ nibNamed: String, bundle: Bundle? = nil) -> UIView? {
+		return UINib(nibName: nibNamed,bundle: bundle).instantiate(withOwner: nil, options: nil)[0] as? UIView
 	}
 	
 	func round() {
@@ -23,32 +20,27 @@ extension UIView {
 		layer.masksToBounds = true
 	}
 	
-	
-	func setBorder(width:CGFloat, color: UIColor) {
+	func setBorder(width: CGFloat, color: UIColor) {
 		layer.borderWidth = width
 		layer.borderColor = color.cgColor
 	}
 	
 	func dropShadow() {
-		
-		self.layer.masksToBounds = false
+        self.layer.shadowOffset = CGSize(width: 0, height: 2)
 		self.layer.shadowColor = UIColor.black.cgColor
-		self.layer.shadowOpacity = 0.1
-		self.layer.shadowOffset = CGSize(width: 0, height: 2)
-		self.layer.shadowRadius = 2
-		
 		self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: self.frame.height / 2).cgPath
-		self.layer.shouldRasterize = true
-		
+
+        self.layer.shadowOpacity = 0.1
+        self.layer.shadowRadius = 2
+
+        self.layer.shouldRasterize = true
+        self.layer.masksToBounds = false
+
 		self.layer.rasterizationScale = UIScreen.main.scale
-		
 	}
 	
 	func removeShadow() {
-		
 		self.layer.shadowColor = UIColor.clear.cgColor
 		self.layer.shadowOpacity = 0.0
-		
 	}
-	
 }

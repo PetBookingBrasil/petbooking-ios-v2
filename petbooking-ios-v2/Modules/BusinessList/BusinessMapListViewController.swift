@@ -15,13 +15,13 @@ class BusinessMapListViewController: UIViewController, BusinessListViewControlle
 
 	var presenter: BusinessListViewControllerPresenterProtocol?
 	
-	var businessListType:BusinessListType?
+	var businessListType: BusinessListType?
 
-	var locationManager:CLLocationManager?
-	var businessList:BusinessList = BusinessList()
+	var locationManager: CLLocationManager?
+	var businessList: BusinessList = BusinessList()
 	var businesses = [Business]()
-	var serviceCategoryList:ServiceCategoryList = ServiceCategoryList()
-	var selectedServiceCategory:ServiceCategory = ServiceCategory()
+	var serviceCategoryList: ServiceCategoryList = ServiceCategoryList()
+	var selectedServiceCategory: ServiceCategory = ServiceCategory()
 	var businessesCallout = [Business]()
 	var coordinates:CLLocationCoordinate2D = CLLocationCoordinate2D()
 	
@@ -38,87 +38,67 @@ class BusinessMapListViewController: UIViewController, BusinessListViewControlle
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-
-		
-		
-			filterMenuHeightConstraint.constant = 0
-			filterButton.round()
-			filterCollectionView.delegate = self
-			filterCollectionView.dataSource = self
-			filterCollectionView.register(UINib(nibName: "CategoryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CategoryCollectionViewCell")
-		
-			mapView.delegate = self
-			locationManager = CLLocationManager()
-			
-			locationManager?.delegate = self
-			
-			// Ask for Authorisation from the User.
-			self.locationManager?.requestAlwaysAuthorization()
-			
-			// For use in foreground
-			self.locationManager?.requestWhenInUseAuthorization()
-			
-			tableView.register(UINib(nibName: "BusinessTableViewCell", bundle: nil), forCellReuseIdentifier: "BusinessTableViewCell")
-			tableView.register(UINib(nibName: "BusinessImportedTableViewCell", bundle: nil), forCellReuseIdentifier: "BusinessImportedTableViewCell")
-			tableView.rowHeight = UITableViewAutomaticDimension
-			tableView.estimatedRowHeight = 2000
-		
-			PetbookingAPI.sharedInstance.getCategoryList { (serviceCategoryList, message) in
-			
-			
-				guard let serviceCategoryList = serviceCategoryList else {
-					return
-				}
-			
-				self.serviceCategoryList = serviceCategoryList
-				self.filterCollectionView.reloadData()
-			
-		}
+        
+        filterMenuHeightConstraint.constant = 0
+        filterButton.round()
+        filterCollectionView.delegate = self
+        filterCollectionView.dataSource = self
+        filterCollectionView.register(UINib(nibName: "CategoryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CategoryCollectionViewCell")
+        
+        mapView.delegate = self
+        locationManager = CLLocationManager()
+        
+        locationManager?.delegate = self
+        
+        // Ask for Authorisation from the User.
+        self.locationManager?.requestAlwaysAuthorization()
+        
+        // For use in foreground
+        self.locationManager?.requestWhenInUseAuthorization()
+        
+        tableView.register(UINib(nibName: "BusinessTableViewCell", bundle: nil), forCellReuseIdentifier: "BusinessTableViewCell")
+        tableView.register(UINib(nibName: "BusinessImportedTableViewCell", bundle: nil), forCellReuseIdentifier: "BusinessImportedTableViewCell")
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 2000
+        
+        PetbookingAPI.sharedInstance.getCategoryList { (serviceCategoryList, message) in
+            guard let serviceCategoryList = serviceCategoryList else {
+                return
+            }
+            
+            self.serviceCategoryList = serviceCategoryList
+            self.filterCollectionView.reloadData()
+        }
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
+        
 		if selectedServiceCategory.id.isBlank {
 			locationManager?.startUpdatingLocation()
 		}
 	}
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-	func updateBusinessList(businessList:BusinessList) {
-		
-		for business in businessList.businesses {
-			
-			let annotation = BussinessAnnotation()
-			annotation.business = business
-			annotation.title = business.name
-			
-			annotation.coordinate = CLLocationCoordinate2D(latitude: business.location.latitude, longitude: business.location.longitude)
-			mapView.addAnnotation(annotation)
-			
-		}
+	func updateBusinessList(businessList: BusinessList) {
+        businessList.businesses.forEach { (business) in
+            let annotation = BussinessAnnotation()
+            annotation.business = business
+            annotation.title = business.name
+            
+            annotation.coordinate = CLLocationCoordinate2D(latitude: business.location.latitude, longitude: business.location.longitude)
+            mapView.addAnnotation(annotation)
+        }
 	}
 	
-	func removedFromFavorites(business: Business) {
-		
-		
-	}
+	func removedFromFavorites(business: Business) { }
 	
 	@IBAction func openFilter(_ sender: Any) {
-		
 		filterPanelView.isHidden = false
-		
 	}
 	
 	@IBAction func closeFilter(_ sender: Any) {
-		
 		filterPanelView.isHidden = true
 	}
-	
 	
 	@IBAction func resetFilter(_ sender: Any) {
 		filterMenuHeightConstraint.constant = 0
@@ -137,16 +117,13 @@ class BusinessMapListViewController: UIViewController, BusinessListViewControlle
 		
 		ALLoadingView.manager.showLoadingView(ofType: .basic, windowMode: .fullscreen)
 		
-		
-		if selectedServiceCategory.id.isBlank {
-			return
-		}
+        guard !selectedServiceCategory.id.isBlank else { return }
 		
 		filterMenuView.isHidden = false
 		filterMenuHeightConstraint.constant = 50
 		var filterLabelText = ""
 		
-		if !selectedServiceCategory.id.isBlank{
+		if !selectedServiceCategory.id.isBlank {
 			if !filterLabelText.isEmpty {
 				filterLabelText.append(", ")
 			}
@@ -156,50 +133,37 @@ class BusinessMapListViewController: UIViewController, BusinessListViewControlle
 		
 		filterLabel.text = filterLabelText
 		
-		
 		PetbookingAPI.sharedInstance.getBusinessListFiltered(query: "", categoryId: selectedServiceCategory.id, page: 0) { (businessList, message) in
 			
 			ALLoadingView.manager.hideLoadingView()
 			
-			guard let businessList = businessList else {
-				return
-			}
+			guard let businessList = businessList else { return }
 			
 			self.businessList = businessList
-			
 			self.mapView.removeAnnotations(self.mapView.annotations)
-			for business in businessList.businesses {
-				
-				let annotation = BussinessAnnotation()
-				annotation.business = business
-				annotation.title = business.name
-				
-				annotation.coordinate = CLLocationCoordinate2D(latitude: business.location.latitude, longitude: business.location.longitude)
-				self.mapView.addAnnotation(annotation)
-				
-			}
+            
+            businessList.businesses.forEach { (business) in
+                let annotation = BussinessAnnotation()
+                annotation.business = business
+                annotation.title = business.name
+                
+                annotation.coordinate = CLLocationCoordinate2D(latitude: business.location.latitude, longitude: business.location.longitude)
+                self.mapView.addAnnotation(annotation)
+            }
 			
 			self.filterPanelView.isHidden = true
-			
-			
 		}
-		
 	}
-
 }
 
 extension BusinessMapListViewController: CLLocationManagerDelegate {
 	
 	
-	func locationManager(_ manager: CLLocationManager, didFailWithError error: Error)
-	{
+	func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
 		locationManager?.stopUpdatingLocation()
-		
-		print(error)
-	}
+ 	}
 	
-	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
-	{
+	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 		locationManager?.stopUpdatingLocation()
 		
 		let locationArray = locations as NSArray
@@ -211,63 +175,46 @@ extension BusinessMapListViewController: CLLocationManagerDelegate {
 		
 		
 		presenter?.getBusinessByCoordinates(coordinates: self.coordinates, page:1)
-		
 	}
-	
 }
 
 extension BusinessMapListViewController: MKMapViewDelegate {
 	
 	func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
 		
-		guard let businessAnnotation = annotation as? BussinessAnnotation else {
-			return nil
-		}
-
-		
+		guard let businessAnnotation = annotation as? BussinessAnnotation else { return nil }
+ 
 		var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "demo")
-		if annotationView == nil {
+		
+        if annotationView == nil {
 			annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "demo")
 			annotationView!.canShowCallout = true
-		}
-		else {
+		} else {
 			annotationView!.annotation = annotation
 		}
-
 		
 		annotationView!.image = businessAnnotation.business.imported ? UIImage(named: "business_pin_imported") : UIImage(named: "business_pin")
 		
 		return annotationView
-		
-		
 	}
 	
 	func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-		
-		guard let annotation  = view.annotation as? BussinessAnnotation else {
-			return
-		}
+		guard let annotation  = view.annotation as? BussinessAnnotation else { return }
 		
 		businessesCallout = [annotation.business]
 		
 		tableView.reloadData()
-		
 	}
 	
 	func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
-		
 		tableViewHeightConstraint.constant = 1
 		view.layoutIfNeeded()
-
-		
 	}
-	
 }
 
 extension BusinessMapListViewController: UITableViewDelegate, UITableViewDataSource, BusinessTableViewCellDelegate {
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		
 		return businessesCallout.count
 	}
 	
@@ -276,27 +223,23 @@ extension BusinessMapListViewController: UITableViewDelegate, UITableViewDataSou
 	}
 	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-		
 		let business = businessesCallout[indexPath.row]
 		
 		if business.imported {
 			return 105
 		}
+        
 		return UITableViewAutomaticDimension
-		
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		
 		let business = businessesCallout[indexPath.row]
+        
 		if business.imported {
 			return getImportedBusinessCell(indexPath: indexPath)
 		} else {
 			return getBusinessCell(indexPath: indexPath)
 		}
-		
-
-		
 	}
 	
 	func getBusinessCell(indexPath: IndexPath) -> BusinessTableViewCell {
@@ -326,11 +269,9 @@ extension BusinessMapListViewController: UITableViewDelegate, UITableViewDataSou
 		view.layoutIfNeeded()
 		
 		return cell
-		
 	}
 	
 	func getImportedBusinessCell(indexPath: IndexPath) -> BusinessImportedTableViewCell {
-		
 		let cell = tableView.dequeueReusableCell(withIdentifier: "BusinessImportedTableViewCell") as! BusinessImportedTableViewCell
 		
 		let business = businessesCallout[indexPath.row]
@@ -355,11 +296,9 @@ extension BusinessMapListViewController: UITableViewDelegate, UITableViewDataSou
 		view.layoutIfNeeded()
 		
 		return cell
-		
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		
 		tableView.deselectRow(at: indexPath, animated: true)
 		
 		let business = businessesCallout[indexPath.row]
@@ -369,27 +308,20 @@ extension BusinessMapListViewController: UITableViewDelegate, UITableViewDataSou
 		}
 		
 		presenter?.showBusinessPage(business: business)
-		
-		
 	}
 
 	func addToFavorites(business: Business) {
-		
 		presenter?.addToFavorites(business: business)
-		
 	}
-	
 }
 
 extension BusinessMapListViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 	
 	func numberOfSections(in collectionView: UICollectionView) -> Int {
-		
 		return 1
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		
 		return serviceCategoryList.categories.count
 	}
 	
@@ -419,14 +351,10 @@ extension BusinessMapListViewController: UICollectionViewDelegate, UICollectionV
 		return 1.0
 	}
 	
-	
-	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		
-		
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell", for: indexPath) as! CategoryCollectionViewCell
 		
-		let service = serviceCategoryList.categories[indexPath.item]
+		let service = serviceCategoryList.categories[indexPath.row]
 		
 		cell.isSelected = service == selectedServiceCategory
 		if service == selectedServiceCategory {
@@ -437,15 +365,11 @@ extension BusinessMapListViewController: UICollectionViewDelegate, UICollectionV
 		cell.pictureImageView.image = UIImage(named: service.slug)
 		
 		return cell
-		
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		
 		let service = serviceCategoryList.categories[indexPath.item]
 		
 		selectedServiceCategory = service
-		
-		
 	}
 }

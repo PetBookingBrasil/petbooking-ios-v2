@@ -68,10 +68,8 @@ class ScheduledService: MTLModel, MTLJSONSerializing {
 		]
 	}
 	
-	static func subServicesJSONTransformer() -> ValueTransformer {
-		
+	@objc static func subServicesJSONTransformer() -> ValueTransformer {
 		return MTLJSONAdapter.arrayTransformer(withModelClass: SubService.self)
-		
 	}
 }
 
@@ -93,73 +91,57 @@ class ScheduledPet: MTLModel, MTLJSONSerializing {
 		]
 	}
 	
-	static func servicesJSONTransformer() -> ValueTransformer {
-		
+	@objc static func servicesJSONTransformer() -> ValueTransformer {
 		return MTLJSONAdapter.arrayTransformer(withModelClass: ScheduledService.self)
-		
 	}
 }
 
 class ScheduledDate: MTLModel, MTLJSONSerializing {
 	
-	@objc dynamic var date = Date()
-	@objc dynamic var dateKey = ""
-	@objc dynamic var scheduledPets = [ScheduledPet]()
+	@objc var date = Date()
+	@objc var dateKey = ""
+	@objc var scheduledPets = [ScheduledPet]()
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
-		return [
-			"date": "date",
-			"dateKey": "date",
-			"scheduledPets": "pets"
-		]
+        return ["date": "date",
+                "dateKey": "date",
+                "scheduledPets": "pets"]
 	}
 	
 	static func dateJSONTransformer() -> ValueTransformer {
 		
 		let _forwardBlock: MTLValueTransformerBlock? = { (value, success, error) in
-			
 			if let dateString = value as? String{
-				
 				let dateFormatter = DateFormatter()
 				dateFormatter.dateFormat = "yyyy-MM-dd"
 				
-				guard let date = dateFormatter.date(from: dateString) else {
-					return Date()
-				}
+				guard let date = dateFormatter.date(from: dateString) else { return Date() }
 				
 				return date
 				
 			}
 			
 			return Date()
-			
 		}
 		
 		return MTLValueTransformer(usingForwardBlock: _forwardBlock)
-		
 	}
 	
-	static func scheduledPetsJSONTransformer() -> ValueTransformer {
-		
+	@objc static func scheduledPetsJSONTransformer() -> ValueTransformer {
 		return MTLJSONAdapter.arrayTransformer(withModelClass: ScheduledPet.self)
-		
 	}
 }
 
 class ScheduledServiceList: MTLModel, MTLJSONSerializing {
 	
-	var scheduledDates = [ScheduledDate]()
-	@objc dynamic var page = 0
+	@objc var scheduledDates = [ScheduledDate]()
+	@objc var page = 0
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
-		return [
-			"scheduledDates": "data"
-		]
+		return ["scheduledDates": "data"]
 	}
 	
-	static func scheduledDatesJSONTransformer() -> ValueTransformer {
-		
+	@objc static func scheduledDatesJSONTransformer() -> ValueTransformer {
 		return MTLJSONAdapter.arrayTransformer(withModelClass: ScheduledDate.self)
-		
 	}
 }

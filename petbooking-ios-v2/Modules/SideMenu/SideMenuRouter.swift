@@ -30,7 +30,6 @@ class SideMenuRouter: SideMenuWireframeProtocol {
     }
 	
 	func didTapLogout() {
-		
 		let loginViewController = UINavigationController(rootViewController: LoginRouter.createModule())
 		
 		self.viewController?.dismiss(animated: true, completion: {
@@ -46,14 +45,10 @@ class SideMenuRouter: SideMenuWireframeProtocol {
 					window.rootViewController = loginViewController
 			})
 		})
-		
-		
 	}
 	
 	func didTapMyPets() {
-		
 		self.viewController?.navigationController?.pushViewController(MyPetsRouter.createModule(), animated: true)
-		
 	}
 	
 	func showProfile() {

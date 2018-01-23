@@ -79,7 +79,7 @@ class PetList: MTLModel, MTLJSONSerializing {
 		]
 	}
 
-	static func petsJSONTransformer() -> ValueTransformer {
+	@objc static func petsJSONTransformer() -> ValueTransformer {
 		
 		return MTLJSONAdapter.arrayTransformer(withModelClass: Pet.self)
 		

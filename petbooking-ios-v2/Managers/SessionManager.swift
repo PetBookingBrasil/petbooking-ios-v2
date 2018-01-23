@@ -17,7 +17,7 @@ class SessionManager: NSObject {
 		
 		do {
 			let realm = try Realm()
-			guard let consumerRealm = 	realm.objects(ConsumerRealm.self).first else {
+			guard let consumerRealm = realm.objects(ConsumerRealm.self).first else {
 				return nil
 			}
 			
@@ -26,9 +26,8 @@ class SessionManager: NSObject {
 			consumer?.tokenExpiresAt = consumerRealm.tokenExpiresAt
 			
 			return 	consumer
-		} catch _ as NSError {
+		} catch {
 			//TODO: Handle error
-			
 			return nil
 		}
 		
@@ -46,20 +45,17 @@ class SessionManager: NSObject {
 				
 				let objects = realm.objects(ConsumerRealm.self)
 				realm.delete(objects)
-				
 				realm.add(consumerRealm,update: true)
 				
 			}
-		}catch {
+		} catch {
 			throw error
 		}
 	}
 	
-	func isConsumerValid() ->Bool {
-		
-		guard let consumer = getCurrentConsumer() else {
-			return false
-		}
+	func isConsumerValid() -> Bool {
+		guard let consumer = getCurrentConsumer() else { return false }
+        
 		return consumer.isValid()
 	}
 	
@@ -67,7 +63,7 @@ class SessionManager: NSObject {
 		
 		do {
 			let realm = try Realm()
-			guard let sessionRealm = 	realm.objects(SessionRealm.self).first else {
+			guard let sessionRealm = realm.objects(SessionRealm.self).first else {
 				return nil
 			}
 			
@@ -76,15 +72,13 @@ class SessionManager: NSObject {
 			session?.authToken = sessionRealm.authToken
 			session?.tokenExpiresAt = sessionRealm.tokenExpiresAt
 			session?.validForScheduling = sessionRealm.validForScheduling
-			
-			
-			return 	session
-		} catch _ as NSError {
+
+            return 	session
+		} catch {
 			//TODO: Handle error
 			
 			return nil
 		}
-		
 	}
 	
 	func saveSession(session:Session) throws {
@@ -101,13 +95,11 @@ class SessionManager: NSObject {
 				
 				let objects = realm.objects(SessionRealm.self)
 				realm.delete(objects)
-				
 				realm.add(sessionRealm,update: true)
 				
 			}
-		}catch {
+		} catch {
 			throw error
 		}
 	}
-	
 }

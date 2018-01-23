@@ -25,6 +25,8 @@ class PresentationPageViewController: PageboyViewController, PageboyViewControll
         viewControllers.append(PresentationRouter.createModule(index: .first, parentViewController: self))
         viewControllers.append(PresentationRouter.createModule(index: .second, parentViewController: self))
         viewControllers.append(PresentationRouter.createModule(index: .third, parentViewController: self))
+        
+        reloadPages()
 	}
 	
 	override func didReceiveMemoryWarning() {
@@ -45,7 +47,7 @@ class PresentationPageViewController: PageboyViewController, PageboyViewControll
 	//
     
     func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> Int {
-        return 3
+        return viewControllers.count
     }
     
     func viewController(for pageboyViewController: PageboyViewController, at index: PageboyViewController.PageIndex) -> UIViewController? {

@@ -38,40 +38,35 @@ class Business: MTLModel, MTLJSONSerializing {
 	@objc var imported = false
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
-		return [
-			"id": "id",
-			"type": "type",
-			"name": "attributes.name",
-			"neighborhood": "attributes.neighborhood",
-			"street": "attributes.street",
-			"streetNumber": "attributes.street_number",
-			"distance": "attributes.distance",
-			"rating": "attributes.rating_average",
-			"ratingCount": "attributes.rating_count",
-			"photoUrl": "attributes.cover_image.url",
-			"photoThumbUrl": "attributes.cover_image.thumb.url",
-			"location": "attributes.location",
-			"favoriteId": "attributes.user_favorite.id",
-			"phone": "attributes.phone",
-			"city": "attributes.city",
-			"businessDescription": "attributes.description",
-			"state": "attributes.state",
-			"website": "attributes.website",
-			"facebook": "attributes.facebook_fanpage",
-			"twitter": "attributes.twitter_profile",
-			"googleplus": "attributes.googleplus_profile",
-			"instagram": "attributes.instagram",
-			"snapchat": "attributes.snapchat",
-			"imported": "attributes.imported"
-		]
+        return ["id": "id",
+                "type": "type",
+                "name": "attributes.name",
+                "neighborhood": "attributes.neighborhood",
+                "street": "attributes.street",
+                "streetNumber": "attributes.street_number",
+                "distance": "attributes.distance",
+                "rating": "attributes.rating_average",
+                "ratingCount": "attributes.rating_count",
+                "photoUrl": "attributes.cover_image.url",
+                "photoThumbUrl": "attributes.cover_image.thumb.url",
+                "location": "attributes.location",
+                "favoriteId": "attributes.user_favorite.id",
+                "phone": "attributes.phone",
+                "city": "attributes.city",
+                "businessDescription": "attributes.description",
+                "state": "attributes.state",
+                "website": "attributes.website",
+                "facebook": "attributes.facebook_fanpage",
+                "twitter": "attributes.twitter_profile",
+                "googleplus": "attributes.googleplus_profile",
+                "instagram": "attributes.instagram",
+                "snapchat": "attributes.snapchat",
+                "imported": "attributes.imported"]
 	}
 		
 	class func distanceJSONTransformer() -> ValueTransformer {
-		let _forwardBlock: MTLValueTransformerBlock? = { (value, success, error) in
-			
-			guard let distance = value else {
-				return 0.0
-			}
+		let _forwardBlock: MTLValueTransformerBlock? = { (value, _, _) in
+			guard let distance = value else { return 0.0 }
 			
 			return distance
 		}
@@ -81,26 +76,17 @@ class Business: MTLModel, MTLJSONSerializing {
 	
 	class func locationJSONTransformer() -> ValueTransformer {
 		
-		let _forwardBlock: MTLValueTransformerBlock? = { (value, success, error) in
+		let _forwardBlock: MTLValueTransformerBlock? = { (value, _, _) in
 			
-			guard let location = value as? [String] else {
-				return CLLocationCoordinate2D()
-			}
+			guard let location = value as? [String] else { return CLLocationCoordinate2D() }
 			
-			guard let latitudeStr = location.first else {
-				return CLLocationCoordinate2D()
-			}
+			guard let latitudeStr = location.first else { return CLLocationCoordinate2D() }
 			
-			guard let longitudeStr = location.last else {
-				return CLLocationCoordinate2D()
-			}
+			guard let longitudeStr = location.last else { return CLLocationCoordinate2D() }
 			
 			if let latitude = Double(latitudeStr), let longitude = Double(longitudeStr) {
-				
 				return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-				
 			}
-			
 			
 			return CLLocationCoordinate2D()
 		}
@@ -109,12 +95,8 @@ class Business: MTLModel, MTLJSONSerializing {
 	}
 	
 	class func favoriteIdJSONTransformer() -> ValueTransformer {
-		
-		let _forwardBlock: MTLValueTransformerBlock? = { (value, success, error) in
-			
-			guard let id = value as? NSNumber else {
-				return 0
-			}
+		let _forwardBlock: MTLValueTransformerBlock? = { (value, _, _) in
+			guard let id = value as? NSNumber else { return 0 }
 			
 			return id.intValue
 		}
@@ -123,26 +105,19 @@ class Business: MTLModel, MTLJSONSerializing {
 	}
 	
 	func isFavorited() -> Bool {
-		
 		return self.favoriteId > 0
 	}
-	
 }
 
 class BusinessList: MTLModel, MTLJSONSerializing {
-	
 	@objc var businesses = [Business]()
 	@objc var page = 0
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
-		return [
-			"businesses": "data"
-		]
+		return [ "businesses": "data" ]
 	}
 	
-	static func businessesJSONTransformer() -> ValueTransformer {
-		
+	@objc static func businessesJSONTransformer() -> ValueTransformer {
 		return MTLJSONAdapter.arrayTransformer(withModelClass: Business.self)
-		
 	}
 }

@@ -19,14 +19,12 @@ class HomeContentViewControllerViewController: UIViewController, HomeContentView
 	@IBOutlet weak var scrollView: UIScrollView!
 	var presenter: HomeContentViewControllerPresenterProtocol?
 	
-	
 	fileprivate lazy var viewControllers: [UIViewController] = {
 		return self.preparedViewControllers()
 	}()
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
 		
 		navigationItem.title = "Estabelecimentos"//UIImageView(image: UIImage(named: "logoNavigationBar"))
 		
@@ -53,10 +51,8 @@ class HomeContentViewControllerViewController: UIViewController, HomeContentView
 		
 		setupScrollView()
 		
-		SegmentioBuilder.buildSegmentioView(
-			segmentioView: segmentioView,
-			segmentioStyle: .onlyImage
-		)
+		SegmentioBuilder.buildSegmentioView(segmentioView: segmentioView,
+                                            segmentioStyle: .onlyImage)
 		
 		segmentioView.selectedSegmentioIndex = selectedSegmentioIndex()
 		
@@ -71,18 +67,12 @@ class HomeContentViewControllerViewController: UIViewController, HomeContentView
 		}
 		
 		NotificationCenter.default.addObserver(self, selector: #selector(HomeContentViewControllerViewController.goToAgenda), name: .goToAgenda, object: nil)
-		
 	}
-	
-	override func viewDidAppear(_ animated: Bool) {
-		super.viewDidAppear(animated)
-		
-	}
-	
 	
 	@objc func goToAgenda() {
 		self.navigationController?.pushViewController(AgendaRouter.createModule(), animated: true)
 	}
+    
 	@objc func showLeftMenu() {
 		present(SideMenuManager.menuLeftNavigationController!, animated: true, completion: nil)
 	}
@@ -94,7 +84,9 @@ class HomeContentViewControllerViewController: UIViewController, HomeContentView
 			width: UIScreen.main.bounds.width * CGFloat(viewControllers.count),
 			height: containerView.frame.height
 		)
+        
 		scrollView.isScrollEnabled = false
+    
 		for (index, viewController) in viewControllers.enumerated() {
 			viewController.view.frame = CGRect(
 				x: UIScreen.main.bounds.width * CGFloat(index),
@@ -102,6 +94,7 @@ class HomeContentViewControllerViewController: UIViewController, HomeContentView
 				width: scrollView.frame.width,
 				height: scrollView.frame.height
 			)
+            
 			addChildViewController(viewController)
 			scrollView.addSubview(viewController.view, options: .useAutoresize) // module's extension
 			viewController.didMove(toParentViewController: self)
@@ -112,10 +105,8 @@ class HomeContentViewControllerViewController: UIViewController, HomeContentView
 		let listViewController = BusinessListViewControllerRouter.createModule()
 		let mapViewController = BusinessListViewControllerRouter.createModule(businessListType: .map)
 		
-		return [
-			listViewController,
-			mapViewController
-		]
+		return [listViewController,
+                mapViewController]
 	}
 	
 	fileprivate func selectedSegmentioIndex() -> Int {

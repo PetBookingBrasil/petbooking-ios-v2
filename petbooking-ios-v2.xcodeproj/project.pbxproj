@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24B6AA392015EDF0007E3930 /* VNDJSONEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B6AA382015EDF0007E3930 /* VNDJSONEncoding.swift */; };
 		3F11C7ED019EC0D4E3FE0C3A /* Pods_petbooking_ios_v2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D1B26D2993D3FD4508B1E48 /* Pods_petbooking_ios_v2.framework */; };
 		410AA9661FA69AC700A90377 /* ServiceRowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410AA9641FA69AC700A90377 /* ServiceRowTableViewCell.swift */; };
 		410AA9671FA69AC700A90377 /* ServiceRowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 410AA9651FA69AC700A90377 /* ServiceRowTableViewCell.xib */; };
@@ -306,6 +307,7 @@
 
 /* Begin PBXFileReference section */
 		136BD67BC48E40083A3E71AC /* Pods-petbooking-ios-v2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petbooking-ios-v2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-petbooking-ios-v2/Pods-petbooking-ios-v2.debug.xcconfig"; sourceTree = "<group>"; };
+		24B6AA382015EDF0007E3930 /* VNDJSONEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VNDJSONEncoding.swift; path = Helpers/VNDJSONEncoding.swift; sourceTree = "<group>"; };
 		3D1B26D2993D3FD4508B1E48 /* Pods_petbooking_ios_v2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_petbooking_ios_v2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		410AA9641FA69AC700A90377 /* ServiceRowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRowTableViewCell.swift; sourceTree = "<group>"; };
 		410AA9651FA69AC700A90377 /* ServiceRowTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServiceRowTableViewCell.xib; sourceTree = "<group>"; };
@@ -852,6 +854,7 @@
 				41B85F121F4DE46000355073 /* PhoneCodesConstants.h */,
 				41B85F131F4DE46000355073 /* PhoneCodesConstants.m */,
 				4137158E1EBEAFFA00258C6F /* Device.swift */,
+				24B6AA382015EDF0007E3930 /* VNDJSONEncoding.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -1402,7 +1405,7 @@
 				TargetAttributes = {
 					413682BC1E9C2B2D008C463B = {
 						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = 2MQ2LA8HV9;
+						DevelopmentTeam = 77828RW9EP;
 						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -1692,6 +1695,7 @@
 				41432E791F0B3088002789CE /* UIButtonExtension.swift in Sources */,
 				4127768E1F13084800EC6488 /* BusinessMapListViewController.swift in Sources */,
 				41A0BAE81ED7A8FA00671F3C /* AddPetViewControllerPresenter.swift in Sources */,
+				24B6AA392015EDF0007E3930 /* VNDJSONEncoding.swift in Sources */,
 				415191E81FABE9B400CACCFE /* ScheduleToTheCartAlertViewController.swift in Sources */,
 				417969741F69676700C47936 /* Segmentio.swift in Sources */,
 				4120ED271EB4F136009D35B0 /* ForgotPasswordInteractor.swift in Sources */,
@@ -1866,7 +1870,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				API_BASE_URL_ENDPOINT = novo.petbooking.com.br/api;
-				AUTH_KEY = "ac1e488b-38b6-47dd-b3a1-c2b3b77f67d4";
+				AUTH_KEY = "fe2e0261-2cac-440d-8027-c8cfc4720940";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1976,12 +1980,12 @@
 			buildSettings = {
 				API_BASE_URL_ENDPOINT = beta.petbooking.com.br/api;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				AUTH_KEY = "2fe5ec0e-3a9b-4b77-824a-4b3a0a2e55ef";
+				AUTH_KEY = "fe2e0261-2cac-440d-8027-c8cfc4720940";
 				BASE_URL = beta.petbooking.com.br;
 				CODE_SIGN_ENTITLEMENTS = "petbooking-ios-v2/petbooking-ios-v2.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 2MQ2LA8HV9;
+				DEVELOPMENT_TEAM = 77828RW9EP;
 				INFOPLIST_FILE = "petbooking-ios-v2/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.petbooking;
@@ -2006,7 +2010,7 @@
 				CODE_SIGN_ENTITLEMENTS = "petbooking-ios-v2/petbooking-ios-v2.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 2MQ2LA8HV9;
+				DEVELOPMENT_TEAM = 77828RW9EP;
 				INFOPLIST_FILE = "petbooking-ios-v2/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;

@@ -37,7 +37,7 @@ class BreedList: MTLModel, MTLJSONSerializing {
 		]
 	}
 	
-	static func breedsJSONTransformer() -> ValueTransformer {
+	@objc static func breedsJSONTransformer() -> ValueTransformer {
 		
 		return MTLJSONAdapter.arrayTransformer(withModelClass: Breed.self)
 		

@@ -33,10 +33,8 @@ class Service: MTLModel, MTLJSONSerializing {
 		]
 	}
 	
-	static func servicesJSONTransformer() -> ValueTransformer {
-		
+	@objc static func servicesJSONTransformer() -> ValueTransformer {
 		return MTLJSONAdapter.arrayTransformer(withModelClass: SubService.self)
-		
 	}
 	
 	class func idJSONTransformer() -> ValueTransformer {
@@ -101,14 +99,10 @@ class ServiceList: MTLModel, MTLJSONSerializing {
 	@objc dynamic var services = [Service]()
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
-		return [
-			"services": "data"
-		]
+		return ["services": "data"]
 	}
 	
-	static func servicesJSONTransformer() -> ValueTransformer {
-		
+	@objc static func servicesJSONTransformer() -> ValueTransformer {
 		return MTLJSONAdapter.arrayTransformer(withModelClass: Service.self)
-		
 	}
 }

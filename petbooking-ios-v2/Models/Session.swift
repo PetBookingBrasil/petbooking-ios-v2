@@ -29,10 +29,8 @@ class Session: MTLModel, MTLJSONSerializing {
 		]
 	}
 	
-	static func ferrorsJSONTransformer() -> ValueTransformer {
-		
+	@objc static func ferrorsJSONTransformer() -> ValueTransformer {
 		return MTLJSONAdapter.arrayTransformer(withModelClass: ErrorRest.self)
-		
 	}
 	
 	func isValid() -> Bool {

@@ -13,23 +13,20 @@ class ScheduleManager: NSObject {
 	
 	static let sharedInstance = ScheduleManager()
 	
-	func createNewSchedule(business:Business) {
+	func createNewSchedule(business: Business) {
 		
 		let schedule = getSchedule(business: business)
 		
 		do {
 			let realm = try Realm()
+            
 			try realm.write {
-				
 				realm.add(schedule,update: true)
-				
 			}
-		}catch {
-			
-		}
+		} catch { }
 	}
 	
-	func removeSchedule(business:Business)  {
+	func removeSchedule(business: Business)  {
 		
 		let schedule = getSchedule(business: business)
 		
@@ -41,13 +38,11 @@ class ScheduleManager: NSObject {
 			let realm = try Realm()
 			try realm.write {
 				realm.delete(schedule)
-				
 			}
-		}catch {
-		}
+		} catch { }
 	}
 	
-	func getSchedule(business:Business) -> Schedule {
+	func getSchedule(business: Business) -> Schedule {
 		
 		do {
 			let realm = try Realm()
@@ -68,7 +63,7 @@ class ScheduleManager: NSObject {
 	}
 	
 	
-	func addPetToSchedule(business:Business, pet:Pet) {
+	func addPetToSchedule(business: Business, pet: Pet) {
 		
 		let schedule = getSchedule(business: business)
 		
@@ -480,5 +475,4 @@ class ScheduleManager: NSObject {
 			
 		}
 	}
-	
 }

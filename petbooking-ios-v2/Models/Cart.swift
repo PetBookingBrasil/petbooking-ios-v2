@@ -15,23 +15,17 @@ class Cart: MTLModel, MTLJSONSerializing {
 	@objc dynamic var link = ""
 	@objc dynamic var itens = [CartItem]()
 	@objc dynamic var totalPrice = ""
-
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
-		return [
-			"id": "data.id",
-			"link": "data.links.self",
-			"itens":"data.attributes.itens",
-			"totalPrice":"data.attributes.total_price"
-		]
+		return ["id": "data.id",
+                "link": "data.links.self",
+                "itens":"data.attributes.itens",
+                "totalPrice":"data.attributes.total_price"]
 	}
 	
-	static func itensJSONTransformer() -> ValueTransformer {
-		
+	@objc static func itensJSONTransformer() -> ValueTransformer {
 		return MTLJSONAdapter.arrayTransformer(withModelClass: CartItem.self)
-		
 	}
-	
 }
 
 class CartItem: MTLModel, MTLJSONSerializing {
@@ -47,17 +41,14 @@ class CartItem: MTLModel, MTLJSONSerializing {
 	@objc dynamic var withTransportion = false
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
-		return [
-			"id": "id",
-			"startDate": "start_date",
-			"startTime": "start_time",
-			"businessId": "business_id",
-			"serviceId": "service_id",
-			"petId": "pet_id",
-			"professionalId": "professional_id",
-			"notes": "notes",
-			"withTransportion": "with_transportation"
-		]
+        return ["id": "id",
+                "startDate": "start_date",
+                "startTime": "start_time",
+                "businessId": "business_id",
+                "serviceId": "service_id",
+                "petId": "pet_id",
+                "professionalId": "professional_id",
+                "notes": "notes",
+                "withTransportion": "with_transportation"]
 	}
-	
 }

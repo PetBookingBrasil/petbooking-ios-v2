@@ -81,17 +81,12 @@ class ProfessionalList: MTLModel, MTLJSONSerializing {
 	@objc dynamic var professionals = [Professional]()
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
-		return [
-			"professionals": "data"
-		]
+		return ["professionals": "data"]
 	}
 	
-	static func professionalsJSONTransformer() -> ValueTransformer {
-		
+	@objc static func professionalsJSONTransformer() -> ValueTransformer {
 		return MTLJSONAdapter.arrayTransformer(withModelClass: Professional.self)
-		
 	}
-	
 }
 
 class Times: MTLModel, MTLJSONSerializing {
@@ -100,10 +95,7 @@ class Times: MTLModel, MTLJSONSerializing {
 	@objc dynamic var times = [String]()
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
-		return [
-			"date": "date",
-			"times": "times"
-		]
+		return ["date": "date",
+                "times": "times"]
 	}
-	
 }

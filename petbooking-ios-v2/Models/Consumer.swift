@@ -24,14 +24,14 @@ class Consumer: MTLModel, MTLJSONSerializing {
 	}
 	
 	func isValid() -> Bool {
-		
 		let now = Date()
+        
 		if tokenExpiresAt < now.timeIntervalSince1970 {
 			return false
 		}
+        
 		return true
 	}
-	
 }
 
 class ConsumerRealm: Object {

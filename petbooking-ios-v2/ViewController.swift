@@ -37,18 +37,13 @@ class ViewController: UIViewController {
 		SideMenuManager.menuPushStyle = .popWhenPossible
 		
 		navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named:"menu"), style: .plain, target: self, action: #selector(showLeftMenu))
-		
-		
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		
-		
 		PetbookingAPI.sharedInstance.userInfo { (user, message) in
-			
 			if let currentUser = user {
-				
 				self.nameLabel.text = currentUser.name
 				
 				if currentUser.avatarUrlThumb.contains("http") {
@@ -60,18 +55,11 @@ class ViewController: UIViewController {
 						self.imageView.pin_setImage(from: url)
 					}
 				}
-
 			}
 		}
 	}
 
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
-		// Dispose of any resources that can be recreated.
-	}
-
 	@IBAction func logout(_ sender: Any) {
-		
 		UserManager.sharedInstance.logOut()
 		
 		self.present(PresentationRouter.createFirstModule(), animated: true, completion: nil)
@@ -80,6 +68,5 @@ class ViewController: UIViewController {
 	@objc func showLeftMenu() {
 		present(SideMenuManager.menuLeftNavigationController!, animated: true, completion: nil)
 	}
-
 }
 
