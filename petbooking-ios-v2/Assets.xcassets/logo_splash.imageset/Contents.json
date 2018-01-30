@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "logo_splash.png",
+      "filename" : "logo_pet_bookinglogo_splash.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "logo_splash@2x.png",
+      "filename" : "logo_pet_bookinglogo_splash-2.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "logo_splash@3x.png",
+      "filename" : "logo_pet_bookinglogo_splash-3.png",
       "scale" : "3x"
     }
   ],

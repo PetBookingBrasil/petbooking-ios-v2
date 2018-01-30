@@ -29,8 +29,6 @@ class MyPetsRouter: MyPetsWireframeProtocol {
     }
 	
 	func showAddPet() {
-		
 		viewController?.navigationController?.pushViewController(AddPetViewControllerRouter.createModule(), animated: true)
-		
 	}
 }

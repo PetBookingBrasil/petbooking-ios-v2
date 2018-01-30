@@ -91,7 +91,7 @@ extension PetbookingAPI {
                 encoding: JSONEncoding.default,
                 headers: auth_headers).responseJSON { (response) in
 				
-				switch response.result{
+				switch response.result {
 				case .success(let jsonObject):
 					if let dic = jsonObject as? [String: Any] {
 						
@@ -100,8 +100,6 @@ extension PetbookingAPI {
 							
 							if session.errors.count == 0 {
 								try SessionManager.sharedInstance.saveSession(session: session)
-								
-								PetbookingAPI.sharedInstance.userInfo { (user, message) in }
 								
 								completion(true, "")
 							} else {
@@ -120,13 +118,13 @@ extension PetbookingAPI {
 				}
 			}
 		} else {
-			getConsumer(completion: { (success, message) in
+			getConsumer { (success, message) in
                 if success {
 					self.login(parameters, completion: completion)
 				} else {
 					completion(false, "")
 				}
-			})
+			}
 		}
 	}
 	
@@ -164,21 +162,18 @@ extension PetbookingAPI {
 				switch response.response!.statusCode {
 				case 200, 201, 202, 204:
 					completion(true, "")
-					break
 				default:
 					completion(false, "")
-					break
 				}
 			}
 		} else {
-			
-			getConsumer(completion: { (success, message) in
+			getConsumer { (success, message) in
 				if success {
 					self.resetPassword(email, completion: completion)
 				} else {
 					completion(false, "")
 				}
-			})
+			}
 		}
 	}
 }
@@ -187,88 +182,78 @@ extension PetbookingAPI {
 
 extension PetbookingAPI {
 	
-	func createUser(name:String, cpf:String, birthday:String, email:String, mobile:String, zipcode:String, street:String, streetNumber:String, neighborhood:String, city:String, state:String, password:String, provider:String, providerToken:String, avatar:String, complement:String, _ completion: @escaping (_ user: Bool, _ message: String) -> Void) {
+	func createUser(name: String, email: String, mobile: String, password: String, provider: String, providerToken: String, avatar: String, _ completion: @escaping (_ user: Bool, _ message: String) -> Void) {
 		
 		if SessionManager.sharedInstance.isConsumerValid() {
 			var token = ""
+            
 			if let consumer = SessionManager.sharedInstance.getCurrentConsumer() {
 				token = consumer.token
 			}
 			
-			
 			self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
 			
-			let parameters: Parameters = ["data": ["type":"users", "attributes":["provider":provider, "provider_token":providerToken, "email":email, "password":password, "name":name, "phone":mobile, "cpf":cpf, "city":city, "state":state, "zipcode":zipcode, "street":street, "street_number":streetNumber, "neighborhood":neighborhood, "avatar":avatar, "birthday":birthday, "complement":complement]]
-				
-			]
+			let parameters: Parameters = ["data": ["type": "users",
+                                                   "attributes": ["provider": provider,
+                                                                  "provider_token": providerToken,
+                                                                  "email": email,
+                                                                  "password": password,
+                                                                  "name": name,
+                                                                  "phone": mobile,
+                                                                  "avatar": avatar]]]
 			
-			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/users", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: auth_headers).responseJSON { (response) in
+			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/users",
+                method: .post,
+                parameters: parameters,
+                encoding: JSONEncoding.default,
+                headers: auth_headers).responseJSON { (response) in
 				
-				switch response.result{
+				switch response.result {
 				case .success(let jsonObject):
 					if let dic = jsonObject as? [String: Any] {
-						
 						do {
-							
 							let user = try MTLJSONAdapter.model(of: User.self, fromJSONDictionary: dic) as! User
 							
 							if user.errors.count == 0 {
-								
 								try UserManager.sharedInstance.saveUser(user: user)
-								
 								if providerToken.isEmpty {
-									self.loginWithEmail(email, password: password, completion: { (success, message) in
-										
-										completion(success, message)
-										
-									})
+									self.loginWithEmail(email, password: password, completion: completion)
 								} else {
-									self.loginWithFacebook(providerToken, completion: { (success, message) in
-										completion(success, message)
-									})
+                                    self.loginWithFacebook(providerToken, completion: completion)
 								}
 							} else {
 								completion(false, "")
 							}
-							
 						} catch {
 							completion(false, error.localizedDescription)
 						}
 					} else {
 						completion(false, "")
 					}
-					break
 				case .failure(let error):
 					print(error)
 					completion(false, error.localizedDescription)
-					break
 				}
-				
 			}
 		} else {
-			
-			getConsumer(completion: { (success, message) in
-				
+			getConsumer { (success, message) in
 				if success {
-					self.createUser(name: name, cpf: cpf, birthday: birthday, email: email, mobile: mobile, zipcode: zipcode, street: street, streetNumber: streetNumber, neighborhood: neighborhood, city: city, state: state, password: password, provider: provider, providerToken: providerToken, avatar: avatar, complement: complement, completion)
+					self.createUser(name: name, email: email, mobile: mobile, password: password, provider: provider, providerToken: providerToken, avatar: avatar, completion)
 				} else {
-					
 					completion(false, "")
-					
 				}
-				
-			})
+			}
 		}
 	}
 	
-	func updateUser(name:String, cpf:String, birthday:String, email:String, mobile:String, zipcode:String, street:String, streetNumber:String, neighborhood:String, city:String, state:String, avatar:String, complement:String, _ completion: @escaping (_ user: Bool, _ message: String) -> Void) {
+    func updateUser(name: String, email: String, mobile: String, avatar: String, completion: @escaping (_ user: Bool, _ message: String) -> Void) {
 		
 		if SessionManager.sharedInstance.isConsumerValid() {
 			var token = ""
+            
 			if let consumer = SessionManager.sharedInstance.getCurrentConsumer() {
 				token = consumer.token
 			}
-			
 			
 			var authToken = ""
 			var userId = 0
@@ -280,67 +265,57 @@ extension PetbookingAPI {
 			self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
 			self.auth_headers.updateValue("Token token=\"\(authToken)\"", forKey: "X-Petbooking-Session-Token")
 			
-			let parameters: Parameters = [
-				"data": ["type":"users", "id":"\(userId)", "attributes":["email":email, "name":name, "phone":mobile, "cpf":cpf, "city":city, "state":state, "zipcode":zipcode, "street":street, "street_number":streetNumber, "neighborhood":neighborhood, "avatar":avatar, "birthday":birthday, "complement":complement]]
-				
-			]
+            let parameters: Parameters = ["data": ["type": "users", "id": "\(userId)",
+                                                    "attributes": ["email": email,
+                                                                   "name": name,
+                                                                   "phone": mobile,
+                                                                   "avatar": avatar]]]
 			
-			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/users/\(userId)", method: .put, parameters: parameters, encoding: JSONEncoding.prettyPrinted, headers: auth_headers).responseJSON { (response) in
+			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/users/\(userId)",
+                method: .put,
+                parameters: parameters,
+                encoding: JSONEncoding.prettyPrinted,
+                headers: auth_headers).responseJSON { (response) in
 				
 				switch response.result{
 				case .success(let jsonObject):
 					if let dic = jsonObject as? [String: Any] {
 						
 						do {
-							
 							let user = try MTLJSONAdapter.model(of: User.self, fromJSONDictionary: dic) as! User
 							
 							if user.errors.count == 0 {
-								
 								try UserManager.sharedInstance.saveUser(user: user)
-								
-								PetbookingAPI.sharedInstance.userInfo { (user, message) in
-								}
-								
 								completion(true, "")
-								
 							} else {
 								completion(false, "")
 							}
-							
 						} catch {
 							completion(false, error.localizedDescription)
 						}
 					} else {
 						completion(false, "")
 					}
-					break
 				case .failure(let error):
 					print(error)
 					completion(false, error.localizedDescription)
-					break
 				}
 			}
 		} else {
 			
-			getConsumer(completion: { (success, message) in
-				
+			getConsumer { (success, message) in
 				if success {
-					self.updateUser(name: name, cpf: cpf, birthday: birthday, email: email, mobile: mobile, zipcode: zipcode, street: street, streetNumber: streetNumber, neighborhood: neighborhood, city: city, state: state, avatar: avatar, complement: complement, completion)
-				} else {
-					
+					self.updateUser(name: name, email: email, mobile: mobile, avatar: avatar, completion: completion)
+                } else {
 					completion(false, "")
-					
-				}
-				
-			})
+                }
+			}
 		}
 	}
 	
 	func userInfo(_ completion: @escaping (_ user: User?, _ message: String) -> Void) {
 		
 		if SessionManager.sharedInstance.isConsumerValid() {
-			
 			var token = ""
 			if let consumer = SessionManager.sharedInstance.getCurrentConsumer() {
 				token = consumer.token
@@ -361,41 +336,29 @@ extension PetbookingAPI {
 				switch response.result{
 				case .success(let jsonObject):
 					if let dic = jsonObject as? [String: Any] {
-						
 						do {
-							
 							let user = try MTLJSONAdapter.model(of: User.self, fromJSONDictionary: dic) as! User
-							
 							try UserManager.sharedInstance.saveUser(user: user)
-							
 							completion(user, "")
-							
 						} catch {
 							completion(nil, error.localizedDescription)
 						}
 					} else {
 						completion(nil, "")
 					}
-					break
 				case .failure(let error):
 					print(error)
 					completion(nil, error.localizedDescription)
-					break
 				}
-				
 			}
 		} else {
-			getConsumer(completion: { (success, message) in
-				
+			getConsumer { (success, message) in
 				if success {
 					self.userInfo(completion)
 				} else {
-					
 					completion(nil, "")
-					
-				}
-				
-			})
+                }
+			}
 		}
 	}
 	
@@ -436,13 +399,10 @@ extension PetbookingAPI {
 					} else {
 						completion(nil, "")
 					}
-					break
 				case .failure(let error):
 					print(error)
 					completion(nil, error.localizedDescription)
-					break
 				}
-				
 			}
 		} else {
 			getConsumer(completion: { (success, message) in
@@ -450,9 +410,7 @@ extension PetbookingAPI {
 				if success {
 					self.getUserInfo(userId: userId,completion)
 				} else {
-					
 					completion(nil, "")
-					
 				}
 				
 			})
@@ -502,16 +460,13 @@ extension PetbookingAPI {
 					} else {
 						completion(nil, "")
 					}
-					break
 				case .failure(let error):
 					print(error)
 					completion(nil, error.localizedDescription)
-					break
 				}
 				
 			}
-		} else
-		{
+		} else {
 			getConsumer(completion: { (success, message) in
 				
 				if success {
@@ -559,11 +514,9 @@ extension PetbookingAPI {
 					} else {
 						completion(nil, "")
 					}
-					break
 				case .failure(let error):
 					print(error)
 					completion(nil, error.localizedDescription)
-					break
 				}
 				
 			}
@@ -626,11 +579,9 @@ extension PetbookingAPI {
 					} else {
 						completion(nil, "")
 					}
-					break
 				case .failure(let error):
 					print(error)
 					completion(nil, error.localizedDescription)
-					break
 				}
 				
 			}
@@ -692,11 +643,9 @@ extension PetbookingAPI {
 					} else {
 						completion(nil, "")
 					}
-					break
 				case .failure(let error):
 					print(error)
 					completion(nil, error.localizedDescription)
-					break
 				}
 				
 			}
@@ -754,11 +703,9 @@ extension PetbookingAPI {
 					} else {
 						completion(nil, "")
 					}
-					break
 				case .failure(let error):
 					print(error)
 					completion(nil, error.localizedDescription)
-					break
 				}
 				
 			}
@@ -819,11 +766,9 @@ extension PetbookingAPI {
 					} else {
 						completion(nil, "")
 					}
-					break
 				case .failure(let error):
 					print(error)
 					completion(nil, error.localizedDescription)
-					break
 				}
 				
 			}
@@ -879,11 +824,9 @@ extension PetbookingAPI {
 					} else {
 						completion(nil, "")
 					}
-					break
 				case .failure(let error):
 					print(error)
 					completion(nil, error.localizedDescription)
-					break
 				}
 				
 			}
@@ -933,10 +876,8 @@ extension PetbookingAPI {
 					} else {
 						completion(false, "")
 					}
-					break
 				case .failure(let error):
 					completion(false, error.localizedDescription)
-					break
 				}
 				
 			}
@@ -996,10 +937,8 @@ extension PetbookingAPI {
 					} else {
 						completion(false, "")
 					}
-					break
 				case .failure(let error):
 					completion(false, error.localizedDescription)
-					break
 				}
 				
 			}
@@ -1054,11 +993,9 @@ extension PetbookingAPI {
 					} else {
 						completion(nil, "")
 					}
-					break
 				case .failure(let error):
 					print(error)
 					completion(nil, error.localizedDescription)
-					break
 				}
 				
 			}
@@ -1112,11 +1049,9 @@ extension PetbookingAPI {
 					} else {
 						completion(nil, "")
 					}
-					break
 				case .failure(let error):
 					print(error)
 					completion(nil, error.localizedDescription)
-					break
 				}
 				
 			}
@@ -1170,11 +1105,9 @@ extension PetbookingAPI {
 					} else {
 						completion(nil, "")
 					}
-					break
 				case .failure(let error):
 					print(error)
 					completion(nil, error.localizedDescription)
-					break
 				}
 				
 			}
@@ -1226,11 +1159,9 @@ extension PetbookingAPI {
 					} else {
 						completion(nil, "")
 					}
-					break
 				case .failure(let error):
 					print(error)
 					completion(nil, error.localizedDescription)
-					break
 				}
 				
 			}
@@ -1292,11 +1223,9 @@ extension PetbookingAPI {
 					} else {
 						completion(nil, "")
 					}
-					break
 				case .failure(let error):
 					print(error)
 					completion(nil, error.localizedDescription)
-					break
 				}
 				
 			}
@@ -1349,11 +1278,9 @@ extension PetbookingAPI {
 					} else {
 						completion(nil, "")
 					}
-					break
 				case .failure(let error):
 					print(error)
 					completion(nil, error.localizedDescription)
-					break
 				}
 				
 			}
@@ -1417,11 +1344,9 @@ extension PetbookingAPI {
 					} else {
 						completion(nil, "")
 					}
-					break
 				case .failure(let error):
 					print(error)
 					completion(nil, error.localizedDescription)
-					break
 				}
 				
 			}
@@ -1477,11 +1402,9 @@ extension PetbookingAPI {
 					} else {
 						completion(nil, "")
 					}
-					break
 				case .failure(let error):
 					print(error)
 					completion(nil, error.localizedDescription)
-					break
 				}
 				
 			}

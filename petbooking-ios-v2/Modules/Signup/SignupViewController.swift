@@ -14,82 +14,42 @@ import AKMaskField
 
 class SignupViewController: UIViewController, SignupViewProtocol {
 	
-	
+    // MARK: - Outlets
 	@IBOutlet weak var profilePictureView: UIView!
+    
 	@IBOutlet weak var profilePictureImageView: UIImageView!
+    @IBOutlet weak var cameraIconImageView: UIImageView!
+    @IBOutlet weak var userIconImageView: UIImageView!
+    @IBOutlet weak var emailIconImageView: UIImageView!
+    @IBOutlet weak var phoneIconImageView: UIImageView!
+    @IBOutlet weak var passwordIconImageView: UIImageView!
+    
 	@IBOutlet weak var profilePictureFrameView: UIView!
+    
 	@IBOutlet weak var fullNameTextField: UITextField!
-	@IBOutlet weak var cpfTextField: AKMaskField!
-	@IBOutlet weak var birthdayTextField: AKMaskField!
 	@IBOutlet weak var passwordTextField: UITextField!
-	@IBOutlet weak var confirmPasswordTextField: UITextField!
 	@IBOutlet weak var emailTextField: UITextField!
 	@IBOutlet weak var mobileNumberTextField: AKMaskField!
-	@IBOutlet weak var numberTextField: UITextField!
-	@IBOutlet weak var cityTextField: UITextField!
-	@IBOutlet weak var neighborhoodTextField: UITextField!
-	@IBOutlet weak var complementTextField: AKMaskField!
-	@IBOutlet weak var zipcodeTextField: AKMaskField!
-	@IBOutlet weak var stateTextField: UITextField!
-	@IBOutlet weak var streetTextField: UITextField!
-	@IBOutlet weak var saveButton: UIButton!
-	
-	@IBOutlet weak var cameraIconImageView: UIImageView!
-	@IBOutlet weak var cpfIconImageView: UIImageView!
-	@IBOutlet weak var userIconImageView: UIImageView!
-	@IBOutlet weak var birthdayIconImageView: UIImageView!
-	@IBOutlet weak var emailIconImageView: UIImageView!
-	@IBOutlet weak var locationIconImageView: UIImageView!
-	@IBOutlet weak var phoneIconImageView: UIImageView!
-	@IBOutlet weak var cepIconImageView: UIImageView!
-	@IBOutlet weak var numberIconImageView: UIImageView!
-	@IBOutlet weak var complementIconImageView: UIImageView!
-	@IBOutlet weak var stateIconImageView: UIImageView!
-	@IBOutlet weak var cityIconImageView: UIImageView!
-	@IBOutlet weak var confirmPasswordIconImageView: UIImageView!
-	@IBOutlet weak var passwordIconImageView: UIImageView!
-	@IBOutlet weak var neighborhoodIconImageView: UIImageView!
-	
+    
+    @IBOutlet weak var passwordSeparatorView: UIView!
 	
 	@IBOutlet weak var nameAlertMessageLabel: UILabel!
-	@IBOutlet weak var cpfAlertMessageLabel: UILabel!
-	@IBOutlet weak var birthdayAlertMessageLabel: UILabel!
 	@IBOutlet weak var emailAlertMessageLabel: UILabel!
-	
-	@IBOutlet weak var streetAlertMessageLabel: UILabel!
-	
-	@IBOutlet weak var numberAlertMessageLabel: UILabel!
-	
-	@IBOutlet weak var zipcodeAlertMessageLabel: UILabel!
-	
-	@IBOutlet weak var complementAlertMessageLabel: UILabel!
-	@IBOutlet weak var neighborhoodAlertMessageLabel: UILabel!
-	
-	@IBOutlet weak var cityAlertMessageLabel: UILabel!
-	
-	@IBOutlet weak var stateAlertMessageLabel: UILabel!
-	
 	@IBOutlet weak var mobileAlertMessageLabel: UILabel!
-	
 	@IBOutlet weak var passwordAlertMessageLabel: UILabel!
-	
-	@IBOutlet weak var confirmPasswordAlertMessageLabel: UILabel!
-	
-	@IBOutlet weak var profileImageAlertMessage: UILabel!
-	
-	@IBOutlet weak var passwordViewTopDistanceConstraint: NSLayoutConstraint!
-	@IBOutlet weak var passwordSeparatorView: UIView!
-	
-	
+	@IBOutlet weak var profileImageAlertMessageLabel: UILabel!
+    
+    @IBOutlet weak var saveButton: UIButton!
 	
 	var presenter: SignupPresenterProtocol?
-	var signupType:SignupType?
+	var signupType: SignupType?
 	
+    // MARK: - App lifecycle
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		
 		self.title = "Preencha os seus dados"
+        
 		hideKeyboardWhenTappedAround()
 		setupView()
 	}
@@ -102,188 +62,115 @@ class SignupViewController: UIViewController, SignupViewProtocol {
 	}
 	
 	func setupView() {
-		
 		setBackButton()
 		
 		profilePictureView.round()
 		profilePictureFrameView.setBorder(width: 2, color: .white)
 		profilePictureFrameView.round()
 		saveButton.round()
-		
-		cpfTextField.maskExpression = "{ddd}.{ddd}.{ddd}-{dd}"
-		cpfTextField.maskTemplate = "xxx.xxx.xxx-xx"
-		
-		birthdayTextField.maskExpression = "{dd}/{dd}/{dddd}"
-		birthdayTextField.maskTemplate = "dd/mm/aaaa"
-		
-		mobileNumberTextField.maskExpression = "({dd}){ddddd}-{dddd}"
-		mobileNumberTextField.maskTemplate = "(xx)xxxxx-xxxx"
-		
-		zipcodeTextField.maskExpression = "{ddddd}-{ddd}"
-		zipcodeTextField.maskTemplate = "xxxxx-xxx"
-		zipcodeTextField.maskDelegate = self
-		
+						
 		cameraIconImageView.image = cameraIconImageView.image!.withRenderingMode(.alwaysTemplate)
 		cameraIconImageView.tintColor = .white
-		
-		cpfIconImageView.image = cpfIconImageView.image!.withRenderingMode(.alwaysTemplate)
-		cpfIconImageView.tintColor = .black
 		
 		userIconImageView.image = userIconImageView.image!.withRenderingMode(.alwaysTemplate)
 		userIconImageView.tintColor = .black
 		
-		birthdayIconImageView.image = birthdayIconImageView.image!.withRenderingMode(.alwaysTemplate)
-		birthdayIconImageView.tintColor = .black
-		
 		emailIconImageView.image = emailIconImageView.image!.withRenderingMode(.alwaysTemplate)
 		emailIconImageView.tintColor = .black
-		
-		locationIconImageView.image = locationIconImageView.image!.withRenderingMode(.alwaysTemplate)
-		locationIconImageView.tintColor = .black
-		
-		neighborhoodIconImageView.image = neighborhoodIconImageView.image!.withRenderingMode(.alwaysTemplate)
-		neighborhoodIconImageView.tintColor = .black
-		
-		cepIconImageView.image = cepIconImageView.image!.withRenderingMode(.alwaysTemplate)
-		cepIconImageView.tintColor = .black
-		
-		numberIconImageView.image = numberIconImageView.image!.withRenderingMode(.alwaysTemplate)
-		numberIconImageView.tintColor = .black
-		
-		cityIconImageView.image = cityIconImageView.image!.withRenderingMode(.alwaysTemplate)
-		cityIconImageView.tintColor = .black
-		
-		stateIconImageView.image = stateIconImageView.image!.withRenderingMode(.alwaysTemplate)
-		stateIconImageView.tintColor = .black
-		
+				
 		phoneIconImageView.image = phoneIconImageView.image!.withRenderingMode(.alwaysTemplate)
 		phoneIconImageView.tintColor = .black
-		
-		complementIconImageView.image = complementIconImageView.image!.withRenderingMode(.alwaysTemplate)
-		complementIconImageView.tintColor = .black
-		
-		if signupType == .editProfile {
-			confirmPasswordTextField.isHidden = true
-			passwordTextField.isHidden = true
-			confirmPasswordIconImageView.isHidden = true
-			passwordIconImageView.isHidden = true
-			passwordSeparatorView.isHidden = true
-			
-			self.title = "Editar Informações"
-			
-		} else {
-		confirmPasswordIconImageView.image = confirmPasswordIconImageView.image!.withRenderingMode(.alwaysTemplate)
-		confirmPasswordIconImageView.tintColor = .black
-		
-		passwordIconImageView.image = passwordIconImageView.image!.withRenderingMode(.alwaysTemplate)
-		passwordIconImageView.tintColor = .black
-		}
-		
+				
+        if signupType == .editProfile {
+            passwordTextField.isHidden = true
+            passwordIconImageView.isHidden = true
+            passwordSeparatorView.isHidden = true
+            
+            self.title = "Editar Informações"
+            
+        } else {
+            passwordIconImageView.image = passwordIconImageView.image!.withRenderingMode(.alwaysTemplate)
+            passwordIconImageView.tintColor = .black
+        }
 	}
+    
+    func checkValidField(value: String?, alertLabel: UILabel, alertMessage: String) -> Bool {
+        if value == nil {
+            alertLabel.isHidden = false
+            alertLabel.text = alertMessage
+            
+            return false
+        }
+        
+        alertLabel.isHidden = true
+        return true
+    }
+    
+    func checkValidPasswordFields() -> Bool {
+        guard signupType != .editProfile else { return true }
+        
+        let password = passwordTextField.checkField()
+        if !checkValidField(value: password, alertLabel: passwordAlertMessageLabel,
+                            alertMessage: NSLocalizedString("invalid_password", comment: "")) {
+            return false
+        }
+        
+        if password!.count < 8 {
+            passwordAlertMessageLabel.isHidden = false
+            passwordAlertMessageLabel.text = NSLocalizedString("invalid_password", comment: "")
+            
+            return false
+        } else {
+            passwordAlertMessageLabel.isHidden = true
+        }
+        
+        return true
+    }
+    
+    func setProfileImageView(withUrlString urlString: String) {
+        if let url = URL(string: urlString) {
+            profilePictureImageView.pin_setImage(from: url)
+        }
+    }
+    
+    func setName(_ name: String) {
+        fullNameTextField.text = name
+    }
+    
+    func setEmail(_ email: String) {
+        emailTextField.text = email
+    }
+    
+    func setMobile(_ mobile: String) {
+        mobileNumberTextField.text = mobile
+    }
 	
+    // MARK: - Actions
 	@IBAction func changeAvatar(_ sender: Any) {
-		
 		MIBlurPopup.show(SelectPhotoSourcePopupRouter.createModule(delegate: self), on: self)
-		
 	}
-	
-	func checkValidField(value:String?, alertLabel:UILabel, alertMessage:String) -> Bool {
 		
-		if value == nil {
-			alertLabel.isHidden = false
-			alertLabel.text = alertMessage
-			return false
-		}
-		
-		alertLabel.isHidden = true
-		return true
-	}
-	
-	func checkValidPasswordFields() -> Bool {
-		
-		if signupType == .editProfile {
-			return true
-		}
-		
-		var isValid = true
-		
-		let password = passwordTextField.checkField()
-		if !checkValidField(value: password, alertLabel: passwordAlertMessageLabel, alertMessage: NSLocalizedString("invalid_password", comment: "")) {
-			isValid = false
-		}
-		
-		let confirmPassword = confirmPasswordTextField.checkField()
-		if !checkValidField(value: confirmPassword, alertLabel: confirmPasswordAlertMessageLabel, alertMessage: NSLocalizedString("invalid_confirmPassword", comment: "")) {
-			isValid = false
-		}
-		
-		if isValid && password != confirmPassword {
-			isValid = checkValidField(value: nil, alertLabel: confirmPasswordAlertMessageLabel, alertMessage: NSLocalizedString("invalid_confirmPassword", comment: ""))
-		}
-		
-		return isValid
-	}
-	
 	@IBAction func save(_ sender: Any) {
-		
 		var isValid = true
 		
 		let name = fullNameTextField.checkField()
-		if !checkValidField(value: name, alertLabel: nameAlertMessageLabel, alertMessage: NSLocalizedString("invalid_name", comment: "")) {
+		if !checkValidField(value: name, alertLabel: nameAlertMessageLabel,
+                            alertMessage: NSLocalizedString("invalid_name", comment: "")) {
 			isValid = false
 		}
-		
-
-		let cpf = cpfTextField.checkField()
-		if !checkValidField(value: cpf, alertLabel: cpfAlertMessageLabel, alertMessage: NSLocalizedString("invalid_cpf", comment: "")) {
-			isValid = false
-		}
-		
-		let birthday = birthdayTextField.checkField()
-		if !checkValidField(value: birthday, alertLabel: birthdayAlertMessageLabel, alertMessage: NSLocalizedString("invalid_birthday", comment: "")) {
-			isValid = false
-		}
-		
+				
 		let email = emailTextField.checkField()
-		if !checkValidField(value: email, alertLabel: emailAlertMessageLabel, alertMessage: NSLocalizedString("invalid_email", comment: "")) {
+		if !checkValidField(value: email, alertLabel: emailAlertMessageLabel,
+                            alertMessage: NSLocalizedString("invalid_email", comment: "")) {
 			isValid = false
 		}
 		
 		let mobile = mobileNumberTextField.checkField()?.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
-		if !checkValidField(value: mobile, alertLabel: mobileAlertMessageLabel, alertMessage: NSLocalizedString("invalid_mobile", comment: "")) {
+		if !checkValidField(value: mobile, alertLabel: mobileAlertMessageLabel,
+                            alertMessage: NSLocalizedString("invalid_mobile", comment: "")) {
 			isValid = false
 		}
-		
-		let zipcode = zipcodeTextField.checkField()?.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
-		if !checkValidField(value: zipcode, alertLabel: zipcodeAlertMessageLabel, alertMessage: NSLocalizedString("invalid_zipcode", comment: "")) {
-			isValid = false
-		}
-		
-		let street = streetTextField.checkField()
-		if !checkValidField(value: street, alertLabel: streetAlertMessageLabel, alertMessage: NSLocalizedString("invalid_street", comment: "")) {
-			isValid = false
-		}
-		
-		let streetNumber = numberTextField.checkField()
-		if !checkValidField(value: streetNumber, alertLabel: numberAlertMessageLabel, alertMessage: NSLocalizedString("invalid_streetNumber", comment: "")) {
-			isValid = false
-		}
-		
-		let neighborhood = neighborhoodTextField.checkField()
-		if !checkValidField(value: neighborhood, alertLabel: neighborhoodAlertMessageLabel, alertMessage: NSLocalizedString("invalid_neighborhood", comment: "")) {
-			isValid = false
-		}
-		
-		let city = cityTextField.checkField()
-		if !checkValidField(value: city, alertLabel: cityAlertMessageLabel, alertMessage: NSLocalizedString("invalid_city", comment: "")) {
-			isValid = false
-		}
-		
-		let state = stateTextField.checkField()
-		if !checkValidField(value: state, alertLabel: stateAlertMessageLabel, alertMessage: NSLocalizedString("invalid_state", comment: "")) {
-			isValid = false
-		}
-		
+				
 		var password = passwordTextField.checkField()
 		if signupType == .editProfile {
 			password = ""
@@ -295,125 +182,25 @@ class SignupViewController: UIViewController, SignupViewProtocol {
 		
 		let image = profilePictureImageView.image
 		
-			if image == nil {
-			isValid = checkValidField(value: nil, alertLabel: profileImageAlertMessage, alertMessage: NSLocalizedString("invalid_profileImage", comment: ""))
-			} else {
-				let _ = checkValidField(value: "ok", alertLabel: profileImageAlertMessage, alertMessage: NSLocalizedString("invalid_profileImage", comment: ""))
-		}
+        if image == nil {
+            isValid = checkValidField(value: nil,
+                                      alertLabel: profileImageAlertMessageLabel,
+                                      alertMessage: NSLocalizedString("invalid_profileImage", comment: ""))
+        } else {
+            let _ = checkValidField(value: "ok",
+                                    alertLabel: profileImageAlertMessageLabel,
+                                    alertMessage: NSLocalizedString("invalid_profileImage", comment: ""))
+        }
 		
-		var complement = complementTextField.checkField()
-		if complement == nil || complement!.isEmpty {
-			complement = ""
-		}
-
 		if isValid {
-			guard let base64Avatar = image!.toBase64String() else {
-				return
-			}
+			guard let base64Avatar = image!.toBase64String() else { return }
 			
-			presenter?.createUser(name: name!, cpf: cpf!, birthday: birthday!, email: email!, mobile: mobile!, zipcode: zipcode!, street: street!, streetNumber: streetNumber!, neighborhood: neighborhood!, city: city!, state: state!, password: password!, avatar:"data:image/jpeg;base64,\(base64Avatar)", complement:complement!)
-		}
-		
-	}
-	
-	func setProfileImageView(urlString:String) {
-		
-		if let url = URL(string: urlString) {
-			profilePictureImageView.pin_setImage(from: url)
-		}
-		
-	}
-	
-	func setNameLabel(name:String) {
-		
-		fullNameTextField.text = name
-	}
-	
-	func setEmail(email:String) {
-		
-		emailTextField.text = email
-	}
-	
-	func setUserDetails(mobile: String, cpf: String, birthday: String, zipcode:String) {
-		
-		mobileNumberTextField.text = mobile
-		cpfTextField.text = cpf
-		birthdayTextField.text = birthday
-		zipcodeTextField.text = zipcode
-		
-	}
-	
-	func fillAdrressFields(street:String, streetNumber:String, neighborhood:String, city:String, state:String, complement:String) {
-		
-		streetTextField.text = street
-		neighborhoodTextField.text = neighborhood
-		cityTextField.text = city
-		stateTextField.text = state
-		numberTextField.text = streetNumber
-		complementTextField.text = complement
-		
-	}
-	
-	
-}
-
-extension SignupViewController:UITextFieldDelegate, AKMaskFieldDelegate {
-	
-	func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-		
-		switch textField {
-		case zipcodeTextField:
-			break
-		case stateTextField:
-			guard let text = textField.text else {
-				return true
-			}
-			if text.characters.count >= 2 && !string.isEmpty || string.characters.count > 2{
-				return false
-			}
-			break
-			
-		default:
-			break
-		}
-		
-		return true
-	}
-	
-	func textFieldDidEndEditing(_ textField: UITextField) {
-		switch textField {
-		case zipcodeTextField:
-			guard let zipcode = textField.text else {
-				return
-			}
-			presenter?.fillAdrressWithZipcode(zipcode: zipcode)
-			break
-		case stateTextField:
-			textField.text = textField.text?.uppercased()
-			break
-			
-		default:
-			break
-		}
-	}
-	
-	func maskFieldDidEndEditing(_ maskField: AKMaskField) {
-		switch maskField {
-		case zipcodeTextField:
-			guard let zipcode = maskField.text else {
-				return
-			}
-			presenter?.fillAdrressWithZipcode(zipcode: zipcode)
-			break
-			
-		default:
-			break
+            presenter?.createUser(name: name!, email: email!, mobile: mobile!, password: password!, avatar: "data:image/jpeg;base64,\(base64Avatar)")
 		}
 	}
 }
 
 extension SignupViewController:UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-	
 	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
 		if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
 			profilePictureImageView.image = image
@@ -421,15 +208,12 @@ extension SignupViewController:UIImagePickerControllerDelegate, UINavigationCont
 		
 		picker.dismiss(animated: true, completion: nil);
 	}
-	
 }
 
 extension SignupViewController: SelectPhotoSourcePopupActionProtocol {
 	
 	func showCamera() {
-		
 		if UIImagePickerController.isSourceTypeAvailable(.camera){
-			
 			let imagePicker = UIImagePickerController()
 			
 			imagePicker.delegate = self
@@ -438,11 +222,9 @@ extension SignupViewController: SelectPhotoSourcePopupActionProtocol {
 			
 			self.present(imagePicker, animated: true, completion: nil)
 		}
-		
 	}
 	
 	func showAlbum() {
-		
 		if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
 			
 			let imagePicker = UIImagePickerController()
@@ -453,7 +235,5 @@ extension SignupViewController: SelectPhotoSourcePopupActionProtocol {
 			
 			self.present(imagePicker, animated: true, completion: nil)
 		}
-		
 	}
-	
 }

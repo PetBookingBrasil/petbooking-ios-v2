@@ -18,9 +18,7 @@ class UserManager: NSObject {
 		do {
 			let realm = try Realm()
 			
-            guard let userRealm = realm.objects(UserRealm.self).first else {
-				return nil
-			}
+            guard let userRealm = realm.objects(UserRealm.self).first else { return nil }
 			
 			let user = User()
 
@@ -53,10 +51,9 @@ class UserManager: NSObject {
 		} catch {
 			return nil
 		}
-		
 	}
 	
-	func saveUser(user:User) throws {
+	func saveUser(user: User) throws {
 		
 		let userRealm = UserRealm()
         

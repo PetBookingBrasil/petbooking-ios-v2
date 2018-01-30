@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -16,6 +17,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyPetsViewController" customModule="petbooking_ios_v2" customModuleProvider="target">
             <connections>
+                <outlet property="addPetButton" destination="0lr-Jx-pMs" id="Pxb-Xx-X5e"/>
                 <outlet property="emptyView" destination="K7B-Cv-q8G" id="1QW-Rx-b8e"/>
                 <outlet property="tableView" destination="m4p-Tn-vxI" id="kB4-Lr-Kvi"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -34,32 +36,41 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icone-favoritos" translatesAutoresizingMaskIntoConstraints="NO" id="aBh-IS-UYC">
-                            <rect key="frame" x="71" y="100" width="232" height="232"/>
+                            <rect key="frame" x="67" y="100" width="240" height="240"/>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Você ainda não adicionou seus pets" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUH-iO-Snm">
-                            <rect key="frame" x="70" y="362" width="235" height="47"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ops! Você ainda não tem nenhum pet adicionado." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUH-iO-Snm">
+                            <rect key="frame" x="70" y="370" width="235" height="47"/>
                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
-                            <color key="textColor" red="0.31764705879999999" green="0.31764705879999999" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clique no botão de + logo acima para adicioná-los." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LmH-hw-Y1a">
-                            <rect key="frame" x="44" y="429" width="286" height="37.5"/>
-                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
-                            <color key="textColor" red="0.52156862749999999" green="0.52156862749999999" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0lr-Jx-pMs">
+                            <rect key="frame" x="43" y="594" width="288" height="49"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="49" id="WfN-IQ-8Wp"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="30" maxY="0.0"/>
+                            <state key="normal" title="Adicionar Pet">
+                                <color key="titleColor" red="0.89411764709999997" green="0.0" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="addPetButtonTapped:" destination="-1" eventType="touchUpInside" id="Ggy-zG-Qcv"/>
+                            </connections>
+                        </button>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.89411764709999997" green="0.0" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="JUH-iO-Snm" firstAttribute="centerX" secondItem="K7B-Cv-q8G" secondAttribute="centerX" id="19E-VH-Gq4"/>
-                        <constraint firstItem="LmH-hw-Y1a" firstAttribute="leading" secondItem="K7B-Cv-q8G" secondAttribute="leading" constant="44" id="1nP-RE-eVW"/>
                         <constraint firstItem="aBh-IS-UYC" firstAttribute="centerX" secondItem="K7B-Cv-q8G" secondAttribute="centerX" id="JdL-aa-Mw8"/>
                         <constraint firstItem="JUH-iO-Snm" firstAttribute="top" secondItem="aBh-IS-UYC" secondAttribute="bottom" constant="30" id="Vc5-bx-eBx"/>
+                        <constraint firstItem="0lr-Jx-pMs" firstAttribute="centerX" secondItem="K7B-Cv-q8G" secondAttribute="centerX" id="XzL-8f-GoO"/>
                         <constraint firstItem="JUH-iO-Snm" firstAttribute="leading" secondItem="K7B-Cv-q8G" secondAttribute="leading" constant="70" id="bUY-Vw-gur"/>
+                        <constraint firstAttribute="bottom" secondItem="0lr-Jx-pMs" secondAttribute="bottom" constant="24" id="j7f-Vf-J5n"/>
+                        <constraint firstItem="0lr-Jx-pMs" firstAttribute="width" secondItem="0lr-Jx-pMs" secondAttribute="height" multiplier="288:49" id="mxS-lq-bvl"/>
                         <constraint firstItem="aBh-IS-UYC" firstAttribute="top" secondItem="K7B-Cv-q8G" secondAttribute="top" constant="100" id="nCK-i3-cO3"/>
-                        <constraint firstItem="LmH-hw-Y1a" firstAttribute="top" secondItem="JUH-iO-Snm" secondAttribute="bottom" constant="20" id="pkU-tC-XI8"/>
                         <constraint firstAttribute="trailing" secondItem="JUH-iO-Snm" secondAttribute="trailing" constant="70" id="qj2-FV-X05"/>
-                        <constraint firstAttribute="trailing" secondItem="LmH-hw-Y1a" secondAttribute="trailing" constant="45" id="zgu-Ez-ngp"/>
                     </constraints>
                 </view>
             </subviews>
@@ -77,6 +88,6 @@
         </view>
     </objects>
     <resources>
-        <image name="icone-favoritos" width="232" height="232"/>
+        <image name="icone-favoritos" width="240" height="240"/>
     </resources>
 </document>

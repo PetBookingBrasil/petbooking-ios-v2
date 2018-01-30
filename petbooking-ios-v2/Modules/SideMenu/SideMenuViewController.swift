@@ -32,13 +32,9 @@ class SideMenuViewController: UIViewController, SideMenuViewProtocol {
 		menuTableView.dataSource = self
 		
 		self.profileImageView.round()
-		
-		
-		
     }
 	
 	func setupUserData() {
-		
 		guard let user = UserManager.sharedInstance.getCurrentUser() else {
 			return
 		}

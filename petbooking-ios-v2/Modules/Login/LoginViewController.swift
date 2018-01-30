@@ -12,6 +12,7 @@ import UIKit
 
 class LoginViewController: UIViewController, LoginViewProtocol {
 
+    // MARK: - Outlets
 	@IBOutlet weak var loginButton: UIButton!
 	@IBOutlet weak var signupButton: UIButton!
 	@IBOutlet weak var facebookLoginButton: UIButton!
@@ -21,6 +22,7 @@ class LoginViewController: UIViewController, LoginViewProtocol {
 	
 	var presenter: LoginPresenterProtocol?
 
+    // MARK: - App lifecycle
 	override func viewDidLoad() {
 		super.viewDidLoad()
         
@@ -49,7 +51,14 @@ class LoginViewController: UIViewController, LoginViewProtocol {
                                                             attributes: attributes)
 		forgotPasswordButton.setAttributedTitle(attributeString, for: .normal)
 	}
+    
+    func didCompleteFacebookLoginWithError(error: Error?) { }
+    
+    func didCompleteLoginWithError(error: Error?) {
+        MIBlurPopup.show(AlertPopupRouter.createModule(title: "Login incorreto", message: "E-mail/Senha não correspondem"), on: self)
+    }
 
+    // MARK: - Actions
 	@IBAction func login(_ sender: Any) {
 		guard let email = emailTextField.text, !email.isEmpty else {
 			MIBlurPopup.show(AlertPopupRouter.createModule(title: "E-mail obrigatório", message: "O campo e-mail não pode ficar vazio."), on: self)
@@ -81,11 +90,5 @@ class LoginViewController: UIViewController, LoginViewProtocol {
 	
 	@IBAction func forgotPassword(_ sender: Any) {
 		presenter?.didTapForgotPasswordButton()
-	}
-	
-	func didCompleteFacebookLoginWithError(error: Error?) { }
-	
-	func didCompleteLoginWithError(error: Error?) {
-		MIBlurPopup.show(AlertPopupRouter.createModule(title: "Login incorreto", message: "E-mail/Senha não correspondem"), on: self)
 	}
 }

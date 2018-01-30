@@ -69,13 +69,13 @@ class LoginInteractor: LoginInteractorProtocol {
 				} else {
 					PetbookingAPI.sharedInstance.getConsumer { (success, message) in
 						if success {
-							PetbookingAPI.sharedInstance.loginWithFacebook(accessToken.authenticationToken, completion: { (success, message) in
+							PetbookingAPI.sharedInstance.loginWithFacebook(accessToken.authenticationToken) { (success, message) in
 								if success {
 									self.presenter?.didCompleteFacebookLoginWithSuccess()
 								} else {
 									self.presenter?.registerNewUserWithFacebookData()
 								}
-							})
+							}
 						} else {
 							self.presenter?.didCompleteFacebookLoginWithError(error: nil)
 						}

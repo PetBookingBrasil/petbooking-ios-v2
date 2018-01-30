@@ -15,16 +15,10 @@ class MyPetsInteractor: MyPetsInteractorProtocol {
     weak var presenter: MyPetsPresenterProtocol?
 	
 	func reloadTableData() {
-		
 		PetbookingAPI.sharedInstance.getUserPets { (petList, message) in
-			
-			guard let petList = petList else {
-				return
-			}
+			guard let petList = petList else { return }
 			
 			self.presenter?.fillTableData(petList: petList)
-			
 		}
-		
 	}
 }

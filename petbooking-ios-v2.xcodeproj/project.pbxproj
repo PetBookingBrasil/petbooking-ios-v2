@@ -1170,12 +1170,11 @@
 		418DAA341ED1257B006265CF /* MyPets */ = {
 			isa = PBXGroup;
 			children = (
+				FFC119A72020F74E00F26DFE /* Cell */,
 				4129D9DB1ED86E9B0067EDC3 /* MyPetsInteractor.swift */,
 				4129D9DC1ED86E9B0067EDC3 /* MyPetsPresenter.swift */,
 				4129D9DD1ED86E9B0067EDC3 /* MyPetsProtocols.swift */,
 				4129D9DE1ED86E9B0067EDC3 /* MyPetsRouter.swift */,
-				4129D9DF1ED86E9B0067EDC3 /* MyPetsTableViewCell.swift */,
-				4129D9E01ED86E9B0067EDC3 /* MyPetsTableViewCell.xib */,
 				4129D9E11ED86E9B0067EDC3 /* MyPetsViewController.swift */,
 				4129D9E21ED86E9B0067EDC3 /* MyPetsViewController.xib */,
 			);
@@ -1368,6 +1367,15 @@
 				3D1B26D2993D3FD4508B1E48 /* Pods_petbooking_ios_v2.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FFC119A72020F74E00F26DFE /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				4129D9DF1ED86E9B0067EDC3 /* MyPetsTableViewCell.swift */,
+				4129D9E01ED86E9B0067EDC3 /* MyPetsTableViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -12,32 +12,30 @@ import Foundation
 
 //MARK: Wireframe -
 protocol MyPetsWireframeProtocol: class {
-	
-	func showAddPet()
-
+    
+    func showAddPet()
 }
+
 //MARK: Presenter -
 protocol MyPetsPresenterProtocol: class {
-
-	func reloadTableData()
-	
-	func fillTableData(petList:PetList)
-	
-	func didTapAddPet()
+    
+    func reloadTableData()
+    func fillTableData(petList:PetList)
+    func didTapAddPet()
 }
 
 //MARK: Interactor -
 protocol MyPetsInteractorProtocol: class {
-
-  var presenter: MyPetsPresenterProtocol?  { get set }
-	
-	func reloadTableData()
+    
+    var presenter: MyPetsPresenterProtocol?  { get set }
+    
+    func reloadTableData()
 }
 
 //MARK: View -
 protocol MyPetsViewProtocol: class {
-
-  var presenter: MyPetsPresenterProtocol?  { get set }
-	
-	func fillTableData(petList:PetList)
+    
+    var presenter: MyPetsPresenterProtocol?  { get set }
+    
+    func fillTableData(petList:PetList)
 }

@@ -36,5 +36,4 @@ class MyPetsPresenter: MyPetsPresenterProtocol {
 	func didTapAddPet() {
 		router.showAddPet()
 	}
-
 }

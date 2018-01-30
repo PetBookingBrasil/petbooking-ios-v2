@@ -12,35 +12,32 @@ import Realm
 import RealmSwift
 
 class Consumer: MTLModel, MTLJSONSerializing {
-	
-	@objc dynamic var token:String = ""
-	@objc dynamic var tokenExpiresAt:Double = 0
-	
-	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
-		return [
-			"token": "data.attributes.token",
-			"tokenExpiresAt": "data.attributes.token_expires_at"
-		]
-	}
-	
-	func isValid() -> Bool {
-		let now = Date()
+    
+    @objc dynamic var token:String = ""
+    @objc dynamic var tokenExpiresAt:Double = 0
+    
+    static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
+        return [ "token": "data.attributes.token",
+                 "tokenExpiresAt": "data.attributes.token_expires_at"]
+    }
+    
+    func isValid() -> Bool {
+        let now = Date()
         
-		if tokenExpiresAt < now.timeIntervalSince1970 {
-			return false
-		}
+        if tokenExpiresAt < now.timeIntervalSince1970 {
+            return false
+        }
         
-		return true
-	}
+        return true
+    }
 }
 
 class ConsumerRealm: Object {
-	
-	@objc dynamic var token:String = ""
-	@objc dynamic var tokenExpiresAt:Double = 0
-	
-	override static func primaryKey() -> String? {
-		return "token"
-	}
-	
+    
+    @objc dynamic var token:String = ""
+    @objc dynamic var tokenExpiresAt:Double = 0
+    
+    override static func primaryKey() -> String? {
+        return "token"
+    }
 }

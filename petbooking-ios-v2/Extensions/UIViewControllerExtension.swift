@@ -12,7 +12,8 @@ import UIKit
 extension UIViewController {
 	
 	func hideKeyboardWhenTappedAround() {
-		let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+		let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self,
+                                                                 action: #selector(UIViewController.dismissKeyboard))
 		view.addGestureRecognizer(tap)
 	}
 	
@@ -21,8 +22,6 @@ extension UIViewController {
 	}
 	
 	func setTitle(title:String) {
-		
-		
 		let label = UILabel(frame: CGRect(x: 10.0, y: 0.0, width: 50.0, height: 40.0))
 		label.backgroundColor = UIColor.clear
 		label.font = UIFont.robotoMedium(ofSize: 16)
@@ -37,12 +36,6 @@ extension UIViewController {
 	}
 	
 	func setBackButton() {
-		
-//		self.navigationItem.rightBarButtonItem = UIBarButtonItem()
-//		self.navigationItem.rightBarButtonItem?.title = ""
-//		self.navigationItem.rightBarButtonItem?.action = nil
-		
-		
 		let backButton = UIBarButtonItem()
 		backButton.target = self
 		backButton.action = #selector(cancelButtonPressed)
@@ -52,9 +45,6 @@ extension UIViewController {
 	}
 	
 	func setCartButton(business:Business = Business()) {
-		
-		
-		
 //		let schedule = ScheduleManager.sharedInstance.getSchedule(business:business)
 //		var quantity = 0
 //		for petSchedule in schedule.petsSchedule {
