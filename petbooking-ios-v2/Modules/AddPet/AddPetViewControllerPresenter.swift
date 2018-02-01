@@ -31,7 +31,6 @@ class AddPetViewControllerPresenter: AddPetViewControllerPresenterProtocol {
 	}
 	
 	func didSavePetWithSuccess() {
-		
 		ALLoadingView.manager.hideLoadingView()
 		router.didSavePetWithSuccess()
 	}

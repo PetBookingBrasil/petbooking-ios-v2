@@ -11,21 +11,20 @@ import UIKit
 class PetSizePopupViewController: UIViewController {
 
 	@IBOutlet weak var popupContentContainerView: UIView!
-	
 	@IBOutlet weak var dismissButton: UIButton!
+    
 	override func viewDidLoad() {
 		super.viewDidLoad()
+        
 		view.frame = CGRect(x:0,y:0, width: Device.TheCurrentDeviceWidth, height: Device.TheCurrentDeviceHeight)
 		popupContentContainerView.layer.masksToBounds = true
 		popupContentContainerView.layer.cornerRadius = 10
 		dismissButton.round()
 	}
 	
-	
 	@IBAction func dismissAlert(_ sender: Any) {
 		dismiss(animated: true, completion: nil)
 	}
-
 }
 
 extension PetSizePopupViewController: MIBlurPopupDelegate {
@@ -42,5 +41,4 @@ extension PetSizePopupViewController: MIBlurPopupDelegate {
 	var animationDuration: TimeInterval {
 		return 0.5
 	}
-	
 }

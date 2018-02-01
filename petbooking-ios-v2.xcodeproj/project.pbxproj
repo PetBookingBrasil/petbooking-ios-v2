@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		24B6AA392015EDF0007E3930 /* VNDJSONEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B6AA382015EDF0007E3930 /* VNDJSONEncoding.swift */; };
-		3F11C7ED019EC0D4E3FE0C3A /* Pods_petbooking_ios_v2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D1B26D2993D3FD4508B1E48 /* Pods_petbooking_ios_v2.framework */; };
+		38BD5AC8C943D3625E03320A /* Pods_petbooking_ios_v2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BA4A03664D7F09153E9149A /* Pods_petbooking_ios_v2.framework */; };
 		410AA9661FA69AC700A90377 /* ServiceRowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410AA9641FA69AC700A90377 /* ServiceRowTableViewCell.swift */; };
 		410AA9671FA69AC700A90377 /* ServiceRowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 410AA9651FA69AC700A90377 /* ServiceRowTableViewCell.xib */; };
 		410AA96A1FA69EFA00A90377 /* SelectPetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410AA9681FA69EFA00A90377 /* SelectPetTableViewCell.swift */; };
@@ -159,7 +159,6 @@
 		415191EC1FAC102B00CACCFE /* AgendaPetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415191EA1FAC102B00CACCFE /* AgendaPetCollectionViewCell.swift */; };
 		415191ED1FAC102B00CACCFE /* AgendaPetCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 415191EB1FAC102B00CACCFE /* AgendaPetCollectionViewCell.xib */; };
 		415BCAE01EB534C40015BB0C /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415BCADF1EB534C40015BB0C /* SignupViewController.swift */; };
-		415F73D41EBA9F08000D9B14 /* ViaCepAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415F73D31EBA9F08000D9B14 /* ViaCepAPI.swift */; };
 		415F73D61EBAA033000D9B14 /* ViaCepAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415F73D51EBAA033000D9B14 /* ViaCepAddress.swift */; };
 		415F73D81EBC16E2000D9B14 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415F73D71EBC16E2000D9B14 /* UIImageExtension.swift */; };
 		4160D8A81F66AB81005D361B /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4160D89B1F66AB81005D361B /* LICENSE.txt */; };
@@ -306,9 +305,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		136BD67BC48E40083A3E71AC /* Pods-petbooking-ios-v2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petbooking-ios-v2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-petbooking-ios-v2/Pods-petbooking-ios-v2.debug.xcconfig"; sourceTree = "<group>"; };
 		24B6AA382015EDF0007E3930 /* VNDJSONEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VNDJSONEncoding.swift; path = Helpers/VNDJSONEncoding.swift; sourceTree = "<group>"; };
-		3D1B26D2993D3FD4508B1E48 /* Pods_petbooking_ios_v2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_petbooking_ios_v2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		410AA9641FA69AC700A90377 /* ServiceRowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRowTableViewCell.swift; sourceTree = "<group>"; };
 		410AA9651FA69AC700A90377 /* ServiceRowTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServiceRowTableViewCell.xib; sourceTree = "<group>"; };
 		410AA9681FA69EFA00A90377 /* SelectPetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPetTableViewCell.swift; sourceTree = "<group>"; };
@@ -484,7 +481,6 @@
 		415191EA1FAC102B00CACCFE /* AgendaPetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaPetCollectionViewCell.swift; sourceTree = "<group>"; };
 		415191EB1FAC102B00CACCFE /* AgendaPetCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AgendaPetCollectionViewCell.xib; sourceTree = "<group>"; };
 		415BCADF1EB534C40015BB0C /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
-		415F73D31EBA9F08000D9B14 /* ViaCepAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViaCepAPI.swift; sourceTree = "<group>"; };
 		415F73D51EBAA033000D9B14 /* ViaCepAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViaCepAddress.swift; sourceTree = "<group>"; };
 		415F73D71EBC16E2000D9B14 /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		4160D89B1F66AB81005D361B /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
@@ -630,7 +626,9 @@
 		41F70EF71F3DE6FE0089DDE2 /* EmptyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyView.xib; sourceTree = "<group>"; };
 		41FB2FEE1F3CA8A900DF57B1 /* AlertCancelScheduledViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertCancelScheduledViewController.swift; sourceTree = "<group>"; };
 		41FB2FEF1F3CA8A900DF57B1 /* AlertCancelScheduledViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlertCancelScheduledViewController.xib; sourceTree = "<group>"; };
-		D8623691901623EF8AAEDE69 /* Pods-petbooking-ios-v2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petbooking-ios-v2.release.xcconfig"; path = "Pods/Target Support Files/Pods-petbooking-ios-v2/Pods-petbooking-ios-v2.release.xcconfig"; sourceTree = "<group>"; };
+		5BA4A03664D7F09153E9149A /* Pods_petbooking_ios_v2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_petbooking_ios_v2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC0DE0132BA5812BF51F4F0D /* Pods-petbooking-ios-v2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petbooking-ios-v2.release.xcconfig"; path = "Pods/Target Support Files/Pods-petbooking-ios-v2/Pods-petbooking-ios-v2.release.xcconfig"; sourceTree = "<group>"; };
+		E56D027D072CCE6C9151C051 /* Pods-petbooking-ios-v2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petbooking-ios-v2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-petbooking-ios-v2/Pods-petbooking-ios-v2.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -639,13 +637,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				412776911F130AE100EC6488 /* MapKit.framework in Frameworks */,
-				3F11C7ED019EC0D4E3FE0C3A /* Pods_petbooking_ios_v2.framework in Frameworks */,
+				38BD5AC8C943D3625E03320A /* Pods_petbooking_ios_v2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15029CEC532D8EF8B4E8F669 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E56D027D072CCE6C9151C051 /* Pods-petbooking-ios-v2.debug.xcconfig */,
+				CC0DE0132BA5812BF51F4F0D /* Pods-petbooking-ios-v2.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		410AA9931FA7A3DC00A90377 /* ExpandableTableView */ = {
 			isa = PBXGroup;
 			children = (
@@ -798,7 +805,7 @@
 				413682BF1E9C2B2D008C463B /* petbooking-ios-v2 */,
 				413682BE1E9C2B2D008C463B /* Products */,
 				C4DC27CBAA13EC798434A677 /* Frameworks */,
-				67CD6A95B38D805D6E6105B7 /* Pods */,
+				15029CEC532D8EF8B4E8F669 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1009,7 +1016,6 @@
 			isa = PBXGroup;
 			children = (
 				4168AA4B1EB69217001E2D6D /* PetbookingAPI.swift */,
-				415F73D31EBA9F08000D9B14 /* ViaCepAPI.swift */,
 			);
 			path = Webservices;
 			sourceTree = "<group>";
@@ -1351,20 +1357,11 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		67CD6A95B38D805D6E6105B7 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				136BD67BC48E40083A3E71AC /* Pods-petbooking-ios-v2.debug.xcconfig */,
-				D8623691901623EF8AAEDE69 /* Pods-petbooking-ios-v2.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		C4DC27CBAA13EC798434A677 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				412776901F130AE100EC6488 /* MapKit.framework */,
-				3D1B26D2993D3FD4508B1E48 /* Pods_petbooking_ios_v2.framework */,
+				5BA4A03664D7F09153E9149A /* Pods_petbooking_ios_v2.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1385,12 +1382,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 413682CF1E9C2B2D008C463B /* Build configuration list for PBXNativeTarget "petbooking-ios-v2" */;
 			buildPhases = (
-				FE57B65DFDB5F5D58A49BF1A /* [CP] Check Pods Manifest.lock */,
+				572075AF7E7EAA4ABF597CFA /* [CP] Check Pods Manifest.lock */,
 				413682B91E9C2B2D008C463B /* Sources */,
 				413682BA1E9C2B2D008C463B /* Frameworks */,
 				413682BB1E9C2B2D008C463B /* Resources */,
-				90D350B628A722CF1184E21F /* [CP] Embed Pods Frameworks */,
-				0C6EE660D488A3FD4A1EE6A7 /* [CP] Copy Pods Resources */,
+				F8A5970B5C40E62A2A941375 /* [CP] Embed Pods Frameworks */,
+				AB8E1C0191BAF4AA37B5D35D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1541,7 +1538,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0C6EE660D488A3FD4A1EE6A7 /* [CP] Copy Pods Resources */ = {
+		572075AF7E7EAA4ABF597CFA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-petbooking-ios-v2-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AB8E1C0191BAF4AA37B5D35D /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1556,7 +1571,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-petbooking-ios-v2/Pods-petbooking-ios-v2-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		90D350B628A722CF1184E21F /* [CP] Embed Pods Frameworks */ = {
+		F8A5970B5C40E62A2A941375 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1612,24 +1627,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-petbooking-ios-v2/Pods-petbooking-ios-v2-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FE57B65DFDB5F5D58A49BF1A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-petbooking-ios-v2-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1775,7 +1772,6 @@
 				41D86F7F1F266D7A0038ADA8 /* BusinessServicesRouter.swift in Sources */,
 				4168AA4F1EB6A4DD001E2D6D /* Consumer.swift in Sources */,
 				411C84B81F3A8EF0008C6E0A /* AgendaRouter.swift in Sources */,
-				415F73D41EBA9F08000D9B14 /* ViaCepAPI.swift in Sources */,
 				419C891C1F33A23800BDBE8E /* Cart.swift in Sources */,
 				413715871EBE7D0300258C6F /* SelectPhotoSourcePopupInteractor.swift in Sources */,
 				4129D9E91ED86E9B0067EDC3 /* MyPetsViewController.swift in Sources */,
@@ -1984,7 +1980,7 @@
 		};
 		413682D01E9C2B2D008C463B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 136BD67BC48E40083A3E71AC /* Pods-petbooking-ios-v2.debug.xcconfig */;
+			baseConfigurationReference = E56D027D072CCE6C9151C051 /* Pods-petbooking-ios-v2.debug.xcconfig */;
 			buildSettings = {
 				API_BASE_URL_ENDPOINT = beta.petbooking.com.br/api;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -2009,7 +2005,7 @@
 		};
 		413682D11E9C2B2D008C463B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D8623691901623EF8AAEDE69 /* Pods-petbooking-ios-v2.release.xcconfig */;
+			baseConfigurationReference = CC0DE0132BA5812BF51F4F0D /* Pods-petbooking-ios-v2.release.xcconfig */;
 			buildSettings = {
 				API_BASE_URL_ENDPOINT = novo.petbooking.com.br/api;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;

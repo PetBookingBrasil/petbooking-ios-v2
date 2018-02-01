@@ -446,38 +446,29 @@ extension PetbookingAPI {
 				
 				switch response.result{
 				case .success(let jsonObject):
-					if let dic = jsonObject as? [String: Any] {
-						
-						do {
-							let petList = try MTLJSONAdapter.model(of: PetList.self, fromJSONDictionary: dic) as! PetList
-							
-							
-							completion(petList, "")
-							
-						} catch {
-							completion(nil, error.localizedDescription)
-						}
+					if let dic = jsonObject as? [AnyHashable : Any] {
+                        print("**** Começou")
+                        do {
+                            let petList = try MTLJSONAdapter.model(of: PetList.self, fromJSONDictionary: dic) as! PetList
+                            completion(petList, "")
+                        } catch {
+                            completion(nil, error.localizedDescription)
+                        }
 					} else {
 						completion(nil, "")
 					}
 				case .failure(let error):
-					print(error)
 					completion(nil, error.localizedDescription)
 				}
-				
 			}
 		} else {
-			getConsumer(completion: { (success, message) in
-				
+			getConsumer { (success, message) in
 				if success {
 					self.getUserPets(completion: completion)
 				} else {
-					
 					completion(nil, "")
-					
 				}
-				
-			})
+			}
 		}
 	}
 }
@@ -504,7 +495,6 @@ extension PetbookingAPI {
 						
 						do {
 							let breedList = try MTLJSONAdapter.model(of: BreedList.self, fromJSONDictionary: dic) as! BreedList
-							
 							
 							completion(breedList, "")
 							
@@ -554,11 +544,19 @@ extension PetbookingAPI {
 			self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
 			self.auth_headers.updateValue("Token token=\"\(authToken)\"", forKey: "X-Petbooking-Session-Token")
 			
-			let parameters: Parameters = [
-				"data": ["type":"pets", "attributes":["size":pet.size, "breed_id":pet.breedId, "user_id":userId, "name":pet.name, "gender":pet.gender, "mood":pet.mood, "description":pet.petDescription, "birth_date":pet.birthday, "coat_type":pet.coatSize, "photo":pet.photoUrl, "coat_colors":[pet.coatColor]]]
-				
-			]
-			
+			let parameters: Parameters = ["data":
+                                            ["type": "pets",
+                                             "attributes": ["size": pet.size,
+                                                            "breed_id": pet.breedId,
+                                                            "user_id": userId,
+                                                            "name": pet.name,
+                                                            "gender": pet.gender,
+                                                            "mood": pet.mood,
+                                                            "description": pet.petDescription,
+                                                            "birth_date": pet.birthday,
+                                                            "coat_type": pet.coatSize,
+                                                            "photo": pet.photoUrl]]]
+            
 			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/users/\(userId)/pets", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: auth_headers).responseJSON { (response) in
 				
 				switch response.result{
@@ -567,10 +565,7 @@ extension PetbookingAPI {
 					if let dic = jsonObject as? [String: Any] {
 						
 						do {
-
 							let pet = try MTLJSONAdapter.model(of: Pet.self, fromJSONDictionary: dic) as! Pet
-							
-							
 							completion(pet, "")
 							
 						} catch {
@@ -583,20 +578,15 @@ extension PetbookingAPI {
 					print(error)
 					completion(nil, error.localizedDescription)
 				}
-				
 			}
-		} else
-		{
-			getConsumer(completion: { (success, message) in
-				
+		} else {
+			getConsumer { (success, message) in
 				if success {
 					self.createPet(pet:pet,completion: completion)
 				} else {
-					
 					completion(nil, "")
-					
 				}
-			})
+			}
 		}
 	}
 	
@@ -854,10 +844,7 @@ extension PetbookingAPI {
 				token = consumer.token
 			}
 			
-			guard let session = SessionManager.sharedInstance.getCurrentSession() else {
-				return
-			}
-			
+			guard let session = SessionManager.sharedInstance.getCurrentSession() else { return }
 			
 			self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
 			self.auth_headers.updateValue("Token token=\"\(session.authToken)\"", forKey: "X-Petbooking-Session-Token")

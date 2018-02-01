@@ -44,6 +44,15 @@ class MyPetsViewController: UIViewController, MyPetsViewProtocol {
 		presenter?.reloadTableData()
 	}
     
+    func setAddButton() {
+        let addButton = UIBarButtonItem()
+        addButton.target = self
+        addButton.action = #selector(addPetButtonTapped)
+        
+        self.navigationItem.rightBarButtonItem = addButton
+        self.navigationItem.rightBarButtonItem?.image = UIImage(named: "add")
+    }
+    
     @IBAction func addPetButtonTapped(_ sender: Any) {
 		presenter?.didTapAddPet()
 	}
@@ -52,8 +61,14 @@ class MyPetsViewController: UIViewController, MyPetsViewProtocol {
 extension MyPetsViewController: UITableViewDelegate, UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		
-		emptyView.isHidden = pets.count > 0
+
+        if pets.count > 0 {
+            emptyView.isHidden = true
+            setAddButton()
+        } else {
+            emptyView.isHidden = false
+            navigationItem.rightBarButtonItem = nil
+        }
 		
 		return pets.count
 	}

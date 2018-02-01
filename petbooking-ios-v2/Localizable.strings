@@ -76,6 +76,7 @@
 "pet_coat_size_medium_coat" = "Média";
 "pet_coat_size_long_coat" = "Longa";
 
+"pet_coat_color_-1" = "";
 "pet_coat_color_0" = "Amarelo";
 "pet_coat_color_1" = "Azul";
 "pet_coat_color_2" = "Branco";
@@ -104,6 +105,7 @@
 "invalid_pet_size" = "O porte do animal não pode ser vazio";
 "invalid_pet_breed" = "A raça do animal não pode ser vazia";
 "invalid_pet_coat" = "A pelagem do animal não pode ser vazia";
+"invalid_pet_color" = "A cor da pelagem do animal não pode ser vazia";
 "invalid_pet_mood" = "O temperamento do animal não pode ser vazio";
 
 "select_pet_kind" = "Selecione o tipo do animal";

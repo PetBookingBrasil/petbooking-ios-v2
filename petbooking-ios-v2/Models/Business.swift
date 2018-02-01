@@ -77,11 +77,8 @@ class Business: MTLModel, MTLJSONSerializing {
 	class func locationJSONTransformer() -> ValueTransformer {
 		
 		let _forwardBlock: MTLValueTransformerBlock? = { (value, _, _) in
-			
 			guard let location = value as? [String] else { return CLLocationCoordinate2D() }
-			
 			guard let latitudeStr = location.first else { return CLLocationCoordinate2D() }
-			
 			guard let longitudeStr = location.last else { return CLLocationCoordinate2D() }
 			
 			if let latitude = Double(latitudeStr), let longitude = Double(longitudeStr) {

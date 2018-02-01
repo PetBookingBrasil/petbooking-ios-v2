@@ -25,7 +25,6 @@ class MyPetsPresenter: MyPetsPresenterProtocol {
     }
 	
 	func reloadTableData() {
-		
 		interactor.reloadTableData()
 	}
 	
