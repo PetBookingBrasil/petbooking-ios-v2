@@ -63,14 +63,14 @@ class SignupInteractor: SignupInteractorProtocol {
         var provider = "b2beauty"
         var providerToken = ""
         
-        switch signupType! {
-        case .facebook:
+        if signupType == .facebook {
             if let token = AccessToken.current?.authenticationToken {
                 provider = "facebook"
                 providerToken = token
             }
-            
-        case .editProfile:
+        }
+        
+        if signupType == .editProfile {
             PetbookingAPI.sharedInstance.updateUser(name: name, email: email, mobile: mobile, avatar: avatar) { (success, message) in
                 if success {
                     self.presenter?.updatedUserWithSuccess()
@@ -78,8 +78,7 @@ class SignupInteractor: SignupInteractorProtocol {
                     self.presenter?.createUserWithError()
                 }
             }
-
-        case .email:
+        } else {
             PetbookingAPI.sharedInstance.createUser(name: name, email: email, mobile: mobile, password: password, provider: provider, providerToken: providerToken, avatar: avatar) { (success, message) in
                 if success {
                     self.presenter?.createUserWithSuccess()

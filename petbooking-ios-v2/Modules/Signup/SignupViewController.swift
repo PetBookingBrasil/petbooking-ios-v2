@@ -33,6 +33,14 @@ class SignupViewController: UIViewController, SignupViewProtocol {
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var viewPasswordButton: UIButton!
     
+    // Facebook register outlets
+    @IBOutlet weak var leadingPhotoConstraint: NSLayoutConstraint!
+    @IBOutlet weak var topContainerView: UIView!
+    @IBOutlet weak var bottomContainerView: UIView!
+    @IBOutlet weak var fullNameFacebookLabel: UILabel!
+    @IBOutlet weak var emailFacebookLabel: UILabel!
+    @IBOutlet weak var mobileNumberFacebookTextField: AKMaskField!
+    
 	var presenter: SignupPresenterProtocol?
 	var signupType: SignupType?
     var seePassword = false
@@ -41,7 +49,7 @@ class SignupViewController: UIViewController, SignupViewProtocol {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		self.title = "Preencha os seus dados"
+		self.title = "Cadastro"
         
 		hideKeyboardWhenTappedAround()
 		setupView()
@@ -51,7 +59,6 @@ class SignupViewController: UIViewController, SignupViewProtocol {
 		super.viewWillAppear(animated)
 		
 		self.navigationController?.isNavigationBarHidden = false
-		presenter?.fillFields()
 	}
 	
 	func setupView() {
@@ -62,13 +69,30 @@ class SignupViewController: UIViewController, SignupViewProtocol {
 						
 		cameraIconImageView.image = cameraIconImageView.image!.withRenderingMode(.alwaysTemplate)
 		cameraIconImageView.tintColor = .white
-						
-        if signupType == .editProfile {
+        
+        leadingPhotoConstraint.constant = (UIScreen.main.bounds.width/2) - (profilePictureView.bounds.width/2)
+					
+        switch signupType! {
+        case .editProfile:
             passwordTextField.isHidden = true
             passwordSeparatorView.isHidden = true
+            viewPasswordButton.isHidden = true
             
             self.title = "Editar Informações"
+            
+        case .facebook:
+            leadingPhotoConstraint.constant = 16
+            topContainerView.isHidden = false
+            bottomContainerView.isHidden = false
+            
+            saveButton.setTitle("Concluir cadastro", for: .normal)
+            
+        default:
+            break
         }
+        
+        view.layoutIfNeeded()
+        presenter?.fillFields()
 	}
     
     func checkValidField(value: String?, alertLabel: UILabel, alertMessage: String) -> Bool {
@@ -111,11 +135,19 @@ class SignupViewController: UIViewController, SignupViewProtocol {
     }
     
     func setName(_ name: String) {
-        fullNameTextField.text = name
+        if signupType == .facebook {
+            fullNameFacebookLabel.text = name
+        } else {
+            fullNameTextField.text = name
+        }
     }
     
     func setEmail(_ email: String) {
-        emailTextField.text = email
+        if signupType == .facebook {
+            emailFacebookLabel.text = email
+        } else {
+            emailTextField.text = email
+        }
     }
     
     func setMobile(_ mobile: String) {
@@ -141,43 +173,59 @@ class SignupViewController: UIViewController, SignupViewProtocol {
 	@IBAction func save(_ sender: Any) {
 		var isValid = true
         
-        let name = fullNameTextField.text!
+        var name = ""
+        var mobile = ""
+        var email = ""
+        var password = ""
         
-        let email = emailTextField.text!
-        if !email.isEmail {
-            isValid = false
-            _ = !checkValidField(value: nil, alertLabel: emailAlertMessageLabel,
-                                alertMessage: NSLocalizedString("invalid_email", comment: ""))
-        } else {
-            _ = !checkValidField(value: email, alertLabel: emailAlertMessageLabel,
-                                 alertMessage: NSLocalizedString("invalid_email", comment: ""))
-        }
-        
-        let mobile = mobileNumberTextField.text!
-
-        var password = passwordTextField.checkField()
-        if signupType == .editProfile {
+        if signupType == .facebook {
+            name = fullNameFacebookLabel.text!
+            mobile = mobileNumberFacebookTextField.text!
+            email = emailFacebookLabel.text!
             password = ""
+        } else {
+            name = fullNameTextField.text!
+            
+            email = emailTextField.text!
+            if !email.isEmail {
+                isValid = false
+                _ = !checkValidField(value: nil, alertLabel: emailAlertMessageLabel,
+                                     alertMessage: NSLocalizedString("invalid_email", comment: ""))
+            } else {
+                _ = !checkValidField(value: email, alertLabel: emailAlertMessageLabel,
+                                     alertMessage: NSLocalizedString("invalid_email", comment: ""))
+            }
+            
+            mobile = mobileNumberTextField.text!
+            
+            password = passwordTextField.checkField()!
+            if signupType == .editProfile {
+                password = ""
+            }
+            
+            if !checkValidPasswordFields() {
+                isValid = false
+            }
         }
-        
-		if !checkValidPasswordFields() {
-			isValid = false
-		}
 		
 		let image = profilePictureImageView.image
 				
         guard isValid, let base64Avatar = image!.toBase64String() else { return }
     
-        presenter?.createUser(name: name, email: email, mobile: mobile, password: password!, avatar: "data:image/jpeg;base64,\(base64Avatar)")
+        presenter?.createUser(name: name, email: email, mobile: mobile, password: password, avatar: "data:image/jpeg;base64,\(base64Avatar)")
 	}
 }
 
 extension SignupViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
-        guard !fullNameTextField.text!.isBlank else { return }
-        guard !emailTextField.text!.isBlank else { return }
-        guard !mobileNumberTextField.text!.isBlank else { return }
-        guard !passwordTextField.text!.isBlank else { return }
+        if signupType == .facebook {
+            guard !mobileNumberFacebookTextField.text!.isBlank else { return }
+        } else {
+            guard !fullNameTextField.text!.isBlank else { return }
+            guard !emailTextField.text!.isBlank else { return }
+            guard !mobileNumberTextField.text!.isBlank else { return }
+            guard !passwordTextField.text!.isBlank else { return }
+        }
         
         saveButton.backgroundColor = UIColor.init(hex: "E4002B")
         saveButton.isEnabled = true

@@ -10,20 +10,14 @@ import UIKit
 import Mantle
 
 class FacebookGraphModel: MTLModel, MTLJSONSerializing {
-
-		@objc dynamic var name:String = ""
-		@objc dynamic var email:String = ""
-		@objc dynamic var profileUrl:String = ""
-
-		
-	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
-		return [
-			"name": "name",
-			"email": "email",
-			"profileUrl": "picture.data.url"
-		]
-	}
-	
-
-	
+    
+    @objc dynamic var name:String = ""
+    @objc dynamic var email:String = ""
+    @objc dynamic var profileUrl:String = ""
+    
+    static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
+        return ["name": "name",
+                "email": "email",
+                "profileUrl": "picture.data.url"]
+    }    
 }

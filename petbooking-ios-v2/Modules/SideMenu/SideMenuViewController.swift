@@ -11,11 +11,12 @@
 import UIKit
 
 class SideMenuViewController: UIViewController, SideMenuViewProtocol {
+    
 	@IBOutlet weak var profileImageView: UIImageView!
 	@IBOutlet weak var nameLabel: UILabel!
 
 	@IBOutlet weak var profilePanelView: UIView!
-	@IBOutlet weak var cityLabel: UILabel!
+	@IBOutlet weak var emailLabel: UILabel!
 	@IBOutlet weak var menuTableView: UITableView!
 	
 	var menuItens:[SideMenuItem] = [.myPets, .search, .agenda, .favorites, .logout]
@@ -40,7 +41,7 @@ class SideMenuViewController: UIViewController, SideMenuViewProtocol {
 		}
 		
 		nameLabel.text = user.name
-		cityLabel.text = "\(user.city), \(user.state)"
+		emailLabel.text = user.email
 		if user.gender == "male" {
 			self.profileImageView.image = UIImage(named:"avatar-padrao-m")
 		} else {
@@ -56,7 +57,6 @@ class SideMenuViewController: UIViewController, SideMenuViewProtocol {
 				self.profileImageView.pin_setImage(from: url)
 			}
 		}
-
 	}
 
 	@IBAction func didTapProfileButton(_ sender: Any) {
@@ -66,9 +66,6 @@ class SideMenuViewController: UIViewController, SideMenuViewProtocol {
 	@IBAction func goToProfile(_ sender: Any) {
 		presenter?.didTapProfile()
 	}
-	
-	
-	
 }
 
 extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
@@ -144,15 +141,12 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
 			presenter?.didTapLogout()
 					break
 		}
-		
 	}
 	
 	func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
 		let selectedCell:UITableViewCell = tableView.cellForRow(at: indexPath)!
 		selectedCell.contentView.backgroundColor = UIColor(hex: "E4002B")
 	}
-	
-	
 }
 
 extension Notification.Name {
