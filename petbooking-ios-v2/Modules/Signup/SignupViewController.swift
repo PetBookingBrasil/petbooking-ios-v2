@@ -19,12 +19,6 @@ class SignupViewController: UIViewController, SignupViewProtocol {
     
 	@IBOutlet weak var profilePictureImageView: UIImageView!
     @IBOutlet weak var cameraIconImageView: UIImageView!
-    @IBOutlet weak var userIconImageView: UIImageView!
-    @IBOutlet weak var emailIconImageView: UIImageView!
-    @IBOutlet weak var phoneIconImageView: UIImageView!
-    @IBOutlet weak var passwordIconImageView: UIImageView!
-    
-	@IBOutlet weak var profilePictureFrameView: UIView!
     
 	@IBOutlet weak var fullNameTextField: UITextField!
 	@IBOutlet weak var passwordTextField: UITextField!
@@ -33,16 +27,15 @@ class SignupViewController: UIViewController, SignupViewProtocol {
     
     @IBOutlet weak var passwordSeparatorView: UIView!
 	
-	@IBOutlet weak var nameAlertMessageLabel: UILabel!
-	@IBOutlet weak var emailAlertMessageLabel: UILabel!
-	@IBOutlet weak var mobileAlertMessageLabel: UILabel!
+    @IBOutlet weak var emailAlertMessageLabel: UILabel!
 	@IBOutlet weak var passwordAlertMessageLabel: UILabel!
-	@IBOutlet weak var profileImageAlertMessageLabel: UILabel!
     
     @IBOutlet weak var saveButton: UIButton!
-	
+    @IBOutlet weak var viewPasswordButton: UIButton!
+    
 	var presenter: SignupPresenterProtocol?
 	var signupType: SignupType?
+    var seePassword = false
 	
     // MARK: - App lifecycle
 	override func viewDidLoad() {
@@ -65,32 +58,16 @@ class SignupViewController: UIViewController, SignupViewProtocol {
 		setBackButton()
 		
 		profilePictureView.round()
-		profilePictureFrameView.setBorder(width: 2, color: .white)
-		profilePictureFrameView.round()
 		saveButton.round()
 						
 		cameraIconImageView.image = cameraIconImageView.image!.withRenderingMode(.alwaysTemplate)
 		cameraIconImageView.tintColor = .white
-		
-		userIconImageView.image = userIconImageView.image!.withRenderingMode(.alwaysTemplate)
-		userIconImageView.tintColor = .black
-		
-		emailIconImageView.image = emailIconImageView.image!.withRenderingMode(.alwaysTemplate)
-		emailIconImageView.tintColor = .black
-				
-		phoneIconImageView.image = phoneIconImageView.image!.withRenderingMode(.alwaysTemplate)
-		phoneIconImageView.tintColor = .black
-				
+						
         if signupType == .editProfile {
             passwordTextField.isHidden = true
-            passwordIconImageView.isHidden = true
             passwordSeparatorView.isHidden = true
             
             self.title = "Editar Informações"
-            
-        } else {
-            passwordIconImageView.image = passwordIconImageView.image!.withRenderingMode(.alwaysTemplate)
-            passwordIconImageView.tintColor = .black
         }
 	}
     
@@ -146,61 +123,68 @@ class SignupViewController: UIViewController, SignupViewProtocol {
     }
 	
     // MARK: - Actions
-	@IBAction func changeAvatar(_ sender: Any) {
+    @IBAction func viewPasswordButtonTapped() {
+        if seePassword {
+            viewPasswordButton.setTitle("Esconder senha", for: .normal)
+        } else {
+            viewPasswordButton.setTitle("Exibir senha", for: .normal)
+        }
+        
+        passwordTextField.isSecureTextEntry = !passwordTextField.isSecureTextEntry
+        seePassword = !seePassword
+    }
+    
+    @IBAction func changeAvatar(_ sender: Any) {
 		MIBlurPopup.show(SelectPhotoSourcePopupRouter.createModule(delegate: self), on: self)
 	}
 		
 	@IBAction func save(_ sender: Any) {
 		var isValid = true
-		
-		let name = fullNameTextField.checkField()
-		if !checkValidField(value: name, alertLabel: nameAlertMessageLabel,
-                            alertMessage: NSLocalizedString("invalid_name", comment: "")) {
-			isValid = false
-		}
-				
-		let email = emailTextField.checkField()
-		if !checkValidField(value: email, alertLabel: emailAlertMessageLabel,
-                            alertMessage: NSLocalizedString("invalid_email", comment: "")) {
-			isValid = false
-		}
-		
-		let mobile = mobileNumberTextField.checkField()?.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
-		if !checkValidField(value: mobile, alertLabel: mobileAlertMessageLabel,
-                            alertMessage: NSLocalizedString("invalid_mobile", comment: "")) {
-			isValid = false
-		}
-				
-		var password = passwordTextField.checkField()
-		if signupType == .editProfile {
-			password = ""
-		}
-		
+        
+        let name = fullNameTextField.text!
+        
+        let email = emailTextField.text!
+        if !email.isEmail {
+            isValid = false
+            _ = !checkValidField(value: nil, alertLabel: emailAlertMessageLabel,
+                                alertMessage: NSLocalizedString("invalid_email", comment: ""))
+        } else {
+            _ = !checkValidField(value: email, alertLabel: emailAlertMessageLabel,
+                                 alertMessage: NSLocalizedString("invalid_email", comment: ""))
+        }
+        
+        let mobile = mobileNumberTextField.text!
+
+        var password = passwordTextField.checkField()
+        if signupType == .editProfile {
+            password = ""
+        }
+        
 		if !checkValidPasswordFields() {
 			isValid = false
 		}
 		
 		let image = profilePictureImageView.image
-		
-        if image == nil {
-            isValid = checkValidField(value: nil,
-                                      alertLabel: profileImageAlertMessageLabel,
-                                      alertMessage: NSLocalizedString("invalid_profileImage", comment: ""))
-        } else {
-            let _ = checkValidField(value: "ok",
-                                    alertLabel: profileImageAlertMessageLabel,
-                                    alertMessage: NSLocalizedString("invalid_profileImage", comment: ""))
-        }
-		
-		if isValid {
-			guard let base64Avatar = image!.toBase64String() else { return }
-			
-            presenter?.createUser(name: name!, email: email!, mobile: mobile!, password: password!, avatar: "data:image/jpeg;base64,\(base64Avatar)")
-		}
+				
+        guard isValid, let base64Avatar = image!.toBase64String() else { return }
+    
+        presenter?.createUser(name: name, email: email, mobile: mobile, password: password!, avatar: "data:image/jpeg;base64,\(base64Avatar)")
 	}
 }
 
-extension SignupViewController:UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension SignupViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard !fullNameTextField.text!.isBlank else { return }
+        guard !emailTextField.text!.isBlank else { return }
+        guard !mobileNumberTextField.text!.isBlank else { return }
+        guard !passwordTextField.text!.isBlank else { return }
+        
+        saveButton.backgroundColor = UIColor.init(hex: "E4002B")
+        saveButton.isEnabled = true
+    }
+}
+
+extension SignupViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
 		if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
 			profilePictureImageView.image = image
