@@ -12,7 +12,7 @@ import FacebookCore
 import Mantle
 
 enum SignupType {
-    case email, facebook, editProfile
+    case email, facebook, editProfile, editFacebook
 }
 
 class SignupInteractor: SignupInteractorProtocol {

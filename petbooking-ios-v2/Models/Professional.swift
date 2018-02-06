@@ -46,7 +46,7 @@ class Professional: MTLModel, MTLJSONSerializing {
 		]
 	}
 	
-	static func scheduleJSONTransformer() -> ValueTransformer {
+	@objc static func scheduleJSONTransformer() -> ValueTransformer {
 		
 		let _forwardBlock: MTLValueTransformerBlock? = { (value, success, error) in
 			

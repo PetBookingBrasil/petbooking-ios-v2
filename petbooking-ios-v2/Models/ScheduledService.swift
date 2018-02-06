@@ -108,7 +108,7 @@ class ScheduledDate: MTLModel, MTLJSONSerializing {
                 "scheduledPets": "pets"]
 	}
 	
-	static func dateJSONTransformer() -> ValueTransformer {
+	@objc static func dateJSONTransformer() -> ValueTransformer {
 		
 		let _forwardBlock: MTLValueTransformerBlock? = { (value, success, error) in
 			if let dateString = value as? String{

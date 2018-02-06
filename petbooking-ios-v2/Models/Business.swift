@@ -64,7 +64,7 @@ class Business: MTLModel, MTLJSONSerializing {
                 "imported": "attributes.imported"]
 	}
 		
-	class func distanceJSONTransformer() -> ValueTransformer {
+	@objc static func distanceJSONTransformer() -> ValueTransformer {
 		let _forwardBlock: MTLValueTransformerBlock? = { (value, _, _) in
 			guard let distance = value else { return 0.0 }
 			
@@ -74,7 +74,7 @@ class Business: MTLModel, MTLJSONSerializing {
 		return MTLValueTransformer(usingForwardBlock: _forwardBlock)
 	}
 	
-	class func locationJSONTransformer() -> ValueTransformer {
+	@objc static func locationJSONTransformer() -> ValueTransformer {
 		
 		let _forwardBlock: MTLValueTransformerBlock? = { (value, _, _) in
 			guard let location = value as? [String] else { return CLLocationCoordinate2D() }
@@ -91,7 +91,7 @@ class Business: MTLModel, MTLJSONSerializing {
 		return MTLValueTransformer(usingForwardBlock: _forwardBlock)
 	}
 	
-	class func favoriteIdJSONTransformer() -> ValueTransformer {
+	@objc static func favoriteIdJSONTransformer() -> ValueTransformer {
 		let _forwardBlock: MTLValueTransformerBlock? = { (value, _, _) in
 			guard let id = value as? NSNumber else { return 0 }
 			

@@ -11,6 +11,5 @@
 import UIKit
 
 class HomeBusinessInteractor: HomeBusinessInteractorProtocol {
-
     weak var presenter: HomeBusinessPresenterProtocol?
 }

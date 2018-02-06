@@ -36,9 +36,7 @@ class SideMenuViewController: UIViewController, SideMenuViewProtocol {
     }
 	
 	func setupUserData() {
-		guard let user = UserManager.sharedInstance.getCurrentUser() else {
-			return
-		}
+		guard let user = UserManager.sharedInstance.getCurrentUser() else { return }
 		
 		nameLabel.text = user.name
 		emailLabel.text = user.email

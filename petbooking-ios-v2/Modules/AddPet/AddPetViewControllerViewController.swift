@@ -135,7 +135,6 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 		hideKeyboardWhenTappedAround()
 		
 		if !pet.name.isBlank {
-			
 			if let url = URL(string: pet.photoUrl) {
 				profilePictureImageView.pin_setImage(from: url)
 			}
@@ -183,6 +182,18 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 			petSizeLabel.text = "pet_size_\(pet.size)".localized
 			
 			moodLabel.text = "pet_mood_\(pet.mood)".localized
+            
+            castratedSwitch.isOn = pet.castrated
+            
+            if pet.chipNumber.isEmpty {
+                hasChipSwitch.isOn = false
+                chipNumberTextField.text = ""
+                chipNumberTextField.isEnabled = false
+            } else {
+                hasChipSwitch.isOn = true
+                chipNumberTextField.text = pet.chipNumber
+                chipNumberTextField.isEnabled = false
+            }
 		}
 	}
 	
@@ -192,6 +203,10 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
         } else {
             chipNumberTextField.isEnabled = false
         }
+    }
+    
+    @IBAction func castratedSwitchChanged(_ sender: Any) {
+        pet.castrated = castratedSwitch.isOn
     }
     
     @IBAction func changeAvatar(_ sender: Any) {

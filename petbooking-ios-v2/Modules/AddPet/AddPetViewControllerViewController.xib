@@ -207,6 +207,9 @@
                                 </label>
                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Mwr-If-2W1">
                                     <rect key="frame" x="306" y="276" width="51" height="31"/>
+                                    <connections>
+                                        <action selector="castratedSwitchChanged:" destination="-1" eventType="valueChanged" id="mdI-tZ-PEk"/>
+                                    </connections>
                                 </switch>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7nv-3p-J3u" userLabel="Gender Divisor">
                                     <rect key="frame" x="16" y="310" width="183" height="1"/>

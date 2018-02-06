@@ -1388,6 +1388,7 @@
 				413682BB1E9C2B2D008C463B /* Resources */,
 				F8A5970B5C40E62A2A941375 /* [CP] Embed Pods Frameworks */,
 				AB8E1C0191BAF4AA37B5D35D /* [CP] Copy Pods Resources */,
+				FF43CFF220238B3600D48DB7 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1628,6 +1629,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-petbooking-ios-v2/Pods-petbooking-ios-v2-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		FF43CFF220238B3600D48DB7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 6dffcea44308447e41e9708ba3868d1e089f345b 525a129716019cb2c8212214a49926c8d7a3731e43f2f06488640cb2b3961047";
 		};
 /* End PBXShellScriptBuildPhase section */
 

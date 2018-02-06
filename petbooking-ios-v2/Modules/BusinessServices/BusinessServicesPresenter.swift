@@ -23,38 +23,26 @@ class BusinessServicesPresenter: BusinessServicesPresenterProtocol {
     }
 	
 	func getPets() {
-		
 		interactor?.getPets()
-		
 	}
 	
 	func loadPets(petList: PetList) {
-		
 		view?.loadPets(petList: petList)
-		
 	}
 	
 	func getCategories(business: Business) {
-		
 		interactor?.getCategories(business: business)
-		
 	}
 	
 	func getServices(business: Business, service: ServiceCategory, pet:Pet) {
-		
 		interactor?.getServices(business: business, service: service, pet:pet)
-		
 	}
 	
 	func loadCategories(serviceCategoryList: ServiceCategoryList) {
-		
 		view?.loadCategories(serviceCategoryList: serviceCategoryList)
 	}
 	
 	func loadServices(serviceList: ServiceList) {
-		
 		view?.loadServices(serviceList: serviceList)
-		
 	}
-
 }

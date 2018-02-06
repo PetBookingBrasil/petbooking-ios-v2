@@ -37,7 +37,7 @@ class Service: MTLModel, MTLJSONSerializing {
 		return MTLJSONAdapter.arrayTransformer(withModelClass: SubService.self)
 	}
 	
-	class func idJSONTransformer() -> ValueTransformer {
+	@objc static func idJSONTransformer() -> ValueTransformer {
 		
 		let _forwardBlock: MTLValueTransformerBlock? = { (value, success, error) in
 			
@@ -74,7 +74,7 @@ class SubService: MTLModel, MTLJSONSerializing {
 		]
 	}
 	
-	class func idJSONTransformer() -> ValueTransformer {
+	@objc static func idJSONTransformer() -> ValueTransformer {
 		
 		let _forwardBlock: MTLValueTransformerBlock? = { (value, success, error) in
 			

@@ -28,6 +28,7 @@ class Pet: MTLModel, MTLJSONSerializing {
     @objc dynamic var birthday = ""
     @objc dynamic var petDescription = ""
     @objc dynamic var chipNumber = ""
+    @objc dynamic var castrated = false
     
     static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
         return ["id": "id",
@@ -44,7 +45,9 @@ class Pet: MTLModel, MTLJSONSerializing {
                 "birthday": "attributes.birthday",
                 "photoUrl": "attributes.photo.url",
                 "photoMediumUrl": "attributes.photo.medium.url",
-                "photoThumbUrl": "attributes.photo.thumb.url"]
+                "photoThumbUrl": "attributes.photo.thumb.url",
+                "chipNumber": "attributes.chip_id",
+                "castrated": "attributes.castrated"]
     }
     
     @objc static func coatColorJSONTransformer() -> ValueTransformer {

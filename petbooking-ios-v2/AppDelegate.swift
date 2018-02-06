@@ -10,7 +10,8 @@ import UIKit
 import FacebookCore
 import UserNotifications
 import RealmSwift
-
+import Fabric
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
+        Fabric.with([Crashlytics.self])
 		
 		UINavigationBar.appearance().isTranslucent = false
 		UINavigationBar.appearance().barTintColor =  UIColor(hex: "E4002B")

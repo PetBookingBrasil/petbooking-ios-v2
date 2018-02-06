@@ -11,22 +11,17 @@
 import Foundation
 
 //MARK: Wireframe -
-protocol HomeBusinessWireframeProtocol: class {
+protocol HomeBusinessWireframeProtocol: class { }
 
-}
 //MARK: Presenter -
-protocol HomeBusinessPresenterProtocol: class {
-
-}
+protocol HomeBusinessPresenterProtocol: class { }
 
 //MARK: Interactor -
 protocol HomeBusinessInteractorProtocol: class {
-
-  var presenter: HomeBusinessPresenterProtocol?  { get set }
+    var presenter: HomeBusinessPresenterProtocol?  { get set }
 }
 
 //MARK: View -
 protocol HomeBusinessViewProtocol: class {
-
-  var presenter: HomeBusinessPresenterProtocol?  { get set }
+    var presenter: HomeBusinessPresenterProtocol?  { get set }
 }

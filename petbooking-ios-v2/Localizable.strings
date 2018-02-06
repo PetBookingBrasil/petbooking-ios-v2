@@ -107,6 +107,7 @@
 "invalid_pet_coat" = "A pelagem do animal não pode ser vazia";
 "invalid_pet_color" = "A cor da pelagem do animal não pode ser vazia";
 "invalid_pet_mood" = "O temperamento do animal não pode ser vazio";
+"invalid_pet_chip_number" = "O número do chip do animal não pode ser vazio";
 
 "select_pet_kind" = "Selecione o tipo do animal";
 

@@ -15,19 +15,12 @@ import ALLoadingView
 
 class BusinessListViewControllerViewController: UIViewController, BusinessListViewControllerViewProtocol {
 	
-	@IBOutlet weak var openFilterButton: UIButton!
-	@IBOutlet weak var filterMenuView: UIView!
-	@IBOutlet weak var filterMenuHeightConstraint: NSLayoutConstraint!
 	@IBOutlet weak var tableView: UITableView!
-	@IBOutlet weak var filterPanelView: UIView!
-	@IBOutlet weak var filterCollectionView: UICollectionView!
-	@IBOutlet weak var filterLabel: UILabel!
-	@IBOutlet weak var filterButton: UIButton!
     
 	var presenter: BusinessListViewControllerPresenterProtocol?
-	var businessListType:BusinessListType?
-	var locationManager:CLLocationManager?
-	var businessList:BusinessList = BusinessList()
+	var businessListType: BusinessListType?
+	var locationManager: CLLocationManager?
+	var businessList: BusinessList = BusinessList()
 	var businesses = [Business]()
 	var serviceCategoryList:ServiceCategoryList = ServiceCategoryList()
 	var selectedServiceCategory:ServiceCategory = ServiceCategory()
@@ -35,23 +28,14 @@ class BusinessListViewControllerViewController: UIViewController, BusinessListVi
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
-		filterPanelView.isHidden = true
-		
+				
 		switch businessListType! {
 		case .favorites:
 			setBackButton()
 			presenter?.getFavoriteBusiness(page:1)
 			title = "Favoritos"
-			openFilterButton.isHidden = true
 
         case .list, .map:
-			openFilterButton.isHidden = false
-			filterButton.round()
-			filterCollectionView.delegate = self
-			filterCollectionView.dataSource = self
-			filterCollectionView.register(UINib(nibName: "CategoryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CategoryCollectionViewCell")
-			
 			locationManager = CLLocationManager()
 			
 			locationManager?.delegate = self
@@ -65,7 +49,6 @@ class BusinessListViewControllerViewController: UIViewController, BusinessListVi
 				guard let serviceCategoryList = serviceCategoryList else { return }
 				
 				self.serviceCategoryList = serviceCategoryList
-				self.filterCollectionView.reloadData()
 			}
 		}
 		
@@ -129,63 +112,6 @@ class BusinessListViewControllerViewController: UIViewController, BusinessListVi
             
 			self.businesses.remove(at: index)
 			self.tableView.reloadData()
-		}
-	}
-	
-	@IBAction func openFilter(_ sender: Any) {
-		filterPanelView.isHidden = false
-	}
-	
-	@IBAction func closeFilter(_ sender: Any) {
-		filterPanelView.isHidden = true
-	}
-	
-	@IBAction func resetFilter(_ sender: Any) {
-		filterMenuHeightConstraint.constant = 0
-		filterMenuView.isHidden = true
-		selectedServiceCategory = ServiceCategory()
-		
-		if CLLocationManager.locationServicesEnabled() {
-			locationManager?.delegate = self
-			locationManager?.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-			locationManager?.startUpdatingLocation()
-		}
-	}
-	
-	@IBAction func filter(_ sender: Any) {
-		ALLoadingView.manager.showLoadingView(ofType: .basic, windowMode: .fullscreen)
-		
-		if selectedServiceCategory.id.isBlank {
-			return
-		}
-		
-		filterMenuView.isHidden = false
-		filterMenuHeightConstraint.constant = 50
-		var filterLabelText = ""
-		
-		if !selectedServiceCategory.id.isBlank{
-			if !filterLabelText.isEmpty {
-				filterLabelText.append(", ")
-			}
-			
-			filterLabelText.append("\(selectedServiceCategory.name)")
-		}
-		
-		filterLabel.text = filterLabelText
-		
-		PetbookingAPI.sharedInstance.getBusinessListFiltered(query: "", categoryId: selectedServiceCategory.id, page: 0) { (businessList, message) in
-			ALLoadingView.manager.hideLoadingView()
-			
-			guard let businessList = businessList else { return }
-			
-			self.businessList = businessList
-			
-			self.businesses = businessList.businesses
-			UIView.setAnimationsEnabled(false)
-			self.tableView.reloadData()
-			UIView.setAnimationsEnabled(true)
-			
-			self.filterPanelView.isHidden = true
 		}
 	}
 }
@@ -344,7 +270,6 @@ extension BusinessListViewControllerViewController: UITableViewDelegate, UITable
 	func addToFavorites(business: Business) {
 		presenter?.addToFavorites(business: business)
 	}
-	
 }
 
 extension BusinessListViewControllerViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {

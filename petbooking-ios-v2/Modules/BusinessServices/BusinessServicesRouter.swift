@@ -14,10 +14,10 @@ class BusinessServicesRouter: BusinessServicesWireframeProtocol {
     
     weak var viewController: UIViewController?
     
-	static func createModule(business:Business) -> UIViewController {
+    static func createModule(business:Business) -> UIViewController {
         // Change to get view from storyboard if not using progammatic UI
         let view = BusinessServicesViewController(nibName: nil, bundle: nil)
-				view.business = business
+        view.business = business
         let interactor = BusinessServicesInteractor()
         let router = BusinessServicesRouter()
         let presenter = BusinessServicesPresenter(interface: view, interactor: interactor, router: router)

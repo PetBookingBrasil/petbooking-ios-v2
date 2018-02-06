@@ -9,7 +9,10 @@ target 'petbooking-ios-v2' do
   use_frameworks!
 
   # Pods for petbooking-ios-v2
-	
+
+    pod 'Fabric'
+    pod 'Crashlytics'
+
 	pod 'FacebookCore'
 	pod 'FacebookLogin'
 	#pod 'FacebookShare'
