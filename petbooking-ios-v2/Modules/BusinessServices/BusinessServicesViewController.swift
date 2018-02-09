@@ -69,7 +69,6 @@ class BusinessServicesViewController: ExpandableTableViewController, BusinessSer
 	}
 	
 	func loadPets(petList: PetList) {
-		
 		self.petList = petList
 		
 		if self.selectedPet.id.isBlank {

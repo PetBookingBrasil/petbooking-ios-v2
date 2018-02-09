@@ -245,8 +245,8 @@
 		41AAB4F31EF1F9AF00E52857 /* HomeContentViewControllerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AAB4ED1EF1F9AF00E52857 /* HomeContentViewControllerPresenter.swift */; };
 		41AAB4F41EF1F9AF00E52857 /* HomeContentViewControllerProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AAB4EE1EF1F9AF00E52857 /* HomeContentViewControllerProtocols.swift */; };
 		41AAB4F51EF1F9AF00E52857 /* HomeContentViewControllerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AAB4EF1EF1F9AF00E52857 /* HomeContentViewControllerRouter.swift */; };
-		41AAB4F61EF1F9AF00E52857 /* HomeContentViewControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AAB4F01EF1F9AF00E52857 /* HomeContentViewControllerViewController.swift */; };
-		41AAB4F71EF1F9AF00E52857 /* HomeContentViewControllerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41AAB4F11EF1F9AF00E52857 /* HomeContentViewControllerViewController.xib */; };
+		41AAB4F61EF1F9AF00E52857 /* HomeContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AAB4F01EF1F9AF00E52857 /* HomeContentViewController.swift */; };
+		41AAB4F71EF1F9AF00E52857 /* HomeContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41AAB4F11EF1F9AF00E52857 /* HomeContentViewController.xib */; };
 		41B85F101F4DE00500355073 /* BusinessImportedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B85F0E1F4DE00500355073 /* BusinessImportedTableViewCell.swift */; };
 		41B85F111F4DE00500355073 /* BusinessImportedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41B85F0F1F4DE00500355073 /* BusinessImportedTableViewCell.xib */; };
 		41B85F141F4DE46000355073 /* PhoneCodesConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B85F131F4DE46000355073 /* PhoneCodesConstants.m */; };
@@ -302,6 +302,19 @@
 		41F70EF81F3DE6FE0089DDE2 /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41F70EF71F3DE6FE0089DDE2 /* EmptyView.xib */; };
 		41FB2FF01F3CA8A900DF57B1 /* AlertCancelScheduledViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FB2FEE1F3CA8A900DF57B1 /* AlertCancelScheduledViewController.swift */; };
 		41FB2FF11F3CA8A900DF57B1 /* AlertCancelScheduledViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41FB2FEF1F3CA8A900DF57B1 /* AlertCancelScheduledViewController.xib */; };
+		FF25B269202CDA0700DF6E3E /* CategoryContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF25B268202CDA0700DF6E3E /* CategoryContentViewController.xib */; };
+		FF34B169202B7F7500F00528 /* CategoryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF34B168202B7F7500F00528 /* CategoryInteractor.swift */; };
+		FF34B16B202B7F9E00F00528 /* CategoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF34B16A202B7F9E00F00528 /* CategoryPresenter.swift */; };
+		FF34B16D202B7FD500F00528 /* CategoryProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF34B16C202B7FD500F00528 /* CategoryProtocols.swift */; };
+		FF34B16F202B807B00F00528 /* CategoryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF34B16E202B807B00F00528 /* CategoryRouter.swift */; };
+		FF34B171202B811900F00528 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF34B170202B811900F00528 /* CategoryViewController.swift */; };
+		FF34B173202B82D900F00528 /* CategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF34B172202B82D900F00528 /* CategoryViewController.xib */; };
+		FF34B176202C965C00F00528 /* CategoryContentSegmentioBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF34B175202C965C00F00528 /* CategoryContentSegmentioBuilder.swift */; };
+		FF34B178202C984500F00528 /* CategoryContentInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF34B177202C984500F00528 /* CategoryContentInteractor.swift */; };
+		FF34B17A202C986F00F00528 /* CategoryContentPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF34B179202C986F00F00528 /* CategoryContentPresenter.swift */; };
+		FF34B17C202CA55E00F00528 /* CategoryContentProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF34B17B202CA55E00F00528 /* CategoryContentProtocols.swift */; };
+		FF34B17E202CA5BA00F00528 /* CategoryContentRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF34B17D202CA5BA00F00528 /* CategoryContentRouter.swift */; };
+		FF34B180202CA5F500F00528 /* CategoryContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF34B17F202CA5F500F00528 /* CategoryContentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -568,8 +581,8 @@
 		41AAB4ED1EF1F9AF00E52857 /* HomeContentViewControllerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeContentViewControllerPresenter.swift; sourceTree = "<group>"; };
 		41AAB4EE1EF1F9AF00E52857 /* HomeContentViewControllerProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeContentViewControllerProtocols.swift; sourceTree = "<group>"; };
 		41AAB4EF1EF1F9AF00E52857 /* HomeContentViewControllerRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeContentViewControllerRouter.swift; sourceTree = "<group>"; };
-		41AAB4F01EF1F9AF00E52857 /* HomeContentViewControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeContentViewControllerViewController.swift; sourceTree = "<group>"; };
-		41AAB4F11EF1F9AF00E52857 /* HomeContentViewControllerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeContentViewControllerViewController.xib; sourceTree = "<group>"; };
+		41AAB4F01EF1F9AF00E52857 /* HomeContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeContentViewController.swift; sourceTree = "<group>"; };
+		41AAB4F11EF1F9AF00E52857 /* HomeContentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeContentViewController.xib; sourceTree = "<group>"; };
 		41B85F0E1F4DE00500355073 /* BusinessImportedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessImportedTableViewCell.swift; sourceTree = "<group>"; };
 		41B85F0F1F4DE00500355073 /* BusinessImportedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusinessImportedTableViewCell.xib; sourceTree = "<group>"; };
 		41B85F121F4DE46000355073 /* PhoneCodesConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneCodesConstants.h; sourceTree = "<group>"; };
@@ -629,6 +642,19 @@
 		5BA4A03664D7F09153E9149A /* Pods_petbooking_ios_v2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_petbooking_ios_v2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC0DE0132BA5812BF51F4F0D /* Pods-petbooking-ios-v2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petbooking-ios-v2.release.xcconfig"; path = "Pods/Target Support Files/Pods-petbooking-ios-v2/Pods-petbooking-ios-v2.release.xcconfig"; sourceTree = "<group>"; };
 		E56D027D072CCE6C9151C051 /* Pods-petbooking-ios-v2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petbooking-ios-v2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-petbooking-ios-v2/Pods-petbooking-ios-v2.debug.xcconfig"; sourceTree = "<group>"; };
+		FF25B268202CDA0700DF6E3E /* CategoryContentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryContentViewController.xib; sourceTree = "<group>"; };
+		FF34B168202B7F7500F00528 /* CategoryInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryInteractor.swift; sourceTree = "<group>"; };
+		FF34B16A202B7F9E00F00528 /* CategoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPresenter.swift; sourceTree = "<group>"; };
+		FF34B16C202B7FD500F00528 /* CategoryProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryProtocols.swift; sourceTree = "<group>"; };
+		FF34B16E202B807B00F00528 /* CategoryRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRouter.swift; sourceTree = "<group>"; };
+		FF34B170202B811900F00528 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		FF34B172202B82D900F00528 /* CategoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryViewController.xib; sourceTree = "<group>"; };
+		FF34B175202C965C00F00528 /* CategoryContentSegmentioBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryContentSegmentioBuilder.swift; sourceTree = "<group>"; };
+		FF34B177202C984500F00528 /* CategoryContentInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryContentInteractor.swift; sourceTree = "<group>"; };
+		FF34B179202C986F00F00528 /* CategoryContentPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryContentPresenter.swift; sourceTree = "<group>"; };
+		FF34B17B202CA55E00F00528 /* CategoryContentProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryContentProtocols.swift; sourceTree = "<group>"; };
+		FF34B17D202CA5BA00F00528 /* CategoryContentRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryContentRouter.swift; sourceTree = "<group>"; };
+		FF34B17F202CA5F500F00528 /* CategoryContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryContentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -691,8 +717,6 @@
 				411B4E551F3E4CFA00B9244B /* BusinessSearchRouter.swift */,
 				411B4E561F3E4CFA00B9244B /* BusinessSearchViewController.swift */,
 				411B4E571F3E4CFA00B9244B /* BusinessSearchViewController.xib */,
-				411B4E5E1F3E567000B9244B /* CategoryCollectionViewCell.swift */,
-				411B4E5F1F3E567000B9244B /* CategoryCollectionViewCell.xib */,
 			);
 			path = BusinessSearch;
 			sourceTree = "<group>";
@@ -1121,6 +1145,8 @@
 		418D099C1EB0D71200FCD5A6 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				FF34B174202C962500F00528 /* CategoryContent */,
+				FF34B167202B7F5900F00528 /* Category */,
 				411B4E511F3E4CE600B9244B /* BusinessSearch */,
 				411C84AE1F3A8ED3008C6E0A /* Agenda */,
 				4113B2C11F3414B0007DC89F /* BusinessInformation */,
@@ -1241,8 +1267,8 @@
 				41AAB4ED1EF1F9AF00E52857 /* HomeContentViewControllerPresenter.swift */,
 				41AAB4EE1EF1F9AF00E52857 /* HomeContentViewControllerProtocols.swift */,
 				41AAB4EF1EF1F9AF00E52857 /* HomeContentViewControllerRouter.swift */,
-				41AAB4F01EF1F9AF00E52857 /* HomeContentViewControllerViewController.swift */,
-				41AAB4F11EF1F9AF00E52857 /* HomeContentViewControllerViewController.xib */,
+				41AAB4F01EF1F9AF00E52857 /* HomeContentViewController.swift */,
+				41AAB4F11EF1F9AF00E52857 /* HomeContentViewController.xib */,
 				4149E96C1EF8404C00D6C44B /* SegmentioBuilder.swift */,
 			);
 			path = HomeContent;
@@ -1364,6 +1390,35 @@
 				5BA4A03664D7F09153E9149A /* Pods_petbooking_ios_v2.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FF34B167202B7F5900F00528 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				FF34B16E202B807B00F00528 /* CategoryRouter.swift */,
+				FF34B168202B7F7500F00528 /* CategoryInteractor.swift */,
+				FF34B16A202B7F9E00F00528 /* CategoryPresenter.swift */,
+				FF34B16C202B7FD500F00528 /* CategoryProtocols.swift */,
+				FF34B170202B811900F00528 /* CategoryViewController.swift */,
+				FF34B172202B82D900F00528 /* CategoryViewController.xib */,
+				411B4E5E1F3E567000B9244B /* CategoryCollectionViewCell.swift */,
+				411B4E5F1F3E567000B9244B /* CategoryCollectionViewCell.xib */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		FF34B174202C962500F00528 /* CategoryContent */ = {
+			isa = PBXGroup;
+			children = (
+				FF34B177202C984500F00528 /* CategoryContentInteractor.swift */,
+				FF34B179202C986F00F00528 /* CategoryContentPresenter.swift */,
+				FF34B17B202CA55E00F00528 /* CategoryContentProtocols.swift */,
+				FF34B17D202CA5BA00F00528 /* CategoryContentRouter.swift */,
+				FF34B17F202CA5F500F00528 /* CategoryContentViewController.swift */,
+				FF25B268202CDA0700DF6E3E /* CategoryContentViewController.xib */,
+				FF34B175202C965C00F00528 /* CategoryContentSegmentioBuilder.swift */,
+			);
+			path = CategoryContent;
 			sourceTree = "<group>";
 		};
 		FFC119A72020F74E00F26DFE /* Cell */ = {
@@ -1504,7 +1559,8 @@
 				41D86F8B1F294F1E0038ADA8 /* ServiceCollectionViewCell.xib in Resources */,
 				4129D9E81ED86E9B0067EDC3 /* MyPetsTableViewCell.xib in Resources */,
 				4120ED051EB0DE9F009D35B0 /* PresentationViewController.xib in Resources */,
-				41AAB4F71EF1F9AF00E52857 /* HomeContentViewControllerViewController.xib in Resources */,
+				FF34B173202B82D900F00528 /* CategoryViewController.xib in Resources */,
+				41AAB4F71EF1F9AF00E52857 /* HomeContentViewController.xib in Resources */,
 				411B4E611F3E567000B9244B /* CategoryCollectionViewCell.xib in Resources */,
 				4120ED3B1EB529FE009D35B0 /* SignupViewController.xib in Resources */,
 				419E95841FBB223B008E1D10 /* ReviewCommentSubRowTableViewCell.xib in Resources */,
@@ -1520,6 +1576,7 @@
 				411C84C41F3BBFF0008C6E0A /* AgendaTableViewCell.xib in Resources */,
 				41F1A0491F3D182E00CBC32D /* SelectPhotoSourcePopupViewController.xib in Resources */,
 				41E7E2F31EC27833002C0A55 /* OpenSans-SemiboldItalic.ttf in Resources */,
+				FF25B269202CDA0700DF6E3E /* CategoryContentViewController.xib in Resources */,
 				417969691F69676700C47936 /* BadgeWithCounterViewBigSized.xib in Resources */,
 				4160D8AF1F66AB81005D361B /* Roboto-LightItalic.ttf in Resources */,
 				4160D8AC1F66AB81005D361B /* Roboto-BoldItalic.ttf in Resources */,
@@ -1705,6 +1762,7 @@
 				414862971F2E9F1900F210D8 /* JTCalendarMenuView.m in Sources */,
 				419C89181F33A18700BDBE8E /* CartWebRouter.swift in Sources */,
 				4120ED011EB0DE9F009D35B0 /* PresentationPresenter.swift in Sources */,
+				FF34B169202B7F7500F00528 /* CategoryInteractor.swift in Sources */,
 				414862911F2E9F1900F210D8 /* JTCalendarManager.m in Sources */,
 				41D86F8A1F294F1E0038ADA8 /* ServiceCollectionViewCell.swift in Sources */,
 				41FB2FF01F3CA8A900DF57B1 /* AlertCancelScheduledViewController.swift in Sources */,
@@ -1719,9 +1777,12 @@
 				417969741F69676700C47936 /* Segmentio.swift in Sources */,
 				4120ED271EB4F136009D35B0 /* ForgotPasswordInteractor.swift in Sources */,
 				4179696E1F69676700C47936 /* SegmentioCellWithImageBeforeLabel.swift in Sources */,
+				FF34B178202C984500F00528 /* CategoryContentInteractor.swift in Sources */,
+				FF34B16F202B807B00F00528 /* CategoryRouter.swift in Sources */,
 				4168AA581EB794D5001E2D6D /* SessionManager.swift in Sources */,
 				41D86F841F2678D30038ADA8 /* PetCollectionViewCell.swift in Sources */,
 				410AA9721FA6ACF700A90377 /* SelectServiceTableViewCell.swift in Sources */,
+				FF34B17E202CA5BA00F00528 /* CategoryContentRouter.swift in Sources */,
 				4120ED0A1EB11BA0009D35B0 /* UIColorExtension.swift in Sources */,
 				411B4E601F3E567000B9244B /* CategoryCollectionViewCell.swift in Sources */,
 				4129D9E61ED86E9B0067EDC3 /* MyPetsRouter.swift in Sources */,
@@ -1813,6 +1874,8 @@
 				4149E9791EF9628100D6C44B /* BusinessListViewControllerProtocols.swift in Sources */,
 				414BB1F51EBFF4AF000BE2CC /* AlertPopupProtocols.swift in Sources */,
 				41D86F701F263AB30038ADA8 /* HomeBusinessRouter.swift in Sources */,
+				FF34B16D202B7FD500F00528 /* CategoryProtocols.swift in Sources */,
+				FF34B17C202CA55E00F00528 /* CategoryContentProtocols.swift in Sources */,
 				4113B2CA1F3414CB007DC89F /* BusinessInformationProtocols.swift in Sources */,
 				4148629E1F2FE92F00F210D8 /* Professional.swift in Sources */,
 				41231A371FCD9FF7001EA867 /* LocalideMapApp.swift in Sources */,
@@ -1822,6 +1885,7 @@
 				4168AA4C1EB69217001E2D6D /* PetbookingAPI.swift in Sources */,
 				4149E97B1EF9628100D6C44B /* BusinessListViewControllerViewController.swift in Sources */,
 				41D86F941F298C360038ADA8 /* AdditionalServiceTableViewCell.swift in Sources */,
+				FF34B171202B811900F00528 /* CategoryViewController.swift in Sources */,
 				41D86FA41F2D525E0038ADA8 /* ScheduleCalendarRouter.swift in Sources */,
 				41231A361FCD9FF7001EA867 /* LocalideAlertAction.swift in Sources */,
 				4120ED281EB4F136009D35B0 /* ForgotPasswordPresenter.swift in Sources */,
@@ -1839,15 +1903,17 @@
 				4120ED181EB38650009D35B0 /* LoginInteractor.swift in Sources */,
 				414862A51F3014D000F210D8 /* ProfessionalCollectionViewCell.swift in Sources */,
 				419F2B3B1FA8D07F0097C9A7 /* SelectDateTableViewCell.swift in Sources */,
+				FF34B176202C965C00F00528 /* CategoryContentSegmentioBuilder.swift in Sources */,
 				41D86F871F26A4A70038ADA8 /* Service.swift in Sources */,
 				4113B2C81F3414CB007DC89F /* BusinessInformationInteractor.swift in Sources */,
 				414BB1F71EBFF4AF000BE2CC /* AlertPopupViewController.swift in Sources */,
 				4149E96F1EF8416400D6C44B /* UIFontExtension.swift in Sources */,
 				41D86F7D1F266D7A0038ADA8 /* BusinessServicesPresenter.swift in Sources */,
 				4120ED1B1EB38650009D35B0 /* LoginRouter.swift in Sources */,
+				FF34B16B202B7F9E00F00528 /* CategoryPresenter.swift in Sources */,
 				4168DFE91FAFE4CE00111FB3 /* ReviewsHeaderTableViewCell.swift in Sources */,
 				4120ED021EB0DE9F009D35B0 /* PresentationProtocols.swift in Sources */,
-				41AAB4F61EF1F9AF00E52857 /* HomeContentViewControllerViewController.swift in Sources */,
+				41AAB4F61EF1F9AF00E52857 /* HomeContentViewController.swift in Sources */,
 				418DAA2E1ECE7EAE006265CF /* SideMenuViewController.swift in Sources */,
 				419C89231F33A8BB00BDBE8E /* CartInteractor.swift in Sources */,
 				4149E9781EF9628100D6C44B /* BusinessListViewControllerPresenter.swift in Sources */,
@@ -1858,6 +1924,8 @@
 				4113B2CB1F3414CB007DC89F /* BusinessInformationRouter.swift in Sources */,
 				41A0BAEB1ED7A8FA00671F3C /* AddPetViewControllerViewController.swift in Sources */,
 				4129D9E41ED86E9B0067EDC3 /* MyPetsPresenter.swift in Sources */,
+				FF34B180202CA5F500F00528 /* CategoryContentViewController.swift in Sources */,
+				FF34B17A202C986F00F00528 /* CategoryContentPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

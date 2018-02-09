@@ -18,12 +18,11 @@ class BusinessSearchViewController: UIViewController, BusinessSearchViewProtocol
 	@IBOutlet weak var contentPanelView: UIView!
 	@IBOutlet weak var searchTextField: UITextField!
 	@IBOutlet weak var tableView: UITableView!
-	@IBOutlet weak var categoriesCollectionView: UICollectionView!
 	@IBOutlet weak var searchButton: UIButton!
 	
-	var serviceCategoryList:ServiceCategoryList = ServiceCategoryList()
-	var selectedServiceCategory:ServiceCategory = ServiceCategory()
-	var businessList:BusinessList = BusinessList()
+	var serviceCategoryList: ServiceCategoryList = ServiceCategoryList()
+	var selectedServiceCategory: ServiceCategory = ServiceCategory()
+	var businessList: BusinessList = BusinessList()
 	var businesses = [Business]()
 	
 	var presenter: BusinessSearchPresenterProtocol?
@@ -33,12 +32,8 @@ class BusinessSearchViewController: UIViewController, BusinessSearchViewProtocol
 		
 		setBackButton()
 		
-		self.title = "Filtre sua busca"
-		
-		categoriesCollectionView.delegate = self
-		categoriesCollectionView.dataSource = self
-		categoriesCollectionView.register(UINib(nibName: "CategoryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CategoryCollectionViewCell")
-		
+		self.title = "Busca"
+				
 		tableView.register(UINib(nibName: "BusinessTableViewCell", bundle: nil), forCellReuseIdentifier: "BusinessTableViewCell")
 		tableView.register(UINib(nibName: "BusinessImportedTableViewCell", bundle: nil), forCellReuseIdentifier: "BusinessImportedTableViewCell")
 		tableView.rowHeight = UITableViewAutomaticDimension
@@ -47,35 +42,15 @@ class BusinessSearchViewController: UIViewController, BusinessSearchViewProtocol
 		tableView.emptyDataSetDelegate = self
 		
 		searchButton.round()
-		
-		PetbookingAPI.sharedInstance.getCategoryList { (serviceCategoryList, message) in
-			
-			
-			guard let serviceCategoryList = serviceCategoryList else {
-				return
-			}
-			
-			self.serviceCategoryList = serviceCategoryList
-			self.categoriesCollectionView.reloadData()
-			
-		}
-		
-		
     }
 	
-	
 	@IBAction func close(_ sender: Any) {
-		
-		self.title = "Filtre sua busca"
 		self.contentPanelView.isHidden = true
 	}
 	
 	@IBAction func openFilter(_ sender: Any) {
-		
-		self.title = "Filtre sua busca"
 		self.contentPanelView.isHidden = true
 	}
-	
 	
 	@IBAction func search(_ sender: Any) {
 		
@@ -102,11 +77,9 @@ class BusinessSearchViewController: UIViewController, BusinessSearchViewProtocol
 		
 		filterLabel.text = filterLabelText
 		
-		
 		PetbookingAPI.sharedInstance.getBusinessListFiltered(query: query, categoryId: selectedServiceCategory.id, page: 0) { (businessList, message) in
 			
 				ALLoadingView.manager.hideLoadingView()
-				self.title = "Buscar"
 			
 				guard let businessList = businessList else {
 					return
@@ -120,13 +93,8 @@ class BusinessSearchViewController: UIViewController, BusinessSearchViewProtocol
 				UIView.setAnimationsEnabled(true)
 			
 				self.contentPanelView.isHidden = false
-			
-			
 		}
-		
 	}
-	
-	
 }
 
 extension BusinessSearchViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -305,8 +273,6 @@ extension BusinessSearchViewController: UITableViewDelegate, UITableViewDataSour
 		}
 		
 		presenter?.showBusinessPage(business: business)
-		
-		
 	}
 	
 	public func numberOfSections(in tableView: UITableView) -> Int {
@@ -342,27 +308,17 @@ extension BusinessSearchViewController: UITableViewDelegate, UITableViewDataSour
 	}
 	
 	func addToFavorites(business: Business) {
-		
 		presenter?.addToFavorites(business: business)
-		
 	}
-	
 }
 
 extension BusinessSearchViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
-	
-	
 	func customView(forEmptyDataSet scrollView: UIScrollView!) -> UIView! {
-		
 		self.view.backgroundColor = .white
 		let emptyView = EmptyView.loadFromNibNamed("EmptyView") as? EmptyView
 		emptyView?.imageView.image = UIImage(named: "filterEmpty")
 		emptyView?.titleLabel.text = "Ops! Infelizmente não encontramos nenhum estabelecimento."
 		emptyView?.subtitleLabel.text = "Para facilitar o processo de pagamento, cadastre uma ou mais formas de pagamento."
 		return emptyView
-		
-		
-		
 	}
-	
 }

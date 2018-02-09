@@ -15,6 +15,7 @@ class BusinessMapListViewController: UIViewController, BusinessListViewControlle
 	var presenter: BusinessListViewControllerPresenterProtocol?
 	
 	var businessListType: BusinessListType?
+    var service: ServiceCategory?
 
 	var locationManager: CLLocationManager?
 	var businessesCallout = [Business]()
@@ -59,7 +60,6 @@ class BusinessMapListViewController: UIViewController, BusinessListViewControlle
 
 extension BusinessMapListViewController: CLLocationManagerDelegate {
 	
-	
 	func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
 		locationManager?.stopUpdatingLocation()
  	}
@@ -74,8 +74,7 @@ extension BusinessMapListViewController: CLLocationManagerDelegate {
 		let coordinateRegion = MKCoordinateRegionMakeWithDistance(locationObj.coordinate, 1000, 1000)
 		mapView.setRegion(coordinateRegion, animated: true)
 		
-		
-		presenter?.getBusinessByCoordinates(coordinates: self.coordinates, page:1)
+		presenter?.getBusinessByCoordinates(coordinates: self.coordinates, service: service, page: 1)
 	}
 }
 
@@ -93,7 +92,11 @@ extension BusinessMapListViewController: MKMapViewDelegate {
 			annotationView!.annotation = annotation
 		}
 		
-		annotationView!.image = businessAnnotation.business.imported ? UIImage(named: "business_pin_imported") : UIImage(named: "business_pin")
+        if businessAnnotation.business.imported {
+            annotationView!.image = UIImage(named: "business_pin_imported")
+        } else {
+            annotationView!.image = UIImage(named: "business_pin")
+        }
 		
 		return annotationView
 	}

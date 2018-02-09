@@ -1,15 +1,14 @@
 //
-//  SegmentioBuilder.swift
+//  CategoryContentSegmentioBuilder.swift
 //  petbooking-ios-v2
 //
-//  Created by Ryniere S Silva on 19/06/17.
-//  Copyright © 2017 Pet Booking Serviços e Desenvolvimento de Softwares SA. All rights reserved.
+//  Created by David Batista on 08/02/2018.
+//  Copyright © 2018 Pet Booking Serviços e Desenvolvimento de Softwares SA. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
-struct SegmentioBuilder {
+struct CategoryContentSegmentioBuilder {
     
     static func setupBadgeCountForIndex(_ segmentioView: Segmentio, index: Int) {
         segmentioView.addBadge(at: index, count: 10, color: .red)
@@ -22,9 +21,8 @@ struct SegmentioBuilder {
     }
     
     private static func segmentioContent() -> [SegmentioItem] {
-        return [SegmentioItem(title: "CATEGORIAS", image: nil),
-                SegmentioItem(title: "MAPA", image: nil),
-                SegmentioItem(title: "FAVORITOS", image: nil)]
+        return [SegmentioItem(title: "LISTA", image: nil),
+                SegmentioItem(title: "MAPA", image: nil)]
     }
     
     private static func segmentioOptions(segmentioStyle: SegmentioStyle) -> SegmentioOptions {
@@ -41,7 +39,7 @@ struct SegmentioBuilder {
         let verticalSeparatorOptions = SegmentioVerticalSeparatorOptions(ratio: 0, color: .clear)
         
         return SegmentioOptions(backgroundColor: UIColor(hex: "B00021"),
-                                maxVisibleItems: 3,
+                                maxVisibleItems: 2,
                                 scrollEnabled: false,
                                 indicatorOptions: segmentioIndicatorOptions(),
                                 horizontalSeparatorOptions: horizontalSeparatorOptions,
@@ -90,3 +88,4 @@ struct SegmentioBuilder {
                                                  color: .white)
     }
 }
+

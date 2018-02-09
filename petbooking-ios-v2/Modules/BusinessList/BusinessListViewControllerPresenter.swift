@@ -23,22 +23,20 @@ class BusinessListViewControllerPresenter: BusinessListViewControllerPresenterPr
 		self.router = router
 	}
 	
-	func getBusinessByCoordinates(coordinates:CLLocationCoordinate2D, page:Int) {
-		interactor?.getBusinessByCoordinates(coordinates: coordinates, page:page)
+	func getBusinessByCoordinates(coordinates: CLLocationCoordinate2D, service: ServiceCategory?, page: Int) {
+		interactor?.getBusinessByCoordinates(coordinates: coordinates, service: service, page: page)
 	}
 	
 	func getFavoriteBusiness(page: Int) {
 		interactor?.getFavoriteBusiness(page: page)
 	}
 	
-	func updateBusinessList(businessList:BusinessList) {
+	func updateBusinessList(businessList: BusinessList) {
 		view?.updateBusinessList(businessList: businessList)
 	}
 	
 	func addToFavorites(business: Business) {
-		
 		interactor?.addToFavorites(business: business)
-		
 	}
 	
 	func showBusinessPage(business:Business) {
@@ -46,7 +44,6 @@ class BusinessListViewControllerPresenter: BusinessListViewControllerPresenterPr
 	}
 	
 	func removedFromFavorites(business: Business) {
-		
 		view?.removedFromFavorites(business: business)
 	}
 }

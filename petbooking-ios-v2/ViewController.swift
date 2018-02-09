@@ -25,16 +25,16 @@ class ViewController: UIViewController {
 		// UISideMenuNavigationController is a subclass of UINavigationController, so do any additional configuration
 		// of it here like setting its viewControllers. If you're using storyboards, you'll want to do something like:
 		// let menuLeftNavigationController = storyboard!.instantiateViewController(withIdentifier: "LeftMenuNavigationController") as! UISideMenuNavigationController
-		SideMenuManager.menuLeftNavigationController = menuLeftNavigationController
+        SideMenuManager.default.menuLeftNavigationController = menuLeftNavigationController
 		
 		// Enable gestures. The left and/or right menus must be set up above for these to work.
 		// Note that these continue to work on the Navigation Controller independent of the view controller it displays!
-		SideMenuManager.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
-		SideMenuManager.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
-		SideMenuManager.menuAnimationBackgroundColor = UIColor.clear
-		SideMenuManager.menuShadowRadius = 0
-		SideMenuManager.menuShadowOpacity = 0
-		SideMenuManager.menuPushStyle = .popWhenPossible
+        SideMenuManager.default.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
+        SideMenuManager.default.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
+        SideMenuManager.default.menuAnimationBackgroundColor = UIColor.clear
+        SideMenuManager.default.menuShadowRadius = 0
+        SideMenuManager.default.menuShadowOpacity = 0
+        SideMenuManager.default.menuPushStyle = .popWhenPossible
 		
 		navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named:"menu"), style: .plain, target: self, action: #selector(showLeftMenu))
 	}
@@ -66,7 +66,7 @@ class ViewController: UIViewController {
 	}
 	
 	@objc func showLeftMenu() {
-		present(SideMenuManager.menuLeftNavigationController!, animated: true, completion: nil)
+        present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
 	}
 }
 

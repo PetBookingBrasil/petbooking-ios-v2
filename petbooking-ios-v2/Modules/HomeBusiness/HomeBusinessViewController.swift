@@ -58,20 +58,29 @@ class HomeBusinessViewController: UIViewController, HomeBusinessViewProtocol, UI
         let nc = NotificationCenter.default
         nc.addObserver(forName:cartUpdateNotification, object:nil, queue:nil, using:updateCartBadge)
         
+<<<<<<< HEAD
+        HomeBusinessSegmentioBuilder.buildSegmentioView(segmentioView: segmentioView,
+                                                        segmentioStyle: .onlyLabel)
+=======
         HomeBusinessSegmentioBuilder.buildSegmentioView (
             segmentioView: segmentioView,
             segmentioStyle: .onlyLabel
         )
+>>>>>>> 4aaf2d5fb0901efab15a9bd7b4907370f1bcd0b9
         
         segmentioView.selectedSegmentioIndex = selectedSegmentioIndex()
         
         segmentioView.valueDidChange = { [weak self] _, segmentIndex in
             if let scrollViewWidth = self?.scrollView.frame.width {
                 let contentOffsetX = scrollViewWidth * CGFloat(segmentIndex)
+<<<<<<< HEAD
+                self?.scrollView.setContentOffset(CGPoint(x: contentOffsetX, y: 0), animated: true)
+=======
                 self?.scrollView.setContentOffset(
                     CGPoint(x: contentOffsetX, y: 0),
                     animated: true
                 )
+>>>>>>> 4aaf2d5fb0901efab15a9bd7b4907370f1bcd0b9
             }
         }
         

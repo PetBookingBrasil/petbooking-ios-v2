@@ -711,8 +711,72 @@ extension PetbookingAPI {
 // MARK: Business
 
 extension PetbookingAPI {
+    
+    func getBusinessList(coordinate: CLLocationCoordinate2D, service: ServiceCategory?, page: Int = 1, completion: @escaping (_ businessList: BusinessList?, _ message: String) -> Void ) {
+        if let service = service {
+            getBusinessList(from: service, in: coordinate, page: page, completion: completion)
+        } else {
+            getBusinessList(coordinate: coordinate, page: page, completion: completion)
+        }
+    }
+    
 	
-	func getBusinessList(coordinate:CLLocationCoordinate2D, page:Int = 1, completion: @escaping (_ businessList: BusinessList?, _ message: String) -> Void ) {
+    func getBusinessList(coordinate: CLLocationCoordinate2D, page: Int = 1, completion: @escaping (_ businessList: BusinessList?, _ message: String) -> Void ) {
+        
+        if SessionManager.sharedInstance.isConsumerValid() {
+            var token = ""
+            if let consumer = SessionManager.sharedInstance.getCurrentConsumer() {
+                token = consumer.token
+            }
+            
+            guard let session = SessionManager.sharedInstance.getCurrentSession() else {
+                return
+            }
+            
+            self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
+            self.auth_headers.updateValue("Token token=\"\(session.authToken)\"", forKey: "X-Petbooking-Session-Token")
+            
+            let coords = "\(coordinate.latitude),\(coordinate.longitude)"
+            
+            let parameters: Parameters = ["user_id": session.userId,
+                                          "coords": coords,
+                                          "fields[businesses]": "id,name,slug,location,distance,street,street_number,imported,neighborhood,rating_average,rating_count,favorite_count,cover_image,pictures,transportation_fee,user_favorite,bitmask_values,phone,city,description,state,website,facebook_fanpage,twitter_profile,googleplus_profile,instagram,snapchat",
+                                          "page[number]": page,
+                                          "page[size]": 20]
+            
+            Alamofire.request("\(PetbookingAPI.API_BASE_URL)/businesses", method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString), headers: auth_headers).responseJSON { (response) in
+                
+                switch response.result{
+                case .success(let jsonObject):
+                    if let dic = jsonObject as? [String: Any] {
+                        do {
+                            let businessList = try MTLJSONAdapter.model(of: BusinessList.self, fromJSONDictionary: dic) as! BusinessList
+                            businessList.page = page
+                            
+                            completion(businessList, "")
+                            
+                        } catch {
+                            completion(nil, error.localizedDescription)
+                        }
+                    } else {
+                        completion(nil, "")
+                    }
+                case .failure(let error):
+                    completion(nil, error.localizedDescription)
+                }
+            }
+        } else {
+            getConsumer { (success, message) in
+                if success {
+                    self.getBusinessList(coordinate: coordinate, completion: completion)
+                } else {
+                    completion(nil, "")
+                }
+            }
+        }
+    }
+
+    func getBusinessList(from service: ServiceCategory, in coordinate: CLLocationCoordinate2D, page: Int = 1, completion: @escaping (_ businessList: BusinessList?, _ message: String) -> Void ) {
 		
 		if SessionManager.sharedInstance.isConsumerValid() {
 			var token = ""
@@ -726,17 +790,20 @@ extension PetbookingAPI {
 			
 			self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
 			self.auth_headers.updateValue("Token token=\"\(session.authToken)\"", forKey: "X-Petbooking-Session-Token")
-			
+            
 			let coords = "\(coordinate.latitude),\(coordinate.longitude)"
 			
-			let parameters: Parameters = ["user_id":session.userId, "coords":coords,"fields[businesses]":"id,name,slug,location,distance,street,street_number,imported,neighborhood,rating_average,rating_count,favorite_count,cover_image,pictures,transportation_fee,user_favorite,bitmask_values,phone,city,description,state,website,facebook_fanpage,twitter_profile,googleplus_profile,instagram,snapchat", "page[number]":page, "page[size]":20]
+			let parameters: Parameters = ["user_id": session.userId,
+                                          "coords": coords,
+                                          "fields[businesses]": "id,name,slug,location,distance,street,street_number,imported,neighborhood,rating_average,rating_count,favorite_count,cover_image,pictures,transportation_fee,user_favorite,bitmask_values,phone,city,description,state,website,facebook_fanpage,twitter_profile,googleplus_profile,instagram,snapchat",
+                                          "page[number]": page,
+                                          "page[size]": 20]
 			
-			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/businesses", method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString), headers: auth_headers).responseJSON { (response) in
+			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/category-templates/\(service.id)/businesses", method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString), headers: auth_headers).responseJSON { (response) in
 				
 				switch response.result{
 				case .success(let jsonObject):
 					if let dic = jsonObject as? [String: Any] {
-						
 						do {
 							let businessList = try MTLJSONAdapter.model(of: BusinessList.self, fromJSONDictionary: dic) as! BusinessList
 							businessList.page = page
@@ -750,28 +817,21 @@ extension PetbookingAPI {
 						completion(nil, "")
 					}
 				case .failure(let error):
-					print(error)
 					completion(nil, error.localizedDescription)
 				}
-				
 			}
-		} else
-		{
-			getConsumer(completion: { (success, message) in
-				
+		} else {
+			getConsumer { (success, message) in
 				if success {
-					self.getBusinessList(coordinate: coordinate, completion: completion)
-				} else {
-					
+					self.getBusinessList(coordinate: coordinate, service: service, completion: completion)
+				} else {					
 					completion(nil, "")
-					
 				}
-				
-			})
+			}
 		}
 	}
 	
-	func getBusinessListFiltered(query:String?, categoryId:String, page:Int = 1, completion: @escaping (_ businessList: BusinessList?, _ message: String) -> Void ) {
+	func getBusinessListFiltered(query: String?, categoryId: String, page: Int = 1, completion: @escaping (_ businessList: BusinessList?, _ message: String) -> Void ) {
 		
 		if SessionManager.sharedInstance.isConsumerValid() {
 			var token = ""
@@ -785,7 +845,6 @@ extension PetbookingAPI {
 			
 			self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
 			self.auth_headers.updateValue("Token token=\"\(session.authToken)\"", forKey: "X-Petbooking-Session-Token")
-			
 			
 			let parameters: Parameters = ["user_id":session.userId, "q":query ?? "","category_template_id":categoryId,"fields[businesses]":"id,name,slug,location,distance,street,street_number,imported,neighborhood,rating_average,rating_count,favorite_count,cover_image,pictures,transportation_fee,user_favorite,bitmask_values,phone,city,description,state,website,facebook_fanpage,twitter_profile,googleplus_profile,instagram,snapchat", "page[number]":page, "page[size]":20]
 			
@@ -794,7 +853,6 @@ extension PetbookingAPI {
 				switch response.result{
 				case .success(let jsonObject):
 					if let dic = jsonObject as? [String: Any] {
-						
 						do {
 							let businessList = try MTLJSONAdapter.model(of: BusinessList.self, fromJSONDictionary: dic) as! BusinessList
 							businessList.page = page
@@ -811,21 +869,15 @@ extension PetbookingAPI {
 					print(error)
 					completion(nil, error.localizedDescription)
 				}
-				
 			}
-		} else
-		{
-			getConsumer(completion: { (success, message) in
-				
+		} else {
+			getConsumer { (success, message) in
 				if success {
 					self.getBusinessListFiltered(query: query,categoryId: categoryId, completion: completion)
 				} else {
-					
 					completion(nil, "")
-					
 				}
-				
-			})
+			}
 		}
 	}
 	
@@ -1416,7 +1468,8 @@ extension PetbookingAPI {
 			self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
 			self.auth_headers.updateValue("Token token=\"\(session.authToken)\"", forKey: "X-Petbooking-Session-Token")
 			
-			let parameters: Parameters = ["type": "category_templates", "fields[category_templates]": "id,slug,name"]
+			let parameters: Parameters = ["type": "category_templates",
+                                          "fields[category_templates]": "id,slug,name"]
 			
 			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/category-templates",
                 method: .get,
@@ -1438,7 +1491,6 @@ extension PetbookingAPI {
 						completion(nil, "")
 					}
 				case .failure(let error):
-					print(error)
 					completion(nil, error.localizedDescription)
 				}
 			}

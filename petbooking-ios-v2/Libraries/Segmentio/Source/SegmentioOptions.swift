@@ -11,7 +11,6 @@ import UIKit
 // MARK: - Item
 
 public struct SegmentioItem {
-    
     public var title: String?
     public var image: UIImage?
     public var selectedImage: UIImage?
@@ -33,7 +32,6 @@ public struct SegmentioItem {
         self.badgeCount = nil
         self.badgeColor = nil
     }
-    
 }
 
 // MARK: - Content view
@@ -44,15 +42,13 @@ public struct SegmentioState {
     var titleFont: UIFont
     var titleTextColor: UIColor
     
-    public init(
-        backgroundColor: UIColor = .clear,
-        titleFont: UIFont = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),
-        titleTextColor: UIColor = .black) {
+    public init(backgroundColor: UIColor = .clear,
+                titleFont: UIFont = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),
+                titleTextColor: UIColor = .black) {
         self.backgroundColor = backgroundColor
         self.titleFont = titleFont
         self.titleTextColor = titleTextColor
     }
-    
 }
 
 // MARK: - Horizontal separator
@@ -62,7 +58,6 @@ public enum SegmentioHorizontalSeparatorType {
     case top
     case bottom
     case topAndBottom
-    
 }
 
 public struct SegmentioHorizontalSeparatorOptions {
@@ -71,12 +66,13 @@ public struct SegmentioHorizontalSeparatorOptions {
     var height: CGFloat
     var color: UIColor
     
-    public init(type: SegmentioHorizontalSeparatorType = .topAndBottom, height: CGFloat = 1.0, color: UIColor = .darkGray) {
+    public init(type: SegmentioHorizontalSeparatorType = .topAndBottom,
+                height: CGFloat = 1.0,
+                color: UIColor = .darkGray) {
         self.type = type
         self.height = height
         self.color = color
     }
-    
 }
 
 // MARK: - Vertical separator
@@ -90,16 +86,13 @@ public struct SegmentioVerticalSeparatorOptions {
         self.ratio = ratio
         self.color = color
     }
-
 }
 
 // MARK: - Indicator
 
 public enum SegmentioIndicatorType {
-    
     case top
     case bottom
-    
 }
 
 public struct SegmentioIndicatorOptions {
@@ -115,7 +108,6 @@ public struct SegmentioIndicatorOptions {
         self.height = height
         self.color = color
     }
-    
 }
 
 // MARK: - Control options
@@ -124,14 +116,12 @@ public enum SegmentioStyle: String {
     
     case onlyLabel, onlyImage, imageOverLabel, imageUnderLabel, imageBeforeLabel, imageAfterLabel
     
-    public static let allStyles = [
-        onlyLabel,
-        onlyImage,
-        imageOverLabel,
-        imageUnderLabel,
-        imageBeforeLabel,
-        imageAfterLabel
-    ]
+    public static let allStyles = [onlyLabel,
+                                   onlyImage,
+                                   imageOverLabel,
+                                   imageUnderLabel,
+                                   imageBeforeLabel,
+                                   imageAfterLabel]
     
     public func isWithText() -> Bool {
         switch self {

@@ -11,22 +11,17 @@
 import Foundation
 
 //MARK: Wireframe -
-protocol HomeContentViewControllerWireframeProtocol: class {
+protocol HomeContentViewControllerWireframeProtocol: class { }
 
-}
 //MARK: Presenter -
-protocol HomeContentViewControllerPresenterProtocol: class {
-
-}
+protocol HomeContentViewControllerPresenterProtocol: class { }
 
 //MARK: Interactor -
 protocol HomeContentViewControllerInteractorProtocol: class {
-
-  var presenter: HomeContentViewControllerPresenterProtocol?  { get set }
+    var presenter: HomeContentViewControllerPresenterProtocol? { get set }
 }
 
 //MARK: View -
 protocol HomeContentViewControllerViewProtocol: class {
-
-  var presenter: HomeContentViewControllerPresenterProtocol?  { get set }
+    var presenter: HomeContentViewControllerPresenterProtocol? { get set }
 }

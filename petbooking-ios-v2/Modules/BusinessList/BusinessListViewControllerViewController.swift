@@ -17,8 +17,13 @@ class BusinessListViewControllerViewController: UIViewController, BusinessListVi
 	
 	@IBOutlet weak var tableView: UITableView!
     
+    var service: ServiceCategory?
 	var presenter: BusinessListViewControllerPresenterProtocol?
 	var businessListType: BusinessListType?
+<<<<<<< HEAD
+    
+=======
+>>>>>>> 4aaf2d5fb0901efab15a9bd7b4907370f1bcd0b9
 	var locationManager: CLLocationManager?
 	var businessList: BusinessList = BusinessList()
 	var businesses = [Business]()
@@ -32,8 +37,12 @@ class BusinessListViewControllerViewController: UIViewController, BusinessListVi
 		switch businessListType! {
 		case .favorites:
 			setBackButton()
+<<<<<<< HEAD
+			presenter?.getFavoriteBusiness(page: 1)
+=======
 			presenter?.getFavoriteBusiness(page:1)
 			title = "Favoritos"
+>>>>>>> 4aaf2d5fb0901efab15a9bd7b4907370f1bcd0b9
 
         case .list, .map:
 			locationManager = CLLocationManager()
@@ -128,7 +137,7 @@ extension BusinessListViewControllerViewController: CLLocationManagerDelegate {
 		let locationObj = locationArray.lastObject as! CLLocation
 		self.coordinates = locationObj.coordinate
 		
-		presenter?.getBusinessByCoordinates(coordinates: self.coordinates, page:1)
+		presenter?.getBusinessByCoordinates(coordinates: self.coordinates, service: service, page:1)
 	}
 }
 
@@ -145,7 +154,7 @@ extension BusinessListViewControllerViewController: UITableViewDelegate, UITable
 			case .favorites:
 				presenter?.getFavoriteBusiness(page:businessList.page + 1)
 			case .list, .map:
-				presenter?.getBusinessByCoordinates(coordinates: self.coordinates, page: businessList.page + 1)
+				presenter?.getBusinessByCoordinates(coordinates: self.coordinates, service: service, page: businessList.page + 1)
             }
 		}
 		

@@ -17,58 +17,45 @@ class BusinessListViewControllerInteractor: BusinessListViewControllerInteractor
 	
 	var businessListType:BusinessListType?
 	
-	func getBusinessByCoordinates(coordinates:CLLocationCoordinate2D, page:Int) {
+    func getBusinessByCoordinates(coordinates: CLLocationCoordinate2D, service: ServiceCategory?, page: Int) {
 		
-		PetbookingAPI.sharedInstance.getBusinessList(coordinate: coordinates, page:page) { (businessList, msg) in
+        PetbookingAPI.sharedInstance.getBusinessList(coordinate: coordinates, service: service, page:page) { (businessList, msg) in
 			
 			guard let businessList = businessList else {
 				return
 			}
 			
 			self.presenter?.updateBusinessList(businessList: businessList)
-			
-		}
-		
+		}		
 	}
 	
 	func getFavoriteBusiness(page: Int) {
 		
 		PetbookingAPI.sharedInstance.getFavoriteBusinessList(page:page) { (businessList, msg) in
-			
 			guard let businessList = businessList else {
 				return
 			}
 			
 			self.presenter?.updateBusinessList(businessList: businessList)
-			
 		}
-		
 	}
 	
 	func addToFavorites(business: Business) {
 		
 		if business.isFavorited() {
-			
-			PetbookingAPI.sharedInstance.removeBusinessFromFavorite(business: business, completion: { (success, message) in
-				
+			PetbookingAPI.sharedInstance.removeBusinessFromFavorite(business: business) { (success, message) in
 				if success {
 					self.presenter?.removedFromFavorites(business: business)
 					business.favoriteId = 0
 				}
-				
-			})
-			
+			}
 		} else {
-			
 			PetbookingAPI.sharedInstance.addBusinessToFavorite(business: business) { (success, message) in
-				
 				if success {
-					//business.isFavorite = true
+                    business.favoriteId = 1
 				}
-				
 			}
 		}
-		
 	}
 }
 

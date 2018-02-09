@@ -111,7 +111,7 @@ class BusinessList: MTLModel, MTLJSONSerializing {
 	@objc var page = 0
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
-		return [ "businesses": "data" ]
+		return ["businesses": "data"]
 	}
 	
 	@objc static func businessesJSONTransformer() -> ValueTransformer {

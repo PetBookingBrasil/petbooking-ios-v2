@@ -11,22 +11,17 @@
 import Foundation
 
 //MARK: Wireframe -
-protocol AgendaWireframeProtocol: class {
+protocol AgendaWireframeProtocol: class { }
 
-}
 //MARK: Presenter -
-protocol AgendaPresenterProtocol: class {
-
-}
+protocol AgendaPresenterProtocol: class { }
 
 //MARK: Interactor -
 protocol AgendaInteractorProtocol: class {
-
   var presenter: AgendaPresenterProtocol?  { get set }
 }
 
 //MARK: View -
 protocol AgendaViewProtocol: class {
-
   var presenter: AgendaPresenterProtocol?  { get set }
 }
