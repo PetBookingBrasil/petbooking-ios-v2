@@ -25,10 +25,8 @@ class SideMenuPresenter: SideMenuPresenterProtocol {
     }
 	
 	func didTapLogout() {
-		
 		interactor.didTapLogout()
 		router.didTapLogout()
-		
 	}
 	
 	func didTapMyPets() {
@@ -43,12 +41,15 @@ class SideMenuPresenter: SideMenuPresenterProtocol {
 		router.showFavorites()
 	}
 	
-	func didTapAgenda() {
-		router.showAgenda()
+	func didTapSchedule() {
+		router.showSchedule()
 	}
+    
+    func didTapPayments() {
+        router.showPayments()
+    }
 	
 	func didTapSearch() {
 		router.showSearch()
 	}
-
 }

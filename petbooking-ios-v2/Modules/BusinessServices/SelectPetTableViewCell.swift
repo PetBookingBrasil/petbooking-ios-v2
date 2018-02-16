@@ -38,8 +38,6 @@ class SelectPetTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
 }
@@ -47,13 +45,11 @@ class SelectPetTableViewCell: UITableViewCell {
 extension SelectPetTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 	
 	func numberOfSections(in collectionView: UICollectionView) -> Int {
-		
-		return 1
+        return 1
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		
-		self.pageControl.numberOfPages = petList.pets.count / 2 + petList.pets.count % 2
+        self.pageControl.numberOfPages = petList.pets.count / 2 + petList.pets.count % 2
 		return petList.pets.count
 	}
 	
@@ -77,13 +73,11 @@ extension SelectPetTableViewCell: UICollectionViewDelegate, UICollectionViewData
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-		
-		self.pageControl.currentPage = indexPath.row / 2
+        self.pageControl.currentPage = indexPath.row / 2
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		
-		
+				
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PetCollectionViewCell", for: indexPath) as! PetCollectionViewCell
 		
 		let pet = petList.pets[indexPath.item]
@@ -108,30 +102,19 @@ extension SelectPetTableViewCell: UICollectionViewDelegate, UICollectionViewData
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		
-		
 		selectedPet = petList.pets[indexPath.item]
 		delegate?.setSelectedPet(selectedPet: selectedPet)
-		
 	}
-	
 }
 
 extension SelectPetTableViewCell: BusinessServicesViewControllerDelegate {
-	
 	func loadPets(petList: PetList) {
-		
 		self.petList = petList
-		
 		self.collectionView.reloadData()
 	}
-	
 }
 
 protocol SelectPetTableViewCellDelegate: class {
-	
-	
-	func setSelectedPet(selectedPet:Pet)
-
+	func setSelectedPet(selectedPet: Pet)
 }
 

@@ -10,23 +10,21 @@
 
 import UIKit
 
-class SideMenuInteractor: SideMenuInteractorProtocol {
-
-    weak var presenter: SideMenuPresenterProtocol?
-	
-		func didTapLogout() {
-			
-			UserManager.sharedInstance.logOut()
-			
-		}
+enum SideMenuItem {
+    case myPets
+    case search
+    case schedule
+    case payments
+    case favorites
+    case settings
+    case logout
 }
 
-enum SideMenuItem {
-	case myPets
-	case search
-	case agenda
-	case payments
-	case favorites
-	case settings
-	case logout
+class SideMenuInteractor: SideMenuInteractorProtocol {
+    
+    weak var presenter: SideMenuPresenterProtocol?
+    
+    func didTapLogout() {
+        UserManager.sharedInstance.logOut()
+    }
 }

@@ -447,7 +447,6 @@ extension PetbookingAPI {
 				switch response.result{
 				case .success(let jsonObject):
 					if let dic = jsonObject as? [AnyHashable : Any] {
-                        print("**** Começou")
                         do {
                             let petList = try MTLJSONAdapter.model(of: PetList.self, fromJSONDictionary: dic) as! PetList
                             completion(petList, "")

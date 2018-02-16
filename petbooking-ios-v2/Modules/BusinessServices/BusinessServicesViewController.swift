@@ -70,7 +70,7 @@ class BusinessServicesViewController: ExpandableTableViewController, BusinessSer
 	
 	func loadPets(petList: PetList) {
 		self.petList = petList
-		
+        
 		if self.selectedPet.id.isBlank {
 			guard let pet = self.petList.pets.first else { return }
 			
@@ -80,7 +80,11 @@ class BusinessServicesViewController: ExpandableTableViewController, BusinessSer
 		
 		self.expandableTableView.reloadData()
 		
-		showContent(indexPath: IndexPath(row: 1, section: 0))
+        if self.petList.pets.count > 1 {
+            showContent(indexPath: IndexPath(row: 0, section: 0))
+        } else {
+            showContent(indexPath: IndexPath(row: 1, section: 0))
+        }
 		
 		selectPetDelegate?.loadPets(petList: petList)
 	}
@@ -122,7 +126,6 @@ class BusinessServicesViewController: ExpandableTableViewController, BusinessSer
 		nc.post(name:Notification.Name(rawValue:"cartUpdateNotification"),
 		        object: nil,
 		        userInfo:nil)
-		
 	}
 	
 	func goToCart() {
@@ -166,17 +169,17 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
 		case 0:
 			if !self.selectedPet.id.isBlank {
 				cell.contentView.isHidden = false
+				
 				if selectedPet.type == "dog" {
-					cell.iconImageView.image = UIImage(named:"avatar-padrao-cachorro")
-				} else {
-					cell.iconImageView.image = UIImage(named:"avatar-padrao-gato")
-				}
-				if let url = URL(string: selectedPet.photoThumbUrl) {
-					cell.iconImageView.pin_setImage(from: url)
-				}
+                    cell.iconImageView.image = UIImage(named:"avatar-padrao-cachorro")
+                } else {
+                    cell.iconImageView.image = UIImage(named:"avatar-padrao-gato")
+                }
+                if let url = URL(string: selectedPet.photoThumbUrl) {
+                    cell.iconImageView.pin_setImage(from: url)
+                }
 				
 				cell.titleLabel.text = self.selectedPet.name
-				
 			} else {
 				cell.contentView.isHidden = true
 			}
@@ -223,7 +226,7 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
 	
 	func expandableTableView(_ expandableTableView: ExpandableTableView, heightForRowAtExpandableIndexPath expandableIndexPath: ExpandableIndexPath) -> CGFloat {
 		
-		let schedule = ScheduleManager.sharedInstance.getSchedule(business: self.business)
+//        let schedule = ScheduleManager.sharedInstance.getSchedule(business: self.business)
 		
 		switch expandableIndexPath.row {
 		case 1:
@@ -266,19 +269,23 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
 		switch expandableIndexPath.row {
 		case 0:
 			let cell = expandableTableView.dequeueReusableCellWithIdentifier("SelectPetTableViewCell", forIndexPath: expandableIndexPath) as!SelectPetTableViewCell
+            cell.delegate = self
 			cell.petList = self.petList
-			cell.collectionView.reloadData()
 			cell.selectedPet = self.selectedPet
-			cell.delegate = self
-			selectPetDelegate = cell
+            cell.collectionView.reloadData()
+            selectPetDelegate = cell
+            
 			return cell
+            
 		case 1:
 			let cell = expandableTableView.dequeueReusableCellWithIdentifier("SelectCategoryTableViewCell", forIndexPath: expandableIndexPath) as!SelectCategoryTableViewCell
 			cell.delegate = self
 			cell.serviceCategoryList = serviceCategoryList
 			cell.selectedServiceCategory = selectedServiceCategory
-			cell.collectionView.reloadData()
+            cell.collectionView.reloadData()
+            
 			return cell
+            
 		case 2:
 			let cell = expandableTableView.dequeueReusableCellWithIdentifier("SelectServiceTableViewCell", forIndexPath: expandableIndexPath) as!SelectServiceTableViewCell
 			
@@ -296,13 +303,17 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
 			cell.business = self.business
 			cell.delegate = self
 			cell.tableView.reloadData()
+            
 			return cell
+            
 		case 3:
 			let cell = expandableTableView.dequeueReusableCellWithIdentifier("SelectProfessionalTableViewCell", forIndexPath: expandableIndexPath) as!SelectProfessionalTableViewCell
 			cell.professionalList = self.professionalList
 			cell.delegate = self
 			cell.collectionView.reloadData()
+            
 			return cell
+            
 		case 4:
 			let cell = expandableTableView.dequeueReusableCellWithIdentifier("SelectDateTableViewCell", forIndexPath: expandableIndexPath) as!SelectDateTableViewCell
 			cell.selectedPet = selectedPet
@@ -310,9 +321,12 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
 			cell.selectedProfessional = self.selectedProfessional
 			cell.reloadTimeColletion(professional: selectedProfessional)
 			cell.delegate = self
+            
 			return cell
+            
 		default:
 			break
+            
 		}
 		
 		return UITableViewCell()
@@ -361,7 +375,8 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
 	func setSelectedPet(selectedPet: Pet) {
 		self.selectedPet = selectedPet
 		showContent(indexPath: IndexPath(row: 1, section: 0))
-		self.expandableTableView.reloadData()
+        
+		expandableTableView.reloadData()
 	}
 	
 	func setSelectedCategory(selectedServiceCategory: ServiceCategory) {

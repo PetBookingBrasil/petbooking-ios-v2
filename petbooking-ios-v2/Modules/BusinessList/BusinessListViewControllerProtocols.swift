@@ -55,14 +55,7 @@ protocol BusinessListViewControllerViewProtocol: class {
 	var businessListType: BusinessListType? {get set}
     var service: ServiceCategory? {get set}
 	
-<<<<<<< HEAD
 	func updateBusinessList(businessList: BusinessList)
-=======
-	var businessListType: BusinessListType? {get set}
-	
-	func updateBusinessList(businessList: BusinessList)
-	
->>>>>>> 4aaf2d5fb0901efab15a9bd7b4907370f1bcd0b9
 	func removedFromFavorites(business: Business)
 	
 	/* Presenter -> ViewController */

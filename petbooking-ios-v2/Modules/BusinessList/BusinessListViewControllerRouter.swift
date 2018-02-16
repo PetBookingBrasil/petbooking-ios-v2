@@ -16,7 +16,6 @@ class BusinessListViewControllerRouter: BusinessListViewControllerWireframeProto
 	
     static func createModule(businessListType: BusinessListType, from service: ServiceCategory? = nil) -> UIViewController {
 		// Change to get view from storyboard if not using progammatic UI
-<<<<<<< HEAD
         
         var view: BusinessListViewControllerViewProtocol!
         
@@ -28,10 +27,6 @@ class BusinessListViewControllerRouter: BusinessListViewControllerWireframeProto
         }
         
         view.service = service
-=======
-		let view: BusinessListViewControllerViewProtocol = (businessListType == .list || businessListType == .favorites) ? BusinessListViewControllerViewController(nibName: nil, bundle: nil) : BusinessMapListViewController(nibName: nil, bundle: nil)
-		
->>>>>>> 4aaf2d5fb0901efab15a9bd7b4907370f1bcd0b9
 		view.businessListType = businessListType
 		
 		let interactor = BusinessListViewControllerInteractor()
@@ -46,11 +41,7 @@ class BusinessListViewControllerRouter: BusinessListViewControllerWireframeProto
 		return view as! UIViewController
 	}
 	
-<<<<<<< HEAD
 	func showBusinessPage(business: Business) {
-=======
-	func showBusinessPage(business:Business) {
->>>>>>> 4aaf2d5fb0901efab15a9bd7b4907370f1bcd0b9
 		let homeBusiness = HomeBusinessRouter.createModule(business: business)
 		
 		self.viewController?.navigationController?.pushViewController(homeBusiness, animated: true)

@@ -315,6 +315,12 @@
 		FF34B17C202CA55E00F00528 /* CategoryContentProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF34B17B202CA55E00F00528 /* CategoryContentProtocols.swift */; };
 		FF34B17E202CA5BA00F00528 /* CategoryContentRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF34B17D202CA5BA00F00528 /* CategoryContentRouter.swift */; };
 		FF34B180202CA5F500F00528 /* CategoryContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF34B17F202CA5F500F00528 /* CategoryContentViewController.swift */; };
+		FF518A1A202F8EC70061DE44 /* WebviewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF518A19202F8EC70061DE44 /* WebviewInteractor.swift */; };
+		FF518A1C202F8EE90061DE44 /* WebviewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF518A1B202F8EE90061DE44 /* WebviewPresenter.swift */; };
+		FF518A1E202F8EF80061DE44 /* WebviewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF518A1D202F8EF80061DE44 /* WebviewProtocols.swift */; };
+		FF518A20202F8F130061DE44 /* WebviewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF518A1F202F8F130061DE44 /* WebviewRouter.swift */; };
+		FF518A22202F8F260061DE44 /* WebviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF518A21202F8F260061DE44 /* WebviewViewController.swift */; };
+		FF518A24202F90630061DE44 /* WebviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF518A23202F90630061DE44 /* WebviewViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -655,6 +661,12 @@
 		FF34B17B202CA55E00F00528 /* CategoryContentProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryContentProtocols.swift; sourceTree = "<group>"; };
 		FF34B17D202CA5BA00F00528 /* CategoryContentRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryContentRouter.swift; sourceTree = "<group>"; };
 		FF34B17F202CA5F500F00528 /* CategoryContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryContentViewController.swift; sourceTree = "<group>"; };
+		FF518A19202F8EC70061DE44 /* WebviewInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebviewInteractor.swift; sourceTree = "<group>"; };
+		FF518A1B202F8EE90061DE44 /* WebviewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebviewPresenter.swift; sourceTree = "<group>"; };
+		FF518A1D202F8EF80061DE44 /* WebviewProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebviewProtocols.swift; sourceTree = "<group>"; };
+		FF518A1F202F8F130061DE44 /* WebviewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebviewRouter.swift; sourceTree = "<group>"; };
+		FF518A21202F8F260061DE44 /* WebviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebviewViewController.swift; sourceTree = "<group>"; };
+		FF518A23202F90630061DE44 /* WebviewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebviewViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1145,6 +1157,7 @@
 		418D099C1EB0D71200FCD5A6 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				FF518A18202F8E940061DE44 /* Webview */,
 				FF34B174202C962500F00528 /* CategoryContent */,
 				FF34B167202B7F5900F00528 /* Category */,
 				411B4E511F3E4CE600B9244B /* BusinessSearch */,
@@ -1421,6 +1434,19 @@
 			path = CategoryContent;
 			sourceTree = "<group>";
 		};
+		FF518A18202F8E940061DE44 /* Webview */ = {
+			isa = PBXGroup;
+			children = (
+				FF518A19202F8EC70061DE44 /* WebviewInteractor.swift */,
+				FF518A1B202F8EE90061DE44 /* WebviewPresenter.swift */,
+				FF518A1D202F8EF80061DE44 /* WebviewProtocols.swift */,
+				FF518A1F202F8F130061DE44 /* WebviewRouter.swift */,
+				FF518A21202F8F260061DE44 /* WebviewViewController.swift */,
+				FF518A23202F90630061DE44 /* WebviewViewController.xib */,
+			);
+			path = Webview;
+			sourceTree = "<group>";
+		};
 		FFC119A72020F74E00F26DFE /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1537,6 +1563,7 @@
 				419C89281F33A8BB00BDBE8E /* CartViewController.xib in Resources */,
 				4160D8AE1F66AB81005D361B /* Roboto-Light.ttf in Resources */,
 				41D86F811F266D7A0038ADA8 /* BusinessServicesViewController.xib in Resources */,
+				FF518A24202F90630061DE44 /* WebviewViewController.xib in Resources */,
 				414862A61F3014D000F210D8 /* ProfessionalCollectionViewCell.xib in Resources */,
 				413682CB1E9C2B2D008C463B /* LaunchScreen.storyboard in Resources */,
 				4160D8B31F66AB81005D361B /* Roboto-Thin.ttf in Resources */,
@@ -1733,6 +1760,7 @@
 				4120ED001EB0DE9F009D35B0 /* PresentationInteractor.swift in Sources */,
 				41D86F711F263AB30038ADA8 /* HomeBusinessViewController.swift in Sources */,
 				417969701F69676700C47936 /* SegmentioCellWithImageUnderLabel.swift in Sources */,
+				FF518A20202F8F130061DE44 /* WebviewRouter.swift in Sources */,
 				41F70EF61F3DE6EF0089DDE2 /* EmptyView.swift in Sources */,
 				414BB1FA1EC00722000BE2CC /* StringExtension.swift in Sources */,
 				410AA9761FA7751900A90377 /* SelectProfessionalTableViewCell.swift in Sources */,
@@ -1758,6 +1786,7 @@
 				415F73D61EBAA033000D9B14 /* ViaCepAddress.swift in Sources */,
 				419C89191F33A18700BDBE8E /* CartWebViewController.swift in Sources */,
 				41F1A04D1F3D4F1D00CBC32D /* SocialNetworkCollectionViewCell.swift in Sources */,
+				FF518A1C202F8EE90061DE44 /* WebviewPresenter.swift in Sources */,
 				4120ED2A1EB4F136009D35B0 /* ForgotPasswordRouter.swift in Sources */,
 				414862971F2E9F1900F210D8 /* JTCalendarMenuView.m in Sources */,
 				419C89181F33A18700BDBE8E /* CartWebRouter.swift in Sources */,
@@ -1773,6 +1802,7 @@
 				4127768E1F13084800EC6488 /* BusinessMapListViewController.swift in Sources */,
 				41A0BAE81ED7A8FA00671F3C /* AddPetViewControllerPresenter.swift in Sources */,
 				24B6AA392015EDF0007E3930 /* VNDJSONEncoding.swift in Sources */,
+				FF518A1A202F8EC70061DE44 /* WebviewInteractor.swift in Sources */,
 				415191E81FABE9B400CACCFE /* ScheduleToTheCartAlertViewController.swift in Sources */,
 				417969741F69676700C47936 /* Segmentio.swift in Sources */,
 				4120ED271EB4F136009D35B0 /* ForgotPasswordInteractor.swift in Sources */,
@@ -1846,6 +1876,7 @@
 				411B4E5A1F3E4CFA00B9244B /* BusinessSearchProtocols.swift in Sources */,
 				41D86F7F1F266D7A0038ADA8 /* BusinessServicesRouter.swift in Sources */,
 				4168AA4F1EB6A4DD001E2D6D /* Consumer.swift in Sources */,
+				FF518A22202F8F260061DE44 /* WebviewViewController.swift in Sources */,
 				411C84B81F3A8EF0008C6E0A /* AgendaRouter.swift in Sources */,
 				419C891C1F33A23800BDBE8E /* Cart.swift in Sources */,
 				413715871EBE7D0300258C6F /* SelectPhotoSourcePopupInteractor.swift in Sources */,
@@ -1905,6 +1936,7 @@
 				419F2B3B1FA8D07F0097C9A7 /* SelectDateTableViewCell.swift in Sources */,
 				FF34B176202C965C00F00528 /* CategoryContentSegmentioBuilder.swift in Sources */,
 				41D86F871F26A4A70038ADA8 /* Service.swift in Sources */,
+				FF518A1E202F8EF80061DE44 /* WebviewProtocols.swift in Sources */,
 				4113B2C81F3414CB007DC89F /* BusinessInformationInteractor.swift in Sources */,
 				414BB1F71EBFF4AF000BE2CC /* AlertPopupViewController.swift in Sources */,
 				4149E96F1EF8416400D6C44B /* UIFontExtension.swift in Sources */,

@@ -75,8 +75,6 @@ class SessionManager: NSObject {
 
             return 	session
 		} catch {
-			//TODO: Handle error
-			
 			return nil
 		}
 	}

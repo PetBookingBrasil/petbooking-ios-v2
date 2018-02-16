@@ -10,10 +10,10 @@ PODS:
   - Bolts/AppLinks (1.9.0):
     - Bolts/Tasks
   - Bolts/Tasks (1.9.0)
-  - Crashlytics (3.9.3):
-    - Fabric (~> 1.7.2)
+  - Crashlytics (3.10.0):
+    - Fabric (~> 1.7.3)
   - DZNEmptyDataSet (1.8.1)
-  - Fabric (1.7.2)
+  - Fabric (1.7.3)
   - FacebookCore (0.3.0):
     - Bolts (~> 1.8)
     - FBSDKCoreKit (~> 4.27)
@@ -41,11 +41,11 @@ PODS:
     - FLAnimatedImage (>= 1.0)
     - PINRemoteImage/Core
   - RateView (1.2)
-  - Realm (3.1.0):
-    - Realm/Headers (= 3.1.0)
-  - Realm/Headers (3.1.0)
-  - RealmSwift (3.1.0):
-    - Realm (= 3.1.0)
+  - Realm (3.1.1):
+    - Realm/Headers (= 3.1.1)
+  - Realm/Headers (3.1.1)
+  - RealmSwift (3.1.1):
+    - Realm (= 3.1.1)
   - SideMenu (3.1.5)
 
 DEPENDENCIES:
@@ -84,9 +84,9 @@ SPEC CHECKSUMS:
   ALLoadingView: 86aea5ee564f034296e76a49f53779e0a85fe846
   BEMCheckBox: 5ba6e37ade3d3657b36caecc35c8b75c6c2b1a4e
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
-  Crashlytics: dbb07d01876c171c5ccbdf7826410380189e452c
+  Crashlytics: a989ef242b66605577a425733797f810bd2725eb
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
-  Fabric: 9cd6a848efcf1b8b07497e0b6a2e7d336353ba15
+  Fabric: bb495bb9a7a7677c6d03a1f8b83d95bc49b47e41
   FacebookCore: 3ffa190a3f1f96cec0e44d3fc221bc322c595ffa
   FacebookLogin: 0af839ea858faef99550d16596b87b4a8e8906e6
   FBSDKCoreKit: 7c4bba2877781a131ab5d54c0a78c405d4307b62
@@ -98,8 +98,8 @@ SPEC CHECKSUMS:
   PINCache: ce36ed282031b92fc7733ffe831f474ff80fddc2
   PINRemoteImage: 4ac4011c5caefd6befd99758e09becede05d3226
   RateView: d4d12e9bb76dc23a77a56f4e5c5fb530a3f3f998
-  Realm: 09513d7c054678d65cd02ce09871f805b0d758ac
-  RealmSwift: e868fee9b10e5490ad94b6b6ecd9027944da1824
+  Realm: 42d1c38a5b1bbcc828b48a7ce702cb86fc68adf4
+  RealmSwift: d31937ca6a6ee54acde64ec839523c0a3c04924b
   SideMenu: 47dbf9e4d878062d8994aed43f6e4bf6c1fea30b
 
 PODFILE CHECKSUM: 1745f688bbfe3bbefa28256ff33ab0bd64bc3e81
