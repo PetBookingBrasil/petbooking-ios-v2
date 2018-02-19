@@ -297,20 +297,14 @@ extension BusinessInformationViewController: UICollectionViewDelegate, UICollect
 		
 		switch socialNetwork {
 		case .facebook:
-			if let url = URL(string: business.facebook) {
-				if UIApplication.shared.canOpenURL(url) {
-					UIApplication.shared.open(url, options: [:], completionHandler: nil)
-				}
-			}
-			break
-		case .instagram:
-			if let url = URL(string: business.instagram) {
-				if UIApplication.shared.canOpenURL(url) {
-					UIApplication.shared.open(url, options: [:], completionHandler: nil)
-				}
-			}
-			break
+            open(url: business.facebook, withTitle: "Facebook")
+ 
+        case .instagram:
+            open(url: business.instagram, withTitle: "Instagram")
+
 		case .twitter:
+            open(url: business.twitter, withTitle: "Twitter")
+
 			if let url = URL(string: business.twitter) {
 				if UIApplication.shared.canOpenURL(url) {
 					UIApplication.shared.open(url, options: [:], completionHandler: nil)
@@ -318,6 +312,8 @@ extension BusinessInformationViewController: UICollectionViewDelegate, UICollect
 			}
 			break
 		case .googleplus:
+            open(url: business.googleplus, withTitle: "Google+")
+
 			if let url = URL(string: business.googleplus) {
 				if UIApplication.shared.canOpenURL(url) {
 					UIApplication.shared.open(url, options: [:], completionHandler: nil)
@@ -325,20 +321,20 @@ extension BusinessInformationViewController: UICollectionViewDelegate, UICollect
 			}
 			break
 		case .snapchat:
-			if let url = URL(string: business.snapchat) {
-				if UIApplication.shared.canOpenURL(url) {
-					UIApplication.shared.open(url, options: [:], completionHandler: nil)
-				}
-			}
-			break
+            open(url: business.snapchat, withTitle: "Snapchat")
+
 		}
-		
 	}
-	
+    
+    func open(url: String, withTitle title: String) {
+        let webviewRequest = WebviewRequest(title: title, url: URL(string: url))
+        
+        let webview = WebviewRouter.createModule(from: webviewRequest)
+        self.navigationController?.pushViewController(webview, animated: true)
+    }
 }
 
 extension BusinessInformationViewController: ExpandableTableViewDelegate {
-	
 	
 	// Rows
 	func expandableTableView(_ expandableTableView: ExpandableTableView, numberOfRowsInSection section: Int) -> Int {

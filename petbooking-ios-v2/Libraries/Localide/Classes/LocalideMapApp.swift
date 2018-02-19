@@ -102,7 +102,7 @@ private extension LocalideMapApp {
     }
 
     static func launchAppWithUrlString(_ urlString: String) -> Bool {
-        guard let launchUrl = URL(string: urlString) , canOpenUrl(launchUrl) else { return false }
+        guard let launchUrl = URL(string: urlString), canOpenUrl(launchUrl) else { return false }
         return Localide.sharedManager.applicationProtocol.openURL(launchUrl)
     }
 }
