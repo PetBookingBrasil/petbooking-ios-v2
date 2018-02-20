@@ -830,22 +830,26 @@ extension PetbookingAPI {
 		}
 	}
 	
-	func getBusinessListFiltered(query: String?, categoryId: String, page: Int = 1, completion: @escaping (_ businessList: BusinessList?, _ message: String) -> Void ) {
+	func getBusinessListFiltered(text: String, locate: String, page: Int = 1, completion: @escaping (_ businessList: BusinessList?, _ message: String) -> Void ) {
 		
 		if SessionManager.sharedInstance.isConsumerValid() {
+            guard let session = SessionManager.sharedInstance.getCurrentSession() else { return }
+            
 			var token = ""
 			if let consumer = SessionManager.sharedInstance.getCurrentConsumer() {
 				token = consumer.token
 			}
 			
-			guard let session = SessionManager.sharedInstance.getCurrentSession() else {
-				return
-			}
-			
 			self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
 			self.auth_headers.updateValue("Token token=\"\(session.authToken)\"", forKey: "X-Petbooking-Session-Token")
 			
-			let parameters: Parameters = ["user_id":session.userId, "q":query ?? "","category_template_id":categoryId,"fields[businesses]":"id,name,slug,location,distance,street,street_number,imported,neighborhood,rating_average,rating_count,favorite_count,cover_image,pictures,transportation_fee,user_favorite,bitmask_values,phone,city,description,state,website,facebook_fanpage,twitter_profile,googleplus_profile,instagram,snapchat", "page[number]":page, "page[size]":20]
+            let parameters: Parameters = ["user_id": session.userId,
+                                          "q": text,
+                                          "location": locate,
+                                          "fields[businesses]": "id,name,slug,location,distance,street,street_number,imported,neighborhood,rating_average,rating_count,favorite_count,cover_image,pictures,transportation_fee,user_favorite,bitmask_values,phone,city,description,state,website,facebook_fanpage,twitter_profile,googleplus_profile,instagram,snapchat",
+                                          "page[number]": page,
+                                          "page[size]": 20]
+
 			
 			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/businesses/search", method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString), headers: auth_headers).responseJSON { (response) in
 				
@@ -865,14 +869,13 @@ extension PetbookingAPI {
 						completion(nil, "")
 					}
 				case .failure(let error):
-					print(error)
 					completion(nil, error.localizedDescription)
 				}
 			}
 		} else {
 			getConsumer { (success, message) in
 				if success {
-					self.getBusinessListFiltered(query: query,categoryId: categoryId, completion: completion)
+					self.getBusinessListFiltered(text: text, locate: locate, completion: completion)
 				} else {
 					completion(nil, "")
 				}

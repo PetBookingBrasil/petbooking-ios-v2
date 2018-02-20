@@ -1157,6 +1157,7 @@
 		418D099C1EB0D71200FCD5A6 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				FF0FE04A203B912C007F5908 /* SearchContent */,
 				FF518A18202F8E940061DE44 /* Webview */,
 				FF34B174202C962500F00528 /* CategoryContent */,
 				FF34B167202B7F5900F00528 /* Category */,
@@ -1403,6 +1404,13 @@
 				5BA4A03664D7F09153E9149A /* Pods_petbooking_ios_v2.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FF0FE04A203B912C007F5908 /* SearchContent */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SearchContent;
 			sourceTree = "<group>";
 		};
 		FF34B167202B7F5900F00528 /* Category */ = {

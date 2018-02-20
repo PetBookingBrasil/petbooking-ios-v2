@@ -24,8 +24,8 @@ class BusinessListViewControllerViewController: UIViewController, BusinessListVi
     var locationManager: CLLocationManager?
 	var businessList: BusinessList = BusinessList()
 	var businesses = [Business]()
-	var serviceCategoryList:ServiceCategoryList = ServiceCategoryList()
-	var selectedServiceCategory:ServiceCategory = ServiceCategory()
+	var serviceCategoryList: ServiceCategoryList = ServiceCategoryList()
+	var selectedServiceCategory: ServiceCategory = ServiceCategory()
 	var coordinates:CLLocationCoordinate2D = CLLocationCoordinate2D()
 	
 	override func viewDidLoad() {
@@ -185,7 +185,7 @@ extension BusinessListViewControllerViewController: UITableViewDelegate, UITable
 			cell.ratingLabel.isHidden = false
 			cell.reviewQuantityLabel.isHidden = false
 			cell.starImageView.isHidden = false
-			cell.ratingLabel.text = "\(business.rating)"
+			cell.ratingLabel.text = String(format: "%.2f", business.rating)
 			cell.reviewQuantityLabel.text = "\(business.ratingCount) Avaliações"
 		} else {
 			cell.ratingLabel.isHidden = true
