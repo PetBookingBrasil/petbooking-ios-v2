@@ -57,7 +57,7 @@ class LoginPresenter: LoginPresenterProtocol {
 		ALLoadingView.manager.hideLoadingView(withDelay: 1) {
 			self.router.didCompleteFacebookLoginWithSuccess()
 		}
-	}
+    }
 	
 	func didCompleteLoginWithError(error:Error?) {
         ALLoadingView.manager.hideLoadingView()

@@ -58,15 +58,18 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7gH-36-Q1d">
-                            <rect key="frame" x="16" y="66.5" width="343" height="1"/>
-                            <color key="backgroundColor" red="0.52156862745098043" green="0.52156862745098043" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
+                            <rect key="frame" x="16" y="77.5" width="343" height="1"/>
+                            <color key="backgroundColor" red="0.9060778022" green="0.90586847069999998" blue="0.91414600609999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="FH0-Mi-OGn"/>
                             </constraints>
                         </view>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0o8-6F-KHT">
-                            <rect key="frame" x="16" y="43.5" width="343" height="19"/>
-                            <color key="textColor" red="0.52156862749999999" green="0.52156862749999999" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <rect key="frame" x="16" y="43.5" width="343" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="n9g-us-8eU"/>
+                            </constraints>
+                            <color key="textColor" red="0.3294117647" green="0.3294117647" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
@@ -91,20 +94,23 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cxD-Z7-p60">
-                            <rect key="frame" x="16" y="134" width="343" height="1"/>
-                            <color key="backgroundColor" red="0.52156862749999999" green="0.52156862749999999" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <rect key="frame" x="16" y="156" width="343" height="1"/>
+                            <color key="backgroundColor" red="0.9060778022" green="0.90586847069999998" blue="0.91414600609999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="t9z-gq-7UA"/>
                             </constraints>
                         </view>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Cidade ou bairro" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="euU-XU-py1">
-                            <rect key="frame" x="16" y="111" width="343" height="19"/>
-                            <color key="textColor" red="0.52156862749999999" green="0.52156862749999999" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <rect key="frame" x="16" y="122" width="343" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="jZC-mU-qyc"/>
+                            </constraints>
+                            <color key="textColor" red="0.3294117647" green="0.3294117647" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Localização" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Coi-ct-3ou">
-                            <rect key="frame" x="16" y="87.5" width="343" height="15.5"/>
+                            <rect key="frame" x="16" y="98.5" width="343" height="15.5"/>
                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>

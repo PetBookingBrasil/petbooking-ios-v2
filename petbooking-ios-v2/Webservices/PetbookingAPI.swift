@@ -100,7 +100,6 @@ extension PetbookingAPI {
 							
 							if session.errors.count == 0 {
 								try SessionManager.sharedInstance.saveSession(session: session)
-								
 								completion(true, "")
 							} else {
 								completion(false, "")
@@ -129,7 +128,9 @@ extension PetbookingAPI {
 	}
 	
 	func loginWithFacebook(_ facebookAccessToken:String,  completion: @escaping (_ success: Bool, _ message: String) -> Void) {
-		let parameters: Parameters = ["data": ["type": "sessions", "attributes": ["provider": "facebook", "provider_token": facebookAccessToken]]]
+		let parameters: Parameters = ["data": ["type": "sessions",
+                                               "attributes": ["provider": "facebook",
+                                                              "provider_token": facebookAccessToken]]]
 		
 		login(parameters, completion: completion)
 	}
@@ -302,7 +303,6 @@ extension PetbookingAPI {
 				}
 			}
 		} else {
-			
 			getConsumer { (success, message) in
 				if success {
 					self.updateUser(name: name, email: email, mobile: mobile, avatar: avatar, completion: completion)
@@ -384,14 +384,11 @@ extension PetbookingAPI {
 				switch response.result{
 				case .success(let jsonObject):
 					if let dic = jsonObject as? [String: Any] {
-						
 						do {
-							
 							let user = try MTLJSONAdapter.model(of: User.self, fromJSONDictionary: dic) as! User
-							
 							try UserManager.sharedInstance.saveUser(user: user)
-							
-							completion(user, "")
+
+                            completion(user, "")
 							
 						} catch {
 							completion(nil, error.localizedDescription)
@@ -405,15 +402,13 @@ extension PetbookingAPI {
 				}
 			}
 		} else {
-			getConsumer(completion: { (success, message) in
-				
+			getConsumer { (success, message) in
 				if success {
 					self.getUserInfo(userId: userId,completion)
 				} else {
 					completion(nil, "")
 				}
-				
-			})
+			}
 		}
 	}
 }

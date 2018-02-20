@@ -88,4 +88,12 @@ class SignupInteractor: SignupInteractorProtocol {
             }
         }
     }
+    
+    internal func saveAccessType() {
+        if self.signupType == .facebook {
+            UserDefaults.didSetFacebookLogin()
+        } else {
+            UserDefaults.didSetNormalLogin()
+        }
+    }
 }

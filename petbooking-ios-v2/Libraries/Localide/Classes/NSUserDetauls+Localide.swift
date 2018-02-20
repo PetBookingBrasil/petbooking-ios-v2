@@ -12,7 +12,8 @@ internal extension UserDefaults {
 
     fileprivate static let PreferredMapAppKey = "Localide.Preferred-Map-App"
     fileprivate static let MapAppChoicesKey = "Localide.Installed-Map-Apps"
-
+    fileprivate static let FacebookLoginKey = "Facebook.Login"
+    
     internal class func didSetPrefferedMapApp(fromChoices choices: [LocalideMapApp]) -> Bool {
         return (self.preferredMapApp(fromChoices: choices) != nil)
     }
@@ -40,5 +41,17 @@ internal extension UserDefaults {
 
     fileprivate class func previousMapAppChoices() -> [LocalideMapApp] {
         return (UserDefaults.standard.object(forKey: UserDefaults.MapAppChoicesKey) as! [Int]).map({ return LocalideMapApp(rawValue: $0)! })
+    }
+    
+    internal class func didSetNormalLogin() {
+        UserDefaults.standard.removeObject(forKey: UserDefaults.FacebookLoginKey)
+    }
+    
+    internal class func didSetFacebookLogin() {
+        UserDefaults.standard.set(true, forKey: UserDefaults.FacebookLoginKey)
+    }
+    
+    internal class func isFacebookLogin() -> Bool {
+        return UserDefaults.standard.bool(forKey: UserDefaults.FacebookLoginKey)
     }
 }

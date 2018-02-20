@@ -1157,12 +1157,16 @@
 		418D099C1EB0D71200FCD5A6 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				FF0FE04A203B912C007F5908 /* SearchContent */,
-				FF518A18202F8E940061DE44 /* Webview */,
+				411C84AE1F3A8ED3008C6E0A /* Agenda */,
+				41A0BAE01ED7A8E600671F3C /* AddPet */,
+				414BB1EC1EBFF49A000BE2CC /* AlertPopup */,
+				4120ED111EB38629009D35B0 /* Login */,
+				4120ED2F1EB529EC009D35B0 /* Signup */,
+				4120ED201EB4F11E009D35B0 /* ForgotPassword */,
+				41AAB4DF1EF1F98300E52857 /* HomeContent */,
 				FF34B174202C962500F00528 /* CategoryContent */,
 				FF34B167202B7F5900F00528 /* Category */,
 				411B4E511F3E4CE600B9244B /* BusinessSearch */,
-				411C84AE1F3A8ED3008C6E0A /* Agenda */,
 				4113B2C11F3414B0007DC89F /* BusinessInformation */,
 				419C890D1F33A16B00BDBE8E /* CartViewController */,
 				419C890E1F33A16B00BDBE8E /* CartWebViewController */,
@@ -1170,15 +1174,10 @@
 				41D86F751F266D640038ADA8 /* BusinessServices */,
 				41D86F661F263A9B0038ADA8 /* HomeBusiness */,
 				4149E9701EF961DA00D6C44B /* BusinessList */,
-				41AAB4DF1EF1F98300E52857 /* HomeContent */,
-				41A0BAE01ED7A8E600671F3C /* AddPet */,
 				418DAA341ED1257B006265CF /* MyPets */,
 				418DAA231ECE7E92006265CF /* SideMenu */,
-				414BB1EC1EBFF49A000BE2CC /* AlertPopup */,
 				413715801EBE7CEA00258C6F /* SelectPhotoSourcePopup */,
-				4120ED2F1EB529EC009D35B0 /* Signup */,
-				4120ED201EB4F11E009D35B0 /* ForgotPassword */,
-				4120ED111EB38629009D35B0 /* Login */,
+				FF518A18202F8E940061DE44 /* Webview */,
 				418D099D1EB0D7B800FCD5A6 /* Presentation */,
 			);
 			path = Modules;
@@ -1404,13 +1403,6 @@
 				5BA4A03664D7F09153E9149A /* Pods_petbooking_ios_v2.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		FF0FE04A203B912C007F5908 /* SearchContent */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = SearchContent;
 			sourceTree = "<group>";
 		};
 		FF34B167202B7F5900F00528 /* Category */ = {

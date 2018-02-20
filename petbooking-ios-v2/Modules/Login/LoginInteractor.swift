@@ -24,6 +24,8 @@ class LoginInteractor: LoginInteractorProtocol {
 		if consumer.isValid() {
 			PetbookingAPI.sharedInstance.loginWithEmail(email, password: password) { (success, message) in
 				if success {
+                    UserDefaults.didSetNormalLogin()
+                    self.loadUserInfo()
 					self.presenter?.didCompleteLoginWithSuccess()
 				} else {
 					self.presenter?.didCompleteLoginWithError(error: nil)
@@ -34,6 +36,8 @@ class LoginInteractor: LoginInteractorProtocol {
 				if success {
 					PetbookingAPI.sharedInstance.loginWithEmail(email, password: password) { (success, message) in
 						if success {
+                            UserDefaults.didSetNormalLogin()
+                            self.loadUserInfo()
 							self.presenter?.didCompleteLoginWithSuccess()
 						} else {
 							self.presenter?.didCompleteLoginWithError(error: nil)
@@ -61,6 +65,8 @@ class LoginInteractor: LoginInteractorProtocol {
 				if let _ = SessionManager.sharedInstance.getCurrentConsumer()?.isValid() {
 					PetbookingAPI.sharedInstance.loginWithFacebook(accessToken.authenticationToken, completion: { (success, message) in
 						if success {
+                            UserDefaults.didSetFacebookLogin()
+                            self.loadUserInfo()
 							self.presenter?.didCompleteFacebookLoginWithSuccess()
 						} else {
 							self.presenter?.registerNewUserWithFacebookData()
@@ -71,6 +77,8 @@ class LoginInteractor: LoginInteractorProtocol {
 						if success {
 							PetbookingAPI.sharedInstance.loginWithFacebook(accessToken.authenticationToken) { (success, message) in
 								if success {
+                                    UserDefaults.didSetFacebookLogin()
+                                    self.loadUserInfo()
 									self.presenter?.didCompleteFacebookLoginWithSuccess()
 								} else {
 									self.presenter?.registerNewUserWithFacebookData()
@@ -84,6 +92,12 @@ class LoginInteractor: LoginInteractorProtocol {
 			}
 		}
 	}
+    
+    func loadUserInfo() {
+        guard let userId = SessionManager.sharedInstance.getCurrentSession()?.userId else { return }
+        
+        PetbookingAPI.sharedInstance.getUserInfo(userId: userId) { (_, _) in }
+    }
 	
 	func didTapSignupButton() { }
 	

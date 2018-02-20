@@ -74,9 +74,15 @@ class SignupViewController: UIViewController, SignupViewProtocol {
 					
         switch signupType! {
         case .editProfile:
-            passwordTextField.isHidden = true
-            passwordSeparatorView.isHidden = true
-            viewPasswordButton.isHidden = true
+            if UserDefaults.isFacebookLogin() {
+                leadingPhotoConstraint.constant = 16
+                topContainerView.isHidden = false
+                bottomContainerView.isHidden = false
+            } else {
+                passwordTextField.isHidden = true
+                passwordSeparatorView.isHidden = true
+                viewPasswordButton.isHidden = true
+            }
             
             self.title = "Editar Informações"
             
