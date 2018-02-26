@@ -16,19 +16,20 @@ import RealmSwift
 class BusinessServicesViewController: ExpandableTableViewController, BusinessServicesViewProtocol, ScheduleToTheCartAlertDelegate {
 	
 	var presenter: BusinessServicesPresenterProtocol?
+    var service: ServiceCategory?
 	
 	@IBOutlet weak var goToChartButton: UIButton!
 	
-	var business:Business = Business()
-	var petList:PetList = PetList()
-	var serviceCategoryList:ServiceCategoryList = ServiceCategoryList()
-	var serviceList:ServiceList = ServiceList()
-	var selectedPet:Pet = Pet()
-	var selectedServiceCategory:ServiceCategory = ServiceCategory()
-	var selectedService:Service = Service()
+	var business: Business = Business()
+	var petList: PetList = PetList()
+	var serviceCategoryList: ServiceCategoryList = ServiceCategoryList()
+	var serviceList: ServiceList = ServiceList()
+	var selectedPet: Pet = Pet()
+	var selectedServiceCategory: ServiceCategory = ServiceCategory()
+	var selectedService: Service = Service()
 	var selectedSubServices = [SubService]()
-	var professionalList:ProfessionalList! = ProfessionalList()
-	var selectedProfessional:Professional = Professional()
+	var professionalList: ProfessionalList! = ProfessionalList()
+	var selectedProfessional: Professional = Professional()
 	var currentIndexPath: ExpandableIndexPath = ExpandableIndexPath(forSection: 0, forRow: 0, forSubRow: 0)
 	
 	// Delegates
@@ -93,6 +94,10 @@ class BusinessServicesViewController: ExpandableTableViewController, BusinessSer
 		ALLoadingView.manager.hideLoadingView()
 		
 		self.serviceCategoryList = serviceCategoryList
+        
+        if let service = self.service {
+            self.selectedServiceCategory = service
+        }
 		
 		expandableTableView.reloadData()
 	}
@@ -102,7 +107,6 @@ class BusinessServicesViewController: ExpandableTableViewController, BusinessSer
 		self.serviceList = serviceList
 		
 		expandableTableView.reloadData()
-		//showContent(indexPath: IndexPath(row: 2, section: 0))
 	}
 	
 	@IBAction func goToCart(_ sender: Any) {
@@ -185,7 +189,7 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
 			}
 			
 		case 1:
-			if !selectedServiceCategory.id.isBlank{
+			if !selectedServiceCategory.id.isBlank {
 				cell.contentView.isHidden = false
 				cell.titleLabel.text = selectedServiceCategory.name
 				cell.iconImageView.image = UIImage(named:selectedServiceCategory.slug)
@@ -374,10 +378,22 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
 	
 	func setSelectedPet(selectedPet: Pet) {
 		self.selectedPet = selectedPet
-		showContent(indexPath: IndexPath(row: 1, section: 0))
         
-		expandableTableView.reloadData()
+        if self.service == nil {
+            showContent(indexPath: IndexPath(row: 1, section: 0))
+            expandableTableView.reloadData()
+
+        } else {
+            findCategory()
+            setSelectedCategory(selectedServiceCategory: self.selectedServiceCategory)
+        }
 	}
+    
+    func findCategory() {
+        for category in self.serviceCategoryList.categories where category.name == self.service!.name {
+            self.selectedServiceCategory = category
+        }
+    }
 	
 	func setSelectedCategory(selectedServiceCategory: ServiceCategory) {
 		self.selectedServiceCategory = selectedServiceCategory

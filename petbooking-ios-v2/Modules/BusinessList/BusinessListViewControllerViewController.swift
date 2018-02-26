@@ -38,19 +38,16 @@ class BusinessListViewControllerViewController: UIViewController, BusinessListVi
 
         case .list, .map:
 			locationManager = CLLocationManager()
-			
 			locationManager?.delegate = self
-			// Ask for Authorisation from the User.
-			self.locationManager?.requestAlwaysAuthorization()
-			
-			// For use in foreground
+
+            self.locationManager?.requestAlwaysAuthorization()
 			self.locationManager?.requestWhenInUseAuthorization()
-			
-			PetbookingAPI.sharedInstance.getCategoryList { (serviceCategoryList, _) in
-				guard let serviceCategoryList = serviceCategoryList else { return }
-				
-				self.serviceCategoryList = serviceCategoryList
-			}
+            
+            PetbookingAPI.sharedInstance.getCategoryList { (serviceCategoryList, _) in
+                guard let serviceCategoryList = serviceCategoryList else { return }
+                
+                self.serviceCategoryList = serviceCategoryList
+            }
 		}
 		
         tableView.register(UINib(nibName: "BusinessTableViewCell", bundle: nil), forCellReuseIdentifier: "BusinessTableViewCell")
@@ -78,7 +75,7 @@ class BusinessListViewControllerViewController: UIViewController, BusinessListVi
 		}
 	}
 		
-	func updateBusinessList(businessList:BusinessList) {
+	func updateBusinessList(businessList: BusinessList) {
 		
 		if businessList.businesses.count > 0 {
 			self.businessList = businessList
@@ -129,7 +126,7 @@ extension BusinessListViewControllerViewController: CLLocationManagerDelegate {
 		let locationObj = locationArray.lastObject as! CLLocation
 		self.coordinates = locationObj.coordinate
 		
-		presenter?.getBusinessByCoordinates(coordinates: self.coordinates, service: service, page:1)
+		presenter?.getBusinessByCoordinates(coordinates: self.coordinates, service: service, page: 1)
 	}
 }
 

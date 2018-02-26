@@ -13,6 +13,7 @@ import UIKit
 class HomeBusinessViewController: UIViewController, HomeBusinessViewProtocol, UIScrollViewDelegate {
     
     var presenter: HomeBusinessPresenterProtocol?
+    var service: ServiceCategory?
     
     @IBOutlet weak var segmentioView: Segmentio!
     @IBOutlet weak var containerView: UIView!
@@ -111,7 +112,7 @@ class HomeBusinessViewController: UIViewController, HomeBusinessViewProtocol, UI
     }
     
     fileprivate func preparedViewControllers() -> [UIViewController] {
-        let listViewController = BusinessServicesRouter.createModule(business: self.business)
+        let listViewController = BusinessServicesRouter.createModule(with: business, from: service)
         let mapViewController = BusinessInformationRouter.createModule(business: self.business)
         
         return [listViewController, mapViewController]

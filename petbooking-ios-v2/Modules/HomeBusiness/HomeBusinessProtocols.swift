@@ -24,4 +24,5 @@ protocol HomeBusinessInteractorProtocol: class {
 //MARK: View -
 protocol HomeBusinessViewProtocol: class {
     var presenter: HomeBusinessPresenterProtocol?  { get set }
+    var service: ServiceCategory? { get set }
 }

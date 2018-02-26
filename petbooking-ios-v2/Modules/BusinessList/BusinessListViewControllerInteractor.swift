@@ -11,6 +11,10 @@
 import UIKit
 import CoreLocation
 
+enum BusinessListType {
+    case list, map, favorites
+}
+
 class BusinessListViewControllerInteractor: BusinessListViewControllerInteractorInputProtocol {
 	
 	weak var presenter: BusinessListViewControllerInteractorOutputProtocol?
@@ -57,8 +61,4 @@ class BusinessListViewControllerInteractor: BusinessListViewControllerInteractor
 			}
 		}
 	}
-}
-
-enum BusinessListType {
-	case list, map, favorites
 }

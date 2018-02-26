@@ -707,6 +707,7 @@ extension PetbookingAPI {
 extension PetbookingAPI {
     
     func getBusinessList(coordinate: CLLocationCoordinate2D, service: ServiceCategory?, page: Int = 1, completion: @escaping (_ businessList: BusinessList?, _ message: String) -> Void ) {
+        
         if let service = service {
             getBusinessList(from: service, in: coordinate, page: page, completion: completion)
         } else {
@@ -895,34 +896,23 @@ extension PetbookingAPI {
 				
 				switch response.result{
 				case .success(let jsonObject):
-					if let dic = jsonObject as? [String: Any] {
-						
-						do {
-							completion(true, "")
-						} catch {
-							completion(false, error.localizedDescription)
-						}
-					} else {
+					if let _ = jsonObject as? [String: Any] {
+                        completion(true, "")
+                    } else {
 						completion(false, "")
 					}
 				case .failure(let error):
 					completion(false, error.localizedDescription)
 				}
-				
 			}
-		} else
-		{
-			getConsumer(completion: { (success, message) in
-				
+		} else {
+			getConsumer { (success, message) in
 				if success {
 					self.removeBusinessFromFavorite(business: business, completion: completion)
 				} else {
-					
 					completion(false, "")
-					
 				}
-				
-			})
+			}
 		}
 	}
 

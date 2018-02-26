@@ -38,6 +38,7 @@ protocol BusinessServicesInteractorProtocol: class {
 protocol BusinessServicesViewProtocol: class {
     
     var presenter: BusinessServicesPresenterProtocol?  { get set }
+    var service: ServiceCategory? { get set }
     
     func loadPets(petList:PetList)
     func loadServices(serviceList:ServiceList)

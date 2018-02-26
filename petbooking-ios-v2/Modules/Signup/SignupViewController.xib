@@ -241,7 +241,7 @@
                                 <constraint firstItem="L2Q-Fb-rTP" firstAttribute="top" secondItem="iPN-VT-Zyk" secondAttribute="bottom" constant="8" id="zcV-zQ-jFn"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z68-hS-Jl7">
+                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z68-hS-Jl7">
                             <rect key="frame" x="0.0" y="145" width="375" height="443"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0hq-Ja-unS">

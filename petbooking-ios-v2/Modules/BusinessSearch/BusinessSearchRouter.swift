@@ -29,7 +29,7 @@ class BusinessSearchRouter: BusinessSearchWireframeProtocol {
     }
 	
 	func showBusinessPage(business: Business) {		
-		let homeBusiness = HomeBusinessRouter.createModule(business: business)
+		let homeBusiness = HomeBusinessRouter.createModule(with: business, from: nil)
 		
 		self.viewController?.navigationController?.pushViewController(homeBusiness, animated: true)
 	}

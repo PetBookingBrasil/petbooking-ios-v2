@@ -41,13 +41,11 @@ class SelectCategoryTableViewCell: UITableViewCell {
 extension SelectCategoryTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 	
 	func numberOfSections(in collectionView: UICollectionView) -> Int {
-		
 		return 1
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		
-		return serviceCategoryList.categories.count
+        return serviceCategoryList.categories.count
 	}
 	
 	func collectionView(_ collectionView: UICollectionView,
@@ -76,8 +74,6 @@ extension SelectCategoryTableViewCell: UICollectionViewDelegate, UICollectionVie
 		return 1.0
 	}
 	
-
-	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		
 		
@@ -98,13 +94,11 @@ extension SelectCategoryTableViewCell: UICollectionViewDelegate, UICollectionVie
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		
 		let service = serviceCategoryList.categories[indexPath.item]
 		
 		selectedServiceCategory = service
 
 		delegate?.setSelectedCategory(selectedServiceCategory: selectedServiceCategory)
-		
 	}
 	
 }
