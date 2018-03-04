@@ -44,10 +44,10 @@ class BusinessInformationViewController: ExpandableTableViewController, Business
 	@IBOutlet weak var distanceView: UIView!
 	@IBOutlet weak var socialNetworksCollectionView: UICollectionView!
 	
-	var business:Business! = Business()
-	var reviewList:ReviewList = ReviewList()
+	var business: Business! = Business()
+	var reviewList: ReviewList = ReviewList()
 	
-	var socialNetworks:[SocialNetworkEnum] = [SocialNetworkEnum]()
+	var socialNetworks: [SocialNetworkEnum] = [SocialNetworkEnum]()
 	
 	var presenter: BusinessInformationPresenterProtocol?
 	
@@ -58,7 +58,6 @@ class BusinessInformationViewController: ExpandableTableViewController, Business
 		if let url = URL(string: business.photoUrl) {
 			businessImageView.pin_setImage(from: url)
 		}
-		
 		
 		businessNameLabel.text = business.name
 		descriptionLabel.text = business.businessDescription
@@ -90,8 +89,7 @@ class BusinessInformationViewController: ExpandableTableViewController, Business
 		expandableTableView.expandableDelegate = self
 		expandableTableView.register(UINib(nibName: "ReviewsHeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "ReviewsHeaderTableViewCell")
 		expandableTableView.register(UINib(nibName: "ReviewCommentSubRowTableViewCell", bundle: nil), forCellReuseIdentifier: "ReviewCommentSubRowTableViewCell")
-		
-		
+
 		let coordinateRegion = MKCoordinateRegionMakeWithDistance(business.location, 1000, 1000)
 		
 		mapView.setRegion(coordinateRegion, animated: false)
@@ -101,10 +99,9 @@ class BusinessInformationViewController: ExpandableTableViewController, Business
 		annotation.coordinate = CLLocationCoordinate2D(latitude: business.location.latitude, longitude: business.location.longitude)
 		mapView.addAnnotation(annotation)
 		
-		
 		socialNetworksCollectionView.register(UINib(nibName: "SocialNetworkCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "SocialNetworkCollectionViewCell")
 		
-		let cellSize = CGSize(width:20 , height:20)
+		let cellSize = CGSize(width:40 , height:40)
 		let layout = UICollectionViewFlowLayout()
 		layout.itemSize = cellSize
 		layout.scrollDirection = .horizontal
@@ -137,7 +134,6 @@ class BusinessInformationViewController: ExpandableTableViewController, Business
 		}
 		
 		socialNetworksCollectionView.reloadData()
-		
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -166,8 +162,7 @@ class BusinessInformationViewController: ExpandableTableViewController, Business
 			
 		}
 		
-		if business.phone.isBlank
-		{
+		if business.phone.isBlank {
 			contactViewHeightConstraint.constant = 0
 		}
 		
@@ -187,39 +182,22 @@ class BusinessInformationViewController: ExpandableTableViewController, Business
 	}
 	
 	@IBAction func addToFavorites(_ sender: Any) {
-		
 		let imageName = !business.isFavorited() ? "heartFilledIcon" : "heartIcon"
 		favoriteButton.setBackgroundImage(UIImage(named:imageName), for: .normal)
 		
 		if business.isFavorited() {
-			
-			PetbookingAPI.sharedInstance.removeBusinessFromFavorite(business: business, completion: { (success, message) in
-				
+			PetbookingAPI.sharedInstance.removeBusinessFromFavorite(business: business) { (success, message) in
 				if success {
-					
 					self.business.favoriteId = 0
 				}
-				
-			})
-			
-		} else {
-			
-			PetbookingAPI.sharedInstance.addBusinessToFavorite(business: business) { (success, message) in
-				
-				if success {
-					//business.isFavorite = true
-				}
-				
 			}
+		} else {
+			PetbookingAPI.sharedInstance.addBusinessToFavorite(business: business) { (success, message) in }
 		}
-		
 	}
 	
 	@IBAction func callPhoneNumber(_ sender: Any) {
-		
-		guard let business = self.business else {
-			return
-		}
+		guard let business = self.business else { return }
 		
 		let localCode = PhoneCodesConstants.getLocalCodeforCarrier()
 		
@@ -230,49 +208,36 @@ class BusinessInformationViewController: ExpandableTableViewController, Business
 				UIApplication.shared.openURL(url)
 			}
 		}
-		
 	}
-	
 }
 
 extension BusinessInformationViewController: MKMapViewDelegate {
 	
 	func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-		
-		if !(annotation is MKPointAnnotation) {
-			return nil
-		}
+		if !(annotation is MKPointAnnotation) { return nil }
 		
 		var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "demo")
-		if annotationView == nil {
+		
+        if annotationView == nil {
 			annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "demo")
 			annotationView!.canShowCallout = true
-		}
-		else {
+		} else {
 			annotationView!.annotation = annotation
 		}
 		
 		annotationView!.image = UIImage(named: "business_pin")
 		
 		return annotationView
-		
 	}
 	
 	@IBAction func openMapsOptions(_ sender: Any) {
-		
 		
 		let location = business.location
 		
 		Localide.sharedManager.promptForDirections(toLocation: location) { (usedApp, fromMemory, openedLinkSuccessfully) in
 			print("The user picked \(usedApp.appName)")
 		}
-		
-		
 	}
-		
-		
-
-	
 }
 
 extension BusinessInformationViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -310,8 +275,8 @@ extension BusinessInformationViewController: UICollectionViewDelegate, UICollect
 					UIApplication.shared.open(url, options: [:], completionHandler: nil)
 				}
 			}
-			break
-		case .googleplus:
+
+        case .googleplus:
             open(url: business.googleplus, withTitle: "Google+")
 
 			if let url = URL(string: business.googleplus) {
@@ -319,10 +284,9 @@ extension BusinessInformationViewController: UICollectionViewDelegate, UICollect
 					UIApplication.shared.open(url, options: [:], completionHandler: nil)
 				}
 			}
-			break
+            
 		case .snapchat:
             open(url: business.snapchat, withTitle: "Snapchat")
-
 		}
 	}
     
@@ -340,6 +304,7 @@ extension BusinessInformationViewController: ExpandableTableViewDelegate {
 	func expandableTableView(_ expandableTableView: ExpandableTableView, numberOfRowsInSection section: Int) -> Int {
 		return reviewList.reviews.count
 	}
+    
 	func expandableTableView(_ expandableTableView: ExpandableTableView, cellForRowAtExpandableIndexPath expandableIndexPath: ExpandableIndexPath) -> UITableViewCell {
 		
 		let cell = expandableTableView.dequeueReusableCellWithIdentifier("ReviewsHeaderTableViewCell", forIndexPath: expandableIndexPath) as!ReviewsHeaderTableViewCell
@@ -364,22 +329,20 @@ extension BusinessInformationViewController: ExpandableTableViewDelegate {
 	}
 	
 	func expandableTableView(_ expandableTableView: ExpandableTableView, heightForRowAtExpandableIndexPath expandableIndexPath: ExpandableIndexPath) -> CGFloat {
-		
-
-		
 		return 60
 	}
+    
 	func expandableTableView(_ expandableTableView: ExpandableTableView, estimatedHeightForRowAtExpandableIndexPath expandableIndexPath: ExpandableIndexPath) -> CGFloat {
 		return 50
 	}
-	func expandableTableView(_ expandableTableView: ExpandableTableView, didSelectRowAtExpandableIndexPath expandableIndexPath: ExpandableIndexPath) {
-		
-	}
+    
+	func expandableTableView(_ expandableTableView: ExpandableTableView, didSelectRowAtExpandableIndexPath expandableIndexPath: ExpandableIndexPath) { }
 	
 	// Subrows
 	func expandableTableView(_ expandableTableView: ExpandableTableView, numberOfSubRowsInRowAtExpandableIndexPath expandableIndexPath: ExpandableIndexPath) -> Int {
 		return 1
 	}
+    
 	func expandableTableView(_ expandableTableView: ExpandableTableView, subCellForRowAtExpandableIndexPath expandableIndexPath: ExpandableIndexPath) -> UITableViewCell {
 
 		let cell = expandableTableView.dequeueReusableCellWithIdentifier("ReviewCommentSubRowTableViewCell", forIndexPath: expandableIndexPath) as!ReviewCommentSubRowTableViewCell
@@ -390,24 +353,19 @@ extension BusinessInformationViewController: ExpandableTableViewDelegate {
 		
 		return cell
 	}
+    
 	func expandableTableView(_ expandableTableView: ExpandableTableView, heightForSubRowAtExpandableIndexPath expandableIndexPath: ExpandableIndexPath) -> CGFloat {
-		
 		return 60
 	}
 	
 	func expandableTableView(_ expandableTableView: ExpandableTableView, estimatedHeightForSubRowAtExpandableIndexPath expandableIndexPath: ExpandableIndexPath) -> CGFloat {
 		return 60
 	}
-	func expandableTableView(_ expandableTableView: ExpandableTableView, didSelectSubRowAtExpandableIndexPath expandableIndexPath: ExpandableIndexPath) {
-		
-	}
+	func expandableTableView(_ expandableTableView: ExpandableTableView, didSelectSubRowAtExpandableIndexPath expandableIndexPath: ExpandableIndexPath) { }
 	
 	func showContent(indexPath: IndexPath) {
 		unexpandAllCells()
 		
 		tableView(expandableTableView, didSelectRowAt: indexPath)
-		
 	}
-	
 }
-

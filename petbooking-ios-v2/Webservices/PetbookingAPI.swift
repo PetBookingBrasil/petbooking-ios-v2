@@ -550,8 +550,8 @@ extension PetbookingAPI {
                                                             "birth_date": pet.birthday,
                                                             "coat_type": pet.coatSize,
                                                             "castrated": pet.castrated,
-                                                            "coat_colors": [pet.coatColor],
-                                                            "chip_id": pet.chipNumber,
+//                                                            "coat_colors": [pet.coatColor],
+//                                                            "chip_id": pet.chipNumber,
                                                             "photo": pet.photoUrl]]]
             
 			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/users/\(userId)/pets", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: auth_headers).responseJSON { (response) in
@@ -796,7 +796,7 @@ extension PetbookingAPI {
 			
 			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/category-templates/\(service.id)/businesses", method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString), headers: auth_headers).responseJSON { (response) in
 				
-				switch response.result{
+				switch response.result {
 				case .success(let jsonObject):
 					if let dic = jsonObject as? [String: Any] {
 						do {
@@ -1343,7 +1343,7 @@ extension PetbookingAPI {
 			
 			let todayString = dateFormatter.string(from: today)
 			
-			let parameters: Parameters = ["date":todayString, "page[number]":page, "page[size]":200]
+			let parameters: Parameters = ["date": todayString, "page[number]": page, "page[size]": 200]
 			
 			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/users/\(userId)/schedules", method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString), headers: auth_headers).responseJSON { (response) in
 				

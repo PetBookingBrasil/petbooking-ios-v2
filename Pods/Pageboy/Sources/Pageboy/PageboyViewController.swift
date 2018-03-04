@@ -152,14 +152,15 @@ open class PageboyViewController: UIViewController {
         }
     }
     /// Whether the view controllers in the page view controller are currently updating.
-    private var isUpdatingViewControllers: Bool = false
+    internal var isUpdatingViewControllers: Bool = false
 
-    /// The transition to use when animating scrolls between pages.
-    public var transition = Transition.default
+    /// Custom transition to use when animating scrolls between pages.
+    /// Setting this to `nil` will revert to using the standard UIPageViewController animation.
+    public var transition: Transition?
     /// The display link for transitioning.
     internal var transitionDisplayLink: CADisplayLink?
     /// The active transition operation.
-    internal var activeTransition: TransitionOperation?
+    internal var activeTransitionOperation: TransitionOperation?
     
     /// The number of view controllers in the page view controller.
     internal var viewControllerCount: Int?
@@ -180,23 +181,7 @@ open class PageboyViewController: UIViewController {
             guard let currentIndex = self.currentIndex else {
                 return
             }
-
-            #if os(iOS)
-            UIView.animate(withDuration: 0.3) { 
-                self.setNeedsStatusBarAppearanceUpdate()
-            }
-            #endif
-            
-            // ensure position keeps in sync
-            self.currentPosition = CGPoint(x: self.navigationOrientation == .horizontal ? CGFloat(currentIndex) : 0.0,
-                                           y: self.navigationOrientation == .vertical ? CGFloat(currentIndex) : 0.0)
-            let direction = NavigationDirection.forPosition(CGFloat(currentIndex),
-                                                            previous: CGFloat(oldValue ?? currentIndex))
-            self.delegate?.pageboyViewController(self,
-                                                 didScrollToPageAt: currentIndex,
-                                                 direction: direction,
-                                                 animated: self.isScrollingAnimated)
-
+            update(forNew: currentIndex, from: oldValue)
         }
     }
     /// The relative page position that the page view controller is currently at.
@@ -219,7 +204,7 @@ open class PageboyViewController: UIViewController {
     public let autoScroller = PageboyAutoScroller()
     
     /// Whether to show the built-in UIPageViewController page control.
-    @available(*, deprecated: 1.2.0, message: "Temporarily unavailable due to iOS 11.2 UIPageViewController issue. See here: https://github.com/uias/Pageboy/issues/128")
+    @available(*, unavailable, message: "Temporarily unavailable due to iOS 11.2 UIPageViewController issue. See here: https://github.com/uias/Pageboy/issues/128")
     public var showsPageControl: Bool = false
     
     // MARK: Lifecycle
@@ -262,13 +247,9 @@ public extension PageboyViewController {
             if rawIndex != self.currentIndex {
                 
                 // guard against invalid page indexing
-                guard rawIndex >= 0 && rawIndex < viewControllerCount ?? 0 else {
+                guard rawIndex >= 0 && rawIndex < viewControllerCount ?? 0, let viewController = viewController(at: rawIndex) else {
                     return false
-                }
-                guard let viewController = viewController(at: rawIndex) else {
-                    return false
-                }
-                
+                }                
                 
                 self.pageViewController(pageViewController,
                                         willTransitionTo: [viewController],
@@ -304,6 +285,7 @@ public extension PageboyViewController {
                                       to: rawIndex,
                                       direction: direction,
                                       animated: animated,
+                                      async: true,
                                       completion: transitionCompletion)
                 
                 return true
@@ -355,34 +337,23 @@ public extension PageboyViewController {
         
         return direction
     }
-    
-    internal func updateViewControllers(to viewControllers: [UIViewController],
-                                        from fromIndex: PageIndex = 0,
-                                        to toIndex: PageIndex = 0,
-                                        direction: NavigationDirection = .forward,
-                                        animated: Bool,
-                                        completion: TransitionOperation.Completion?) {
-        guard let pageViewController = self.pageViewController, !isUpdatingViewControllers else {
-            return
-        }
+
+    private func update(forNew currentIndex: PageIndex, from oldIndex: PageIndex?) {
         
-        targetIndex = toIndex
-        isUpdatingViewControllers = true
-        performTransition(from: fromIndex,
-                          to: toIndex,
-                          with: direction,
-                          animated: animated,
-                          completion: completion ?? { _ in })
-        pageViewController.setViewControllers(viewControllers,
-                                              direction: direction.pageViewControllerNavDirection,
-                                              animated: false,
-                                              completion:
-            { (finished) in
-                self.isUpdatingViewControllers = false
-                
-                if !animated {
-                    completion?(finished)
-                }
-        })
+        #if os(iOS)
+            UIView.animate(withDuration: 0.3) {
+                self.setNeedsStatusBarAppearanceUpdate()
+            }
+        #endif
+        
+        // ensure position keeps in sync
+        self.currentPosition = CGPoint(x: self.navigationOrientation == .horizontal ? CGFloat(currentIndex) : 0.0,
+                                       y: self.navigationOrientation == .vertical ? CGFloat(currentIndex) : 0.0)
+        let direction = NavigationDirection.forPosition(CGFloat(currentIndex),
+                                                        previous: CGFloat(oldIndex ?? currentIndex))
+        self.delegate?.pageboyViewController(self,
+                                             didScrollToPageAt: currentIndex,
+                                             direction: direction,
+                                             animated: self.isScrollingAnimated)
     }
 }

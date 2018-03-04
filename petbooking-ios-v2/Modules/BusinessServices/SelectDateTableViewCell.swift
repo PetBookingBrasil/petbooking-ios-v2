@@ -17,7 +17,7 @@ class SelectDateTableViewCell: UITableViewCell {
 	@IBOutlet weak var tableView: UITableView!
 	@IBOutlet weak var calendarMenuView: JTCalendarMenuView!
 	@IBOutlet weak var calendar: JTHorizontalCalendarView!
-	var calendarManager:JTCalendarManager!
+	var calendarManager: JTCalendarManager!
 	
 	var dateFormatter = DateFormatter()
 	var dateSelected = Date()
@@ -72,12 +72,10 @@ class SelectDateTableViewCell: UITableViewCell {
 			tableView.reloadData()
 			return
 		}
+        
 		availableDates = times
 		tableView.reloadData()
-		
-		
 	}
-    
 }
 
 extension SelectDateTableViewCell:JTCalendarDelegate {
@@ -94,8 +92,9 @@ extension SelectDateTableViewCell:JTCalendarDelegate {
 		
 		return isProfissionalAvailable
 	}
-	
+    
 	func calendar(_ calendar: JTCalendarManager!, prepareDayView dayView: UIView!) {
+
 		
 		// Today
 		let dayView = dayView as! JTCalendarDayView
@@ -107,21 +106,18 @@ extension SelectDateTableViewCell:JTCalendarDelegate {
 			dayView.circleView.backgroundColor = UIColor(hex: "E4002B")
 			dayView.textLabel.textColor = UIColor.white
 			dayView.textLabel.font = UIFont.robotoMedium(ofSize: 17)
-		}	else{
+		} else {
 			dayView.circleView.isHidden = true
 			dayView.textLabel.textColor = isProfissionalAvailable ? UIColor(hex: "515151") : UIColor.lightGray
 			dayView.textLabel.font = UIFont.robotoMedium(ofSize: 17)
 		}
-		
 	}
 	
-	func calendar(_ calendar: JTCalendarManager!, didTouchDayView dayView: UIView!) {
+    func calendar(_ calendar: JTCalendarManager!, didTouchDayView dayView: (UIView & JTCalendarDay)!) {
 		
 		let dayView = dayView as! JTCalendarDayView
 		
-		if !self.isProfessionalAvailable(date: dayView.date!) {
-			return
-		}
+		if !self.isProfessionalAvailable(date: dayView.date!) { return }
 		
 		dateSelected = dayView.date
 		
@@ -129,7 +125,10 @@ extension SelectDateTableViewCell:JTCalendarDelegate {
 		
 		dayView.circleView.transform = dayView.transform.scaledBy(x: 0.1, y: 0.1)
 		
-		UIView.transition(with: dayView, duration: 0.3, options: UIViewAnimationOptions(rawValue: 0), animations: {
+		UIView.transition(with: dayView,
+                          duration: 0.3,
+                          options: UIViewAnimationOptions(rawValue: 0),
+                          animations: {
 			dayView.circleView.transform = .identity
 			self.calendarManager.reload()
 			
@@ -138,60 +137,43 @@ extension SelectDateTableViewCell:JTCalendarDelegate {
 	}
 	
 	func calendar(_ calendar: JTCalendarManager!, prepareMenuItemView menuItemView: UIView!, date: Date!) {
+		guard let label = menuItemView as? UILabel else { return }
 		
-		guard let label = menuItemView as? UILabel else {
-			return
-		}
-		
-		let dateformattter =	DateFormatter()
+		let dateformattter = DateFormatter()
 		dateformattter.dateFormat = "MMMM, YYYY"
 		
 		label.font = UIFont.robotoMedium(ofSize: 14)
 		label.textColor = UIColor(hex: "298FC2")
 		label.text = dateformattter.string(from: date).uppercased()
-		
-		
 	}
 	
 	func calendar(_ calendar: JTCalendarManager!, canDisplayPageWith date: Date!) -> Bool {
-		
 		return calendarManager.dateHelper.date(date, isEqualOrAfter: Date())
-		
 	}
 	
 	func calendarBuildWeekView(_ calendar: JTCalendarManager!) -> UIView! {
-		
 		let calendarWeekView = JTCalendarWeekView()
 		calendarWeekView.manager = calendarManager
 		
 		calendarWeekView.setStart(Date(), updateAnotherMonth: false, monthDate: Date())
 		
 		return calendarWeekView
-		
 	}
-	
 }
 
 extension SelectDateTableViewCell: UITableViewDelegate, UITableViewDataSource {
 	
 	func numberOfSections(in tableView: UITableView) -> Int {
-		
 		return 1
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		
 		return availableDates.count
-		
 	}
 	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-
-		
 		return 50
-		
 	}
-	
 	
 	func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
 		return UITableViewAutomaticDimension
@@ -209,77 +191,53 @@ extension SelectDateTableViewCell: UITableViewDelegate, UITableViewDataSource {
 		cell.isUserInteractionEnabled = true
 		
 		if let services = ScheduleManager.sharedInstance.getServicesByPet(pet: selectedPet) {
-			
 			for service in services {
-				
 				if dateKey == service.startDate {
-					
 					if date == service.startTime {
 						cell.selectionStyle = UITableViewCellSelectionStyle.none
 						cell.isUserInteractionEnabled = false
 						
 						cell.timeLabel.text = "\(date) (indisponível)"
 						cell.timeLabel.textColor = UIColor(hex: "E4002B")
-						
 					}
-					
 				}
-				
 			}
 		}
 		
 		if let services = ScheduleManager.sharedInstance.getServicesByProfessional(professional: selectedProfessional) {
 			
 			for service in services {
-				
 				if dateKey == service.startDate {
-					
 					if date == service.startTime {
 						cell.selectionStyle = UITableViewCellSelectionStyle.none
 						cell.isUserInteractionEnabled = false
 						
 						cell.timeLabel.text = "\(date) (indisponível)"
 						cell.timeLabel.textColor = UIColor(hex: "E4002B")
-						
 					}
-					
 				}
-				
 			}
 		}
 		
-		
 		return cell
-		
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		
 		let time = availableDates[indexPath.row]
 		selectedService.startTime = time
 		
 		delegate?.setSelectedTime(service: selectedService)
 	}
-	
 }
 
 extension SelectDateTableViewCell: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
-	
 	func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-		
-		
 		let attributedString = NSAttributedString(string: "Nenhum horário disponível", attributes: [NSAttributedStringKey.font : UIFont.robotoMedium(ofSize: 14), NSAttributedStringKey.foregroundColor : UIColor(hex: "515151")])
 		
 		return attributedString
 	}
-	
-
-	
 }
 
 protocol SelectDateTableViewCellDelegate: class {
-	
-	
 	func setSelectedTime(service:Service)
-	
 }

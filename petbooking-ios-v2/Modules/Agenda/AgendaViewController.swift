@@ -79,10 +79,7 @@ class AgendaViewController: UIViewController, AgendaViewProtocol {
 		
 		PetbookingAPI.sharedInstance.getScheduleList(page: 1) { (scheduledServiceList, message) in
 			
-			ALLoadingView.manager.hideLoadingView(withDelay: 1) {
-				
-				
-			}
+			ALLoadingView.manager.hideLoadingView(withDelay: 1) { }
 			
 			guard let scheduledServiceList = scheduledServiceList else {
 				return
@@ -98,20 +95,17 @@ class AgendaViewController: UIViewController, AgendaViewProtocol {
 			var index = -1
 			let today = Date()
 			for scheduledDate in scheduledServiceList.scheduledDates {
-				
 				index += 1
 				if NSCalendar.current.compare(scheduledDate.date, to: today, toGranularity: .day) != .orderedAscending {
 					break
 				}
-				
 			}
+            
 			if index >= 0 {
 				self.dateCollectionView.scrollToItem(at: IndexPath(item: index, section: 0), at: .left, animated: false)
 			}
 		}
-		
 	}
-
 }
 
 extension AgendaViewController: UICollectionViewDelegate, UICollectionViewDataSource, AgendaCollectionViewCellDelegate {

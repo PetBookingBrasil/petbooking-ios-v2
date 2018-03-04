@@ -10,10 +10,10 @@ PODS:
   - Bolts/AppLinks (1.9.0):
     - Bolts/Tasks
   - Bolts/Tasks (1.9.0)
-  - Crashlytics (3.10.0):
-    - Fabric (~> 1.7.3)
+  - Crashlytics (3.10.1):
+    - Fabric (~> 1.7.5)
   - DZNEmptyDataSet (1.8.1)
-  - Fabric (1.7.3)
+  - Fabric (1.7.5)
   - FacebookCore (0.3.0):
     - Bolts (~> 1.8)
     - FBSDKCoreKit (~> 4.27)
@@ -22,16 +22,16 @@ PODS:
     - FacebookCore (~> 0.3)
     - FBSDKCoreKit (~> 4.27)
     - FBSDKLoginKit (~> 4.27)
-  - FBSDKCoreKit (4.30.0):
+  - FBSDKCoreKit (4.31.0):
     - Bolts (~> 1.7)
-  - FBSDKLoginKit (4.30.0):
+  - FBSDKLoginKit (4.31.0):
     - FBSDKCoreKit
   - FLAnimatedImage (1.0.12)
   - IQKeyboardManager (5.0.7)
   - Mantle (2.1.0):
     - Mantle/extobjc (= 2.1.0)
   - Mantle/extobjc (2.1.0)
-  - Pageboy (2.3.3)
+  - Pageboy (2.4.0)
   - PINCache (2.3)
   - PINRemoteImage (2.1.4):
     - PINRemoteImage/FLAnimatedImage (= 2.1.4)
@@ -84,17 +84,17 @@ SPEC CHECKSUMS:
   ALLoadingView: 86aea5ee564f034296e76a49f53779e0a85fe846
   BEMCheckBox: 5ba6e37ade3d3657b36caecc35c8b75c6c2b1a4e
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
-  Crashlytics: a989ef242b66605577a425733797f810bd2725eb
+  Crashlytics: aee1a064cbbf99b32efa3f056a5f458d846bc8ff
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
-  Fabric: bb495bb9a7a7677c6d03a1f8b83d95bc49b47e41
+  Fabric: ae7146a5f505ea370a1e44820b4b1dc8890e2890
   FacebookCore: 3ffa190a3f1f96cec0e44d3fc221bc322c595ffa
   FacebookLogin: 0af839ea858faef99550d16596b87b4a8e8906e6
-  FBSDKCoreKit: 7c4bba2877781a131ab5d54c0a78c405d4307b62
-  FBSDKLoginKit: fe7a7e82373dc5daad92e1623219e86224ab1fb1
+  FBSDKCoreKit: 54db4c581123745d25a9f7c1608020b3aeabd118
+  FBSDKLoginKit: 95a252ddffd6919c0f132a02292f0824616d8709
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   IQKeyboardManager: 0bfa4607d39924116b5c0c8b55b5d789288b5cba
   Mantle: 2fa750afa478cd625a94230fbf1c13462f29395b
-  Pageboy: 0ea6c85f6e6cfd4d54d427fc640a51223ca9ebc7
+  Pageboy: b04cee5c1315a865fb49321129d12635e8465144
   PINCache: ce36ed282031b92fc7733ffe831f474ff80fddc2
   PINRemoteImage: 4ac4011c5caefd6befd99758e09becede05d3226
   RateView: d4d12e9bb76dc23a77a56f4e5c5fb530a3f3f998
