@@ -43,6 +43,6 @@ class WebviewViewController: UIViewController, WebviewViewProtocol {
 
 extension WebviewViewController: UIWebViewDelegate {
     func webViewDidFinishLoad(_ webView: UIWebView) {
-        ALLoadingView.manager.hideLoadingView()
+        ALLoadingView.manager.hideLoadingView(withDelay: 1) { }
     }
 }

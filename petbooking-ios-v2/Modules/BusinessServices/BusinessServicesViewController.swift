@@ -13,7 +13,7 @@ import BEMCheckBox
 import ALLoadingView
 import RealmSwift
 
-class BusinessServicesViewController: ExpandableTableViewController, BusinessServicesViewProtocol, ScheduleToTheCartAlertDelegate {
+class BusinessServicesViewController: ExpandableTableViewController, BusinessServicesViewProtocol {
 	
 	var presenter: BusinessServicesPresenterProtocol?
     var service: ServiceCategory?
@@ -97,6 +97,10 @@ class BusinessServicesViewController: ExpandableTableViewController, BusinessSer
         
         if let service = self.service {
             self.selectedServiceCategory = service
+            if self.petList.pets.count == 1 {
+                findCategory()
+                setSelectedCategory(selectedServiceCategory: self.selectedServiceCategory)
+            }
         }
 		
 		expandableTableView.reloadData()
@@ -105,7 +109,7 @@ class BusinessServicesViewController: ExpandableTableViewController, BusinessSer
 	func loadServices(serviceList: ServiceList) {
 		ALLoadingView.manager.hideLoadingView()
 		self.serviceList = serviceList
-		
+        
 		expandableTableView.reloadData()
 	}
 	
@@ -131,19 +135,7 @@ class BusinessServicesViewController: ExpandableTableViewController, BusinessSer
 		        object: nil,
 		        userInfo:nil)
 	}
-	
-	func goToCart() {
-		let cart = CartRouter.createModule(business:business)
-		
-		self.navigationController?.pushViewController(cart, animated: true)
-		
-		clearSchedule()
-	}
-	
-	func scheduleMore() {
-		clearSchedule()
-	}
-	
+    
 	func clearSchedule() {
 		selectedService = Service()
 		selectedServiceCategory = ServiceCategory()
@@ -154,6 +146,41 @@ class BusinessServicesViewController: ExpandableTableViewController, BusinessSer
 		self.showContent(indexPath: IndexPath(row: 1, section: 0))
 		goToChartButton.isHidden = true
 	}
+}
+
+extension BusinessServicesViewController: ScheduleToTheCartAlertDelegate {
+    func goToCart() {
+        let cart = CartRouter.createModule(business:business)
+        
+        self.navigationController?.pushViewController(cart, animated: true)
+        
+        clearSchedule()
+    }
+    
+    func scheduleMore() {
+        clearSchedule()
+    }
+
+    func scheduleAnotherPet() {
+        serviceList = ServiceList()
+        selectedService = Service()
+        selectedSubServices = [SubService]()
+        professionalList = ProfessionalList()
+        selectedProfessional = Professional()
+        currentIndexPath = ExpandableIndexPath(forSection: 0, forRow: 0, forSubRow: 0)
+        
+        self.expandableTableView.reloadData()
+        
+        if self.petList.pets.count == 1 {
+            print("Criar pet")
+        } else {
+            showContent(indexPath: IndexPath(row: 1, section: 0))
+            selectPetDelegate?.loadPets(petList: petList)
+            expandableTableView.reloadData()
+        }
+
+        goToChartButton.isHidden = true
+    }
 }
 
 extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRowTableViewCellDelegate, SelectPetTableViewCellDelegate, SelectCategoryTableViewCellDelegate, SelectServiceTableViewCellDelegate, SelectProfessionalTableViewCellDelegate, SelectDateTableViewCellDelegate {
@@ -229,9 +256,7 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
 	}
 	
 	func expandableTableView(_ expandableTableView: ExpandableTableView, heightForRowAtExpandableIndexPath expandableIndexPath: ExpandableIndexPath) -> CGFloat {
-		
-//        let schedule = ScheduleManager.sharedInstance.getSchedule(business: self.business)
-		
+				
 		switch expandableIndexPath.row {
 		case 1:
 			if selectedServiceCategory.id.isBlank {
@@ -340,7 +365,7 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
 		
 		switch expandableIndexPath.row {
 		case 0:
-			return 265
+			return 323
 		case 1:
 			let qty = serviceCategoryList.categories.count / 3 <= 1 ? 1 : serviceCategoryList.categories.count / 3
 			let height = qty <= 3 ? qty * 120 : 360
@@ -382,7 +407,6 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
         if self.service == nil {
             showContent(indexPath: IndexPath(row: 1, section: 0))
             expandableTableView.reloadData()
-
         } else {
             findCategory()
             setSelectedCategory(selectedServiceCategory: self.selectedServiceCategory)

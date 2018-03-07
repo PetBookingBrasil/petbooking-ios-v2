@@ -54,4 +54,8 @@ internal extension UserDefaults {
     internal class func isFacebookLogin() -> Bool {
         return UserDefaults.standard.bool(forKey: UserDefaults.FacebookLoginKey)
     }
+    
+    internal class func removeLogin() {
+        UserDefaults.standard.removeObject(forKey: UserDefaults.FacebookLoginKey)
+    }
 }

@@ -10,7 +10,8 @@ import UIKit
 
 class SelectPetTableViewCell: UITableViewCell {
 
-	@IBOutlet weak var panelView: UIView!
+    @IBOutlet weak var addPetButton: UIButton!
+    @IBOutlet weak var panelView: UIView!
 	@IBOutlet weak var pageControl: UIPageControl!
 	@IBOutlet weak var collectionView: UICollectionView!
 	
@@ -34,12 +35,17 @@ class SelectPetTableViewCell: UITableViewCell {
 		collectionView.register(UINib(nibName: "PetCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PetCollectionViewCell")
 		
 		pageControl.hidesForSinglePage = true
+        
+        addPetButton.round()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
     
+    @IBAction func addPetButtonTapped(_ sender: Any) {
+        print("Chamar popup de pets")
+    }
 }
 
 extension SelectPetTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {

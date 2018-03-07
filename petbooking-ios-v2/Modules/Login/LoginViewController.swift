@@ -28,6 +28,8 @@ class LoginViewController: UIViewController, LoginViewProtocol {
         
 		hideKeyboardWhenTappedAround()
         
+        UserDefaults.removeLogin()
+        
         setupButtons()
     }
 	

@@ -361,6 +361,7 @@ extension BusinessInformationViewController: ExpandableTableViewDelegate {
 	func expandableTableView(_ expandableTableView: ExpandableTableView, estimatedHeightForSubRowAtExpandableIndexPath expandableIndexPath: ExpandableIndexPath) -> CGFloat {
 		return 60
 	}
+    
 	func expandableTableView(_ expandableTableView: ExpandableTableView, didSelectSubRowAtExpandableIndexPath expandableIndexPath: ExpandableIndexPath) { }
 	
 	func showContent(indexPath: IndexPath) {
