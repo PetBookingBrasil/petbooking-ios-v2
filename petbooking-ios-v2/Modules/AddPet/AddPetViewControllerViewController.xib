@@ -89,7 +89,7 @@
                                     </connections>
                                 </view>
                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Por favor, insira seu nome e sobrenome." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVM-Zc-m6R">
-                                    <rect key="frame" x="16" y="140" width="143" height="10"/>
+                                    <rect key="frame" x="16" y="140" width="144" height="10"/>
                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="8"/>
                                     <color key="textColor" red="1" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
@@ -200,13 +200,13 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Castrado?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y1o-e6-Dgs">
-                                    <rect key="frame" x="215" y="284" width="59" height="15"/>
+                                    <rect key="frame" x="215" y="284" width="61" height="15"/>
                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
                                     <color key="textColor" red="0.3294117647" green="0.3294117647" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Mwr-If-2W1">
-                                    <rect key="frame" x="306" y="276" width="51" height="31"/>
+                                    <rect key="frame" x="308" y="276" width="51" height="31"/>
                                     <connections>
                                         <action selector="castratedSwitchChanged:" destination="-1" eventType="valueChanged" id="mdI-tZ-PEk"/>
                                     </connections>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="31" id="lib-Wk-xss" customClass="AddPetInformationTableViewCell" customModule="petbooking_ios_v2" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lib-Wk-xss" id="s58-lO-QzL">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L25-IB-ldu">
+                        <rect key="frame" x="16" y="4.5" width="288" height="50"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Atenção! Os preços exibidos são médios. Cadastre seu pet para visualizar os valores condizentes as raças." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2LG-pu-hCP">
+                                <rect key="frame" x="8" y="5" width="272" height="37"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="11"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96470588239999999" green="0.52404928770000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="2LG-pu-hCP" firstAttribute="leading" secondItem="L25-IB-ldu" secondAttribute="leading" constant="8" id="Rin-Fc-s6J"/>
+                            <constraint firstItem="2LG-pu-hCP" firstAttribute="top" secondItem="L25-IB-ldu" secondAttribute="top" constant="5" id="SgC-wZ-Tve"/>
+                            <constraint firstAttribute="trailing" secondItem="2LG-pu-hCP" secondAttribute="trailing" constant="8" id="fow-Yt-zLX"/>
+                            <constraint firstAttribute="bottom" secondItem="2LG-pu-hCP" secondAttribute="bottom" constant="8" id="izA-3v-IFu"/>
+                            <constraint firstAttribute="height" constant="50" id="umt-EP-R04"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" red="0.92941176469999998" green="0.92941176469999998" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstItem="L25-IB-ldu" firstAttribute="leading" secondItem="s58-lO-QzL" secondAttribute="leading" constant="16" id="F7d-Wq-xK9"/>
+                    <constraint firstItem="L25-IB-ldu" firstAttribute="centerY" secondItem="s58-lO-QzL" secondAttribute="centerY" id="oe9-Qp-DMd"/>
+                    <constraint firstAttribute="trailing" secondItem="L25-IB-ldu" secondAttribute="trailing" constant="16" id="xNv-ub-Sl8"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="0.92941176469999998" green="0.92941176469999998" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+            <viewLayoutGuide key="safeArea" id="lCE-Wo-frk"/>
+            <connections>
+                <outlet property="panelView" destination="L25-IB-ldu" id="PdL-rv-Tb5"/>
+            </connections>
+            <point key="canvasLocation" x="34" y="62"/>
+        </tableViewCell>
+    </objects>
+</document>

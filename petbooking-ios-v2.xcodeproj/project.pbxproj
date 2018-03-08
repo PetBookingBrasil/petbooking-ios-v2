@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		24B6AA392015EDF0007E3930 /* VNDJSONEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B6AA382015EDF0007E3930 /* VNDJSONEncoding.swift */; };
+		24DA62E620516CCD00124FF1 /* AddPetInformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24DA62E520516CCD00124FF1 /* AddPetInformationTableViewCell.xib */; };
+		24DA62E820516E7000124FF1 /* AddPetInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DA62E720516E7000124FF1 /* AddPetInformationTableViewCell.swift */; };
 		38BD5AC8C943D3625E03320A /* Pods_petbooking_ios_v2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BA4A03664D7F09153E9149A /* Pods_petbooking_ios_v2.framework */; };
 		410AA9661FA69AC700A90377 /* ServiceRowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410AA9641FA69AC700A90377 /* ServiceRowTableViewCell.swift */; };
 		410AA9671FA69AC700A90377 /* ServiceRowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 410AA9651FA69AC700A90377 /* ServiceRowTableViewCell.xib */; };
@@ -325,6 +327,8 @@
 
 /* Begin PBXFileReference section */
 		24B6AA382015EDF0007E3930 /* VNDJSONEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VNDJSONEncoding.swift; path = Helpers/VNDJSONEncoding.swift; sourceTree = "<group>"; };
+		24DA62E520516CCD00124FF1 /* AddPetInformationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPetInformationTableViewCell.xib; sourceTree = "<group>"; };
+		24DA62E720516E7000124FF1 /* AddPetInformationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPetInformationTableViewCell.swift; sourceTree = "<group>"; };
 		410AA9641FA69AC700A90377 /* ServiceRowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRowTableViewCell.swift; sourceTree = "<group>"; };
 		410AA9651FA69AC700A90377 /* ServiceRowTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServiceRowTableViewCell.xib; sourceTree = "<group>"; };
 		410AA9681FA69EFA00A90377 /* SelectPetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPetTableViewCell.swift; sourceTree = "<group>"; };
@@ -689,6 +693,15 @@
 				CC0DE0132BA5812BF51F4F0D /* Pods-petbooking-ios-v2.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		24DA62E420516C2F00124FF1 /* New Cells */ = {
+			isa = PBXGroup;
+			children = (
+				24DA62E520516CCD00124FF1 /* AddPetInformationTableViewCell.xib */,
+				24DA62E720516E7000124FF1 /* AddPetInformationTableViewCell.swift */,
+			);
+			path = "New Cells";
 			sourceTree = "<group>";
 		};
 		410AA9931FA7A3DC00A90377 /* ExpandableTableView */ = {
@@ -1304,6 +1317,7 @@
 		41D86F751F266D640038ADA8 /* BusinessServices */ = {
 			isa = PBXGroup;
 			children = (
+				24DA62E420516C2F00124FF1 /* New Cells */,
 				41D86F921F298C360038ADA8 /* AdditionalServiceTableViewCell.swift */,
 				41D86F931F298C360038ADA8 /* AdditionalServiceTableViewCell.xib */,
 				41D86F761F266D7A0038ADA8 /* BusinessServicesInteractor.swift */,
@@ -1564,6 +1578,7 @@
 				4160D8AE1F66AB81005D361B /* Roboto-Light.ttf in Resources */,
 				41D86F811F266D7A0038ADA8 /* BusinessServicesViewController.xib in Resources */,
 				FF518A24202F90630061DE44 /* WebviewViewController.xib in Resources */,
+				24DA62E620516CCD00124FF1 /* AddPetInformationTableViewCell.xib in Resources */,
 				414862A61F3014D000F210D8 /* ProfessionalCollectionViewCell.xib in Resources */,
 				413682CB1E9C2B2D008C463B /* LaunchScreen.storyboard in Resources */,
 				4160D8B31F66AB81005D361B /* Roboto-Thin.ttf in Resources */,
@@ -1943,6 +1958,7 @@
 				41D86F7D1F266D7A0038ADA8 /* BusinessServicesPresenter.swift in Sources */,
 				4120ED1B1EB38650009D35B0 /* LoginRouter.swift in Sources */,
 				FF34B16B202B7F9E00F00528 /* CategoryPresenter.swift in Sources */,
+				24DA62E820516E7000124FF1 /* AddPetInformationTableViewCell.swift in Sources */,
 				4168DFE91FAFE4CE00111FB3 /* ReviewsHeaderTableViewCell.swift in Sources */,
 				4120ED021EB0DE9F009D35B0 /* PresentationProtocols.swift in Sources */,
 				41AAB4F61EF1F9AF00E52857 /* HomeContentViewController.swift in Sources */,

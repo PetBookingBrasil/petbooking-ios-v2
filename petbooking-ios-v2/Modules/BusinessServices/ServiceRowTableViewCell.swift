@@ -21,8 +21,8 @@ class ServiceRowTableViewCell: UITableViewCell {
 	
 	override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-		iconImageView.round()
+
+        iconImageView.round()
 		panelView.dropShadow()
 		panelView.layer.cornerRadius = 4
 		
@@ -30,21 +30,11 @@ class ServiceRowTableViewCell: UITableViewCell {
 		panelView.isUserInteractionEnabled = true
 		panelView.addGestureRecognizer(tap)
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
 	
 	@IBAction func editAction(_ sender: Any) {
-	
-		guard let indexPath = self.indexPath else {
-			return
-		}
+		guard let indexPath = self.indexPath else { return }
 		
 		delegate?.showContent(indexPath: indexPath)
-		
 	}
 	
 	@IBAction func didTapCell(_ sender: Any) {
@@ -53,8 +43,5 @@ class ServiceRowTableViewCell: UITableViewCell {
 }
 
 protocol ServiceRowTableViewCellDelegate: class {
-	
-	
 	func showContent(indexPath:IndexPath)
-	
 }

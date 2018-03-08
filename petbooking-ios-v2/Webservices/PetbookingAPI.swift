@@ -58,7 +58,7 @@ extension PetbookingAPI {
             
             Alamofire.request("\(PetbookingAPI.API_BASE_URL)/api/v2/count_phone_click_for/\(businessName)",
                 method: .post,
-                parameters: parameters,
+                parameters: nil,
                 encoding: JSONEncoding.default,
                 headers: auth_headers).responseJSON { (response) in
                     completion(true, "")
@@ -66,7 +66,7 @@ extension PetbookingAPI {
         } else {
             getConsumer { (success, message) in
                 if success {
-                    self.postPhoneNumberClick(from: businessName, completion)
+                    self.postPhoneNumberClick(from: businessName, completion: completion)
                 } else {
                     completion(false, "")
                 }
@@ -444,8 +444,6 @@ extension PetbookingAPI {
 	}
 }
 
-
-
 // MARK: User
 
 extension PetbookingAPI {
@@ -517,12 +515,9 @@ extension PetbookingAPI {
 				switch response.result{
 				case .success(let jsonObject):
 					if let dic = jsonObject as? [String: Any] {
-						
 						do {
 							let breedList = try MTLJSONAdapter.model(of: BreedList.self, fromJSONDictionary: dic) as! BreedList
-							
 							completion(breedList, "")
-							
 						} catch {
 							completion(nil, error.localizedDescription)
 						}
@@ -530,24 +525,17 @@ extension PetbookingAPI {
 						completion(nil, "")
 					}
 				case .failure(let error):
-					print(error)
 					completion(nil, error.localizedDescription)
 				}
-				
 			}
-		} else
-		{
-			getConsumer(completion: { (success, message) in
-				
+		} else {
+			getConsumer { (success, message) in
 				if success {
 					self.getBreedList(petType: petType, completion: completion)
 				} else {
-					
 					completion(nil, "")
-					
 				}
-				
-			})
+			}
 		}
 	}
 	

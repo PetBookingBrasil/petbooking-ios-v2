@@ -13,6 +13,10 @@ import BEMCheckBox
 import ALLoadingView
 import RealmSwift
 
+enum ScheduleRow {
+    case addPet, selectPet, selectCategory, selectService, selectProfessional, selectDate
+}
+
 class BusinessServicesViewController: ExpandableTableViewController, BusinessServicesViewProtocol {
 	
 	var presenter: BusinessServicesPresenterProtocol?
@@ -20,38 +24,36 @@ class BusinessServicesViewController: ExpandableTableViewController, BusinessSer
 	
 	@IBOutlet weak var goToChartButton: UIButton!
 	
+    var selectedPet: Pet?
+    
 	var business: Business = Business()
 	var petList: PetList = PetList()
 	var serviceCategoryList: ServiceCategoryList = ServiceCategoryList()
 	var serviceList: ServiceList = ServiceList()
-	var selectedPet: Pet = Pet()
 	var selectedServiceCategory: ServiceCategory = ServiceCategory()
 	var selectedService: Service = Service()
 	var selectedSubServices = [SubService]()
 	var professionalList: ProfessionalList! = ProfessionalList()
 	var selectedProfessional: Professional = Professional()
 	var currentIndexPath: ExpandableIndexPath = ExpandableIndexPath(forSection: 0, forRow: 0, forSubRow: 0)
+    
+    // Row
+    var rowList = [ScheduleRow]()
 	
 	// Delegates
-	weak var selectPetDelegate:BusinessServicesViewControllerDelegate?
-	
-	override func viewDidLoad() {
+	weak var selectPetDelegate: BusinessServicesViewControllerDelegate?
+
+    // MARK: APP Lifecycle
+    override func viewDidLoad() {
 		super.viewDidLoad()
 		
 		setBackButton()
-		
+        goToChartButton.round()
+
 		ScheduleManager.sharedInstance.cleanSchedule()
 		ScheduleManager.sharedInstance.createNewSchedule(business: business)
-		
-		goToChartButton.round()
-		
-		expandableTableView.expandableDelegate = self
-		expandableTableView.register(UINib(nibName: "ServiceRowTableViewCell", bundle: nil), forCellReuseIdentifier: "ServiceRowTableViewCell")
-		expandableTableView.register(UINib(nibName: "SelectPetTableViewCell", bundle: nil), forCellReuseIdentifier: "SelectPetTableViewCell")
-		expandableTableView.register(UINib(nibName: "SelectCategoryTableViewCell", bundle: nil), forCellReuseIdentifier: "SelectCategoryTableViewCell")
-		expandableTableView.register(UINib(nibName: "SelectServiceTableViewCell", bundle: nil), forCellReuseIdentifier: "SelectServiceTableViewCell")
-		expandableTableView.register(UINib(nibName: "SelectProfessionalTableViewCell", bundle: nil), forCellReuseIdentifier: "SelectProfessionalTableViewCell")
-		expandableTableView.register(UINib(nibName: "SelectDateTableViewCell", bundle: nil), forCellReuseIdentifier: "SelectDateTableViewCell")
+				
+        setupExpandableTableView()
 		
 		ALLoadingView.manager.showLoadingView(ofType: .basic, windowMode: .fullscreen)
 		presenter?.getPets()
@@ -59,11 +61,21 @@ class BusinessServicesViewController: ExpandableTableViewController, BusinessSer
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-
-		expandableTableView.reloadData()
-		
+        
 		checkServices()
 	}
+    
+    fileprivate func setupExpandableTableView() {
+        expandableTableView.expandableDelegate = self
+        
+        expandableTableView.register(UINib(nibName: "AddPetInformationTableViewCell", bundle: nil), forCellReuseIdentifier: "AddPetInformationTableViewCell")
+        expandableTableView.register(UINib(nibName: "ServiceRowTableViewCell", bundle: nil), forCellReuseIdentifier:                  "ServiceRowTableViewCell")
+        expandableTableView.register(UINib(nibName: "SelectPetTableViewCell", bundle: nil), forCellReuseIdentifier: "SelectPetTableViewCell")
+        expandableTableView.register(UINib(nibName: "SelectCategoryTableViewCell", bundle: nil), forCellReuseIdentifier: "SelectCategoryTableViewCell")
+        expandableTableView.register(UINib(nibName: "SelectServiceTableViewCell", bundle: nil), forCellReuseIdentifier: "SelectServiceTableViewCell")
+        expandableTableView.register(UINib(nibName: "SelectProfessionalTableViewCell", bundle: nil), forCellReuseIdentifier: "SelectProfessionalTableViewCell")
+        expandableTableView.register(UINib(nibName: "SelectDateTableViewCell", bundle: nil), forCellReuseIdentifier: "SelectDateTableViewCell")
+    }
 	
 	deinit {
 		ScheduleManager.sharedInstance.cleanSchedule()
@@ -71,23 +83,32 @@ class BusinessServicesViewController: ExpandableTableViewController, BusinessSer
 	
 	func loadPets(petList: PetList) {
 		self.petList = petList
-        
-		if self.selectedPet.id.isBlank {
-			guard let pet = self.petList.pets.first else { return }
-			
-            selectedPet = pet
-			presenter?.getCategories(business: business)
-		}
-		
-		self.expandableTableView.reloadData()
-		
-        if self.petList.pets.count > 1 {
-            showContent(indexPath: IndexPath(row: 0, section: 0))
+ 
+        if petList.pets.count == 0 {
+            rowList.append(.addPet)
         } else {
-            showContent(indexPath: IndexPath(row: 1, section: 0))
+            selectPetDelegate?.loadPets(petList: petList)
+        }
+        
+        if self.selectedPet == nil {
+            guard let pet = self.petList.pets.first else { return }
+
+            selectedPet = pet
         }
 		
-		selectPetDelegate?.loadPets(petList: petList)
+        rowList.append(.selectPet)
+
+        presenter?.getCategories(business: business)
+        
+        expandableTableView.reloadData()
+		
+//        if self.petList.pets.count > 1 {
+//            showContent(indexPath: IndexPath(row: 0, section: 0))
+//        } else {
+//            showContent(indexPath: IndexPath(row: 1, section: 0))
+//        }
+		
+//        selectPetDelegate?.loadPets(petList: petList)
 	}
 	
 	func loadCategories(serviceCategoryList: ServiceCategoryList) {
@@ -103,6 +124,7 @@ class BusinessServicesViewController: ExpandableTableViewController, BusinessSer
             }
         }
 		
+        rowList.append(.selectCategory)
 		expandableTableView.reloadData()
 	}
 	
@@ -110,14 +132,15 @@ class BusinessServicesViewController: ExpandableTableViewController, BusinessSer
 		ALLoadingView.manager.hideLoadingView()
 		self.serviceList = serviceList
         
+        rowList.append(.selectService)
 		expandableTableView.reloadData()
 	}
 	
 	@IBAction func goToCart(_ sender: Any) {
-		ScheduleManager.sharedInstance.addServiceToSchedule(business: business, pet: selectedPet, serviceCategory: selectedServiceCategory, service: selectedService)
+        ScheduleManager.sharedInstance.addServiceToSchedule(business: business, pet: selectedPet!, serviceCategory: selectedServiceCategory, service: selectedService)
 		
 		for subService in selectedSubServices {
-			ScheduleManager.sharedInstance.addSubServiceToSchedule(business: business, pet: selectedPet, serviceCategory: selectedServiceCategory, service: selectedService, subService: subService)
+            ScheduleManager.sharedInstance.addSubServiceToSchedule(business: business, pet: selectedPet!, serviceCategory: selectedServiceCategory, service: selectedService, subService: subService)
 		}
 		
 		checkServices()
@@ -183,39 +206,45 @@ extension BusinessServicesViewController: ScheduleToTheCartAlertDelegate {
     }
 }
 
+// Rows
 extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRowTableViewCellDelegate, SelectPetTableViewCellDelegate, SelectCategoryTableViewCellDelegate, SelectServiceTableViewCellDelegate, SelectProfessionalTableViewCellDelegate, SelectDateTableViewCellDelegate {
 	
-	// Rows
 	func expandableTableView(_ expandableTableView: ExpandableTableView, numberOfRowsInSection section: Int) -> Int {
-		return 5
+        return rowList.count
 	}
     
 	func expandableTableView(_ expandableTableView: ExpandableTableView, cellForRowAtExpandableIndexPath expandableIndexPath: ExpandableIndexPath) -> UITableViewCell {
 		
+        if rowList[expandableIndexPath.row] == .addPet {
+            let cell = expandableTableView.dequeueReusableCellWithIdentifier("AddPetInformationTableViewCell", forIndexPath: expandableIndexPath) as!AddPetInformationTableViewCell
+            
+            return cell
+        }
+        
 		let cell = expandableTableView.dequeueReusableCellWithIdentifier("ServiceRowTableViewCell", forIndexPath: expandableIndexPath) as!ServiceRowTableViewCell
 		cell.delegate = self
 		cell.indexPath = IndexPath(row: expandableIndexPath.row, section: expandableIndexPath.section)
 		
-		switch expandableIndexPath.row {
-		case 0:
-			if !self.selectedPet.id.isBlank {
-				cell.contentView.isHidden = false
-				
-				if selectedPet.type == "dog" {
-                    cell.iconImageView.image = UIImage(named:"avatar-padrao-cachorro")
-                } else {
+		switch rowList[expandableIndexPath.row] {
+        case .selectPet:
+            cell.iconImageView.image = UIImage(named:"avatar-padrao-cachorro")
+            
+            if let selectedPet = selectedPet {
+                if selectedPet.type != "dog" {
                     cell.iconImageView.image = UIImage(named:"avatar-padrao-gato")
                 }
+                
                 if let url = URL(string: selectedPet.photoThumbUrl) {
                     cell.iconImageView.pin_setImage(from: url)
                 }
-				
-				cell.titleLabel.text = self.selectedPet.name
-			} else {
-				cell.contentView.isHidden = true
-			}
+                
+                cell.titleLabel.text = selectedPet.name
+            } else {
+                cell.backgroundColor = .red
+                cell.titleLabel.text = "Adicionar Pet"
+            }
 			
-		case 1:
+		case .selectCategory:
 			if !selectedServiceCategory.id.isBlank {
 				cell.contentView.isHidden = false
 				cell.titleLabel.text = selectedServiceCategory.name
@@ -224,7 +253,7 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
 				cell.contentView.isHidden = true
 			}
 			
-		case 2:
+		case .selectService:
 			if !selectedService.id.isBlank{
 				cell.contentView.isHidden = false
 				cell.titleLabel.text = selectedService.name
@@ -233,7 +262,7 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
 				cell.contentView.isHidden = true
 			}
 
-        case 3:
+        case .selectProfessional:
 			if !selectedProfessional.id.isBlank{
 				cell.contentView.isHidden = false
 				cell.titleLabel.text = selectedProfessional.name
@@ -245,7 +274,7 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
 				cell.contentView.isHidden = true
 			}
 
-        case 4:
+        case .selectDate:
 			cell.contentView.isHidden = true
 
 		default:
@@ -256,139 +285,12 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
 	}
 	
 	func expandableTableView(_ expandableTableView: ExpandableTableView, heightForRowAtExpandableIndexPath expandableIndexPath: ExpandableIndexPath) -> CGFloat {
-				
-		switch expandableIndexPath.row {
-		case 1:
-			if selectedServiceCategory.id.isBlank {
-				return 0
-			}
-			
-		case 2:
-			if selectedService.id.isBlank {
-				return 0
-			}
-			
-		case 3:
-			if selectedProfessional.id.isBlank {
-				return 0
-			}
-            
-		case 4:
-			return 0
-			
-		default:
-			break
-		}
-		
 		return 60
 	}
 	func expandableTableView(_ expandableTableView: ExpandableTableView, estimatedHeightForRowAtExpandableIndexPath expandableIndexPath: ExpandableIndexPath) -> CGFloat {
 		return 50
 	}
 	func expandableTableView(_ expandableTableView: ExpandableTableView, didSelectRowAtExpandableIndexPath expandableIndexPath: ExpandableIndexPath) { }
-	
-	// Subrows
-	func expandableTableView(_ expandableTableView: ExpandableTableView, numberOfSubRowsInRowAtExpandableIndexPath expandableIndexPath: ExpandableIndexPath) -> Int {
-		return 1
-	}
-    
-	func expandableTableView(_ expandableTableView: ExpandableTableView, subCellForRowAtExpandableIndexPath expandableIndexPath: ExpandableIndexPath) -> UITableViewCell {
-
-		currentIndexPath = expandableIndexPath
-		switch expandableIndexPath.row {
-		case 0:
-			let cell = expandableTableView.dequeueReusableCellWithIdentifier("SelectPetTableViewCell", forIndexPath: expandableIndexPath) as!SelectPetTableViewCell
-            cell.delegate = self
-			cell.petList = self.petList
-			cell.selectedPet = self.selectedPet
-            cell.collectionView.reloadData()
-            selectPetDelegate = cell
-            
-			return cell
-            
-		case 1:
-			let cell = expandableTableView.dequeueReusableCellWithIdentifier("SelectCategoryTableViewCell", forIndexPath: expandableIndexPath) as!SelectCategoryTableViewCell
-			cell.delegate = self
-			cell.serviceCategoryList = serviceCategoryList
-			cell.selectedServiceCategory = selectedServiceCategory
-            cell.collectionView.reloadData()
-            
-			return cell
-            
-		case 2:
-			let cell = expandableTableView.dequeueReusableCellWithIdentifier("SelectServiceTableViewCell", forIndexPath: expandableIndexPath) as!SelectServiceTableViewCell
-			
-			if !self.selectedService.id.isBlank {
-				cell.services = [selectedService]
-			} else {
-				cell.services = serviceList.services
-			}
-			
-			cell.serviceList = serviceList
-			cell.selectedSubServices = self.selectedSubServices
-			cell.selectedServiceCategory = self.selectedServiceCategory
-			cell.selectedPet = self.selectedPet
-			cell.selectedService = self.selectedService
-			cell.business = self.business
-			cell.delegate = self
-			cell.tableView.reloadData()
-            
-			return cell
-            
-		case 3:
-			let cell = expandableTableView.dequeueReusableCellWithIdentifier("SelectProfessionalTableViewCell", forIndexPath: expandableIndexPath) as!SelectProfessionalTableViewCell
-			cell.professionalList = self.professionalList
-			cell.delegate = self
-			cell.collectionView.reloadData()
-            
-			return cell
-            
-		case 4:
-			let cell = expandableTableView.dequeueReusableCellWithIdentifier("SelectDateTableViewCell", forIndexPath: expandableIndexPath) as!SelectDateTableViewCell
-			cell.selectedPet = selectedPet
-			cell.selectedService = selectedService
-			cell.selectedProfessional = self.selectedProfessional
-			cell.reloadTimeColletion(professional: selectedProfessional)
-			cell.delegate = self
-            
-			return cell
-            
-		default:
-			break
-            
-		}
-		
-		return UITableViewCell()
-	}
-    
-	func expandableTableView(_ expandableTableView: ExpandableTableView, heightForSubRowAtExpandableIndexPath expandableIndexPath: ExpandableIndexPath) -> CGFloat {
-		
-		switch expandableIndexPath.row {
-		case 0:
-			return 323
-		case 1:
-			let qty = serviceCategoryList.categories.count / 3 <= 1 ? 1 : serviceCategoryList.categories.count / 3
-			let height = qty <= 3 ? qty * 120 : 360
-			return CGFloat(height + 100)
-		case 2:
-			let qty = serviceList.services.count
-			return CGFloat(90 + qty * 61)
-		case 3:
-			return 265
-		case 4:
-			return 460
-		default:
-			return 265
-		}
-	}
-	
-	func expandableTableView(_ expandableTableView: ExpandableTableView, estimatedHeightForSubRowAtExpandableIndexPath expandableIndexPath: ExpandableIndexPath) -> CGFloat {
-		return 265
-	}
-    
-	func expandableTableView(_ expandableTableView: ExpandableTableView, didSelectSubRowAtExpandableIndexPath expandableIndexPath: ExpandableIndexPath) {
-		
-	}
 	
 	func showContent(indexPath: IndexPath) {
 		if indexPath.row != currentIndexPath.row {
@@ -425,7 +327,7 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
 		
 		showContent(indexPath: IndexPath(row: 2, section: 0))
 		
-		self.presenter?.getServices(business: business, service: selectedServiceCategory, pet: selectedPet)
+        self.presenter?.getServices(business: business, service: selectedServiceCategory, pet: selectedPet!)
 	}
 	
 	func setSelectedService(selectedService: Service, selectedSubServices:[SubService]) {
@@ -456,6 +358,111 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
 		selectedService = service
         goToChartButton.isHidden = false
 	}
+
+    func expandableTableView(_ expandableTableView: ExpandableTableView, numberOfSubRowsInRowAtExpandableIndexPath expandableIndexPath: ExpandableIndexPath) -> Int {
+        return 1
+    }
+    
+    func expandableTableView(_ expandableTableView: ExpandableTableView, subCellForRowAtExpandableIndexPath expandableIndexPath: ExpandableIndexPath) -> UITableViewCell {
+        
+        currentIndexPath = expandableIndexPath
+        switch expandableIndexPath.row {
+        case 0:
+            let cell = expandableTableView.dequeueReusableCellWithIdentifier("SelectPetTableViewCell", forIndexPath: expandableIndexPath) as!SelectPetTableViewCell
+            cell.delegate = self
+            cell.petList = self.petList
+            cell.selectedPet = self.selectedPet!
+            cell.collectionView.reloadData()
+            selectPetDelegate = cell
+            
+            return cell
+            
+        case 1:
+            let cell = expandableTableView.dequeueReusableCellWithIdentifier("SelectCategoryTableViewCell", forIndexPath: expandableIndexPath) as!SelectCategoryTableViewCell
+            cell.delegate = self
+            cell.serviceCategoryList = serviceCategoryList
+            cell.selectedServiceCategory = selectedServiceCategory
+            cell.collectionView.reloadData()
+            
+            return cell
+            
+        case 2:
+            let cell = expandableTableView.dequeueReusableCellWithIdentifier("SelectServiceTableViewCell", forIndexPath: expandableIndexPath) as!SelectServiceTableViewCell
+            
+            if !self.selectedService.id.isBlank {
+                cell.services = [selectedService]
+            } else {
+                cell.services = serviceList.services
+            }
+            
+            cell.serviceList = serviceList
+            cell.selectedSubServices = self.selectedSubServices
+            cell.selectedServiceCategory = self.selectedServiceCategory
+            cell.selectedPet = self.selectedPet!
+            cell.selectedService = self.selectedService
+            cell.business = self.business
+            cell.delegate = self
+            cell.tableView.reloadData()
+            
+            return cell
+            
+        case 3:
+            let cell = expandableTableView.dequeueReusableCellWithIdentifier("SelectProfessionalTableViewCell", forIndexPath: expandableIndexPath) as!SelectProfessionalTableViewCell
+            cell.professionalList = self.professionalList
+            cell.delegate = self
+            cell.collectionView.reloadData()
+            
+            return cell
+            
+        case 4:
+            let cell = expandableTableView.dequeueReusableCellWithIdentifier("SelectDateTableViewCell", forIndexPath: expandableIndexPath) as!SelectDateTableViewCell
+            cell.selectedPet = selectedPet!
+            cell.selectedService = selectedService
+            cell.selectedProfessional = self.selectedProfessional
+            cell.reloadTimeColletion(professional: selectedProfessional)
+            cell.delegate = self
+            
+            return cell
+            
+        default:
+            break
+            
+        }
+        
+        return UITableViewCell()
+    }
+    
+    func expandableTableView(_ expandableTableView: ExpandableTableView, heightForSubRowAtExpandableIndexPath expandableIndexPath: ExpandableIndexPath) -> CGFloat {
+        
+        switch expandableIndexPath.row {
+        case 0:
+            return 323
+        case 1:
+            let qty = serviceCategoryList.categories.count / 3 <= 1 ? 1 : serviceCategoryList.categories.count / 3
+            let height = qty <= 3 ? qty * 120 : 360
+            return CGFloat(height + 100)
+        case 2:
+            let qty = serviceList.services.count
+            return CGFloat(90 + qty * 61)
+        case 3:
+            return 265
+        case 4:
+            return 460
+        default:
+            return 265
+        }
+    }
+    
+    func expandableTableView(_ expandableTableView: ExpandableTableView, estimatedHeightForSubRowAtExpandableIndexPath expandableIndexPath: ExpandableIndexPath) -> CGFloat {
+        return 265
+    }
+    
+    func expandableTableView(_ expandableTableView: ExpandableTableView, didSelectSubRowAtExpandableIndexPath expandableIndexPath: ExpandableIndexPath) { }
+}
+
+// MARK: Helper Methods
+extension BusinessServicesViewController {
+    
 }
 
 protocol BusinessServicesViewControllerDelegate: class {
