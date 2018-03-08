@@ -207,6 +207,7 @@ class BusinessInformationViewController: ExpandableTableViewController, Business
 			} else {
 				UIApplication.shared.openURL(url)
 			}
+            PetbookingAPI.sharedInstance.postPhoneNumberClick(from: business.name) { (success, message) in }
 		}
 	}
 }

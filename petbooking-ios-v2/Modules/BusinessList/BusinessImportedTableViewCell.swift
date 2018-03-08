@@ -37,6 +37,7 @@ class BusinessImportedTableViewCell: UITableViewCell {
 			} else {
 				UIApplication.shared.openURL(url)
 			}
+            PetbookingAPI.sharedInstance.postPhoneNumberClick(from: business.name) { (success, message) in }
 		}
 	}
 	

@@ -42,6 +42,37 @@ class PetbookingAPI: NSObject {
 
 // MARK: Login
 extension PetbookingAPI {
+    
+    func postPhoneNumberClick(from businessName: String, completion: @escaping (_ success: Bool, _ message: String) -> Void) {
+        
+        if SessionManager.sharedInstance.isConsumerValid() {
+            guard let session = SessionManager.sharedInstance.getCurrentSession() else { return }
+
+            var token = ""
+            if let consumer = SessionManager.sharedInstance.getCurrentConsumer() {
+                token = consumer.token
+            }
+            
+            self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
+            self.auth_headers.updateValue("Token token=\"\(session.authToken)\"", forKey: "X-Petbooking-Session-Token")
+            
+            Alamofire.request("\(PetbookingAPI.API_BASE_URL)/api/v2/count_phone_click_for/\(businessName)",
+                method: .post,
+                parameters: parameters,
+                encoding: JSONEncoding.default,
+                headers: auth_headers).responseJSON { (response) in
+                    completion(true, "")
+            }
+        } else {
+            getConsumer { (success, message) in
+                if success {
+                    self.postPhoneNumberClick(from: businessName, completion)
+                } else {
+                    completion(false, "")
+                }
+            }
+        }
+    }
 	
 	func getConsumer(completion: @escaping (_ success: Bool, _ message: String) -> Void) {
 		
@@ -127,7 +158,7 @@ extension PetbookingAPI {
 		}
 	}
 	
-	func loginWithFacebook(_ facebookAccessToken:String,  completion: @escaping (_ success: Bool, _ message: String) -> Void) {
+    func loginWithFacebook(_ facebookAccessToken: String, completion: @escaping (_ success: Bool, _ message: String) -> Void) {
 		let parameters: Parameters = ["data": ["type": "sessions",
                                                "attributes": ["provider": "facebook",
                                                               "provider_token": facebookAccessToken]]]
@@ -931,9 +962,9 @@ extension PetbookingAPI {
 			self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
 			self.auth_headers.updateValue("Token token=\"\(session.authToken)\"", forKey: "X-Petbooking-Session-Token")
 			
-			let parameters: Parameters = [
-				"data": ["type":"favorites", "attributes":["favorable_type":"Business", "favorable_id":business.id]]
-				
+			let parameters: Parameters = ["data": ["type": "favorites",
+                                                   "attributes": ["favorable_type": "Business",
+                                                                  "favorable_id": business.id]]
 			]
 			
 			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/users/\(session.userId)/favorites", method: .post, parameters: parameters, encoding: URLEncoding(destination: .queryString), headers: auth_headers).responseJSON { (response) in
