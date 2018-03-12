@@ -11,7 +11,6 @@ import DZNEmptyDataSet
 
 class SelectDateTableViewCell: UITableViewCell {
 
-
 	@IBOutlet weak var numberLabel: UILabel!
 	@IBOutlet weak var titleLabel: UILabel!
 	@IBOutlet weak var tableView: UITableView!
@@ -24,6 +23,7 @@ class SelectDateTableViewCell: UITableViewCell {
 	var dateKey = ""
 	
 	var availableDates = [String]()
+    
 	var selectedProfessional:Professional = Professional()
 	var selectedService:Service = Service()
 	var selectedPet:Pet = Pet()

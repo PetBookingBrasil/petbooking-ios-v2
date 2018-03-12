@@ -19,7 +19,7 @@ class BusinessServicesRouter: BusinessServicesWireframeProtocol {
         // Change to get view from storyboard if not using progammatic UI
         let view = BusinessServicesViewController(nibName: nil, bundle: nil)
         view.business = business
-        view.service = service
+        view.category = service
         let interactor = BusinessServicesInteractor()
         let router = BusinessServicesRouter()
         let presenter = BusinessServicesPresenter(interface: view, interactor: interactor, router: router)

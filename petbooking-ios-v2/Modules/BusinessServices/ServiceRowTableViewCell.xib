@@ -42,6 +42,7 @@
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Naq-o6-fIf">
                         <rect key="frame" x="262" y="14" width="32" height="32"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <state key="normal" backgroundImage="editButton"/>
                         <connections>
                             <action selector="editAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="yEt-bg-gAf"/>
@@ -70,6 +71,7 @@
             <color key="backgroundColor" red="0.92941176469999998" green="0.92941176469999998" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="editButton" destination="Naq-o6-fIf" id="4Tp-qs-nPP"/>
                 <outlet property="iconImageView" destination="PvV-Ra-KuX" id="vgY-oy-OXd"/>
                 <outlet property="panelView" destination="70Q-h1-IHh" id="seo-Tj-a1q"/>
                 <outlet property="titleLabel" destination="XgK-H7-UMl" id="g0H-G4-Mps"/>

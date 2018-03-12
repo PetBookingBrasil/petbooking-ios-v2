@@ -415,8 +415,6 @@ class ScheduleManager: NSObject {
 			
 			return 	result
 		} catch {
-			//TODO: Handle error
-			print(error.localizedDescription)
 			return nil
 		}
 	}

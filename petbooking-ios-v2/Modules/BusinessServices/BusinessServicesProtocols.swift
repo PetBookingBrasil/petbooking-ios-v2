@@ -17,11 +17,11 @@ protocol BusinessServicesWireframeProtocol: class { }
 protocol BusinessServicesPresenterProtocol: class {
     
     func getPets()
-    func loadPets(petList:PetList)
-    func getServices(business: Business, service:ServiceCategory, pet:Pet)
+    func loadPets(petList: PetList)
+    func getServices(business: Business, service: ServiceCategory, pet: Pet?)
     func getCategories(business: Business)
-    func loadServices(serviceList:ServiceList)
-    func loadCategories(serviceCategoryList:ServiceCategoryList)
+    func loadServices(serviceList: ServiceList)
+    func loadCategories(serviceCategoryList: ServiceCategoryList)
 }
 
 //MARK: Interactor -
@@ -30,7 +30,7 @@ protocol BusinessServicesInteractorProtocol: class {
     var presenter: BusinessServicesPresenterProtocol?  { get set }
     
     func getPets()
-    func getServices(business: Business, service:ServiceCategory, pet:Pet)
+    func getServices(business: Business, service: ServiceCategory, pet: Pet?)
     func getCategories(business: Business)
 }
 
@@ -38,9 +38,9 @@ protocol BusinessServicesInteractorProtocol: class {
 protocol BusinessServicesViewProtocol: class {
     
     var presenter: BusinessServicesPresenterProtocol?  { get set }
-    var service: ServiceCategory? { get set }
+    var category: ServiceCategory? { get set }
     
-    func loadPets(petList:PetList)
-    func loadServices(serviceList:ServiceList)
-    func loadCategories(serviceCategoryList:ServiceCategoryList)
+    func loadPets(petList: PetList)
+    func loadServices(serviceList: ServiceList)
+    func loadCategories(serviceCategoryList: ServiceCategoryList)
 }

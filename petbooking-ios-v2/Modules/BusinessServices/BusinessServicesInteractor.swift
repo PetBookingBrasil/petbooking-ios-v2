@@ -39,9 +39,9 @@ class BusinessServicesInteractor: BusinessServicesInteractorProtocol {
 		}
 	}
 	
-	func getServices(business: Business, service: ServiceCategory, pet:Pet) {
+	func getServices(business: Business, service: ServiceCategory, pet: Pet?) {
 		
-		PetbookingAPI.sharedInstance.getBusinessServicesList(business: business, service: service, pet:pet) { (serviceList, message) in
+		PetbookingAPI.sharedInstance.getBusinessServicesList(business: business, service: service, pet: pet) { (serviceList, message) in
 			
 			guard let serviceList = serviceList else {
 				ALLoadingView.manager.hideLoadingView()

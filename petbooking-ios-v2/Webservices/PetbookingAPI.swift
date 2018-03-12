@@ -1109,7 +1109,7 @@ extension PetbookingAPI {
 		}
 	}
 	
-	func getBusinessServicesList(business:Business, service: ServiceCategory, pet:Pet, completion: @escaping (_ serviceList: ServiceList?, _ message: String) -> Void ) {
+	func getBusinessServicesList(business: Business, service: ServiceCategory, pet: Pet?, completion: @escaping (_ serviceList: ServiceList?, _ message: String) -> Void ) {
 		
 		if SessionManager.sharedInstance.isConsumerValid() {
 			var token = ""
@@ -1124,19 +1124,26 @@ extension PetbookingAPI {
 			self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
 			self.auth_headers.updateValue("Token token=\"\(session.authToken)\"", forKey: "X-Petbooking-Session-Token")
 			
-			let parameters: Parameters = ["type":"services", "fields[services]":"name,duration,price,childs", "pet_id":pet.id]
+			var parameters: Parameters = ["type": "services",
+                                          "fields[services]": "name,duration,price,childs"]
+            
+            if let petId = pet?.id {
+                parameters.updateValue(petId, forKey: "pet_id")
+            }
 			
-			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/service-categories/\(service.id)/services", method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString), headers: auth_headers).responseJSON { (response) in
+			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/service-categories/\(service.id)/services",
+                method: .get,
+                parameters: parameters,
+                encoding: URLEncoding(destination: .queryString),
+                headers: auth_headers).responseJSON { (response) in
 				
-				switch response.result{
+				switch response.result {
 				case .success(let jsonObject):
 					if let dic = jsonObject as? [String: Any] {
-						
 						do {
 							let serviceList = try MTLJSONAdapter.model(of: ServiceList.self, fromJSONDictionary: dic) as! ServiceList
 							
 							completion(serviceList, "")
-							
 						} catch {
 							completion(nil, error.localizedDescription)
 						}
@@ -1144,24 +1151,20 @@ extension PetbookingAPI {
 						completion(nil, "")
 					}
 				case .failure(let error):
-					print(error)
 					completion(nil, error.localizedDescription)
 				}
-				
 			}
-		} else
-		{
-			getConsumer(completion: { (success, message) in
-				
+		} else {
+			getConsumer { (success, message) in
 				if success {
-					self.getBusinessServicesList(business:business, service: service, pet: pet, completion: completion)
+					self.getBusinessServicesList(business:business,
+                                                 service: service,
+                                                 pet: pet,
+                                                 completion: completion)
 				} else {
-					
 					completion(nil, "")
-					
 				}
-				
-			})
+			}
 		}
 	}
 	

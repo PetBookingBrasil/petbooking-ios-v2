@@ -12,7 +12,7 @@ class ServiceRowTableViewCell: UITableViewCell {
 
 	@IBOutlet weak var panelView: UIView!
 	@IBOutlet weak var iconImageView: UIImageView!
-	
+    @IBOutlet weak var editButton: UIButton!
 	@IBOutlet weak var titleLabel: UILabel!
 	
 	var indexPath:IndexPath?

@@ -34,8 +34,8 @@ class BusinessServicesPresenter: BusinessServicesPresenterProtocol {
 		interactor?.getCategories(business: business)
 	}
 	
-	func getServices(business: Business, service: ServiceCategory, pet:Pet) {
-		interactor?.getServices(business: business, service: service, pet:pet)
+	func getServices(business: Business, service: ServiceCategory, pet: Pet?) {
+		interactor?.getServices(business: business, service: service, pet: pet)
 	}
 	
 	func loadCategories(serviceCategoryList: ServiceCategoryList) {
