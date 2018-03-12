@@ -235,9 +235,7 @@ extension BusinessInformationViewController: MKMapViewDelegate {
 		
 		let location = business.location
 		
-		Localide.sharedManager.promptForDirections(toLocation: location) { (usedApp, fromMemory, openedLinkSuccessfully) in
-			print("The user picked \(usedApp.appName)")
-		}
+		Localide.sharedManager.promptForDirections(toLocation: location) { (usedApp, fromMemory, openedLinkSuccessfully) in }
 	}
 }
 
@@ -271,20 +269,8 @@ extension BusinessInformationViewController: UICollectionViewDelegate, UICollect
 		case .twitter:
             open(url: business.twitter, withTitle: "Twitter")
 
-			if let url = URL(string: business.twitter) {
-				if UIApplication.shared.canOpenURL(url) {
-					UIApplication.shared.open(url, options: [:], completionHandler: nil)
-				}
-			}
-
         case .googleplus:
             open(url: business.googleplus, withTitle: "Google+")
-
-			if let url = URL(string: business.googleplus) {
-				if UIApplication.shared.canOpenURL(url) {
-					UIApplication.shared.open(url, options: [:], completionHandler: nil)
-				}
-			}
             
 		case .snapchat:
             open(url: business.snapchat, withTitle: "Snapchat")

@@ -93,11 +93,9 @@ class BusinessServicesViewController: ExpandableTableViewController, BusinessSer
                 selectedPet = pet
             }
 
-//            if self.petList.pets.count > 1 {
-//                showContent(indexPath: IndexPath(row: 0, section: 0))
-//            } else {
-//                showContent(indexPath: IndexPath(row: 1, section: 0))
-//            }
+            if petList.pets.count > 1 {
+                showContent(indexPath: IndexPath(row: 0, section: 0))
+            }
             
             selectPetDelegate?.loadPets(petList: petList)
         }
@@ -180,16 +178,23 @@ extension BusinessServicesViewController: ScheduleToTheCartAlertDelegate {
     }
     
     func scheduleMore() {
-        clearSchedule()
+        selectedProfessional = nil
+        selectedService = nil
+        selectedSubServices = []
+        self.expandableTableView.reloadData()
+        
+        if let serviceIndex = rowList.index(of: .selectCategory) {
+            showContent(indexPath: IndexPath(row: serviceIndex, section: 0))
+        }
+        
+        goToChartButton.isHidden = true
     }
 
     func scheduleAnotherPet() {
         serviceList = ServiceList()
-        selectedService = Service()
-        selectedSubServices = [SubService]()
-        professionalList = ProfessionalList()
-        selectedProfessional = Professional()
-        currentIndexPath = ExpandableIndexPath(forSection: 0, forRow: 0, forSubRow: 0)
+        selectedService = nil
+        selectedSubServices = []
+        selectedProfessional = nil
         
         self.expandableTableView.reloadData()
         
@@ -197,9 +202,8 @@ extension BusinessServicesViewController: ScheduleToTheCartAlertDelegate {
             if petlist.pets.count == 1 {
                 print("Criar pet")
             } else {
-                showContent(indexPath: IndexPath(row: 1, section: 0))
+                showContent(indexPath: IndexPath(row: 0, section: 0))
                 selectPetDelegate?.loadPets(petList: petlist)
-                expandableTableView.reloadData()
             }
         }
 
@@ -298,12 +302,41 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
 	}
 	
 	func expandableTableView(_ expandableTableView: ExpandableTableView, heightForRowAtExpandableIndexPath expandableIndexPath: ExpandableIndexPath) -> CGFloat {
-        
-        if rowList[expandableIndexPath.row] == .selectDate {
+        switch rowList[expandableIndexPath.row] {
+        case .selectPet:
+            if self.petList == nil {
+                return 0
+            } else {
+                return 60
+            }
+            
+        case .selectCategory:
+            if selectedServiceCategory == nil {
+                return 0
+            } else {
+                return 60
+            }
+            
+        case .selectService:
+            if selectedService == nil {
+                return 0
+            } else {
+                return 60
+            }
+            
+        case .selectProfessional:
+            if selectedProfessional == nil {
+                return 0
+            } else {
+                return 60
+            }
+            
+        case .selectDate:
             return 0
+            
+        default:
+            return 60
         }
-
-		return 60
 	}
     
 	func expandableTableView(_ expandableTableView: ExpandableTableView, estimatedHeightForRowAtExpandableIndexPath expandableIndexPath: ExpandableIndexPath) -> CGFloat {
@@ -497,11 +530,6 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
     }
     
     func expandableTableView(_ expandableTableView: ExpandableTableView, didSelectSubRowAtExpandableIndexPath expandableIndexPath: ExpandableIndexPath) { }
-}
-
-// MARK: Helper Methods
-extension BusinessServicesViewController {
-    
 }
 
 protocol BusinessServicesViewControllerDelegate: class {
