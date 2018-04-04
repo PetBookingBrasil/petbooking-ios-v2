@@ -17,8 +17,8 @@ class Consumer: MTLModel, MTLJSONSerializing {
     @objc dynamic var tokenExpiresAt:Double = 0
     
     static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
-        return [ "token": "data.attributes.token",
-                 "tokenExpiresAt": "data.attributes.token_expires_at"]
+        return ["token": "data.attributes.token",
+                "tokenExpiresAt": "data.attributes.token_expires_at"]
     }
     
     func isValid() -> Bool {

@@ -10,18 +10,16 @@ import UIKit
 import Mantle
 
 class ErrorRest: MTLModel, MTLJSONSerializing {
-
-	@objc dynamic var errorCode:Int = 0
-	@objc dynamic var errorDetail:String = ""
-	@objc dynamic var errorStatus:Int = 0
-	@objc dynamic var errorTitle:String = ""
-	
-	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
-		return [
-			"errorCode": "code",
-			"errorDetail": "detail",
-			"errorStatus": "status",
-			"errorTitle": "title"
-		]
-	}
+    
+    @objc dynamic var errorCode:Int = 0
+    @objc dynamic var errorDetail:String = ""
+    @objc dynamic var errorStatus:Int = 0
+    @objc dynamic var errorTitle:String = ""
+    
+    static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
+        return ["errorCode": "code",
+                "errorDetail": "detail",
+                "errorStatus": "status",
+                "errorTitle": "title"]
+    }
 }

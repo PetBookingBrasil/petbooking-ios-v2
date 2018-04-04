@@ -14,9 +14,7 @@ class Favorite: MTLModel, MTLJSONSerializing {
 	@objc dynamic var favoriteId = 0
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
-		return [
-			"favoriteId": "data.attributes.favorable_id"
-		]
+		return ["favoriteId": "data.attributes.favorable_id"]
 	}
 	
 }

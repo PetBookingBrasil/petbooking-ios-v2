@@ -190,7 +190,7 @@ class ScheduleManager: NSObject {
 		}
 	}
 	
-	func getCategoryFromSchedule(business:Business, pet:Pet, serviceCategory:ServiceCategory) -> ScheduleCategory? {
+	func getCategoryFromSchedule(business: Business, pet: Pet, serviceCategory: ServiceCategory) -> ScheduleCategory? {
 		
 		guard let schedulePet = getPetFromSchedule(business: business, pet: pet) else {
 			return nil
@@ -218,7 +218,7 @@ class ScheduleManager: NSObject {
 			scheduleService.id = ScheduleService.generateId(business: business, pet: pet, serviceCategory: serviceCategory, service: service)
 			scheduleService.serviceId = service.id
 			scheduleService.name = service.name
-			scheduleService.price = service.price
+			scheduleService.price = service.price.servicePrice
 			scheduleService.professionalId = service.professionalId
 			scheduleService.professionalName = service.professionalName
 			scheduleService.professionalPicture = service.professionalPicture
@@ -271,7 +271,7 @@ class ScheduleManager: NSObject {
 		}
 	}
 	
-	func getServiceFromSchedule(business:Business, pet:Pet, serviceCategory:ServiceCategory, service:Service) -> ScheduleService? {
+	func getServiceFromSchedule(business: Business, pet: Pet, serviceCategory: ServiceCategory, service: Service) -> ScheduleService? {
 		
 		guard let scheduleCategory = getCategoryFromSchedule(business: business, pet: pet, serviceCategory: serviceCategory) else {
 			return nil

@@ -181,6 +181,7 @@ extension BusinessServicesViewController: ScheduleToTheCartAlertDelegate {
         selectedProfessional = nil
         selectedService = nil
         selectedSubServices = []
+        serviceList = ServiceList()
         self.expandableTableView.reloadData()
         
         if let serviceIndex = rowList.index(of: .selectCategory) {
@@ -346,7 +347,7 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
 	func expandableTableView(_ expandableTableView: ExpandableTableView, didSelectRowAtExpandableIndexPath expandableIndexPath: ExpandableIndexPath) {
 
         if rowList[expandableIndexPath.row] == .selectPet, self.petList?.pets.count == 0 {
-           print("Bunda")
+           print("DVD - didSelectRowAtExpandableIndexPath")
         }
     }
 	

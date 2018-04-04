@@ -18,7 +18,6 @@ class Schedule: Object {
 	override static func primaryKey() -> String? {
 		return "businessID"
 	}
-	
 }
 
 class SchedulePet: Object {
@@ -36,11 +35,8 @@ class SchedulePet: Object {
 	}
 	
 	static func generateId(business:Business, pet:Pet) -> String {
-		
 		return "\(business.id)-\(pet.id)"
-		
 	}
-	
 }
 
 class ScheduleCategory: Object {
@@ -57,11 +53,8 @@ class ScheduleCategory: Object {
 	}
 	
 	static func generateId(business:Business, pet:Pet, serviceCategory:ServiceCategory) -> String {
-		
 		return "\(business.id)-\(pet.id)-\(serviceCategory.id)"
-		
 	}
-	
 }
 
 class ScheduleService: Object {
@@ -87,11 +80,8 @@ class ScheduleService: Object {
 	}
 	
 	static func generateId(business:Business, pet:Pet, serviceCategory:ServiceCategory, service:Service) -> String {
-		
 		return "\(business.id)-\(pet.id)-\(serviceCategory.id)-\(service.id)"
-		
 	}
-	
 }
 
 class ScheduleSubService: Object {
@@ -102,15 +92,11 @@ class ScheduleSubService: Object {
 	@objc dynamic var price = 0.0
 	@objc dynamic var duration = 0
 	
-	
 	override static func primaryKey() -> String? {
 		return "id"
 	}
 	
 	static func generateId(business:Business, pet:Pet, serviceCategory:ServiceCategory, service:Service, subService:SubService) -> String {
-		
 		return "\(business.id)-\(pet.id)-\(serviceCategory.id)-\(service.id)-\(subService.id)"
-		
 	}
-	
 }

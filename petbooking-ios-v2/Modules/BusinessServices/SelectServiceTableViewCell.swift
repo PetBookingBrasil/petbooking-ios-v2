@@ -16,7 +16,7 @@ class SelectServiceTableViewCell: UITableViewCell {
     var services = [Service]()
 	var selectedSubServices = [SubService]()
 	
-	weak var delegate:SelectServiceTableViewCellDelegate?
+	weak var delegate: SelectServiceTableViewCellDelegate?
 	
 	@IBOutlet weak var tableView: UITableView!
 	@IBOutlet weak var numberLabel: UILabel!
@@ -48,10 +48,7 @@ extension SelectServiceTableViewCell: UITableViewDelegate, UITableViewDataSource
 	}
 
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-		
-		if selectedService.id.isBlank {
-			return 61
-		}
+		if selectedService.id.isBlank { return 61 }
 		
 		let headerSize = selectedService.services.count > 0 ? 40 : 0
 
@@ -59,9 +56,7 @@ extension SelectServiceTableViewCell: UITableViewDelegate, UITableViewDataSource
 	}
 	
 	func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-		if selectedService.id.isBlank {
-			return 0
-		}
+        guard !selectedService.id.isBlank, selectedService.services.count > 0 else { return 0 }
 		
 		return 60
 	}
@@ -78,7 +73,7 @@ extension SelectServiceTableViewCell: UITableViewDelegate, UITableViewDataSource
 		cell.service = service
 
 		cell.nameLabel?.text = service.name
-		cell.priceLabel.text = String(format: "R$ %.2f", service.price)
+		cell.priceLabel.text = String(format: "R$ %.2f", service.price.servicePrice)
 		cell.priceLabel.sizeToFit()
 		
         if selectedService.id.isBlank {
@@ -103,12 +98,9 @@ extension SelectServiceTableViewCell: UITableViewDelegate, UITableViewDataSource
 		
 		return footerView
 	}
-
-
-
 }
 
-extension SelectServiceTableViewCell : ServiceTableViewDelegate {
+extension SelectServiceTableViewCell: ServiceTableViewDelegate {
 	func updateValue(service: Service) {
 		guard let index = serviceList.services.index(of: service) else { return }
 	}
@@ -141,9 +133,7 @@ extension SelectServiceTableViewCell : ServiceTableViewDelegate {
 	}
 	
 	func didUnselectedSubService(service:SubService) {
-		guard let index = selectedSubServices.index(of: service) else {
-			return
-		}
+		guard let index = selectedSubServices.index(of: service) else { return }
         
 		selectedSubServices.remove(at: index)
 	}

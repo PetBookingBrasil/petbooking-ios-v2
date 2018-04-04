@@ -12,47 +12,45 @@ import Realm
 import RealmSwift
 
 class Session: MTLModel, MTLJSONSerializing {
-	
-	@objc dynamic var userId:Int = 0
-	@objc dynamic var authToken:String = ""
-	@objc dynamic var tokenExpiresAt:Double = 0
-	@objc dynamic var validForScheduling:Bool = false
-	@objc dynamic var errors = [ErrorRest]()
-	
-	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
-		return [
-			"userId": "data.attributes.user_id",
-			"authToken": "data.attributes.token",
-			"tokenExpiresAt": "data.attributes.expires_at",
-			"validForScheduling": "data.attributes.user_valid_for_scheduling",
-			"errors": "errors"
-		]
-	}
-	
-	@objc static func ferrorsJSONTransformer() -> ValueTransformer {
-		return MTLJSONAdapter.arrayTransformer(withModelClass: ErrorRest.self)
-	}
-	
-	func isValid() -> Bool {
-		
-		let now = Date()
-		if tokenExpiresAt < now.timeIntervalSince1970 {
-			return false
-		}
-		return true
-	}
-	
+    
+    @objc dynamic var userId:Int = 0
+    @objc dynamic var authToken:String = ""
+    @objc dynamic var tokenExpiresAt:Double = 0
+    @objc dynamic var validForScheduling:Bool = false
+    @objc dynamic var errors = [ErrorRest]()
+    
+    static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
+        return ["userId": "data.attributes.user_id",
+                "authToken": "data.attributes.token",
+                "tokenExpiresAt": "data.attributes.expires_at",
+                "validForScheduling": "data.attributes.user_valid_for_scheduling",
+                "errors": "errors"]
+    }
+    
+    @objc static func ferrorsJSONTransformer() -> ValueTransformer {
+        return MTLJSONAdapter.arrayTransformer(withModelClass: ErrorRest.self)
+    }
+    
+    func isValid() -> Bool {
+        
+        let now = Date()
+        if tokenExpiresAt < now.timeIntervalSince1970 {
+            return false
+        }
+        
+        return true
+    }
+    
 }
 
 class SessionRealm: Object {
-	
-	@objc dynamic var userId:Int = 0
-	@objc dynamic var authToken:String = ""
-	@objc dynamic var tokenExpiresAt:Double = 0
-	@objc dynamic var validForScheduling:Bool = false
-	
-	override static func primaryKey() -> String? {
-		return "userId"
-	}
-	
+    
+    @objc dynamic var userId:Int = 0
+    @objc dynamic var authToken:String = ""
+    @objc dynamic var tokenExpiresAt:Double = 0
+    @objc dynamic var validForScheduling:Bool = false
+    
+    override static func primaryKey() -> String? {
+        return "userId"
+    }
 }
