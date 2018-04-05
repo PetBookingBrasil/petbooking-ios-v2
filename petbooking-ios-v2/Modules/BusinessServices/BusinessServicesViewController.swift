@@ -468,6 +468,7 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
                 cell.services = serviceList.services
             }
             
+            cell.hasPet = self.petList!.pets.count > 0
             cell.serviceList = serviceList
             cell.selectedSubServices = self.selectedSubServices
             cell.delegate = self
@@ -485,7 +486,7 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
 
         case .selectDate:
             let cell = expandableTableView.dequeueReusableCellWithIdentifier("SelectDateTableViewCell", forIndexPath: expandableIndexPath) as!SelectDateTableViewCell
-            cell.selectedPet = selectedPet!
+            cell.selectedPet = selectedPet
             cell.selectedService = selectedService!
             cell.selectedProfessional = self.selectedProfessional!
             cell.reloadTimeColletion(professional: selectedProfessional!)
@@ -527,7 +528,7 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
     }
     
     func expandableTableView(_ expandableTableView: ExpandableTableView, estimatedHeightForSubRowAtExpandableIndexPath expandableIndexPath: ExpandableIndexPath) -> CGFloat {
-        return 265
+        return UITableViewAutomaticDimension
     }
     
     func expandableTableView(_ expandableTableView: ExpandableTableView, didSelectSubRowAtExpandableIndexPath expandableIndexPath: ExpandableIndexPath) { }

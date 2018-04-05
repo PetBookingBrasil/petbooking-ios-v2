@@ -695,13 +695,48 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		24DA62E420516C2F00124FF1 /* New Cells */ = {
+		2478911C2076403400C35617 /* Subcells */ = {
 			isa = PBXGroup;
 			children = (
-				24DA62E520516CCD00124FF1 /* AddPetInformationTableViewCell.xib */,
-				24DA62E720516E7000124FF1 /* AddPetInformationTableViewCell.swift */,
+				41D86F921F298C360038ADA8 /* AdditionalServiceTableViewCell.swift */,
+				41D86F931F298C360038ADA8 /* AdditionalServiceTableViewCell.xib */,
+				41D86F821F2678D30038ADA8 /* PetCollectionViewCell.swift */,
+				41D86F831F2678D30038ADA8 /* PetCollectionViewCell.xib */,
+				41D86F881F294F1E0038ADA8 /* ServiceCollectionViewCell.swift */,
+				41D86F891F294F1E0038ADA8 /* ServiceCollectionViewCell.xib */,
+				419C89091F3168BB00BDBE8E /* ServiceTableFooterView.swift */,
+				419C890B1F3168CF00BDBE8E /* ServiceTableFooterView.xib */,
+				419C89051F3162EC00BDBE8E /* ServiceTableHeaderView.swift */,
+				419C89071F3162FD00BDBE8E /* ServiceTableHeaderView.xib */,
+				411B4E4E1F3E031A00B9244B /* ServiceTableViewCell.swift */,
+				411B4E4D1F3E031A00B9244B /* ServiceTableViewCell.xib */,
+				41D86F961F2ACC490038ADA8 /* SubServiceTableViewCell.swift */,
+				41D86F971F2ACC490038ADA8 /* SubServiceTableViewCell.xib */,
+				419F2B3D1FA915A50097C9A7 /* TimeTableViewCell.swift */,
+				419F2B3E1FA915A50097C9A7 /* TimeTableViewCell.xib */,
 			);
-			path = "New Cells";
+			path = Subcells;
+			sourceTree = "<group>";
+		};
+		24DA62E420516C2F00124FF1 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				410AA9641FA69AC700A90377 /* ServiceRowTableViewCell.swift */,
+				410AA9651FA69AC700A90377 /* ServiceRowTableViewCell.xib */,
+				410AA9681FA69EFA00A90377 /* SelectPetTableViewCell.swift */,
+				410AA9691FA69EFA00A90377 /* SelectPetTableViewCell.xib */,
+				410AA96C1FA6A76C00A90377 /* SelectCategoryTableViewCell.swift */,
+				410AA96D1FA6A76C00A90377 /* SelectCategoryTableViewCell.xib */,
+				410AA9701FA6ACF700A90377 /* SelectServiceTableViewCell.swift */,
+				410AA9711FA6ACF700A90377 /* SelectServiceTableViewCell.xib */,
+				410AA9741FA7751900A90377 /* SelectProfessionalTableViewCell.swift */,
+				410AA9751FA7751900A90377 /* SelectProfessionalTableViewCell.xib */,
+				419F2B391FA8D07F0097C9A7 /* SelectDateTableViewCell.swift */,
+				419F2B3A1FA8D07F0097C9A7 /* SelectDateTableViewCell.xib */,
+				24DA62E720516E7000124FF1 /* AddPetInformationTableViewCell.swift */,
+				24DA62E520516CCD00124FF1 /* AddPetInformationTableViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		410AA9931FA7A3DC00A90377 /* ExpandableTableView */ = {
@@ -1317,41 +1352,14 @@
 		41D86F751F266D640038ADA8 /* BusinessServices */ = {
 			isa = PBXGroup;
 			children = (
-				24DA62E420516C2F00124FF1 /* New Cells */,
-				41D86F921F298C360038ADA8 /* AdditionalServiceTableViewCell.swift */,
-				41D86F931F298C360038ADA8 /* AdditionalServiceTableViewCell.xib */,
+				2478911C2076403400C35617 /* Subcells */,
+				24DA62E420516C2F00124FF1 /* Cells */,
 				41D86F761F266D7A0038ADA8 /* BusinessServicesInteractor.swift */,
 				41D86F771F266D7A0038ADA8 /* BusinessServicesPresenter.swift */,
 				41D86F781F266D7A0038ADA8 /* BusinessServicesProtocols.swift */,
 				41D86F791F266D7A0038ADA8 /* BusinessServicesRouter.swift */,
 				41D86F7A1F266D7A0038ADA8 /* BusinessServicesViewController.swift */,
 				41D86F7B1F266D7A0038ADA8 /* BusinessServicesViewController.xib */,
-				41D86F821F2678D30038ADA8 /* PetCollectionViewCell.swift */,
-				41D86F831F2678D30038ADA8 /* PetCollectionViewCell.xib */,
-				41D86F881F294F1E0038ADA8 /* ServiceCollectionViewCell.swift */,
-				41D86F891F294F1E0038ADA8 /* ServiceCollectionViewCell.xib */,
-				419C89091F3168BB00BDBE8E /* ServiceTableFooterView.swift */,
-				419C890B1F3168CF00BDBE8E /* ServiceTableFooterView.xib */,
-				419C89051F3162EC00BDBE8E /* ServiceTableHeaderView.swift */,
-				419C89071F3162FD00BDBE8E /* ServiceTableHeaderView.xib */,
-				411B4E4E1F3E031A00B9244B /* ServiceTableViewCell.swift */,
-				411B4E4D1F3E031A00B9244B /* ServiceTableViewCell.xib */,
-				41D86F961F2ACC490038ADA8 /* SubServiceTableViewCell.swift */,
-				41D86F971F2ACC490038ADA8 /* SubServiceTableViewCell.xib */,
-				410AA9641FA69AC700A90377 /* ServiceRowTableViewCell.swift */,
-				410AA9651FA69AC700A90377 /* ServiceRowTableViewCell.xib */,
-				410AA9681FA69EFA00A90377 /* SelectPetTableViewCell.swift */,
-				410AA9691FA69EFA00A90377 /* SelectPetTableViewCell.xib */,
-				410AA96C1FA6A76C00A90377 /* SelectCategoryTableViewCell.swift */,
-				410AA96D1FA6A76C00A90377 /* SelectCategoryTableViewCell.xib */,
-				410AA9701FA6ACF700A90377 /* SelectServiceTableViewCell.swift */,
-				410AA9711FA6ACF700A90377 /* SelectServiceTableViewCell.xib */,
-				410AA9741FA7751900A90377 /* SelectProfessionalTableViewCell.swift */,
-				410AA9751FA7751900A90377 /* SelectProfessionalTableViewCell.xib */,
-				419F2B391FA8D07F0097C9A7 /* SelectDateTableViewCell.swift */,
-				419F2B3A1FA8D07F0097C9A7 /* SelectDateTableViewCell.xib */,
-				419F2B3D1FA915A50097C9A7 /* TimeTableViewCell.swift */,
-				419F2B3E1FA915A50097C9A7 /* TimeTableViewCell.xib */,
 				415191E61FABE9B400CACCFE /* ScheduleToTheCartAlertViewController.swift */,
 				415191E71FABE9B400CACCFE /* ScheduleToTheCartAlertViewController.xib */,
 			);
@@ -2121,6 +2129,7 @@
 				AUTH_KEY = "fe2e0261-2cac-440d-8027-c8cfc4720940";
 				BASE_URL = beta.petbooking.com.br;
 				CODE_SIGN_ENTITLEMENTS = "petbooking-ios-v2/petbooking-ios-v2.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -2147,6 +2156,7 @@
 				AUTH_KEY = "ac1e488b-38b6-47dd-b3a1-c2b3b77f67d4";
 				BASE_URL = novo.petbooking.com.br;
 				CODE_SIGN_ENTITLEMENTS = "petbooking-ios-v2/petbooking-ios-v2.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;

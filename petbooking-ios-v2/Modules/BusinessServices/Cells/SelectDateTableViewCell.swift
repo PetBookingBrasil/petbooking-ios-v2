@@ -26,7 +26,7 @@ class SelectDateTableViewCell: UITableViewCell {
     
 	var selectedProfessional:Professional = Professional()
 	var selectedService:Service = Service()
-	var selectedPet:Pet = Pet()
+	var selectedPet: Pet?
 	
 	weak var delegate:SelectDateTableViewCellDelegate?
 	
@@ -190,7 +190,7 @@ extension SelectDateTableViewCell: UITableViewDelegate, UITableViewDataSource {
 		cell.selectionStyle = UITableViewCellSelectionStyle.default
 		cell.isUserInteractionEnabled = true
 		
-		if let services = ScheduleManager.sharedInstance.getServicesByPet(pet: selectedPet) {
+		if let selectedPet = self.selectedPet, let services = ScheduleManager.sharedInstance.getServicesByPet(pet: selectedPet) {
 			for service in services {
 				if dateKey == service.startDate {
 					if date == service.startTime {
@@ -205,7 +205,6 @@ extension SelectDateTableViewCell: UITableViewDelegate, UITableViewDataSource {
 		}
 		
 		if let services = ScheduleManager.sharedInstance.getServicesByProfessional(professional: selectedProfessional) {
-			
 			for service in services {
 				if dateKey == service.startDate {
 					if date == service.startTime {

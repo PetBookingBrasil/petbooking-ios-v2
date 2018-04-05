@@ -16,10 +16,11 @@ class ServiceTableViewCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var priceLabelHeightConstraint: NSLayoutConstraint!
     
     weak var delegate: ServiceTableViewDelegate?
     
+    var hasPet = true
     var service: Service! = Service()
     var subServices = [SubService]()
     var selectedSubServices = [SubService]()
@@ -56,6 +57,8 @@ class ServiceTableViewCell: UITableViewCell {
     }
     
     @IBAction func didTapServiceNameLabel(_ sender: Any) {
+        guard hasPet else { return }
+        
         if !checkBox.on {
             self.delegate?.didSelectedService(service: self.service)
         }
@@ -105,7 +108,7 @@ extension ServiceTableViewCell : UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension ServiceTableViewCell:AdditionalServiceTableViewDelegate {
+extension ServiceTableViewCell: AdditionalServiceTableViewDelegate {
     func didSelectedService(subService: SubService) {
         delegate?.didSelectedSubService(service: subService)
     }

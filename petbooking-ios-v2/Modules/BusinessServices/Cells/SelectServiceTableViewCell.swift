@@ -11,6 +11,7 @@ import RealmSwift
 
 class SelectServiceTableViewCell: UITableViewCell {
 
+    var hasPet = true
     var serviceList: ServiceList = ServiceList()
     var selectedService: Service = Service()
     var services = [Service]()
@@ -73,9 +74,20 @@ extension SelectServiceTableViewCell: UITableViewDelegate, UITableViewDataSource
 		cell.service = service
 
 		cell.nameLabel?.text = service.name
-		cell.priceLabel.text = String(format: "R$ %.2f", service.price.servicePrice)
-		cell.priceLabel.sizeToFit()
-		
+        if hasPet {
+            cell.priceLabelHeightConstraint.constant = 80
+            cell.priceLabel.text = String(format: "R$ %.2f", service.price.servicePrice)
+            cell.priceLabel.font = cell.priceLabel.font.withSize(14)
+            cell.checkBox.isEnabled = true
+        } else {
+            cell.priceLabelHeightConstraint.constant = 130
+            cell.priceLabel.text = String(format: "de R$ %.2f à R$ %.2f", service.price.minPrice, service.price.maxPrice)
+            cell.priceLabel.font = cell.priceLabel.font.withSize(11)
+            cell.checkBox.isEnabled = false
+        }
+        cell.priceLabel.sizeToFit()
+        cell.layoutIfNeeded()
+        
         if selectedService.id.isBlank {
             cell.checkBox.setOn(false, animated: false)
             cell.subServices = [SubService]()
@@ -91,9 +103,7 @@ extension SelectServiceTableViewCell: UITableViewDelegate, UITableViewDataSource
 	}
 	
 	func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-		
 		let footerView = ServiceTableFooterView.loadFromNibNamed("ServiceTableFooterView") as! ServiceTableFooterView
-		
 		footerView.continueButton.addTarget(self, action: #selector(continueSchedule(_:)), for: .touchUpInside)
 		
 		return footerView
@@ -106,6 +116,7 @@ extension SelectServiceTableViewCell: ServiceTableViewDelegate {
 	}
 	
 	func didSelectedService(service: Service) {
+        guard hasPet else { return }
 		
 		services = [service]
 		
