@@ -59,7 +59,7 @@ class SignupInteractor: SignupInteractorProtocol {
         }
     }
     
-    func createUser(name: String, email: String, mobile: String, password: String, avatar: String) {
+    func createUser(name: String, email: String, mobile: String, password: String, avatar: String?) {
         var provider = "b2beauty"
         var providerToken = ""
         
@@ -71,6 +71,8 @@ class SignupInteractor: SignupInteractorProtocol {
         }
         
         if signupType == .editProfile {
+            guard let avatar = avatar else { return }
+            
             PetbookingAPI.sharedInstance.updateUser(name: name, email: email, mobile: mobile, avatar: avatar) { (success, message) in
                 if success {
                     self.presenter?.updatedUserWithSuccess()

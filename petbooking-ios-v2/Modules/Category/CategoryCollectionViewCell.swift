@@ -10,20 +10,5 @@ import UIKit
 
 class CategoryCollectionViewCell: UICollectionViewCell {
 
-	@IBOutlet weak var nameLabel: UILabel!
 	@IBOutlet weak var pictureImageView: UIImageView!
-	
-	override var isSelected: Bool {
-		didSet {
-			if isSelected {
-				pictureImageView.alpha = 1
-				nameLabel.alpha = 1
-				pictureImageView.dropShadow()
-			} else {
-				pictureImageView.alpha = 0.5
-				nameLabel.alpha = 0.7
-				pictureImageView.removeShadow()
-			}
-		}
-	}
 }

@@ -226,11 +226,15 @@ class SignupViewController: UIViewController, SignupViewProtocol {
             }
         }
         
-        let image = profilePictureImageView.image
+        var base64Avatar: String?
         
-        guard isValid, let base64Avatar = image!.toBase64String() else { return }
+        if let image = profilePictureImageView.image, let base64 = image.toBase64String() {
+            base64Avatar = "data:image/jpeg;base64,\(base64)"
+        }
         
-        presenter?.createUser(name: name, email: email, mobile: mobile, password: password, avatar: "data:image/jpeg;base64,\(base64Avatar)")
+        guard isValid else { return }
+        
+        presenter?.createUser(name: name, email: email, mobile: mobile, password: password, avatar: base64Avatar)
     }
 }
 

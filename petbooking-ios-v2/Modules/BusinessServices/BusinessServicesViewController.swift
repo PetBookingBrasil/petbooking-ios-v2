@@ -37,6 +37,8 @@ class BusinessServicesViewController: ExpandableTableViewController, BusinessSer
 	var professionalList: ProfessionalList! = ProfessionalList()
 	var currentIndexPath: ExpandableIndexPath = ExpandableIndexPath(forSection: 0, forRow: 0, forSubRow: 0)
     
+    var anotherPet = false
+    
     // Row
     var rowList: [ScheduleRow] = [.selectPet, .selectCategory, .selectService, .selectProfessional, .selectDate]
 	
@@ -93,7 +95,7 @@ class BusinessServicesViewController: ExpandableTableViewController, BusinessSer
                 selectedPet = pet
             }
 
-            if petList.pets.count > 1 {
+            if petList.pets.count > 1 || anotherPet {
                 showContent(indexPath: IndexPath(row: 0, section: 0))
             }
             
@@ -102,6 +104,7 @@ class BusinessServicesViewController: ExpandableTableViewController, BusinessSer
 
         presenter?.getCategories(business: business)
         
+        anotherPet = false
         expandableTableView.reloadData()
 	}
 	
@@ -192,21 +195,31 @@ extension BusinessServicesViewController: ScheduleToTheCartAlertDelegate {
     }
 
     func scheduleAnotherPet() {
-        serviceList = ServiceList()
+        
+        selectedPet = nil
+        selectedServiceCategory = nil
         selectedService = nil
         selectedSubServices = []
         selectedProfessional = nil
+
+        serviceCategoryList = ServiceCategoryList()
+        serviceList = ServiceList()
+        professionalList = ProfessionalList()
         
+               self.showContent(indexPath: IndexPath(row: 4, section: 0))
+
         self.expandableTableView.reloadData()
-        
-        if let petlist = self.petList {
-            if petlist.pets.count == 1 {
-                print("Criar pet")
-            } else {
-                showContent(indexPath: IndexPath(row: 0, section: 0))
-                selectPetDelegate?.loadPets(petList: petlist)
-            }
-        }
+        loadPets(petList: petList!)
+//        self.expandableTableView.reloadData()
+//
+//        self.showContent(indexPath: IndexPath(row: 4, section: 0))
+//        self.expandableTableView.reloadData()
+//        self.showContent(indexPath: IndexPath(row: 0, section: 0))
+//
+//        selectPetDelegate?.loadPets(petList: petList!)
+//        presenter?.getCategories(business: business)
+//
+//        expandableTableView.reloadData()
 
         goToChartButton.isHidden = true
     }
@@ -266,7 +279,7 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
             if let selectedCategory = selectedServiceCategory {
                 cell.contentView.isHidden = false
                 cell.titleLabel.text = selectedCategory.name
-                cell.iconImageView.image = UIImage(named:selectedCategory.slug)
+                cell.iconImageView.image = UIImage(named: "\(selectedCategory.slug)-mini")
             } else {
                 cell.contentView.isHidden = true
             }
@@ -471,6 +484,7 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
             cell.hasPet = self.petList!.pets.count > 0
             cell.serviceList = serviceList
             cell.selectedSubServices = self.selectedSubServices
+            cell.selectedService = Service()
             cell.delegate = self
             cell.tableView.reloadData()
             

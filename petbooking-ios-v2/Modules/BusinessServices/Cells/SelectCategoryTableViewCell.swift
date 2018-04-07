@@ -79,7 +79,7 @@ extension SelectCategoryTableViewCell: UICollectionViewDelegate, UICollectionVie
 		}
 		
 		cell.nameLabel.text = service.name
-		cell.pictureImageView.image = UIImage(named: service.slug)
+		cell.pictureImageView.image = UIImage(named: "\(service.slug)-mini")
 		
 		return cell
 	}

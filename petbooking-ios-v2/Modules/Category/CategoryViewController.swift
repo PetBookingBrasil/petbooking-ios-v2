@@ -34,7 +34,6 @@ class CategoryViewController: UIViewController, CategoryViewProtocol {
     }
     
     func requestCategory() {
-        
         ALLoadingView.manager.showLoadingView(ofType: .basic, windowMode: .fullscreen)
         
         PetbookingAPI.sharedInstance.getCategoryList { (serviceCategoryList, message) in
@@ -69,7 +68,7 @@ extension CategoryViewController: UICollectionViewDelegate, UICollectionViewData
             + (flowLayout.minimumInteritemSpacing * CGFloat(numberOfItemsPerRow - 1))
         let size = Int((collectionView.bounds.width - totalSpace) / CGFloat(numberOfItemsPerRow))
         
-        return CGSize(width: size, height: 60)
+        return CGSize(width: size, height: size)
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -90,12 +89,10 @@ extension CategoryViewController: UICollectionViewDelegate, UICollectionViewData
         
         let service = serviceCategoryList.categories[indexPath.item]
         
-        cell.isSelected = service == selectedServiceCategory
         if service == selectedServiceCategory {
             collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .left)
         }
         
-        cell.nameLabel.text = service.name
         cell.pictureImageView.image = UIImage(named: service.slug)
         
         return cell

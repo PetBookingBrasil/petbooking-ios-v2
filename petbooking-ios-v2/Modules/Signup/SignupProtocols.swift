@@ -24,7 +24,7 @@ protocol SignupPresenterProtocol: class {
     func setName(_ name: String)
     func setEmail(_ email: String)
     func setMobile(_ mobile: String)
-    func createUser(name: String, email: String, mobile: String, password: String, avatar: String)
+    func createUser(name: String, email: String, mobile: String, password: String, avatar: String?)
     func createUserWithSuccess()
     func updatedUserWithSuccess()
     func createUserWithError()
@@ -36,7 +36,7 @@ protocol SignupInteractorProtocol: class {
     var presenter: SignupPresenterProtocol?  { get set }
     
     func fillFields()
-    func createUser(name: String, email: String, mobile: String, password: String, avatar: String)
+    func createUser(name: String, email: String, mobile: String, password: String, avatar: String?)
 }
 
 //MARK: View -

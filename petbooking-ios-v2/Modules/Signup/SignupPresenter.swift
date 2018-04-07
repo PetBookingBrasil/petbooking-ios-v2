@@ -48,14 +48,15 @@ class SignupPresenter: SignupPresenterProtocol {
 		view?.setMobile(mobile)
 	}
 	
-    func createUser(name: String, email: String, mobile: String, password: String, avatar: String) {
+    func createUser(name: String, email: String, mobile: String, password: String, avatar: String?) {
 		ALLoadingView.manager.showLoadingView(ofType: .basic, windowMode: .fullscreen)
 		interactor.createUser(name: name, email: email, mobile: mobile, password: password, avatar: avatar)
 	}
 	
 	func createUserWithSuccess() {
-		ALLoadingView.manager.hideLoadingView()
-		router.createUserWithSuccess()
+        ALLoadingView.manager.hideLoadingView(withDelay: 1) {
+            self.router.createUserWithSuccess()
+        }
 	}
 	
 	func updatedUserWithSuccess() {

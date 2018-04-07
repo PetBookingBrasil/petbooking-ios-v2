@@ -214,7 +214,7 @@ extension PetbookingAPI {
 
 extension PetbookingAPI {
 	
-	func createUser(name: String, email: String, mobile: String, password: String, provider: String, providerToken: String, avatar: String, _ completion: @escaping (_ user: Bool, _ message: String) -> Void) {
+	func createUser(name: String, email: String, mobile: String, password: String, provider: String, providerToken: String, avatar: String?, _ completion: @escaping (_ user: Bool, _ message: String) -> Void) {
 		
 		if SessionManager.sharedInstance.isConsumerValid() {
 			var token = ""
@@ -224,15 +224,20 @@ extension PetbookingAPI {
 			}
 			
 			self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
+            
+            var attributes = ["provider": provider,
+                              "provider_token": providerToken,
+                              "email": email,
+                              "password": password,
+                              "name": name,
+                              "phone": mobile]
+            
+            if let avatar = avatar {
+                attributes["avatar"] = avatar
+            }
 			
 			let parameters: Parameters = ["data": ["type": "users",
-                                                   "attributes": ["provider": provider,
-                                                                  "provider_token": providerToken,
-                                                                  "email": email,
-                                                                  "password": password,
-                                                                  "name": name,
-                                                                  "phone": mobile,
-                                                                  "avatar": avatar]]]
+                                                   "attributes": attributes]]
 			
 			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/users",
                 method: .post,

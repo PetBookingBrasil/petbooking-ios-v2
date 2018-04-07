@@ -159,11 +159,7 @@ extension BusinessSearchViewController: UICollectionViewDelegate, UICollectionVi
 		return 1.0
 	}
 	
-	
-	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		
-		
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell", for: indexPath) as! CategoryCollectionViewCell
 		
 		let service = serviceCategoryList.categories[indexPath.item]
@@ -173,8 +169,7 @@ extension BusinessSearchViewController: UICollectionViewDelegate, UICollectionVi
 			collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .left)
 		}
 		
-		cell.nameLabel.text = service.name
-		cell.pictureImageView.image = UIImage(named: service.slug)
+		cell.pictureImageView.image = UIImage(named: "\(service.slug)-mini")
 		
 		return cell
 		
