@@ -17,7 +17,7 @@ class ServiceRowTableViewCell: UITableViewCell {
 	
 	var indexPath:IndexPath?
 	
-	weak var delegate:ServiceRowTableViewCellDelegate?
+	weak var delegate: ServiceRowTableViewCellDelegate?
 	
 	override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,7 +34,7 @@ class ServiceRowTableViewCell: UITableViewCell {
 	@IBAction func editAction(_ sender: Any) {
 		guard let indexPath = self.indexPath else { return }
 		
-		delegate?.showContent(indexPath: indexPath)
+		delegate?.showAction(indexPath: indexPath)
 	}
 	
 	@IBAction func didTapCell(_ sender: Any) {
@@ -43,5 +43,5 @@ class ServiceRowTableViewCell: UITableViewCell {
 }
 
 protocol ServiceRowTableViewCellDelegate: class {
-	func showContent(indexPath:IndexPath)
+    func showAction(indexPath:IndexPath)
 }

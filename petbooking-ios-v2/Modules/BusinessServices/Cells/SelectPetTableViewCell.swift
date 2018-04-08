@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol SelectPetTableViewCellDelegate: class {
+    func setSelectedPet(selectedPet: Pet)
+    func addPetTapped()
+}
+
 class SelectPetTableViewCell: UITableViewCell {
 
     @IBOutlet weak var addPetButton: UIButton!
@@ -19,7 +24,7 @@ class SelectPetTableViewCell: UITableViewCell {
 	var petList:PetList = PetList()
 	var thisWidth:CGFloat = 0
 	
-	weak var delegate:SelectPetTableViewCellDelegate?
+	weak var delegate: SelectPetTableViewCellDelegate?
 	
 	override func awakeFromNib() {
         super.awakeFromNib()
@@ -44,7 +49,7 @@ class SelectPetTableViewCell: UITableViewCell {
     }
     
     @IBAction func addPetButtonTapped(_ sender: Any) {
-        print("Chamar popup de pets")
+        delegate?.addPetTapped()
     }
 }
 
@@ -119,8 +124,3 @@ extension SelectPetTableViewCell: BusinessServicesViewControllerDelegate {
 		self.collectionView.reloadData()
 	}
 }
-
-protocol SelectPetTableViewCellDelegate: class {
-	func setSelectedPet(selectedPet: Pet)
-}
-

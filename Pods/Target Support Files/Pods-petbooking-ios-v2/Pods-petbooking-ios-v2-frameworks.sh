@@ -156,7 +156,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework"
 fi
-if [[ "$CONFIGURATION" == "Fabric" ]]; then
+if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/AKMaskField/AKMaskField.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/AKNumericFormatter/AKNumericFormatter.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ALLoadingView/ALLoadingView.framework"
@@ -179,7 +179,7 @@ if [[ "$CONFIGURATION" == "Fabric" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework"
 fi
-if [[ "$CONFIGURATION" == "Release" ]]; then
+if [[ "$CONFIGURATION" == "Fabic Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/AKMaskField/AKMaskField.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/AKNumericFormatter/AKNumericFormatter.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ALLoadingView/ALLoadingView.framework"
