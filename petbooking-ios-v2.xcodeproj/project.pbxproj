@@ -329,6 +329,12 @@
 		FF518A20202F8F130061DE44 /* WebviewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF518A1F202F8F130061DE44 /* WebviewRouter.swift */; };
 		FF518A22202F8F260061DE44 /* WebviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF518A21202F8F260061DE44 /* WebviewViewController.swift */; };
 		FF518A24202F90630061DE44 /* WebviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF518A23202F90630061DE44 /* WebviewViewController.xib */; };
+		FFCC900F207AE00A003C43DF /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFCC900E207AE00A003C43DF /* SettingsViewController.xib */; };
+		FFCC9015207AE4FA003C43DF /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCC9010207AE4F9003C43DF /* SettingsViewController.swift */; };
+		FFCC9016207AE4FA003C43DF /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCC9011207AE4F9003C43DF /* SettingsPresenter.swift */; };
+		FFCC9017207AE4FA003C43DF /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCC9012207AE4F9003C43DF /* SettingsRouter.swift */; };
+		FFCC9018207AE4FA003C43DF /* SettingsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCC9013207AE4F9003C43DF /* SettingsProtocols.swift */; };
+		FFCC9019207AE4FA003C43DF /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCC9014207AE4FA003C43DF /* SettingsInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -684,6 +690,12 @@
 		FF518A1F202F8F130061DE44 /* WebviewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebviewRouter.swift; sourceTree = "<group>"; };
 		FF518A21202F8F260061DE44 /* WebviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebviewViewController.swift; sourceTree = "<group>"; };
 		FF518A23202F90630061DE44 /* WebviewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebviewViewController.xib; sourceTree = "<group>"; };
+		FFCC900E207AE00A003C43DF /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		FFCC9010207AE4F9003C43DF /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		FFCC9011207AE4F9003C43DF /* SettingsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
+		FFCC9012207AE4F9003C43DF /* SettingsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
+		FFCC9013207AE4F9003C43DF /* SettingsProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsProtocols.swift; sourceTree = "<group>"; };
+		FFCC9014207AE4FA003C43DF /* SettingsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1209,6 +1221,7 @@
 		418D099C1EB0D71200FCD5A6 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				FFCC900D207ADFEE003C43DF /* Settings */,
 				411C84AE1F3A8ED3008C6E0A /* Agenda */,
 				41A0BAE01ED7A8E600671F3C /* AddPet */,
 				414BB1EC1EBFF49A000BE2CC /* AlertPopup */,
@@ -1506,6 +1519,19 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		FFCC900D207ADFEE003C43DF /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				FFCC9014207AE4FA003C43DF /* SettingsInteractor.swift */,
+				FFCC9011207AE4F9003C43DF /* SettingsPresenter.swift */,
+				FFCC9013207AE4F9003C43DF /* SettingsProtocols.swift */,
+				FFCC9012207AE4F9003C43DF /* SettingsRouter.swift */,
+				FFCC9010207AE4F9003C43DF /* SettingsViewController.swift */,
+				FFCC900E207AE00A003C43DF /* SettingsViewController.xib */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1605,6 +1631,7 @@
 				410AA96F1FA6A76C00A90377 /* SelectCategoryTableViewCell.xib in Resources */,
 				419C89081F3162FD00BDBE8E /* ServiceTableHeaderView.xib in Resources */,
 				4168DFEA1FAFE4CE00111FB3 /* ReviewsHeaderTableViewCell.xib in Resources */,
+				FFCC900F207AE00A003C43DF /* SettingsViewController.xib in Resources */,
 				419F2B401FA915A50097C9A7 /* TimeTableViewCell.xib in Resources */,
 				4149E9981EFF0D0100D6C44B /* BusinessTableViewCell.xib in Resources */,
 				4149E97C1EF9628100D6C44B /* BusinessListViewControllerViewController.xib in Resources */,
@@ -1788,6 +1815,7 @@
 			files = (
 				4129D9EC1EDF8BCF0067EDC3 /* Breed.swift in Sources */,
 				41231A381FCD9FF7001EA867 /* UIApplication+Localide.swift in Sources */,
+				FFCC9015207AE4FA003C43DF /* SettingsViewController.swift in Sources */,
 				419C89151F33A18700BDBE8E /* CartWebInteractor.swift in Sources */,
 				4120ED1C1EB38650009D35B0 /* LoginViewController.swift in Sources */,
 				4179696F1F69676700C47936 /* SegmentioCellWithImageOverLabel.swift in Sources */,
@@ -1861,6 +1889,7 @@
 				417969741F69676700C47936 /* Segmentio.swift in Sources */,
 				FF3B9A7120793E1200B43BF2 /* AddPetModalPresenter.swift in Sources */,
 				4120ED271EB4F136009D35B0 /* ForgotPasswordInteractor.swift in Sources */,
+				FFCC9018207AE4FA003C43DF /* SettingsProtocols.swift in Sources */,
 				4179696E1F69676700C47936 /* SegmentioCellWithImageBeforeLabel.swift in Sources */,
 				FF34B178202C984500F00528 /* CategoryContentInteractor.swift in Sources */,
 				FF34B16F202B807B00F00528 /* CategoryRouter.swift in Sources */,
@@ -1877,6 +1906,7 @@
 				414862981F2E9F1900F210D8 /* JTCalendarPageView.m in Sources */,
 				4129D9E51ED86E9B0067EDC3 /* MyPetsProtocols.swift in Sources */,
 				414862A11F2FF71800F210D8 /* TImeCollectionViewCell.swift in Sources */,
+				FFCC9019207AE4FA003C43DF /* SettingsInteractor.swift in Sources */,
 				414862941F2E9F1900F210D8 /* JTCalendarDelegateManager.m in Sources */,
 				41231A351FCD9FF7001EA867 /* NSUserDetauls+Localide.swift in Sources */,
 				411C84B91F3A8EF0008C6E0A /* AgendaViewController.swift in Sources */,
@@ -1939,6 +1969,7 @@
 				413715871EBE7D0300258C6F /* SelectPhotoSourcePopupInteractor.swift in Sources */,
 				4129D9E91ED86E9B0067EDC3 /* MyPetsViewController.swift in Sources */,
 				4137158A1EBE7D0300258C6F /* SelectPhotoSourcePopupRouter.swift in Sources */,
+				FFCC9017207AE4FA003C43DF /* SettingsRouter.swift in Sources */,
 				41D86F6F1F263AB30038ADA8 /* HomeBusinessProtocols.swift in Sources */,
 				417969721F69676700C47936 /* RoundImageView.swift in Sources */,
 				418DAA321ECE93FB006265CF /* SideMenuTableViewCell.swift in Sources */,
@@ -1972,6 +2003,7 @@
 				411C84C71F3BE82E008C6E0A /* AgendaSubServiceTableViewCell.swift in Sources */,
 				4168AA4C1EB69217001E2D6D /* PetbookingAPI.swift in Sources */,
 				4149E97B1EF9628100D6C44B /* BusinessListViewControllerViewController.swift in Sources */,
+				FFCC9016207AE4FA003C43DF /* SettingsPresenter.swift in Sources */,
 				41D86F941F298C360038ADA8 /* AdditionalServiceTableViewCell.swift in Sources */,
 				FF34B171202B811900F00528 /* CategoryViewController.swift in Sources */,
 				41D86FA41F2D525E0038ADA8 /* ScheduleCalendarRouter.swift in Sources */,

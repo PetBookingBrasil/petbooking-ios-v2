@@ -48,6 +48,10 @@ class SideMenuPresenter: SideMenuPresenterProtocol {
     func didTapPayments() {
         router.showPayments()
     }
+    
+    func didTapSettings() {
+        router.showSettings()
+    }
 	
 	func didTapSearch() {
 		router.showSearch()

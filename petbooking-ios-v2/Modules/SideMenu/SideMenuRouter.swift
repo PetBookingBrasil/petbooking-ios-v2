@@ -61,12 +61,16 @@ class SideMenuRouter: SideMenuWireframeProtocol {
         self.viewController?.navigationController?.pushViewController(AgendaRouter.createModule(), animated: true)
     }
     
+    func showSettings() {
+        self.viewController?.navigationController?.pushViewController(SettingsRouter.createModule(), animated: true)
+    }
+    
     func showPayments() {
         var authToken = ""
         if let session = SessionManager.sharedInstance.getCurrentSession() {
             authToken = session.authToken
         }
-
+        
         let paymentsURL = "https://beta.petbooking.com.br/v2/webviews/credit_cards/\(authToken)"
         let webviewRequest = WebviewRequest(title: "Formas de Pagamento", url: URL(string: paymentsURL))
         

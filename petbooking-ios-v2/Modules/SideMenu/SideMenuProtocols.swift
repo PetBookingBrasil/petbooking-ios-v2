@@ -18,6 +18,7 @@ protocol SideMenuWireframeProtocol: class {
     func showFavorites()
     func showSchedule()
     func showPayments()
+    func showSettings()
     func showSearch()
 }
 
@@ -29,6 +30,7 @@ protocol SideMenuPresenterProtocol: class {
     func didTapFavorites()
     func didTapSchedule()
     func didTapPayments()
+    func didTapSettings()
     func didTapSearch()
 }
 

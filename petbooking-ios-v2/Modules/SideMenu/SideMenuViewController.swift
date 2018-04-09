@@ -134,7 +134,7 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
 			presenter?.didTapFavorites()
 
         case .settings:
-            break
+            presenter?.didTapSettings()
 
         case .logout:
 			presenter?.didTapLogout()
