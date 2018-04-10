@@ -574,8 +574,8 @@ extension PetbookingAPI {
                                                             "birth_date": pet.birthday,
                                                             "coat_type": pet.coatSize,
                                                             "castrated": pet.castrated,
-//                                                            "coat_colors": [pet.coatColor],
-//                                                            "chip_id": pet.chipNumber,
+                                                            "coat_colors": [pet.coatColor],
+                                                            "chip_id": pet.chipNumber,
                                                             "photo": pet.photoUrl]]]
             
 			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/users/\(userId)/pets", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: auth_headers).responseJSON { (response) in

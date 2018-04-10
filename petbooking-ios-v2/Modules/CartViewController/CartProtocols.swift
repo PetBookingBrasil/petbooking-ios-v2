@@ -12,11 +12,11 @@ import Foundation
 
 //MARK: Wireframe -
 protocol CartWireframeProtocol: class {
-
+    func didTapReturnButton()
 }
 //MARK: Presenter -
 protocol CartPresenterProtocol: class {
-
+    func didTapReturnButton()
 }
 
 //MARK: Interactor -

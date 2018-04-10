@@ -107,7 +107,7 @@ class BusinessServicesViewController: ExpandableTableViewController, BusinessSer
 	
 	func loadCategories(serviceCategoryList: ServiceCategoryList) {
 		ALLoadingView.manager.hideLoadingView()
-		
+        
 		self.serviceCategoryList = serviceCategoryList
         
         if let category = self.category {
@@ -117,8 +117,10 @@ class BusinessServicesViewController: ExpandableTableViewController, BusinessSer
                 setSelectedCategory(selectedServiceCategory: self.selectedServiceCategory!)
             }
         } else {
-            if let categoryIndex = rowList.index(of: .selectCategory) {
-                showContent(indexPath: IndexPath(row: categoryIndex, section: 0))
+            if let petlist = self.petList, petlist.pets.count <= 1 {
+                if let categoryIndex = rowList.index(of: .selectCategory) {
+                    showContent(indexPath: IndexPath(row: categoryIndex, section: 0))
+                }
             }
         }
 		
@@ -176,14 +178,21 @@ extension BusinessServicesViewController: AddPetModalDelegate {
     func savePet() {
         rowList = [.selectPet, .selectCategory, .selectService, .selectProfessional, .selectDate]
 
+        let cellCount = petList!.pets.count
+        
         petList = nil
+        selectedPet = nil
         selectedProfessional = nil
         selectedService = nil
         selectedSubServices = []
         serviceList = ServiceList()
         
-        expandableTableView.reloadData()
-        
+        if cellCount > 0 {
+            self.unexpandAllCells()
+        } else {
+            self.expandableTableView.reloadData()
+        }
+
         goToChartButton.isHidden = true
         
         presenter?.getPets()
@@ -192,7 +201,7 @@ extension BusinessServicesViewController: AddPetModalDelegate {
 
 extension BusinessServicesViewController: ScheduleToTheCartAlertDelegate {
     func goToCart() {
-        let cart = CartRouter.createModule(business:business)
+        let cart = CartRouter.createModule(business: business, delegate: self)
         
         self.navigationController?.pushViewController(cart, animated: true)
         

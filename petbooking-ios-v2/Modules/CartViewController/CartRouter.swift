@@ -13,11 +13,12 @@ import UIKit
 class CartRouter: CartWireframeProtocol {
     
     weak var viewController: UIViewController?
+    var delegate: AddPetModalDelegate?
     
-	static func createModule(business:Business) -> UIViewController {
+    static func createModule(business: Business, delegate: AddPetModalDelegate? = nil) -> UIViewController {
         // Change to get view from storyboard if not using progammatic UI
         let view = CartViewController(nibName: nil, bundle: nil)
-				view.business = business
+        view.business = business
         let interactor = CartInteractor()
         let router = CartRouter()
         let presenter = CartPresenter(interface: view, interactor: interactor, router: router)
@@ -25,7 +26,14 @@ class CartRouter: CartWireframeProtocol {
         view.presenter = presenter
         interactor.presenter = presenter
         router.viewController = view
+        router.delegate = delegate
         
         return view
     }
+    
+    func didTapReturnButton() {
+        delegate?.savePet()
+        viewController?.navigationController?.popViewController(animated: true)
+    }
+
 }

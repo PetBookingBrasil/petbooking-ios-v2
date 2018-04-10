@@ -22,31 +22,31 @@ class CartWebViewController: UIViewController, CartWebViewProtocol {
 	var webView: WKWebView!
 	var presenter: CartWebPresenterProtocol?
 	
-	var cart:Cart! = Cart()
+	var cart: Cart! = Cart()
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
 		setBackButton()
-		title = "Pagamento"
-		
+        title = "Pagamento"
+
 		ALLoadingView.manager.showLoadingView(ofType: .basic, windowMode: .fullscreen)
 		PetbookingAPI.sharedInstance.userInfo { (user, message) in
 			self.loadWebView()
 		}
 	}
-	
+    
 	func loadWebView() {
-		let configuration = WKWebViewConfiguration()
-		let controller = WKUserContentController()
-		controller.add(self, name: "observe")
-		configuration.userContentController = controller
-		
-		webView = WKWebView(frame: view.frame, configuration: configuration)
-		webView.navigationDelegate = self
-		
-		view.addSubview(webView)
-		
+        let configuration = WKWebViewConfiguration()
+        let controller = WKUserContentController()
+        controller.add(self, name: "observe")
+        configuration.userContentController = controller
+        
+        webView = WKWebView(frame: view.bounds, configuration: configuration)
+        webView.navigationDelegate = self
+        
+        view.addSubview(webView)
+        
 		guard let user = UserManager.sharedInstance.getCurrentUser() else { return }
 		guard let url = URL(string: "\(CartWebViewController.WEB_BASE_URL)/webviews/payments/\(cart.id)/\(user.authToken)/new") else { return }
 		

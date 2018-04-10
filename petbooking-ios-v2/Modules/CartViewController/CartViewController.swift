@@ -26,16 +26,22 @@ class CartViewController: UIViewController, CartViewProtocol {
         
         let backButton = UIBarButtonItem()
         backButton.target = self
-        backButton.action = #selector(cancelButtonPressed)
+        backButton.action = #selector(returnView)
+        
         self.navigationItem.leftBarButtonItem = backButton
-        self.navigationItem.leftBarButtonItem?.image = UIImage(named: "addToCartIcon")
+        self.navigationItem.leftBarButtonItem?.image = UIImage(named: "back_icon")
         
         scheduleButton.round()
         
         tableView.register(UINib(nibName: "CartTableViewCell", bundle: nil), forCellReuseIdentifier: "CartTableViewCell")
+        tableView.tableFooterView = UIView()
         tableView.estimatedRowHeight = 2000
         
         title = "Carrinho de Agendamentos"
+    }
+    
+    @objc func returnView() {
+        presenter?.didTapReturnButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {

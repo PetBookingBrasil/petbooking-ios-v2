@@ -43,28 +43,7 @@ extension UIViewController {
 		self.navigationItem.leftBarButtonItem = backButton
 		self.navigationItem.leftBarButtonItem?.image = UIImage(named: "back_icon")
 	}
-	
-	func setCartButton(business:Business = Business()) {
-//		let schedule = ScheduleManager.sharedInstance.getSchedule(business:business)
-//		var quantity = 0
-//		for petSchedule in schedule.petsSchedule {
-//
-//			for categories in petSchedule.categories {
-//				quantity += categories.services.count
-//			}
-//
-//		}
-//
-//		cartButton.badgeValue = "\(quantity)"
-//		cartButton.badgeOriginX = 20.0
-//		cartButton.badgeOriginY = -4
-//
-//
-//		self.navigationItem.rightBarButtonItem = cartButton
-	}
-	
-
-	
+		
 	@objc func cancelButtonPressed(_ sender: AnyObject) {
 		
 		if let _ =  self.navigationController?.popViewController(animated: true) {

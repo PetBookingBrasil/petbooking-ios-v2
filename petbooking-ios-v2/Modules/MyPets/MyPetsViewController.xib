@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -41,7 +41,7 @@
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icone-favoritos" translatesAutoresizingMaskIntoConstraints="NO" id="aBh-IS-UYC">
                             <rect key="frame" x="67" y="100" width="240" height="240"/>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ops! Você ainda não tem nenhum pet adicionado." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUH-iO-Snm">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ops! Você ainda não tem nenhum pet adicionado." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="JUH-iO-Snm">
                             <rect key="frame" x="70" y="370" width="235" height="47"/>
                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -66,6 +66,7 @@
                     <color key="backgroundColor" red="0.89411764709999997" green="0.0" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="JUH-iO-Snm" firstAttribute="centerX" secondItem="K7B-Cv-q8G" secondAttribute="centerX" id="19E-VH-Gq4"/>
+                        <constraint firstItem="0lr-Jx-pMs" firstAttribute="top" relation="greaterThanOrEqual" secondItem="JUH-iO-Snm" secondAttribute="bottom" constant="20" id="AtP-dv-ud3"/>
                         <constraint firstItem="aBh-IS-UYC" firstAttribute="centerX" secondItem="K7B-Cv-q8G" secondAttribute="centerX" id="JdL-aa-Mw8"/>
                         <constraint firstItem="JUH-iO-Snm" firstAttribute="top" secondItem="aBh-IS-UYC" secondAttribute="bottom" constant="30" id="Vc5-bx-eBx"/>
                         <constraint firstItem="0lr-Jx-pMs" firstAttribute="centerX" secondItem="K7B-Cv-q8G" secondAttribute="centerX" id="XzL-8f-GoO"/>
