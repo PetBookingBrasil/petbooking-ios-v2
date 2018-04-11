@@ -370,9 +370,9 @@ extension PetbookingAPI {
             
             let parameters: Parameters = ["data": ["type": "users", "id": "\(userId)",
                 "attributes": ["search_range": Int(range*100.0),
-                               "accepts_push": 0,
-                               "accepts_email": email,
-                               "accepts_sms": 0]]]
+                               "accepts_push": push ? "true" : "false",
+                               "accepts_email": email ? "true" : "false",
+                               "accepts_sms": sms ? "true" : "false"]]]
             
             Alamofire.request("\(PetbookingAPI.API_BASE_URL)/users/\(userId)",
                 method: .put,

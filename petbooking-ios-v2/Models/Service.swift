@@ -26,7 +26,7 @@ class Service: MTLModel, MTLJSONSerializing {
         return ["id": "id",
                 "name": "attributes.name",
                 "duration": "attributes.duration",
-                "price": "attributes.price",
+                "price": "attributes.price_range",
                 "services": "attributes.childs"]
     }
     

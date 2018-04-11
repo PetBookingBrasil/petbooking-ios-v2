@@ -104,7 +104,9 @@ extension BusinessMapListViewController: MKMapViewDelegate {
 	func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
 		guard let annotation  = view.annotation as? BussinessAnnotation else { return }
 		
-		businessesCallout = [annotation.business]
+        let homeBusiness = HomeBusinessRouter.createModule(with: annotation.business, from: service)
+        
+        self.navigationController?.pushViewController(homeBusiness, animated: true)
 	}
 	
 	func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {

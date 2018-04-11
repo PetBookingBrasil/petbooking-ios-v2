@@ -29,7 +29,11 @@ class SettingsViewController: UIViewController, SettingsViewProtocol {
     @IBOutlet weak var emailSwitch: UISwitch!
     @IBOutlet weak var smsSwitch: UISwitch!
     
-	override func viewDidLoad() {
+    @IBOutlet weak var contactButton: UIButton!
+    @IBOutlet weak var termsButton: UIButton!
+    @IBOutlet weak var privacyButton: UIButton!
+    
+    override func viewDidLoad() {
         super.viewDidLoad()
 		
 		setBackButton()
@@ -43,22 +47,26 @@ class SettingsViewController: UIViewController, SettingsViewProtocol {
         kmConteinerView.layer.borderColor = UIColor.lightGray.cgColor
         kmConteinerView.layer.cornerRadius = kmConteinerView.frame.height / 2
         
+        contactButton.contentHorizontalAlignment = .left
+        termsButton.contentHorizontalAlignment = .left
+        privacyButton.contentHorizontalAlignment = .left
+        
         if case user?.acceptsPush = true {
             pushSwitch.isOn = true
         } else {
-            pushSwitch.isOn = true
+            pushSwitch.isOn = false
         }
         
         if case user?.acceptsEmail = true {
             emailSwitch.isOn = true
         } else {
-            emailSwitch.isOn = true
+            emailSwitch.isOn = false
         }
 
         if case user?.acceptsSms = true {
             smsSwitch.isOn = true
         } else {
-            smsSwitch.isOn = true
+            smsSwitch.isOn = false
         }
         
         if let range = user?.searchRange {
