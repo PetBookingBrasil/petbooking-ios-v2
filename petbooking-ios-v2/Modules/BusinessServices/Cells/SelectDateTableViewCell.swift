@@ -32,7 +32,6 @@ class SelectDateTableViewCell: UITableViewCell {
 	
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
 		
 		numberLabel.round()
 		numberLabel.setBorder(width: 1, color: UIColor(hex: "E4002B"))
@@ -53,12 +52,6 @@ class SelectDateTableViewCell: UITableViewCell {
 		tableView.emptyDataSetSource = self
 		tableView.emptyDataSetDelegate = self
 		tableView.register(UINib(nibName: "TimeTableViewCell", bundle: nil), forCellReuseIdentifier: "TimeTableViewCell")
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 	
 	func reloadTimeColletion(professional:Professional) {
@@ -93,8 +86,7 @@ extension SelectDateTableViewCell:JTCalendarDelegate {
 		return isProfissionalAvailable
 	}
     
-	func calendar(_ calendar: JTCalendarManager!, prepareDayView dayView: UIView!) {
-
+    func calendar(_ calendar: JTCalendarManager!, prepareDayView dayView: (UIView & JTCalendarDay)!) {
 		
 		// Today
 		let dayView = dayView as! JTCalendarDayView
@@ -112,30 +104,28 @@ extension SelectDateTableViewCell:JTCalendarDelegate {
 			dayView.textLabel.font = UIFont.robotoMedium(ofSize: 17)
 		}
 	}
-	
+    
     func calendar(_ calendar: JTCalendarManager!, didTouchDayView dayView: (UIView & JTCalendarDay)!) {
+                let dayView = dayView as! JTCalendarDayView
+        
+                if !self.isProfessionalAvailable(date: dayView.date!) { return }
+        
+                dateSelected = dayView.date
+        
+                reloadTimeColletion(professional: selectedProfessional)
+        
+                dayView.circleView.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+        
+                UIView.transition(with: dayView,
+                                  duration: 0.3,
+                                  options: UIViewAnimationOptions(rawValue: 0),
+                                  animations: {
+                    dayView.circleView.transform = .identity
+                    self.calendarManager.reload()
+        
+                }, completion: nil)
+    }
 		
-		let dayView = dayView as! JTCalendarDayView
-		
-		if !self.isProfessionalAvailable(date: dayView.date!) { return }
-		
-		dateSelected = dayView.date
-		
-		reloadTimeColletion(professional: selectedProfessional)
-		
-		dayView.circleView.transform = dayView.transform.scaledBy(x: 0.1, y: 0.1)
-		
-		UIView.transition(with: dayView,
-                          duration: 0.3,
-                          options: UIViewAnimationOptions(rawValue: 0),
-                          animations: {
-			dayView.circleView.transform = .identity
-			self.calendarManager.reload()
-			
-		}, completion: nil)
-		
-	}
-	
 	func calendar(_ calendar: JTCalendarManager!, prepareMenuItemView menuItemView: UIView!, date: Date!) {
 		guard let label = menuItemView as? UILabel else { return }
 		

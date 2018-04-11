@@ -14,6 +14,7 @@ import RealmSwift
 class User: MTLModel, MTLJSONSerializing {
     
     @objc dynamic var userId = ""
+    @objc dynamic var searchRange: Float = 0.0
     @objc dynamic var acceptsEmail = false
     @objc dynamic var acceptsPush = false
     @objc dynamic var acceptsSms = false
@@ -41,6 +42,7 @@ class User: MTLModel, MTLJSONSerializing {
     
     static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
         return ["userId": "data.id",
+                "searchRange": "data.attributes.search_range",
                 "acceptsEmail": "data.attributes.accepts_email",
                 "acceptsPush": "data.attributes.accepts_push",
                 "acceptsSms": "data.attributes.accepts_sms",
@@ -71,6 +73,7 @@ class User: MTLModel, MTLJSONSerializing {
 class UserRealm: Object {
     
     @objc dynamic var userId = ""
+    @objc dynamic var searchRange: Float = 0.0
     @objc dynamic var acceptsEmail = false
     @objc dynamic var acceptsPush = false
     @objc dynamic var acceptsSms = false

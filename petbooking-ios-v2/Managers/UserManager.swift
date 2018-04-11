@@ -23,6 +23,7 @@ class UserManager: NSObject {
 			let user = User()
 
 			user?.userId = userRealm.userId
+            user?.searchRange = userRealm.searchRange
 			user?.acceptsEmail = userRealm.acceptsEmail
 			user?.acceptsPush = userRealm.acceptsPush
 			user?.acceptsSms = userRealm.acceptsSms
@@ -58,6 +59,7 @@ class UserManager: NSObject {
 		let userRealm = UserRealm()
         
 		userRealm.userId = user.userId
+        userRealm.searchRange = user.searchRange
 		userRealm.acceptsEmail = user.acceptsEmail
 		userRealm.acceptsPush = user.acceptsPush
 		userRealm.acceptsSms = user.acceptsSms

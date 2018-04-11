@@ -23,7 +23,7 @@ class PetbookingAPI: NSObject {
 	let consumer_headers: HTTPHeaders!
 	
 	static let sharedInstance = PetbookingAPI()
-	
+    
 	override init() {
 		var token = ""
 		if let consumer = SessionManager.sharedInstance.getCurrentConsumer() {
@@ -348,6 +348,70 @@ extension PetbookingAPI {
 			}
 		}
 	}
+    
+    func updateConfig(push: Bool, email: Bool, sms: Bool, range: Float, completion: ((_ user: Bool, _ message: String) -> Void)?) {
+        
+        if SessionManager.sharedInstance.isConsumerValid() {
+            var token = ""
+            
+            if let consumer = SessionManager.sharedInstance.getCurrentConsumer() {
+                token = consumer.token
+            }
+            
+            var authToken = ""
+            var userId = 0
+            if let session = SessionManager.sharedInstance.getCurrentSession() {
+                authToken = session.authToken
+                userId = session.userId
+            }
+            
+            self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
+            self.auth_headers.updateValue("Token token=\"\(authToken)\"", forKey: "X-Petbooking-Session-Token")
+            
+            let parameters: Parameters = ["data": ["type": "users", "id": "\(userId)",
+                "attributes": ["search_range": Int(range*100.0),
+                               "accepts_push": 0,
+                               "accepts_email": email,
+                               "accepts_sms": 0]]]
+            
+            Alamofire.request("\(PetbookingAPI.API_BASE_URL)/users/\(userId)",
+                method: .put,
+                parameters: parameters,
+                encoding: JSONEncoding.prettyPrinted,
+                headers: auth_headers).responseJSON { (response) in
+                    
+                    switch response.result{
+                    case .success(let jsonObject):
+                        if let dic = jsonObject as? [String: Any] {
+                            do {
+                                let user = try MTLJSONAdapter.model(of: User.self, fromJSONDictionary: dic) as! User
+                                
+                                if user.errors.count == 0 {
+                                    try UserManager.sharedInstance.saveUser(user: user)
+                                    completion?(true, "")
+                                } else {
+                                    completion?(false, "")
+                                }
+                            } catch {
+                                completion?(false, error.localizedDescription)
+                            }
+                        } else {
+                            completion?(false, "")
+                        }
+                    case .failure(let error):
+                        completion?(false, error.localizedDescription)
+                    }
+            }
+        } else {
+            getConsumer { (success, message) in
+                if success {
+                    self.updateConfig(push: push, email: email, sms: sms, range: range, completion: completion)
+                } else {
+                    completion?(false, "")
+                }
+            }
+        }
+    }
 	
 	func userInfo(_ completion: @escaping (_ user: User?, _ message: String) -> Void) {
 		
