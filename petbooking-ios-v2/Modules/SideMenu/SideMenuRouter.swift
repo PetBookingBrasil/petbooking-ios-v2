@@ -71,7 +71,7 @@ class SideMenuRouter: SideMenuWireframeProtocol {
             authToken = session.authToken
         }
         
-        let paymentsURL = "https://beta.petbooking.com.br/v2/webviews/credit_cards/\(authToken)"
+        let paymentsURL = "\(CartWebViewController.WEB_BASE_URL)/webviews/credit_cards/\(authToken)"
         let webviewRequest = WebviewRequest(title: "Formas de Pagamento", url: URL(string: paymentsURL))
         
         let paymentView = WebviewRouter.createModule(from: webviewRequest)

@@ -389,15 +389,21 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
                 selectedServiceCategory = nil
                 selectedService = nil
                 selectedProfessional = nil
+                goToChartButton.isHidden = true
+
                 self.expandableTableView.reloadData()
 
             case 1:
                 selectedService = nil
                 selectedProfessional = nil
+                goToChartButton.isHidden = true
+
                 self.expandableTableView.reloadData()
 
             case 2:
                 selectedProfessional = nil
+                goToChartButton.isHidden = true
+
                 self.expandableTableView.reloadData()
 
             default:
@@ -429,8 +435,6 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
 	func setSelectedPet(selectedPet: Pet) {
 		self.selectedPet = selectedPet
         
-        print("setSelectedPet")
-        
         if self.category == nil {
             showContent(indexPath: IndexPath(row: 1, section: 0))
             expandableTableView.reloadData()
@@ -447,8 +451,6 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
     }
 	
 	func setSelectedCategory(selectedServiceCategory: ServiceCategory) {
-        print("setSelectedCategory")
-
 		self.selectedServiceCategory = selectedServiceCategory
 		self.expandableTableView.reloadData()
 				
@@ -456,8 +458,6 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
 	}
 	
 	func setSelectedService(selectedService: Service, selectedSubServices:[SubService]) {
-        print("setSelectedService")
-
 		self.selectedService = selectedService
 		self.selectedSubServices = selectedSubServices
 		
@@ -469,8 +469,6 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
 	}
 	
 	func setSelectedProfessional(professional: Professional) {
-        print("setSelectedProfessional")
-
 		self.selectedProfessional = professional
 		self.expandableTableView.reloadData()
 		
@@ -483,8 +481,6 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
 	}
 	
 	func setSelectedTime(service: Service) {
-        print("setSelectedTime")
-
 		selectedService = service
         goToChartButton.isHidden = false
 	}
