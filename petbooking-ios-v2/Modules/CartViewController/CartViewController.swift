@@ -19,7 +19,7 @@ class CartViewController: UIViewController, CartViewProtocol {
     
     var presenter: CartPresenterProtocol?
     
-    var business:Business = Business()
+    var business: Business = Business()
     
     override func viewDidLoad() {
         super.viewDidLoad()

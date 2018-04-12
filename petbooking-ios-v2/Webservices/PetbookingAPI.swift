@@ -35,7 +35,9 @@ class PetbookingAPI: NSObject {
 			language = langStr
 		}
 		
-		auth_headers = ["Authorization": "Bearer \(token)", "Content-Type": "application/vnd.api+json", "X-BDT-language": language]
+		auth_headers = ["Authorization": "Bearer \(token)",
+                        "Content-Type": "application/vnd.api+json",
+                        "X-BDT-language": language]
 		consumer_headers = ["Content-Type": "application/vnd.api+json"]
 	}
 }
