@@ -50,8 +50,8 @@ class BusinessServicesViewController: ExpandableTableViewController, BusinessSer
 		setBackButton()
         goToChartButton.round()
 
-		ScheduleManager.sharedInstance.cleanSchedule()
-		ScheduleManager.sharedInstance.createNewSchedule(business: business)
+		ScheduleManager.shared.cleanSchedule()
+		ScheduleManager.shared.createNewSchedule(business: business)
 				
         setupExpandableTableView()
 		
@@ -78,7 +78,7 @@ class BusinessServicesViewController: ExpandableTableViewController, BusinessSer
     }
 	
 	deinit {
-		ScheduleManager.sharedInstance.cleanSchedule()
+		ScheduleManager.shared.cleanSchedule()
 	}
 	
 	func loadPets(petList: PetList) {
@@ -140,10 +140,10 @@ class BusinessServicesViewController: ExpandableTableViewController, BusinessSer
 	@IBAction func goToCart(_ sender: Any) {
         guard let selectedCategory = selectedServiceCategory, let service = selectedService else { return }
         
-        ScheduleManager.sharedInstance.addServiceToSchedule(business: business, pet: selectedPet!, serviceCategory: selectedCategory, service: service)
+        ScheduleManager.shared.addServiceToSchedule(business: business, pet: selectedPet!, serviceCategory: selectedCategory, service: service)
 		
 		for subService in selectedSubServices {
-            ScheduleManager.sharedInstance.addSubServiceToSchedule(business: business, pet: selectedPet!, serviceCategory: selectedCategory, service: service, subService: subService)
+            ScheduleManager.shared.addSubServiceToSchedule(business: business, pet: selectedPet!, serviceCategory: selectedCategory, service: service, subService: subService)
 		}
 		
 		checkServices()
@@ -559,11 +559,13 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
             return cell
 
         case .selectDate:
+            guard let selectedService = self.selectedService, let selectedProfessional = self.selectedProfessional else { break }
+            
             let cell = expandableTableView.dequeueReusableCellWithIdentifier("SelectDateTableViewCell", forIndexPath: expandableIndexPath) as!SelectDateTableViewCell
             cell.selectedPet = selectedPet
-            cell.selectedService = selectedService!
-            cell.selectedProfessional = self.selectedProfessional!
-            cell.reloadTimeColletion(professional: selectedProfessional!)
+            cell.selectedService = selectedService
+            cell.selectedProfessional = selectedProfessional
+            cell.reloadTimeColletion(professional: selectedProfessional)
             cell.delegate = self
             
             return cell

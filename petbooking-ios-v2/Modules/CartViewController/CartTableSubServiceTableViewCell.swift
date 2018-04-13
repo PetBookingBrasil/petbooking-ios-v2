@@ -30,7 +30,7 @@ class CartTableSubServiceTableViewCell: UITableViewCell {
 	
 	@IBAction func remove(_ sender: Any) {
 		
-		ScheduleManager.sharedInstance.deleteSubService(scheduleSubService: subService, scheduleService: service)
+		ScheduleManager.shared.deleteSubService(scheduleSubService: subService, scheduleService: service)
 		
 		delegate?.didRemoveService(subService: subService)
 	}

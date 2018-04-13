@@ -75,7 +75,7 @@ class HomeBusinessViewController: UIViewController, HomeBusinessViewProtocol, UI
     }
     
     func updateCartBadge(notification:Notification) -> Void {
-        let schedule = ScheduleManager.sharedInstance.getSchedule(business:business)
+        let schedule = ScheduleManager.shared.getSchedule(business:business)
         var quantity = 0
         
         for petSchedule in schedule.petsSchedule {

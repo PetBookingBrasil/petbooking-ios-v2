@@ -53,7 +53,7 @@ class CartViewController: UIViewController, CartViewProtocol {
     }
     
     @IBAction func schedule(_ sender: Any) {
-        guard let services = ScheduleManager.sharedInstance.getServicesByBusiness(business: self.business) else { return }
+        guard let services = ScheduleManager.shared.getServicesByBusiness(business: self.business) else { return }
         
         var itens = [Dictionary<String, Any>]()
         for service in services {
@@ -86,7 +86,7 @@ class CartViewController: UIViewController, CartViewProtocol {
     }
     
     func calculateTotal() {
-        guard let services = ScheduleManager.sharedInstance.getServicesByBusiness(business: self.business) else { return }
+        guard let services = ScheduleManager.shared.getServicesByBusiness(business: self.business) else { return }
         
         if services.count == 0 {
             navigationController?.popViewController(animated: true)
@@ -109,16 +109,16 @@ class CartViewController: UIViewController, CartViewProtocol {
 extension CartViewController: UITableViewDelegate, UITableViewDataSource, CartTableViewCellDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        let schedule = ScheduleManager.sharedInstance.getSchedule(business: business)
+        let schedule = ScheduleManager.shared.getSchedule(business: business)
         
         return schedule.petsSchedule.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let schedule = ScheduleManager.sharedInstance.getSchedule(business: business)
+        let schedule = ScheduleManager.shared.getSchedule(business: business)
         let schedulePet = schedule.petsSchedule[section]
         
-        guard let scheduleServices = ScheduleManager.sharedInstance.getServicesByPet(schedulePet: schedulePet) else { return 0 }
+        guard let scheduleServices = ScheduleManager.shared.getServicesByPet(schedulePet: schedulePet) else { return 0 }
         
         return scheduleServices.count
     }
@@ -135,11 +135,11 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource, CartTa
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "CartTableViewCell") as! CartTableViewCell
         cell.delegate = self
-        let schedule = ScheduleManager.sharedInstance.getSchedule(business: business)
+        let schedule = ScheduleManager.shared.getSchedule(business: business)
         
         let schedulePet = schedule.petsSchedule[indexPath.section]
         
-        guard let scheduleServices = ScheduleManager.sharedInstance.getServicesByPet(schedulePet: schedulePet) else { return cell }
+        guard let scheduleServices = ScheduleManager.shared.getServicesByPet(schedulePet: schedulePet) else { return cell }
         
         let service = scheduleServices[indexPath.row]
         
@@ -185,7 +185,7 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource, CartTa
         let headerView = ServiceTableHeaderView.loadFromNibNamed("CartTableHeaderView") as? CartTableHeaderView
         headerView?.frame = CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 66)
         
-        let schedule = ScheduleManager.sharedInstance.getSchedule(business: business)
+        let schedule = ScheduleManager.shared.getSchedule(business: business)
         
         let schedulePet = schedule.petsSchedule[section]
         

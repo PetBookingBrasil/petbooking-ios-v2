@@ -80,7 +80,7 @@ class ScheduleService: Object {
 	}
 	
 	static func generateId(business:Business, pet:Pet, serviceCategory:ServiceCategory, service:Service) -> String {
-		return "\(business.id)-\(pet.id)-\(serviceCategory.id)-\(service.id)"
+		return "\(business.id)-\(pet.id)-\(serviceCategory.id)-\(service.id)[\(service.startDate)-\(service.startTime)]"
 	}
 }
 

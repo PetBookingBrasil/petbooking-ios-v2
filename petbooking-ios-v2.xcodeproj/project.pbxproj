@@ -716,14 +716,14 @@
 			children = (
 				41D86F921F298C360038ADA8 /* AdditionalServiceTableViewCell.swift */,
 				41D86F931F298C360038ADA8 /* AdditionalServiceTableViewCell.xib */,
+				419C89051F3162EC00BDBE8E /* ServiceTableHeaderView.swift */,
+				419C89071F3162FD00BDBE8E /* ServiceTableHeaderView.xib */,
 				41D86F821F2678D30038ADA8 /* PetCollectionViewCell.swift */,
 				41D86F831F2678D30038ADA8 /* PetCollectionViewCell.xib */,
 				41D86F881F294F1E0038ADA8 /* ServiceCollectionViewCell.swift */,
 				41D86F891F294F1E0038ADA8 /* ServiceCollectionViewCell.xib */,
 				419C89091F3168BB00BDBE8E /* ServiceTableFooterView.swift */,
 				419C890B1F3168CF00BDBE8E /* ServiceTableFooterView.xib */,
-				419C89051F3162EC00BDBE8E /* ServiceTableHeaderView.swift */,
-				419C89071F3162FD00BDBE8E /* ServiceTableHeaderView.xib */,
 				411B4E4E1F3E031A00B9244B /* ServiceTableViewCell.swift */,
 				411B4E4D1F3E031A00B9244B /* ServiceTableViewCell.xib */,
 				41D86F961F2ACC490038ADA8 /* SubServiceTableViewCell.swift */,
@@ -1545,7 +1545,6 @@
 				413682BB1E9C2B2D008C463B /* Resources */,
 				FF43CFF220238B3600D48DB7 /* ShellScript */,
 				000C5A0B666796F4E6E59E52 /* [CP] Embed Pods Frameworks */,
-				CB41D2F22B79ED546F25BBB8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1758,21 +1757,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-petbooking-ios-v2/Pods-petbooking-ios-v2-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CB41D2F22B79ED546F25BBB8 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-petbooking-ios-v2/Pods-petbooking-ios-v2-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FE69B917878A2789C5D4C22B /* [CP] Check Pods Manifest.lock */ = {

@@ -67,6 +67,31 @@ DEPENDENCIES:
   - RealmSwift
   - SideMenu
 
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - AKNumericFormatter
+    - Alamofire
+    - ALLoadingView
+    - BEMCheckBox
+    - Bolts
+    - Crashlytics
+    - DZNEmptyDataSet
+    - Fabric
+    - FacebookCore
+    - FacebookLogin
+    - FBSDKCoreKit
+    - FBSDKLoginKit
+    - FLAnimatedImage
+    - IQKeyboardManager
+    - Mantle
+    - Pageboy
+    - PINCache
+    - PINRemoteImage
+    - RateView
+    - Realm
+    - RealmSwift
+    - SideMenu
+
 EXTERNAL SOURCES:
   AKMaskField:
     :branch: master
@@ -104,4 +129,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 1745f688bbfe3bbefa28256ff33ab0bd64bc3e81
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.0

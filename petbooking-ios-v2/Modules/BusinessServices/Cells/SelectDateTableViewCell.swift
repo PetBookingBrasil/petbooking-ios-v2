@@ -180,7 +180,7 @@ extension SelectDateTableViewCell: UITableViewDelegate, UITableViewDataSource {
 		cell.selectionStyle = UITableViewCellSelectionStyle.default
 		cell.isUserInteractionEnabled = true
 		
-		if let selectedPet = self.selectedPet, let services = ScheduleManager.sharedInstance.getServicesByPet(pet: selectedPet) {
+		if let selectedPet = self.selectedPet, let services = ScheduleManager.shared.getServicesByPet(pet: selectedPet) {
 			for service in services {
 				if dateKey == service.startDate {
 					if date == service.startTime {
@@ -194,7 +194,7 @@ extension SelectDateTableViewCell: UITableViewDelegate, UITableViewDataSource {
 			}
 		}
 		
-		if let services = ScheduleManager.sharedInstance.getServicesByProfessional(professional: selectedProfessional) {
+		if let services = ScheduleManager.shared.getServicesByProfessional(professional: selectedProfessional) {
 			for service in services {
 				if dateKey == service.startDate {
 					if date == service.startTime {

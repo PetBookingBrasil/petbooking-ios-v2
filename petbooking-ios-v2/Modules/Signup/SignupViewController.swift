@@ -67,6 +67,9 @@ class SignupViewController: UIViewController, SignupViewProtocol {
         profilePictureView.round()
         saveButton.round()
         
+        mobileNumberTextField.maskExpression = "({dd}){ddddd}-{dddd}"
+        mobileNumberTextField.maskTemplate = "(xx)xxxxx-xxxx"
+        
         cameraIconImageView.image = cameraIconImageView.image!.withRenderingMode(.alwaysTemplate)
         cameraIconImageView.tintColor = .white
         

@@ -65,7 +65,7 @@ class ServiceTableViewCell: UITableViewCell {
     }
 }
 
-extension ServiceTableViewCell : UITableViewDelegate, UITableViewDataSource {
+extension ServiceTableViewCell: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
