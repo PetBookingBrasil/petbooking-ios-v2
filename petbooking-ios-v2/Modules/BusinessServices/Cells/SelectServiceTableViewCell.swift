@@ -30,6 +30,7 @@ class SelectServiceTableViewCell: UITableViewCell {
 		
 		tableView.delegate = self
 		tableView.dataSource = self
+        tableView.tableFooterView = UIView()
 		tableView.register(UINib(nibName: "ServiceTableViewCell", bundle: nil), forCellReuseIdentifier: "ServiceTableViewCell")
     }
 	
@@ -49,11 +50,15 @@ extension SelectServiceTableViewCell: UITableViewDelegate, UITableViewDataSource
 	}
 
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-		if selectedService.id.isBlank { return 61 }
+		guard !selectedService.id.isBlank else { return 61 }
 		
-		let headerSize = selectedService.services.count > 0 ? 40 : 0
+		var headerSize = 0
+        
+        if selectedService.services.count > 0 {
+            headerSize = 40
+        }
 
-		return CGFloat(70 + headerSize + selectedService.services.count * 40)
+		return CGFloat(60 + headerSize + selectedService.services.count * 40)
 	}
 	
 	func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

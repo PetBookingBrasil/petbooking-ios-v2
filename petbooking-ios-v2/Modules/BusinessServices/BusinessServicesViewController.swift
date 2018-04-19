@@ -590,7 +590,8 @@ extension BusinessServicesViewController: ExpandableTableViewDelegate, ServiceRo
             
         case .selectService:
             let qty = serviceList.services.count
-            return CGFloat(90 + qty * 61)
+            let height = qty <= 4 ? qty * 120 : 90
+            return CGFloat(height + qty * 61)
 
         case .selectProfessional:
             return 265
