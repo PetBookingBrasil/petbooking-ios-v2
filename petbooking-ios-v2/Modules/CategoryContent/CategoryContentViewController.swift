@@ -46,6 +46,12 @@ class CategoryContentViewController: UIViewController, CategoryContentViewProtoc
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        print("Oi")
+    }
+    
     func setSearchButton() {
         let addButton = UIBarButtonItem()
         addButton.target = self

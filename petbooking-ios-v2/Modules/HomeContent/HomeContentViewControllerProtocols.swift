@@ -14,14 +14,21 @@ import Foundation
 protocol HomeContentViewControllerWireframeProtocol: class { }
 
 //MARK: Presenter -
-protocol HomeContentViewControllerPresenterProtocol: class { }
+protocol HomeContentViewControllerPresenterProtocol: class {
+    func getReview()
+    func loadReview(reviewList: ReviewableList)
+}
 
 //MARK: Interactor -
 protocol HomeContentViewControllerInteractorProtocol: class {
     var presenter: HomeContentViewControllerPresenterProtocol? { get set }
+    
+    func getReview()
 }
 
 //MARK: View -
 protocol HomeContentViewControllerViewProtocol: class {
     var presenter: HomeContentViewControllerPresenterProtocol? { get set }
+    
+    func showReviewable(_ review: ReviewableList)
 }

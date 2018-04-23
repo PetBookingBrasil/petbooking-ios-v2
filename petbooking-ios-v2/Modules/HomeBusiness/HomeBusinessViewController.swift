@@ -74,6 +74,12 @@ class HomeBusinessViewController: UIViewController, HomeBusinessViewProtocol, UI
         title = business.name
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        print("Aki")
+    }
+    
     func updateCartBadge(notification:Notification) -> Void {
         let schedule = ScheduleManager.shared.getSchedule(business:business)
         var quantity = 0

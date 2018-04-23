@@ -23,5 +23,13 @@ class HomeContentViewControllerPresenter: HomeContentViewControllerPresenterProt
 
         self.interactor.presenter = self
     }
+    
+    func getReview() {
+        interactor.getReview()
+    }
+    
+    func loadReview(reviewList: ReviewableList) {
+        view?.showReviewable(reviewList)
+    }
 
 }

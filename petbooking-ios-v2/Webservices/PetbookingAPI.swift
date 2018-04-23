@@ -145,7 +145,6 @@ extension PetbookingAPI {
 						completion(false, "")
 					}
 				case .failure(let error):
-					print(error)
 					completion(false, error.localizedDescription)
 				}
 			}
@@ -210,6 +209,64 @@ extension PetbookingAPI {
 			}
 		}
 	}
+}
+
+// MARK: Reviewable
+
+extension PetbookingAPI {
+    
+    func getReviewable(completion: @escaping (_ success: ReviewableList?, _ message: String) -> Void) {
+        
+        if SessionManager.sharedInstance.isConsumerValid() {
+            var token = ""
+            var authToken = ""
+            var userId = 0
+
+            if let consumer = SessionManager.sharedInstance.getCurrentConsumer() {
+                token = consumer.token
+            }
+            
+            if let session = SessionManager.sharedInstance.getCurrentSession() {
+                authToken = session.authToken
+                userId = session.userId
+            }
+            
+            self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
+            self.auth_headers.updateValue("Token token=\"\(authToken)\"", forKey: "X-Petbooking-Session-Token")
+            
+            let parameters: Parameters = ["filter[scheduling_ref]": "past",
+                                          "filter[reviewable]": "true",
+                                          "include": "business,service.service_category,employment",
+                                          "fields[businesses]": "name,slug,street,street_number,neighborhood,location,city,state,user_favorite&fields[services]=price,bitmask_values,service_category"]
+
+            Alamofire.request("\(PetbookingAPI.API_BASE_URL)/users/\(userId)/events", method: .get, parameters: parameters, encoding: JSONEncoding.default, headers: auth_headers).responseJSON { (response) in
+                
+                switch response.result{
+                case .success(let jsonObject):
+                    if let dic = jsonObject as? [String: Any] {
+                        do {
+                            let reviewable = try MTLJSONAdapter.model(of: ReviewableList.self, fromJSONDictionary: dic) as! ReviewableList
+                            completion(reviewable, "")
+                        } catch {
+                            completion(nil, error.localizedDescription)
+                        }
+                    } else {
+                        completion(nil, "")
+                    }
+                case .failure(let error):
+                    completion(nil, error.localizedDescription)
+                }
+            }
+        } else {
+            getConsumer { (success, message) in
+                if success {
+                    self.getReviewable(completion: completion)
+                } else {
+                    completion(nil, "")
+                }
+            }
+        }
+    }
 }
 
 // MARK: User

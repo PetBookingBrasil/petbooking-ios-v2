@@ -323,12 +323,19 @@
 		FF3B9A7320793E5E00B43BF2 /* AddPetModalProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3B9A7220793E5E00B43BF2 /* AddPetModalProtocols.swift */; };
 		FF3B9A7520793F0100B43BF2 /* AddPetModelRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3B9A7420793F0100B43BF2 /* AddPetModelRouter.swift */; };
 		FF3B9A772079497800B43BF2 /* AddPetModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3B9A762079497800B43BF2 /* AddPetModalViewController.swift */; };
+		FF432075208A81DF007CA59C /* ReviewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF432074208A81DF007CA59C /* ReviewProtocols.swift */; };
+		FF432077208A82C2007CA59C /* ReviewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF432076208A82C2007CA59C /* ReviewPresenter.swift */; };
+		FF432079208A832C007CA59C /* ReviewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF432078208A832B007CA59C /* ReviewInteractor.swift */; };
+		FF43207B208A8368007CA59C /* ReviewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF43207A208A8368007CA59C /* ReviewRouter.swift */; };
+		FF43207D208A83BC007CA59C /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF43207C208A83BC007CA59C /* ReviewViewController.swift */; };
+		FF43207F208BBA18007CA59C /* Reviewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF43207E208BBA18007CA59C /* Reviewable.swift */; };
 		FF518A1A202F8EC70061DE44 /* WebviewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF518A19202F8EC70061DE44 /* WebviewInteractor.swift */; };
 		FF518A1C202F8EE90061DE44 /* WebviewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF518A1B202F8EE90061DE44 /* WebviewPresenter.swift */; };
 		FF518A1E202F8EF80061DE44 /* WebviewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF518A1D202F8EF80061DE44 /* WebviewProtocols.swift */; };
 		FF518A20202F8F130061DE44 /* WebviewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF518A1F202F8F130061DE44 /* WebviewRouter.swift */; };
 		FF518A22202F8F260061DE44 /* WebviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF518A21202F8F260061DE44 /* WebviewViewController.swift */; };
 		FF518A24202F90630061DE44 /* WebviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF518A23202F90630061DE44 /* WebviewViewController.xib */; };
+		FF7E643420896EAE00C74ED6 /* Review.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF7E643320896EAE00C74ED6 /* Review.xib */; };
 		FFCC900F207AE00A003C43DF /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFCC900E207AE00A003C43DF /* SettingsViewController.xib */; };
 		FFCC9015207AE4FA003C43DF /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCC9010207AE4F9003C43DF /* SettingsViewController.swift */; };
 		FFCC9016207AE4FA003C43DF /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCC9011207AE4F9003C43DF /* SettingsPresenter.swift */; };
@@ -684,12 +691,19 @@
 		FF3B9A7220793E5E00B43BF2 /* AddPetModalProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPetModalProtocols.swift; sourceTree = "<group>"; };
 		FF3B9A7420793F0100B43BF2 /* AddPetModelRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPetModelRouter.swift; sourceTree = "<group>"; };
 		FF3B9A762079497800B43BF2 /* AddPetModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPetModalViewController.swift; sourceTree = "<group>"; };
+		FF432074208A81DF007CA59C /* ReviewProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewProtocols.swift; sourceTree = "<group>"; };
+		FF432076208A82C2007CA59C /* ReviewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewPresenter.swift; sourceTree = "<group>"; };
+		FF432078208A832B007CA59C /* ReviewInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewInteractor.swift; sourceTree = "<group>"; };
+		FF43207A208A8368007CA59C /* ReviewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewRouter.swift; sourceTree = "<group>"; };
+		FF43207C208A83BC007CA59C /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
+		FF43207E208BBA18007CA59C /* Reviewable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reviewable.swift; sourceTree = "<group>"; };
 		FF518A19202F8EC70061DE44 /* WebviewInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebviewInteractor.swift; sourceTree = "<group>"; };
 		FF518A1B202F8EE90061DE44 /* WebviewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebviewPresenter.swift; sourceTree = "<group>"; };
 		FF518A1D202F8EF80061DE44 /* WebviewProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebviewProtocols.swift; sourceTree = "<group>"; };
 		FF518A1F202F8F130061DE44 /* WebviewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebviewRouter.swift; sourceTree = "<group>"; };
 		FF518A21202F8F260061DE44 /* WebviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebviewViewController.swift; sourceTree = "<group>"; };
 		FF518A23202F90630061DE44 /* WebviewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebviewViewController.xib; sourceTree = "<group>"; };
+		FF7E643320896EAE00C74ED6 /* Review.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Review.xib; sourceTree = "<group>"; };
 		FFCC900E207AE00A003C43DF /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		FFCC9010207AE4F9003C43DF /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		FFCC9011207AE4F9003C43DF /* SettingsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
@@ -1141,6 +1155,7 @@
 				419C891B1F33A23800BDBE8E /* Cart.swift */,
 				411C84BB1F3A945B008C6E0A /* ScheduledService.swift */,
 				419E957F1FBB1616008E1D10 /* Review.swift */,
+				FF43207E208BBA18007CA59C /* Reviewable.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1221,6 +1236,7 @@
 		418D099C1EB0D71200FCD5A6 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				FF7E643220896E7800C74ED6 /* Review */,
 				FFCC900D207ADFEE003C43DF /* Settings */,
 				411C84AE1F3A8ED3008C6E0A /* Agenda */,
 				41A0BAE01ED7A8E600671F3C /* AddPet */,
@@ -1510,6 +1526,19 @@
 			path = Webview;
 			sourceTree = "<group>";
 		};
+		FF7E643220896E7800C74ED6 /* Review */ = {
+			isa = PBXGroup;
+			children = (
+				FF7E643320896EAE00C74ED6 /* Review.xib */,
+				FF432074208A81DF007CA59C /* ReviewProtocols.swift */,
+				FF432078208A832B007CA59C /* ReviewInteractor.swift */,
+				FF432076208A82C2007CA59C /* ReviewPresenter.swift */,
+				FF43207A208A8368007CA59C /* ReviewRouter.swift */,
+				FF43207C208A83BC007CA59C /* ReviewViewController.swift */,
+			);
+			path = Review;
+			sourceTree = "<group>";
+		};
 		FFC119A72020F74E00F26DFE /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1665,6 +1694,7 @@
 				4120ED051EB0DE9F009D35B0 /* PresentationViewController.xib in Resources */,
 				FF34B173202B82D900F00528 /* CategoryViewController.xib in Resources */,
 				41AAB4F71EF1F9AF00E52857 /* HomeContentViewController.xib in Resources */,
+				FF7E643420896EAE00C74ED6 /* Review.xib in Resources */,
 				411B4E611F3E567000B9244B /* CategoryCollectionViewCell.xib in Resources */,
 				4120ED3B1EB529FE009D35B0 /* SignupViewController.xib in Resources */,
 				419E95841FBB223B008E1D10 /* ReviewCommentSubRowTableViewCell.xib in Resources */,
@@ -1843,6 +1873,7 @@
 				414862991F2E9F1900F210D8 /* JTCalendarWeekDayView.m in Sources */,
 				FF3B9A6F20793DBB00B43BF2 /* AddPetModalInteractor.swift in Sources */,
 				411C84B51F3A8EF0008C6E0A /* AgendaInteractor.swift in Sources */,
+				FF432079208A832C007CA59C /* ReviewInteractor.swift in Sources */,
 				4113B2CC1F3414CB007DC89F /* BusinessInformationViewController.swift in Sources */,
 				4120ED291EB4F136009D35B0 /* ForgotPasswordProtocols.swift in Sources */,
 				4129D9DA1ED85C3D0067EDC3 /* UIImageViewExtension.swift in Sources */,
@@ -1851,6 +1882,7 @@
 				419E95801FBB1616008E1D10 /* Review.swift in Sources */,
 				415F73D61EBAA033000D9B14 /* ViaCepAddress.swift in Sources */,
 				419C89191F33A18700BDBE8E /* CartWebViewController.swift in Sources */,
+				FF432077208A82C2007CA59C /* ReviewPresenter.swift in Sources */,
 				41F1A04D1F3D4F1D00CBC32D /* SocialNetworkCollectionViewCell.swift in Sources */,
 				FF518A1C202F8EE90061DE44 /* WebviewPresenter.swift in Sources */,
 				4120ED2A1EB4F136009D35B0 /* ForgotPasswordRouter.swift in Sources */,
@@ -1917,6 +1949,7 @@
 				41AAB4F21EF1F9AF00E52857 /* HomeContentViewControllerInteractor.swift in Sources */,
 				FF3B9A7320793E5E00B43BF2 /* AddPetModalProtocols.swift in Sources */,
 				4179696C1F69676700C47936 /* SegmentioCellWithImage.swift in Sources */,
+				FF43207F208BBA18007CA59C /* Reviewable.swift in Sources */,
 				418DAA2B1ECE7EAE006265CF /* SideMenuPresenter.swift in Sources */,
 				4120ED361EB529FE009D35B0 /* SignupInteractor.swift in Sources */,
 				415F73D81EBC16E2000D9B14 /* UIImageExtension.swift in Sources */,
@@ -1944,6 +1977,7 @@
 				41D86FA51F2D525E0038ADA8 /* ScheduleCalendarViewController.swift in Sources */,
 				415191E51FAB774600CACCFE /* MJBadgeBarButton.swift in Sources */,
 				41AAB4F51EF1F9AF00E52857 /* HomeContentViewControllerRouter.swift in Sources */,
+				FF432075208A81DF007CA59C /* ReviewProtocols.swift in Sources */,
 				411B4E5A1F3E4CFA00B9244B /* BusinessSearchProtocols.swift in Sources */,
 				41D86F7F1F266D7A0038ADA8 /* BusinessServicesRouter.swift in Sources */,
 				4168AA4F1EB6A4DD001E2D6D /* Consumer.swift in Sources */,
@@ -1976,6 +2010,7 @@
 				411C84C31F3BBFF0008C6E0A /* AgendaTableViewCell.swift in Sources */,
 				4149E9791EF9628100D6C44B /* BusinessListViewControllerProtocols.swift in Sources */,
 				414BB1F51EBFF4AF000BE2CC /* AlertPopupProtocols.swift in Sources */,
+				FF43207D208A83BC007CA59C /* ReviewViewController.swift in Sources */,
 				41D86F701F263AB30038ADA8 /* HomeBusinessRouter.swift in Sources */,
 				FF34B16D202B7FD500F00528 /* CategoryProtocols.swift in Sources */,
 				FF34B17C202CA55E00F00528 /* CategoryContentProtocols.swift in Sources */,
@@ -2016,6 +2051,7 @@
 				41D86F7D1F266D7A0038ADA8 /* BusinessServicesPresenter.swift in Sources */,
 				4120ED1B1EB38650009D35B0 /* LoginRouter.swift in Sources */,
 				FF34B16B202B7F9E00F00528 /* CategoryPresenter.swift in Sources */,
+				FF43207B208A8368007CA59C /* ReviewRouter.swift in Sources */,
 				24DA62E820516E7000124FF1 /* AddPetInformationTableViewCell.swift in Sources */,
 				4168DFE91FAFE4CE00111FB3 /* ReviewsHeaderTableViewCell.swift in Sources */,
 				4120ED021EB0DE9F009D35B0 /* PresentationProtocols.swift in Sources */,

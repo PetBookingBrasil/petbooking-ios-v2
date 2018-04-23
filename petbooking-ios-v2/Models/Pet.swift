@@ -8,8 +8,6 @@
 
 import Mantle
 
-// TODO: - Receber da API o campo ChipNumber
-// TODO: - Receber da API se o pet é castrado ou não
 class Pet: MTLModel, MTLJSONSerializing {
     
     @objc dynamic var id = ""
