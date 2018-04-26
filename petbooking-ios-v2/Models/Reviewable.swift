@@ -16,7 +16,7 @@ class Reviewable: MTLModel, MTLJSONSerializing {
     @objc dynamic var serviceName = ""
     @objc dynamic var professionalName = ""
     @objc dynamic var employmentName = ""
-    @objc dynamic var petId = ""
+    @objc dynamic var petId = 0
     @objc dynamic var businessId = ""
     @objc dynamic var employmentId = ""
     @objc dynamic var serviceId = ""
@@ -37,13 +37,13 @@ class Reviewable: MTLModel, MTLJSONSerializing {
 
 class ReviewableList: MTLModel, MTLJSONSerializing {
     
-    @objc dynamic var reviewable = [Reviewable]()
+    @objc dynamic var reviewables = [Reviewable]()
     
     static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
-        return ["reviewable": "data"]
+        return ["reviewables": "data"]
     }
     
-    @objc static func petsJSONTransformer() -> ValueTransformer {
-        return MTLJSONAdapter.arrayTransformer(withModelClass: Pet.self)
+    @objc static func reviewablesJSONTransformer() -> ValueTransformer {
+        return MTLJSONAdapter.arrayTransformer(withModelClass: Reviewable.self)
     }
 }

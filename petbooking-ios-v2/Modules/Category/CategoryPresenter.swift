@@ -23,5 +23,15 @@ class CategoryPresenter: CategoryPresenterProtocol {
     func showCategoryContent(from service: ServiceCategory) {
         router.showCategoryContent(from: service)
     }
+    
+    func getReview() {
+        interactor?.getReview()
+    }
+    
+    func loadReview(reviewList: ReviewableList) {
+        DispatchQueue.main.async {
+            self.view?.showReviewable(reviewList)
+        }
+    }
 }
 

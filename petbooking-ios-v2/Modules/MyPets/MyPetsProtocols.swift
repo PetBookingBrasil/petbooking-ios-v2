@@ -12,7 +12,6 @@ import Foundation
 
 //MARK: Wireframe -
 protocol MyPetsWireframeProtocol: class {
-    
     func showAddPet()
 }
 

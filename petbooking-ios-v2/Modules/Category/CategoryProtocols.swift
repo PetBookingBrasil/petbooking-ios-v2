@@ -15,16 +15,22 @@ protocol CategoryWireframeProtocol: class {
 
 //MARK: Presenter -
 protocol CategoryPresenterProtocol: class {
+    func getReview()
+    func loadReview(reviewList: ReviewableList)
     func showCategoryContent(from service: ServiceCategory)
 }
 
 //MARK: Interactor -
 protocol CategoryInteractorProtocol: class {
-    var presenter: CategoryPresenterProtocol?  { get set }    
+    var presenter: CategoryPresenterProtocol?  { get set }
+    
+    func getReview()
 }
 
 //MARK: View -
 protocol CategoryViewProtocol: class {
     var presenter: CategoryPresenterProtocol?  { get set }
+    
+    func showReviewable(_ review: ReviewableList)
 }
 

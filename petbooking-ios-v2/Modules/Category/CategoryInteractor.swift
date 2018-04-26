@@ -7,7 +7,20 @@
 //
 
 import UIKit
+import ALLoadingView
 
 class CategoryInteractor: CategoryInteractorProtocol {    
     weak var presenter: CategoryPresenterProtocol?
+    
+    func getReview() {
+        
+        PetbookingAPI.sharedInstance.getReviewable { (reviewable, message) in
+            if let reviewable = reviewable, reviewable.reviewables.count > 0 {
+                self.presenter?.loadReview(reviewList: reviewable)
+            } else {
+                ALLoadingView.manager.hideLoadingView()
+            }
+        }
+    }
+
 }

@@ -27,8 +27,17 @@ class CategoryViewController: UIViewController, CategoryViewProtocol {
         
         setBackButton()
         requestCategory()
+        
+        presenter?.getReview()
     }
     
+    func showReviewable(_ review: ReviewableList) {
+        let alertVC = ReviewRouter.createModule(reviews: review)
+        alertVC.modalPresentationStyle = .overCurrentContext
+        alertVC.modalTransitionStyle = .crossDissolve
+        present(alertVC, animated: true, completion: nil)
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

@@ -48,15 +48,6 @@ class HomeContentViewController: UIViewController, HomeContentViewControllerView
                                                selector: #selector(HomeContentViewController.goToAgenda),
                                                name: .goToAgenda,
                                                object: nil)
-        
-        presenter?.getReview()
-    }
-    
-    func showReviewable(_ review: ReviewableList) {
-        let alertVC = ReviewRouter.createModule()
-        alertVC.modalPresentationStyle = .overCurrentContext
-        alertVC.modalTransitionStyle = .crossDissolve
-        present(alertVC, animated: true, completion: nil)
     }
     
     func defineLeftMenu() {

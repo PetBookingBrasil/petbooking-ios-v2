@@ -22,14 +22,5 @@ class HomeContentViewControllerPresenter: HomeContentViewControllerPresenterProt
         self.router = router
 
         self.interactor.presenter = self
-    }
-    
-    func getReview() {
-        interactor.getReview()
-    }
-    
-    func loadReview(reviewList: ReviewableList) {
-        view?.showReviewable(reviewList)
-    }
-
+    }    
 }

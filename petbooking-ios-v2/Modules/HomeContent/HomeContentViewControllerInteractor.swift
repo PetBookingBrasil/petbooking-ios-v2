@@ -13,15 +13,4 @@ import ALLoadingView
 class HomeContentViewControllerInteractor: HomeContentViewControllerInteractorProtocol {
 
     weak var presenter: HomeContentViewControllerPresenterProtocol?
-    
-    func getReview() {
-       
-        PetbookingAPI.sharedInstance.getReviewable { (reviewable, message) in
-            if let reviewable = reviewable, reviewable.reviewable.count > 0 {
-                self.presenter?.loadReview(reviewList: reviewable)
-            } else {
-                ALLoadingView.manager.hideLoadingView()
-            }
-        }
-    }
 }

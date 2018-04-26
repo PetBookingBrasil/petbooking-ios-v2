@@ -38,7 +38,7 @@ class MyPetsViewController: UIViewController, MyPetsViewProtocol {
 		tableView.register(UINib(nibName: "MyPetsTableViewCell", bundle: nil), forCellReuseIdentifier: "MyPetsCell")
 	}
 	
-	override func viewWillAppear(_ animated: Bool) {
+	override func viewDidAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		
 		presenter?.reloadTableData()
