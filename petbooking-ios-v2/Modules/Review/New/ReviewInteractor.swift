@@ -9,17 +9,5 @@
 import Foundation
 
 class ReviewInteractor: ReviewInteractorProtocol {
-    
     weak var presenter: ReviewPresenterProtocol?
-    
-    func loadPet(_ petId: Int) {
-        
-        PetbookingAPI.sharedInstance.getUserPet(petId: petId) { (pet, message) in
-            guard let pet = pet else { return }
-            
-            self.presenter?.show(pet: pet)
-        }
-        
-    }
-    
 }

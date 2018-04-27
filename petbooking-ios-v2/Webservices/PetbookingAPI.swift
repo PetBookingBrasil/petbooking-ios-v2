@@ -215,6 +215,55 @@ extension PetbookingAPI {
 
 extension PetbookingAPI {
     
+    func postReview(comment: String, businessRating: Int, employmentRating: Int, serviceRating: Int, eventId: String, completion: @escaping (_ success: Bool, _ message: String) -> Void ) {
+        
+        if SessionManager.sharedInstance.isConsumerValid() {
+            guard let session = SessionManager.sharedInstance.getCurrentSession() else { return }
+
+            var token = ""
+            if let consumer = SessionManager.sharedInstance.getCurrentConsumer() {
+                token = consumer.token
+            }
+            
+            self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
+            self.auth_headers.updateValue("Token token=\"\(session.authToken)\"", forKey: "X-Petbooking-Session-Token")
+            
+            let parameters: Parameters = ["data": ["type": "reviews",
+                                                   "attributes": ["comment": comment,
+                                                                  "business_rating": businessRating,
+                                                                  "employment_rating": employmentRating,
+                                                                  "service_rating": serviceRating,
+                                                                  "event_id": eventId]]]
+            
+            Alamofire.request("\(PetbookingAPI.API_BASE_URL)/businesses/\(session.userId)/reviews", method: .post, parameters: parameters, encoding: URLEncoding(destination: .queryString), headers: auth_headers).responseJSON { (response) in
+                
+                switch response.result {
+                case .success(let jsonObject):
+                    if let dic = jsonObject as? [String: Any] {
+                        do {
+                            let _ = try MTLJSONAdapter.model(of: ReviewList.self, fromJSONDictionary: dic) as! ReviewList
+                            completion(true, "")
+                        } catch {
+                            completion(false, error.localizedDescription)
+                        }
+                    } else {
+                        completion(false, "")
+                    }
+                case .failure(let error):
+                    completion(false, error.localizedDescription)
+                }
+            }
+        } else {
+            getConsumer { (success, message) in
+                if success {
+                    self.postReview(comment: comment, businessRating: businessRating, employmentRating: employmentRating, serviceRating: serviceRating, eventId: eventId, completion: completion)
+                } else {
+                    completion(false, "")
+                }
+            }
+        }
+    }
+    
     func getReviewable(completion: @escaping (_ success: ReviewableList?, _ message: String) -> Void) {
         
         if SessionManager.sharedInstance.isConsumerValid() {
@@ -236,8 +285,9 @@ extension PetbookingAPI {
             
             let parameters: Parameters = ["filter[scheduling_ref]": "past",
                                           "filter[reviewable]": "true",
-                                          "include": "business,service.service_category,employment",
-                                          "fields[businesses]": "name,slug,street,street_number,neighborhood,location,city,state,user_favorite&fields[services]=price,bitmask_values,service_category"]
+                                          "include": "business,service.service_category,employment,pet",
+                                          "fields[businesses]": "name",
+                                          "fields[services]" : "service_category"]
 
             Alamofire.request("\(PetbookingAPI.API_BASE_URL)/users/\(userId)/events", method: .get, parameters: parameters, encoding: JSONEncoding.default, headers: auth_headers).responseJSON { (response) in
                 
@@ -327,7 +377,6 @@ extension PetbookingAPI {
 						completion(false, "")
 					}
 				case .failure(let error):
-					print(error)
 					completion(false, error.localizedDescription)
 				}
 			}
@@ -1154,8 +1203,7 @@ extension PetbookingAPI {
 				}
 				
 			}
-		} else
-		{
+		} else {
 			getConsumer(completion: { (success, message) in
 				
 				if success {

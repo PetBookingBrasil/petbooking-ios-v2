@@ -12,23 +12,15 @@ import Foundation
 protocol ReviewWireframeProtocol: class { }
 
 //MARK: Presenter -
-protocol ReviewPresenterProtocol: class {
-    func loadPet(_ petId: Int)
-    func show(pet: Pet)
-
-}
+protocol ReviewPresenterProtocol: class { }
 
 //MARK: Interactor -
 protocol ReviewInteractorProtocol: class {
     var presenter: ReviewPresenterProtocol? { get set }
-    
-    func loadPet(_ petId: Int)
 }
 
 //MARK: View -
 protocol ReviewViewProtocol: class {
     var reviewList: ReviewableList? { get set }
     var presenter: ReviewPresenterProtocol? { get set }
-    
-    func show(pet: Pet)
 }

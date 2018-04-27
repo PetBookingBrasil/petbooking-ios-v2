@@ -21,13 +21,4 @@ class ReviewPresenter: ReviewPresenterProtocol {
         
         self.interactor.presenter = self
     }
-    
-    func loadPet(_ petId: Int) {
-        interactor.loadPet(petId)
-    }
-    
-    func show(pet: Pet) {
-        view?.show(pet: pet)
-    }
-
 }

@@ -111,7 +111,7 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LX7-Cx-Mqe">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pet_icon" translatesAutoresizingMaskIntoConstraints="NO" id="LX7-Cx-Mqe">
                                     <rect key="frame" x="16" y="128" width="40" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="40" id="8sP-4a-aDX"/>
@@ -482,6 +482,7 @@
         </view>
     </objects>
     <resources>
+        <image name="Pet_icon" width="60" height="60"/>
         <image name="avatar-padrao-cachorro" width="85" height="85"/>
         <image name="avatar-padrao-m" width="85" height="85"/>
         <image name="banho-e-tosa-mini" width="52" height="52"/>

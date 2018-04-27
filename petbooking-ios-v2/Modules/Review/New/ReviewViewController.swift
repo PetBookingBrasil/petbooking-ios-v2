@@ -9,7 +9,7 @@
 import UIKit
 import ALLoadingView
 
-class ReviewViewController: UIViewController, ReviewViewProtocol {
+class ReviewViewController: UIViewController, ReviewViewProtocol {    
     
     // MARK: Variables
     var reviewList: ReviewableList?
@@ -69,52 +69,106 @@ class ReviewViewController: UIViewController, ReviewViewProtocol {
     func setupView() {
         review = reviewList?.reviewables.removeLast()
         
-        presenter?.loadPet(review!.petId)
-        
         containerView.layer.cornerRadius = 10
         containerView.layer.masksToBounds = true
         
-        // Pet
         petImageView.round()
-        
-        // Service
         serviceImaveView.round()
-        serviceNameLabel.text = review?.serviceName
-        
-        // Business
         businessImageView.round()
-        businessNameLabel.text = review?.employmentName
-        
-        // Professional
         professionalImaveView.round()
-        professionalNameLabel.text = review?.professionalName
         
         comentTextView.setBorder(width: 1, color: .lightGray)
         
-        sendButton.round()
-    }
-    
-    func show(pet: Pet) {
-        petNameLabel.text = pet.name
-
-        if pet.type == "dog" {
-            petImageView.image = UIImage(named:"avatar-padrao-cachorro")
-        } else {
-            petImageView.image = UIImage(named:"avatar-padrao-gato")
+        if let included = reviewList?.included {
+            renderPet(review!.petId, in: included)
+            renderService(review!.serviceId, in: included)
+            renderBusiness(review!.businessId, in: included)
+            renderEmployment(review!.employmentId, in: included)
         }
         
-        if pet.photoThumbUrl.contains("http") {
-            if let url = URL(string: pet.photoThumbUrl) {
-                petImageView.pin_setImage(from: url)
-            }
-        } else {
-            if let url = URL(string: "https://cdn.petbooking.com.br\(pet.photoThumbUrl)") {
-                petImageView.pin_setImage(from: url)
+        sendButton.round()
+    }
+
+    func renderPet(_ petId: Int, in includeds: [Included]) {
+        for pet in includeds where pet.id == String(petId) {
+            if pet.type == "pets" {
+                petNameLabel.text = pet.name
+                
+                if pet.kind == "dog" {
+                    petImageView.image = UIImage(named:"avatar-padrao-cachorro")
+                } else {
+                    petImageView.image = UIImage(named:"avatar-padrao-gato")
+                }
+                
+                if pet.photo.contains("http") {
+                    if let url = URL(string: pet.photo) {
+                        petImageView.pin_setImage(from: url)
+                    }
+                } else {
+                    if let url = URL(string: "https://cdn.petbooking.com.br\(pet.photo)") {
+                        petImageView.pin_setImage(from: url)
+                    }
+                }
             }
         }
     }
     
-    @IBAction func sendButtonTapped(_ sender: Any) { }
+    func renderService(_ serviceId: String, in includeds: [Included]) {
+        serviceNameLabel.text = review?.serviceName
+        serviceDateLabel.text = review?.date
+
+        for service in includeds where service.id == serviceId {
+            if service.type == "services" {
+                for category in includeds where category.id == service.categoryId {
+                    if category.type == "service_categories" {
+                        serviceImaveView.image = UIImage(named: "\(category.slug)-mini")
+                    }
+                }
+            }
+        }
+    }
+    
+    func renderBusiness(_ businessId: String, in includeds: [Included]) {
+        for business in includeds where business.id == businessId {
+            if business.type == "businesses" {
+                businessNameLabel.text = business.name
+            }
+        }
+    }
+    
+    func renderEmployment(_ employmentId: String, in includeds: [Included]) {
+        for employment in includeds where employment.id == employmentId {
+            if employment.type == "employments" {
+                professionalNameLabel.text = employment.name
+                
+                if employment.avatar.contains("http") {
+                    if let url = URL(string: employment.avatar) {
+                        professionalImaveView.pin_setImage(from: url)
+                    }
+                } else {
+                    if let url = URL(string: "https://cdn.petbooking.com.br\(employment.avatar)") {
+                        professionalImaveView.pin_setImage(from: url)
+                    }
+                }
+            }
+        }
+    }
+    
+    @IBAction func sendButtonTapped(_ sender: Any) {
+        ALLoadingView.manager.showLoadingView(ofType: .basic, windowMode: .fullscreen)
+        
+        PetbookingAPI().postReview(comment: comentTextView.text, businessRating: environmentStar, employmentRating: attendanceStar, serviceRating: serviceStar, eventId: review!.id) { (success, message) in
+            
+            ALLoadingView.manager.hideLoadingView()
+            
+            if self.reviewList!.reviewables.count > 0 {
+                self.dismiss(animated: true, completion: nil)
+            } else {
+                self.setupView()
+            }
+        }
+        
+    }
     
 }
 
@@ -217,7 +271,7 @@ extension ReviewViewController {
     @IBAction func environmentButtonTapped(_ sender: UIButton) {
         switch sender {
         case environmentOneButton:
-            serviceStar = 1
+            environmentStar = 1
             markStar(environmentOneButton)
             desmarkStar(environmentTwoButton)
             desmarkStar(environmentThreeButton)
@@ -225,7 +279,7 @@ extension ReviewViewController {
             desmarkStar(environmentFiveButton)
             
         case environmentTwoButton:
-            serviceStar = 2
+            environmentStar = 2
             markStar(environmentOneButton)
             markStar(environmentTwoButton)
             desmarkStar(environmentThreeButton)
@@ -233,7 +287,7 @@ extension ReviewViewController {
             desmarkStar(environmentFiveButton)
             
         case environmentThreeButton:
-            serviceStar = 3
+            environmentStar = 3
             markStar(environmentOneButton)
             markStar(environmentTwoButton)
             markStar(environmentThreeButton)
@@ -241,15 +295,15 @@ extension ReviewViewController {
             desmarkStar(environmentFiveButton)
             
         case environmentFourButton:
-            serviceStar = 4
+            environmentStar = 4
             markStar(environmentOneButton)
             markStar(environmentTwoButton)
             markStar(environmentThreeButton)
             markStar(environmentFourButton)
             desmarkStar(environmentFiveButton)
             
-        case attendanceFiveButton:
-            serviceStar = 5
+        case environmentFiveButton:
+            environmentStar = 5
             markStar(environmentOneButton)
             markStar(environmentTwoButton)
             markStar(environmentThreeButton)
