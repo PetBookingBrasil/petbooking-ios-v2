@@ -280,16 +280,23 @@ extension PetbookingAPI {
                 userId = session.userId
             }
             
+            let today = Date()
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            
+            let todayString = dateFormatter.string(from: today)
+            
             self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
             self.auth_headers.updateValue("Token token=\"\(authToken)\"", forKey: "X-Petbooking-Session-Token")
             
             let parameters: Parameters = ["filter[scheduling_ref]": "past",
                                           "filter[reviewable]": "true",
+                                          "filter[current_date]": todayString,
                                           "include": "business,service.service_category,employment,pet",
                                           "fields[businesses]": "name",
                                           "fields[services]" : "service_category"]
 
-            Alamofire.request("\(PetbookingAPI.API_BASE_URL)/users/\(userId)/events", method: .get, parameters: parameters, encoding: JSONEncoding.default, headers: auth_headers).responseJSON { (response) in
+            Alamofire.request("\(PetbookingAPI.API_BASE_URL)/users/\(userId)/events", method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString), headers: auth_headers).responseJSON { (response) in
                 
                 switch response.result{
                 case .success(let jsonObject):

@@ -72,6 +72,7 @@ class ReviewViewController: UIViewController, ReviewViewProtocol {
         containerView.layer.cornerRadius = 10
         containerView.layer.masksToBounds = true
         
+        comentTextView.delegate = self
         petImageView.round()
         serviceImaveView.round()
         businessImageView.round()
@@ -157,19 +158,46 @@ class ReviewViewController: UIViewController, ReviewViewProtocol {
     @IBAction func sendButtonTapped(_ sender: Any) {
         ALLoadingView.manager.showLoadingView(ofType: .basic, windowMode: .fullscreen)
         
-        PetbookingAPI().postReview(comment: comentTextView.text, businessRating: environmentStar, employmentRating: attendanceStar, serviceRating: serviceStar, eventId: review!.id) { (success, message) in
-            
-            ALLoadingView.manager.hideLoadingView()
-            
-            if self.reviewList!.reviewables.count > 0 {
-                self.dismiss(animated: true, completion: nil)
-            } else {
-                self.setupView()
+        var description = ""
+        if comentTextView.textColor != .lightGray {
+            if comentTextView.text.trimmingCharacters(in: .whitespaces) != "" {
+                description = comentTextView.text
             }
         }
         
+        PetbookingAPI().postReview(comment: description, businessRating: environmentStar, employmentRating: attendanceStar, serviceRating: serviceStar, eventId: review!.id) { (success, message) in
+            ALLoadingView.manager.hideLoadingView()
+            
+            if self.reviewList!.reviewables.count > 0 {
+                self.setupView()
+            } else {
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
+    }
+}
+
+extension ReviewViewController: UITextViewDelegate {
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        guard textView.text.count <= 500 else { return false }
+        
+        return true
     }
     
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == .lightGray {
+            textView.text = ""
+            textView.textColor = .black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "Adicione seu comentário"
+            textView.textColor = .lightGray
+        }
+    }
 }
 
 extension ReviewViewController {
