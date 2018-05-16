@@ -16,13 +16,11 @@ class LoginInteractor: LoginInteractorProtocol {
 	
 	weak var presenter: LoginPresenterProtocol?
 	
-	func didTapLoginButton(email:String?, password:String?) {
-		guard let email = email,
-            let password = password,
-            let consumer = SessionManager.sharedInstance.getCurrentConsumer() else { return }
+	func didTapLoginButton(credential: Credential) {
+		guard let consumer = SessionManager.sharedInstance.getCurrentConsumer() else { return }
 		
 		if consumer.isValid() {
-			PetbookingAPI.sharedInstance.loginWithEmail(email, password: password) { (success, message) in
+			PetbookingAPI.sharedInstance.loginWithCredential(credential) { (success, message) in
 				if success {
                     UserDefaults.didSetNormalLogin()
                     self.loadUserInfo()
@@ -34,7 +32,7 @@ class LoginInteractor: LoginInteractorProtocol {
 		} else {
 			PetbookingAPI.sharedInstance.getConsumer { (success, message) in
 				if success {
-					PetbookingAPI.sharedInstance.loginWithEmail(email, password: password) { (success, message) in
+					PetbookingAPI.sharedInstance.loginWithCredential(credential) { (success, message) in
 						if success {
                             UserDefaults.didSetNormalLogin()
                             self.loadUserInfo()

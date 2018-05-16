@@ -47,6 +47,7 @@ PODS:
   - RealmSwift (3.3.2):
     - Realm (= 3.3.2)
   - SideMenu (3.1.5)
+  - SwiftKeychainWrapper (3.0.1)
 
 DEPENDENCIES:
   - AKMaskField (from `https://github.com/DRybochkin/AKMaskField.git`, branch `master`)
@@ -66,9 +67,10 @@ DEPENDENCIES:
   - RateView
   - RealmSwift
   - SideMenu
+  - SwiftKeychainWrapper
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - AKNumericFormatter
     - Alamofire
     - ALLoadingView
@@ -91,6 +93,7 @@ SPEC REPOS:
     - Realm
     - RealmSwift
     - SideMenu
+    - SwiftKeychainWrapper
 
 EXTERNAL SOURCES:
   AKMaskField:
@@ -126,7 +129,8 @@ SPEC CHECKSUMS:
   Realm: d927fbf66df5532cfafc08afb5f7e53ded37b894
   RealmSwift: 4e903a494e05d866581d69ad6f7e7b879d446baf
   SideMenu: 47dbf9e4d878062d8994aed43f6e4bf6c1fea30b
+  SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
 
-PODFILE CHECKSUM: 1745f688bbfe3bbefa28256ff33ab0bd64bc3e81
+PODFILE CHECKSUM: 11e6465d5eaa1f3497bcd524c5510efc87b86b09
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.5.2

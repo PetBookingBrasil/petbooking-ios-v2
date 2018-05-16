@@ -78,8 +78,10 @@ class LoginViewController: UIViewController, LoginViewProtocol {
 			MIBlurPopup.show(AlertPopupRouter.createModule(title: "Senha obrigatória", message: "O campo senha não pode ficar vazio."), on: self)
 			return
 		}
+        
+        let credential = Credential(email: email, password: password)
 		
-		presenter?.didTapLoginButton(email: email, password: password)
+        presenter?.didTapLoginButton(credential: credential)
 	}
 	
 	@IBAction func facebookLogin(_ sender: Any) {

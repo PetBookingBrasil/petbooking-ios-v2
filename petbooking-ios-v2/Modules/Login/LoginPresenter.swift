@@ -25,9 +25,9 @@ class LoginPresenter: LoginPresenterProtocol {
         self.interactor.presenter = self
     }
 	
-	func didTapLoginButton(email:String?, password:String?) {
+	func didTapLoginButton(credential: Credential) {
 		ALLoadingView.manager.showLoadingView(ofType: .basic, windowMode: .fullscreen)
-		interactor.didTapLoginButton(email: email, password: password)
+		interactor.didTapLoginButton(credential: credential)
 	}
 	
 	func didTapFacebookLoginButton() {

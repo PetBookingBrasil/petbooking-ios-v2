@@ -15,7 +15,6 @@ target 'petbooking-ios-v2' do
 
 	pod 'FacebookCore'
 	pod 'FacebookLogin'
-	#pod 'FacebookShare'
 	
 	pod 'Alamofire', '~> 4.5'
 	pod 'RealmSwift'
@@ -31,4 +30,5 @@ target 'petbooking-ios-v2' do
 	pod 'DZNEmptyDataSet'
 	pod 'RateView'
 	pod 'AKNumericFormatter'
+    pod 'SwiftKeychainWrapper'
 end

@@ -318,6 +318,7 @@
 		FF34B17C202CA55E00F00528 /* CategoryContentProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF34B17B202CA55E00F00528 /* CategoryContentProtocols.swift */; };
 		FF34B17E202CA5BA00F00528 /* CategoryContentRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF34B17D202CA5BA00F00528 /* CategoryContentRouter.swift */; };
 		FF34B180202CA5F500F00528 /* CategoryContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF34B17F202CA5F500F00528 /* CategoryContentViewController.swift */; };
+		FF3A8CA020ABB3DD004FD175 /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3A8C9F20ABB3DD004FD175 /* Credential.swift */; };
 		FF3B9A6F20793DBB00B43BF2 /* AddPetModalInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3B9A6E20793DBB00B43BF2 /* AddPetModalInteractor.swift */; };
 		FF3B9A7120793E1200B43BF2 /* AddPetModalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3B9A7020793E1200B43BF2 /* AddPetModalPresenter.swift */; };
 		FF3B9A7320793E5E00B43BF2 /* AddPetModalProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3B9A7220793E5E00B43BF2 /* AddPetModalProtocols.swift */; };
@@ -686,6 +687,7 @@
 		FF34B17B202CA55E00F00528 /* CategoryContentProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryContentProtocols.swift; sourceTree = "<group>"; };
 		FF34B17D202CA5BA00F00528 /* CategoryContentRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryContentRouter.swift; sourceTree = "<group>"; };
 		FF34B17F202CA5F500F00528 /* CategoryContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryContentViewController.swift; sourceTree = "<group>"; };
+		FF3A8C9F20ABB3DD004FD175 /* Credential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credential.swift; sourceTree = "<group>"; };
 		FF3B9A6E20793DBB00B43BF2 /* AddPetModalInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPetModalInteractor.swift; sourceTree = "<group>"; };
 		FF3B9A7020793E1200B43BF2 /* AddPetModalPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPetModalPresenter.swift; sourceTree = "<group>"; };
 		FF3B9A7220793E5E00B43BF2 /* AddPetModalProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPetModalProtocols.swift; sourceTree = "<group>"; };
@@ -1156,6 +1158,7 @@
 				411C84BB1F3A945B008C6E0A /* ScheduledService.swift */,
 				419E957F1FBB1616008E1D10 /* Review.swift */,
 				FF43207E208BBA18007CA59C /* Reviewable.swift */,
+				FF3A8C9F20ABB3DD004FD175 /* Credential.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1759,6 +1762,7 @@
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -1783,6 +1787,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2039,6 +2044,7 @@
 				4120ED2B1EB4F136009D35B0 /* ForgotPasswordViewController.swift in Sources */,
 				41D86F6D1F263AB30038ADA8 /* HomeBusinessInteractor.swift in Sources */,
 				415BCAE01EB534C40015BB0C /* SignupViewController.swift in Sources */,
+				FF3A8CA020ABB3DD004FD175 /* Credential.swift in Sources */,
 				4149E97A1EF9628100D6C44B /* BusinessListViewControllerRouter.swift in Sources */,
 				4120ED181EB38650009D35B0 /* LoginInteractor.swift in Sources */,
 				414862A51F3014D000F210D8 /* ProfessionalCollectionViewCell.swift in Sources */,

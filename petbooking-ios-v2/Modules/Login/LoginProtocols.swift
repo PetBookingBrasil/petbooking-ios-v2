@@ -21,7 +21,7 @@ protocol LoginWireframeProtocol: class {
 //MARK: Presenter -
 protocol LoginPresenterProtocol: class {
     
-    func didTapLoginButton(email: String?, password: String?)
+    func didTapLoginButton(credential: Credential)
     func didTapFacebookLoginButton()
     func didTapSignupButton()
     func didTapForgotPasswordButton()
@@ -38,7 +38,7 @@ protocol LoginInteractorProtocol: class {
     
     var presenter: LoginPresenterProtocol?  { get set }
     
-    func didTapLoginButton(email: String?, password: String?)
+    func didTapLoginButton(credential: Credential)
     func didTapFacebookLoginButton()
     func didTapSignupButton()
     func didTapForgotPasswordButton()

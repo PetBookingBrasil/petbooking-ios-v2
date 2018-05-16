@@ -167,9 +167,14 @@ extension PetbookingAPI {
 		login(parameters, completion: completion)
 	}
 	
-	func loginWithEmail(_ email:String, password:String,  completion: @escaping (_ success: Bool, _ message: String) -> Void) {
-		let parameters: Parameters = ["data": ["type": "sessions", "attributes": ["provider": "b2beauty", "email": email, "password": password]]]
+	func loginWithCredential(_ credential: Credential,  completion: @escaping (_ success: Bool, _ message: String) -> Void) {
+		let parameters: Parameters = ["data": ["type": "sessions",
+                                               "attributes": ["provider": "b2beauty",
+                                                              "email": credential.email,
+                                                              "password": credential.password]]]
 		
+        credential.save()
+        
 		login(parameters, completion: completion)
 	}
 	
@@ -369,8 +374,10 @@ extension PetbookingAPI {
 							
 							if user.errors.count == 0 {
 								try UserManager.sharedInstance.saveUser(user: user)
+                                let credential = Credential(email: email, password: password)
+                                
 								if providerToken.isEmpty {
-									self.loginWithEmail(email, password: password, completion: completion)
+									self.loginWithCredential(credential, completion: completion)
 								} else {
                                     self.loginWithFacebook(providerToken, completion: completion)
 								}
