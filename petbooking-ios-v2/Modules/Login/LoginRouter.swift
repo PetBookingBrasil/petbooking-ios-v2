@@ -27,27 +27,22 @@ class LoginRouter: LoginWireframeProtocol {
         
         return view
     }
-	
-
-	func didTapSignupButton() {
-		viewController?.navigationController?.pushViewController(SignupRouter.createModule(), animated: true)
-	}
-	
-	func didTapForgotPasswordButton() {
-		viewController?.navigationController?.pushViewController(ForgotPasswordRouter.createModule(), animated: true)
-	}
-	
-	func didCompleteFacebookLoginWithSuccess() {
-		
-			
-			let viewController = HomeContentViewControllerRouter.createModule()
-		
-		
-			self.viewController?.present(UINavigationController(rootViewController: viewController), animated: true, completion: nil)
-		
-	}
-	
-	func registerNewUserWithFacebookData() {
-		viewController?.navigationController?.pushViewController(SignupRouter.createModule(signupType: .facebook), animated: true)
-	}
+    
+    func didTapSignupButton() {
+        viewController?.navigationController?.pushViewController(SignupRouter.createModule(), animated: true)
+    }
+    
+    func didTapForgotPasswordButton() {
+        viewController?.navigationController?.pushViewController(ForgotPasswordRouter.createModule(), animated: true)
+    }
+    
+    func didCompleteFacebookLoginWithSuccess() {
+        let viewController = HomeContentViewControllerRouter.createModule()
+        
+        self.viewController?.present(UINavigationController(rootViewController: viewController), animated: true, completion: nil)
+    }
+    
+    func registerNewUserWithFacebookData() {
+        viewController?.navigationController?.pushViewController(SignupRouter.createModule(signupType: .facebook), animated: true)
+    }
 }

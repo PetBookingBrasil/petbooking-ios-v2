@@ -55,7 +55,7 @@ class CartTableViewCell: UITableViewCell {
 	
 	@IBAction func remove(_ sender: Any) {
 		
-		ScheduleManager.sharedInstance.deleteService(scheduleService: service)
+		ScheduleManager.shared.deleteService(scheduleService: service)
 		
 		delegate?.update(service: service)
 	}

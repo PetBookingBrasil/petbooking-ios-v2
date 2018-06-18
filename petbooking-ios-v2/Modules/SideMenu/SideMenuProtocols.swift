@@ -12,48 +12,37 @@ import Foundation
 
 //MARK: Wireframe -
 protocol SideMenuWireframeProtocol: class {
-	
-	func didTapLogout()
-	
-	func didTapMyPets()
-	
-	func showProfile()
-	
-	func showFavorites()
-	
-	func showAgenda()
-	
-	func showSearch()
-
+    func didTapLogout()
+    func didTapMyPets()
+    func showProfile()
+    func showFavorites()
+    func showSchedule()
+    func showPayments()
+    func showSettings()
+    func showSearch()
 }
+
 //MARK: Presenter -
 protocol SideMenuPresenterProtocol: class {
-	
-	func didTapLogout()
-	
-	func didTapMyPets()
-	
-	func didTapProfile()
-	
-	func didTapFavorites()
-	
-	func didTapAgenda()
-	
-	func didTapSearch()
-
+    func didTapLogout()
+    func didTapMyPets()
+    func didTapProfile()
+    func didTapFavorites()
+    func didTapSchedule()
+    func didTapPayments()
+    func didTapSettings()
+    func didTapSearch()
 }
 
 //MARK: Interactor -
 protocol SideMenuInteractorProtocol: class {
-
-  var presenter: SideMenuPresenterProtocol?  { get set }
-	
-	func didTapLogout()
-	
+    
+    var presenter: SideMenuPresenterProtocol?  { get set }
+    
+    func didTapLogout()
 }
 
 //MARK: View -
 protocol SideMenuViewProtocol: class {
-
-  var presenter: SideMenuPresenterProtocol?  { get set }
+    var presenter: SideMenuPresenterProtocol?  { get set }
 }

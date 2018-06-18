@@ -17,13 +17,13 @@ class UserManager: NSObject {
 		
 		do {
 			let realm = try Realm()
-			guard let userRealm = 	realm.objects(UserRealm.self).first else {
-				return nil
-			}
+			
+            guard let userRealm = realm.objects(UserRealm.self).first else { return nil }
 			
 			let user = User()
 
 			user?.userId = userRealm.userId
+            user?.searchRange = userRealm.searchRange
 			user?.acceptsEmail = userRealm.acceptsEmail
 			user?.acceptsPush = userRealm.acceptsPush
 			user?.acceptsSms = userRealm.acceptsSms
@@ -49,18 +49,17 @@ class UserManager: NSObject {
 			user?.complement = userRealm.complement
 			
 			return 	user
-		} catch _ as NSError {
-			//TODO: Handle error
-			
+		} catch {
 			return nil
 		}
-		
 	}
 	
-	func saveUser(user:User) throws {
+	func saveUser(user: User) throws {
 		
 		let userRealm = UserRealm()
+        
 		userRealm.userId = user.userId
+        userRealm.searchRange = user.searchRange
 		userRealm.acceptsEmail = user.acceptsEmail
 		userRealm.acceptsPush = user.acceptsPush
 		userRealm.acceptsSms = user.acceptsSms
@@ -89,12 +88,9 @@ class UserManager: NSObject {
 			let realm = try Realm()
 			
 			try realm.write {
-				
-				
 				realm.add(userRealm,update: true)
-	
 			}
-		}catch {
+		} catch {
 			throw error
 		}
 	}
@@ -105,15 +101,12 @@ class UserManager: NSObject {
 		token.token = tokenValue
 		token.type = "APNS"
 		
-		
 		do {
 			let realm = try Realm()
 			try realm.write {
-				
 				realm.add(token, update: true)
-				
 			}
-		}catch {
+		} catch {
 			print(error.localizedDescription)
 		}
 	}
@@ -133,7 +126,6 @@ class UserManager: NSObject {
 			print(error.localizedDescription)
 			return nil
 		}
-		
 	}
 	
 	
@@ -142,16 +134,11 @@ class UserManager: NSObject {
 		do {
 			let realm = try Realm()
 			try realm.write {
-				
-				let objects = realm.objects(UserRealm.self)
+                let objects = realm.objects(UserRealm.self)
 				realm.delete(objects)
 				let session = realm.objects(SessionRealm.self)
 				realm.delete(session)
-								
 			}
-		}catch {
-			
-		}
+		} catch { }
 	}
-
 }

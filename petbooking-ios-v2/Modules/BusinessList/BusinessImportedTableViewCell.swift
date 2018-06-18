@@ -10,7 +10,6 @@ import UIKit
 
 class BusinessImportedTableViewCell: UITableViewCell {
 
-	
 	@IBOutlet weak var nameLabel: UILabel!
 	@IBOutlet weak var addressLabel: UILabel!
 	@IBOutlet weak var distanceView: UIView!
@@ -23,21 +22,12 @@ class BusinessImportedTableViewCell: UITableViewCell {
 	
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-			callButton.round()
+        
+        callButton.round()
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-	
 	@IBAction func didTapCallButton(_ sender: Any) {
-		
-		guard let business = self.business else {
-			return
-		}
+		guard let business = self.business else { return }
 		
 		let localCode = PhoneCodesConstants.getLocalCodeforCarrier()
 		
@@ -47,28 +37,20 @@ class BusinessImportedTableViewCell: UITableViewCell {
 			} else {
 				UIApplication.shared.openURL(url)
 			}
+            PetbookingAPI.sharedInstance.postPhoneNumberClick(from: business.name) { (success, message) in }
 		}
-		
-		
 	}
 	
 	@IBAction func didTapAddFavorite(_ sender: Any) {
-		
-		guard let business = self.business else {
-			return
-		}
+		guard let business = self.business else { return }
 		
 		setFavorite(isFavorite: !business.isFavorited())
 		
 		delegate?.addToFavorites(business: business)
-		
 	}
 	
 	func setFavorite(isFavorite:Bool) {
-		
 		let imageName = isFavorite ? "heartFilledIcon" : "heartIconImported"
 		favoriteButton.setBackgroundImage(UIImage(named:imageName), for: .normal)
-		
 	}
-    
 }

@@ -11,7 +11,8 @@ import UIKit
 class ScheduleToTheCartAlertViewController: UIViewController {
 
 	@IBOutlet weak var titleLabel: UILabel!
-	@IBOutlet weak var scheduleMoreButton: UIButton!
+    @IBOutlet weak var scheduleAnotherPetButton: UIButton!
+    @IBOutlet weak var scheduleMoreButton: UIButton!
 	@IBOutlet weak var goToCartButton: UIButton!
 	
 	weak var delegate:ScheduleToTheCartAlertDelegate?
@@ -23,14 +24,16 @@ class ScheduleToTheCartAlertViewController: UIViewController {
 		goToCartButton.round()
 		scheduleMoreButton.round()
 		scheduleMoreButton.setBorder(width: 1, color: .white)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        scheduleAnotherPetButton.round()
+        scheduleAnotherPetButton.setBorder(width: 1, color: .white)
     }
     
-	@IBAction func scheduleMore(_ sender: Any) {
+    @IBAction func scheduleAnotherPet(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+        delegate?.scheduleAnotherPet()
+    }
+    
+    @IBAction func scheduleMore(_ sender: Any) {
 		dismiss(animated: true, completion: nil)
 		delegate?.scheduleMore()
 	}
@@ -39,17 +42,10 @@ class ScheduleToTheCartAlertViewController: UIViewController {
 		dismiss(animated: false, completion: nil)
 		delegate?.goToCart()
 	}
-	
-
-
 }
 
 protocol ScheduleToTheCartAlertDelegate: class {
-	
-	
 	func goToCart()
-	
 	func scheduleMore()
-	
-	
+    func scheduleAnotherPet()
 }

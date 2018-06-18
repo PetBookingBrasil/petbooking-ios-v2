@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24B6AA392015EDF0007E3930 /* VNDJSONEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B6AA382015EDF0007E3930 /* VNDJSONEncoding.swift */; };
+		24DA62E620516CCD00124FF1 /* AddPetInformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24DA62E520516CCD00124FF1 /* AddPetInformationTableViewCell.xib */; };
+		24DA62E820516E7000124FF1 /* AddPetInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DA62E720516E7000124FF1 /* AddPetInformationTableViewCell.swift */; };
 		410AA9661FA69AC700A90377 /* ServiceRowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410AA9641FA69AC700A90377 /* ServiceRowTableViewCell.swift */; };
 		410AA9671FA69AC700A90377 /* ServiceRowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 410AA9651FA69AC700A90377 /* ServiceRowTableViewCell.xib */; };
 		410AA96A1FA69EFA00A90377 /* SelectPetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410AA9681FA69EFA00A90377 /* SelectPetTableViewCell.swift */; };
@@ -157,7 +160,6 @@
 		415191EC1FAC102B00CACCFE /* AgendaPetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415191EA1FAC102B00CACCFE /* AgendaPetCollectionViewCell.swift */; };
 		415191ED1FAC102B00CACCFE /* AgendaPetCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 415191EB1FAC102B00CACCFE /* AgendaPetCollectionViewCell.xib */; };
 		415BCAE01EB534C40015BB0C /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415BCADF1EB534C40015BB0C /* SignupViewController.swift */; };
-		415F73D41EBA9F08000D9B14 /* ViaCepAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415F73D31EBA9F08000D9B14 /* ViaCepAPI.swift */; };
 		415F73D61EBAA033000D9B14 /* ViaCepAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415F73D51EBAA033000D9B14 /* ViaCepAddress.swift */; };
 		415F73D81EBC16E2000D9B14 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415F73D71EBC16E2000D9B14 /* UIImageExtension.swift */; };
 		4160D8A81F66AB81005D361B /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4160D89B1F66AB81005D361B /* LICENSE.txt */; };
@@ -244,8 +246,8 @@
 		41AAB4F31EF1F9AF00E52857 /* HomeContentViewControllerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AAB4ED1EF1F9AF00E52857 /* HomeContentViewControllerPresenter.swift */; };
 		41AAB4F41EF1F9AF00E52857 /* HomeContentViewControllerProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AAB4EE1EF1F9AF00E52857 /* HomeContentViewControllerProtocols.swift */; };
 		41AAB4F51EF1F9AF00E52857 /* HomeContentViewControllerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AAB4EF1EF1F9AF00E52857 /* HomeContentViewControllerRouter.swift */; };
-		41AAB4F61EF1F9AF00E52857 /* HomeContentViewControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AAB4F01EF1F9AF00E52857 /* HomeContentViewControllerViewController.swift */; };
-		41AAB4F71EF1F9AF00E52857 /* HomeContentViewControllerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41AAB4F11EF1F9AF00E52857 /* HomeContentViewControllerViewController.xib */; };
+		41AAB4F61EF1F9AF00E52857 /* HomeContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AAB4F01EF1F9AF00E52857 /* HomeContentViewController.swift */; };
+		41AAB4F71EF1F9AF00E52857 /* HomeContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41AAB4F11EF1F9AF00E52857 /* HomeContentViewController.xib */; };
 		41B85F101F4DE00500355073 /* BusinessImportedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B85F0E1F4DE00500355073 /* BusinessImportedTableViewCell.swift */; };
 		41B85F111F4DE00500355073 /* BusinessImportedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41B85F0F1F4DE00500355073 /* BusinessImportedTableViewCell.xib */; };
 		41B85F141F4DE46000355073 /* PhoneCodesConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B85F131F4DE46000355073 /* PhoneCodesConstants.m */; };
@@ -301,10 +303,54 @@
 		41F70EF81F3DE6FE0089DDE2 /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41F70EF71F3DE6FE0089DDE2 /* EmptyView.xib */; };
 		41FB2FF01F3CA8A900DF57B1 /* AlertCancelScheduledViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FB2FEE1F3CA8A900DF57B1 /* AlertCancelScheduledViewController.swift */; };
 		41FB2FF11F3CA8A900DF57B1 /* AlertCancelScheduledViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41FB2FEF1F3CA8A900DF57B1 /* AlertCancelScheduledViewController.xib */; };
-		DFC90A17A5F8AA2CE20F8375 /* Pods_petbooking_ios_v2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9D68A4E19945C41B8E9EDFE /* Pods_petbooking_ios_v2.framework */; };
+		D0CD48DEF744EA40E7427128 /* Pods_petbooking_ios_v2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F3785C842730D5EA853B5D9 /* Pods_petbooking_ios_v2.framework */; };
+		FF25B269202CDA0700DF6E3E /* CategoryContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF25B268202CDA0700DF6E3E /* CategoryContentViewController.xib */; };
+		FF3437C8207898F200E62E7B /* AddPetModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF3437C7207898F200E62E7B /* AddPetModalViewController.xib */; };
+		FF34B169202B7F7500F00528 /* CategoryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF34B168202B7F7500F00528 /* CategoryInteractor.swift */; };
+		FF34B16B202B7F9E00F00528 /* CategoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF34B16A202B7F9E00F00528 /* CategoryPresenter.swift */; };
+		FF34B16D202B7FD500F00528 /* CategoryProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF34B16C202B7FD500F00528 /* CategoryProtocols.swift */; };
+		FF34B16F202B807B00F00528 /* CategoryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF34B16E202B807B00F00528 /* CategoryRouter.swift */; };
+		FF34B171202B811900F00528 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF34B170202B811900F00528 /* CategoryViewController.swift */; };
+		FF34B173202B82D900F00528 /* CategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF34B172202B82D900F00528 /* CategoryViewController.xib */; };
+		FF34B176202C965C00F00528 /* CategoryContentSegmentioBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF34B175202C965C00F00528 /* CategoryContentSegmentioBuilder.swift */; };
+		FF34B178202C984500F00528 /* CategoryContentInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF34B177202C984500F00528 /* CategoryContentInteractor.swift */; };
+		FF34B17A202C986F00F00528 /* CategoryContentPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF34B179202C986F00F00528 /* CategoryContentPresenter.swift */; };
+		FF34B17C202CA55E00F00528 /* CategoryContentProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF34B17B202CA55E00F00528 /* CategoryContentProtocols.swift */; };
+		FF34B17E202CA5BA00F00528 /* CategoryContentRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF34B17D202CA5BA00F00528 /* CategoryContentRouter.swift */; };
+		FF34B180202CA5F500F00528 /* CategoryContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF34B17F202CA5F500F00528 /* CategoryContentViewController.swift */; };
+		FF3A8CA020ABB3DD004FD175 /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3A8C9F20ABB3DD004FD175 /* Credential.swift */; };
+		FF3B9A6F20793DBB00B43BF2 /* AddPetModalInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3B9A6E20793DBB00B43BF2 /* AddPetModalInteractor.swift */; };
+		FF3B9A7120793E1200B43BF2 /* AddPetModalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3B9A7020793E1200B43BF2 /* AddPetModalPresenter.swift */; };
+		FF3B9A7320793E5E00B43BF2 /* AddPetModalProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3B9A7220793E5E00B43BF2 /* AddPetModalProtocols.swift */; };
+		FF3B9A7520793F0100B43BF2 /* AddPetModelRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3B9A7420793F0100B43BF2 /* AddPetModelRouter.swift */; };
+		FF3B9A772079497800B43BF2 /* AddPetModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3B9A762079497800B43BF2 /* AddPetModalViewController.swift */; };
+		FF432075208A81DF007CA59C /* ReviewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF432074208A81DF007CA59C /* ReviewProtocols.swift */; };
+		FF43207F208BBA18007CA59C /* Reviewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF43207E208BBA18007CA59C /* Reviewable.swift */; };
+		FF518A1A202F8EC70061DE44 /* WebviewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF518A19202F8EC70061DE44 /* WebviewInteractor.swift */; };
+		FF518A1C202F8EE90061DE44 /* WebviewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF518A1B202F8EE90061DE44 /* WebviewPresenter.swift */; };
+		FF518A1E202F8EF80061DE44 /* WebviewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF518A1D202F8EF80061DE44 /* WebviewProtocols.swift */; };
+		FF518A20202F8F130061DE44 /* WebviewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF518A1F202F8F130061DE44 /* WebviewRouter.swift */; };
+		FF518A22202F8F260061DE44 /* WebviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF518A21202F8F260061DE44 /* WebviewViewController.swift */; };
+		FF518A24202F90630061DE44 /* WebviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF518A23202F90630061DE44 /* WebviewViewController.xib */; };
+		FF64D45420915F6900070C55 /* ReviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF64D45320915F6900070C55 /* ReviewViewController.xib */; };
+		FF64D45920915F7400070C55 /* ReviewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF64D45520915F7200070C55 /* ReviewPresenter.swift */; };
+		FF64D45A20915F7400070C55 /* ReviewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF64D45620915F7200070C55 /* ReviewInteractor.swift */; };
+		FF64D45B20915F7400070C55 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF64D45720915F7300070C55 /* ReviewViewController.swift */; };
+		FF64D45C20915F7400070C55 /* ReviewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF64D45820915F7300070C55 /* ReviewRouter.swift */; };
+		FFCC900F207AE00A003C43DF /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFCC900E207AE00A003C43DF /* SettingsViewController.xib */; };
+		FFCC9015207AE4FA003C43DF /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCC9010207AE4F9003C43DF /* SettingsViewController.swift */; };
+		FFCC9016207AE4FA003C43DF /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCC9011207AE4F9003C43DF /* SettingsPresenter.swift */; };
+		FFCC9017207AE4FA003C43DF /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCC9012207AE4F9003C43DF /* SettingsRouter.swift */; };
+		FFCC9018207AE4FA003C43DF /* SettingsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCC9013207AE4F9003C43DF /* SettingsProtocols.swift */; };
+		FFCC9019207AE4FA003C43DF /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCC9014207AE4FA003C43DF /* SettingsInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0934868CBE2F03627F96C10E /* Pods-petbooking-ios-v2.fabic release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petbooking-ios-v2.fabic release.xcconfig"; path = "Pods/Target Support Files/Pods-petbooking-ios-v2/Pods-petbooking-ios-v2.fabic release.xcconfig"; sourceTree = "<group>"; };
+		24B6AA382015EDF0007E3930 /* VNDJSONEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VNDJSONEncoding.swift; path = Helpers/VNDJSONEncoding.swift; sourceTree = "<group>"; };
+		24DA62E520516CCD00124FF1 /* AddPetInformationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPetInformationTableViewCell.xib; sourceTree = "<group>"; };
+		24DA62E720516E7000124FF1 /* AddPetInformationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPetInformationTableViewCell.swift; sourceTree = "<group>"; };
+		2F3785C842730D5EA853B5D9 /* Pods_petbooking_ios_v2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_petbooking_ios_v2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		410AA9641FA69AC700A90377 /* ServiceRowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRowTableViewCell.swift; sourceTree = "<group>"; };
 		410AA9651FA69AC700A90377 /* ServiceRowTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServiceRowTableViewCell.xib; sourceTree = "<group>"; };
 		410AA9681FA69EFA00A90377 /* SelectPetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPetTableViewCell.swift; sourceTree = "<group>"; };
@@ -480,7 +526,6 @@
 		415191EA1FAC102B00CACCFE /* AgendaPetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaPetCollectionViewCell.swift; sourceTree = "<group>"; };
 		415191EB1FAC102B00CACCFE /* AgendaPetCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AgendaPetCollectionViewCell.xib; sourceTree = "<group>"; };
 		415BCADF1EB534C40015BB0C /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
-		415F73D31EBA9F08000D9B14 /* ViaCepAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViaCepAPI.swift; sourceTree = "<group>"; };
 		415F73D51EBAA033000D9B14 /* ViaCepAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViaCepAddress.swift; sourceTree = "<group>"; };
 		415F73D71EBC16E2000D9B14 /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		4160D89B1F66AB81005D361B /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
@@ -568,8 +613,8 @@
 		41AAB4ED1EF1F9AF00E52857 /* HomeContentViewControllerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeContentViewControllerPresenter.swift; sourceTree = "<group>"; };
 		41AAB4EE1EF1F9AF00E52857 /* HomeContentViewControllerProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeContentViewControllerProtocols.swift; sourceTree = "<group>"; };
 		41AAB4EF1EF1F9AF00E52857 /* HomeContentViewControllerRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeContentViewControllerRouter.swift; sourceTree = "<group>"; };
-		41AAB4F01EF1F9AF00E52857 /* HomeContentViewControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeContentViewControllerViewController.swift; sourceTree = "<group>"; };
-		41AAB4F11EF1F9AF00E52857 /* HomeContentViewControllerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeContentViewControllerViewController.xib; sourceTree = "<group>"; };
+		41AAB4F01EF1F9AF00E52857 /* HomeContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeContentViewController.swift; sourceTree = "<group>"; };
+		41AAB4F11EF1F9AF00E52857 /* HomeContentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeContentViewController.xib; sourceTree = "<group>"; };
 		41B85F0E1F4DE00500355073 /* BusinessImportedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessImportedTableViewCell.swift; sourceTree = "<group>"; };
 		41B85F0F1F4DE00500355073 /* BusinessImportedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusinessImportedTableViewCell.xib; sourceTree = "<group>"; };
 		41B85F121F4DE46000355073 /* PhoneCodesConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneCodesConstants.h; sourceTree = "<group>"; };
@@ -626,9 +671,47 @@
 		41F70EF71F3DE6FE0089DDE2 /* EmptyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyView.xib; sourceTree = "<group>"; };
 		41FB2FEE1F3CA8A900DF57B1 /* AlertCancelScheduledViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertCancelScheduledViewController.swift; sourceTree = "<group>"; };
 		41FB2FEF1F3CA8A900DF57B1 /* AlertCancelScheduledViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlertCancelScheduledViewController.xib; sourceTree = "<group>"; };
-		5EC8A11A3CAAE140E557AF6F /* Pods-petbooking-ios-v2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petbooking-ios-v2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-petbooking-ios-v2/Pods-petbooking-ios-v2.debug.xcconfig"; sourceTree = "<group>"; };
-		9908B75EC13330082A78645E /* Pods-petbooking-ios-v2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petbooking-ios-v2.release.xcconfig"; path = "Pods/Target Support Files/Pods-petbooking-ios-v2/Pods-petbooking-ios-v2.release.xcconfig"; sourceTree = "<group>"; };
-		C9D68A4E19945C41B8E9EDFE /* Pods_petbooking_ios_v2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_petbooking_ios_v2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8FB88E267B660AD95E135A2A /* Pods-petbooking-ios-v2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petbooking-ios-v2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-petbooking-ios-v2/Pods-petbooking-ios-v2.debug.xcconfig"; sourceTree = "<group>"; };
+		AAE3909632381B6B64E02DB6 /* Pods-petbooking-ios-v2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petbooking-ios-v2.release.xcconfig"; path = "Pods/Target Support Files/Pods-petbooking-ios-v2/Pods-petbooking-ios-v2.release.xcconfig"; sourceTree = "<group>"; };
+		FF25B268202CDA0700DF6E3E /* CategoryContentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryContentViewController.xib; sourceTree = "<group>"; };
+		FF3437C7207898F200E62E7B /* AddPetModalViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPetModalViewController.xib; sourceTree = "<group>"; };
+		FF34B168202B7F7500F00528 /* CategoryInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryInteractor.swift; sourceTree = "<group>"; };
+		FF34B16A202B7F9E00F00528 /* CategoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPresenter.swift; sourceTree = "<group>"; };
+		FF34B16C202B7FD500F00528 /* CategoryProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryProtocols.swift; sourceTree = "<group>"; };
+		FF34B16E202B807B00F00528 /* CategoryRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRouter.swift; sourceTree = "<group>"; };
+		FF34B170202B811900F00528 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		FF34B172202B82D900F00528 /* CategoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryViewController.xib; sourceTree = "<group>"; };
+		FF34B175202C965C00F00528 /* CategoryContentSegmentioBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryContentSegmentioBuilder.swift; sourceTree = "<group>"; };
+		FF34B177202C984500F00528 /* CategoryContentInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryContentInteractor.swift; sourceTree = "<group>"; };
+		FF34B179202C986F00F00528 /* CategoryContentPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryContentPresenter.swift; sourceTree = "<group>"; };
+		FF34B17B202CA55E00F00528 /* CategoryContentProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryContentProtocols.swift; sourceTree = "<group>"; };
+		FF34B17D202CA5BA00F00528 /* CategoryContentRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryContentRouter.swift; sourceTree = "<group>"; };
+		FF34B17F202CA5F500F00528 /* CategoryContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryContentViewController.swift; sourceTree = "<group>"; };
+		FF3A8C9F20ABB3DD004FD175 /* Credential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credential.swift; sourceTree = "<group>"; };
+		FF3B9A6E20793DBB00B43BF2 /* AddPetModalInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPetModalInteractor.swift; sourceTree = "<group>"; };
+		FF3B9A7020793E1200B43BF2 /* AddPetModalPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPetModalPresenter.swift; sourceTree = "<group>"; };
+		FF3B9A7220793E5E00B43BF2 /* AddPetModalProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPetModalProtocols.swift; sourceTree = "<group>"; };
+		FF3B9A7420793F0100B43BF2 /* AddPetModelRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPetModelRouter.swift; sourceTree = "<group>"; };
+		FF3B9A762079497800B43BF2 /* AddPetModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPetModalViewController.swift; sourceTree = "<group>"; };
+		FF432074208A81DF007CA59C /* ReviewProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewProtocols.swift; sourceTree = "<group>"; };
+		FF43207E208BBA18007CA59C /* Reviewable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reviewable.swift; sourceTree = "<group>"; };
+		FF518A19202F8EC70061DE44 /* WebviewInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebviewInteractor.swift; sourceTree = "<group>"; };
+		FF518A1B202F8EE90061DE44 /* WebviewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebviewPresenter.swift; sourceTree = "<group>"; };
+		FF518A1D202F8EF80061DE44 /* WebviewProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebviewProtocols.swift; sourceTree = "<group>"; };
+		FF518A1F202F8F130061DE44 /* WebviewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebviewRouter.swift; sourceTree = "<group>"; };
+		FF518A21202F8F260061DE44 /* WebviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebviewViewController.swift; sourceTree = "<group>"; };
+		FF518A23202F90630061DE44 /* WebviewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebviewViewController.xib; sourceTree = "<group>"; };
+		FF64D45320915F6900070C55 /* ReviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ReviewViewController.xib; path = New/ReviewViewController.xib; sourceTree = "<group>"; };
+		FF64D45520915F7200070C55 /* ReviewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReviewPresenter.swift; path = New/ReviewPresenter.swift; sourceTree = "<group>"; };
+		FF64D45620915F7200070C55 /* ReviewInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReviewInteractor.swift; path = New/ReviewInteractor.swift; sourceTree = "<group>"; };
+		FF64D45720915F7300070C55 /* ReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReviewViewController.swift; path = New/ReviewViewController.swift; sourceTree = "<group>"; };
+		FF64D45820915F7300070C55 /* ReviewRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReviewRouter.swift; path = New/ReviewRouter.swift; sourceTree = "<group>"; };
+		FFCC900E207AE00A003C43DF /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		FFCC9010207AE4F9003C43DF /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		FFCC9011207AE4F9003C43DF /* SettingsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
+		FFCC9012207AE4F9003C43DF /* SettingsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
+		FFCC9013207AE4F9003C43DF /* SettingsProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsProtocols.swift; sourceTree = "<group>"; };
+		FFCC9014207AE4FA003C43DF /* SettingsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -637,13 +720,57 @@
 			buildActionMask = 2147483647;
 			files = (
 				412776911F130AE100EC6488 /* MapKit.framework in Frameworks */,
-				DFC90A17A5F8AA2CE20F8375 /* Pods_petbooking_ios_v2.framework in Frameworks */,
+				D0CD48DEF744EA40E7427128 /* Pods_petbooking_ios_v2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2478911C2076403400C35617 /* Subcells */ = {
+			isa = PBXGroup;
+			children = (
+				41D86F921F298C360038ADA8 /* AdditionalServiceTableViewCell.swift */,
+				41D86F931F298C360038ADA8 /* AdditionalServiceTableViewCell.xib */,
+				419C89051F3162EC00BDBE8E /* ServiceTableHeaderView.swift */,
+				419C89071F3162FD00BDBE8E /* ServiceTableHeaderView.xib */,
+				41D86F821F2678D30038ADA8 /* PetCollectionViewCell.swift */,
+				41D86F831F2678D30038ADA8 /* PetCollectionViewCell.xib */,
+				41D86F881F294F1E0038ADA8 /* ServiceCollectionViewCell.swift */,
+				41D86F891F294F1E0038ADA8 /* ServiceCollectionViewCell.xib */,
+				419C89091F3168BB00BDBE8E /* ServiceTableFooterView.swift */,
+				419C890B1F3168CF00BDBE8E /* ServiceTableFooterView.xib */,
+				411B4E4E1F3E031A00B9244B /* ServiceTableViewCell.swift */,
+				411B4E4D1F3E031A00B9244B /* ServiceTableViewCell.xib */,
+				41D86F961F2ACC490038ADA8 /* SubServiceTableViewCell.swift */,
+				41D86F971F2ACC490038ADA8 /* SubServiceTableViewCell.xib */,
+				419F2B3D1FA915A50097C9A7 /* TimeTableViewCell.swift */,
+				419F2B3E1FA915A50097C9A7 /* TimeTableViewCell.xib */,
+			);
+			path = Subcells;
+			sourceTree = "<group>";
+		};
+		24DA62E420516C2F00124FF1 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				410AA9641FA69AC700A90377 /* ServiceRowTableViewCell.swift */,
+				410AA9651FA69AC700A90377 /* ServiceRowTableViewCell.xib */,
+				410AA9681FA69EFA00A90377 /* SelectPetTableViewCell.swift */,
+				410AA9691FA69EFA00A90377 /* SelectPetTableViewCell.xib */,
+				410AA96C1FA6A76C00A90377 /* SelectCategoryTableViewCell.swift */,
+				410AA96D1FA6A76C00A90377 /* SelectCategoryTableViewCell.xib */,
+				410AA9701FA6ACF700A90377 /* SelectServiceTableViewCell.swift */,
+				410AA9711FA6ACF700A90377 /* SelectServiceTableViewCell.xib */,
+				410AA9741FA7751900A90377 /* SelectProfessionalTableViewCell.swift */,
+				410AA9751FA7751900A90377 /* SelectProfessionalTableViewCell.xib */,
+				419F2B391FA8D07F0097C9A7 /* SelectDateTableViewCell.swift */,
+				419F2B3A1FA8D07F0097C9A7 /* SelectDateTableViewCell.xib */,
+				24DA62E720516E7000124FF1 /* AddPetInformationTableViewCell.swift */,
+				24DA62E520516CCD00124FF1 /* AddPetInformationTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		410AA9931FA7A3DC00A90377 /* ExpandableTableView */ = {
 			isa = PBXGroup;
 			children = (
@@ -682,8 +809,6 @@
 				411B4E551F3E4CFA00B9244B /* BusinessSearchRouter.swift */,
 				411B4E561F3E4CFA00B9244B /* BusinessSearchViewController.swift */,
 				411B4E571F3E4CFA00B9244B /* BusinessSearchViewController.xib */,
-				411B4E5E1F3E567000B9244B /* CategoryCollectionViewCell.swift */,
-				411B4E5F1F3E567000B9244B /* CategoryCollectionViewCell.xib */,
 			);
 			path = BusinessSearch;
 			sourceTree = "<group>";
@@ -795,8 +920,8 @@
 			children = (
 				413682BF1E9C2B2D008C463B /* petbooking-ios-v2 */,
 				413682BE1E9C2B2D008C463B /* Products */,
-				6BC186A20FCE32BA04CC64D7 /* Pods */,
 				C4DC27CBAA13EC798434A677 /* Frameworks */,
+				E0D09EA65E38C0771C88EC27 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -852,6 +977,7 @@
 				41B85F121F4DE46000355073 /* PhoneCodesConstants.h */,
 				41B85F131F4DE46000355073 /* PhoneCodesConstants.m */,
 				4137158E1EBEAFFA00258C6F /* Device.swift */,
+				24B6AA382015EDF0007E3930 /* VNDJSONEncoding.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -1006,7 +1132,6 @@
 			isa = PBXGroup;
 			children = (
 				4168AA4B1EB69217001E2D6D /* PetbookingAPI.swift */,
-				415F73D31EBA9F08000D9B14 /* ViaCepAPI.swift */,
 			);
 			path = Webservices;
 			sourceTree = "<group>";
@@ -1032,6 +1157,8 @@
 				419C891B1F33A23800BDBE8E /* Cart.swift */,
 				411C84BB1F3A945B008C6E0A /* ScheduledService.swift */,
 				419E957F1FBB1616008E1D10 /* Review.swift */,
+				FF43207E208BBA18007CA59C /* Reviewable.swift */,
+				FF3A8C9F20ABB3DD004FD175 /* Credential.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1112,8 +1239,18 @@
 		418D099C1EB0D71200FCD5A6 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				411B4E511F3E4CE600B9244B /* BusinessSearch */,
+				FF7E643220896E7800C74ED6 /* Review */,
+				FFCC900D207ADFEE003C43DF /* Settings */,
 				411C84AE1F3A8ED3008C6E0A /* Agenda */,
+				41A0BAE01ED7A8E600671F3C /* AddPet */,
+				414BB1EC1EBFF49A000BE2CC /* AlertPopup */,
+				4120ED111EB38629009D35B0 /* Login */,
+				4120ED2F1EB529EC009D35B0 /* Signup */,
+				4120ED201EB4F11E009D35B0 /* ForgotPassword */,
+				41AAB4DF1EF1F98300E52857 /* HomeContent */,
+				FF34B174202C962500F00528 /* CategoryContent */,
+				FF34B167202B7F5900F00528 /* Category */,
+				411B4E511F3E4CE600B9244B /* BusinessSearch */,
 				4113B2C11F3414B0007DC89F /* BusinessInformation */,
 				419C890D1F33A16B00BDBE8E /* CartViewController */,
 				419C890E1F33A16B00BDBE8E /* CartWebViewController */,
@@ -1121,15 +1258,10 @@
 				41D86F751F266D640038ADA8 /* BusinessServices */,
 				41D86F661F263A9B0038ADA8 /* HomeBusiness */,
 				4149E9701EF961DA00D6C44B /* BusinessList */,
-				41AAB4DF1EF1F98300E52857 /* HomeContent */,
-				41A0BAE01ED7A8E600671F3C /* AddPet */,
 				418DAA341ED1257B006265CF /* MyPets */,
 				418DAA231ECE7E92006265CF /* SideMenu */,
-				414BB1EC1EBFF49A000BE2CC /* AlertPopup */,
 				413715801EBE7CEA00258C6F /* SelectPhotoSourcePopup */,
-				4120ED2F1EB529EC009D35B0 /* Signup */,
-				4120ED201EB4F11E009D35B0 /* ForgotPassword */,
-				4120ED111EB38629009D35B0 /* Login */,
+				FF518A18202F8E940061DE44 /* Webview */,
 				418D099D1EB0D7B800FCD5A6 /* Presentation */,
 			);
 			path = Modules;
@@ -1167,12 +1299,11 @@
 		418DAA341ED1257B006265CF /* MyPets */ = {
 			isa = PBXGroup;
 			children = (
+				FFC119A72020F74E00F26DFE /* Cell */,
 				4129D9DB1ED86E9B0067EDC3 /* MyPetsInteractor.swift */,
 				4129D9DC1ED86E9B0067EDC3 /* MyPetsPresenter.swift */,
 				4129D9DD1ED86E9B0067EDC3 /* MyPetsProtocols.swift */,
 				4129D9DE1ED86E9B0067EDC3 /* MyPetsRouter.swift */,
-				4129D9DF1ED86E9B0067EDC3 /* MyPetsTableViewCell.swift */,
-				4129D9E01ED86E9B0067EDC3 /* MyPetsTableViewCell.xib */,
 				4129D9E11ED86E9B0067EDC3 /* MyPetsViewController.swift */,
 				4129D9E21ED86E9B0067EDC3 /* MyPetsViewController.xib */,
 			);
@@ -1233,8 +1364,8 @@
 				41AAB4ED1EF1F9AF00E52857 /* HomeContentViewControllerPresenter.swift */,
 				41AAB4EE1EF1F9AF00E52857 /* HomeContentViewControllerProtocols.swift */,
 				41AAB4EF1EF1F9AF00E52857 /* HomeContentViewControllerRouter.swift */,
-				41AAB4F01EF1F9AF00E52857 /* HomeContentViewControllerViewController.swift */,
-				41AAB4F11EF1F9AF00E52857 /* HomeContentViewControllerViewController.xib */,
+				41AAB4F01EF1F9AF00E52857 /* HomeContentViewController.swift */,
+				41AAB4F11EF1F9AF00E52857 /* HomeContentViewController.xib */,
 				4149E96C1EF8404C00D6C44B /* SegmentioBuilder.swift */,
 			);
 			path = HomeContent;
@@ -1257,40 +1388,15 @@
 		41D86F751F266D640038ADA8 /* BusinessServices */ = {
 			isa = PBXGroup;
 			children = (
-				41D86F921F298C360038ADA8 /* AdditionalServiceTableViewCell.swift */,
-				41D86F931F298C360038ADA8 /* AdditionalServiceTableViewCell.xib */,
+				FF3437C62078988D00E62E7B /* Add Pet Modal */,
+				2478911C2076403400C35617 /* Subcells */,
+				24DA62E420516C2F00124FF1 /* Cells */,
 				41D86F761F266D7A0038ADA8 /* BusinessServicesInteractor.swift */,
 				41D86F771F266D7A0038ADA8 /* BusinessServicesPresenter.swift */,
 				41D86F781F266D7A0038ADA8 /* BusinessServicesProtocols.swift */,
 				41D86F791F266D7A0038ADA8 /* BusinessServicesRouter.swift */,
 				41D86F7A1F266D7A0038ADA8 /* BusinessServicesViewController.swift */,
 				41D86F7B1F266D7A0038ADA8 /* BusinessServicesViewController.xib */,
-				41D86F821F2678D30038ADA8 /* PetCollectionViewCell.swift */,
-				41D86F831F2678D30038ADA8 /* PetCollectionViewCell.xib */,
-				41D86F881F294F1E0038ADA8 /* ServiceCollectionViewCell.swift */,
-				41D86F891F294F1E0038ADA8 /* ServiceCollectionViewCell.xib */,
-				419C89091F3168BB00BDBE8E /* ServiceTableFooterView.swift */,
-				419C890B1F3168CF00BDBE8E /* ServiceTableFooterView.xib */,
-				419C89051F3162EC00BDBE8E /* ServiceTableHeaderView.swift */,
-				419C89071F3162FD00BDBE8E /* ServiceTableHeaderView.xib */,
-				411B4E4E1F3E031A00B9244B /* ServiceTableViewCell.swift */,
-				411B4E4D1F3E031A00B9244B /* ServiceTableViewCell.xib */,
-				41D86F961F2ACC490038ADA8 /* SubServiceTableViewCell.swift */,
-				41D86F971F2ACC490038ADA8 /* SubServiceTableViewCell.xib */,
-				410AA9641FA69AC700A90377 /* ServiceRowTableViewCell.swift */,
-				410AA9651FA69AC700A90377 /* ServiceRowTableViewCell.xib */,
-				410AA9681FA69EFA00A90377 /* SelectPetTableViewCell.swift */,
-				410AA9691FA69EFA00A90377 /* SelectPetTableViewCell.xib */,
-				410AA96C1FA6A76C00A90377 /* SelectCategoryTableViewCell.swift */,
-				410AA96D1FA6A76C00A90377 /* SelectCategoryTableViewCell.xib */,
-				410AA9701FA6ACF700A90377 /* SelectServiceTableViewCell.swift */,
-				410AA9711FA6ACF700A90377 /* SelectServiceTableViewCell.xib */,
-				410AA9741FA7751900A90377 /* SelectProfessionalTableViewCell.swift */,
-				410AA9751FA7751900A90377 /* SelectProfessionalTableViewCell.xib */,
-				419F2B391FA8D07F0097C9A7 /* SelectDateTableViewCell.swift */,
-				419F2B3A1FA8D07F0097C9A7 /* SelectDateTableViewCell.xib */,
-				419F2B3D1FA915A50097C9A7 /* TimeTableViewCell.swift */,
-				419F2B3E1FA915A50097C9A7 /* TimeTableViewCell.xib */,
 				415191E61FABE9B400CACCFE /* ScheduleToTheCartAlertViewController.swift */,
 				415191E71FABE9B400CACCFE /* ScheduleToTheCartAlertViewController.xib */,
 			);
@@ -1349,22 +1455,113 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		6BC186A20FCE32BA04CC64D7 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				5EC8A11A3CAAE140E557AF6F /* Pods-petbooking-ios-v2.debug.xcconfig */,
-				9908B75EC13330082A78645E /* Pods-petbooking-ios-v2.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		C4DC27CBAA13EC798434A677 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				412776901F130AE100EC6488 /* MapKit.framework */,
-				C9D68A4E19945C41B8E9EDFE /* Pods_petbooking_ios_v2.framework */,
+				2F3785C842730D5EA853B5D9 /* Pods_petbooking_ios_v2.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E0D09EA65E38C0771C88EC27 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8FB88E267B660AD95E135A2A /* Pods-petbooking-ios-v2.debug.xcconfig */,
+				AAE3909632381B6B64E02DB6 /* Pods-petbooking-ios-v2.release.xcconfig */,
+				0934868CBE2F03627F96C10E /* Pods-petbooking-ios-v2.fabic release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FF3437C62078988D00E62E7B /* Add Pet Modal */ = {
+			isa = PBXGroup;
+			children = (
+				FF3437C7207898F200E62E7B /* AddPetModalViewController.xib */,
+				FF3B9A7420793F0100B43BF2 /* AddPetModelRouter.swift */,
+				FF3B9A6E20793DBB00B43BF2 /* AddPetModalInteractor.swift */,
+				FF3B9A7020793E1200B43BF2 /* AddPetModalPresenter.swift */,
+				FF3B9A7220793E5E00B43BF2 /* AddPetModalProtocols.swift */,
+				FF3B9A762079497800B43BF2 /* AddPetModalViewController.swift */,
+			);
+			path = "Add Pet Modal";
+			sourceTree = "<group>";
+		};
+		FF34B167202B7F5900F00528 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				FF34B16E202B807B00F00528 /* CategoryRouter.swift */,
+				FF34B168202B7F7500F00528 /* CategoryInteractor.swift */,
+				FF34B16A202B7F9E00F00528 /* CategoryPresenter.swift */,
+				FF34B16C202B7FD500F00528 /* CategoryProtocols.swift */,
+				FF34B170202B811900F00528 /* CategoryViewController.swift */,
+				FF34B172202B82D900F00528 /* CategoryViewController.xib */,
+				411B4E5E1F3E567000B9244B /* CategoryCollectionViewCell.swift */,
+				411B4E5F1F3E567000B9244B /* CategoryCollectionViewCell.xib */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		FF34B174202C962500F00528 /* CategoryContent */ = {
+			isa = PBXGroup;
+			children = (
+				FF34B177202C984500F00528 /* CategoryContentInteractor.swift */,
+				FF34B179202C986F00F00528 /* CategoryContentPresenter.swift */,
+				FF34B17B202CA55E00F00528 /* CategoryContentProtocols.swift */,
+				FF34B17D202CA5BA00F00528 /* CategoryContentRouter.swift */,
+				FF34B17F202CA5F500F00528 /* CategoryContentViewController.swift */,
+				FF25B268202CDA0700DF6E3E /* CategoryContentViewController.xib */,
+				FF34B175202C965C00F00528 /* CategoryContentSegmentioBuilder.swift */,
+			);
+			path = CategoryContent;
+			sourceTree = "<group>";
+		};
+		FF518A18202F8E940061DE44 /* Webview */ = {
+			isa = PBXGroup;
+			children = (
+				FF518A19202F8EC70061DE44 /* WebviewInteractor.swift */,
+				FF518A1B202F8EE90061DE44 /* WebviewPresenter.swift */,
+				FF518A1D202F8EF80061DE44 /* WebviewProtocols.swift */,
+				FF518A1F202F8F130061DE44 /* WebviewRouter.swift */,
+				FF518A21202F8F260061DE44 /* WebviewViewController.swift */,
+				FF518A23202F90630061DE44 /* WebviewViewController.xib */,
+			);
+			path = Webview;
+			sourceTree = "<group>";
+		};
+		FF7E643220896E7800C74ED6 /* Review */ = {
+			isa = PBXGroup;
+			children = (
+				FF432074208A81DF007CA59C /* ReviewProtocols.swift */,
+				FF64D45620915F7200070C55 /* ReviewInteractor.swift */,
+				FF64D45520915F7200070C55 /* ReviewPresenter.swift */,
+				FF64D45820915F7300070C55 /* ReviewRouter.swift */,
+				FF64D45720915F7300070C55 /* ReviewViewController.swift */,
+				FF64D45320915F6900070C55 /* ReviewViewController.xib */,
+			);
+			path = Review;
+			sourceTree = "<group>";
+		};
+		FFC119A72020F74E00F26DFE /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				4129D9DF1ED86E9B0067EDC3 /* MyPetsTableViewCell.swift */,
+				4129D9E01ED86E9B0067EDC3 /* MyPetsTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		FFCC900D207ADFEE003C43DF /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				FFCC9014207AE4FA003C43DF /* SettingsInteractor.swift */,
+				FFCC9011207AE4F9003C43DF /* SettingsPresenter.swift */,
+				FFCC9013207AE4F9003C43DF /* SettingsProtocols.swift */,
+				FFCC9012207AE4F9003C43DF /* SettingsRouter.swift */,
+				FFCC9010207AE4F9003C43DF /* SettingsViewController.swift */,
+				FFCC900E207AE00A003C43DF /* SettingsViewController.xib */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1374,12 +1571,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 413682CF1E9C2B2D008C463B /* Build configuration list for PBXNativeTarget "petbooking-ios-v2" */;
 			buildPhases = (
-				4FB1F55EA32591231EB3CBD5 /* [CP] Check Pods Manifest.lock */,
+				FE69B917878A2789C5D4C22B /* [CP] Check Pods Manifest.lock */,
 				413682B91E9C2B2D008C463B /* Sources */,
 				413682BA1E9C2B2D008C463B /* Frameworks */,
 				413682BB1E9C2B2D008C463B /* Resources */,
-				BC86734ECD653476C12801FB /* [CP] Embed Pods Frameworks */,
-				CCDE22ABC7C6B67408128786 /* [CP] Copy Pods Resources */,
+				FF43CFF220238B3600D48DB7 /* ShellScript */,
+				000C5A0B666796F4E6E59E52 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1397,12 +1594,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Pet Booking Serviços e Desenvolvimento de Softwares SA";
 				TargetAttributes = {
 					413682BC1E9C2B2D008C463B = {
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = 77828RW9EP;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
@@ -1440,6 +1638,7 @@
 			files = (
 				4160D8B11F66AB81005D361B /* Roboto-MediumItalic.ttf in Resources */,
 				410AA96B1FA69EFA00A90377 /* SelectPetTableViewCell.xib in Resources */,
+				FF64D45420915F6900070C55 /* ReviewViewController.xib in Resources */,
 				41F1A04E1F3D4F1D00CBC32D /* SocialNetworkCollectionViewCell.xib in Resources */,
 				411C84C81F3BE82E008C6E0A /* AgendaSubServiceTableViewCell.xib in Resources */,
 				419C892C1F33A95C00BDBE8E /* CartTableViewCell.xib in Resources */,
@@ -1464,6 +1663,7 @@
 				410AA96F1FA6A76C00A90377 /* SelectCategoryTableViewCell.xib in Resources */,
 				419C89081F3162FD00BDBE8E /* ServiceTableHeaderView.xib in Resources */,
 				4168DFEA1FAFE4CE00111FB3 /* ReviewsHeaderTableViewCell.xib in Resources */,
+				FFCC900F207AE00A003C43DF /* SettingsViewController.xib in Resources */,
 				419F2B401FA915A50097C9A7 /* TimeTableViewCell.xib in Resources */,
 				4149E9981EFF0D0100D6C44B /* BusinessTableViewCell.xib in Resources */,
 				4149E97C1EF9628100D6C44B /* BusinessListViewControllerViewController.xib in Resources */,
@@ -1472,6 +1672,8 @@
 				419C89281F33A8BB00BDBE8E /* CartViewController.xib in Resources */,
 				4160D8AE1F66AB81005D361B /* Roboto-Light.ttf in Resources */,
 				41D86F811F266D7A0038ADA8 /* BusinessServicesViewController.xib in Resources */,
+				FF518A24202F90630061DE44 /* WebviewViewController.xib in Resources */,
+				24DA62E620516CCD00124FF1 /* AddPetInformationTableViewCell.xib in Resources */,
 				414862A61F3014D000F210D8 /* ProfessionalCollectionViewCell.xib in Resources */,
 				413682CB1E9C2B2D008C463B /* LaunchScreen.storyboard in Resources */,
 				4160D8B31F66AB81005D361B /* Roboto-Thin.ttf in Resources */,
@@ -1494,7 +1696,8 @@
 				41D86F8B1F294F1E0038ADA8 /* ServiceCollectionViewCell.xib in Resources */,
 				4129D9E81ED86E9B0067EDC3 /* MyPetsTableViewCell.xib in Resources */,
 				4120ED051EB0DE9F009D35B0 /* PresentationViewController.xib in Resources */,
-				41AAB4F71EF1F9AF00E52857 /* HomeContentViewControllerViewController.xib in Resources */,
+				FF34B173202B82D900F00528 /* CategoryViewController.xib in Resources */,
+				41AAB4F71EF1F9AF00E52857 /* HomeContentViewController.xib in Resources */,
 				411B4E611F3E567000B9244B /* CategoryCollectionViewCell.xib in Resources */,
 				4120ED3B1EB529FE009D35B0 /* SignupViewController.xib in Resources */,
 				419E95841FBB223B008E1D10 /* ReviewCommentSubRowTableViewCell.xib in Resources */,
@@ -1510,6 +1713,8 @@
 				411C84C41F3BBFF0008C6E0A /* AgendaTableViewCell.xib in Resources */,
 				41F1A0491F3D182E00CBC32D /* SelectPhotoSourcePopupViewController.xib in Resources */,
 				41E7E2F31EC27833002C0A55 /* OpenSans-SemiboldItalic.ttf in Resources */,
+				FF25B269202CDA0700DF6E3E /* CategoryContentViewController.xib in Resources */,
+				FF3437C8207898F200E62E7B /* AddPetModalViewController.xib in Resources */,
 				417969691F69676700C47936 /* BadgeWithCounterViewBigSized.xib in Resources */,
 				4160D8AF1F66AB81005D361B /* Roboto-LightItalic.ttf in Resources */,
 				4160D8AC1F66AB81005D361B /* Roboto-BoldItalic.ttf in Resources */,
@@ -1529,25 +1734,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4FB1F55EA32591231EB3CBD5 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-petbooking-ios-v2-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BC86734ECD653476C12801FB /* [CP] Embed Pods Frameworks */ = {
+		000C5A0B666796F4E6E59E52 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1557,7 +1744,6 @@
 				"${BUILT_PRODUCTS_DIR}/AKMaskField/AKMaskField.framework",
 				"${BUILT_PRODUCTS_DIR}/AKNumericFormatter/AKNumericFormatter.framework",
 				"${BUILT_PRODUCTS_DIR}/ALLoadingView/ALLoadingView.framework",
-				"${BUILT_PRODUCTS_DIR}/ASMapLauncher/ASMapLauncher.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/BEMCheckBox/BEMCheckBox.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
@@ -1576,13 +1762,13 @@
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AKMaskField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AKNumericFormatter.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ALLoadingView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ASMapLauncher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BEMCheckBox.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
@@ -1601,26 +1787,43 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-petbooking-ios-v2/Pods-petbooking-ios-v2-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CCDE22ABC7C6B67408128786 /* [CP] Copy Pods Resources */ = {
+		FE69B917878A2789C5D4C22B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-petbooking-ios-v2-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FF43CFF220238B3600D48DB7 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-petbooking-ios-v2/Pods-petbooking-ios-v2-resources.sh\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" fe0c61a27b92b4a7f90ab0fc8f69e3a4326250e5 525a129716019cb2c8212214a49926c8d7a3731e43f2f06488640cb2b3961047";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1631,6 +1834,7 @@
 			files = (
 				4129D9EC1EDF8BCF0067EDC3 /* Breed.swift in Sources */,
 				41231A381FCD9FF7001EA867 /* UIApplication+Localide.swift in Sources */,
+				FFCC9015207AE4FA003C43DF /* SettingsViewController.swift in Sources */,
 				419C89151F33A18700BDBE8E /* CartWebInteractor.swift in Sources */,
 				4120ED1C1EB38650009D35B0 /* LoginViewController.swift in Sources */,
 				4179696F1F69676700C47936 /* SegmentioCellWithImageOverLabel.swift in Sources */,
@@ -1650,11 +1854,13 @@
 				41D86F981F2ACC490038ADA8 /* SubServiceTableViewCell.swift in Sources */,
 				417969681F69676700C47936 /* BadgeWithCounterView.swift in Sources */,
 				413682C31E9C2B2D008C463B /* ViewController.swift in Sources */,
+				FF3B9A7520793F0100B43BF2 /* AddPetModelRouter.swift in Sources */,
 				415191EC1FAC102B00CACCFE /* AgendaPetCollectionViewCell.swift in Sources */,
 				4168AA5E1EB8181B001E2D6D /* FacebookGraphModel.swift in Sources */,
 				4120ED001EB0DE9F009D35B0 /* PresentationInteractor.swift in Sources */,
 				41D86F711F263AB30038ADA8 /* HomeBusinessViewController.swift in Sources */,
 				417969701F69676700C47936 /* SegmentioCellWithImageUnderLabel.swift in Sources */,
+				FF518A20202F8F130061DE44 /* WebviewRouter.swift in Sources */,
 				41F70EF61F3DE6EF0089DDE2 /* EmptyView.swift in Sources */,
 				414BB1FA1EC00722000BE2CC /* StringExtension.swift in Sources */,
 				410AA9761FA7751900A90377 /* SelectProfessionalTableViewCell.swift in Sources */,
@@ -1670,6 +1876,7 @@
 				41A0BAEA1ED7A8FA00671F3C /* AddPetViewControllerRouter.swift in Sources */,
 				414862931F2E9F1900F210D8 /* JTDateHelper.m in Sources */,
 				414862991F2E9F1900F210D8 /* JTCalendarWeekDayView.m in Sources */,
+				FF3B9A6F20793DBB00B43BF2 /* AddPetModalInteractor.swift in Sources */,
 				411C84B51F3A8EF0008C6E0A /* AgendaInteractor.swift in Sources */,
 				4113B2CC1F3414CB007DC89F /* BusinessInformationViewController.swift in Sources */,
 				4120ED291EB4F136009D35B0 /* ForgotPasswordProtocols.swift in Sources */,
@@ -1680,10 +1887,13 @@
 				415F73D61EBAA033000D9B14 /* ViaCepAddress.swift in Sources */,
 				419C89191F33A18700BDBE8E /* CartWebViewController.swift in Sources */,
 				41F1A04D1F3D4F1D00CBC32D /* SocialNetworkCollectionViewCell.swift in Sources */,
+				FF518A1C202F8EE90061DE44 /* WebviewPresenter.swift in Sources */,
+				FF64D45920915F7400070C55 /* ReviewPresenter.swift in Sources */,
 				4120ED2A1EB4F136009D35B0 /* ForgotPasswordRouter.swift in Sources */,
 				414862971F2E9F1900F210D8 /* JTCalendarMenuView.m in Sources */,
 				419C89181F33A18700BDBE8E /* CartWebRouter.swift in Sources */,
 				4120ED011EB0DE9F009D35B0 /* PresentationPresenter.swift in Sources */,
+				FF34B169202B7F7500F00528 /* CategoryInteractor.swift in Sources */,
 				414862911F2E9F1900F210D8 /* JTCalendarManager.m in Sources */,
 				41D86F8A1F294F1E0038ADA8 /* ServiceCollectionViewCell.swift in Sources */,
 				41FB2FF01F3CA8A900DF57B1 /* AlertCancelScheduledViewController.swift in Sources */,
@@ -1693,13 +1903,20 @@
 				41432E791F0B3088002789CE /* UIButtonExtension.swift in Sources */,
 				4127768E1F13084800EC6488 /* BusinessMapListViewController.swift in Sources */,
 				41A0BAE81ED7A8FA00671F3C /* AddPetViewControllerPresenter.swift in Sources */,
+				24B6AA392015EDF0007E3930 /* VNDJSONEncoding.swift in Sources */,
+				FF518A1A202F8EC70061DE44 /* WebviewInteractor.swift in Sources */,
 				415191E81FABE9B400CACCFE /* ScheduleToTheCartAlertViewController.swift in Sources */,
 				417969741F69676700C47936 /* Segmentio.swift in Sources */,
+				FF3B9A7120793E1200B43BF2 /* AddPetModalPresenter.swift in Sources */,
 				4120ED271EB4F136009D35B0 /* ForgotPasswordInteractor.swift in Sources */,
+				FFCC9018207AE4FA003C43DF /* SettingsProtocols.swift in Sources */,
 				4179696E1F69676700C47936 /* SegmentioCellWithImageBeforeLabel.swift in Sources */,
+				FF34B178202C984500F00528 /* CategoryContentInteractor.swift in Sources */,
+				FF34B16F202B807B00F00528 /* CategoryRouter.swift in Sources */,
 				4168AA581EB794D5001E2D6D /* SessionManager.swift in Sources */,
 				41D86F841F2678D30038ADA8 /* PetCollectionViewCell.swift in Sources */,
 				410AA9721FA6ACF700A90377 /* SelectServiceTableViewCell.swift in Sources */,
+				FF34B17E202CA5BA00F00528 /* CategoryContentRouter.swift in Sources */,
 				4120ED0A1EB11BA0009D35B0 /* UIColorExtension.swift in Sources */,
 				411B4E601F3E567000B9244B /* CategoryCollectionViewCell.swift in Sources */,
 				4129D9E61ED86E9B0067EDC3 /* MyPetsRouter.swift in Sources */,
@@ -1709,13 +1926,16 @@
 				414862981F2E9F1900F210D8 /* JTCalendarPageView.m in Sources */,
 				4129D9E51ED86E9B0067EDC3 /* MyPetsProtocols.swift in Sources */,
 				414862A11F2FF71800F210D8 /* TImeCollectionViewCell.swift in Sources */,
+				FFCC9019207AE4FA003C43DF /* SettingsInteractor.swift in Sources */,
 				414862941F2E9F1900F210D8 /* JTCalendarDelegateManager.m in Sources */,
 				41231A351FCD9FF7001EA867 /* NSUserDetauls+Localide.swift in Sources */,
 				411C84B91F3A8EF0008C6E0A /* AgendaViewController.swift in Sources */,
 				413682C11E9C2B2D008C463B /* AppDelegate.swift in Sources */,
 				41D86FA21F2D525E0038ADA8 /* ScheduleCalendarPresenter.swift in Sources */,
 				4137157F1EBD5B3F00258C6F /* PresentationPageViewController.swift in Sources */,
+				FF64D45C20915F7400070C55 /* ReviewRouter.swift in Sources */,
 				41D86FA11F2D525E0038ADA8 /* ScheduleCalendarInteractor.swift in Sources */,
+				FF3B9A772079497800B43BF2 /* AddPetModalViewController.swift in Sources */,
 				411B4E581F3E4CFA00B9244B /* BusinessSearchInteractor.swift in Sources */,
 				41231A341FCD9FF7001EA867 /* Localide.swift in Sources */,
 				411B4E501F3E031A00B9244B /* ServiceTableViewCell.swift in Sources */,
@@ -1732,7 +1952,9 @@
 				411C84B61F3A8EF0008C6E0A /* AgendaPresenter.swift in Sources */,
 				411C84BF1F3B870D008C6E0A /* AgendaCollectionViewCell.swift in Sources */,
 				41AAB4F21EF1F9AF00E52857 /* HomeContentViewControllerInteractor.swift in Sources */,
+				FF3B9A7320793E5E00B43BF2 /* AddPetModalProtocols.swift in Sources */,
 				4179696C1F69676700C47936 /* SegmentioCellWithImage.swift in Sources */,
+				FF43207F208BBA18007CA59C /* Reviewable.swift in Sources */,
 				418DAA2B1ECE7EAE006265CF /* SideMenuPresenter.swift in Sources */,
 				4120ED361EB529FE009D35B0 /* SignupInteractor.swift in Sources */,
 				415F73D81EBC16E2000D9B14 /* UIImageExtension.swift in Sources */,
@@ -1760,15 +1982,17 @@
 				41D86FA51F2D525E0038ADA8 /* ScheduleCalendarViewController.swift in Sources */,
 				415191E51FAB774600CACCFE /* MJBadgeBarButton.swift in Sources */,
 				41AAB4F51EF1F9AF00E52857 /* HomeContentViewControllerRouter.swift in Sources */,
+				FF432075208A81DF007CA59C /* ReviewProtocols.swift in Sources */,
 				411B4E5A1F3E4CFA00B9244B /* BusinessSearchProtocols.swift in Sources */,
 				41D86F7F1F266D7A0038ADA8 /* BusinessServicesRouter.swift in Sources */,
 				4168AA4F1EB6A4DD001E2D6D /* Consumer.swift in Sources */,
+				FF518A22202F8F260061DE44 /* WebviewViewController.swift in Sources */,
 				411C84B81F3A8EF0008C6E0A /* AgendaRouter.swift in Sources */,
-				415F73D41EBA9F08000D9B14 /* ViaCepAPI.swift in Sources */,
 				419C891C1F33A23800BDBE8E /* Cart.swift in Sources */,
 				413715871EBE7D0300258C6F /* SelectPhotoSourcePopupInteractor.swift in Sources */,
 				4129D9E91ED86E9B0067EDC3 /* MyPetsViewController.swift in Sources */,
 				4137158A1EBE7D0300258C6F /* SelectPhotoSourcePopupRouter.swift in Sources */,
+				FFCC9017207AE4FA003C43DF /* SettingsRouter.swift in Sources */,
 				41D86F6F1F263AB30038ADA8 /* HomeBusinessProtocols.swift in Sources */,
 				417969721F69676700C47936 /* RoundImageView.swift in Sources */,
 				418DAA321ECE93FB006265CF /* SideMenuTableViewCell.swift in Sources */,
@@ -1791,7 +2015,10 @@
 				411C84C31F3BBFF0008C6E0A /* AgendaTableViewCell.swift in Sources */,
 				4149E9791EF9628100D6C44B /* BusinessListViewControllerProtocols.swift in Sources */,
 				414BB1F51EBFF4AF000BE2CC /* AlertPopupProtocols.swift in Sources */,
+				FF64D45B20915F7400070C55 /* ReviewViewController.swift in Sources */,
 				41D86F701F263AB30038ADA8 /* HomeBusinessRouter.swift in Sources */,
+				FF34B16D202B7FD500F00528 /* CategoryProtocols.swift in Sources */,
+				FF34B17C202CA55E00F00528 /* CategoryContentProtocols.swift in Sources */,
 				4113B2CA1F3414CB007DC89F /* BusinessInformationProtocols.swift in Sources */,
 				4148629E1F2FE92F00F210D8 /* Professional.swift in Sources */,
 				41231A371FCD9FF7001EA867 /* LocalideMapApp.swift in Sources */,
@@ -1800,7 +2027,9 @@
 				411C84C71F3BE82E008C6E0A /* AgendaSubServiceTableViewCell.swift in Sources */,
 				4168AA4C1EB69217001E2D6D /* PetbookingAPI.swift in Sources */,
 				4149E97B1EF9628100D6C44B /* BusinessListViewControllerViewController.swift in Sources */,
+				FFCC9016207AE4FA003C43DF /* SettingsPresenter.swift in Sources */,
 				41D86F941F298C360038ADA8 /* AdditionalServiceTableViewCell.swift in Sources */,
+				FF34B171202B811900F00528 /* CategoryViewController.swift in Sources */,
 				41D86FA41F2D525E0038ADA8 /* ScheduleCalendarRouter.swift in Sources */,
 				41231A361FCD9FF7001EA867 /* LocalideAlertAction.swift in Sources */,
 				4120ED281EB4F136009D35B0 /* ForgotPasswordPresenter.swift in Sources */,
@@ -1811,22 +2040,28 @@
 				41B85F101F4DE00500355073 /* BusinessImportedTableViewCell.swift in Sources */,
 				4120ED1A1EB38650009D35B0 /* LoginProtocols.swift in Sources */,
 				4129D9E31ED86E9B0067EDC3 /* MyPetsInteractor.swift in Sources */,
+				FF64D45A20915F7400070C55 /* ReviewInteractor.swift in Sources */,
 				4120ED2B1EB4F136009D35B0 /* ForgotPasswordViewController.swift in Sources */,
 				41D86F6D1F263AB30038ADA8 /* HomeBusinessInteractor.swift in Sources */,
 				415BCAE01EB534C40015BB0C /* SignupViewController.swift in Sources */,
+				FF3A8CA020ABB3DD004FD175 /* Credential.swift in Sources */,
 				4149E97A1EF9628100D6C44B /* BusinessListViewControllerRouter.swift in Sources */,
 				4120ED181EB38650009D35B0 /* LoginInteractor.swift in Sources */,
 				414862A51F3014D000F210D8 /* ProfessionalCollectionViewCell.swift in Sources */,
 				419F2B3B1FA8D07F0097C9A7 /* SelectDateTableViewCell.swift in Sources */,
+				FF34B176202C965C00F00528 /* CategoryContentSegmentioBuilder.swift in Sources */,
 				41D86F871F26A4A70038ADA8 /* Service.swift in Sources */,
+				FF518A1E202F8EF80061DE44 /* WebviewProtocols.swift in Sources */,
 				4113B2C81F3414CB007DC89F /* BusinessInformationInteractor.swift in Sources */,
 				414BB1F71EBFF4AF000BE2CC /* AlertPopupViewController.swift in Sources */,
 				4149E96F1EF8416400D6C44B /* UIFontExtension.swift in Sources */,
 				41D86F7D1F266D7A0038ADA8 /* BusinessServicesPresenter.swift in Sources */,
 				4120ED1B1EB38650009D35B0 /* LoginRouter.swift in Sources */,
+				FF34B16B202B7F9E00F00528 /* CategoryPresenter.swift in Sources */,
+				24DA62E820516E7000124FF1 /* AddPetInformationTableViewCell.swift in Sources */,
 				4168DFE91FAFE4CE00111FB3 /* ReviewsHeaderTableViewCell.swift in Sources */,
 				4120ED021EB0DE9F009D35B0 /* PresentationProtocols.swift in Sources */,
-				41AAB4F61EF1F9AF00E52857 /* HomeContentViewControllerViewController.swift in Sources */,
+				41AAB4F61EF1F9AF00E52857 /* HomeContentViewController.swift in Sources */,
 				418DAA2E1ECE7EAE006265CF /* SideMenuViewController.swift in Sources */,
 				419C89231F33A8BB00BDBE8E /* CartInteractor.swift in Sources */,
 				4149E9781EF9628100D6C44B /* BusinessListViewControllerPresenter.swift in Sources */,
@@ -1837,6 +2072,8 @@
 				4113B2CB1F3414CB007DC89F /* BusinessInformationRouter.swift in Sources */,
 				41A0BAEB1ED7A8FA00671F3C /* AddPetViewControllerViewController.swift in Sources */,
 				4129D9E41ED86E9B0067EDC3 /* MyPetsPresenter.swift in Sources */,
+				FF34B180202CA5F500F00528 /* CategoryContentViewController.swift in Sources */,
+				FF34B17A202C986F00F00528 /* CategoryContentPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1867,7 +2104,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				API_BASE_URL_ENDPOINT = novo.petbooking.com.br/api;
-				AUTH_KEY = "ac1e488b-38b6-47dd-b3a1-c2b3b77f67d4";
+				AUTH_KEY = "fe2e0261-2cac-440d-8027-c8cfc4720940";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1878,6 +2115,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -1885,6 +2123,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -1936,6 +2175,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -1943,6 +2183,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -1973,38 +2214,44 @@
 		};
 		413682D01E9C2B2D008C463B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5EC8A11A3CAAE140E557AF6F /* Pods-petbooking-ios-v2.debug.xcconfig */;
+			baseConfigurationReference = 8FB88E267B660AD95E135A2A /* Pods-petbooking-ios-v2.debug.xcconfig */;
 			buildSettings = {
 				API_BASE_URL_ENDPOINT = beta.petbooking.com.br/api;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				AUTH_KEY = "2fe5ec0e-3a9b-4b77-824a-4b3a0a2e55ef";
+				AUTH_KEY = "fe2e0261-2cac-440d-8027-c8cfc4720940";
 				BASE_URL = beta.petbooking.com.br;
 				CODE_SIGN_ENTITLEMENTS = "petbooking-ios-v2/petbooking-ios-v2.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 77828RW9EP;
 				INFOPLIST_FILE = "petbooking-ios-v2/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.petbooking;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "petbooking-ios-v2/petbooking-ios-v2-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		413682D11E9C2B2D008C463B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9908B75EC13330082A78645E /* Pods-petbooking-ios-v2.release.xcconfig */;
+			baseConfigurationReference = AAE3909632381B6B64E02DB6 /* Pods-petbooking-ios-v2.release.xcconfig */;
 			buildSettings = {
-				API_BASE_URL_ENDPOINT = novo.petbooking.com.br/api;
+				API_BASE_URL_ENDPOINT = petbooking.com.br/api;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				AUTH_KEY = "ac1e488b-38b6-47dd-b3a1-c2b3b77f67d4";
-				BASE_URL = novo.petbooking.com.br;
+				BASE_URL = petbooking.com.br;
 				CODE_SIGN_ENTITLEMENTS = "petbooking-ios-v2/petbooking-ios-v2.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 77828RW9EP;
 				INFOPLIST_FILE = "petbooking-ios-v2/Info.plist";
@@ -2015,10 +2262,92 @@
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "petbooking-ios-v2/petbooking-ios-v2-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
+		};
+		FF3B9A6C20790D8400B43BF2 /* Fabic Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				API_BASE_URL_ENDPOINT = novo.petbooking.com.br/api;
+				AUTH_KEY = "ac1e488b-38b6-47dd-b3a1-c2b3b77f67d4";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "Fabic Release";
+		};
+		FF3B9A6D20790D8400B43BF2 /* Fabic Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0934868CBE2F03627F96C10E /* Pods-petbooking-ios-v2.fabic release.xcconfig */;
+			buildSettings = {
+				API_BASE_URL_ENDPOINT = beta.petbooking.com.br/api;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				AUTH_KEY = "fe2e0261-2cac-440d-8027-c8cfc4720940";
+				BASE_URL = beta.petbooking.com.br;
+				CODE_SIGN_ENTITLEMENTS = "petbooking-ios-v2/petbooking-ios-v2.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 77828RW9EP;
+				INFOPLIST_FILE = "petbooking-ios-v2/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.petbooking;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "petbooking-ios-v2/petbooking-ios-v2-Bridging-Header.h";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = "Fabic Release";
 		};
 /* End XCBuildConfiguration section */
 
@@ -2028,6 +2357,7 @@
 			buildConfigurations = (
 				413682CD1E9C2B2D008C463B /* Debug */,
 				413682CE1E9C2B2D008C463B /* Release */,
+				FF3B9A6C20790D8400B43BF2 /* Fabic Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2037,6 +2367,7 @@
 			buildConfigurations = (
 				413682D01E9C2B2D008C463B /* Debug */,
 				413682D11E9C2B2D008C463B /* Release */,
+				FF3B9A6D20790D8400B43BF2 /* Fabic Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

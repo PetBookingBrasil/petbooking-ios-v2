@@ -11,25 +11,22 @@ import RealmSwift
 
 class ScheduleManager: NSObject {
 	
-	static let sharedInstance = ScheduleManager()
+	static let shared = ScheduleManager()
 	
-	func createNewSchedule(business:Business) {
+	func createNewSchedule(business: Business) {
 		
 		let schedule = getSchedule(business: business)
 		
 		do {
 			let realm = try Realm()
+            
 			try realm.write {
-				
 				realm.add(schedule,update: true)
-				
 			}
-		}catch {
-			
-		}
+		} catch { }
 	}
 	
-	func removeSchedule(business:Business)  {
+	func removeSchedule(business: Business)  {
 		
 		let schedule = getSchedule(business: business)
 		
@@ -41,13 +38,11 @@ class ScheduleManager: NSObject {
 			let realm = try Realm()
 			try realm.write {
 				realm.delete(schedule)
-				
 			}
-		}catch {
-		}
+		} catch { }
 	}
 	
-	func getSchedule(business:Business) -> Schedule {
+	func getSchedule(business: Business) -> Schedule {
 		
 		do {
 			let realm = try Realm()
@@ -68,7 +63,7 @@ class ScheduleManager: NSObject {
 	}
 	
 	
-	func addPetToSchedule(business:Business, pet:Pet) {
+	func addPetToSchedule(business: Business, pet: Pet) {
 		
 		let schedule = getSchedule(business: business)
 		
@@ -81,10 +76,9 @@ class ScheduleManager: NSObject {
 			schedulePet.photoThumbUrl = pet.photoThumbUrl
 			schedulePet.type = pet.type
 			addPetToSchedule(schedulePet: schedulePet, schedule: schedule)
+            
 			return
 		}
-		
-		//addPetToSchedule(schedulePet: schedulePet, schedule: schedule)
 	}
 	
 	
@@ -98,8 +92,7 @@ class ScheduleManager: NSObject {
 				realm.add(schedule,update: true)
 				
 			}
-		}catch {
-		}
+		} catch { }
 	}
 	
 	func removePetFromSchedule(business:Business, pet:Pet) {
@@ -123,8 +116,7 @@ class ScheduleManager: NSObject {
 				realm.delete(schedulePet)
 				
 			}
-		}catch {
-		}
+		} catch { }
 	}
 	
 	func getPetFromSchedule(business:Business, pet:Pet) -> SchedulePet? {
@@ -140,10 +132,7 @@ class ScheduleManager: NSObject {
 	}
 	
 	private func addCategoryToSchedule(business:Business, pet:Pet, serviceCategory:ServiceCategory) {
-		
-		guard	let schedulePet = getPetFromSchedule(business: business, pet: pet) else {
-			return
-		}
+        guard let schedulePet = getPetFromSchedule(business: business, pet: pet) else { return }
 		
 		guard let scheduleCategory = getCategoryFromSchedule(business: business, pet: pet, serviceCategory: serviceCategory) else {
 			
@@ -151,10 +140,9 @@ class ScheduleManager: NSObject {
 			scheduleCategory.id = ScheduleCategory.generateId(business: business, pet: pet, serviceCategory: serviceCategory)
 			scheduleCategory.categoryId = serviceCategory.id
 			addCategory(scheduleCategory: scheduleCategory, schedulePet: schedulePet)
+            
 			return
 		}
-		
-		//addCategory(scheduleCategory: scheduleCategory, schedulePet: schedulePet)
 	}
 	
 	private func addCategory(scheduleCategory:ScheduleCategory, schedulePet:SchedulePet) {
@@ -167,8 +155,7 @@ class ScheduleManager: NSObject {
 				realm.add(schedulePet,update: true)
 				
 			}
-		}catch {
-		}
+		} catch { }
 	}
 	
 	func removeCategoryFromSchedule(business:Business, pet:Pet, serviceCategory:ServiceCategory) throws {
@@ -191,39 +178,32 @@ class ScheduleManager: NSObject {
 			try realm.write {
 				realm.delete(scheduleCategory)
 			}
-		}catch {
-		}
+		} catch { }
 	}
 	
-	func getCategoryFromSchedule(business:Business, pet:Pet, serviceCategory:ServiceCategory) -> ScheduleCategory? {
+	func getCategoryFromSchedule(business: Business, pet: Pet, serviceCategory: ServiceCategory) -> ScheduleCategory? {
 		
-		guard let schedulePet = getPetFromSchedule(business: business, pet: pet) else {
-			return nil
-		}
+		guard let schedulePet = getPetFromSchedule(business: business, pet: pet) else { return nil }
 		
 		let predicate = NSPredicate(format: "id = '\(ScheduleCategory.generateId(business: business, pet: pet, serviceCategory: serviceCategory))'")
-		guard let scheduleCategory = schedulePet.categories.filter(predicate).first else {
-			return nil
-		}
+		guard let scheduleCategory = schedulePet.categories.filter(predicate).first else { return nil }
 		
 		return scheduleCategory
 	}
 	
-	func addServiceToSchedule(business:Business, pet:Pet, serviceCategory:ServiceCategory, service:Service) {
+	func addServiceToSchedule(business: Business, pet: Pet, serviceCategory: ServiceCategory, service: Service) {
 		
 		addPetToSchedule(business: business, pet: pet)
 		addCategoryToSchedule(business: business, pet: pet, serviceCategory: serviceCategory)
 		
-		guard let scheduleCategory = getCategoryFromSchedule(business: business, pet: pet, serviceCategory: serviceCategory) else {
-			return
-		}
+		guard let scheduleCategory = getCategoryFromSchedule(business: business, pet: pet, serviceCategory: serviceCategory) else { return }
 		
 		guard let scheduleService = getServiceFromSchedule(business: business, pet: pet, serviceCategory: serviceCategory, service: service) else {
 			let scheduleService = ScheduleService()
 			scheduleService.id = ScheduleService.generateId(business: business, pet: pet, serviceCategory: serviceCategory, service: service)
 			scheduleService.serviceId = service.id
 			scheduleService.name = service.name
-			scheduleService.price = service.price
+			scheduleService.price = service.price.servicePrice
 			scheduleService.professionalId = service.professionalId
 			scheduleService.professionalName = service.professionalName
 			scheduleService.professionalPicture = service.professionalPicture
@@ -237,7 +217,7 @@ class ScheduleManager: NSObject {
 			return
 		}
 		
-		//addServiceToSchedule(scheduleService: scheduleService, scheduleCategory: scheduleCategory)
+        addServiceToSchedule(scheduleService: scheduleService, scheduleCategory: scheduleCategory)
 	}
 	
 	func addServiceToSchedule(scheduleService:ScheduleService, scheduleCategory:ScheduleCategory) {
@@ -245,13 +225,10 @@ class ScheduleManager: NSObject {
 		do {
 			let realm = try Realm()
 			try realm.write {
-				
 				scheduleCategory.services.append(scheduleService)
 				realm.add(scheduleCategory,update: true)
-				
 			}
-		}catch {
-		}
+		} catch { }
 	}
 	
 	func removeServiceFromSchedule(business:Business, pet:Pet, serviceCategory:ServiceCategory, service:Service) {
@@ -270,47 +247,33 @@ class ScheduleManager: NSObject {
 			try realm.write {
 				realm.delete(scheduleService.services)
 				realm.delete(scheduleService)
-				
 			}
-		}catch {
-		}
+		} catch { }
 	}
 	
-	func getServiceFromSchedule(business:Business, pet:Pet, serviceCategory:ServiceCategory, service:Service) -> ScheduleService? {
+	func getServiceFromSchedule(business: Business, pet: Pet, serviceCategory: ServiceCategory, service: Service) -> ScheduleService? {
 		
-		guard let scheduleCategory = getCategoryFromSchedule(business: business, pet: pet, serviceCategory: serviceCategory) else {
-			return nil
-		}
+		guard let scheduleCategory = getCategoryFromSchedule(business: business, pet: pet, serviceCategory: serviceCategory) else { return nil }
 		
 		let predicate = NSPredicate(format: "id = '\(ScheduleService.generateId(business: business, pet: pet, serviceCategory: serviceCategory, service: service))'")
-		guard let scheduleService = scheduleCategory.services.filter(predicate).first else {
-			
-			return nil
-		}
+		guard let scheduleService = scheduleCategory.services.filter(predicate).first else { return nil }
 		
 		return scheduleService
 	}
 	
 	func hasServiceFromSchedule(business:Business, pet:Pet, serviceCategory:ServiceCategory, service:Service) -> Bool {
 		
-		guard let scheduleCategory = getCategoryFromSchedule(business: business, pet: pet, serviceCategory: serviceCategory) else {
-			return false
-		}
+		guard let scheduleCategory = getCategoryFromSchedule(business: business, pet: pet, serviceCategory: serviceCategory) else { return false }
 		
 		let predicate = NSPredicate(format: "id = '\(ScheduleService.generateId(business: business, pet: pet, serviceCategory: serviceCategory, service: service))'")
-		guard let _ = scheduleCategory.services.filter(predicate).first else {
-			
-			return false
-		}
+		guard let _ = scheduleCategory.services.filter(predicate).first else { return false }
 		
 		return true
 	}
 	
 	func addSubServiceToSchedule(business:Business, pet:Pet, serviceCategory:ServiceCategory, service:Service, subService:SubService) {
 		
-		guard let scheduleService = getServiceFromSchedule(business: business, pet: pet, serviceCategory: serviceCategory, service: service) else {
-			return
-		}
+		guard let scheduleService = getServiceFromSchedule(business: business, pet: pet, serviceCategory: serviceCategory, service: service) else { return }
 		
 		guard let scheduleSubService = getSubServiceFromSchedule(business: business, pet: pet, serviceCategory: serviceCategory, service: service, subService: subService) else {
 			let scheduleSubService = ScheduleSubService()
@@ -332,48 +295,36 @@ class ScheduleManager: NSObject {
 		do {
 			let realm = try Realm()
 			try realm.write {
-				
 				scheduleService.services.append(scheduleSubService)
 				realm.add(scheduleService,update: true)
-				
 			}
-		}catch {
-		}
+		} catch { }
 	}
 	
 	func removeSubServiceFromSchedule(business:Business, pet:Pet, serviceCategory:ServiceCategory, service:Service, subService:SubService) {
 		
-		guard let scheduleService = getServiceFromSchedule(business: business, pet: pet, serviceCategory: serviceCategory, service: service) else {
-			return
-		}
+		guard let scheduleService = getServiceFromSchedule(business: business, pet: pet, serviceCategory: serviceCategory, service: service) else { return }
 		
-		guard let scheduleSubService = getSubServiceFromSchedule(business: business, pet: pet, serviceCategory: serviceCategory, service: service, subService: subService) else {
-			return
-		}
+		guard let scheduleSubService = getSubServiceFromSchedule(business: business, pet: pet, serviceCategory: serviceCategory, service: service, subService: subService) else { return }
 		
-		
-		deleteSubService(scheduleSubService: scheduleSubService, scheduleService: scheduleService)
+        deleteSubService(scheduleSubService: scheduleSubService, scheduleService: scheduleService)
 	}
 	
 	func deleteSubService(scheduleSubService:ScheduleSubService, scheduleService:ScheduleService)  {
 		
-		guard let index = scheduleService.services.index(of: scheduleSubService) else{
-			return
-		}
+		guard let index = scheduleService.services.index(of: scheduleSubService) else{ return }
 		
 		do {
 			let realm = try Realm()
 			try realm.write {
 				
-				scheduleService.services.remove(objectAtIndex: index)
+				scheduleService.services.remove(at: index)
 				realm.add(scheduleService,update: true)
 				
 				realm.delete(scheduleSubService)
 				
 			}
-		}catch {
-			
-		}
+		} catch { }
 	}
 	
 	func getSubServiceFromSchedule(business:Business, pet:Pet, serviceCategory:ServiceCategory, service:Service, subService:SubService) -> ScheduleSubService? {
@@ -381,9 +332,7 @@ class ScheduleManager: NSObject {
 		do {
 			let realm = try Realm()
 			let predicate = NSPredicate(format: "id = '\(ScheduleSubService.generateId(business: business, pet: pet, serviceCategory: serviceCategory, service: service, subService: subService))'")
-			guard let scheduleSubService = realm.objects(ScheduleSubService.self).filter(predicate).first else {
-				return nil
-			}
+			guard let scheduleSubService = realm.objects(ScheduleSubService.self).filter(predicate).first else { return nil }
 			
 			return 	scheduleSubService
 		} catch {
@@ -420,8 +369,6 @@ class ScheduleManager: NSObject {
 			
 			return 	result
 		} catch {
-			//TODO: Handle error
-			print(error.localizedDescription)
 			return nil
 		}
 	}
@@ -463,7 +410,6 @@ class ScheduleManager: NSObject {
 		do {
 			let realm = try Realm()
 			try realm.write {
-				
 				let schedules = realm.objects(Schedule.self)
 				realm.delete(schedules)
 				let pets = realm.objects(SchedulePet.self)
@@ -474,11 +420,7 @@ class ScheduleManager: NSObject {
 				realm.delete(services)
 				let subServices = realm.objects(ScheduleSubService.self)
 				realm.delete(subServices)
-				
 			}
-		}catch {
-			
-		}
+		} catch { }
 	}
-	
 }

@@ -6,7 +6,6 @@
 //
 
 #import "JTCalendarWeekDayView.h"
-
 #import "JTCalendarManager.h"
 #import "petbooking_ios_v2-Swift.h"
 
@@ -49,8 +48,8 @@
         [dayViews addObject:label];
         
         label.textAlignment = NSTextAlignmentCenter;
-        label.textColor = [[UIColor alloc] initWithHex:@"515151"];
-        label.font = [UIFont robotoLightOfSize:11];
+        label.textColor = [UIColor colorWithRed:81/255 green:81/255 blue:81/255 alpha:1];
+        label.font = [UIFont fontWithName:@"Roboto-Light" size:11];
     }
     
     _dayViews = dayViews;

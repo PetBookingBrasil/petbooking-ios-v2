@@ -11,61 +11,55 @@
 import UIKit
 
 class ForgotPasswordViewController: UIViewController, ForgotPasswordViewProtocol {
-
-	
-	@IBOutlet weak var sendButton: UIButton!
-	@IBOutlet weak var emailTextField: UITextField!
-	@IBOutlet weak var descriptionLabel: UILabel!
-	
-	
-	var presenter: ForgotPasswordPresenterProtocol?
-
-	override func viewDidLoad() {
+    
+    @IBOutlet weak var sendButton: UIButton!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
+    var presenter: ForgotPasswordPresenterProtocol?
+    
+    override func viewDidLoad() {
         super.viewDidLoad()
-		setBackButton()
-		self.navigationController?.isNavigationBarHidden = false
-		self.title = "Esqueci a senha"
-		hideKeyboardWhenTappedAround()
-		}
-	
-	override func viewDidLayoutSubviews() {
-		super.viewDidLayoutSubviews()
-		setupButtons()
-	}
-	
-	func setupButtons() {
-		sendButton.round()
-	}
-
-	
-	@IBAction func send(_ sender: Any) {
-		
-		guard let email = emailTextField.text else {
-			
-			MIBlurPopup.show(AlertPopupRouter.createModule(title: "E-mail obrigatório", message: "O campo e-mail não pode ficar vazio."), on: self)
-			
-			return
-		}
-		
-		if email.isEmpty {
-			MIBlurPopup.show(AlertPopupRouter.createModule(title: "E-mail obrigatório", message: "O campo e-mail não pode ficar vazio."), on: self)
-			return
-		}
-		
-		if !email.isEmail {
-			MIBlurPopup.show(AlertPopupRouter.createModule(title: "E-mail inválido", message: "Insira seu e-mail no formato nome@domínio.com."), on: self)
-			return
-		}
-		
-		presenter?.didTapSendButton(email: emailTextField.text!)
-	}
-	
-	func resetPasswordWithSuccess() {
-		MIBlurPopup.show(AlertPopupRouter.createModule(title: "Sucesso", message: "Sua solicitação de recuperação de senha foi efetuada com sucesso. Por favor, confira seu e-mail."), on: self)
-	}
-	
-	func resetPasswordWithError() {
-		MIBlurPopup.show(AlertPopupRouter.createModule(title: "Erro", message: "Ocorreu um erro ao recuperar a sua senha. Por favor, tente novamente."), on: self)
-	}
-
+        setBackButton()
+        self.navigationController?.isNavigationBarHidden = false
+        self.title = "Esqueci a senha"
+        hideKeyboardWhenTappedAround()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        setupButtons()
+    }
+    
+    func setupButtons() {
+        sendButton.round()
+    }
+    
+    @IBAction func send(_ sender: Any) {
+        guard let email = emailTextField.text else {
+            MIBlurPopup.show(AlertPopupRouter.createModule(title: "E-mail obrigatório", message: "O campo e-mail não pode ficar vazio."), on: self)
+            
+            return
+        }
+        
+        if email.isEmpty {
+            MIBlurPopup.show(AlertPopupRouter.createModule(title: "E-mail obrigatório", message: "O campo e-mail não pode ficar vazio."), on: self)
+            return
+        }
+        
+        if !email.isEmail {
+            MIBlurPopup.show(AlertPopupRouter.createModule(title: "E-mail inválido", message: "Insira seu e-mail no formato nome@domínio.com."), on: self)
+            return
+        }
+        
+        presenter?.didTapSendButton(email: emailTextField.text!)
+    }
+    
+    func resetPasswordWithSuccess() {
+        MIBlurPopup.show(AlertPopupRouter.createModule(title: "Sucesso", message: "Sua solicitação de recuperação de senha foi efetuada com sucesso. Por favor, confira seu e-mail."), on: self)
+    }
+    
+    func resetPasswordWithError() {
+        MIBlurPopup.show(AlertPopupRouter.createModule(title: "Erro", message: "Ocorreu um erro ao recuperar a sua senha. Por favor, tente novamente."), on: self)
+    }
 }

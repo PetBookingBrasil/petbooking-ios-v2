@@ -12,43 +12,39 @@ import RealmSwift
 
 class Schedule: Object {
 
-	dynamic var businessID = ""
+	@objc dynamic var businessID = ""
 	let petsSchedule = List<SchedulePet>()
 	
 	override static func primaryKey() -> String? {
 		return "businessID"
 	}
-	
 }
 
 class SchedulePet: Object {
 	
-	dynamic var id = ""
-	dynamic var petId = ""
-	dynamic var name = ""
-	dynamic var type = ""
-	dynamic var photoThumbUrl = ""
+	@objc dynamic var id = ""
+	@objc dynamic var petId = ""
+	@objc dynamic var name = ""
+	@objc dynamic var type = ""
+	@objc dynamic var photoThumbUrl = ""
 	let categories = List<ScheduleCategory>()
-	dynamic var businessId = ""
+	@objc dynamic var businessId = ""
 	
 	override static func primaryKey() -> String? {
 		return "id"
 	}
 	
 	static func generateId(business:Business, pet:Pet) -> String {
-		
 		return "\(business.id)-\(pet.id)"
-		
 	}
-	
 }
 
 class ScheduleCategory: Object {
 	
-	dynamic var id = ""
-	dynamic var categoryId = ""
+	@objc dynamic var id = ""
+	@objc dynamic var categoryId = ""
 	let services = List<ScheduleService>()
-	dynamic var businessId = ""
+	@objc dynamic var businessId = ""
 	
 	let parentPet = LinkingObjects(fromType: SchedulePet.self, property: "categories")
 	
@@ -57,28 +53,25 @@ class ScheduleCategory: Object {
 	}
 	
 	static func generateId(business:Business, pet:Pet, serviceCategory:ServiceCategory) -> String {
-		
 		return "\(business.id)-\(pet.id)-\(serviceCategory.id)"
-		
 	}
-	
 }
 
 class ScheduleService: Object {
 	
-	dynamic var id = ""
-	dynamic var serviceId = ""
-	dynamic var name = ""
-	dynamic var price = 0.0
-	dynamic var duration = 0.0
-	dynamic var startDate = ""
-	dynamic var startTime = ""
-	dynamic var professionalId = ""
-	dynamic var professionalName = ""
-	dynamic var professionalPicture = ""
+	@objc dynamic var id = ""
+	@objc dynamic var serviceId = ""
+	@objc dynamic var name = ""
+	@objc dynamic var price = 0.0
+	@objc dynamic var duration = 0.0
+	@objc dynamic var startDate = ""
+	@objc dynamic var startTime = ""
+	@objc dynamic var professionalId = ""
+	@objc dynamic var professionalName = ""
+	@objc dynamic var professionalPicture = ""
 	let services = List<ScheduleSubService>()
-	dynamic var petId = ""
-	dynamic var businessId = ""
+	@objc dynamic var petId = ""
+	@objc dynamic var businessId = ""
 	
 	let parentCategory = LinkingObjects(fromType: ScheduleCategory.self, property: "services")
 	
@@ -87,30 +80,23 @@ class ScheduleService: Object {
 	}
 	
 	static func generateId(business:Business, pet:Pet, serviceCategory:ServiceCategory, service:Service) -> String {
-		
-		return "\(business.id)-\(pet.id)-\(serviceCategory.id)-\(service.id)"
-		
+		return "\(business.id)-\(pet.id)-\(serviceCategory.id)-\(service.id)[\(service.startDate)-\(service.startTime)]"
 	}
-	
 }
 
 class ScheduleSubService: Object {
 	
-	dynamic var id = ""
-	dynamic var subServiceId = ""
-	dynamic var name = ""
-	dynamic var price = 0.0
-	dynamic var duration = 0
-	
+	@objc dynamic var id = ""
+	@objc dynamic var subServiceId = ""
+	@objc dynamic var name = ""
+	@objc dynamic var price = 0.0
+	@objc dynamic var duration = 0
 	
 	override static func primaryKey() -> String? {
 		return "id"
 	}
 	
 	static func generateId(business:Business, pet:Pet, serviceCategory:ServiceCategory, service:Service, subService:SubService) -> String {
-		
 		return "\(business.id)-\(pet.id)-\(serviceCategory.id)-\(service.id)-\(subService.id)"
-		
 	}
-	
 }

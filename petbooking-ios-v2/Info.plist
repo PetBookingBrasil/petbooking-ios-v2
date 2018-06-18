@@ -27,7 +27,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.0</string>
+	<string>2.0.1</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -54,7 +54,21 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>28</string>
+	<string>41</string>
+	<key>Fabric</key>
+	<dict>
+		<key>APIKey</key>
+		<string>fe0c61a27b92b4a7f90ab0fc8f69e3a4326250e5</string>
+		<key>Kits</key>
+		<array>
+			<dict>
+				<key>KitInfo</key>
+				<dict/>
+				<key>KitName</key>
+				<string>Crashlytics</string>
+			</dict>
+		</array>
+	</dict>
 	<key>FacebookAppID</key>
 	<string>1579605499022071</string>
 	<key>FacebookDisplayName</key>
@@ -122,6 +136,8 @@
 	<key>NSCameraUsageDescription</key>
 	<string>Upload profile picture</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>O Pet Booking precisa da sua localização para encontrar estabelecimentos próximos à você.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
 	<string>O Pet Booking precisa da sua localização para encontrar estabelecimentos próximos à você.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>O Pet Booking precisa da sua localização para encontrar estabelecimentos próximos à você.</string>

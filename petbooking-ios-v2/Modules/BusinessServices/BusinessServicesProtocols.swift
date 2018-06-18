@@ -11,48 +11,36 @@
 import Foundation
 
 //MARK: Wireframe -
-protocol BusinessServicesWireframeProtocol: class {
-	
-	
+protocol BusinessServicesWireframeProtocol: class { }
 
-}
 //MARK: Presenter -
 protocol BusinessServicesPresenterProtocol: class {
-	
-	func getPets()
-	
-	func loadPets(petList:PetList)
-	
-	func getServices(business: Business, service:ServiceCategory, pet:Pet)
-	
-	func getCategories(business: Business)
-	
-	func loadServices(serviceList:ServiceList)
-	
-	func loadCategories(serviceCategoryList:ServiceCategoryList)
-
+    
+    func getPets()
+    func loadPets(petList: PetList)
+    func getServices(business: Business, service: ServiceCategory, pet: Pet?)
+    func getCategories(business: Business)
+    func loadServices(serviceList: ServiceList)
+    func loadCategories(serviceCategoryList: ServiceCategoryList)
 }
 
 //MARK: Interactor -
 protocol BusinessServicesInteractorProtocol: class {
-
-  var presenter: BusinessServicesPresenterProtocol?  { get set }
-	
-	func getPets()
-	
-	func getServices(business: Business, service:ServiceCategory, pet:Pet)
-	
-	func getCategories(business: Business)
+    
+    var presenter: BusinessServicesPresenterProtocol?  { get set }
+    
+    func getPets()
+    func getServices(business: Business, service: ServiceCategory, pet: Pet?)
+    func getCategories(business: Business)
 }
 
 //MARK: View -
 protocol BusinessServicesViewProtocol: class {
-
-  var presenter: BusinessServicesPresenterProtocol?  { get set }
-	
-	func loadPets(petList:PetList)
-	
-	func loadServices(serviceList:ServiceList)
-	
-	func loadCategories(serviceCategoryList:ServiceCategoryList)
+    
+    var presenter: BusinessServicesPresenterProtocol?  { get set }
+    var category: ServiceCategory? { get set }
+    
+    func loadPets(petList: PetList)
+    func loadServices(serviceList: ServiceList)
+    func loadCategories(serviceCategoryList: ServiceCategoryList)
 }

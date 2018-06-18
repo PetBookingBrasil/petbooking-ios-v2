@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,6 +21,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ScheduleToTheCartAlertViewController" customModule="petbooking_ios_v2" customModuleProvider="target">
             <connections>
                 <outlet property="goToCartButton" destination="Nat-qh-m4S" id="41k-JA-Mod"/>
+                <outlet property="scheduleAnotherPetButton" destination="ehR-Fp-Y7O" id="sr7-3h-KjO"/>
                 <outlet property="scheduleMoreButton" destination="hIv-2q-yb2" id="Sec-xb-r0l"/>
                 <outlet property="titleLabel" destination="6PL-TM-vpC" id="2XU-tl-E1Q"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -33,20 +34,20 @@
             <subviews>
                 <view contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jsM-J0-Yyk">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="0.7989351455" colorSpace="calibratedRGB"/>
                     <viewLayoutGuide key="safeArea" id="ibU-MX-alM"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kM8-Tg-bnI">
-                    <rect key="frame" x="42.5" y="219.5" width="290" height="228"/>
+                    <rect key="frame" x="42.5" y="187" width="290" height="293"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O agendamento foi adicionado ao carrinho com sucesso." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6PL-TM-vpC">
-                            <rect key="frame" x="0.0" y="0.0" width="290" height="47"/>
+                            <rect key="frame" x="0.0" y="0.0" width="290" height="82"/>
                             <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="20"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hIv-2q-yb2">
-                            <rect key="frame" x="7.5" y="77" width="275" height="50"/>
+                            <rect key="frame" x="7" y="177" width="275" height="50"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="275" id="OZ6-A7-kBV"/>
@@ -61,7 +62,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nat-qh-m4S">
-                            <rect key="frame" x="7.5" y="142" width="275" height="50"/>
+                            <rect key="frame" x="7" y="242" width="275" height="50"/>
                             <color key="backgroundColor" red="0.89411764709999997" green="0.0" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="275" id="k58-75-amw"/>
@@ -76,15 +77,32 @@
                                 <action selector="goToCart:" destination="-1" eventType="touchUpInside" id="fea-ls-6br"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehR-Fp-Y7O">
+                            <rect key="frame" x="7.5" y="112" width="275" height="50"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="275" id="O7u-FW-OQw"/>
+                                <constraint firstAttribute="height" constant="50" id="agh-cw-PTI"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
+                            <state key="normal" title="Agendar serviço para outro pet">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="scheduleAnotherPet:" destination="-1" eventType="touchUpInside" id="zSK-0l-efI"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="6PL-TM-vpC" firstAttribute="top" secondItem="kM8-Tg-bnI" secondAttribute="top" id="57P-aY-3jM"/>
-                        <constraint firstAttribute="height" constant="228" id="L8C-Jd-ijD"/>
-                        <constraint firstItem="hIv-2q-yb2" firstAttribute="top" secondItem="6PL-TM-vpC" secondAttribute="bottom" constant="30" id="Ucf-5p-29w"/>
+                        <constraint firstAttribute="height" constant="293" id="L8C-Jd-ijD"/>
                         <constraint firstItem="Nat-qh-m4S" firstAttribute="centerX" secondItem="kM8-Tg-bnI" secondAttribute="centerX" id="Xb8-sn-ZTE"/>
                         <constraint firstItem="6PL-TM-vpC" firstAttribute="leading" secondItem="kM8-Tg-bnI" secondAttribute="leading" id="Xyp-id-22z"/>
+                        <constraint firstItem="ehR-Fp-Y7O" firstAttribute="centerX" secondItem="6PL-TM-vpC" secondAttribute="centerX" id="cmr-RU-OXE"/>
+                        <constraint firstItem="ehR-Fp-Y7O" firstAttribute="top" secondItem="6PL-TM-vpC" secondAttribute="bottom" constant="30" id="dae-Fd-5mV"/>
                         <constraint firstItem="hIv-2q-yb2" firstAttribute="centerX" secondItem="kM8-Tg-bnI" secondAttribute="centerX" id="eGV-RT-BRG"/>
+                        <constraint firstItem="hIv-2q-yb2" firstAttribute="top" secondItem="ehR-Fp-Y7O" secondAttribute="bottom" constant="15" id="nIX-m4-ift"/>
                         <constraint firstAttribute="trailing" secondItem="6PL-TM-vpC" secondAttribute="trailing" id="qVz-8B-F2m"/>
                         <constraint firstItem="Nat-qh-m4S" firstAttribute="top" secondItem="hIv-2q-yb2" secondAttribute="bottom" constant="15" id="wD4-CA-XpO"/>
                         <constraint firstAttribute="width" constant="290" id="wYg-ln-ff7"/>

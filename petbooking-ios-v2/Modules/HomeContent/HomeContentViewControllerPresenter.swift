@@ -22,6 +22,5 @@ class HomeContentViewControllerPresenter: HomeContentViewControllerPresenterProt
         self.router = router
 
         self.interactor.presenter = self
-    }
-
+    }    
 }

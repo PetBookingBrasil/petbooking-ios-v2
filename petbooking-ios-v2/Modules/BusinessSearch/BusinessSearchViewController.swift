@@ -11,20 +11,29 @@
 import UIKit
 import DZNEmptyDataSet
 import ALLoadingView
+import CoreLocation
+
+enum BusinessSearchState {
+    case search
+    case content
+}
 
 class BusinessSearchViewController: UIViewController, BusinessSearchViewProtocol {
 
-	@IBOutlet weak var filterLabel: UILabel!
-	@IBOutlet weak var contentPanelView: UIView!
+    @IBOutlet weak var searchView: UIView!
+    @IBOutlet weak var contentPanelView: UIView!
+    @IBOutlet weak var tableView: UITableView!
+    
 	@IBOutlet weak var searchTextField: UITextField!
-	@IBOutlet weak var tableView: UITableView!
-	@IBOutlet weak var categoriesCollectionView: UICollectionView!
-	@IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var searchLocateTextField: UITextField!
+    @IBOutlet weak var searchButton: UIButton!
 	
-	var serviceCategoryList:ServiceCategoryList = ServiceCategoryList()
-	var selectedServiceCategory:ServiceCategory = ServiceCategory()
-	var businessList:BusinessList = BusinessList()
+	var serviceCategoryList: ServiceCategoryList = ServiceCategoryList()
+	var selectedServiceCategory: ServiceCategory = ServiceCategory()
+	var businessList: BusinessList = BusinessList()
 	var businesses = [Business]()
+    
+    var state = BusinessSearchState.search
 	
 	var presenter: BusinessSearchPresenterProtocol?
 
@@ -33,12 +42,8 @@ class BusinessSearchViewController: UIViewController, BusinessSearchViewProtocol
 		
 		setBackButton()
 		
-		self.title = "Filtre sua busca"
-		
-		categoriesCollectionView.delegate = self
-		categoriesCollectionView.dataSource = self
-		categoriesCollectionView.register(UINib(nibName: "CategoryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CategoryCollectionViewCell")
-		
+		self.title = "Busca"
+				
 		tableView.register(UINib(nibName: "BusinessTableViewCell", bundle: nil), forCellReuseIdentifier: "BusinessTableViewCell")
 		tableView.register(UINib(nibName: "BusinessImportedTableViewCell", bundle: nil), forCellReuseIdentifier: "BusinessImportedTableViewCell")
 		tableView.rowHeight = UITableViewAutomaticDimension
@@ -47,86 +52,73 @@ class BusinessSearchViewController: UIViewController, BusinessSearchViewProtocol
 		tableView.emptyDataSetDelegate = self
 		
 		searchButton.round()
-		
-		PetbookingAPI.sharedInstance.getCategoryList { (serviceCategoryList, message) in
-			
-			
-			guard let serviceCategoryList = serviceCategoryList else {
-				return
-			}
-			
-			self.serviceCategoryList = serviceCategoryList
-			self.categoriesCollectionView.reloadData()
-			
-		}
-		
-		
     }
 	
-	
-	@IBAction func close(_ sender: Any) {
-		
-		self.title = "Filtre sua busca"
-		self.contentPanelView.isHidden = true
+	@objc func closeButtonTapped() {
+		changeState()
 	}
-	
-	@IBAction func openFilter(_ sender: Any) {
 		
-		self.title = "Filtre sua busca"
-		self.contentPanelView.isHidden = true
-	}
-	
-	
 	@IBAction func search(_ sender: Any) {
-		
 		ALLoadingView.manager.showLoadingView(ofType: .basic, windowMode: .fullscreen)
 		
-		let query = searchTextField.text!
-		
-		if selectedServiceCategory.id.isBlank && query.isBlank {
-			return
-		}
-		
-		var filterLabelText = ""
-		if !query.isBlank{
-			filterLabelText.append("\"\(query)\"")
-		}
-		
-		if !selectedServiceCategory.id.isBlank{
-			if !filterLabelText.isEmpty {
-				filterLabelText.append(", ")
-			}
-			
-			filterLabelText.append("\(selectedServiceCategory.name)")
-		}
-		
-		filterLabel.text = filterLabelText
-		
-		
-		PetbookingAPI.sharedInstance.getBusinessListFiltered(query: query, categoryId: selectedServiceCategory.id, page: 0) { (businessList, message) in
-			
-				ALLoadingView.manager.hideLoadingView()
-				self.title = "Buscar"
-			
-				guard let businessList = businessList else {
-					return
-				}
-			
-				self.businessList = businessList
-			
-				self.businesses = businessList.businesses
-				UIView.setAnimationsEnabled(false)
-				self.tableView.reloadData()
-				UIView.setAnimationsEnabled(true)
-			
-				self.contentPanelView.isHidden = false
-			
-			
-		}
-		
+        let address = searchLocateTextField.text!
+        
+        CLGeocoder().geocodeAddressString(address) { (placemarks, error) in
+            if let coordinate = placemarks?.first?.location?.coordinate {
+                self.getList(fromText: self.searchTextField.text!, andLocate: "\(coordinate.latitude),\(coordinate.longitude)")
+            } else {
+                self.getList(fromText: self.searchTextField.text!, andLocate: "")
+            }
+        }
 	}
-	
-	
+    
+    func getList(fromText text: String, andLocate locate: String) {
+        
+        PetbookingAPI.sharedInstance.getBusinessListFiltered(text: text, locate: locate, page: 0) { (businessList, message) in
+            
+            ALLoadingView.manager.hideLoadingView()
+            
+            guard let businessList = businessList else {
+                return
+            }
+            
+            self.businessList = businessList
+            self.businesses = businessList.businesses
+            
+            self.changeState()
+        }
+    }
+    
+    func changeState() {
+        
+        switch state {
+        case .search:
+            let backButton = UIBarButtonItem()
+            backButton.target = self
+            backButton.action = #selector(closeButtonTapped)
+            
+            self.navigationItem.leftBarButtonItem = backButton
+            self.navigationItem.leftBarButtonItem?.image = UIImage(named: "closeIcon")
+
+            searchView.isHidden = true
+            contentPanelView.isHidden = false
+            
+            self.tableView.reloadData()
+            
+            state = .content
+
+        case .content:
+            setBackButton()
+
+            searchLocateTextField.text = ""
+            searchTextField.text = ""
+            
+            searchView.isHidden = false
+            contentPanelView.isHidden = true
+            
+            state = .search
+        }
+    }
 }
 
 extension BusinessSearchViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -167,11 +159,7 @@ extension BusinessSearchViewController: UICollectionViewDelegate, UICollectionVi
 		return 1.0
 	}
 	
-	
-	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		
-		
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell", for: indexPath) as! CategoryCollectionViewCell
 		
 		let service = serviceCategoryList.categories[indexPath.item]
@@ -181,8 +169,7 @@ extension BusinessSearchViewController: UICollectionViewDelegate, UICollectionVi
 			collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .left)
 		}
 		
-		cell.nameLabel.text = service.name
-		cell.pictureImageView.image = UIImage(named: service.slug)
+		cell.pictureImageView.image = UIImage(named: "\(service.slug)-mini")
 		
 		return cell
 		
@@ -196,15 +183,7 @@ extension BusinessSearchViewController: UICollectionViewDelegate, UICollectionVi
 		
 		searchButton.isEnabled = true
 		searchButton.backgroundColor = UIColor(hex: "E4002B")
-		
-				
 	}
-}
-
-extension BusinessSearchViewController: UITextFieldDelegate{
-	
-
-	
 }
 
 extension BusinessSearchViewController: UITableViewDelegate, UITableViewDataSource, BusinessTableViewCellDelegate {
@@ -214,18 +193,15 @@ extension BusinessSearchViewController: UITableViewDelegate, UITableViewDataSour
 		return 1
 	}
 	
-	
-	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		
-		
 		let business = businesses[indexPath.section]
+        
 		if business.imported {
 			return getImportedBusinessCell(indexPath: indexPath)
 		} else {
 			return getBusinessCell(indexPath: indexPath)
 		}
-		
 	}
 	
 	func getBusinessCell(indexPath: IndexPath) -> BusinessTableViewCell {
@@ -245,12 +221,11 @@ extension BusinessSearchViewController: UITableViewDelegate, UITableViewDataSour
 		cell.distanceView.setBorder(width: 1, color: .red)
 		cell.distanceView.isHidden = true
 
-		
 		if business.ratingCount > 0 {
 			cell.ratingLabel.isHidden = false
 			cell.reviewQuantityLabel.isHidden = false
 			cell.starImageView.isHidden = false
-			cell.ratingLabel.text = "\(business.rating)"
+			cell.ratingLabel.text = String(format: "%.2f", business.rating)
 			cell.reviewQuantityLabel.text = "\(business.ratingCount) Avaliações"
 		} else {
 			cell.ratingLabel.isHidden = true
@@ -264,7 +239,6 @@ extension BusinessSearchViewController: UITableViewDelegate, UITableViewDataSour
 		}
 		
 		return cell
-		
 	}
 	
 	func getImportedBusinessCell(indexPath: IndexPath) -> BusinessImportedTableViewCell {
@@ -291,10 +265,7 @@ extension BusinessSearchViewController: UITableViewDelegate, UITableViewDataSour
 		
 		
 		return cell
-		
 	}
-	
-	
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
@@ -305,8 +276,6 @@ extension BusinessSearchViewController: UITableViewDelegate, UITableViewDataSour
 		}
 		
 		presenter?.showBusinessPage(business: business)
-		
-		
 	}
 	
 	public func numberOfSections(in tableView: UITableView) -> Int {
@@ -320,8 +289,8 @@ extension BusinessSearchViewController: UITableViewDelegate, UITableViewDataSour
 		if business.imported {
 			return 105
 		}
+        
 		return UITableViewAutomaticDimension
-		
 	}
 	
 	// Set the spacing between sections
@@ -342,27 +311,17 @@ extension BusinessSearchViewController: UITableViewDelegate, UITableViewDataSour
 	}
 	
 	func addToFavorites(business: Business) {
-		
 		presenter?.addToFavorites(business: business)
-		
 	}
-	
 }
 
 extension BusinessSearchViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
-	
-	
 	func customView(forEmptyDataSet scrollView: UIScrollView!) -> UIView! {
-		
 		self.view.backgroundColor = .white
 		let emptyView = EmptyView.loadFromNibNamed("EmptyView") as? EmptyView
 		emptyView?.imageView.image = UIImage(named: "filterEmpty")
 		emptyView?.titleLabel.text = "Ops! Infelizmente não encontramos nenhum estabelecimento."
 		emptyView?.subtitleLabel.text = "Para facilitar o processo de pagamento, cadastre uma ou mais formas de pagamento."
 		return emptyView
-		
-		
-		
 	}
-	
 }

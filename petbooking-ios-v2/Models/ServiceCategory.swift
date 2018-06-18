@@ -11,34 +11,28 @@ import Mantle
 
 class ServiceCategory: MTLModel, MTLJSONSerializing {
 
-	dynamic var id = ""
-	dynamic var name = ""
-	dynamic var serviceCount = 0
-	dynamic var slug = ""
+	@objc var id = ""
+	@objc var name = ""
+    @objc var serviceCount = 0
+    @objc var slug = ""
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
-		return [
-			"id": "id",
-			"name": "attributes.name",
-			"serviceCount": "attributes.service_count",
-			"slug": "attributes.slug"
-		]
+		return ["id": "id",
+                "name": "attributes.name",
+                "serviceCount": "attributes.service_count",
+                "slug": "attributes.slug"]
 	}
 }
 
 class ServiceCategoryList: MTLModel, MTLJSONSerializing {
 	
-	dynamic var categories = [ServiceCategory]()
+    @objc var categories = [ServiceCategory]()
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
-		return [
-			"categories": "data"
-		]
+		return ["categories": "data"]
 	}
 	
-	static func categoriesJSONTransformer() -> ValueTransformer {
-		
+	@objc static func categoriesJSONTransformer() -> ValueTransformer {
 		return MTLJSONAdapter.arrayTransformer(withModelClass: ServiceCategory.self)
-		
 	}
 }

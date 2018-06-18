@@ -11,12 +11,10 @@ import Mantle
 
 class Favorite: MTLModel, MTLJSONSerializing {
 
-	dynamic var favoriteId = 0
+	@objc dynamic var favoriteId = 0
 	
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
-		return [
-			"favoriteId": "data.attributes.favorable_id"
-		]
+		return ["favoriteId": "data.attributes.favorable_id"]
 	}
 	
 }

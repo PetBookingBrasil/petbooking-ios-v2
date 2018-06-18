@@ -117,10 +117,10 @@ class ScheduleCalendarViewController: UIViewController, ScheduleCalendarViewProt
 	@IBAction func didTapContinueSchedule(_ sender: Any) {
 		
 		
-		ScheduleManager.sharedInstance.addServiceToSchedule(business: business, pet: pet, serviceCategory: serviceCategory, service: service)
+		ScheduleManager.shared.addServiceToSchedule(business: business, pet: pet, serviceCategory: serviceCategory, service: service)
 		
 		for subService in subServices {
-			ScheduleManager.sharedInstance.addSubServiceToSchedule(business: business, pet: pet, serviceCategory: serviceCategory, service: service, subService: subService)
+			ScheduleManager.shared.addSubServiceToSchedule(business: business, pet: pet, serviceCategory: serviceCategory, service: service, subService: subService)
 		}
 		
 		self.navigationController?.popViewController(animated: true)

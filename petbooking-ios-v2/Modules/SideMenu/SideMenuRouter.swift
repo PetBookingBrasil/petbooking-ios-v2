@@ -28,48 +28,57 @@ class SideMenuRouter: SideMenuWireframeProtocol {
         
         return view
     }
-	
-	func didTapLogout() {
-		
-		let loginViewController = UINavigationController(rootViewController: LoginRouter.createModule())
-		
-		self.viewController?.dismiss(animated: true, completion: {
-			let window = UIApplication.shared.windows[0]
-			UIView.transition(
-				from: window.rootViewController!.view,
-				to: loginViewController.view,
-				duration: 0.65,
-				options: .transitionFlipFromBottom,
-				completion: {
-					finished in
-					
-					window.rootViewController = loginViewController
-			})
-		})
-		
-		
-	}
-	
-	func didTapMyPets() {
-		
-		self.viewController?.navigationController?.pushViewController(MyPetsRouter.createModule(), animated: true)
-		
-	}
-	
-	func showProfile() {
-		self.viewController?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
-		self.viewController?.navigationController?.pushViewController(SignupRouter.createModule(signupType: .editProfile), animated: true)
-	}
-	
-	func showFavorites() {
-		self.viewController?.navigationController?.pushViewController(BusinessListViewControllerRouter.createModule(businessListType: .favorites), animated: true)
-	}
-	
-	func showAgenda() {
-		self.viewController?.navigationController?.pushViewController(AgendaRouter.createModule(), animated: true)
-	}
-	
-	func showSearch() {
-		self.viewController?.navigationController?.pushViewController(BusinessSearchRouter.createModule(), animated: true)
-	}
+    
+    func didTapLogout() {
+        let loginViewController = UINavigationController(rootViewController: LoginRouter.createModule())
+        
+        self.viewController?.dismiss(animated: true) {
+            let window = UIApplication.shared.windows[0]
+            
+            UIView.transition(from: window.rootViewController!.view,
+                              to: loginViewController.view,
+                              duration: 0.65,
+                              options: .transitionFlipFromBottom) { finished in
+                                window.rootViewController = loginViewController
+            }
+        }
+    }
+    
+    func didTapMyPets() {
+        self.viewController?.navigationController?.pushViewController(MyPetsRouter.createModule(), animated: true)
+    }
+    
+    func showProfile() {
+        self.viewController?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
+        self.viewController?.navigationController?.pushViewController(SignupRouter.createModule(signupType: .editProfile), animated: true)
+    }
+    
+    func showFavorites() {
+        self.viewController?.navigationController?.pushViewController(BusinessListViewControllerRouter.createModule(businessListType: .favorites), animated: true)
+    }
+    
+    func showSchedule() {
+        self.viewController?.navigationController?.pushViewController(AgendaRouter.createModule(), animated: true)
+    }
+    
+    func showSettings() {
+        self.viewController?.navigationController?.pushViewController(SettingsRouter.createModule(), animated: true)
+    }
+    
+    func showPayments() {
+        var authToken = ""
+        if let session = SessionManager.sharedInstance.getCurrentSession() {
+            authToken = session.authToken
+        }
+        
+        let paymentsURL = "\(CartWebViewController.WEB_BASE_URL)/webviews/credit_cards/\(authToken)"
+        let webviewRequest = WebviewRequest(title: "Formas de Pagamento", url: URL(string: paymentsURL))
+        
+        let paymentView = WebviewRouter.createModule(from: webviewRequest)
+        self.viewController?.navigationController?.pushViewController(paymentView, animated: true)
+    }
+    
+    func showSearch() {
+        self.viewController?.navigationController?.pushViewController(BusinessSearchRouter.createModule(), animated: true)
+    }
 }

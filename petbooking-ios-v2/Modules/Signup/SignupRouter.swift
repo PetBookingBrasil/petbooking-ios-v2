@@ -14,12 +14,14 @@ class SignupRouter: SignupWireframeProtocol {
 	
 	weak var viewController: UIViewController?
 	
-	static func createModule(signupType:SignupType = .email) -> UIViewController {
+	static func createModule(signupType: SignupType = .email) -> UIViewController {
 		// Change to get view from storyboard if not using progammatic UI
 		let view = SignupViewController(nibName: nil, bundle: nil)
+        view.signupType = signupType
+
 		let interactor = SignupInteractor()
 		interactor.signupType = signupType
-		view.signupType = signupType
+        
 		let router = SignupRouter()
 		let presenter = SignupPresenter(interface: view, interactor: interactor, router: router)
 		
@@ -31,15 +33,12 @@ class SignupRouter: SignupWireframeProtocol {
 	}
 	
 	func createUserWithSuccess(){
+        let viewController = HomeContentViewControllerRouter.createModule()
 		
-		let viewController = HomeContentViewControllerRouter.createModule()
-		
-		self.viewController?.present(UINavigationController(rootViewController: viewController), animated: true, completion: nil)
+		self.viewController?.present(UINavigationController(rootViewController: viewController), animated: false, completion: nil)
 	}
 	
 	func updatedUserWithSuccess(){
-		
 		self.viewController?.navigationController?.popViewController(animated: true)
-		
 	}
 }

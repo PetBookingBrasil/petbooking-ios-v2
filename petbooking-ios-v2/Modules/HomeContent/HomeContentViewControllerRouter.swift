@@ -16,7 +16,7 @@ class HomeContentViewControllerRouter: HomeContentViewControllerWireframeProtoco
     
     static func createModule() -> UIViewController {
         // Change to get view from storyboard if not using progammatic UI
-        let view = HomeContentViewControllerViewController(nibName: nil, bundle: nil)
+        let view = HomeContentViewController(nibName: nil, bundle: nil)
         let interactor = HomeContentViewControllerInteractor()
         let router = HomeContentViewControllerRouter()
         let presenter = HomeContentViewControllerPresenter(interface: view, interactor: interactor, router: router)

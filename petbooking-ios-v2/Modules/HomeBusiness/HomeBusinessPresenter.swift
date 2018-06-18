@@ -11,8 +11,8 @@
 import UIKit
 
 class HomeBusinessPresenter: HomeBusinessPresenterProtocol {
-
     weak private var view: HomeBusinessViewProtocol?
+
     var interactor: HomeBusinessInteractorProtocol?
     private let router: HomeBusinessWireframeProtocol
 
@@ -21,5 +21,4 @@ class HomeBusinessPresenter: HomeBusinessPresenterProtocol {
         self.interactor = interactor
         self.router = router
     }
-
 }

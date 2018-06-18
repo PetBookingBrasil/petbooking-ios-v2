@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -44,8 +44,8 @@
                             </subviews>
                             <color key="backgroundColor" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
+                                <constraint firstAttribute="bottom" secondItem="lvV-iL-ezs" secondAttribute="bottom" id="6di-qX-bVu"/>
                                 <constraint firstItem="lvV-iL-ezs" firstAttribute="leading" secondItem="EcN-8q-dQ0" secondAttribute="leading" id="6zQ-Ka-p0t"/>
-                                <constraint firstAttribute="bottom" secondItem="lvV-iL-ezs" secondAttribute="bottom" id="S3e-Z7-glj"/>
                                 <constraint firstItem="lvV-iL-ezs" firstAttribute="top" secondItem="EcN-8q-dQ0" secondAttribute="top" constant="15" id="Yfb-tG-K8n"/>
                                 <constraint firstAttribute="trailing" secondItem="lvV-iL-ezs" secondAttribute="trailing" id="t7C-gd-206"/>
                             </constraints>
@@ -55,12 +55,13 @@
                     <constraints>
                         <constraint firstItem="EcN-8q-dQ0" firstAttribute="top" secondItem="hJ5-gA-lkP" secondAttribute="top" id="1wn-R1-HUO"/>
                         <constraint firstAttribute="trailing" secondItem="EcN-8q-dQ0" secondAttribute="trailing" id="2JE-Cq-D0h"/>
+                        <constraint firstItem="EcN-8q-dQ0" firstAttribute="centerY" secondItem="hJ5-gA-lkP" secondAttribute="centerY" id="Lcn-D2-djm"/>
                         <constraint firstAttribute="bottom" secondItem="EcN-8q-dQ0" secondAttribute="bottom" constant="70" id="Rgv-hv-vQg"/>
                         <constraint firstItem="EcN-8q-dQ0" firstAttribute="leading" secondItem="hJ5-gA-lkP" secondAttribute="leading" id="ZQ2-gV-AhT"/>
                     </constraints>
                 </scrollView>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mLU-0d-YVn">
-                    <rect key="frame" x="40.5" y="601" width="294" height="50"/>
+                    <rect key="frame" x="41" y="601" width="294" height="50"/>
                     <color key="backgroundColor" red="0.89411764709999997" green="0.0" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="UIT-JG-Q5H"/>
@@ -79,14 +80,13 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="hJ5-gA-lkP" secondAttribute="bottom" id="2aO-wp-Go5"/>
-                <constraint firstAttribute="trailing" secondItem="hJ5-gA-lkP" secondAttribute="trailing" id="5LD-e7-1YV"/>
+                <constraint firstAttribute="bottom" secondItem="hJ5-gA-lkP" secondAttribute="bottom" id="0FH-f1-JY8"/>
+                <constraint firstItem="hJ5-gA-lkP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="4Fe-Ex-ebG"/>
+                <constraint firstAttribute="trailing" secondItem="hJ5-gA-lkP" secondAttribute="trailing" id="FFr-Fh-1Fg"/>
                 <constraint firstItem="mLU-0d-YVn" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="FcI-IN-OM2"/>
-                <constraint firstItem="EcN-8q-dQ0" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" priority="250" id="R86-lV-Omc"/>
                 <constraint firstItem="EcN-8q-dQ0" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="Z68-GI-OJm"/>
                 <constraint firstAttribute="bottom" secondItem="mLU-0d-YVn" secondAttribute="bottom" constant="16" id="dh7-hz-EgY"/>
-                <constraint firstItem="hJ5-gA-lkP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="glo-7I-nRt"/>
-                <constraint firstItem="hJ5-gA-lkP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gmz-iY-wOE"/>
+                <constraint firstItem="hJ5-gA-lkP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="vzG-Tx-wBI"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
         </view>

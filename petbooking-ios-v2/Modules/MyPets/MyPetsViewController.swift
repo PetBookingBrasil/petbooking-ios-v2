@@ -16,7 +16,8 @@ class MyPetsViewController: UIViewController, MyPetsViewProtocol {
 	
 	@IBOutlet weak var emptyView: UIView!
 	@IBOutlet weak var tableView: UITableView!
-	
+    @IBOutlet weak var addPetButton: UIButton!
+    
 	var presenter: MyPetsPresenterProtocol?
 	
 	var pets = [Pet]()
@@ -27,33 +28,47 @@ class MyPetsViewController: UIViewController, MyPetsViewProtocol {
 		setBackButton()
 		title = NSLocalizedString("my_pets_title", comment: "")
 		
+        addPetButton.round()
+
 		tableView.delegate = self
 		tableView.dataSource = self
 		tableView.emptyDataSetDelegate = self
 		tableView.emptyDataSetSource = self
 		
 		tableView.register(UINib(nibName: "MyPetsTableViewCell", bundle: nil), forCellReuseIdentifier: "MyPetsCell")
-		
-		navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named:"add"), style: .plain, target: self, action: #selector(addPet))
 	}
 	
-	override func viewWillAppear(_ animated: Bool) {
+	override func viewDidAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		
 		presenter?.reloadTableData()
 	}
-	
-	func addPet() {
+    
+    func setAddButton() {
+        let addButton = UIBarButtonItem()
+        addButton.target = self
+        addButton.action = #selector(addPetButtonTapped)
+        
+        self.navigationItem.rightBarButtonItem = addButton
+        self.navigationItem.rightBarButtonItem?.image = UIImage(named: "add")
+    }
+    
+    @IBAction func addPetButtonTapped(_ sender: Any) {
 		presenter?.didTapAddPet()
 	}
-	
 }
 
 extension MyPetsViewController: UITableViewDelegate, UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		
-		emptyView.isHidden = pets.count > 0
+
+        if pets.count > 0 {
+            emptyView.isHidden = true
+            setAddButton()
+        } else {
+            emptyView.isHidden = false
+            navigationItem.rightBarButtonItem = nil
+        }
 		
 		return pets.count
 	}
@@ -73,7 +88,6 @@ extension MyPetsViewController: UITableViewDelegate, UITableViewDataSource {
 			cell.petPictureImageView.image = UIImage(named:"avatar-padrao-gato")
 		}
 		
-		
 		if pet.photoThumbUrl.contains("http") {
 			if let url = URL(string: pet.photoThumbUrl) {
 				cell.petPictureImageView.pin_setImage(from: url)
@@ -85,14 +99,12 @@ extension MyPetsViewController: UITableViewDelegate, UITableViewDataSource {
 		}
 		
 		return cell
-		
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		let pet = pets[indexPath.row]
 		
 		navigationController?.pushViewController(AddPetViewControllerRouter.createModule(pet: pet, petViewType: .edit), animated: true)
-		
 	}
 	
 	func fillTableData(petList: PetList) {
@@ -100,29 +112,19 @@ extension MyPetsViewController: UITableViewDelegate, UITableViewDataSource {
 		self.pets = petList.pets
 		
 		self.tableView.reloadData()
-		
 	}
-	
 }
 
 extension MyPetsViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
-	
+    
 	func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
-		
-		
 		return UIImage()
-		
 	}
 	
 	func customView(forEmptyDataSet scrollView: UIScrollView!) -> UIView! {
-		
-		
 		let indicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
 		indicator.startAnimating()
 		
 		return indicator
 	}
-	
-	
 }
-

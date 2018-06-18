@@ -14,8 +14,10 @@ import  CoreLocation
 class BusinessListViewControllerPresenter: BusinessListViewControllerPresenterProtocol, BusinessListViewControllerInteractorOutputProtocol {
 
 	weak private var view: BusinessListViewControllerViewProtocol?
+    private let router: BusinessListViewControllerWireframeProtocol
+    
 	var interactor: BusinessListViewControllerInteractorInputProtocol?
-	private let router: BusinessListViewControllerWireframeProtocol
+    var service: ServiceCategory?
 	
 	init(interface: BusinessListViewControllerViewProtocol, interactor: BusinessListViewControllerInteractorInputProtocol?, router: BusinessListViewControllerWireframeProtocol) {
 		self.view = interface
@@ -23,30 +25,27 @@ class BusinessListViewControllerPresenter: BusinessListViewControllerPresenterPr
 		self.router = router
 	}
 	
-	func getBusinessByCoordinates(coordinates:CLLocationCoordinate2D, page:Int) {
-		interactor?.getBusinessByCoordinates(coordinates: coordinates, page:page)
+	func getBusinessByCoordinates(coordinates: CLLocationCoordinate2D, service: ServiceCategory?, page: Int) {
+		interactor?.getBusinessByCoordinates(coordinates: coordinates, service: service, page: page)
 	}
 	
 	func getFavoriteBusiness(page: Int) {
 		interactor?.getFavoriteBusiness(page: page)
 	}
 	
-	func updateBusinessList(businessList:BusinessList) {
+	func updateBusinessList(businessList: BusinessList) {
 		view?.updateBusinessList(businessList: businessList)
 	}
 	
 	func addToFavorites(business: Business) {
-		
 		interactor?.addToFavorites(business: business)
-		
 	}
 	
-	func showBusinessPage(business:Business) {
-		router.showBusinessPage(business: business)
+	func showBusinessPage(business: Business) {
+		router.showBusinessPage(business, from: self.service)
 	}
 	
 	func removedFromFavorites(business: Business) {
-		
 		view?.removedFromFavorites(business: business)
 	}
 }

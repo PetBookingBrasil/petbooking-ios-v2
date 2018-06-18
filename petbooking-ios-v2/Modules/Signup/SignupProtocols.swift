@@ -12,62 +12,40 @@ import Foundation
 
 //MARK: Wireframe -
 protocol SignupWireframeProtocol: class {
-
-	func createUserWithSuccess()
-	
-	func updatedUserWithSuccess()
+    func createUserWithSuccess()
+    func updatedUserWithSuccess()
 }
+
 //MARK: Presenter -
 protocol SignupPresenterProtocol: class {
-
-	func fillFields()
-	
-	func setProfileImageView(urlString:String)
-		
-	func setNameLabel(name:String)
-	
-	func setEmail(email:String)
-	
-	func setUserDetails(mobile:String, cpf:String, birthday:String, zipcode:String)
-	
-	func fillAdrressWithZipcode(zipcode:String)
-	
-	func fillAdrressFields(street:String, streetNumber:String, neighborhood:String, city:String, state:String, complement:String)
-	
-	func createUser(name:String, cpf:String, birthday:String, email:String, mobile:String, zipcode:String, street:String, streetNumber:String, neighborhood:String, city:String, state:String, password:String, avatar:String, complement:String)
-	
-	func createUserWithSuccess()
-	
-	func updatedUserWithSuccess()
-	
-	func createUserWithError()
+    
+    func fillFields()
+    func setProfileImageView(withUrlString urlString: String)
+    func setName(_ name: String)
+    func setEmail(_ email: String)
+    func setMobile(_ mobile: String)
+    func createUser(name: String, email: String, mobile: String, password: String, avatar: String?)
+    func createUserWithSuccess()
+    func updatedUserWithSuccess()
+    func createUserWithError()
 }
 
 //MARK: Interactor -
 protocol SignupInteractorProtocol: class {
-
-  var presenter: SignupPresenterProtocol?  { get set }
-	
-	func fillFields()
-	
-	func fillAdrressWithZipcode(zipcode:String)
-	
-	func createUser(name:String, cpf:String, birthday:String, email:String, mobile:String, zipcode:String, street:String, streetNumber:String, neighborhood:String, city:String, state:String, password:String, avatar:String, complement:String)
-	
+    
+    var presenter: SignupPresenterProtocol?  { get set }
+    
+    func fillFields()
+    func createUser(name: String, email: String, mobile: String, password: String, avatar: String?)
 }
 
 //MARK: View -
 protocol SignupViewProtocol: class {
-
-  var presenter: SignupPresenterProtocol?  { get set }
-	
-	func setProfileImageView(urlString:String)
-	
-	func setNameLabel(name:String)
-	
-	func setEmail(email:String)
-	
-	func setUserDetails(mobile:String, cpf:String, birthday:String, zipcode:String)
-	
-	func fillAdrressFields(street:String, streetNumber:String, neighborhood:String, city:String, state:String, complement:String)
+    
+    var presenter: SignupPresenterProtocol?  { get set }
+    
+    func setProfileImageView(withUrlString urlString: String)
+    func setName(_ name: String)
+    func setEmail(_ email: String)
+    func setMobile(_ mobile: String)
 }

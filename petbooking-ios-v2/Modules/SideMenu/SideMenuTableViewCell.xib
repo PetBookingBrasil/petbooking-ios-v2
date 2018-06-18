@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,10 +25,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pet" translatesAutoresizingMaskIntoConstraints="NO" id="3TY-Wm-qSD">
-                        <rect key="frame" x="42" y="8" width="32" height="32"/>
+                        <rect key="frame" x="16" y="8" width="32" height="32"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meus Pets" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTd-r0-s04">
-                        <rect key="frame" x="103" y="16.5" width="66" height="16.5"/>
+                        <rect key="frame" x="77" y="16.5" width="66" height="16.5"/>
                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -39,7 +39,7 @@
                     <constraint firstItem="wTd-r0-s04" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="CNg-qD-dzf"/>
                     <constraint firstItem="3TY-Wm-qSD" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Ihm-lC-Yfx"/>
                     <constraint firstItem="wTd-r0-s04" firstAttribute="leading" secondItem="3TY-Wm-qSD" secondAttribute="trailing" constant="29" id="bPp-RZ-w8e"/>
-                    <constraint firstItem="3TY-Wm-qSD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="34" id="lGO-Dz-5Ks"/>
+                    <constraint firstItem="3TY-Wm-qSD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="lGO-Dz-5Ks"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

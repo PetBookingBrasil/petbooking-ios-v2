@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CategoryContentViewController" customModule="petbooking_ios_v2" customModuleProvider="target">
+            <connections>
+                <outlet property="containerView" destination="E79-qO-kUY" id="Jwt-9m-Caw"/>
+                <outlet property="scrollView" destination="CEp-5q-HXH" id="HzP-BK-0a3"/>
+                <outlet property="segmentioView" destination="uf0-OS-UOM" id="ZdG-sB-N43"/>
+                <outlet property="view" destination="dAB-YF-ZzJ" id="M3b-aN-8zf"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="dAB-YF-ZzJ">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uf0-OS-UOM" customClass="Segmentio" customModule="petbooking_ios_v2">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="97l-ul-5E4"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E79-qO-kUY" userLabel="Container">
+                    <rect key="frame" x="0.0" y="50" width="375" height="617"/>
+                    <subviews>
+                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CEp-5q-HXH">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
+                        </scrollView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="CEp-5q-HXH" firstAttribute="top" secondItem="E79-qO-kUY" secondAttribute="top" id="7Cg-hM-EeO"/>
+                        <constraint firstAttribute="bottom" secondItem="CEp-5q-HXH" secondAttribute="bottom" id="PW5-pb-93q"/>
+                        <constraint firstAttribute="trailing" secondItem="CEp-5q-HXH" secondAttribute="trailing" id="ala-c0-pP2"/>
+                        <constraint firstItem="CEp-5q-HXH" firstAttribute="leading" secondItem="E79-qO-kUY" secondAttribute="leading" id="gkX-5T-BvX"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="E79-qO-kUY" firstAttribute="leading" secondItem="dAB-YF-ZzJ" secondAttribute="leading" id="E95-c7-ZMe"/>
+                <constraint firstAttribute="trailing" secondItem="uf0-OS-UOM" secondAttribute="trailing" id="HGl-kG-YUM"/>
+                <constraint firstAttribute="trailing" secondItem="E79-qO-kUY" secondAttribute="trailing" id="JzM-jg-Qal"/>
+                <constraint firstItem="E79-qO-kUY" firstAttribute="top" secondItem="uf0-OS-UOM" secondAttribute="bottom" id="L8l-UI-fOG"/>
+                <constraint firstItem="uf0-OS-UOM" firstAttribute="leading" secondItem="dAB-YF-ZzJ" secondAttribute="leading" id="NCW-2J-Dyb"/>
+                <constraint firstItem="uf0-OS-UOM" firstAttribute="top" secondItem="dAB-YF-ZzJ" secondAttribute="top" id="Po7-OU-Ofy"/>
+                <constraint firstAttribute="bottom" secondItem="E79-qO-kUY" secondAttribute="bottom" id="SON-ha-rIU"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="yeU-Wd-M8T"/>
+            <point key="canvasLocation" x="-11" y="98"/>
+        </view>
+    </objects>
+</document>

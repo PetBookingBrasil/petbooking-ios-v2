@@ -10,105 +10,106 @@ import UIKit
 import Mantle
 
 class Service: MTLModel, MTLJSONSerializing {
-
-	
-	dynamic var id = ""
-	dynamic var name = ""
-	dynamic var duration = 0.0
-	dynamic var price = 0.0
-	dynamic var startDate = ""
-	dynamic var startTime = ""
-	dynamic var professionalId = ""
-	dynamic var professionalName = ""
-	dynamic var professionalPicture = ""
-	dynamic var services = [SubService]()
-	
-	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
-		return [
-			"id": "id",
-			"name": "attributes.name",
-			"duration": "attributes.duration",
-			"price": "attributes.price",
-			"services": "attributes.childs"
-		]
-	}
-	
-	static func servicesJSONTransformer() -> ValueTransformer {
-		
-		return MTLJSONAdapter.arrayTransformer(withModelClass: SubService.self)
-		
-	}
-	
-	class func idJSONTransformer() -> ValueTransformer {
-		
-		let _forwardBlock: MTLValueTransformerBlock? = { (value, success, error) in
-			
-			if let id = value as? NSNumber {
-				return id.stringValue
-			}
-			
-			if let id = value as? String {
-				return id
-			}
-			
-			return ""
-		}
-		
-		return MTLValueTransformer(usingForwardBlock: _forwardBlock)
-	}
-	
+    
+    @objc dynamic var id = ""
+    @objc dynamic var name = ""
+    @objc dynamic var duration = 0.0
+    @objc dynamic var price: Price = Price()
+    @objc dynamic var startDate = ""
+    @objc dynamic var startTime = ""
+    @objc dynamic var professionalId = ""
+    @objc dynamic var professionalName = ""
+    @objc dynamic var professionalPicture = ""
+    @objc dynamic var services = [SubService]()
+    
+    static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
+        return ["id": "id",
+                "name": "attributes.name",
+                "duration": "attributes.duration",
+                "price": "attributes.price_range",
+                "services": "attributes.childs"]
+    }
+    
+    @objc static func servicesJSONTransformer() -> ValueTransformer {
+        return MTLJSONAdapter.arrayTransformer(withModelClass: SubService.self)
+    }
+    
+    @objc static func idJSONTransformer() -> ValueTransformer {
+        
+        let _forwardBlock: MTLValueTransformerBlock? = { (value, success, error) in
+            
+            if let id = value as? NSNumber {
+                return id.stringValue
+            }
+            
+            if let id = value as? String {
+                return id
+            }
+            
+            return ""
+        }
+        
+        return MTLValueTransformer(usingForwardBlock: _forwardBlock)
+    }
 }
 
+class Price: MTLModel, MTLJSONSerializing {
+    
+    @objc dynamic var servicePrice = 0.0
+    @objc dynamic var maxPrice = 0.0
+    @objc dynamic var minPrice = 0.0
+    
+    static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
+        return ["servicePrice": "service_price",
+                "maxPrice": "max_service_price",
+                "minPrice": "min_service_price"]
+    }
+}
+
+
 class SubService: MTLModel, MTLJSONSerializing {
-	
-	dynamic var id = ""
-	dynamic var name = ""
-	dynamic var duration = 0
-	dynamic var price = 0.0
-	
-	
-	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
-		return [
-			"id": "id",
-			"name": "name",
-			"duration": "duration",
-			"price": "price",
-		]
-	}
-	
-	class func idJSONTransformer() -> ValueTransformer {
-		
-		let _forwardBlock: MTLValueTransformerBlock? = { (value, success, error) in
-			
-			if let id = value as? NSNumber {
-				return id.stringValue
-			}
-			
-			if let id = value as? String {
-				return id
-			}
-			
-			return ""
-		}
-		
-		return MTLValueTransformer(usingForwardBlock: _forwardBlock)
-	}
-	
+    
+    @objc dynamic var id = ""
+    @objc dynamic var name = ""
+    @objc dynamic var duration = 0
+    @objc dynamic var price = 0.0
+    
+    static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
+        return ["id": "id",
+                "name": "name",
+                "duration": "duration",
+                "price": "price",]
+    }
+    
+    @objc static func idJSONTransformer() -> ValueTransformer {
+        
+        let _forwardBlock: MTLValueTransformerBlock? = { (value, success, error) in
+            
+            if let id = value as? NSNumber {
+                return id.stringValue
+            }
+            
+            if let id = value as? String {
+                return id
+            }
+            
+            return ""
+        }
+        
+        return MTLValueTransformer(usingForwardBlock: _forwardBlock)
+    }
+    
 }
 
 class ServiceList: MTLModel, MTLJSONSerializing {
-	
-	dynamic var services = [Service]()
-	
-	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
-		return [
-			"services": "data"
-		]
-	}
-	
-	static func servicesJSONTransformer() -> ValueTransformer {
-		
-		return MTLJSONAdapter.arrayTransformer(withModelClass: Service.self)
-		
-	}
+    
+    @objc dynamic var services = [Service]()
+    
+    static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
+        return ["services": "data"]
+    }
+    
+    @objc static func servicesJSONTransformer() -> ValueTransformer {
+        return MTLJSONAdapter.arrayTransformer(withModelClass: Service.self)
+    }
 }

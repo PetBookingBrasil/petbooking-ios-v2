@@ -17,7 +17,7 @@ extension UIButton {
 		let fontColor = self.titleColor(for: controlState)!
 		let currentFont = self.titleLabel?.font
 		
-		let currentAttString = NSAttributedString(string: title, attributes: [NSFontAttributeName:currentFont!, NSForegroundColorAttributeName:fontColor])
+		let currentAttString = NSAttributedString(string: title, attributes: [NSAttributedStringKey.font:currentFont!, NSAttributedStringKey.foregroundColor:fontColor])
 		
 		let attributedString: NSMutableAttributedString = NSMutableAttributedString(attributedString: currentAttString);
 		
@@ -26,7 +26,7 @@ extension UIButton {
 		let range = attributedString.mutableString.range(of: pSubString, options: .literal)
 		
 		if range.location != NSNotFound {
-			attributedString.addAttribute(NSFontAttributeName, value: font, range: range);
+			attributedString.addAttribute(NSAttributedStringKey.font, value: font, range: range);
 		}
 		
 		

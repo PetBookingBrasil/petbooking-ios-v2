@@ -25,52 +25,42 @@ class LoginPresenter: LoginPresenterProtocol {
         self.interactor.presenter = self
     }
 	
-	func didTapLoginButton(email:String?, password:String?) {
+	func didTapLoginButton(credential: Credential) {
 		ALLoadingView.manager.showLoadingView(ofType: .basic, windowMode: .fullscreen)
-		interactor.didTapLoginButton(email: email, password: password)
+		interactor.didTapLoginButton(credential: credential)
 	}
 	
 	func didTapFacebookLoginButton() {
-		
 		interactor.didTapFacebookLoginButton()
 	}
 	
 	func didTapSignupButton() {
 		router.didTapSignupButton()
-		
 	}
 	
 	func didTapForgotPasswordButton() {
-		
 		router.didTapForgotPasswordButton()
 	}
 	
 	func didCompleteFacebookLoginWithSuccess() {
 		ALLoadingView.manager.hideLoadingView(withDelay: 1) { 
-			
 			self.router.didCompleteFacebookLoginWithSuccess()
-			
 		}
-		
 	}
 	
 	func didCompleteFacebookLoginWithError(error: Error?) {
-			ALLoadingView.manager.hideLoadingView()
+        ALLoadingView.manager.hideLoadingView()
 		view?.didCompleteFacebookLoginWithError(error: error)
 	}
 	
 	func didCompleteLoginWithSuccess() {
-		
 		ALLoadingView.manager.hideLoadingView(withDelay: 1) {
-			
 			self.router.didCompleteFacebookLoginWithSuccess()
-			
 		}
-		
-	}
+    }
 	
 	func didCompleteLoginWithError(error:Error?) {
-			ALLoadingView.manager.hideLoadingView()
+        ALLoadingView.manager.hideLoadingView()
 		view?.didCompleteLoginWithError(error: error)
 	}
 	
@@ -81,5 +71,4 @@ class LoginPresenter: LoginPresenterProtocol {
 	func showLoading() {
 		ALLoadingView.manager.showLoadingView(ofType: .basic, windowMode: .fullscreen)
 	}
-
 }

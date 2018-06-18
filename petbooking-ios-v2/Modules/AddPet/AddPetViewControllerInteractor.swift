@@ -10,44 +10,37 @@
 
 import UIKit
 
+enum PetPickerType {
+    case gender, petType, petSize, breed, coat, temper, coatColor
+}
+
+enum PetViewType {
+    case create, edit
+}
+
 class AddPetViewControllerInteractor: AddPetViewControllerInteractorProtocol {
 	
 	weak var presenter: AddPetViewControllerPresenterProtocol?
 	
-	var petViewType:PetViewType?
+	var petViewType: PetViewType?
 	
-	func savePet(pet:Pet) {
-		
+	func savePet(pet: Pet) {
 		if petViewType == .create {
-			
 			PetbookingAPI.sharedInstance.createPet(pet: pet) { (pet, message) in
-				
 				if pet != nil {
 					self.presenter?.didSavePetWithSuccess()
 				} else {
 					self.presenter?.didSavePetWithError(message: message)
 				}
-				
 			}
 		} else {
 			PetbookingAPI.sharedInstance.updatePet(pet: pet) { (pet, message) in
-				
 				if pet != nil {
 					self.presenter?.didSavePetWithSuccess()
 				} else {
 					self.presenter?.didSavePetWithError(message: message)
 				}
-				
 			}
 		}
-		
 	}
-}
-
-enum PetPickerType {
-	case gender, petType, petSize, breed, coat, temper, coatColor
-}
-
-enum PetViewType {
-	case create, edit
 }

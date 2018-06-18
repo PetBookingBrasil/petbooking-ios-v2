@@ -12,8 +12,8 @@ import Realm
 
 class Token: Object {
 
-	dynamic var token  = ""
-	dynamic var type  = ""
+	@objc dynamic var token  = ""
+	@objc dynamic var type  = ""
 	
 	override static func primaryKey() -> String? {
 		return "type"

@@ -25,7 +25,6 @@ class MyPetsPresenter: MyPetsPresenterProtocol {
     }
 	
 	func reloadTableData() {
-		
 		interactor.reloadTableData()
 	}
 	
@@ -36,5 +35,4 @@ class MyPetsPresenter: MyPetsPresenterProtocol {
 	func didTapAddPet() {
 		router.showAddPet()
 	}
-
 }

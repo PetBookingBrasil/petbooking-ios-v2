@@ -11,14 +11,14 @@
 import UIKit
 
 class SideMenuViewController: UIViewController, SideMenuViewProtocol {
+    
 	@IBOutlet weak var profileImageView: UIImageView!
 	@IBOutlet weak var nameLabel: UILabel!
-
 	@IBOutlet weak var profilePanelView: UIView!
-	@IBOutlet weak var cityLabel: UILabel!
+	@IBOutlet weak var emailLabel: UILabel!
 	@IBOutlet weak var menuTableView: UITableView!
 	
-	var menuItens:[SideMenuItem] = [.myPets, .search, .agenda, .favorites, .logout]
+	var menuItens: [SideMenuItem] = [.myPets, .schedule, .payments, .settings, .logout]
 	
 	var presenter: SideMenuPresenterProtocol?
 
@@ -32,19 +32,13 @@ class SideMenuViewController: UIViewController, SideMenuViewProtocol {
 		menuTableView.dataSource = self
 		
 		self.profileImageView.round()
-		
-		
-		
     }
 	
 	func setupUserData() {
-		
-		guard let user = UserManager.sharedInstance.getCurrentUser() else {
-			return
-		}
+		guard let user = UserManager.sharedInstance.getCurrentUser() else { return }
 		
 		nameLabel.text = user.name
-		cityLabel.text = "\(user.city), \(user.state)"
+		emailLabel.text = user.email
 		if user.gender == "male" {
 			self.profileImageView.image = UIImage(named:"avatar-padrao-m")
 		} else {
@@ -60,7 +54,6 @@ class SideMenuViewController: UIViewController, SideMenuViewProtocol {
 				self.profileImageView.pin_setImage(from: url)
 			}
 		}
-
 	}
 
 	@IBAction func didTapProfileButton(_ sender: Any) {
@@ -70,9 +63,6 @@ class SideMenuViewController: UIViewController, SideMenuViewProtocol {
 	@IBAction func goToProfile(_ sender: Any) {
 		presenter?.didTapProfile()
 	}
-	
-	
-	
 }
 
 extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
@@ -91,32 +81,32 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
 		case .myPets:
 			cell.iconImageView.image = UIImage(named:"pet")
 			cell.titleLabel.text = NSLocalizedString("side_menu_my_pets", comment: "")
-			break
-		case .search:
+
+        case .search:
 			cell.iconImageView.image = UIImage(named:"search")
 			cell.titleLabel.text = NSLocalizedString("side_menu_search", comment: "")
-			break
-		case .agenda:
+			
+		case .schedule:
 			cell.iconImageView.image = UIImage(named:"agenda")
 			cell.titleLabel.text = NSLocalizedString("side_menu_agenda", comment: "")
-			break
-		case .payments:
+
+        case .payments:
 			cell.iconImageView.image = UIImage(named:"payments")
 			cell.titleLabel.text = NSLocalizedString("side_menu_payments", comment: "")
-			break
-		case .favorites:
+
+        case .favorites:
 			cell.iconImageView.image = UIImage(named:"favorites")
 			cell.titleLabel.text = NSLocalizedString("side_menu_favorites", comment: "")
-			break
-		case .settings:
+
+        case .settings:
 			cell.iconImageView.image = UIImage(named:"settings")
 			cell.titleLabel.text = NSLocalizedString("side_menu_settings", comment: "")
-			break
-		case .logout:
+
+        case .logout:
 			cell.iconImageView.image = UIImage(named:"logout")
 			cell.titleLabel.text = NSLocalizedString("side_menu_logout", comment: "")
-			break
-		}
+
+        }
 		
 		return cell
 	}
@@ -130,33 +120,32 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
 		switch sideMenuItem {
 		case .myPets:
 			presenter?.didTapMyPets()
-					break
-		case .search:
+
+        case .search:
 			presenter?.didTapSearch()
-					break
-		case .agenda:
-			presenter?.didTapAgenda()
-			break
-		case .payments:
-			break
-		case .favorites:
+
+        case .schedule:
+			presenter?.didTapSchedule()
+
+        case .payments:
+            presenter?.didTapPayments()
+
+        case .favorites:
 			presenter?.didTapFavorites()
-			break
-		case .settings:
-			break
-		case .logout:
+
+        case .settings:
+            presenter?.didTapSettings()
+
+        case .logout:
 			presenter?.didTapLogout()
-					break
-		}
-		
+
+        }
 	}
 	
 	func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
 		let selectedCell:UITableViewCell = tableView.cellForRow(at: indexPath)!
 		selectedCell.contentView.backgroundColor = UIColor(hex: "E4002B")
 	}
-	
-	
 }
 
 extension Notification.Name {

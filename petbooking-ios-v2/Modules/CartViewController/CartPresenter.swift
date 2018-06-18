@@ -21,5 +21,9 @@ class CartPresenter: CartPresenterProtocol {
         self.interactor = interactor
         self.router = router
     }
+    
+    func didTapReturnButton() {
+        router.didTapReturnButton()
+    }
 
 }

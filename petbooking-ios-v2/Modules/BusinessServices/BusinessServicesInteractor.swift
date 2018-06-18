@@ -15,40 +15,33 @@ class BusinessServicesInteractor: BusinessServicesInteractorProtocol {
 
     weak var presenter: BusinessServicesPresenterProtocol?
 	
-	
 	func getPets() {
-		
-		PetbookingAPI.sharedInstance.getUserPets { (petList, message) in
-			
+
+        PetbookingAPI.sharedInstance.getUserPets { (petList, message) in
 			guard let petList = petList else {
 				ALLoadingView.manager.hideLoadingView()
 				return
 			}
 			
 			self.presenter?.loadPets(petList: petList)
-			
 		}
-		
 	}
 	
 	func getCategories(business:Business) {
 		
 		PetbookingAPI.sharedInstance.getBusinessServicesCategoryList(business: business) { (serviceCategoryList, message) in
-			
 			guard let serviceCategoryList = serviceCategoryList else {
 				ALLoadingView.manager.hideLoadingView()
 				return
 			}
 			
 			self.presenter?.loadCategories(serviceCategoryList: serviceCategoryList)
-			
 		}
-		
 	}
 	
-	func getServices(business: Business, service: ServiceCategory, pet:Pet) {
+	func getServices(business: Business, service: ServiceCategory, pet: Pet?) {
 		
-		PetbookingAPI.sharedInstance.getBusinessServicesList(business: business, service: service, pet:pet) { (serviceList, message) in
+		PetbookingAPI.sharedInstance.getBusinessServicesList(business: business, service: service, pet: pet) { (serviceList, message) in
 			
 			guard let serviceList = serviceList else {
 				ALLoadingView.manager.hideLoadingView()
@@ -56,8 +49,6 @@ class BusinessServicesInteractor: BusinessServicesInteractorProtocol {
 			}
 			
 			self.presenter?.loadServices(serviceList: serviceList)
-			
 		}
-	}
-	
+	}	
 }

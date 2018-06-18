@@ -24,9 +24,7 @@ public final class Localide {
     internal var applicationProtocol: UIApplicationProtocol = UIApplication.shared
 
     // Unavailable initializer, use sharedManager.
-    fileprivate init() {
-
-    }
+    fileprivate init() { }
 
     /**
      Currently available map apps to launch. It includes:

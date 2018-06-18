@@ -312,7 +312,8 @@ open class ExpandableTableViewController: UIViewController, UITableViewDelegate,
 	public func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
 		return true
 	}
-     open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
+    open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let expandableIndexPath = expandableIndexPathForIndexPath(indexPath)
         
         if cellsTypeArray.get(indexPath.row) == .mainCell{
@@ -326,8 +327,7 @@ open class ExpandableTableViewController: UIViewController, UITableViewDelegate,
             }
             
             expandableTableView.expandableDelegate.expandableTableView(expandableTableView, didSelectRowAtExpandableIndexPath: expandableIndexPath)
-        }
-        else if cellsTypeArray.get(indexPath.row) == .subCell {
+        } else if cellsTypeArray.get(indexPath.row) == .subCell {
             expandableTableView.expandableDelegate.expandableTableView(expandableTableView, didSelectSubRowAtExpandableIndexPath: expandableIndexPath)
         }
     }

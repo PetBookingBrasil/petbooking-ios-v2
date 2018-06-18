@@ -12,61 +12,43 @@ import Foundation
 
 //MARK: Wireframe -
 protocol LoginWireframeProtocol: class {
-
-	func didTapForgotPasswordButton()
-	
-	func didTapSignupButton()
-	
-	func didCompleteFacebookLoginWithSuccess()
-	
-	func registerNewUserWithFacebookData()
+    
+    func didTapForgotPasswordButton()
+    func didTapSignupButton()
+    func didCompleteFacebookLoginWithSuccess()
+    func registerNewUserWithFacebookData()
 }
 //MARK: Presenter -
 protocol LoginPresenterProtocol: class {
-	
-	func didTapLoginButton(email:String?, password:String?)
-	
-	func didTapFacebookLoginButton()
-	
-	func didTapSignupButton()
-	
-	func didTapForgotPasswordButton()
-	
-	func didCompleteFacebookLoginWithSuccess()
-	
-	func didCompleteFacebookLoginWithError(error:Error?)
-	
-	func didCompleteLoginWithSuccess()
-	
-	func didCompleteLoginWithError(error:Error?)
-	
-	func registerNewUserWithFacebookData()
-	
-	func showLoading()
-
+    
+    func didTapLoginButton(credential: Credential)
+    func didTapFacebookLoginButton()
+    func didTapSignupButton()
+    func didTapForgotPasswordButton()
+    func didCompleteFacebookLoginWithSuccess()
+    func didCompleteFacebookLoginWithError(error: Error?)
+    func didCompleteLoginWithSuccess()
+    func didCompleteLoginWithError(error: Error?)
+    func registerNewUserWithFacebookData()
+    func showLoading()
 }
 
 //MARK: Interactor -
 protocol LoginInteractorProtocol: class {
-
-  var presenter: LoginPresenterProtocol?  { get set }
-	
-	func didTapLoginButton(email:String?, password:String?)
-	
-	func didTapFacebookLoginButton()
-	
-	func didTapSignupButton()
-	
-	func didTapForgotPasswordButton()
+    
+    var presenter: LoginPresenterProtocol?  { get set }
+    
+    func didTapLoginButton(credential: Credential)
+    func didTapFacebookLoginButton()
+    func didTapSignupButton()
+    func didTapForgotPasswordButton()
 }
 
 //MARK: View -
 protocol LoginViewProtocol: class {
-
-  var presenter: LoginPresenterProtocol?  { get set }
-	
-	func didCompleteFacebookLoginWithError(error:Error?)
-	
-	func didCompleteLoginWithError(error:Error?)
-	
+    
+    var presenter: LoginPresenterProtocol?  { get set }
+    
+    func didCompleteFacebookLoginWithError(error: Error?)
+    func didCompleteLoginWithError(error: Error?)
 }
