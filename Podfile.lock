@@ -1,0 +1,136 @@
+PODS:
+  - AKMaskField (2.0.3)
+  - AKNumericFormatter (0.0.2)
+  - Alamofire (4.7.1)
+  - ALLoadingView (1.1.4)
+  - BEMCheckBox (1.4.1)
+  - Bolts (1.9.0):
+    - Bolts/AppLinks (= 1.9.0)
+    - Bolts/Tasks (= 1.9.0)
+  - Bolts/AppLinks (1.9.0):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.9.0)
+  - Crashlytics (3.10.1):
+    - Fabric (~> 1.7.5)
+  - DZNEmptyDataSet (1.8.1)
+  - Fabric (1.7.6)
+  - FacebookCore (0.3.0):
+    - Bolts (~> 1.8)
+    - FBSDKCoreKit (~> 4.27)
+  - FacebookLogin (0.3.0):
+    - Bolts (~> 1.8)
+    - FacebookCore (~> 0.3)
+    - FBSDKCoreKit (~> 4.27)
+    - FBSDKLoginKit (~> 4.27)
+  - FBSDKCoreKit (4.32.0):
+    - Bolts (~> 1.7)
+  - FBSDKLoginKit (4.32.0):
+    - FBSDKCoreKit
+  - FLAnimatedImage (1.0.12)
+  - IQKeyboardManager (6.0.0)
+  - Mantle (2.1.0):
+    - Mantle/extobjc (= 2.1.0)
+  - Mantle/extobjc (2.1.0)
+  - Pageboy (2.5.0)
+  - PINCache (2.3)
+  - PINRemoteImage (2.1.4):
+    - PINRemoteImage/FLAnimatedImage (= 2.1.4)
+  - PINRemoteImage/Core (2.1.4):
+    - PINCache (>= 2.1)
+  - PINRemoteImage/FLAnimatedImage (2.1.4):
+    - FLAnimatedImage (>= 1.0)
+    - PINRemoteImage/Core
+  - RateView (1.2)
+  - Realm (3.3.2):
+    - Realm/Headers (= 3.3.2)
+  - Realm/Headers (3.3.2)
+  - RealmSwift (3.3.2):
+    - Realm (= 3.3.2)
+  - SideMenu (3.1.5)
+  - SwiftKeychainWrapper (3.0.1)
+
+DEPENDENCIES:
+  - AKMaskField (from `https://github.com/DRybochkin/AKMaskField.git`, branch `master`)
+  - AKNumericFormatter
+  - Alamofire (~> 4.5)
+  - ALLoadingView (~> 1.1)
+  - BEMCheckBox
+  - Crashlytics
+  - DZNEmptyDataSet
+  - Fabric
+  - FacebookCore
+  - FacebookLogin
+  - IQKeyboardManager
+  - Mantle
+  - Pageboy
+  - PINRemoteImage
+  - RateView
+  - RealmSwift
+  - SideMenu
+  - SwiftKeychainWrapper
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AKNumericFormatter
+    - Alamofire
+    - ALLoadingView
+    - BEMCheckBox
+    - Bolts
+    - Crashlytics
+    - DZNEmptyDataSet
+    - Fabric
+    - FacebookCore
+    - FacebookLogin
+    - FBSDKCoreKit
+    - FBSDKLoginKit
+    - FLAnimatedImage
+    - IQKeyboardManager
+    - Mantle
+    - Pageboy
+    - PINCache
+    - PINRemoteImage
+    - RateView
+    - Realm
+    - RealmSwift
+    - SideMenu
+    - SwiftKeychainWrapper
+
+EXTERNAL SOURCES:
+  AKMaskField:
+    :branch: master
+    :git: https://github.com/DRybochkin/AKMaskField.git
+
+CHECKOUT OPTIONS:
+  AKMaskField:
+    :commit: ead50bea687b36937965df67ad0cd397ed9a8355
+    :git: https://github.com/DRybochkin/AKMaskField.git
+
+SPEC CHECKSUMS:
+  AKMaskField: 859c9ca3b8acfdfbf0834c016329a92a306b78aa
+  AKNumericFormatter: de969ab13c504dca7aa119b558a934ccdbd1e376
+  Alamofire: 68d7d521118d49c615a8d2214d87cdf525599d30
+  ALLoadingView: 86aea5ee564f034296e76a49f53779e0a85fe846
+  BEMCheckBox: 5ba6e37ade3d3657b36caecc35c8b75c6c2b1a4e
+  Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
+  Crashlytics: aee1a064cbbf99b32efa3f056a5f458d846bc8ff
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  Fabric: f8d42c893bb187326a7968b62abe55c36a987a46
+  FacebookCore: 3ffa190a3f1f96cec0e44d3fc221bc322c595ffa
+  FacebookLogin: 0af839ea858faef99550d16596b87b4a8e8906e6
+  FBSDKCoreKit: 55d7f2ac45d9c4b9b6119f4e43900fe84b9b7b1b
+  FBSDKLoginKit: 32ac05c2a59952c363c2e85aafa8f73ba93bcbad
+  FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
+  IQKeyboardManager: fdba62488e23c48a3fa8591635aff166ed946632
+  Mantle: 2fa750afa478cd625a94230fbf1c13462f29395b
+  Pageboy: 00985df8245ab2d4b4ef6959a0722d64b09aafee
+  PINCache: ce36ed282031b92fc7733ffe831f474ff80fddc2
+  PINRemoteImage: 4ac4011c5caefd6befd99758e09becede05d3226
+  RateView: d4d12e9bb76dc23a77a56f4e5c5fb530a3f3f998
+  Realm: d927fbf66df5532cfafc08afb5f7e53ded37b894
+  RealmSwift: 4e903a494e05d866581d69ad6f7e7b879d446baf
+  SideMenu: 47dbf9e4d878062d8994aed43f6e4bf6c1fea30b
+  SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
+
+PODFILE CHECKSUM: 11e6465d5eaa1f3497bcd524c5510efc87b86b09
+
+COCOAPODS: 1.5.2

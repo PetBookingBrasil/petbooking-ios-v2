@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans</string>
+        </array>
+        <array key="OpenSans-Semibold.ttf">
+            <string>OpenSans-Semibold</string>
+        </array>
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AlertCancelScheduledViewController" customModule="petbooking_ios_v2" customModuleProvider="target">
+            <connections>
+                <outlet property="backButton" destination="62d-qD-JWo" id="BPh-Dw-w2y"/>
+                <outlet property="cancelScheduledButton" destination="eLl-sQ-pcq" id="WhT-q5-pPO"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R6I-nF-UCx">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uZT-tE-uQD">
+                    <rect key="frame" x="56" y="177.5" width="263" height="312"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cancelar Agendamento" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X5q-iz-2Wu">
+                            <rect key="frame" x="0.0" y="0.0" width="263" height="27.5"/>
+                            <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="20"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deseja realmente cancelar?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="toC-MA-bkL">
+                            <rect key="frame" x="0.0" y="133" width="255" height="22"/>
+                            <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Olá você está prestes a cancelar um agendamento já configurado. Quando cancelar não será possível reagendar o mesmo serviço." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SbE-Ij-Kdp">
+                            <rect key="frame" x="0.0" y="43" width="263" height="75"/>
+                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eLl-sQ-pcq">
+                            <rect key="frame" x="-6.5" y="185" width="275" height="50"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="QZa-Z2-Zod"/>
+                                <constraint firstAttribute="width" constant="275" id="r4M-2G-24w"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
+                            <state key="normal" title="Sim, cancelar agendamento">
+                                <color key="titleColor" red="0.89411764709999997" green="0.0" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="cancelScheduled:" destination="-1" eventType="touchUpInside" id="rNg-6o-rqo"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="62d-qD-JWo">
+                            <rect key="frame" x="-6" y="250" width="275" height="50"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="275" id="Oyq-LP-xFU"/>
+                                <constraint firstAttribute="height" constant="50" id="ZMs-uq-VeO"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
+                            <state key="normal" title="Voltar">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="back:" destination="-1" eventType="touchUpInside" id="ugf-PJ-7MD"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="SbE-Ij-Kdp" secondAttribute="trailing" id="80b-0o-hvD"/>
+                        <constraint firstItem="toC-MA-bkL" firstAttribute="leading" secondItem="uZT-tE-uQD" secondAttribute="leading" id="AyO-7L-3en"/>
+                        <constraint firstItem="62d-qD-JWo" firstAttribute="centerX" secondItem="uZT-tE-uQD" secondAttribute="centerX" id="C47-XA-Q6e"/>
+                        <constraint firstAttribute="trailing" secondItem="toC-MA-bkL" secondAttribute="trailing" constant="8" id="CaR-Ik-nsQ"/>
+                        <constraint firstItem="X5q-iz-2Wu" firstAttribute="leading" secondItem="uZT-tE-uQD" secondAttribute="leading" id="L0c-ug-La4"/>
+                        <constraint firstItem="SbE-Ij-Kdp" firstAttribute="top" secondItem="X5q-iz-2Wu" secondAttribute="bottom" constant="15" id="PtF-R3-Koh"/>
+                        <constraint firstItem="toC-MA-bkL" firstAttribute="top" secondItem="SbE-Ij-Kdp" secondAttribute="bottom" constant="15" id="SCj-WM-8FX"/>
+                        <constraint firstItem="eLl-sQ-pcq" firstAttribute="top" secondItem="toC-MA-bkL" secondAttribute="bottom" constant="30" id="TNJ-yO-Jt1"/>
+                        <constraint firstItem="X5q-iz-2Wu" firstAttribute="top" secondItem="uZT-tE-uQD" secondAttribute="top" id="ca5-fJ-f3Q"/>
+                        <constraint firstAttribute="height" constant="312" id="ek3-zj-iii"/>
+                        <constraint firstItem="62d-qD-JWo" firstAttribute="top" secondItem="eLl-sQ-pcq" secondAttribute="bottom" constant="15" id="hyK-x7-2Y0"/>
+                        <constraint firstItem="SbE-Ij-Kdp" firstAttribute="leading" secondItem="uZT-tE-uQD" secondAttribute="leading" id="q1g-hb-mA2"/>
+                        <constraint firstAttribute="width" constant="263" id="wMb-aD-Q5E"/>
+                        <constraint firstAttribute="trailing" secondItem="X5q-iz-2Wu" secondAttribute="trailing" id="wv4-1z-iFx"/>
+                        <constraint firstItem="eLl-sQ-pcq" firstAttribute="centerX" secondItem="uZT-tE-uQD" secondAttribute="centerX" id="yV2-9S-awO"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="0.89704623287671237" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="R6I-nF-UCx" secondAttribute="bottom" id="113-UN-3mD"/>
+                <constraint firstItem="uZT-tE-uQD" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="H1y-X9-ntr"/>
+                <constraint firstItem="uZT-tE-uQD" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="N9W-3j-fhG"/>
+                <constraint firstAttribute="trailing" secondItem="R6I-nF-UCx" secondAttribute="trailing" id="S3d-aA-thM"/>
+                <constraint firstItem="R6I-nF-UCx" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ekj-cM-bQx"/>
+                <constraint firstItem="R6I-nF-UCx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="vWX-OT-013"/>
+            </constraints>
+            <point key="canvasLocation" x="34.5" y="54.5"/>
+        </view>
+    </objects>
+</document>

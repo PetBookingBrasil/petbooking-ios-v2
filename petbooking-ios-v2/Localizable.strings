@@ -1,0 +1,115 @@
+/* 
+  Localizable.strings
+  petbooking-ios-v2
+
+  Created by Ryniere S Silva on 26/04/17.
+  Copyright © 2017 Pet Booking Serviços e Desenvolvimento de Softwares SA. All rights reserved.
+*/
+
+
+// Presentation Screen
+
+"ap1_title" = "Agende serviços para seus Pets, em poucos segundos!";
+"ap1_description" = "Banho, tosa, consultas veterinárias e muito mais!";
+"ap2_title" = "Encontre o serviço desejado e agende o melhor horário!";
+"ap2_description" = "";
+"ap3_title" = "Simples, rápido e seguro!";
+"ap3_description" = "Cuidar dos seus Pets nunca foi tão fácil!";
+
+// Login Screen
+
+"forgot_passowrd" = "Esqueceu a senha?";
+
+// Signup Screen
+
+"invalid_name" = "Por favor, insira seu nome e sobrenome.";
+"invalid_email" = "Insira seu e-mail no formato nome@domínio.com.";
+"invalid_cpf" = "Este CPF não é válido.";
+"invalid_birthday" = "Data de nascimento é um campo obrigatório";
+"invalid_mobile" = "Celular é um campo obrigatório";
+"invalid_zipcode" = "CEP é um campo obrigatório";
+"invalid_street" = "Rua é um campo obrigatório";
+"invalid_streetNumber" = "Número é um campo obrigatório";
+"invalid_neighborhood" = "Bairro é um campo obrigatório";
+"invalid_city" = "Cidade é um campo obrigatório";
+"invalid_state" = "Estado é um campo obrigatório";
+"invalid_password" = "Senha está inválida, por favor digite uma senha de, no mínimo, 8 caracteres.";
+"invalid_confirmPassword" = "As senhas não combinam";
+"invalid_profileImage" = "Selecione uma imagem para o seu perfil";
+
+// Side Menu
+
+"side_menu_my_pets" = "Meus Pets";
+"side_menu_search" = "Pesquisar";
+"side_menu_agenda" = "Agenda";
+"side_menu_payments" = "Formas de Pagamento";
+"side_menu_favorites" = "Favoritos";
+"side_menu_settings" = "Configurações";
+"side_menu_logout" = "Sair";
+
+// My Pets
+"my_pets_title" = "Meus Pets";
+
+
+// Add Pet
+
+"pet_breed_field" = "Raça";
+
+"add_pet_title" = "Preencha os dados do pet";
+"edit_pet_title" = "Editando seu pet";
+"remove_pet" = "Remover";
+"save_pet" = "Salvar";
+
+"pet_type_dog" = "Cão";
+"pet_type_cat" = "Gato";
+"pet_type_pig" = "Porco";
+
+"pet_gender_male" = "Macho";
+"pet_gender_female" = "Fêmea";
+
+"pet_size_small" = "Pequeno";
+"pet_size_medium" = "Médio";
+"pet_size_big" = "Grande";
+"pet_size_giant" = "Gigante";
+
+"pet_coat_size_short_coat" = "Curta";
+"pet_coat_size_medium_coat" = "Média";
+"pet_coat_size_long_coat" = "Longa";
+
+"pet_coat_color_-1" = "";
+"pet_coat_color_0" = "Amarelo";
+"pet_coat_color_1" = "Azul";
+"pet_coat_color_2" = "Branco";
+"pet_coat_color_3" = "Cinza";
+"pet_coat_color_4" = "Chocolate";
+"pet_coat_color_5" = "Creme";
+"pet_coat_color_6" = "Dourado";
+"pet_coat_color_7" = "Prateado";
+"pet_coat_color_8" = "Preto";
+"pet_coat_color_9" = "Vermelho";
+
+"pet_mood_calm" = "Tranquilo";
+"pet_mood_agitated" = "Agitado";
+"pet_mood_happy" = "Alegre";
+"pet_mood_loving" = "Amoroso";
+"pet_mood_angry" = "Bravo";
+"pet_mood_playful" = "Brincalhão";
+"pet_mood_needy" = "Carente";
+"pet_mood_affectionate" = "Carinhoso";
+"pet_mood_brave" = "Valente";
+
+"invalid_pet_name" = "O nome do animal não pode ser vazio";
+"invalid_pet_picture" = "";
+"invalid_pet_gender" = "O gênero do animal não pode ser vazio";
+"invalid_pet_kind" = "O tipo do animal não pode ser vazio";
+"invalid_pet_size" = "O porte do animal não pode ser vazio";
+"invalid_pet_breed" = "A raça do animal não pode ser vazia";
+"invalid_pet_coat" = "A pelagem do animal não pode ser vazia";
+"invalid_pet_color" = "A cor da pelagem do animal não pode ser vazia";
+"invalid_pet_mood" = "O temperamento do animal não pode ser vazio";
+"invalid_pet_chip_number" = "O número do chip do animal não pode ser vazio";
+
+"select_pet_kind" = "Selecione o tipo do animal";
+
+"cart_observation" = "Observações...";
+

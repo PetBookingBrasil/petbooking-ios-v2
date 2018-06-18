@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="AgendaPetCollectionViewCell" customModule="petbooking_ios_v2" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="94" height="144"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="94" height="144"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Wi-D5-cHD">
+                        <rect key="frame" x="27" y="14" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="LMj-lF-qFh"/>
+                            <constraint firstAttribute="width" constant="40" id="PAV-ZB-hmJ"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Big name name name name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="frE-DT-Bam">
+                        <rect key="frame" x="8" y="64" width="78" height="46"/>
+                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="13"/>
+                        <color key="textColor" red="0.52156862749999999" green="0.52156862749999999" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="frE-DT-Bam" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="3eC-1d-jMg"/>
+                <constraint firstAttribute="trailing" secondItem="frE-DT-Bam" secondAttribute="trailing" constant="8" id="Hdc-Id-Hvr"/>
+                <constraint firstItem="0Wi-D5-cHD" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="c3x-eI-VXM"/>
+                <constraint firstItem="0Wi-D5-cHD" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="14" id="jlF-Iy-ZE8"/>
+                <constraint firstItem="frE-DT-Bam" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="tTj-ah-OZ6"/>
+                <constraint firstItem="frE-DT-Bam" firstAttribute="top" secondItem="0Wi-D5-cHD" secondAttribute="bottom" constant="10" id="woR-B9-G2X"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="94" height="144"/>
+            <connections>
+                <outlet property="nameLabel" destination="frE-DT-Bam" id="nvj-8i-ZQY"/>
+                <outlet property="pictureImageView" destination="0Wi-D5-cHD" id="DkC-6L-3os"/>
+            </connections>
+            <point key="canvasLocation" x="91" y="88"/>
+        </collectionViewCell>
+    </objects>
+</document>
