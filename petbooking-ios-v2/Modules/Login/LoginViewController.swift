@@ -12,87 +12,136 @@ import UIKit
 
 class LoginViewController: UIViewController, LoginViewProtocol {
 
-    // MARK: - Outlets
-	@IBOutlet weak var loginButton: UIButton!
-	@IBOutlet weak var signupButton: UIButton!
-	@IBOutlet weak var facebookLoginButton: UIButton!
-	@IBOutlet weak var forgotPasswordButton: UIButton!
-	@IBOutlet weak var emailTextField: UITextField!
-	@IBOutlet weak var passwordTextField: UITextField!
-	
-	var presenter: LoginPresenterProtocol?
+  // MARK: - Outlets
+  @IBOutlet weak var loginButton: UIButton!
+  @IBOutlet weak var signupButton: UIButton!
+  @IBOutlet weak var facebookLoginButton: UIButton!
+  @IBOutlet weak var forgotPasswordButton: UIButton!
+  @IBOutlet weak var emailTextField: UITextField!
+  @IBOutlet weak var passwordTextField: UITextField!
+  @IBOutlet weak var termsAndConditionsTextView: UITextView!
 
-    // MARK: - App lifecycle
-	override func viewDidLoad() {
-		super.viewDidLoad()
-        
-		hideKeyboardWhenTappedAround()
-        
-        UserDefaults.removeLogin()
-        
-        setupButtons()
-    }
-	
-	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)
-        
-		self.navigationController?.isNavigationBarHidden = true
-	}
-	
-	func setupButtons() {
-		loginButton.round()
-		signupButton.round()
-		facebookLoginButton.round()
-		facebookLoginButton.setSubTextTitleFont("Facebook", font: UIFont.robotoBold(ofSize: 16), controlState: .normal)
-		signupButton.setBorder(width: 2, color: .white)
-		
-		let attributes: [NSAttributedStringKey: Any] = [NSAttributedStringKey.font: UIFont.robotoRegular(ofSize: 16),
-                                                        NSAttributedStringKey.foregroundColor: UIColor.white,
-                                                        NSAttributedStringKey.underlineStyle: NSUnderlineStyle.styleSingle.rawValue]
-        let attributeString = NSMutableAttributedString(string: NSLocalizedString("forgot_passowrd", comment: ""),
-                                                            attributes: attributes)
-		forgotPasswordButton.setAttributedTitle(attributeString, for: .normal)
-	}
-    
-    func didCompleteFacebookLoginWithError(error: Error?) { }
-    
-    func didCompleteLoginWithError(error: Error?) {
-        MIBlurPopup.show(AlertPopupRouter.createModule(title: "Login incorreto", message: "E-mail/Senha não correspondem"), on: self)
+  var presenter: LoginPresenterProtocol?
+
+  fileprivate let termsLink = "//terms"
+  fileprivate let privacyLink = "//privacy"
+
+  // MARK: - App lifecycle
+  override func viewDidLoad() {
+    super.viewDidLoad()
+
+    hideKeyboardWhenTappedAround()
+
+    UserDefaults.removeLogin()
+
+    setupUI()
+  }
+
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+
+    self.navigationController?.isNavigationBarHidden = true
+  }
+
+  private func setupUI() {
+    setupButtons()
+    setupTextView()
+  }
+
+  private func setupButtons() {
+    loginButton.round()
+    signupButton.round()
+    facebookLoginButton.round()
+    facebookLoginButton.setSubTextTitleFont("Facebook", font: UIFont.robotoBold(ofSize: 16), controlState: .normal)
+    signupButton.setBorder(width: 2, color: .white)
+
+    let attributes: [NSAttributedStringKey: Any] = [NSAttributedStringKey.font: UIFont.robotoRegular(ofSize: 16),
+                                                    NSAttributedStringKey.foregroundColor: UIColor.white,
+                                                    NSAttributedStringKey.underlineStyle: NSUnderlineStyle.styleSingle.rawValue]
+    let attributeString = NSMutableAttributedString(string: NSLocalizedString("forgot_passowrd", comment: ""),
+                                                    attributes: attributes)
+    forgotPasswordButton.setAttributedTitle(attributeString, for: .normal)
+  }
+
+  private func setupTextView() {
+    termsAndConditionsTextView.delegate = self
+
+    let originalText = "Ao utilizar o app, você concorda com nossos Termos de Uso e com a Política e Privacidade."
+
+    let style = NSMutableParagraphStyle()
+    style.alignment = NSTextAlignment.center
+    let font = UIFont.openSansRegular(ofSize: 14.0)
+
+    let attribs = [NSAttributedStringKey.foregroundColor: UIColor.white,
+                   NSAttributedStringKey.paragraphStyle: style,
+                   NSAttributedStringKey.font: font] as [NSAttributedStringKey : Any]
+    let attributedOriginalText = NSMutableAttributedString(string: originalText, attributes: attribs)
+
+    let linkAttributes = [NSAttributedStringKey.underlineStyle: NSUnderlineStyle.styleSingle.rawValue,
+                          NSAttributedStringKey.underlineColor: UIColor.white] as [NSAttributedStringKey : Any]
+
+    let termsRange = attributedOriginalText.mutableString.range(of: "Termos de Uso")
+    attributedOriginalText.addAttribute(.link, value: termsLink, range: termsRange)
+    attributedOriginalText.addAttributes(linkAttributes, range: termsRange)
+
+    let privacyRange = attributedOriginalText.mutableString.range(of: "Política e Privacidade")
+    attributedOriginalText.addAttribute(.link, value: privacyLink, range: privacyRange)
+    attributedOriginalText.addAttributes(linkAttributes, range: privacyRange)
+
+    termsAndConditionsTextView.linkTextAttributes = [NSAttributedStringKey.foregroundColor.rawValue: UIColor.white]
+    termsAndConditionsTextView.attributedText = attributedOriginalText
+  }
+
+  func didCompleteFacebookLoginWithError(error: Error?) { }
+
+  func didCompleteLoginWithError(error: Error?) {
+    MIBlurPopup.show(AlertPopupRouter.createModule(title: "Login incorreto", message: "E-mail/Senha não correspondem"), on: self)
+  }
+
+  // MARK: - Actions
+  @IBAction func login(_ sender: Any) {
+    guard let email = emailTextField.text, !email.isEmpty else {
+      MIBlurPopup.show(AlertPopupRouter.createModule(title: "E-mail obrigatório", message: "O campo e-mail não pode ficar vazio."), on: self)
+      return
     }
 
-    // MARK: - Actions
-	@IBAction func login(_ sender: Any) {
-		guard let email = emailTextField.text, !email.isEmpty else {
-			MIBlurPopup.show(AlertPopupRouter.createModule(title: "E-mail obrigatório", message: "O campo e-mail não pode ficar vazio."), on: self)
-			return
-		}
-				
-		if !email.isEmail {
-			MIBlurPopup.show(AlertPopupRouter.createModule(title: "E-mail inválido", message: "Insira seu e-mail no formato nome@domínio.com."), on: self)
-			return
-		}
-		
-		guard let password = passwordTextField.text else { return }
-        
-		if password.isEmpty {
-			MIBlurPopup.show(AlertPopupRouter.createModule(title: "Senha obrigatória", message: "O campo senha não pode ficar vazio."), on: self)
-			return
-		}
-        
-        let credential = Credential(email: email, password: password)
-		
-        presenter?.didTapLoginButton(credential: credential)
-	}
-	
-	@IBAction func facebookLogin(_ sender: Any) {
-		presenter?.didTapFacebookLoginButton()
-	}
-	
-	@IBAction func signup(_ sender: Any) {
-		presenter?.didTapSignupButton()
-	}
-	
-	@IBAction func forgotPassword(_ sender: Any) {
-		presenter?.didTapForgotPasswordButton()
-	}
+    if !email.isEmail {
+      MIBlurPopup.show(AlertPopupRouter.createModule(title: "E-mail inválido", message: "Insira seu e-mail no formato nome@domínio.com."), on: self)
+      return
+    }
+
+    guard let password = passwordTextField.text else { return }
+
+    if password.isEmpty {
+      MIBlurPopup.show(AlertPopupRouter.createModule(title: "Senha obrigatória", message: "O campo senha não pode ficar vazio."), on: self)
+      return
+    }
+
+    let credential = Credential(email: email, password: password)
+
+    presenter?.didTapLoginButton(credential: credential)
+  }
+
+  @IBAction func facebookLogin(_ sender: Any) {
+    presenter?.didTapFacebookLoginButton()
+  }
+
+  @IBAction func signup(_ sender: Any) {
+    presenter?.didTapSignupButton()
+  }
+
+  @IBAction func forgotPassword(_ sender: Any) {
+    presenter?.didTapForgotPasswordButton()
+  }
+}
+
+extension LoginViewController: UITextViewDelegate {
+  func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
+    if URL.absoluteString == termsLink {
+      // TODO
+    } else if URL.absoluteString == privacyLink {
+      // TODO
+    }
+    return false
+  }
 }

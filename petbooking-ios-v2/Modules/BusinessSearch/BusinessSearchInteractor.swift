@@ -12,31 +12,31 @@ import UIKit
 
 class BusinessSearchInteractor: BusinessSearchInteractorProtocol {
 
-    weak var presenter: BusinessSearchPresenterProtocol?
-	
-	func addToFavorites(business: Business) {
-		
-		if business.isFavorited() {
-			
-			PetbookingAPI.sharedInstance.removeBusinessFromFavorite(business: business, completion: { (success, message) in
-				
-				if success {
-					self.presenter?.removedFromFavorites(business: business)
-					business.favoriteId = 0
-				}
-				
-			})
-			
-		} else {
-			
-			PetbookingAPI.sharedInstance.addBusinessToFavorite(business: business) { (success, message) in
-				
-				if success {
-					//business.isFavorite = true
-				}
-				
-			}
-		}
-		
-	}
+  weak var presenter: BusinessSearchPresenterProtocol?
+
+  func addToFavorites(business: Business) {
+
+    if business.isFavorited() {
+
+      PetbookingAPI.sharedInstance.removeBusinessFromFavorite(business: business, completion: { (success, message) in
+
+        if success {
+          self.presenter?.removedFromFavorites(business: business)
+          business.favoriteId = 0
+        }
+
+      })
+
+    } else {
+
+      PetbookingAPI.sharedInstance.addBusinessToFavorite(business: business) { (success, message) in
+
+        if success {
+          //business.isFavorite = true
+        }
+
+      }
+    }
+
+  }
 }

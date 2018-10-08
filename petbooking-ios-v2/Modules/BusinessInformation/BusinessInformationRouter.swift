@@ -11,21 +11,21 @@
 import UIKit
 
 class BusinessInformationRouter: BusinessInformationWireframeProtocol {
+  
+  weak var viewController: UIViewController?
+  
+  static func createModule(business:Business) -> UIViewController {
+    // Change to get view from storyboard if not using progammatic UI
+    let view = BusinessInformationViewController(nibName: nil, bundle: nil)
+    view.business = business
+    let interactor = BusinessInformationInteractor()
+    let router = BusinessInformationRouter()
+    let presenter = BusinessInformationPresenter(interface: view, interactor: interactor, router: router)
     
-    weak var viewController: UIViewController?
+    view.presenter = presenter
+    interactor.presenter = presenter
+    router.viewController = view
     
-	static func createModule(business:Business) -> UIViewController {
-        // Change to get view from storyboard if not using progammatic UI
-        let view = BusinessInformationViewController(nibName: nil, bundle: nil)
-				view.business = business
-        let interactor = BusinessInformationInteractor()
-        let router = BusinessInformationRouter()
-        let presenter = BusinessInformationPresenter(interface: view, interactor: interactor, router: router)
-        
-        view.presenter = presenter
-        interactor.presenter = presenter
-        router.viewController = view
-        
-        return view
-    }
+    return view
+  }
 }

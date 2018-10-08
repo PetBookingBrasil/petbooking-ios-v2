@@ -85,9 +85,7 @@ public final class Localide {
 extension Localide {
 
     fileprivate class func installedMapApps() -> [LocalideMapApp] {
-        return LocalideMapApp.AllMapApps.flatMap({ mapApp in
-            return mapApp.canOpenApp() ? mapApp : nil
-        })
+        return LocalideMapApp.AllMapApps.compactMap({  return $0.canOpenApp() ? $0 : nil })
     }
 
     fileprivate func launchApp(_ app: LocalideMapApp, withDirectionsToLocation location: CLLocationCoordinate2D, fromMemory: Bool, completion: LocalideUsageCompletion?) {

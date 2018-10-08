@@ -12,53 +12,52 @@ import UIKit
 import CoreLocation
 
 enum BusinessListType {
-    case list, map, favorites
+  case list, map, favorites
 }
 
 class BusinessListViewControllerInteractor: BusinessListViewControllerInteractorInputProtocol {
-	
-	weak var presenter: BusinessListViewControllerInteractorOutputProtocol?
-	
-	var businessListType:BusinessListType?
-	
-    func getBusinessByCoordinates(coordinates: CLLocationCoordinate2D, service: ServiceCategory?, page: Int) {
-		
-        PetbookingAPI.sharedInstance.getBusinessList(coordinate: coordinates, service: service, page:page) { (businessList, msg) in
-			
-			guard let businessList = businessList else {
-				return
-			}
-			
-			self.presenter?.updateBusinessList(businessList: businessList)
-		}		
-	}
-	
-	func getFavoriteBusiness(page: Int) {
-		
-		PetbookingAPI.sharedInstance.getFavoriteBusinessList(page:page) { (businessList, msg) in
-			guard let businessList = businessList else {
-				return
-			}
-			
-			self.presenter?.updateBusinessList(businessList: businessList)
-		}
-	}
-	
-	func addToFavorites(business: Business) {
-		
-		if business.isFavorited() {
-			PetbookingAPI.sharedInstance.removeBusinessFromFavorite(business: business) { (success, message) in
-				if success {
-					self.presenter?.removedFromFavorites(business: business)
-					business.favoriteId = 0
-				}
-			}
-		} else {
-			PetbookingAPI.sharedInstance.addBusinessToFavorite(business: business) { (success, message) in
-				if success {
-                    business.favoriteId = 1
-				}
-			}
-		}
-	}
+  
+  weak var presenter: BusinessListViewControllerInteractorOutputProtocol?
+  
+  var businessListType:BusinessListType?
+  
+  func getBusinessByCoordinates(coordinates: CLLocationCoordinate2D, service: ServiceCategory?, page: Int) {
+    
+    PetbookingAPI.sharedInstance.getBusinessList(coordinate: coordinates, service: service, page: page) { (businessList, msg) in
+      if let businessList = businessList {
+        self.presenter?.updateBusinessList(businessList: businessList)
+      } else {
+        self.presenter?.updateBusinessList(businessList: BusinessList())
+      }
+    }
+  }
+  
+  func getFavoriteBusiness(page: Int) {
+    
+    PetbookingAPI.sharedInstance.getFavoriteBusinessList(page:page) { (businessList, msg) in
+      if let businessList = businessList {
+        self.presenter?.updateBusinessList(businessList: businessList)
+      } else {
+        self.presenter?.updateBusinessList(businessList: BusinessList())
+      }
+    }
+  }
+  
+  func addToFavorites(business: Business) {
+    
+    if business.isFavorited() {
+      PetbookingAPI.sharedInstance.removeBusinessFromFavorite(business: business) { (success, message) in
+        if success {
+          self.presenter?.removedFromFavorites(business: business)
+          business.favoriteId = 0
+        }
+      }
+    } else {
+      PetbookingAPI.sharedInstance.addBusinessToFavorite(business: business) { (success, message) in
+        if success {
+          business.favoriteId = 1
+        }
+      }
+    }
+  }
 }

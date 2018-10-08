@@ -445,7 +445,7 @@ class AddPetViewControllerViewController: UIViewController, AddPetViewController
 	func showAlertMessage(title: String, message: String) { }
 }
 
-extension AddPetViewControllerViewController:UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension AddPetViewControllerViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 	
 	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
 		if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
@@ -463,7 +463,7 @@ extension AddPetViewControllerViewController:UIImagePickerControllerDelegate, UI
 extension AddPetViewControllerViewController: SelectPhotoSourcePopupActionProtocol {
 	
 	func showCamera() {
-		if UIImagePickerController.isSourceTypeAvailable(.camera){
+		if UIImagePickerController.isSourceTypeAvailable(.camera) {
 			
 			let imagePicker = UIImagePickerController()
 			
@@ -477,7 +477,7 @@ extension AddPetViewControllerViewController: SelectPhotoSourcePopupActionProtoc
 	
 	func showAlbum() {
 		
-		if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
+		if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
 			
 			let imagePicker = UIImagePickerController()
 			

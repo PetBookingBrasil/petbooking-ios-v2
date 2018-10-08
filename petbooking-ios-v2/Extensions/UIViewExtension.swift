@@ -37,10 +37,14 @@ extension UIView {
         self.layer.masksToBounds = false
 
 		self.layer.rasterizationScale = UIScreen.main.scale
+        
+        self.clipsToBounds = true
 	}
 	
 	func removeShadow() {
 		self.layer.shadowColor = UIColor.clear.cgColor
 		self.layer.shadowOpacity = 0.0
+        
+        self.clipsToBounds = true
 	}
 }

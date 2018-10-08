@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -45,7 +45,7 @@
                 <outlet property="petTypeLabel" destination="lMB-Tg-4Fm" id="1dv-bq-eXD"/>
                 <outlet property="picker" destination="Npb-Ga-8gj" id="qoq-VZ-Pic"/>
                 <outlet property="pickerView" destination="Z4a-nX-ywJ" id="YPp-2o-8aM"/>
-                <outlet property="profilePictureImageView" destination="oce-jR-EL1" id="Z0O-CZ-H98"/>
+                <outlet property="profilePictureImageView" destination="QV4-ob-HIx" id="UuQ-mX-X6i"/>
                 <outlet property="profilePictureView" destination="LRa-KN-5y1" id="pnt-01-BkP"/>
                 <outlet property="saveButton" destination="Scv-Ja-zg2" id="iFB-lf-aeA"/>
                 <outlet property="view" destination="Ngz-yb-OKh" id="XDU-dA-a0Z"/>
@@ -408,7 +408,11 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cKg-8w-B0z">
-                                    <rect key="frame" x="331" y="30.5" width="16" height="22"/>
+                                    <rect key="frame" x="323" y="19.5" width="32" height="44"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="JQ2-IR-Dde"/>
+                                        <constraint firstAttribute="width" constant="32" id="sjl-x1-BZa"/>
+                                    </constraints>
                                     <state key="normal" image="closeIcon">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
@@ -456,7 +460,7 @@
                                 <constraint firstItem="eLZ-8C-fqr" firstAttribute="centerX" secondItem="LDz-9H-cqf" secondAttribute="centerX" id="JmC-9F-i98"/>
                                 <constraint firstItem="ayO-sY-Z0m" firstAttribute="leading" secondItem="lMB-Tg-4Fm" secondAttribute="trailing" constant="16" id="JqJ-Qs-KVt"/>
                                 <constraint firstItem="4Ym-zV-POd" firstAttribute="leading" secondItem="WSQ-Ej-fLi" secondAttribute="trailing" id="K4a-AE-n59"/>
-                                <constraint firstAttribute="trailing" secondItem="cKg-8w-B0z" secondAttribute="trailing" constant="28" id="LHg-gt-gRO"/>
+                                <constraint firstAttribute="trailing" secondItem="cKg-8w-B0z" secondAttribute="trailing" constant="20" id="LHg-gt-gRO"/>
                                 <constraint firstAttribute="trailing" secondItem="jG3-a7-CqY" secondAttribute="trailing" constant="16" id="LvX-Ph-bS2"/>
                                 <constraint firstItem="hQA-xF-LJL" firstAttribute="top" secondItem="UlA-cP-ck0" secondAttribute="bottom" constant="10" id="MVx-mW-waH"/>
                                 <constraint firstItem="kGi-cq-Mge" firstAttribute="top" secondItem="WKZ-gE-qAI" secondAttribute="bottom" id="NjK-kS-Fbo"/>

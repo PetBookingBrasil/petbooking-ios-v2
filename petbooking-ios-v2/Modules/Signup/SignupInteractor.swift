@@ -77,7 +77,7 @@ class SignupInteractor: SignupInteractorProtocol {
                 if success {
                     self.presenter?.updatedUserWithSuccess()
                 } else {
-                    self.presenter?.createUserWithError()
+                    self.presenter?.createUserError(message)
                 }
             }
         } else {
@@ -85,7 +85,7 @@ class SignupInteractor: SignupInteractorProtocol {
                 if success {
                     self.presenter?.createUserWithSuccess()
                 } else {
-                    self.presenter?.createUserWithError()
+                    self.presenter?.createUserError(message)
                 }
             }
         }

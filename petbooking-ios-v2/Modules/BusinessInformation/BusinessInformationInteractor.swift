@@ -11,10 +11,9 @@
 import UIKit
 
 class BusinessInformationInteractor: BusinessInformationInteractorProtocol {
-
-    weak var presenter: BusinessInformationPresenterProtocol?
+  weak var presenter: BusinessInformationPresenterProtocol?
 }
 
 enum SocialNetworkEnum:String {
-	case facebook = "facebook", instagram = "instagram", snapchat = "snapchat", twitter = "twitter", googleplus = "googleplus"
+  case facebook = "facebook", instagram = "instagram", snapchat = "snapchat", twitter = "twitter", googleplus = "googleplus"
 }

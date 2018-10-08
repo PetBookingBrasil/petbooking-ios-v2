@@ -10,15 +10,15 @@ import Foundation
 import ALLoadingView
 
 class ReviewPresenter: ReviewPresenterProtocol {
-    weak private var view: ReviewViewProtocol?
-    private let interactor: ReviewInteractorProtocol
-    private let router: ReviewWireframeProtocol
+  weak private var view: ReviewViewProtocol?
+  private let interactor: ReviewInteractorProtocol
+  private let router: ReviewWireframeProtocol
+  
+  init(interface: ReviewViewProtocol, interactor: ReviewInteractorProtocol, router: ReviewWireframeProtocol) {
+    self.view = interface
+    self.interactor = interactor
+    self.router = router
     
-    init(interface: ReviewViewProtocol, interactor: ReviewInteractorProtocol, router: ReviewWireframeProtocol) {
-        self.view = interface
-        self.interactor = interactor
-        self.router = router
-        
-        self.interactor.presenter = self
-    }
+    self.interactor.presenter = self
+  }
 }

@@ -13,14 +13,16 @@ class ServiceCategory: MTLModel, MTLJSONSerializing {
 
 	@objc var id = ""
 	@objc var name = ""
-    @objc var serviceCount = 0
+    @objc var mobileThumb = ""
+    @objc var templateIcon = ""
     @objc var slug = ""
-	
+	    
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
 		return ["id": "id",
                 "name": "attributes.name",
-                "serviceCount": "attributes.service_count",
-                "slug": "attributes.slug"]
+                "slug": "attributes.slug",
+                "mobileThumb": "attributes.cover_image.mobile_thumb.url",
+                "templateIcon": "attributes.category_template_icon.icon.mobile_thumb.url"]
 	}
 }
 

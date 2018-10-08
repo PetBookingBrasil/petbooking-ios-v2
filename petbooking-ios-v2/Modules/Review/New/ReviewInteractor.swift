@@ -9,5 +9,5 @@
 import Foundation
 
 class ReviewInteractor: ReviewInteractorProtocol {
-    weak var presenter: ReviewPresenterProtocol?
+  weak var presenter: ReviewPresenterProtocol?
 }

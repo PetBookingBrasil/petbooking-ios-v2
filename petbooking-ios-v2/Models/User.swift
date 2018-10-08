@@ -6,7 +6,6 @@
 //  Copyright © 2017 Pet Booking Serviços e Desenvolvimento de Softwares SA. All rights reserved.
 //
 
-import UIKit
 import Mantle
 import Realm
 import RealmSwift
@@ -67,6 +66,10 @@ class User: MTLModel, MTLJSONSerializing {
                 "zipcode": "data.attributes.zipcode",
                 "validForScheduling": "data.attributes.valid_for_scheduling",
                 "errors": "errors"]
+    }
+    
+    @objc static func errorsJSONTransformer() -> ValueTransformer {
+        return MTLJSONAdapter.arrayTransformer(withModelClass: ErrorRest.self)
     }
 }
 

@@ -78,8 +78,7 @@ extension SelectCategoryTableViewCell: UICollectionViewDelegate, UICollectionVie
 			collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .left)
 		}
 		
-		cell.nameLabel.text = service.name
-		cell.pictureImageView.image = UIImage(named: "\(service.slug)-mini")
+        cell.setupCell(with: service)
 		
 		return cell
 	}

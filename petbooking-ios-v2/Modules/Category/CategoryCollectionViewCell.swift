@@ -7,8 +7,21 @@
 //
 
 import UIKit
+import PINRemoteImage
 
 class CategoryCollectionViewCell: UICollectionViewCell {
 
 	@IBOutlet weak var pictureImageView: UIImageView!
+    
+    func setImage(with category: ServiceCategory) {
+        if category.mobileThumb.contains("http") {
+            if let url = URL(string: category.mobileThumb) {
+                pictureImageView.pin_setImage(from: url)
+            }
+        } else {
+            if let url = URL(string: "https://cdn.petbooking.com.br\(category.slug)") {
+                pictureImageView.pin_setImage(from: url)
+            }
+        }
+    }
 }

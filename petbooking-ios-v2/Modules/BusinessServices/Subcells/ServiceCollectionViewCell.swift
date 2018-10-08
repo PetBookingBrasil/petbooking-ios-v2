@@ -24,11 +24,29 @@ class ServiceCollectionViewCell: UICollectionViewCell {
 			}
 		}
 	}
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        pictureImageView.image = UIImage()
+    }
 	
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-			pictureImageView.round()
+        
+        pictureImageView.round()
     }
-
+    
+    func setupCell(with service: ServiceCategory) {
+        
+        nameLabel.text = service.name
+        
+        if let url = URL(string: service.templateIcon) {
+            pictureImageView.pin_setImage(from: url)
+        } else {
+            if let url = URL(string: "https://cdn.petbooking.com.br\(service.slug)") {
+                pictureImageView.pin_setImage(from: url)
+            }
+        }
+    }
 }

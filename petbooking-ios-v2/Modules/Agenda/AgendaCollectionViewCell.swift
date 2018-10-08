@@ -9,7 +9,6 @@
 import UIKit
 
 class AgendaCollectionViewCell: UICollectionViewCell {
-
 	
 	@IBOutlet weak var dayLabel: UILabel!
 	@IBOutlet weak var weekLabel: UILabel!
@@ -22,8 +21,8 @@ class AgendaCollectionViewCell: UICollectionViewCell {
 	
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-			dayView.round()
+
+        dayView.round()
     }
 	
 	@IBAction func goFoward(_ sender: Any) {
@@ -36,10 +35,6 @@ class AgendaCollectionViewCell: UICollectionViewCell {
 }
 
 protocol AgendaCollectionViewCellDelegate: class {
-	
-	
 	func goFoward()
-	
 	func goBackward()
-	
 }

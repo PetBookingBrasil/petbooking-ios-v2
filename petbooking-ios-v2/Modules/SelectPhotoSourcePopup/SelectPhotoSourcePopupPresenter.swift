@@ -23,5 +23,4 @@ class SelectPhotoSourcePopupPresenter: SelectPhotoSourcePopupPresenterProtocol {
 
         self.interactor.presenter = self
     }
-
 }

@@ -9,6 +9,8 @@
 //
 
 import UIKit
+import MarketingCloudSDK
+import Crashlytics
 
 class SideMenuViewController: UIViewController, SideMenuViewProtocol {
     
@@ -24,7 +26,6 @@ class SideMenuViewController: UIViewController, SideMenuViewProtocol {
 
 	override func viewDidLoad() {
         super.viewDidLoad()
-		setupUserData()
 		navigationController?.isNavigationBarHidden = true
 		
 		menuTableView.register(UINib(nibName: "SideMenuTableViewCell", bundle: nil), forCellReuseIdentifier: "SideMenuCell")
@@ -33,10 +34,17 @@ class SideMenuViewController: UIViewController, SideMenuViewProtocol {
 		
 		self.profileImageView.round()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        setupMarketingCloud()
+        setupUserData()
+    }
 	
 	func setupUserData() {
 		guard let user = UserManager.sharedInstance.getCurrentUser() else { return }
-		
+        
 		nameLabel.text = user.name
 		emailLabel.text = user.email
 		if user.gender == "male" {
@@ -63,6 +71,26 @@ class SideMenuViewController: UIViewController, SideMenuViewProtocol {
 	@IBAction func goToProfile(_ sender: Any) {
 		presenter?.didTapProfile()
 	}
+    
+    func setupMarketingCloud() {
+        guard let user = UserManager.sharedInstance.getCurrentUser() else { return }
+
+        var error: NSError?
+        let success: Bool = MarketingCloudSDK.sharedInstance().sfmc_configure(&error)
+        
+        if success == true {
+            // turn on logging for debugging.  Not recommended for production apps.
+            MarketingCloudSDK.sharedInstance().sfmc_setDebugLoggingEnabled(true)
+            
+            // Great place for setting the contact key, tags and attributes since you know the SDK is setup and ready.
+            MarketingCloudSDK.sharedInstance().sfmc_setContactKey(user.email)
+            MarketingCloudSDK.sharedInstance().sfmc_addTag("iOS")
+            MarketingCloudSDK.sharedInstance().sfmc_setAttributeNamed("Endereço de email", value: user.email)
+            MarketingCloudSDK.sharedInstance().sfmc_setAttributeNamed("Número do telefone celular", value: user.phone)
+        } else {
+            Crashlytics.sharedInstance().recordError(error!)
+        }
+    }
 }
 
 extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {

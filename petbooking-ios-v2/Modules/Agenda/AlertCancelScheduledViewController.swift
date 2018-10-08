@@ -9,45 +9,37 @@
 import UIKit
 
 class AlertCancelScheduledViewController: UIViewController {
-
-	@IBOutlet weak var popupContentContainerView: UIView!
-	
-	@IBOutlet weak var backButton: UIButton!
-	@IBOutlet weak var cancelScheduledButton: UIButton!
-	var scheduledService:ScheduledService! = ScheduledService()
-	
-	weak var delegate:AlertCancelScheduledDelegate?
-	
+    
+    @IBOutlet weak var popupContentContainerView: UIView!
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var cancelScheduledButton: UIButton!
+  
+    var scheduledService:ScheduledService! = ScheduledService()
+    
+    weak var delegate:AlertCancelScheduledDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-			cancelScheduledButton.round()
-			backButton.round()
-			backButton.setBorder(width: 1, color: .white)
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        cancelScheduledButton.round()
+        backButton.round()
+        backButton.setBorder(width: 1, color: .white)
     }
     
-	@IBAction func cancelScheduled(_ sender: Any) {
-		dismiss(animated: true, completion: nil)
-		delegate?.cancelScheduledService(scheduledService: scheduledService)
-	}
-
-	@IBAction func back(_ sender: Any) {
-		dismiss(animated: true, completion: nil)
-	}
-
-
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    @IBAction func cancelScheduled(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+        delegate?.cancelScheduledService(scheduledService: scheduledService)
+    }
+    
+    @IBAction func back(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
 }
 
 protocol AlertCancelScheduledDelegate: class {
-	
-	
-	func cancelScheduledService(scheduledService:ScheduledService)
-	
-	
+    func cancelScheduledService(scheduledService:ScheduledService)
 }

@@ -12,21 +12,21 @@ import Foundation
 
 //MARK: Wireframe -
 protocol BusinessInformationWireframeProtocol: class {
-
+  
 }
 //MARK: Presenter -
 protocol BusinessInformationPresenterProtocol: class {
-
+  
 }
 
 //MARK: Interactor -
 protocol BusinessInformationInteractorProtocol: class {
-
+  
   var presenter: BusinessInformationPresenterProtocol?  { get set }
 }
 
 //MARK: View -
 protocol BusinessInformationViewProtocol: class {
-
+  
   var presenter: BusinessInformationPresenterProtocol?  { get set }
 }
