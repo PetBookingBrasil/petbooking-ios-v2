@@ -14,17 +14,17 @@ PODS:
     - Fabric (~> 1.7.5)
   - DZNEmptyDataSet (1.8.1)
   - Fabric (1.7.6)
-  - FacebookCore (0.3.0):
-    - Bolts (~> 1.8)
-    - FBSDKCoreKit (~> 4.27)
+  - FacebookCore (0.6.0):
+    - Bolts (~> 1.9)
+    - FBSDKCoreKit (~> 4.43)
   - FacebookLogin (0.3.0):
     - Bolts (~> 1.8)
     - FacebookCore (~> 0.3)
     - FBSDKCoreKit (~> 4.27)
     - FBSDKLoginKit (~> 4.27)
-  - FBSDKCoreKit (4.32.0):
-    - Bolts (~> 1.7)
-  - FBSDKLoginKit (4.32.0):
+  - FBSDKCoreKit (4.44.1):
+    - Bolts (~> 1.9)
+  - FBSDKLoginKit (4.44.1):
     - FBSDKCoreKit
   - FLAnimatedImage (1.0.12)
   - IQKeyboardManager (6.0.0)
@@ -41,11 +41,11 @@ PODS:
     - FLAnimatedImage (>= 1.0)
     - PINRemoteImage/Core
   - RateView (1.2)
-  - Realm (3.3.2):
-    - Realm/Headers (= 3.3.2)
-  - Realm/Headers (3.3.2)
-  - RealmSwift (3.3.2):
-    - Realm (= 3.3.2)
+  - Realm (3.15.0):
+    - Realm/Headers (= 3.15.0)
+  - Realm/Headers (3.15.0)
+  - RealmSwift (3.15.0):
+    - Realm (= 3.15.0)
   - SideMenu (3.1.5)
   - SwiftKeychainWrapper (3.0.1)
 
@@ -115,10 +115,10 @@ SPEC CHECKSUMS:
   Crashlytics: aee1a064cbbf99b32efa3f056a5f458d846bc8ff
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Fabric: f8d42c893bb187326a7968b62abe55c36a987a46
-  FacebookCore: 3ffa190a3f1f96cec0e44d3fc221bc322c595ffa
+  FacebookCore: 38cd3a4078738d6f648eb9b6b9d35b02d693e9a1
   FacebookLogin: 0af839ea858faef99550d16596b87b4a8e8906e6
-  FBSDKCoreKit: 55d7f2ac45d9c4b9b6119f4e43900fe84b9b7b1b
-  FBSDKLoginKit: 32ac05c2a59952c363c2e85aafa8f73ba93bcbad
+  FBSDKCoreKit: a823ae35bdb60ebb8d7a7e51abe7c5d87d2bfced
+  FBSDKLoginKit: 54ae59987f2a8703021557c90a9aebb9e5c2bef6
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   IQKeyboardManager: fdba62488e23c48a3fa8591635aff166ed946632
   Mantle: 2fa750afa478cd625a94230fbf1c13462f29395b
@@ -126,11 +126,11 @@ SPEC CHECKSUMS:
   PINCache: ce36ed282031b92fc7733ffe831f474ff80fddc2
   PINRemoteImage: 4ac4011c5caefd6befd99758e09becede05d3226
   RateView: d4d12e9bb76dc23a77a56f4e5c5fb530a3f3f998
-  Realm: d927fbf66df5532cfafc08afb5f7e53ded37b894
-  RealmSwift: 4e903a494e05d866581d69ad6f7e7b879d446baf
+  Realm: 9b834e1be6062f544805252c812348872dc5d4ed
+  RealmSwift: 8a41886f8ab6efef9eb8df97de2f2bb911561a79
   SideMenu: 47dbf9e4d878062d8994aed43f6e4bf6c1fea30b
   SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
 
-PODFILE CHECKSUM: 11e6465d5eaa1f3497bcd524c5510efc87b86b09
+PODFILE CHECKSUM: cd3b4bc0bbf1fa6e636be0840da6fa513cc1ce80
 
-COCOAPODS: 1.5.2
+COCOAPODS: 1.7.0

@@ -10,8 +10,8 @@ target 'petbooking-ios-v2' do
 
   # Pods for petbooking-ios-v2
 
-    pod 'Fabric'
-    pod 'Crashlytics'
+  pod 'Fabric'
+  pod 'Crashlytics'
 
 	pod 'FacebookCore'
 	pod 'FacebookLogin'
@@ -30,5 +30,6 @@ target 'petbooking-ios-v2' do
 	pod 'DZNEmptyDataSet'
 	pod 'RateView'
 	pod 'AKNumericFormatter'
-    pod 'SwiftKeychainWrapper'
+  pod 'SwiftKeychainWrapper'
+  
 end
