@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		247A6B6D229CC0F400123DC9 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A6B6C229CC0F400123DC9 /* Banner.swift */; };
+		247A6B70229CCC0D00123DC9 /* BannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A6B6E229CCC0D00123DC9 /* BannerCollectionViewCell.swift */; };
+		247A6B71229CCC0D00123DC9 /* BannerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 247A6B6F229CCC0D00123DC9 /* BannerCollectionViewCell.xib */; };
 		24B6AA392015EDF0007E3930 /* VNDJSONEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B6AA382015EDF0007E3930 /* VNDJSONEncoding.swift */; };
 		24DA62E620516CCD00124FF1 /* AddPetInformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24DA62E520516CCD00124FF1 /* AddPetInformationTableViewCell.xib */; };
 		24DA62E820516E7000124FF1 /* AddPetInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DA62E720516E7000124FF1 /* AddPetInformationTableViewCell.swift */; };
@@ -142,8 +145,8 @@
 		4149E9781EF9628100D6C44B /* BusinessListViewControllerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4149E9721EF9628100D6C44B /* BusinessListViewControllerPresenter.swift */; };
 		4149E9791EF9628100D6C44B /* BusinessListViewControllerProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4149E9731EF9628100D6C44B /* BusinessListViewControllerProtocols.swift */; };
 		4149E97A1EF9628100D6C44B /* BusinessListViewControllerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4149E9741EF9628100D6C44B /* BusinessListViewControllerRouter.swift */; };
-		4149E97B1EF9628100D6C44B /* BusinessListViewControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4149E9751EF9628100D6C44B /* BusinessListViewControllerViewController.swift */; };
-		4149E97C1EF9628100D6C44B /* BusinessListViewControllerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4149E9761EF9628100D6C44B /* BusinessListViewControllerViewController.xib */; };
+		4149E97B1EF9628100D6C44B /* BusinessListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4149E9751EF9628100D6C44B /* BusinessListViewController.swift */; };
+		4149E97C1EF9628100D6C44B /* BusinessListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4149E9761EF9628100D6C44B /* BusinessListViewController.xib */; };
 		4149E9971EFF0D0100D6C44B /* BusinessTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4149E9951EFF0D0100D6C44B /* BusinessTableViewCell.swift */; };
 		4149E9981EFF0D0100D6C44B /* BusinessTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4149E9961EFF0D0100D6C44B /* BusinessTableViewCell.xib */; };
 		4149E99A1EFF196A00D6C44B /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4149E9991EFF196A00D6C44B /* Business.swift */; };
@@ -345,6 +348,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		247A6B6C229CC0F400123DC9 /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
+		247A6B6E229CCC0D00123DC9 /* BannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCollectionViewCell.swift; sourceTree = "<group>"; };
+		247A6B6F229CCC0D00123DC9 /* BannerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BannerCollectionViewCell.xib; sourceTree = "<group>"; };
 		24B6AA382015EDF0007E3930 /* VNDJSONEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VNDJSONEncoding.swift; path = Helpers/VNDJSONEncoding.swift; sourceTree = "<group>"; };
 		24DA62E520516CCD00124FF1 /* AddPetInformationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPetInformationTableViewCell.xib; sourceTree = "<group>"; };
 		24DA62E720516E7000124FF1 /* AddPetInformationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPetInformationTableViewCell.swift; sourceTree = "<group>"; };
@@ -506,8 +512,8 @@
 		4149E9721EF9628100D6C44B /* BusinessListViewControllerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessListViewControllerPresenter.swift; sourceTree = "<group>"; };
 		4149E9731EF9628100D6C44B /* BusinessListViewControllerProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessListViewControllerProtocols.swift; sourceTree = "<group>"; };
 		4149E9741EF9628100D6C44B /* BusinessListViewControllerRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessListViewControllerRouter.swift; sourceTree = "<group>"; };
-		4149E9751EF9628100D6C44B /* BusinessListViewControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessListViewControllerViewController.swift; sourceTree = "<group>"; };
-		4149E9761EF9628100D6C44B /* BusinessListViewControllerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusinessListViewControllerViewController.xib; sourceTree = "<group>"; };
+		4149E9751EF9628100D6C44B /* BusinessListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessListViewController.swift; sourceTree = "<group>"; };
+		4149E9761EF9628100D6C44B /* BusinessListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusinessListViewController.xib; sourceTree = "<group>"; };
 		4149E9951EFF0D0100D6C44B /* BusinessTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessTableViewCell.swift; sourceTree = "<group>"; };
 		4149E9961EFF0D0100D6C44B /* BusinessTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusinessTableViewCell.xib; sourceTree = "<group>"; };
 		4149E9991EFF196A00D6C44B /* Business.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
@@ -1072,8 +1078,8 @@
 				4149E9721EF9628100D6C44B /* BusinessListViewControllerPresenter.swift */,
 				4149E9731EF9628100D6C44B /* BusinessListViewControllerProtocols.swift */,
 				4149E9741EF9628100D6C44B /* BusinessListViewControllerRouter.swift */,
-				4149E9751EF9628100D6C44B /* BusinessListViewControllerViewController.swift */,
-				4149E9761EF9628100D6C44B /* BusinessListViewControllerViewController.xib */,
+				4149E9751EF9628100D6C44B /* BusinessListViewController.swift */,
+				4149E9761EF9628100D6C44B /* BusinessListViewController.xib */,
 				4149E9951EFF0D0100D6C44B /* BusinessTableViewCell.swift */,
 				4149E9961EFF0D0100D6C44B /* BusinessTableViewCell.xib */,
 				4127768C1F13084800EC6488 /* BusinessMapListViewController.swift */,
@@ -1158,6 +1164,7 @@
 				419E957F1FBB1616008E1D10 /* Review.swift */,
 				FF43207E208BBA18007CA59C /* Reviewable.swift */,
 				FF3A8C9F20ABB3DD004FD175 /* Credential.swift */,
+				247A6B6C229CC0F400123DC9 /* Banner.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1497,6 +1504,8 @@
 				FF34B172202B82D900F00528 /* CategoryViewController.xib */,
 				411B4E5E1F3E567000B9244B /* CategoryCollectionViewCell.swift */,
 				411B4E5F1F3E567000B9244B /* CategoryCollectionViewCell.xib */,
+				247A6B6E229CCC0D00123DC9 /* BannerCollectionViewCell.swift */,
+				247A6B6F229CCC0D00123DC9 /* BannerCollectionViewCell.xib */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1653,6 +1662,7 @@
 				414BB1F81EBFF4AF000BE2CC /* AlertPopupViewController.xib in Resources */,
 				413D9FA21F3816FC007ABBEE /* CartTableHeaderView.xib in Resources */,
 				4113B2CD1F3414CB007DC89F /* BusinessInformationViewController.xib in Resources */,
+				247A6B71229CCC0D00123DC9 /* BannerCollectionViewCell.xib in Resources */,
 				41E7E2EE1EC27833002C0A55 /* OpenSans-Italic.ttf in Resources */,
 				415191E91FABE9B400CACCFE /* ScheduleToTheCartAlertViewController.xib in Resources */,
 				4120ED101EB128A5009D35B0 /* Localizable.strings in Resources */,
@@ -1665,7 +1675,7 @@
 				FFCC900F207AE00A003C43DF /* SettingsViewController.xib in Resources */,
 				419F2B401FA915A50097C9A7 /* TimeTableViewCell.xib in Resources */,
 				4149E9981EFF0D0100D6C44B /* BusinessTableViewCell.xib in Resources */,
-				4149E97C1EF9628100D6C44B /* BusinessListViewControllerViewController.xib in Resources */,
+				4149E97C1EF9628100D6C44B /* BusinessListViewController.xib in Resources */,
 				4160D8B41F66AB81005D361B /* Roboto-ThinItalic.ttf in Resources */,
 				410AA9771FA7751900A90377 /* SelectProfessionalTableViewCell.xib in Resources */,
 				419C89281F33A8BB00BDBE8E /* CartViewController.xib in Resources */,
@@ -1920,6 +1930,7 @@
 				410AA9721FA6ACF700A90377 /* SelectServiceTableViewCell.swift in Sources */,
 				FF34B17E202CA5BA00F00528 /* CategoryContentRouter.swift in Sources */,
 				4120ED0A1EB11BA0009D35B0 /* UIColorExtension.swift in Sources */,
+				247A6B70229CCC0D00123DC9 /* BannerCollectionViewCell.swift in Sources */,
 				411B4E601F3E567000B9244B /* CategoryCollectionViewCell.swift in Sources */,
 				4129D9E61ED86E9B0067EDC3 /* MyPetsRouter.swift in Sources */,
 				414BB1F31EBFF4AF000BE2CC /* AlertPopupInteractor.swift in Sources */,
@@ -1962,6 +1973,7 @@
 				415F73D81EBC16E2000D9B14 /* UIImageExtension.swift in Sources */,
 				41E18B561EEE1B8F00470935 /* NSDateFormatterExtension.swift in Sources */,
 				4168AA561EB79399001E2D6D /* Session.swift in Sources */,
+				247A6B6D229CC0F400123DC9 /* Banner.swift in Sources */,
 				412776981F143F2500EC6488 /* Token.swift in Sources */,
 				41A0BAE71ED7A8FA00671F3C /* AddPetViewControllerInteractor.swift in Sources */,
 				418DAA2A1ECE7EAE006265CF /* SideMenuInteractor.swift in Sources */,
@@ -2028,7 +2040,7 @@
 				410AA9991FA7A3DC00A90377 /* ExpandableTableViewDelegate.swift in Sources */,
 				411C84C71F3BE82E008C6E0A /* AgendaSubServiceTableViewCell.swift in Sources */,
 				4168AA4C1EB69217001E2D6D /* PetbookingAPI.swift in Sources */,
-				4149E97B1EF9628100D6C44B /* BusinessListViewControllerViewController.swift in Sources */,
+				4149E97B1EF9628100D6C44B /* BusinessListViewController.swift in Sources */,
 				FFCC9016207AE4FA003C43DF /* SettingsPresenter.swift in Sources */,
 				41D86F941F298C360038ADA8 /* AdditionalServiceTableViewCell.swift in Sources */,
 				FF34B171202B811900F00528 /* CategoryViewController.swift in Sources */,

@@ -1091,6 +1091,119 @@ extension PetbookingAPI {
 	}
 }
 
+// MARK: Banner
+
+extension PetbookingAPI {
+    
+    func getBanner(_ completion: @escaping (_ bannerList: BannerList?, _ message: String) -> Void) {
+        if SessionManager.sharedInstance.isConsumerValid() {
+            guard let session = SessionManager.sharedInstance.getCurrentSession() else { return }
+            
+            var token = ""
+            if let consumer = SessionManager.sharedInstance.getCurrentConsumer() {
+                token = consumer.token
+            }
+            
+            self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
+            self.auth_headers.updateValue("Token token=\"\(session.authToken)\"", forKey: "X-Petbooking-Session-Token")
+            
+            Alamofire.request("\(PetbookingAPI.API_BASE_URL)/promos", method: .get, parameters: [:], encoding: URLEncoding(destination: .queryString), headers: auth_headers).responseJSON { (response) in
+                
+                guard response.response?.statusCode != 401 else {
+                    self.retryLogin { (success, message) in
+                        if success {
+                            self.getBanner(completion)
+                        } else {
+                            completion(nil, "")
+                        }
+                    }
+                    return
+                }
+                
+                switch response.result{
+                case .success(let jsonObject):
+                    if let dic = jsonObject as? [String: Any] {
+                        do {
+                            let bannerList = try MTLJSONAdapter.model(of: BannerList.self, fromJSONDictionary: dic) as! BannerList
+                            completion(bannerList, "")
+                            
+                        } catch {
+                            completion(nil, error.localizedDescription)
+                        }
+                    } else {
+                        completion(nil, "")
+                    }
+                case .failure(let error):
+                    completion(nil, error.localizedDescription)
+                }
+                
+            }
+        } else {
+            getConsumer { (success, message) in
+                if success {
+                    self.getBanner(completion)
+                } else {
+                    completion(nil, "")
+                }
+            }
+        }
+    }
+    
+    func getPromoList(to promoId: String, completion: @escaping (_ businessList: BusinessList?, _ message: String) -> Void) {
+        if SessionManager.sharedInstance.isConsumerValid() {
+            guard let session = SessionManager.sharedInstance.getCurrentSession() else { return }
+            
+            var token = ""
+            if let consumer = SessionManager.sharedInstance.getCurrentConsumer() {
+                token = consumer.token
+            }
+            
+            self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
+            self.auth_headers.updateValue("Token token=\"\(session.authToken)\"", forKey: "X-Petbooking-Session-Token")
+            
+            Alamofire.request("\(PetbookingAPI.API_BASE_URL)/promos/\(promoId)/businesses", method: .get, parameters: [:], encoding: URLEncoding(destination: .queryString), headers: auth_headers).responseJSON { (response) in
+                
+                guard response.response?.statusCode != 401 else {
+                    self.retryLogin { (success, message) in
+                        if success {
+                            self.getPromoList(to: promoId, completion: completion)
+                        } else {
+                            completion(nil, "")
+                        }
+                    }
+                    return
+                }
+                
+                switch response.result{
+                case .success(let jsonObject):
+                    if let dic = jsonObject as? [String: Any] {
+                        do {
+                            let businessList = try MTLJSONAdapter.model(of: BusinessList.self, fromJSONDictionary: dic) as! BusinessList
+                            completion(businessList, "")
+                            
+                        } catch {
+                            completion(nil, error.localizedDescription)
+                        }
+                    } else {
+                        completion(nil, "")
+                    }
+                case .failure(let error):
+                    completion(nil, error.localizedDescription)
+                }
+            }
+        } else {
+            getConsumer { (success, _) in
+                if success {
+                    self.getPromoList(to: promoId, completion: completion)
+                } else {
+                    completion(nil, "")
+                }
+            }
+        }
+    }
+}
+
+
 // MARK: Business
 
 extension PetbookingAPI {

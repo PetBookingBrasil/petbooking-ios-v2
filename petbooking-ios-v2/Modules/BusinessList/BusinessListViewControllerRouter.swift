@@ -14,18 +14,19 @@ class BusinessListViewControllerRouter: BusinessListViewControllerWireframeProto
     
 	weak var viewController: UIViewController?
 	
-    static func createModule(businessListType: BusinessListType, from service: ServiceCategory? = nil) -> UIViewController {
+    static func createModule(businessListType: BusinessListType, withBanner banner: Banner? = nil, from service: ServiceCategory? = nil) -> UIViewController {
 		// Change to get view from storyboard if not using progammatic UI
         
         var view: BusinessListViewControllerViewProtocol!
         
         switch businessListType {
         case .list, .favorites:
-            view = BusinessListViewControllerViewController(nibName: nil, bundle: nil)
+            view = BusinessListViewController(nibName: nil, bundle: nil)
         default:
             view = BusinessMapListViewController(nibName: nil, bundle: nil)
         }
         
+        view.banner = banner
         view.service = service
 		view.businessListType = businessListType
 		
@@ -42,7 +43,7 @@ class BusinessListViewControllerRouter: BusinessListViewControllerWireframeProto
 		
 		return view as! UIViewController
 	}
-	
+    
     func showBusinessPage(_ business: Business, from service: ServiceCategory?) {
 		let homeBusiness = HomeBusinessRouter.createModule(with: business, from: service)
 		

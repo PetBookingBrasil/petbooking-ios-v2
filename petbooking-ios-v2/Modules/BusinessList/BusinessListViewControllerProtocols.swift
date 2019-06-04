@@ -54,6 +54,7 @@ protocol BusinessListViewControllerViewProtocol: class {
 	var presenter: BusinessListViewControllerPresenterProtocol?  { get set }
 	var businessListType: BusinessListType? { get set }
     var service: ServiceCategory? { get set }
+    var banner: Banner? { get set }
 	
 	func updateBusinessList(businessList: BusinessList)
 	func removedFromFavorites(business: Business)

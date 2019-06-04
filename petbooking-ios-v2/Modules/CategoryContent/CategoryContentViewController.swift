@@ -19,6 +19,7 @@ class CategoryContentViewController: UIViewController, CategoryContentViewProtoc
     
     var presenter: CategoryContentPresenterProtocol?
     var service: ServiceCategory = ServiceCategory()
+    var banner = Banner()
     
     fileprivate lazy var viewControllers: [UIViewController] = {
         return self.preparedViewControllers()
@@ -44,12 +45,6 @@ class CategoryContentViewController: UIViewController, CategoryContentViewProtoc
                 self?.scrollView.setContentOffset(CGPoint(x: contentOffsetX, y: 0), animated: true)
             }
         }
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        print("Oi")
     }
     
     func setSearchButton() {
@@ -85,8 +80,8 @@ class CategoryContentViewController: UIViewController, CategoryContentViewProtoc
     }
     
     fileprivate func preparedViewControllers() -> [UIViewController] {
-        let businessViewController = BusinessListViewControllerRouter.createModule(businessListType: .list, from: service)
-        let mapViewController = BusinessListViewControllerRouter.createModule(businessListType: .map, from: service)
+        let businessViewController = BusinessListViewControllerRouter.createModule(businessListType: .list, withBanner: banner, from: service)
+        let mapViewController = BusinessListViewControllerRouter.createModule(businessListType: .map, withBanner: banner, from: service)
         
         return [businessViewController, mapViewController]
     }

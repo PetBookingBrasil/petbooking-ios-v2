@@ -13,7 +13,7 @@ import CoreLocation
 import DZNEmptyDataSet
 import ALLoadingView
 
-class BusinessListViewControllerViewController: UIViewController, BusinessListViewControllerViewProtocol {
+class BusinessListViewController: UIViewController, BusinessListViewControllerViewProtocol {
 	
 	@IBOutlet weak var tableView: UITableView!
     
@@ -24,6 +24,7 @@ class BusinessListViewControllerViewController: UIViewController, BusinessListVi
     var locationManager: CLLocationManager?
 	var businessList: BusinessList = BusinessList()
 	var businesses = [Business]()
+    var banner: Banner?
 	var serviceCategoryList: ServiceCategoryList = ServiceCategoryList()
 	var selectedServiceCategory: ServiceCategory = ServiceCategory()
 	var coordinates:CLLocationCoordinate2D = CLLocationCoordinate2D()
@@ -112,9 +113,19 @@ class BusinessListViewControllerViewController: UIViewController, BusinessListVi
 			self.tableView.reloadData()
 		}
 	}
+    
+    func getPromoList() {
+        guard let banner = banner else { return }
+        
+        PetbookingAPI.sharedInstance.getPromoList(to: banner.id) { (businessList, msg) in
+            guard let businessList = businessList else { return }
+            
+            self.updateBusinessList(businessList: businessList)
+        }
+    }
 }
 
-extension BusinessListViewControllerViewController: CLLocationManagerDelegate {
+extension BusinessListViewController: CLLocationManagerDelegate {
 	func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
 		locationManager?.stopUpdatingLocation()
 	}
@@ -126,11 +137,15 @@ extension BusinessListViewControllerViewController: CLLocationManagerDelegate {
 		let locationObj = locationArray.lastObject as! CLLocation
 		self.coordinates = locationObj.coordinate
 		
-		presenter?.getBusinessByCoordinates(coordinates: self.coordinates, service: service, page: 1)
+        if banner != nil {
+            self.getPromoList()
+        } else {
+            presenter?.getBusinessByCoordinates(coordinates: self.coordinates, service: service, page: 1)
+        }
 	}
 }
 
-extension BusinessListViewControllerViewController: UITableViewDelegate, UITableViewDataSource, BusinessTableViewCellDelegate {
+extension BusinessListViewController: UITableViewDelegate, UITableViewDataSource, BusinessTableViewCellDelegate {
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return 1
@@ -270,7 +285,7 @@ extension BusinessListViewControllerViewController: UITableViewDelegate, UITable
 	}
 }
 
-extension BusinessListViewControllerViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+extension BusinessListViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
 	
 	func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
 		switch businessListType! {
