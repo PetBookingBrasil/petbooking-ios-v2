@@ -16,6 +16,7 @@ class HomeContentViewController: UIViewController, HomeContentViewControllerView
     @IBOutlet weak var segmentioView: Segmentio!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var headerHeightConstraint: NSLayoutConstraint!
     
     var presenter: HomeContentViewControllerPresenterProtocol?
     
@@ -49,7 +50,7 @@ class HomeContentViewController: UIViewController, HomeContentViewControllerView
                                                name: .goToAgenda,
                                                object: nil)
     }
-    
+        
     func defineLeftMenu() {
         let menuLeftNavigationController = UISideMenuNavigationController(rootViewController: SideMenuRouter.createModule())
         menuLeftNavigationController.leftSide = true

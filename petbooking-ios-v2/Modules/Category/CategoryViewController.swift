@@ -15,12 +15,17 @@ class CategoryViewController: UIViewController, CategoryViewProtocol {
     @IBOutlet weak var bannerHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var bannerPageControl: UIPageControl!
     @IBOutlet weak var bannerCollectionView: UICollectionView!
+    @IBOutlet weak var headerHeightConstraint: NSLayoutConstraint!
     
     var serviceCategoryList: ServiceCategoryList = ServiceCategoryList()
     var selectedServiceCategory: ServiceCategory = ServiceCategory()
     
     var presenter: CategoryPresenterProtocol?
     var bannerDelegate: BannerControlDelegate?
+    
+    let maxHeaderHeight: CGFloat = 120
+    let minHeaderHeight: CGFloat = -5
+    var previousScrollOffset: CGFloat = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +34,7 @@ class CategoryViewController: UIViewController, CategoryViewProtocol {
         bannerCollectionView.delegate = bannerDelegate
         bannerCollectionView.dataSource = bannerDelegate
         
+        collectionView.contentInset = UIEdgeInsetsMake(120, 0, 0, 0)
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "CategoryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CategoryCollectionViewCell")
@@ -39,10 +45,17 @@ class CategoryViewController: UIViewController, CategoryViewProtocol {
         presenter?.getReview()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.headerHeightConstraint.constant = self.maxHeaderHeight
+    }
+    
     func showReviewable(_ review: ReviewableList) {
         let alertVC = ReviewRouter.createModule(reviews: review)
         alertVC.modalPresentationStyle = .overCurrentContext
         alertVC.modalTransitionStyle = .crossDissolve
+        
         present(alertVC, animated: true, completion: nil)
     }
     
@@ -125,6 +138,15 @@ extension CategoryViewController: UICollectionViewDelegate, UICollectionViewData
         let service = serviceCategoryList.categories[indexPath.item]
         
         presenter?.showCategoryContent(from: service)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let y = 120 - (scrollView.contentOffset.y + 120)
+        let height = min(max(y, 0), 200)
+        
+        headerHeightConstraint.constant = height
+        
+        self.view.layoutIfNeeded()
     }
 }
 

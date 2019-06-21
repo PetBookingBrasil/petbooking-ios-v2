@@ -56,10 +56,10 @@ class BusinessMapListViewController: UIViewController, BusinessListViewControlle
         }
 	}
     
-    func getPromoList() {
+    func getPromoList(coordintes: CLLocationCoordinate2D, page: Int) {
         guard let banner = banner else { return }
         
-        PetbookingAPI.sharedInstance.getPromoList(to: banner.id) { (businessList, msg) in
+        PetbookingAPI.sharedInstance.getPromoList(to: banner.id, coordinate: coordintes, page: page) { (businessList, msg) in
             guard let businessList = businessList else { return }
             
             self.updateBusinessList(businessList: businessList)
@@ -86,7 +86,7 @@ extension BusinessMapListViewController: CLLocationManagerDelegate {
 		mapView.setRegion(coordinateRegion, animated: true)
 		
         if banner != nil {
-            self.getPromoList()
+            self.getPromoList(coordintes: self.coordinates, page: 1)
         } else {
             presenter?.getBusinessByCoordinates(coordinates: self.coordinates, service: service, page: 1)
         }

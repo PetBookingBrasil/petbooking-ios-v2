@@ -18,8 +18,8 @@ class CategoryContentViewController: UIViewController, CategoryContentViewProtoc
     @IBOutlet weak var scrollView: UIScrollView!
     
     var presenter: CategoryContentPresenterProtocol?
-    var service: ServiceCategory = ServiceCategory()
-    var banner = Banner()
+    var service: ServiceCategory?
+    var banner: Banner?
     
     fileprivate lazy var viewControllers: [UIViewController] = {
         return self.preparedViewControllers()
@@ -28,7 +28,7 @@ class CategoryContentViewController: UIViewController, CategoryContentViewProtoc
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = service.name
+        title = service?.name ?? "Promoção"
         
         setupScrollView()
         setBackButton()

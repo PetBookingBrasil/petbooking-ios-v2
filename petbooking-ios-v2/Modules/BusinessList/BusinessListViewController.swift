@@ -81,7 +81,7 @@ class BusinessListViewController: UIViewController, BusinessListViewControllerVi
 		if businessList.businesses.count > 0 {
 			self.businessList = businessList
 			
-			if businessList.page == 1 {
+			if (banner == nil && businessList.page == 1) || (banner != nil && businessList.page == 0) {
 				businesses = businessList.businesses
 				UIView.setAnimationsEnabled(false)
 				tableView.reloadData()
@@ -114,10 +114,10 @@ class BusinessListViewController: UIViewController, BusinessListViewControllerVi
 		}
 	}
     
-    func getPromoList() {
+    func getPromoList(coordintes: CLLocationCoordinate2D, page: Int) {
         guard let banner = banner else { return }
         
-        PetbookingAPI.sharedInstance.getPromoList(to: banner.id) { (businessList, msg) in
+        PetbookingAPI.sharedInstance.getPromoList(to: banner.id, coordinate: coordintes, page: page) { (businessList, msg) in
             guard let businessList = businessList else { return }
             
             self.updateBusinessList(businessList: businessList)
@@ -138,7 +138,7 @@ extension BusinessListViewController: CLLocationManagerDelegate {
 		self.coordinates = locationObj.coordinate
 		
         if banner != nil {
-            self.getPromoList()
+            self.getPromoList(coordintes: self.coordinates, page: 1)
         } else {
             presenter?.getBusinessByCoordinates(coordinates: self.coordinates, service: service, page: 1)
         }
@@ -154,11 +154,17 @@ extension BusinessListViewController: UITableViewDelegate, UITableViewDataSource
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		
 		if indexPath.section >= businesses.count - 1 {
+            let newPage = businessList.page + 1
 			switch businessListType! {
 			case .favorites:
-				presenter?.getFavoriteBusiness(page:businessList.page + 1)
+				presenter?.getFavoriteBusiness(page: newPage)
 			case .list, .map:
-				presenter?.getBusinessByCoordinates(coordinates: self.coordinates, service: service, page: businessList.page + 1)
+                if banner != nil {
+                    self.getPromoList(coordintes: self.coordinates, page: newPage)
+                } else {
+                    presenter?.getBusinessByCoordinates(coordinates: self.coordinates, service: service, page: newPage)
+                }
+
             }
 		}
 		

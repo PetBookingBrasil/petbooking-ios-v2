@@ -110,6 +110,10 @@ class BusinessServicesViewController: ExpandableTableViewController, BusinessSer
         
 		self.serviceCategoryList = serviceCategoryList
         
+//        if category == nil {
+//            category = serviceCategoryList.categories.first
+//        }
+        
         if let category = self.category {
             self.selectedServiceCategory = category
             if let petlist = self.petList, petlist.pets.count <= 1 {
@@ -123,7 +127,7 @@ class BusinessServicesViewController: ExpandableTableViewController, BusinessSer
                 }
             }
         }
-		
+        
 		expandableTableView.reloadData()
 	}
     

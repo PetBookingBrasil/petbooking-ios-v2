@@ -16,6 +16,7 @@
                 <outlet property="bannerHeightConstraint" destination="Q5u-ak-vWW" id="22V-Fg-utq"/>
                 <outlet property="bannerPageControl" destination="JhX-vA-afn" id="zMf-af-B0Q"/>
                 <outlet property="collectionView" destination="7d3-xX-2HO" id="yjV-ul-v06"/>
+                <outlet property="headerHeightConstraint" destination="Q5u-ak-vWW" id="hBD-Mf-lv7"/>
                 <outlet property="view" destination="iN0-l3-epB" id="6aC-Jl-8dj"/>
             </connections>
         </placeholder>
@@ -25,7 +26,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="7d3-xX-2HO">
-                    <rect key="frame" x="0.0" y="140" width="375" height="527"/>
+                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mek-8B-htJ">
                         <size key="itemSize" width="50" height="50"/>
@@ -69,7 +70,7 @@
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Bgl-5W-hna" secondAttribute="trailing" id="0T8-t2-i3H"/>
                 <constraint firstItem="Bgl-5W-hna" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="2Vh-Ud-wAj"/>
-                <constraint firstItem="7d3-xX-2HO" firstAttribute="top" secondItem="Bgl-5W-hna" secondAttribute="bottom" id="7pw-Vj-lVz"/>
+                <constraint firstItem="7d3-xX-2HO" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="GY1-pb-J4b"/>
                 <constraint firstItem="Bgl-5W-hna" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Rqi-vt-n1N"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="7d3-xX-2HO" secondAttribute="bottom" id="SZG-Ez-YJw"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="7d3-xX-2HO" secondAttribute="trailing" id="mTG-58-xVb"/>

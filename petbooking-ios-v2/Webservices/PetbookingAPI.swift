@@ -1149,7 +1149,7 @@ extension PetbookingAPI {
         }
     }
     
-    func getPromoList(to promoId: String, completion: @escaping (_ businessList: BusinessList?, _ message: String) -> Void) {
+    func getPromoList(to promoId: String, coordinate: CLLocationCoordinate2D, page: Int = 1, completion: @escaping (_ businessList: BusinessList?, _ message: String) -> Void) {
         if SessionManager.sharedInstance.isConsumerValid() {
             guard let session = SessionManager.sharedInstance.getCurrentSession() else { return }
             
@@ -1160,13 +1160,18 @@ extension PetbookingAPI {
             
             self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
             self.auth_headers.updateValue("Token token=\"\(session.authToken)\"", forKey: "X-Petbooking-Session-Token")
+                        
+            let parameters: Parameters = ["latitude": coordinate.latitude,
+                                          "longitude": coordinate.longitude,
+                                          "page[number]": page,
+                                          "page[size]": 20]
             
-            Alamofire.request("\(PetbookingAPI.API_BASE_URL)/promos/\(promoId)/businesses", method: .get, parameters: [:], encoding: URLEncoding(destination: .queryString), headers: auth_headers).responseJSON { (response) in
+            Alamofire.request("\(PetbookingAPI.API_BASE_URL)/promos/\(promoId)/businesses", method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString), headers: auth_headers).responseJSON { (response) in
                 
                 guard response.response?.statusCode != 401 else {
                     self.retryLogin { (success, message) in
                         if success {
-                            self.getPromoList(to: promoId, completion: completion)
+                            self.getPromoList(to: promoId, coordinate: coordinate, page: page, completion: completion)
                         } else {
                             completion(nil, "")
                         }
@@ -1194,7 +1199,7 @@ extension PetbookingAPI {
         } else {
             getConsumer { (success, _) in
                 if success {
-                    self.getPromoList(to: promoId, completion: completion)
+                    self.getPromoList(to: promoId, coordinate: coordinate, page: page, completion: completion)
                 } else {
                     completion(nil, "")
                 }
