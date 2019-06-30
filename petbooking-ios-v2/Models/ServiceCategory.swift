@@ -11,28 +11,30 @@ import Mantle
 
 class ServiceCategory: MTLModel, MTLJSONSerializing {
 
-	@objc var id = ""
-	@objc var name = ""
-    @objc var serviceCount = 0
+    @objc var id = ""
+    @objc var name = ""
+    @objc var mobileThumb = ""
+    @objc var templateIcon = ""
     @objc var slug = ""
-	
+
 	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
-		return ["id": "id",
+        return ["id": "id",
                 "name": "attributes.name",
-                "serviceCount": "attributes.service_count",
-                "slug": "attributes.slug"]
+                "slug": "attributes.slug",
+                "mobileThumb": "attributes.cover_image.mobile_thumb.url",
+                "templateIcon": "attributes.category_template_icon.icon.mobile_thumb.url"]
 	}
 }
 
 class ServiceCategoryList: MTLModel, MTLJSONSerializing {
 	
     @objc var categories = [ServiceCategory]()
-	
-	static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
-		return ["categories": "data"]
-	}
-	
-	@objc static func categoriesJSONTransformer() -> ValueTransformer {
-		return MTLJSONAdapter.arrayTransformer(withModelClass: ServiceCategory.self)
-	}
+    
+    static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
+        return ["categories": "data"]
+    }
+    
+    @objc static func categoriesJSONTransformer() -> ValueTransformer {
+        return MTLJSONAdapter.arrayTransformer(withModelClass: ServiceCategory.self)
+    }
 }

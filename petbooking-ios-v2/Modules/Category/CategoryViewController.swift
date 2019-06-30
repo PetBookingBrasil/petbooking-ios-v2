@@ -48,7 +48,9 @@ class CategoryViewController: UIViewController, CategoryViewProtocol {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.headerHeightConstraint.constant = self.maxHeaderHeight
+        if !self.bannerCollectionView.isHidden {
+            self.headerHeightConstraint.constant = self.maxHeaderHeight
+        }
     }
     
     func showReviewable(_ review: ReviewableList) {
@@ -63,14 +65,17 @@ class CategoryViewController: UIViewController, CategoryViewProtocol {
         ALLoadingView.manager.showLoadingView(ofType: .basic, windowMode: .fullscreen)
         
         PetbookingAPI.sharedInstance.getBanner { (bannerList, _) in
-            if let bannerList = bannerList {
-                self.bannerPageControl.numberOfPages = bannerList.banners.count
-                self.bannerPageControl.currentPage = 0
-                self.bannerHeightConstraint.constant = 120
-                self.bannerDelegate?.setBanners(bannerList)
-            } else {
+//            if let bannerList = bannerList, bannerList.banners.count > 0 {
+//                self.bannerPageControl.numberOfPages = bannerList.banners.count
+//                self.bannerPageControl.currentPage = 0
+//                self.bannerHeightConstraint.constant = 120
+//                self.bannerDelegate?.setBanners(bannerList)
+//            } else {
+                self.collectionView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
                 self.bannerHeightConstraint.constant = 0
-            }
+                self.bannerCollectionView.isHidden = true
+            self.bannerPageControl.isHidden = true
+//            }
         }
         
         PetbookingAPI.sharedInstance.getCategoryList { (serviceCategoryList, _) in
@@ -124,12 +129,11 @@ extension CategoryViewController: UICollectionViewDelegate, UICollectionViewData
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell", for: indexPath) as! CategoryCollectionViewCell
         
         let service = serviceCategoryList.categories[indexPath.item]
-        
-        if service == selectedServiceCategory {
+        if service.id == selectedServiceCategory.id {
             collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .left)
         }
         
-        cell.pictureImageView.image = UIImage(named: service.slug)
+        cell.setImage(with: service)
         
         return cell
     }
