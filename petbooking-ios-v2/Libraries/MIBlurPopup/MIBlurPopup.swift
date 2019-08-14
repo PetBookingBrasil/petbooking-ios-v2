@@ -35,7 +35,7 @@ open class MIBlurPopup: NSObject {
     fileprivate var visualEffectBlurView = UIVisualEffectView()
     fileprivate var isPresenting = false
     
-    open static func show(_ viewControllerToPresent: UIViewController, on parentViewController: UIViewController) {
+    public static func show(_ viewControllerToPresent: UIViewController, on parentViewController: UIViewController) {
         
         viewControllerToPresent.modalPresentationStyle = .overCurrentContext
         viewControllerToPresent.transitioningDelegate = shared

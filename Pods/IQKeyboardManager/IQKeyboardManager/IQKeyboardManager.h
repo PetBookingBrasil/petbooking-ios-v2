@@ -150,17 +150,13 @@ extern NSInteger const kIQPreviousNextButtonToolbarTag;
 @property(nonatomic, assign) IQPreviousNextDisplayMode previousNextDisplayMode;
 
 /**
- Toolbar previous/next/done button icon, If nothing is provided then check toolbarDoneBarButtonItemText to draw done button.
+ Toolbar done button icon, If nothing is provided then check toolbarDoneBarButtonItemText to draw done button.
  */
-@property(nullable, nonatomic, strong) UIImage *toolbarPreviousBarButtonItemImage;
-@property(nullable, nonatomic, strong) UIImage *toolbarNextBarButtonItemImage;
 @property(nullable, nonatomic, strong) UIImage *toolbarDoneBarButtonItemImage;
 
 /**
- Toolbar previous/next/done button text, If nothing is provided then system default 'UIBarButtonSystemItemDone' will be used.
+ Toolbar done button text, If nothing is provided then system default 'UIBarButtonSystemItemDone' will be used.
  */
-@property(nullable, nonatomic, strong) NSString *toolbarPreviousBarButtonItemText;
-@property(nullable, nonatomic, strong) NSString *toolbarNextBarButtonItemText;
 @property(nullable, nonatomic, strong) NSString *toolbarDoneBarButtonItemText;
 
 /**

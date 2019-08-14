@@ -24,6 +24,10 @@ class CategoryPresenter: CategoryPresenterProtocol {
         router.showCategoryContent(from: service)
     }
     
+    func showBannerContent(from banner: Banner) {
+        router.showBannerContent(from: banner)
+    }
+    
     func getReview() {
         interactor?.getReview()
     }

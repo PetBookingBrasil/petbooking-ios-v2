@@ -1,42 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="OpenSans-Bold.ttf">
-            <string>OpenSans-Bold</string>
-        </array>
-        <array key="OpenSans-Regular.ttf">
-            <string>OpenSans</string>
-        </array>
-        <array key="Roboto-Medium.ttf">
-            <string>Roboto-Medium</string>
-        </array>
-        <array key="Roboto-Regular.ttf">
-            <string>Roboto-Regular</string>
-        </array>
-    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BusinessMapListViewController" customModule="petbooking_ios_v2" customModuleProvider="target">
             <connections>
-                <outlet property="addressLabel" destination="Fz1-O4-26h" id="X3K-go-vTX"/>
-                <outlet property="businessImageView" destination="R8I-1u-bpO" id="yeh-aI-Z1F"/>
-                <outlet property="businessView" destination="XAO-do-cGB" id="MhJ-K1-fvZ"/>
-                <outlet property="constraintBusinessViewBottom" destination="65v-jj-lLD" id="qj4-hx-dWz"/>
-                <outlet property="distanceLabel" destination="9NZ-kV-x2A" id="tj3-H2-GH9"/>
-                <outlet property="favoriteButton" destination="Rp0-Cv-epm" id="pcq-au-scj"/>
                 <outlet property="mapView" destination="ueY-cr-C9t" id="JTX-kl-hc1"/>
-                <outlet property="nameLabel" destination="agr-lA-Mkj" id="mne-LT-bkv"/>
-                <outlet property="ratingLabel" destination="2gD-uL-XRJ" id="lht-Gs-nLX"/>
-                <outlet property="reviewQuantityLabel" destination="aX5-Fy-6me" id="ROf-BQ-6Sd"/>
-                <outlet property="starImageView" destination="ged-px-6XF" id="4Uq-Dy-E5S"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -48,128 +23,15 @@
                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ueY-cr-C9t">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </mapView>
-                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XAO-do-cGB">
-                    <rect key="frame" x="0.0" y="667" width="375" height="300"/>
-                    <subviews>
-                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C94-2U-XGZ">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
-                            <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="business-placeholder-image" translatesAutoresizingMaskIntoConstraints="NO" id="R8I-1u-bpO">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="160" id="dq7-uU-KTc"/>
-                                    </constraints>
-                                </imageView>
-                                <view alpha="0.20000000298023224" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sZ7-4n-hSH">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
-                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </view>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rp0-Cv-epm">
-                                    <rect key="frame" x="334" y="18" width="24" height="24"/>
-                                    <state key="normal" backgroundImage="heartIcon"/>
-                                    <connections>
-                                        <action selector="didTapAddFavorite:" destination="-1" eventType="touchUpInside" id="Gru-mH-lgV"/>
-                                    </connections>
-                                </button>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="agr-lA-Mkj">
-                                    <rect key="frame" x="16" y="172" width="343" height="21.5"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="22" id="PEe-go-5LD"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="18"/>
-                                    <color key="textColor" red="0.31762006879999999" green="0.31766223910000002" blue="0.31760567429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starIcon" translatesAutoresizingMaskIntoConstraints="NO" id="ged-px-6XF">
-                                    <rect key="frame" x="16" y="201" width="14" height="13"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="13" id="ERy-7F-jkC"/>
-                                    </constraints>
-                                </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" horizontalCompressionResistancePriority="1000" text="5,0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gD-uL-XRJ">
-                                    <rect key="frame" x="35" y="200" width="17.5" height="16.5"/>
-                                    <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="12"/>
-                                    <color key="textColor" red="0.94901960780000005" green="0.78823529410000004" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aX5-Fy-6me">
-                                    <rect key="frame" x="64.5" y="199.5" width="30.5" height="16.5"/>
-                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="12"/>
-                                    <color key="textColor" red="0.31762006879999999" green="0.31766223910000002" blue="0.31760567429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12km" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9NZ-kV-x2A" customClass="PaddingLabel" customModule="petbooking_ios_v2" customModuleProvider="target">
-                                    <rect key="frame" x="327" y="222" width="33" height="18"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="18" id="HlM-6n-b0b"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="12"/>
-                                    <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Avanida De. Martin Lether King, 412 - Umuarama" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fz1-O4-26h">
-                                    <rect key="frame" x="16" y="223" width="258" height="14.5"/>
-                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                            </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <constraints>
-                                <constraint firstAttribute="trailing" secondItem="Rp0-Cv-epm" secondAttribute="trailing" constant="17" id="1e8-IB-3Yy"/>
-                                <constraint firstAttribute="trailing" secondItem="sZ7-4n-hSH" secondAttribute="trailing" id="1gF-4s-mb8"/>
-                                <constraint firstItem="agr-lA-Mkj" firstAttribute="top" secondItem="R8I-1u-bpO" secondAttribute="bottom" constant="12" id="3Rv-yj-YUM"/>
-                                <constraint firstItem="9NZ-kV-x2A" firstAttribute="centerY" secondItem="Fz1-O4-26h" secondAttribute="centerY" id="678-dX-hlE"/>
-                                <constraint firstItem="sZ7-4n-hSH" firstAttribute="leading" secondItem="C94-2U-XGZ" secondAttribute="leading" id="7Tc-Gn-DWJ"/>
-                                <constraint firstAttribute="trailing" secondItem="R8I-1u-bpO" secondAttribute="trailing" id="9kF-jI-Vlk"/>
-                                <constraint firstItem="R8I-1u-bpO" firstAttribute="leading" secondItem="C94-2U-XGZ" secondAttribute="leading" id="AtF-KV-vWl"/>
-                                <constraint firstItem="2gD-uL-XRJ" firstAttribute="leading" secondItem="ged-px-6XF" secondAttribute="trailing" constant="5" id="FPv-Kz-NgO"/>
-                                <constraint firstItem="ged-px-6XF" firstAttribute="top" secondItem="agr-lA-Mkj" secondAttribute="bottom" constant="8" id="IhM-X3-sAT"/>
-                                <constraint firstAttribute="trailing" secondItem="9NZ-kV-x2A" secondAttribute="trailing" constant="15" id="MLJ-2h-byN"/>
-                                <constraint firstItem="2gD-uL-XRJ" firstAttribute="centerY" secondItem="ged-px-6XF" secondAttribute="centerY" id="Sa6-2A-trY"/>
-                                <constraint firstItem="agr-lA-Mkj" firstAttribute="leading" secondItem="C94-2U-XGZ" secondAttribute="leading" constant="16" id="Tsk-Zh-676"/>
-                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Fz1-O4-26h" secondAttribute="bottom" constant="16" id="YFb-6P-HHu"/>
-                                <constraint firstItem="R8I-1u-bpO" firstAttribute="top" secondItem="C94-2U-XGZ" secondAttribute="top" id="cHJ-aC-rem"/>
-                                <constraint firstItem="aX5-Fy-6me" firstAttribute="centerY" secondItem="2gD-uL-XRJ" secondAttribute="centerY" id="cPx-kU-hPX"/>
-                                <constraint firstItem="Fz1-O4-26h" firstAttribute="top" secondItem="ged-px-6XF" secondAttribute="bottom" constant="9" id="cio-VU-mIF"/>
-                                <constraint firstItem="sZ7-4n-hSH" firstAttribute="top" secondItem="C94-2U-XGZ" secondAttribute="top" id="czc-Nr-toU"/>
-                                <constraint firstItem="Fz1-O4-26h" firstAttribute="leading" secondItem="agr-lA-Mkj" secondAttribute="leading" id="d9m-XJ-hWZ"/>
-                                <constraint firstItem="aX5-Fy-6me" firstAttribute="leading" secondItem="2gD-uL-XRJ" secondAttribute="trailing" constant="12" id="eX4-Jm-0bj"/>
-                                <constraint firstItem="sZ7-4n-hSH" firstAttribute="height" secondItem="R8I-1u-bpO" secondAttribute="height" id="ecS-UV-7Uy"/>
-                                <constraint firstItem="9NZ-kV-x2A" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Fz1-O4-26h" secondAttribute="trailing" constant="16" id="l9H-ap-IaI"/>
-                                <constraint firstItem="ged-px-6XF" firstAttribute="leading" secondItem="agr-lA-Mkj" secondAttribute="leading" id="meR-9U-l7x"/>
-                                <constraint firstAttribute="trailing" secondItem="agr-lA-Mkj" secondAttribute="trailing" constant="16" id="nwA-r6-10P"/>
-                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="aX5-Fy-6me" secondAttribute="trailing" constant="12" id="yYe-aA-9Ah"/>
-                                <constraint firstItem="Rp0-Cv-epm" firstAttribute="top" secondItem="C94-2U-XGZ" secondAttribute="top" constant="18" id="z5B-wH-WEE"/>
-                            </constraints>
-                        </view>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="trailing" secondItem="C94-2U-XGZ" secondAttribute="trailing" id="0VB-G4-sar"/>
-                        <constraint firstAttribute="bottom" secondItem="C94-2U-XGZ" secondAttribute="bottom" id="KpO-0h-dgP"/>
-                        <constraint firstItem="C94-2U-XGZ" firstAttribute="leading" secondItem="XAO-do-cGB" secondAttribute="leading" id="Mup-hT-ZO0"/>
-                        <constraint firstAttribute="height" constant="300" id="aXG-1r-fKh"/>
-                        <constraint firstItem="C94-2U-XGZ" firstAttribute="top" secondItem="XAO-do-cGB" secondAttribute="top" id="fHC-K5-9g5"/>
-                    </constraints>
-                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="XAO-do-cGB" secondAttribute="bottom" constant="-300" id="65v-jj-lLD"/>
                 <constraint firstItem="ueY-cr-C9t" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="9CZ-O4-c3z"/>
                 <constraint firstAttribute="trailing" secondItem="ueY-cr-C9t" secondAttribute="trailing" id="Izd-fk-dDz"/>
                 <constraint firstItem="ueY-cr-C9t" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="hZT-nq-C4n"/>
                 <constraint firstAttribute="bottom" secondItem="ueY-cr-C9t" secondAttribute="bottom" id="ofc-hi-JrP"/>
-                <constraint firstItem="XAO-do-cGB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="qvd-X6-KGt"/>
-                <constraint firstAttribute="trailing" secondItem="XAO-do-cGB" secondAttribute="trailing" id="yvR-Ak-mf0"/>
             </constraints>
             <point key="canvasLocation" x="33.5" y="54.5"/>
         </view>
     </objects>
-    <resources>
-        <image name="business-placeholder-image" width="466" height="200"/>
-        <image name="heartIcon" width="24" height="24"/>
-        <image name="starIcon" width="14" height="13"/>
-    </resources>
 </document>

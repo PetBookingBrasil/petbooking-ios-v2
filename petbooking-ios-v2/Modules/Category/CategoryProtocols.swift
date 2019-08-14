@@ -11,6 +11,7 @@ import Foundation
 //MARK: Wireframe -
 protocol CategoryWireframeProtocol: class {
     func showCategoryContent(from service: ServiceCategory)
+    func showBannerContent(from banner: Banner)
 }
 
 //MARK: Presenter -
@@ -18,6 +19,7 @@ protocol CategoryPresenterProtocol: class {
     func getReview()
     func loadReview(reviewList: ReviewableList)
     func showCategoryContent(from service: ServiceCategory)
+    func showBannerContent(from banner: Banner)
 }
 
 //MARK: Interactor -

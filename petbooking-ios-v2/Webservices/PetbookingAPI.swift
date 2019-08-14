@@ -295,7 +295,7 @@ extension PetbookingAPI {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd"
             
-            let todayString = dateFormatter.string(from: today)
+            _ = dateFormatter.string(from: today)
             
             self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
             self.auth_headers.updateValue("Token token=\"\(authToken)\"", forKey: "X-Petbooking-Session-Token")
@@ -1074,6 +1074,124 @@ extension PetbookingAPI {
 		}
 	}
 }
+
+// MARK: Banner
+
+extension PetbookingAPI {
+    
+    func getBanner(_ completion: @escaping (_ bannerList: BannerList?, _ message: String) -> Void) {
+        if SessionManager.sharedInstance.isConsumerValid() {
+            guard let session = SessionManager.sharedInstance.getCurrentSession() else { return }
+            
+            var token = ""
+            if let consumer = SessionManager.sharedInstance.getCurrentConsumer() {
+                token = consumer.token
+            }
+            
+            self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
+            self.auth_headers.updateValue("Token token=\"\(session.authToken)\"", forKey: "X-Petbooking-Session-Token")
+            
+            Alamofire.request("\(PetbookingAPI.API_BASE_URL)/promos", method: .get, parameters: [:], encoding: URLEncoding(destination: .queryString), headers: auth_headers).responseJSON { (response) in
+                
+                guard response.response?.statusCode != 401 else {
+                    self.retryLogin { (success, message) in
+                        if success {
+                            self.getBanner(completion)
+                        } else {
+                            completion(nil, "")
+                        }
+                    }
+                    return
+                }
+                
+                switch response.result{
+                case .success(let jsonObject):
+                    if let dic = jsonObject as? [String: Any] {
+                        do {
+                            let bannerList = try MTLJSONAdapter.model(of: BannerList.self, fromJSONDictionary: dic) as! BannerList
+                            completion(bannerList, "")
+                            
+                        } catch {
+                            completion(nil, error.localizedDescription)
+                        }
+                    } else {
+                        completion(nil, "")
+                    }
+                case .failure(let error):
+                    completion(nil, error.localizedDescription)
+                }
+                
+            }
+        } else {
+            getConsumer { (success, message) in
+                if success {
+                    self.getBanner(completion)
+                } else {
+                    completion(nil, "")
+                }
+            }
+        }
+    }
+    
+    func getPromoList(to promoId: String, coordinate: CLLocationCoordinate2D, page: Int = 1, completion: @escaping (_ businessList: BusinessList?, _ message: String) -> Void) {
+        if SessionManager.sharedInstance.isConsumerValid() {
+            guard let session = SessionManager.sharedInstance.getCurrentSession() else { return }
+            
+            var token = ""
+            if let consumer = SessionManager.sharedInstance.getCurrentConsumer() {
+                token = consumer.token
+            }
+            
+            self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
+            self.auth_headers.updateValue("Token token=\"\(session.authToken)\"", forKey: "X-Petbooking-Session-Token")
+                        
+            let parameters: Parameters = ["latitude": coordinate.latitude,
+                                          "longitude": coordinate.longitude,
+                                          "page[number]": page,
+                                          "page[size]": 20]
+            
+            Alamofire.request("\(PetbookingAPI.API_BASE_URL)/promos/\(promoId)/businesses", method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString), headers: auth_headers).responseJSON { (response) in
+                
+                guard response.response?.statusCode != 401 else {
+                    self.retryLogin { (success, message) in
+                        if success {
+                            self.getPromoList(to: promoId, coordinate: coordinate, page: page, completion: completion)
+                        } else {
+                            completion(nil, "")
+                        }
+                    }
+                    return
+                }
+                
+                switch response.result{
+                case .success(let jsonObject):
+                    if let dic = jsonObject as? [String: Any] {
+                        do {
+                            let businessList = try MTLJSONAdapter.model(of: BusinessList.self, fromJSONDictionary: dic) as! BusinessList
+                            completion(businessList, "")
+                            
+                        } catch {
+                            completion(nil, error.localizedDescription)
+                        }
+                    } else {
+                        completion(nil, "")
+                    }
+                case .failure(let error):
+                    completion(nil, error.localizedDescription)
+                }
+            }
+        } else {
+            getConsumer { (success, _) in
+                if success {
+                    self.getPromoList(to: promoId, coordinate: coordinate, page: page, completion: completion)
+                } else {
+                    completion(nil, "")
+                }
+            }
+        }
+    }
+}
+
 
 // MARK: Business
 
@@ -1876,7 +1994,7 @@ extension PetbookingAPI {
 				case .success(let jsonObject):
 					if let dic = jsonObject as? [String: Any] {
 						do {
-							let returnRest = try MTLJSONAdapter.model(of: ReturnRest.self, fromJSONDictionary: dic) as! ReturnRest
+                            let returnRest = try MTLJSONAdapter.model(of: ReturnRest.self, fromJSONDictionary: dic) as! ReturnRest
                             
                             if returnRest.errors.count > 0 {
                                 completion(false, "Erro ao cancelar seu agendamento.")

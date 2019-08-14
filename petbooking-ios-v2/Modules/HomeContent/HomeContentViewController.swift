@@ -12,119 +12,111 @@ import UIKit
 import SideMenu
 
 class HomeContentViewController: UIViewController, HomeContentViewControllerViewProtocol {
-
-  @IBOutlet weak var segmentioView: Segmentio!
-  @IBOutlet weak var containerView: UIView!
-  @IBOutlet weak var scrollView: UIScrollView!
-
-  var presenter: HomeContentViewControllerPresenterProtocol?
-
-  fileprivate lazy var viewControllers: [UIViewController] = {
-    return self.preparedViewControllers()
-  }()
-
-  override func viewDidLoad() {
-    super.viewDidLoad()
-
-    navigationItem.title = "Estabelecimentos"
-
-    defineLeftMenu()
-    setupScrollView()
-    addBarButtonItems()
-
-    SegmentioBuilder.buildSegmentioView(segmentioView: segmentioView,
-                                        segmentioStyle: .onlyLabel)
-
-    segmentioView.selectedSegmentioIndex = selectedSegmentioIndex()
-
-    segmentioView.valueDidChange = { [weak self] _, segmentIndex in
-      if let scrollViewWidth = self?.scrollView.frame.width {
-        let contentOffsetX = scrollViewWidth * CGFloat(segmentIndex)
-        self?.scrollView.setContentOffset(CGPoint(x: contentOffsetX, y: 0), animated: true)
-      }
+    
+    @IBOutlet weak var segmentioView: Segmentio!
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var headerHeightConstraint: NSLayoutConstraint!
+    
+    var presenter: HomeContentViewControllerPresenterProtocol?
+    
+    fileprivate lazy var viewControllers: [UIViewController] = {
+        return self.preparedViewControllers()
+    }()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        navigationItem.title = "Estabelecimentos"
+        
+        defineLeftMenu()
+        setupScrollView()
+        addSearchButton()
+        
+        SegmentioBuilder.buildSegmentioView(segmentioView: segmentioView,
+                                            segmentioStyle: .onlyLabel)
+        
+        segmentioView.selectedSegmentioIndex = selectedSegmentioIndex()
+        
+        segmentioView.valueDidChange = { [weak self] _, segmentIndex in
+            if let scrollViewWidth = self?.scrollView.frame.width {
+                let contentOffsetX = scrollViewWidth * CGFloat(segmentIndex)
+                self?.scrollView.setContentOffset(CGPoint(x: contentOffsetX, y: 0), animated: true)
+            }
+        }
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(HomeContentViewController.goToAgenda),
+                                               name: .goToAgenda,
+                                               object: nil)
     }
+        
+    func defineLeftMenu() {
+        let menuLeftNavigationController = UISideMenuNavigationController(rootViewController: SideMenuRouter.createModule())
+        menuLeftNavigationController.leftSide = true
 
-    NotificationCenter.default.addObserver(self,
-                                           selector: #selector(HomeContentViewController.goToAgenda),
-                                           name: .goToAgenda,
-                                           object: nil)
-  }
-
-  func defineLeftMenu() {
-    let menuLeftNavigationController = UISideMenuNavigationController(rootViewController: SideMenuRouter.createModule())
-    menuLeftNavigationController.leftSide = true
-
-    SideMenuManager.default.menuLeftNavigationController = menuLeftNavigationController
-    SideMenuManager.default.menuEnableSwipeGestures = false
-
-    SideMenuManager.default.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
-    SideMenuManager.default.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
-    SideMenuManager.default.menuAnimationBackgroundColor = UIColor.clear
-    SideMenuManager.default.menuShadowRadius = 0
-    SideMenuManager.default.menuShadowOpacity = 0
-    SideMenuManager.default.menuPushStyle = .popWhenPossible
-
-    navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named:"menu"), style: .plain, target: self, action: #selector(showLeftMenu))
-  }
-
-  private func addBarButtonItems() {
-    let searchButton = UIBarButtonItem()
-    searchButton.image = UIImage(named: "search")
-    searchButton.target = self
-    searchButton.action = #selector(showSearch)
-
-    let alertButton = UIBarButtonItem()
-    alertButton.image = UIImage(named: "alarm")
-    alertButton.target = self
-    alertButton.action = #selector(showNotification)
-
-    self.navigationItem.rightBarButtonItems = [searchButton, alertButton]
-  }
-
-  @objc func showSearch() {
-    self.navigationController?.pushViewController(BusinessSearchRouter.createModule(), animated: true)
-  }
-
-  @objc func showNotification() {
-    self.navigationController?.pushViewController(NotificationsRouter.createModule(), animated: true)
-  }
-
-  @objc func goToAgenda() {
-    self.navigationController?.pushViewController(AgendaRouter.createModule(), animated: true)
-  }
-
-  @objc func showLeftMenu() {
-    present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
-  }
-
-  // MARK: - Setup container view
-  fileprivate func setupScrollView() {
-    scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width * CGFloat(viewControllers.count),
-                                    height: containerView.frame.height)
-
-    scrollView.isScrollEnabled = false
-
-    for (index, viewController) in viewControllers.enumerated() {
-      viewController.view.frame = CGRect(x: UIScreen.main.bounds.width * CGFloat(index),
-                                         y: 0,
-                                         width: scrollView.frame.width,
-                                         height: scrollView.frame.height)
-
-      addChildViewController(viewController)
-      scrollView.addSubview(viewController.view, options: .useAutoresize) // module's extension
-      viewController.didMove(toParentViewController: self)
+        SideMenuManager.default.menuLeftNavigationController = menuLeftNavigationController
+        SideMenuManager.default.menuEnableSwipeGestures = false
+        
+        SideMenuManager.default.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
+        SideMenuManager.default.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
+        SideMenuManager.default.menuAnimationBackgroundColor = UIColor.clear
+        SideMenuManager.default.menuShadowRadius = 0
+        SideMenuManager.default.menuShadowOpacity = 0
+        SideMenuManager.default.menuPushStyle = .popWhenPossible
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named:"menu"), style: .plain, target: self, action: #selector(showLeftMenu))
     }
-  }
-
-  fileprivate func preparedViewControllers() -> [UIViewController] {
-    let categoryViewController = CategoryRouter.createModule()
-    let mapViewController = BusinessListViewControllerRouter.createModule(businessListType: .map)
-    let favoriteViewController = BusinessListViewControllerRouter.createModule(businessListType: .favorites)
-
-    return [categoryViewController, mapViewController, favoriteViewController]
-  }
-
-  fileprivate func selectedSegmentioIndex() -> Int {
-    return 0
-  }
+    
+    func addSearchButton() {
+        let addButton = UIBarButtonItem()
+        addButton.target = self
+        addButton.action = #selector(showSearch)
+        
+        self.navigationItem.rightBarButtonItem = addButton
+        self.navigationItem.rightBarButtonItem?.image = UIImage(named: "search")
+    }
+    
+    @objc func showSearch() {
+        self.navigationController?.pushViewController(BusinessSearchRouter.createModule(), animated: true)
+    }
+    
+    @objc func goToAgenda() {
+        self.navigationController?.pushViewController(AgendaRouter.createModule(), animated: true)
+    }
+    
+    @objc func showLeftMenu() {
+        present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
+    }
+    
+    // MARK: - Setup container view
+    fileprivate func setupScrollView() {
+        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width * CGFloat(viewControllers.count),
+                                        height: containerView.frame.height)
+        
+        scrollView.isScrollEnabled = false
+        
+        for (index, viewController) in viewControllers.enumerated() {
+            viewController.view.frame = CGRect(x: UIScreen.main.bounds.width * CGFloat(index),
+                                               y: 0,
+                                               width: scrollView.frame.width,
+                                               height: scrollView.frame.height)
+            
+            addChildViewController(viewController)
+            scrollView.addSubview(viewController.view, options: .useAutoresize) // module's extension
+            viewController.didMove(toParentViewController: self)
+        }
+    }
+    
+    fileprivate func preparedViewControllers() -> [UIViewController] {
+        let categoryViewController = CategoryRouter.createModule()
+        let mapViewController = BusinessListViewControllerRouter.createModule(businessListType: .map)
+        let favoriteViewController = BusinessListViewControllerRouter.createModule(businessListType: .favorites)
+        
+        return [categoryViewController, mapViewController, favoriteViewController]
+    }
+    
+    fileprivate func selectedSegmentioIndex() -> Int {
+        return 0
+    }
 }

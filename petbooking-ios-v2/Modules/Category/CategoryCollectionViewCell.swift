@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import PINRemoteImage
 
 class CategoryCollectionViewCell: UICollectionViewCell {
 
@@ -19,7 +18,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
                 pictureImageView.pin_setImage(from: url)
             }
         } else {
-            if let url = URL(string: "https://cdn.petbooking.com.br\(category.slug)") {
+            if let url = URL(string: "https://cdn.petbooking.com.br/\(category.slug)") {
                 pictureImageView.pin_setImage(from: url)
             }
         }

@@ -13,50 +13,51 @@ import CoreLocation
 
 //MARK: Wireframe -
 protocol BusinessListViewControllerWireframeProtocol: class {
-  func showBusinessPage(_ business: Business, from service: ServiceCategory?)
+    func showBusinessPage(_ business: Business, from service: ServiceCategory?)
 }
 
 //MARK: Presenter -
 protocol BusinessListViewControllerPresenterProtocol: class {
-  
-  var interactor: BusinessListViewControllerInteractorInputProtocol? { get set }
-  
-  func getBusinessByCoordinates(coordinates: CLLocationCoordinate2D, service: ServiceCategory?, page: Int)
-  func getFavoriteBusiness(page:Int)
-  func addToFavorites(business: Business)
-  func showBusinessPage(business: Business)
+	
+	var interactor: BusinessListViewControllerInteractorInputProtocol? { get set }
+	
+    func getBusinessByCoordinates(coordinates: CLLocationCoordinate2D, service: ServiceCategory?, page: Int)
+	func getFavoriteBusiness(page:Int)
+	func addToFavorites(business: Business)
+    func showBusinessPage(business: Business)
 }
 
 //MARK: Interactor -
 protocol BusinessListViewControllerInteractorOutputProtocol: class {
-  
-  /* Interactor -> Presenter */
-  
-  func updateBusinessList(businessList:BusinessList)
-  func removedFromFavorites(business: Business)
+	
+	/* Interactor -> Presenter */
+	
+	func updateBusinessList(businessList:BusinessList)
+	func removedFromFavorites(business: Business)
 }
 
 protocol BusinessListViewControllerInteractorInputProtocol: class {
-  
-  var presenter: BusinessListViewControllerInteractorOutputProtocol?  { get set }
-  var businessListType:BusinessListType? { get set }
-  
-  func getBusinessByCoordinates(coordinates: CLLocationCoordinate2D, service: ServiceCategory?, page: Int)
-  func getFavoriteBusiness(page:Int)
-  func addToFavorites(business: Business)
-  
-  /* Presenter -> Interactor */
+	
+	var presenter: BusinessListViewControllerInteractorOutputProtocol?  { get set }
+	var businessListType:BusinessListType? { get set }
+	
+    func getBusinessByCoordinates(coordinates: CLLocationCoordinate2D, service: ServiceCategory?, page: Int)
+	func getFavoriteBusiness(page:Int)
+	func addToFavorites(business: Business)
+	
+	/* Presenter -> Interactor */
 }
 
 //MARK: View -
 protocol BusinessListViewControllerViewProtocol: class {
-  
-  var presenter: BusinessListViewControllerPresenterProtocol?  { get set }
-  var businessListType: BusinessListType? { get set }
-  var service: ServiceCategory? { get set }
-  
-  func updateBusinessList(businessList: BusinessList)
-  func removedFromFavorites(business: Business)
-  
-  /* Presenter -> ViewController */
+	
+	var presenter: BusinessListViewControllerPresenterProtocol?  { get set }
+	var businessListType: BusinessListType? { get set }
+    var service: ServiceCategory? { get set }
+    var banner: Banner? { get set }
+	
+	func updateBusinessList(businessList: BusinessList)
+	func removedFromFavorites(business: Business)
+	
+	/* Presenter -> ViewController */
 }

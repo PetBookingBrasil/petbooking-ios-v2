@@ -107,14 +107,14 @@
 #pragma mark - Add/Remove TextFields
 -(void)addResponderFromView:(UIView*)view
 {
-    NSArray<UIView*> *textFields = [view deepResponderViews];
+    NSArray *textFields = [view deepResponderViews];
     
     for (UIView *textField in textFields)  [self addTextFieldView:textField];
 }
 
 -(void)removeResponderFromView:(UIView*)view
 {
-    NSArray<UIView*> *textFields = [view deepResponderViews];
+    NSArray *textFields = [view deepResponderViews];
     
     for (UIView *textField in textFields)  [self removeTextFieldView:textField];
 }
@@ -173,11 +173,11 @@
     {
         superConsideredView = [textField superviewOfClassType:consideredClass];
         
-        if (superConsideredView)
+        if (superConsideredView != nil)
             break;
     }
 
-    NSArray<UIView*> *textFields = nil;
+    NSArray *textFields = nil;
 
     //If there is a tableView in view's hierarchy, then fetching all it's subview that responds. No sorting for tableView, it's by subView position.
     if (superConsideredView)  //     //   (Enhancement ID: #22)
@@ -222,11 +222,11 @@
     {
         superConsideredView = [textField superviewOfClassType:consideredClass];
         
-        if (superConsideredView)
+        if (superConsideredView != nil)
             break;
     }
     
-    NSArray<UIView*> *textFields = nil;
+    NSArray *textFields = nil;
     
     //If there is a tableView in view's hierarchy, then fetching all it's subview that responds. No sorting for tableView, it's by subView position.
     if (superConsideredView)  //     //   (Enhancement ID: #22)

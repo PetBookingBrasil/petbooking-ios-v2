@@ -109,12 +109,13 @@
 {
     [super layoutSubviews];
 
-    UIEdgeInsets placeholderInsets = [self placeholderInsets];
-    CGFloat maxWidth = CGRectGetWidth(self.frame)-placeholderInsets.left-placeholderInsets.right;
+    CGFloat offsetLeft = self.textContainerInset.left + self.textContainer.lineFragmentPadding;
+    CGFloat offsetRight = self.textContainerInset.right + self.textContainer.lineFragmentPadding;
+    CGFloat offsetTop = self.textContainerInset.top;
+    CGFloat offsetBottom = self.textContainerInset.bottom;
 
-    CGSize expectedSize = [self.placeholderLabel sizeThatFits:CGSizeMake(maxWidth, CGRectGetHeight(self.frame)-placeholderInsets.top-placeholderInsets.bottom)];
-    
-    self.placeholderLabel.frame = CGRectMake(placeholderInsets.left, placeholderInsets.top, maxWidth, expectedSize.height);
+    CGSize expectedSize = [self.placeholderLabel sizeThatFits:CGSizeMake(CGRectGetWidth(self.frame)-offsetLeft-offsetRight, CGRectGetHeight(self.frame)-offsetTop-offsetBottom)];
+    self.placeholderLabel.frame = CGRectMake(offsetLeft, offsetTop, expectedSize.width, expectedSize.height);
 }
 
 -(void)setPlaceholder:(NSString *)placeholder
@@ -129,11 +130,6 @@
 {
     _placeholderTextColor = placeholderTextColor;
     self.placeholderLabel.textColor = placeholderTextColor;
-}
-
--(UIEdgeInsets)placeholderInsets
-{
-    return UIEdgeInsetsMake(self.textContainerInset.top, self.textContainerInset.left + self.textContainer.lineFragmentPadding, self.textContainerInset.bottom, self.textContainerInset.right + self.textContainer.lineFragmentPadding);
 }
 
 -(UILabel*)placeholderLabel
