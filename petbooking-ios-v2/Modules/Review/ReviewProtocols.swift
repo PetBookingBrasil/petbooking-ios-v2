@@ -16,11 +16,11 @@ protocol ReviewPresenterProtocol: class { }
 
 //MARK: Interactor -
 protocol ReviewInteractorProtocol: class {
-    var presenter: ReviewPresenterProtocol? { get set }
+  var presenter: ReviewPresenterProtocol? { get set }
 }
 
 //MARK: View -
 protocol ReviewViewProtocol: class {
-    var reviewList: ReviewableList? { get set }
-    var presenter: ReviewPresenterProtocol? { get set }
+  var reviewList: ReviewableList? { get set }
+  var presenter: ReviewPresenterProtocol? { get set }
 }

@@ -11,6 +11,5 @@
 import UIKit
 
 class SelectPhotoSourcePopupInteractor: SelectPhotoSourcePopupInteractorProtocol {
-
     weak var presenter: SelectPhotoSourcePopupPresenterProtocol?
 }

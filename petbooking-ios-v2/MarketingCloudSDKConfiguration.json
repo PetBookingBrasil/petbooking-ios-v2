@@ -1,0 +1,9 @@
+[{
+  "name": "production",
+  "appid": "6cbf4f6b-cf41-42d4-b105-8880e52d81d7",
+  "accesstoken": "c2bpggs2bsxx8bathf9uw8f4",
+  "etanalytics": true,
+  "pianalytics": true,
+  "location": true,
+  "inbox": true
+  }]

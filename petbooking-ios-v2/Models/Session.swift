@@ -13,10 +13,10 @@ import RealmSwift
 
 class Session: MTLModel, MTLJSONSerializing {
     
-    @objc dynamic var userId:Int = 0
-    @objc dynamic var authToken:String = ""
-    @objc dynamic var tokenExpiresAt:Double = 0
-    @objc dynamic var validForScheduling:Bool = false
+    @objc dynamic var userId = 0
+    @objc dynamic var authToken = ""
+    @objc dynamic var tokenExpiresAt: Double = 0
+    @objc dynamic var validForScheduling = false
     @objc dynamic var errors = [ErrorRest]()
     
     static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
@@ -27,7 +27,7 @@ class Session: MTLModel, MTLJSONSerializing {
                 "errors": "errors"]
     }
     
-    @objc static func ferrorsJSONTransformer() -> ValueTransformer {
+    @objc static func errorsJSONTransformer() -> ValueTransformer {
         return MTLJSONAdapter.arrayTransformer(withModelClass: ErrorRest.self)
     }
     

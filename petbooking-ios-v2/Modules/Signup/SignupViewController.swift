@@ -39,7 +39,8 @@ class SignupViewController: UIViewController, SignupViewProtocol {
     @IBOutlet weak var bottomContainerView: UIView!
     @IBOutlet weak var fullNameFacebookLabel: UILabel!
     @IBOutlet weak var emailFacebookLabel: UILabel!
-    @IBOutlet weak var mobileNumberFacebookTextField: AKMaskField!
+    @IBOutlet weak var emailFacebookTextField: UITextField!
+    @IBOutlet weak var emailFacebookAlertMessageLabel: UILabel!
     
     var presenter: SignupPresenterProtocol?
     var signupType: SignupType?
@@ -67,8 +68,8 @@ class SignupViewController: UIViewController, SignupViewProtocol {
         profilePictureView.round()
         saveButton.round()
         
-        mobileNumberTextField.maskExpression = "({dd}){ddddd}-{dddd}"
         mobileNumberTextField.maskTemplate = "(xx)xxxxx-xxxx"
+        mobileNumberTextField.maskExpression = "({dd}){ddddd}-{dddd}"
         
         cameraIconImageView.image = cameraIconImageView.image!.withRenderingMode(.alwaysTemplate)
         cameraIconImageView.tintColor = .white
@@ -165,15 +166,28 @@ class SignupViewController: UIViewController, SignupViewProtocol {
     }
     
     func setEmail(_ email: String) {
-        if signupType == .facebook || signupType == .editFacebook {
+        switch signupType! {
+        case .facebook, .editFacebook:
             emailFacebookLabel.text = email
-        } else {
+            
+            if email.isEmpty {
+                emailFacebookTextField.text = email
+            } else {
+                emailFacebookTextField.isHidden = true
+                emailFacebookAlertMessageLabel.isHidden = true
+            }
+            
+        default:
             emailTextField.text = email
         }
     }
     
     func setMobile(_ mobile: String) {
         mobileNumberTextField.text = mobile
+    }
+    
+    func showError(_ text: String) {
+        MIBlurPopup.show(AlertPopupRouter.createModule(title: "", message: text), on: self)
     }
     
     // MARK: - Actions
@@ -192,7 +206,7 @@ class SignupViewController: UIViewController, SignupViewProtocol {
         MIBlurPopup.show(SelectPhotoSourcePopupRouter.createModule(delegate: self), on: self)
     }
     
-    @IBAction func save(_ sender: Any) {
+    @IBAction func registerButtonTapped(_ sender: Any) {
         var isValid = true
         
         var name = ""
@@ -200,14 +214,13 @@ class SignupViewController: UIViewController, SignupViewProtocol {
         var email = ""
         var password = ""
         
-        if signupType == .facebook || signupType == .editFacebook {
+        switch signupType! {
+        case .facebook, .editFacebook:
             name = fullNameFacebookLabel.text!
-            mobile = mobileNumberFacebookTextField.text!
-            email = emailFacebookLabel.text!
-            password = ""
-        } else {
-            name = fullNameTextField.text!
+            password = emailFacebookTextField.text!
             
+        default:
+            name = fullNameTextField.text!
             email = emailTextField.text!
             if !email.isEmail {
                 isValid = false
@@ -228,7 +241,7 @@ class SignupViewController: UIViewController, SignupViewProtocol {
                 isValid = false
             }
         }
-        
+
         var base64Avatar: String?
         
         if let image = profilePictureImageView.image, let base64 = image.toBase64String() {
@@ -239,21 +252,47 @@ class SignupViewController: UIViewController, SignupViewProtocol {
         
         presenter?.createUser(name: name, email: email, mobile: mobile, password: password, avatar: base64Avatar)
     }
+    
+    func disableButton() {
+        saveButton.backgroundColor = UIColor.init(hex: "D6D6D6")
+        saveButton.isEnabled = false
+    }
 }
 
 extension SignupViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         if signupType == .facebook || signupType == .editFacebook {
-            guard !mobileNumberFacebookTextField.text!.isBlank else { return }
+            guard emailFacebookTextField.text!.isEmail else { return disableButton() }
+            
         } else {
-            guard !fullNameTextField.text!.isBlank else { return }
-            guard !emailTextField.text!.isBlank else { return }
-            guard !mobileNumberTextField.text!.isBlank else { return }
-            guard !passwordTextField.text!.isBlank else { return }
+            guard !fullNameTextField.text!.isBlank else { return disableButton() }
+            guard emailTextField.text!.isEmail else { return disableButton() }
+            guard mobileNumberTextField.maskStatus == .complete else { return disableButton() }
+            
+            if signupType != .editProfile {
+                guard !passwordTextField.text!.isBlank else { return disableButton() }
+            }
         }
         
         saveButton.backgroundColor = UIColor.init(hex: "E4002B")
         saveButton.isEnabled = true
+    }
+}
+
+extension SignupViewController: AKMaskFieldDelegate {
+    
+    func maskFieldDidEndEditing(_ maskField: AKMaskField) {
+        
+        if maskField.maskStatus == .complete {
+            if emailFacebookLabel.text!.isEmpty {
+                guard emailFacebookTextField.text!.isEmail else { return }
+            }
+
+            saveButton.backgroundColor = UIColor.init(hex: "E4002B")
+            saveButton.isEnabled = true
+        } else {
+            disableButton()
+        }
     }
 }
 

@@ -27,7 +27,7 @@ class ScheduledService: MTLModel, MTLJSONSerializing {
     @objc dynamic var professionalName = ""
     @objc dynamic var professionalId = 0
     @objc dynamic var professionalPicture = ""
-    @objc dynamic var notes:String = ""
+    @objc dynamic var notes = ""
     @objc dynamic var withTransportion = false
     @objc dynamic var paid = false
     @objc dynamic var price = 0.0
@@ -120,13 +120,19 @@ class ScheduledDate: MTLModel, MTLJSONSerializing {
 class ScheduledServiceList: MTLModel, MTLJSONSerializing {
     
     @objc var scheduledDates = [ScheduledDate]()
+    @objc var errors = [ErrorRest]()
     @objc var page = 0
     
     static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
-        return ["scheduledDates": "data"]
+        return ["scheduledDates": "data",
+                "errors": "errors"]
     }
     
     @objc static func scheduledDatesJSONTransformer() -> ValueTransformer {
         return MTLJSONAdapter.arrayTransformer(withModelClass: ScheduledDate.self)
+    }
+    
+    @objc static func errorsJSONTransformer() -> ValueTransformer {
+        return MTLJSONAdapter.arrayTransformer(withModelClass: ErrorRest.self)
     }
 }

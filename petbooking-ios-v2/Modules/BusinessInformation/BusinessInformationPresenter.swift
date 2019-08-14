@@ -12,14 +12,13 @@ import UIKit
 
 class BusinessInformationPresenter: BusinessInformationPresenterProtocol {
 
-    weak private var view: BusinessInformationViewProtocol?
-    var interactor: BusinessInformationInteractorProtocol?
-    private let router: BusinessInformationWireframeProtocol
+  weak private var view: BusinessInformationViewProtocol?
+  var interactor: BusinessInformationInteractorProtocol?
+  private let router: BusinessInformationWireframeProtocol
 
-    init(interface: BusinessInformationViewProtocol, interactor: BusinessInformationInteractorProtocol?, router: BusinessInformationWireframeProtocol) {
-        self.view = interface
-        self.interactor = interactor
-        self.router = router
-    }
-
+  init(interface: BusinessInformationViewProtocol, interactor: BusinessInformationInteractorProtocol?, router: BusinessInformationWireframeProtocol) {
+    self.view = interface
+    self.interactor = interactor
+    self.router = router
+  }
 }

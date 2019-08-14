@@ -27,7 +27,7 @@ protocol SignupPresenterProtocol: class {
     func createUser(name: String, email: String, mobile: String, password: String, avatar: String?)
     func createUserWithSuccess()
     func updatedUserWithSuccess()
-    func createUserWithError()
+    func createUserError(_ text: String)
 }
 
 //MARK: Interactor -
@@ -48,4 +48,5 @@ protocol SignupViewProtocol: class {
     func setName(_ name: String)
     func setEmail(_ email: String)
     func setMobile(_ mobile: String)
+    func showError(_ text: String)
 }

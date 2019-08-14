@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import Mantle
 import CoreLocation
+import ALLoadingView
 
 class PetbookingAPI: NSObject {
 	
@@ -29,15 +30,10 @@ class PetbookingAPI: NSObject {
 		if let consumer = SessionManager.sharedInstance.getCurrentConsumer() {
 			token = consumer.token
 		}
-		
-		var language = ""
-		if let langStr = Locale.current.languageCode {
-			language = langStr
-		}
-		
+				
 		auth_headers = ["Authorization": "Bearer \(token)",
                         "Content-Type": "application/vnd.api+json",
-                        "X-BDT-language": language]
+                        "X-PB-language": Locale.current.identifier]
 		consumer_headers = ["Content-Type": "application/vnd.api+json"]
 	}
 }
@@ -46,6 +42,8 @@ class PetbookingAPI: NSObject {
 extension PetbookingAPI {
     
     private func goLoginView() {
+        ALLoadingView.manager.hideLoadingView()
+        
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let root = appDelegate.window?.rootViewController
         
@@ -245,8 +243,6 @@ extension PetbookingAPI {
                     self.retryLogin { (success, message) in
                         if success {
                             self.postReview(comment: comment, businessRating: businessRating, employmentRating: employmentRating, serviceRating: serviceRating, eventId: eventId, completion: completion)
-                        } else {
-                            completion(false, "")
                         }
                     }
                     return
@@ -304,20 +300,15 @@ extension PetbookingAPI {
             self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
             self.auth_headers.updateValue("Token token=\"\(authToken)\"", forKey: "X-Petbooking-Session-Token")
             
-            let parameters: Parameters = ["filter[scheduling_ref]": "past",
-                                          "filter[reviewable]": "true",
-                                          "filter[current_date]": todayString,
-                                          "include": "business,service.service_category,employment,pet",
-                                          "fields[businesses]": "name",
+            let parameters: Parameters = ["include": "business,service.service_category,employment,pet",
+                                          "fields[businesses]": "name,slug",
                                           "fields[services]" : "service_category"]
 
-            Alamofire.request("\(PetbookingAPI.API_BASE_URL)/users/\(userId)/events", method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString), headers: auth_headers).responseJSON { (response) in
+            Alamofire.request("\(PetbookingAPI.API_BASE_URL)/users/\(userId)/events/reviewable", method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString), headers: auth_headers).responseJSON { (response) in
                 guard response.response?.statusCode != 401 else {
                     self.retryLogin { (success, message) in
                         if success {
                             self.getReviewable(completion: completion)
-                        } else {
-                            completion(nil, "")
                         }
                     }
                     return
@@ -352,10 +343,9 @@ extension PetbookingAPI {
 }
 
 // MARK: User
-
 extension PetbookingAPI {
 	
-	func createUser(name: String, email: String, mobile: String, password: String, provider: String, providerToken: String, avatar: String?, _ completion: @escaping (_ user: Bool, _ message: String) -> Void) {
+	func createUser(name: String, email: String, mobile: String = "", password: String = "", provider: String, providerToken: String, avatar: String?, _ completion: @escaping (_ user: Bool, _ message: String) -> Void) {
 		
 		if SessionManager.sharedInstance.isConsumerValid() {
 			var token = ""
@@ -366,8 +356,7 @@ extension PetbookingAPI {
 			
 			self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
             
-            var attributes = ["provider": provider,
-                              "provider_token": providerToken,
+            var attributes = ["provider_token": providerToken,
                               "email": email,
                               "password": password,
                               "name": name,
@@ -376,7 +365,13 @@ extension PetbookingAPI {
             if let avatar = avatar {
                 attributes["avatar"] = avatar
             }
+            
+            if provider == "facebook" {
+                auth_headers.removeValue(forKey: "X-PB-language")
+            }
 			
+            auth_headers.removeValue(forKey: "X-Petbooking-Session-Token")
+            
 			let parameters: Parameters = ["data": ["type": "users",
                                                    "attributes": attributes]]
 			
@@ -390,8 +385,6 @@ extension PetbookingAPI {
                     self.retryLogin { (success, message) in
                         if success {
                             self.createUser(name: name, email: email, mobile: mobile, password: password, provider: provider, providerToken: providerToken, avatar: avatar, completion)
-                        } else {
-                            completion(false, "")
                         }
                     }
                     return
@@ -413,7 +406,17 @@ extension PetbookingAPI {
                                     self.loginWithFacebook(providerToken, completion: completion)
 								}
 							} else {
-								completion(false, "")
+                                if let error = user.errors.first {
+                                    if error.errorName.count > 0 {
+                                        completion(false, error.errorName.first!)
+                                    } else if error.errorEmail.count > 0 {
+                                        completion(false, error.errorEmail.first!)
+                                    } else if error.errorPhone.count > 0 {
+                                        completion(false, error.errorPhone.first!)
+                                    }
+                                } else {
+                                    completion(false, "")
+                                }
 							}
 						} catch {
 							completion(false, error.localizedDescription)
@@ -471,8 +474,6 @@ extension PetbookingAPI {
                         self.retryLogin { (success, message) in
                             if success {
                                 self.updateUser(name: name, email: email, mobile: mobile, avatar: avatar, completion: completion)
-                            } else {
-                                completion(false, "")
                             }
                         }
                         return
@@ -548,8 +549,6 @@ extension PetbookingAPI {
                         self.retryLogin { (success, message) in
                             if success {
                                 self.updateConfig(push: push, email: email, sms: sms, range: range, completion: completion)
-                            } else {
-                                completion?(false, "")
                             }
                         }
                         return
@@ -612,8 +611,6 @@ extension PetbookingAPI {
                     self.retryLogin { (success, message) in
                         if success {
                             self.userInfo(completion)
-                        } else {
-                            completion(nil, "")
                         }
                     }
                     return
@@ -669,9 +666,8 @@ extension PetbookingAPI {
                     self.retryLogin { (success, message) in
                         if success {
                             self.getUserInfo(userId: userId,completion)
-                        } else {
-                            completion(nil, "")
                         }
+                        
                     }
                     return
                 }
@@ -734,8 +730,6 @@ extension PetbookingAPI {
                     self.retryLogin { (success, message) in
                         if success {
                             self.getUserPet(petId: petId, completion: completion)
-                        } else {
-                            completion(nil, "")
                         }
                     }
                     return
@@ -791,8 +785,6 @@ extension PetbookingAPI {
                     self.retryLogin { (success, message) in
                         if success {
                             self.getUserPets(completion: completion)
-                        } else {
-                            completion(nil, "")
                         }
                     }
                     return
@@ -846,8 +838,6 @@ extension PetbookingAPI {
                     self.retryLogin { (success, message) in
                         if success {
                             self.getBreedList(petType: petType, completion: completion)
-                        } else {
-                            completion(nil, "")
                         }
                     }
                     return
@@ -919,8 +909,6 @@ extension PetbookingAPI {
                     self.retryLogin { (success, message) in
                         if success {
                             self.createPet(pet:pet,completion: completion)
-                        } else {
-                            completion(nil, "")
                         }
                     }
                     return
@@ -994,8 +982,6 @@ extension PetbookingAPI {
                     self.retryLogin { (success, message) in
                         if success {
                             self.createPet(pet:pet,completion: completion)
-                        } else {
-                            completion(nil, "")
                         }
                     }
                     return
@@ -1053,8 +1039,6 @@ extension PetbookingAPI {
                     self.retryLogin { (success, message) in
                         if success {
                             self.deletePet(pet:pet,completion: completion)
-                        } else {
-                            completion(nil, "")
                         }
                     }
                     return
@@ -1164,8 +1148,6 @@ extension PetbookingAPI {
                     self.retryLogin { (success, message) in
                         if success {
                             self.getBusinessList(coordinate: coordinate, completion: completion)
-                        } else {
-                            completion(nil, "")
                         }
                     }
                     return
@@ -1292,8 +1274,6 @@ extension PetbookingAPI {
                     self.retryLogin { (success, message) in
                         if success {
                             self.getBusinessListFiltered(text: text, locate: locate, completion: completion)
-                        } else {
-                            completion(nil, "")
                         }
                     }
                     return
@@ -1347,8 +1327,6 @@ extension PetbookingAPI {
                     self.retryLogin { (success, message) in
                         if success {
                             self.removeBusinessFromFavorite(business: business, completion: completion)
-                        } else {
-                            completion(false, "")
                         }
                     }
                     return
@@ -1393,16 +1371,17 @@ extension PetbookingAPI {
 			
 			let parameters: Parameters = ["data": ["type": "favorites",
                                                    "attributes": ["favorable_type": "Business",
-                                                                  "favorable_id": business.id]]
-			]
+                                                                  "favorable_id": business.id]]]
 			
-			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/users/\(session.userId)/favorites", method: .post, parameters: parameters, encoding: URLEncoding(destination: .queryString), headers: auth_headers).responseJSON { (response) in
+			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/users/\(session.userId)/favorites",
+                method: .post,
+                parameters: parameters,
+                encoding: JSONEncoding.default,
+                headers: auth_headers).responseJSON { (response) in
                 guard response.response?.statusCode != 401 else {
                     self.retryLogin { (success, message) in
                         if success {
                             self.addBusinessToFavorite(business: business, completion: completion)
-                        } else {
-                            completion(false, "")
                         }
                     }
                     return
@@ -1458,8 +1437,6 @@ extension PetbookingAPI {
                     self.retryLogin { (success, message) in
                         if success {
                             self.getFavoriteBusinessList(page:page, completion: completion)
-                        } else {
-                            completion(nil, "")
                         }
                     }
                     return
@@ -1511,15 +1488,14 @@ extension PetbookingAPI {
 			self.auth_headers.updateValue("Bearer \(token)", forKey: "Authorization")
 			self.auth_headers.updateValue("Token token=\"\(session.authToken)\"", forKey: "X-Petbooking-Session-Token")
 			
-			let parameters: Parameters = ["type":"service_categories", "fields[service_categories]":"name,service_count,slug,services,category_template_id"]
+			let parameters: Parameters = ["type":"service_categories",
+                                          "fields[service_categories]":"name,service_count,slug,category_template_icon"]
 			
 			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/businesses/\(business.id)/service-categories", method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString), headers: auth_headers).responseJSON { (response) in
                 guard response.response?.statusCode != 401 else {
                     self.retryLogin { (success, message) in
                         if success {
                             self.getBusinessServicesCategoryList(business:business, completion: completion)
-                        } else {
-                            completion(nil, "")
                         }
                     }
                     return
@@ -1586,8 +1562,6 @@ extension PetbookingAPI {
                                                              service: service,
                                                              pet: pet,
                                                              completion: completion)
-                            } else {
-                                completion(nil, "")
                             }
                         }
                         return
@@ -1598,7 +1572,7 @@ extension PetbookingAPI {
 					if let dic = jsonObject as? [String: Any] {
 						do {
 							let serviceList = try MTLJSONAdapter.model(of: ServiceList.self, fromJSONDictionary: dic) as! ServiceList
-							
+                            
 							completion(serviceList, "")
 						} catch {
 							completion(nil, error.localizedDescription)
@@ -1644,8 +1618,6 @@ extension PetbookingAPI {
                     self.retryLogin { (success, message) in
                         if success {
                             self.getProfessionalsList(service: service, completion: completion)
-                        } else {
-                            completion(nil, "")
                         }
                     }
                     return
@@ -1704,13 +1676,15 @@ extension PetbookingAPI {
 				"data": ["type":"carts", "attributes":["items":itens]]
 			]
 			
-			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/users/\(userId)/carts", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: auth_headers).responseJSON { (response) in
+			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/users/\(userId)/carts",
+                method: .post,
+                parameters: parameters,
+                encoding: JSONEncoding.default,
+                headers: auth_headers).responseJSON { (response) in
                 guard response.response?.statusCode != 401 else {
                     self.retryLogin { (success, message) in
                         if success {
                             self.createShoppingCart(itens:itens,completion: completion)
-                        } else {
-                            completion(nil, "")
                         }
                     }
                     return
@@ -1765,8 +1739,6 @@ extension PetbookingAPI {
                     self.retryLogin { (success, message) in
                         if success {
                             self.getBusinessReviews(business:business, completion: completion)
-                        } else {
-                            completion(nil, "")
                         }
                     }
                     return
@@ -1802,7 +1774,7 @@ extension PetbookingAPI {
 		}
 	}
 	
-	func getScheduleList(page:Int = 1, completion: @escaping (_ businessList: ScheduledServiceList?, _ message: String) -> Void ) {
+	func getScheduleList(page: Int = 1, completion: @escaping (_ businessList: ScheduledServiceList?, _ message: String) -> Void ) {
 		
 		if SessionManager.sharedInstance.isConsumerValid() {
 			var token = ""
@@ -1826,15 +1798,15 @@ extension PetbookingAPI {
 			
 			let todayString = dateFormatter.string(from: today)
 			
-			let parameters: Parameters = ["date": todayString, "page[number]": page, "page[size]": 200]
+			let parameters: Parameters = ["date": todayString,
+                                          "page[number]": page,
+                                          "page[size]": 100]
 			
 			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/users/\(userId)/schedules", method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString), headers: auth_headers).responseJSON { (response) in
                 guard response.response?.statusCode != 401 else {
                     self.retryLogin { (success, message) in
                         if success {
                             self.getScheduleList(page: page, completion: completion)
-                        } else {
-                            completion(nil, "")
                         }
                     }
                     return
@@ -1871,7 +1843,7 @@ extension PetbookingAPI {
 		}
 	}
 	
-	func cancelScheduledService(scheduledService:ScheduledService, completion: @escaping (_ businessList: ScheduledServiceList?, _ message: String) -> Void ) {
+	func cancelScheduledService(scheduledService: ScheduledService, completion: @escaping (_ success: Bool, _ message: String) -> Void ) {
 		
 		if SessionManager.sharedInstance.isConsumerValid() {
 			var token = ""
@@ -1895,8 +1867,6 @@ extension PetbookingAPI {
                     self.retryLogin { (success, message) in
                         if success {
                             self.cancelScheduledService(scheduledService: scheduledService, completion: completion)
-                        } else {
-                            completion(nil, "")
                         }
                     }
                     return
@@ -1906,16 +1876,22 @@ extension PetbookingAPI {
 				case .success(let jsonObject):
 					if let dic = jsonObject as? [String: Any] {
 						do {
-							let scheduledServiceList = try MTLJSONAdapter.model(of: ScheduledServiceList.self, fromJSONDictionary: dic) as! ScheduledServiceList
-							completion(scheduledServiceList, "")
+							let returnRest = try MTLJSONAdapter.model(of: ReturnRest.self, fromJSONDictionary: dic) as! ReturnRest
+                            
+                            if returnRest.errors.count > 0 {
+                                completion(false, "Erro ao cancelar seu agendamento.")
+                            } else {
+                                completion(true, "")
+                            }
+                            
 						} catch {
-							completion(nil, error.localizedDescription)
+							completion(false, error.localizedDescription)
 						}
 					} else {
-						completion(nil, "")
+						completion(false, "")
 					}
 				case .failure(let error):
-					completion(nil, error.localizedDescription)
+					completion(false, error.localizedDescription)
 				}
 			}
 		} else {
@@ -1923,7 +1899,7 @@ extension PetbookingAPI {
 				if success {
 					self.cancelScheduledService(scheduledService: scheduledService, completion: completion)
 				} else {
-					completion(nil, "")
+					completion(false, message)
 				}
 			}
 		}
@@ -1943,40 +1919,39 @@ extension PetbookingAPI {
 			self.auth_headers.updateValue("Token token=\"\(session.authToken)\"", forKey: "X-Petbooking-Session-Token")
 			
 			let parameters: Parameters = ["type": "category_templates",
-                                          "fields[category_templates]": "id,slug,name"]
+                                          "fields[category_templates]": "id,slug,name,cover_image"]
 			
 			Alamofire.request("\(PetbookingAPI.API_BASE_URL)/category-templates",
                 method: .get,
                 parameters: parameters,
                 encoding: URLEncoding(destination: .queryString),
                 headers: auth_headers).responseJSON { (response) in
+                    
                     guard response.response?.statusCode != 401 else {
                         self.retryLogin { (success, message) in
                             if success {
                                 self.getCategoryList(completion: completion)
-                            } else {
-                                completion(nil, "")
                             }
                         }
                         return
                     }
 
-				switch response.result{
-				case .success(let jsonObject):
-					if let dic = jsonObject as? [String: Any] {
-						do {
-							let serviceList = try MTLJSONAdapter.model(of: ServiceCategoryList.self, fromJSONDictionary: dic) as! ServiceCategoryList
-							completion(serviceList, "")
-							
-						} catch {
-							completion(nil, error.localizedDescription)
-						}
-					} else {
-						completion(nil, "")
-					}
-				case .failure(let error):
-					completion(nil, error.localizedDescription)
-				}
+                    switch response.result{
+                    case .success(let jsonObject):
+                        if let dic = jsonObject as? [String: Any] {
+                            do {
+                                let serviceList = try MTLJSONAdapter.model(of: ServiceCategoryList.self, fromJSONDictionary: dic) as! ServiceCategoryList
+                                completion(serviceList, "")
+                                
+                            } catch {
+                                completion(nil, error.localizedDescription)
+                            }
+                        } else {
+                            completion(nil, "")
+                        }
+                    case .failure(let error):
+                        completion(nil, error.localizedDescription)
+                    }
 			}
 		} else {
 			getConsumer { (success, message) in

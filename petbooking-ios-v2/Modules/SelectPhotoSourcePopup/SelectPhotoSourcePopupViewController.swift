@@ -19,7 +19,6 @@ class SelectPhotoSourcePopupViewController: UIViewController, SelectPhotoSourceP
 	@IBOutlet weak var popupContentContainerView: UIView!
 	
 	var presenter: SelectPhotoSourcePopupPresenterProtocol?
-	
 	var delegate: SelectPhotoSourcePopupActionProtocol?
 
 	override func viewDidLoad() {
@@ -32,8 +31,6 @@ class SelectPhotoSourcePopupViewController: UIViewController, SelectPhotoSourceP
 		cameraButton.round()
 		cancelButton.round()
 		cancelButton.setBorder(width: 1, color: .white)
-		
-		
     }
 
 	@IBAction func showAlbum(_ sender: Any) {
@@ -43,12 +40,11 @@ class SelectPhotoSourcePopupViewController: UIViewController, SelectPhotoSourceP
 	}
 	
 	@IBAction func showCamera(_ sender: Any) {
-		
 		dismiss(animated: true) {
 			self.delegate?.showCamera()
 		}
-		
 	}
+    
 	@IBAction func cancel(_ sender: Any) {
 		dismiss(animated: true)
 	}
@@ -57,23 +53,22 @@ class SelectPhotoSourcePopupViewController: UIViewController, SelectPhotoSourceP
 		
 		dismiss(animated: true)
 	}
-	
-	
 }
 
 extension SelectPhotoSourcePopupViewController: MIBlurPopupDelegate {
-	
 	var popupView: UIView {
 		return popupContentContainerView ?? UIView()
 	}
+    
 	var blurEffectStyle: UIBlurEffectStyle {
 		return .dark
 	}
+    
 	var initialScaleAmmount: CGFloat {
 		return 0.0
 	}
+    
 	var animationDuration: TimeInterval {
 		return 0.5
 	}
-	
 }

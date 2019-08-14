@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -44,8 +48,8 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="São Paulo, SP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oWo-vi-fvc">
-                            <rect key="frame" x="0.0" y="15.5" width="64.5" height="12"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="fernanda.camargo@petbooking.com.br" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oWo-vi-fvc">
+                            <rect key="frame" x="0.0" y="15.5" width="128" height="12"/>
                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
@@ -56,9 +60,10 @@
                         <constraint firstItem="eHQ-LF-d81" firstAttribute="leading" secondItem="WjL-ec-Qve" secondAttribute="leading" id="2KO-tN-fDe"/>
                         <constraint firstAttribute="trailing" secondItem="eHQ-LF-d81" secondAttribute="trailing" id="8Ry-y9-rxC"/>
                         <constraint firstItem="oWo-vi-fvc" firstAttribute="leading" secondItem="WjL-ec-Qve" secondAttribute="leading" id="Gci-35-v36"/>
-                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="128" id="QoC-Ag-SB6"/>
+                        <constraint firstAttribute="width" constant="128" id="QoC-Ag-SB6"/>
                         <constraint firstAttribute="height" constant="35" id="YAe-WC-UJ0"/>
                         <constraint firstItem="oWo-vi-fvc" firstAttribute="top" secondItem="eHQ-LF-d81" secondAttribute="bottom" id="gDZ-ui-iGu"/>
+                        <constraint firstItem="oWo-vi-fvc" firstAttribute="trailing" secondItem="eHQ-LF-d81" secondAttribute="trailing" id="xqx-al-Rzf"/>
                         <constraint firstItem="eHQ-LF-d81" firstAttribute="top" secondItem="WjL-ec-Qve" secondAttribute="top" id="zg6-z0-Mwy"/>
                     </constraints>
                 </view>

@@ -16,6 +16,7 @@ class AgendaPetCollectionViewCell: UICollectionViewCell {
 	override var isSelected: Bool {
 		didSet {
 			self.nameLabel.textColor = isSelected ? UIColor(hex: "E4002B") : UIColor(hex: "515151")
+            
 			if isSelected {
 				pictureImageView.setBorder(width: 2, color: UIColor(hex: "E4002B"))
 			} else {
@@ -26,8 +27,7 @@ class AgendaPetCollectionViewCell: UICollectionViewCell {
 	
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-		pictureImageView.round()
-    }
 
+        pictureImageView.round()
+    }
 }

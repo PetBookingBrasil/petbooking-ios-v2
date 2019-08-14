@@ -11,93 +11,131 @@
 import UIKit
 import FacebookCore
 import FacebookLogin
+import Mantle
+import Crashlytics
 
 class LoginInteractor: LoginInteractorProtocol {
-	
-	weak var presenter: LoginPresenterProtocol?
-	
-	func didTapLoginButton(credential: Credential) {
-		guard let consumer = SessionManager.sharedInstance.getCurrentConsumer() else { return }
-		
-		if consumer.isValid() {
-			PetbookingAPI.sharedInstance.loginWithCredential(credential) { (success, message) in
-				if success {
-                    UserDefaults.didSetNormalLogin()
-                    self.loadUserInfo()
-					self.presenter?.didCompleteLoginWithSuccess()
-				} else {
-					self.presenter?.didCompleteLoginWithError(error: nil)
-				}
-			}
-		} else {
-			PetbookingAPI.sharedInstance.getConsumer { (success, message) in
-				if success {
-					PetbookingAPI.sharedInstance.loginWithCredential(credential) { (success, message) in
-						if success {
-                            UserDefaults.didSetNormalLogin()
-                            self.loadUserInfo()
-							self.presenter?.didCompleteLoginWithSuccess()
-						} else {
-							self.presenter?.didCompleteLoginWithError(error: nil)
-						}
-					}
-				} else {
-					self.presenter?.didCompleteLoginWithError(error: nil)
-				}
-			}
-		}
-	}
-	
-	func didTapFacebookLoginButton() {
-		
-		let loginManager = LoginManager()
+    
+    weak var presenter: LoginPresenterProtocol?
+    
+    func didTapLoginButton(credential: Credential) {
+        guard let consumer = SessionManager.sharedInstance.getCurrentConsumer() else { return }
         
-		loginManager.logIn(readPermissions: [.publicProfile, .email], viewController: nil) { (loginResult) in
-			switch loginResult {
-			case .failed(let error):
-				self.presenter?.didCompleteFacebookLoginWithError(error: error)
-			case .cancelled:
-				self.presenter?.didCompleteFacebookLoginWithError(error: nil)
-			case .success( _, _, let accessToken):
-				self.presenter?.showLoading()
-				if let _ = SessionManager.sharedInstance.getCurrentConsumer()?.isValid() {
-					PetbookingAPI.sharedInstance.loginWithFacebook(accessToken.authenticationToken, completion: { (success, message) in
-						if success {
-                            UserDefaults.didSetFacebookLogin()
-                            self.loadUserInfo()
-							self.presenter?.didCompleteFacebookLoginWithSuccess()
-						} else {
-							self.presenter?.registerNewUserWithFacebookData()
-						}
-					})
-				} else {
-					PetbookingAPI.sharedInstance.getConsumer { (success, message) in
-						if success {
-							PetbookingAPI.sharedInstance.loginWithFacebook(accessToken.authenticationToken) { (success, message) in
-								if success {
-                                    UserDefaults.didSetFacebookLogin()
-                                    self.loadUserInfo()
-									self.presenter?.didCompleteFacebookLoginWithSuccess()
-								} else {
-									self.presenter?.registerNewUserWithFacebookData()
-								}
-							}
-						} else {
-							self.presenter?.didCompleteFacebookLoginWithError(error: nil)
-						}
-					}
-				}
-			}
-		}
-	}
+        if consumer.isValid() {
+            login(with: credential)
+        } else {
+            PetbookingAPI.sharedInstance.getConsumer { (success, message) in
+                if success {
+                    self.login(with: credential)
+                } else {
+                    self.presenter?.didCompleteLoginWithError(error: nil)
+                }
+            }
+        }
+    }
+    
+    func didTapFacebookLoginButton() {
+        
+        let loginManager = LoginManager()
+        
+        loginManager.logIn(readPermissions: [.publicProfile, .email], viewController: nil) { (loginResult) in
+            switch loginResult {
+            case .failed(let error):
+                self.presenter?.didCompleteFacebookLoginWithError(error: error)
+                
+            case .cancelled:
+                self.presenter?.didCompleteFacebookLoginWithError(error: nil)
+                
+            case .success( _, _, let accessToken):
+                self.presenter?.showLoading()
+                if let _ = SessionManager.sharedInstance.getCurrentConsumer()?.isValid() {
+                    self.facebookLogin(accessToken)
+                } else {
+                    PetbookingAPI.sharedInstance.getConsumer { (success, message) in
+                        if success {
+                            self.facebookLogin(accessToken)
+                        } else {
+                            self.presenter?.didCompleteFacebookLoginWithError(error: nil)
+                        }
+                    }
+                }
+            }
+        }
+    }
     
     func loadUserInfo() {
         guard let userId = SessionManager.sharedInstance.getCurrentSession()?.userId else { return }
         
         PetbookingAPI.sharedInstance.getUserInfo(userId: userId) { (_, _) in }
     }
-	
-	func didTapSignupButton() { }
-	
-	func didTapForgotPasswordButton() { }
+    
+    func didTapSignupButton() { }
+    
+    func didTapForgotPasswordButton() { }
+    
+    fileprivate func login(with credential: Credential) {
+        PetbookingAPI.sharedInstance.loginWithCredential(credential) { (success, message) in
+            if success {
+                UserDefaults.didSetNormalLogin()
+                self.loadUserInfo()
+                self.presenter?.didCompleteLoginWithSuccess()
+            } else {
+                self.presenter?.didCompleteLoginWithError(error: nil)
+            }
+        }
+    }
+    
+    fileprivate func facebookLogin(_ accessToken: AccessToken) {
+        PetbookingAPI.sharedInstance.loginWithFacebook(accessToken.authenticationToken) { (success, message) in
+            if success {
+                UserDefaults.didSetFacebookLogin()
+                self.loadUserInfo()
+                self.presenter?.didCompleteFacebookLoginWithSuccess()
+            } else {
+                self.loadFacebookData()
+            }
+        }
+    }
+    
+    fileprivate func loadFacebookData() {
+        let connection = GraphRequestConnection()
+        connection.add(GraphRequest(graphPath: "/me", parameters:["fields": "id, name, email, picture"])) { (httpResponse, result) in
+            switch result {
+            case .success(let response):
+                if let dic = response.dictionaryValue {
+                    do {
+                        let facebookGraph = try MTLJSONAdapter.model(of: FacebookGraphModel.self, fromJSONDictionary: dic) as! FacebookGraphModel
+                        
+                        let name = facebookGraph.name
+                        let email = facebookGraph.email
+                        let profileImage = facebookGraph.profileUrl
+                        let token = AccessToken.current?.authenticationToken
+                        
+                        guard !email.isEmpty else {
+                            self.presenter?.registerNewUserWithFacebookData()
+                            return
+                        }
+                        
+                        PetbookingAPI.sharedInstance.createUser(name: name, email: email, provider: "facebook", providerToken: token!, avatar: profileImage) { (success, message) in
+                            if success {
+                                Answers.logSignUp(withMethod: "Digits", success: true, customAttributes: ["user": email])
+                                self.presenter?.didCompleteFacebookLoginWithSuccess()
+                            } else {
+                                let error = NSError(domain: message, code: 400, userInfo: nil)
+                                self.presenter?.didCompleteLoginWithError(error: error)
+                            }
+                        }
+                        
+                    } catch {
+                        self.presenter?.didCompleteLoginWithError(error: error)
+                    }
+                }
+            case .failed(let error):
+                self.presenter?.didCompleteLoginWithError(error: error)
+            }
+        }
+        
+        connection.start()
+    }
+    
 }

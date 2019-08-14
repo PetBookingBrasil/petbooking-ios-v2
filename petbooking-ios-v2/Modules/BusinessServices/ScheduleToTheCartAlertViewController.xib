@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -20,6 +20,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ScheduleToTheCartAlertViewController" customModule="petbooking_ios_v2" customModuleProvider="target">
             <connections>
+                <outlet property="constraintBackgroundToTop" destination="Zd3-Z1-T95" id="NZS-ns-FTr"/>
                 <outlet property="goToCartButton" destination="Nat-qh-m4S" id="41k-JA-Mod"/>
                 <outlet property="scheduleAnotherPetButton" destination="ehR-Fp-Y7O" id="sr7-3h-KjO"/>
                 <outlet property="scheduleMoreButton" destination="hIv-2q-yb2" id="Sec-xb-r0l"/>
@@ -28,29 +29,42 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+        <view clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jsM-J0-Yyk">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                    <color key="backgroundColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="0.7989351455" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
                     <viewLayoutGuide key="safeArea" id="ibU-MX-alM"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kM8-Tg-bnI">
-                    <rect key="frame" x="42.5" y="187" width="290" height="293"/>
+                    <rect key="frame" x="36.5" y="187" width="302.5" height="293"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O agendamento foi adicionado ao carrinho com sucesso." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6PL-TM-vpC">
-                            <rect key="frame" x="0.0" y="0.0" width="290" height="82"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O agendamento foi adicionado ao carrinho com sucesso." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="6PL-TM-vpC">
+                            <rect key="frame" x="0.0" y="0.0" width="302.5" height="54.5"/>
                             <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="20"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hIv-2q-yb2">
-                            <rect key="frame" x="7" y="177" width="275" height="50"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehR-Fp-Y7O">
+                            <rect key="frame" x="0.0" y="84" width="302.5" height="50"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="275" id="OZ6-A7-kBV"/>
+                                <constraint firstAttribute="height" constant="50" id="agh-cw-PTI"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
+                            <state key="normal" title="Agendar serviço para outro pet">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="scheduleAnotherPet:" destination="-1" eventType="touchUpInside" id="zSK-0l-efI"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hIv-2q-yb2">
+                            <rect key="frame" x="0.0" y="149.5" width="302.5" height="50"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
                                 <constraint firstAttribute="height" constant="50" id="nhO-kD-6Xk"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
@@ -62,10 +76,9 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nat-qh-m4S">
-                            <rect key="frame" x="7" y="242" width="275" height="50"/>
+                            <rect key="frame" x="0.0" y="214.5" width="302.5" height="50"/>
                             <color key="backgroundColor" red="0.89411764709999997" green="0.0" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="275" id="k58-75-amw"/>
                                 <constraint firstAttribute="height" constant="50" id="xkQ-NS-e8U"/>
                             </constraints>
                             <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="50" maxY="0.0"/>
@@ -77,47 +90,42 @@
                                 <action selector="goToCart:" destination="-1" eventType="touchUpInside" id="fea-ls-6br"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehR-Fp-Y7O">
-                            <rect key="frame" x="7.5" y="112" width="275" height="50"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="275" id="O7u-FW-OQw"/>
-                                <constraint firstAttribute="height" constant="50" id="agh-cw-PTI"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
-                            <state key="normal" title="Agendar serviço para outro pet">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="scheduleAnotherPet:" destination="-1" eventType="touchUpInside" id="zSK-0l-efI"/>
-                            </connections>
-                        </button>
                     </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="0.0" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="6PL-TM-vpC" firstAttribute="top" secondItem="kM8-Tg-bnI" secondAttribute="top" id="57P-aY-3jM"/>
+                        <constraint firstItem="Nat-qh-m4S" firstAttribute="leading" secondItem="Sfd-Ux-Da2" secondAttribute="leading" id="7rz-PU-H7H"/>
+                        <constraint firstItem="Sfd-Ux-Da2" firstAttribute="trailing" secondItem="hIv-2q-yb2" secondAttribute="trailing" id="EWA-zH-Wbd"/>
                         <constraint firstAttribute="height" constant="293" id="L8C-Jd-ijD"/>
+                        <constraint firstItem="Sfd-Ux-Da2" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Nat-qh-m4S" secondAttribute="bottom" id="T6d-gP-Th6"/>
+                        <constraint firstItem="Sfd-Ux-Da2" firstAttribute="trailing" secondItem="Nat-qh-m4S" secondAttribute="trailing" id="Tb1-tu-I9Z"/>
                         <constraint firstItem="Nat-qh-m4S" firstAttribute="centerX" secondItem="kM8-Tg-bnI" secondAttribute="centerX" id="Xb8-sn-ZTE"/>
                         <constraint firstItem="6PL-TM-vpC" firstAttribute="leading" secondItem="kM8-Tg-bnI" secondAttribute="leading" id="Xyp-id-22z"/>
-                        <constraint firstItem="ehR-Fp-Y7O" firstAttribute="centerX" secondItem="6PL-TM-vpC" secondAttribute="centerX" id="cmr-RU-OXE"/>
+                        <constraint firstItem="ehR-Fp-Y7O" firstAttribute="leading" secondItem="Sfd-Ux-Da2" secondAttribute="leading" id="YPO-Xl-Yr5"/>
+                        <constraint firstItem="Sfd-Ux-Da2" firstAttribute="trailing" secondItem="ehR-Fp-Y7O" secondAttribute="trailing" id="ZeR-uZ-cwI"/>
                         <constraint firstItem="ehR-Fp-Y7O" firstAttribute="top" secondItem="6PL-TM-vpC" secondAttribute="bottom" constant="30" id="dae-Fd-5mV"/>
                         <constraint firstItem="hIv-2q-yb2" firstAttribute="centerX" secondItem="kM8-Tg-bnI" secondAttribute="centerX" id="eGV-RT-BRG"/>
+                        <constraint firstItem="ehR-Fp-Y7O" firstAttribute="centerX" secondItem="kM8-Tg-bnI" secondAttribute="centerX" id="mV1-fN-xAm"/>
                         <constraint firstItem="hIv-2q-yb2" firstAttribute="top" secondItem="ehR-Fp-Y7O" secondAttribute="bottom" constant="15" id="nIX-m4-ift"/>
+                        <constraint firstItem="hIv-2q-yb2" firstAttribute="leading" secondItem="Sfd-Ux-Da2" secondAttribute="leading" id="pdW-vs-1zs"/>
                         <constraint firstAttribute="trailing" secondItem="6PL-TM-vpC" secondAttribute="trailing" id="qVz-8B-F2m"/>
                         <constraint firstItem="Nat-qh-m4S" firstAttribute="top" secondItem="hIv-2q-yb2" secondAttribute="bottom" constant="15" id="wD4-CA-XpO"/>
-                        <constraint firstAttribute="width" constant="290" id="wYg-ln-ff7"/>
+                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="305" id="wYg-ln-ff7"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="Sfd-Ux-Da2"/>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="0.7989351455479452" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="jsM-J0-Yyk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="4wI-NC-OTU"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="kM8-Tg-bnI" secondAttribute="trailing" constant="20" id="H3n-sy-oAL"/>
+                <constraint firstAttribute="bottom" secondItem="jsM-J0-Yyk" secondAttribute="bottom" id="KBq-nF-tOB"/>
                 <constraint firstItem="kM8-Tg-bnI" firstAttribute="centerX" secondItem="jsM-J0-Yyk" secondAttribute="centerX" id="Nng-8d-uL2"/>
                 <constraint firstItem="jsM-J0-Yyk" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="XMK-TF-it0"/>
                 <constraint firstItem="jsM-J0-Yyk" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Zd3-Z1-T95"/>
                 <constraint firstItem="jsM-J0-Yyk" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="dpS-fl-cCZ"/>
                 <constraint firstItem="kM8-Tg-bnI" firstAttribute="centerY" secondItem="jsM-J0-Yyk" secondAttribute="centerY" id="fqR-kP-AHu"/>
+                <constraint firstItem="kM8-Tg-bnI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="iMj-Hs-pmc"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="34.5" y="54.5"/>

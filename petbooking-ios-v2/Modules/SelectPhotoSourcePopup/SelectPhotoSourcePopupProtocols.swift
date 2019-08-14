@@ -11,31 +11,23 @@
 import Foundation
 
 //MARK: Wireframe -
-protocol SelectPhotoSourcePopupWireframeProtocol: class {
+protocol SelectPhotoSourcePopupWireframeProtocol: class { }
 
-}
 //MARK: Presenter -
-protocol SelectPhotoSourcePopupPresenterProtocol: class {
-
-}
+protocol SelectPhotoSourcePopupPresenterProtocol: class { }
 
 //MARK: Interactor -
 protocol SelectPhotoSourcePopupInteractorProtocol: class {
-
-  var presenter: SelectPhotoSourcePopupPresenterProtocol?  { get set }
+    var presenter: SelectPhotoSourcePopupPresenterProtocol?  { get set }
 }
 
 //MARK: View -
 protocol SelectPhotoSourcePopupViewProtocol: class {
-
-  var presenter: SelectPhotoSourcePopupPresenterProtocol?  { get set }
-	
-	var delegate: SelectPhotoSourcePopupActionProtocol?  { get set }
+    var presenter: SelectPhotoSourcePopupPresenterProtocol?  { get set }
+    var delegate: SelectPhotoSourcePopupActionProtocol?  { get set }
 }
 
 protocol SelectPhotoSourcePopupActionProtocol: class {
-	
-	func showCamera()
-	func showAlbum()
-	
+    func showCamera()
+    func showAlbum()
 }

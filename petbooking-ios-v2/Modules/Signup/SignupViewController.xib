@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,12 +20,13 @@
                 <outlet property="bottomContainerView" destination="Z68-hS-Jl7" id="xGy-AS-VrQ"/>
                 <outlet property="cameraIconImageView" destination="fnX-bD-Kee" id="evx-R9-mq4"/>
                 <outlet property="emailAlertMessageLabel" destination="L8e-sR-iXL" id="AfG-rp-MN5"/>
+                <outlet property="emailFacebookAlertMessageLabel" destination="Bwb-nS-XKZ" id="aqQ-TC-84k"/>
                 <outlet property="emailFacebookLabel" destination="L2Q-Fb-rTP" id="7tD-Dz-fab"/>
+                <outlet property="emailFacebookTextField" destination="ioX-0s-NpK" id="DCs-Pb-BGl"/>
                 <outlet property="emailTextField" destination="v7R-vM-Abz" id="zfn-jz-F5i"/>
                 <outlet property="fullNameFacebookLabel" destination="iPN-VT-Zyk" id="7iR-Sa-RYB"/>
                 <outlet property="fullNameTextField" destination="hQO-TA-ZSe" id="hdv-lu-gKU"/>
                 <outlet property="leadingPhotoConstraint" destination="XCg-dV-cv5" id="6Dd-HW-aug"/>
-                <outlet property="mobileNumberFacebookTextField" destination="ioX-0s-NpK" id="gXJ-bj-Uo8"/>
                 <outlet property="mobileNumberTextField" destination="4tu-i9-ZPO" id="TSY-BO-0WY"/>
                 <outlet property="passwordAlertMessageLabel" destination="V5J-7p-oOw" id="pSQ-zy-nbq"/>
                 <outlet property="passwordSeparatorView" destination="EhN-cT-j53" id="nHn-Y0-yXD"/>
@@ -172,7 +173,7 @@
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vOC-BY-xpr">
                             <rect key="frame" x="43" y="604" width="288" height="49"/>
-                            <color key="backgroundColor" red="0.83914452791213989" green="0.83926290273666382" blue="0.8391072154045105" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" red="0.83921568627450982" green="0.83921568627450982" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="vOC-BY-xpr" secondAttribute="height" multiplier="288:49" id="6bo-ln-zMX"/>
                                 <constraint firstAttribute="height" constant="49" id="9bL-FG-8Jb"/>
@@ -183,7 +184,7 @@
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
-                                <action selector="save:" destination="-1" eventType="touchUpInside" id="XO9-OP-Cbc"/>
+                                <action selector="registerButtonTapped:" destination="-1" eventType="touchUpInside" id="XO9-OP-Cbc"/>
                             </connections>
                         </button>
                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CPF do titular do cartão." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V5J-7p-oOw">
@@ -209,20 +210,20 @@
                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ANZ-oR-l5F">
                             <rect key="frame" x="259.5" y="25" width="99.5" height="112"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ana.carolina@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L2Q-Fb-rTP">
-                                    <rect key="frame" x="0.0" y="48.5" width="99.5" height="16.5"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L2Q-Fb-rTP">
+                                    <rect key="frame" x="0.0" y="48" width="99.5" height="16.5"/>
                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                     <color key="textColor" red="0.31761738657951355" green="0.31766670942306519" blue="0.31760182976722717" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ana Carolina" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iPN-VT-Zyk">
-                                    <rect key="frame" x="0.0" y="16.5" width="99.5" height="23.5"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iPN-VT-Zyk">
+                                    <rect key="frame" x="0.0" y="16" width="99.5" height="23.5"/>
                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                                     <color key="textColor" red="0.3176173866" green="0.31766670940000002" blue="0.31760182980000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facebook_connected" translatesAutoresizingMaskIntoConstraints="NO" id="SwT-Kg-YYr">
-                                    <rect key="frame" x="0.0" y="73" width="170" height="20"/>
+                                    <rect key="frame" x="0.0" y="72.5" width="170" height="20"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="20" id="VBE-w7-AX6"/>
                                         <constraint firstAttribute="width" constant="170" id="mnF-6Q-WUt"/>
@@ -257,21 +258,21 @@
                                     <color key="textColor" red="0.3176173866" green="0.31766670940000002" blue="0.31760182980000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="247" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Celular" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ioX-0s-NpK" customClass="AKMaskField" customModule="AKMaskField">
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="247" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ioX-0s-NpK">
                                     <rect key="frame" x="16" y="66.5" width="343" height="30"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="30" id="xCf-I2-7Jf"/>
                                     </constraints>
                                     <color key="textColor" red="0.3294117647" green="0.3294117647" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
                                             <color key="value" red="0.3294117647" green="0.3294117647" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
-                                        <outlet property="delegate" destination="-1" id="hD8-uR-pWk"/>
+                                        <outlet property="delegate" destination="-1" id="ReS-Da-oRw"/>
                                     </connections>
                                 </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wfS-ay-u4K">
@@ -281,6 +282,12 @@
                                         <constraint firstAttribute="height" constant="1" id="IGL-UY-18U"/>
                                     </constraints>
                                 </view>
+                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CPF do titular do cartão." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bwb-nS-XKZ">
+                                    <rect key="frame" x="16" y="101.5" width="343" height="9.5"/>
+                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="8"/>
+                                    <color key="textColor" red="1" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
@@ -289,9 +296,12 @@
                                 <constraint firstAttribute="trailing" secondItem="wfS-ay-u4K" secondAttribute="trailing" constant="16" id="E2R-96-kBW"/>
                                 <constraint firstItem="0hq-Ja-unS" firstAttribute="leading" secondItem="Z68-hS-Jl7" secondAttribute="leading" constant="16" id="F3H-2G-fIV"/>
                                 <constraint firstItem="wfS-ay-u4K" firstAttribute="top" secondItem="ioX-0s-NpK" secondAttribute="bottom" id="LaD-or-Uzo"/>
+                                <constraint firstItem="Bwb-nS-XKZ" firstAttribute="top" secondItem="wfS-ay-u4K" secondAttribute="bottom" constant="4" id="M05-mN-VQq"/>
                                 <constraint firstItem="ioX-0s-NpK" firstAttribute="leading" secondItem="Z68-hS-Jl7" secondAttribute="leading" constant="16" id="PXc-wX-NYI"/>
                                 <constraint firstAttribute="trailing" secondItem="ioX-0s-NpK" secondAttribute="trailing" constant="16" id="Slh-nX-brl"/>
+                                <constraint firstAttribute="trailing" secondItem="Bwb-nS-XKZ" secondAttribute="trailing" constant="16" id="TcK-Fy-b9s"/>
                                 <constraint firstItem="ioX-0s-NpK" firstAttribute="top" secondItem="FkR-tJ-1WH" secondAttribute="bottom" constant="32" id="Wky-gB-3bU"/>
+                                <constraint firstItem="Bwb-nS-XKZ" firstAttribute="leading" secondItem="Z68-hS-Jl7" secondAttribute="leading" constant="16" id="hhe-si-3yh"/>
                                 <constraint firstItem="0hq-Ja-unS" firstAttribute="top" secondItem="Z68-hS-Jl7" secondAttribute="top" constant="1" id="i8W-ZV-mg3"/>
                                 <constraint firstItem="FkR-tJ-1WH" firstAttribute="leading" secondItem="Z68-hS-Jl7" secondAttribute="leading" constant="15" id="tNs-gt-TLl"/>
                                 <constraint firstAttribute="trailing" secondItem="0hq-Ja-unS" secondAttribute="trailing" constant="16" id="wgb-bE-8NY"/>

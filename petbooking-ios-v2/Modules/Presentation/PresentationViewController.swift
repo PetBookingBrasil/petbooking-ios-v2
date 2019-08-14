@@ -18,26 +18,41 @@ class PresentationViewController: UIViewController, PresentationViewProtocol {
 	@IBOutlet weak var descriptionLabel: UILabel!
 	@IBOutlet weak var logoImageView: UIImageView!
 	
-	
-	var presenter: PresentationPresenterProtocol?
-	var index:PresentationIndex?
-	
-	override func viewDidLoad() {
+  @IBOutlet weak var constraintImageTopForBigScreen: NSLayoutConstraint! // Start priority: 1000
+  @IBOutlet weak var constraintImageTopForSmallScreen: NSLayoutConstraint! // Start priority: 250
+
+  @IBOutlet weak var constraintButtonNextLeading: NSLayoutConstraint!
+  @IBOutlet weak var constraintButtonNextCenterX: NSLayoutConstraint!
+
+  var presenter: PresentationPresenterProtocol?
+	var index: PresentationIndex?
+
+  override func viewDidLoad() {
 		super.viewDidLoad()
-		
+
+    let isBigScreen = UIScreen.main.sizeType.rawValue > SizeType.iPhone5.rawValue
+    constraintImageTopForBigScreen.priority = isBigScreen ? UILayoutPriority.defaultHigh : UILayoutPriority.defaultLow
+    constraintImageTopForSmallScreen.priority = isBigScreen ? UILayoutPriority.defaultLow : UILayoutPriority.defaultHigh
+
 		presenter?.setupView()
-		self.navigationController?.isNavigationBarHidden = true
+		navigationController?.isNavigationBarHidden = true
 		
 		switch index! {
 		case .first:
 			pageControl.currentPage = 0
-			break
+      skipButton.isHidden = false
+      constraintButtonNextLeading.priority = UILayoutPriority.defaultHigh
+      constraintButtonNextCenterX.priority = UILayoutPriority.defaultLow
 		case .second:
 			pageControl.currentPage = 1
-			break
+      skipButton.isHidden = false
+      constraintButtonNextLeading.priority = UILayoutPriority.defaultHigh
+      constraintButtonNextCenterX.priority = UILayoutPriority.defaultLow
 		case .third:
 			pageControl.currentPage = 2
-			break
+      skipButton.isHidden = true
+      constraintButtonNextLeading.priority = UILayoutPriority.defaultLow
+      constraintButtonNextCenterX.priority = UILayoutPriority.defaultHigh
 		}
 	}
 	

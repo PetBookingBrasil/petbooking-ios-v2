@@ -10,6 +10,7 @@
 
 import UIKit
 import ALLoadingView
+import Crashlytics
 
 class SignupPresenter: SignupPresenterProtocol {
 	
@@ -54,6 +55,8 @@ class SignupPresenter: SignupPresenterProtocol {
 	}
 	
 	func createUserWithSuccess() {
+        Answers.logSignUp(withMethod: "Digits", success: true, customAttributes: [:])
+
         ALLoadingView.manager.hideLoadingView(withDelay: 1) {
             self.router.createUserWithSuccess()
         }
@@ -64,7 +67,10 @@ class SignupPresenter: SignupPresenterProtocol {
 		router.updatedUserWithSuccess()
 	}
 	
-	func createUserWithError() {
-		ALLoadingView.manager.hideLoadingView()
+	func createUserError(_ text: String) {
+        Answers.logSignUp(withMethod: "Digits", success: false, customAttributes: [:])
+        
+        ALLoadingView.manager.hideLoadingView()
+        view?.showError(text)
 	}
 }

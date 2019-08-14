@@ -33,7 +33,7 @@ class SessionManager: NSObject {
 		
 	}
 	
-	func saveConsumer(consumer:Consumer) throws {
+	func saveConsumer(consumer: Consumer) throws {
 		
 		let consumerRealm = ConsumerRealm()
 		consumerRealm.token = consumer.token

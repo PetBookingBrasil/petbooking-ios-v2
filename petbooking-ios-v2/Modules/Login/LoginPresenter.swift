@@ -10,6 +10,8 @@
 
 import UIKit
 import ALLoadingView
+import Fabric
+import Crashlytics
 
 class LoginPresenter: LoginPresenterProtocol {
 
@@ -43,23 +45,31 @@ class LoginPresenter: LoginPresenterProtocol {
 	}
 	
 	func didCompleteFacebookLoginWithSuccess() {
-		ALLoadingView.manager.hideLoadingView(withDelay: 1) { 
+        Answers.logLogin(withMethod: "Digits", success: true, customAttributes: ["Type": "Facebook"])
+
+        ALLoadingView.manager.hideLoadingView(withDelay: 1) {
 			self.router.didCompleteFacebookLoginWithSuccess()
 		}
 	}
 	
 	func didCompleteFacebookLoginWithError(error: Error?) {
+        Answers.logLogin(withMethod: "Digits", success: false, customAttributes: ["Type": "Facebook"])
+
         ALLoadingView.manager.hideLoadingView()
 		view?.didCompleteFacebookLoginWithError(error: error)
 	}
 	
 	func didCompleteLoginWithSuccess() {
+        Answers.logLogin(withMethod: "Digits", success: true, customAttributes: ["Type": "Email"])
+
 		ALLoadingView.manager.hideLoadingView(withDelay: 1) {
 			self.router.didCompleteFacebookLoginWithSuccess()
 		}
     }
 	
 	func didCompleteLoginWithError(error:Error?) {
+        Answers.logLogin(withMethod: "Digits", success: false, customAttributes: ["Type": "Email"])
+        
         ALLoadingView.manager.hideLoadingView()
 		view?.didCompleteLoginWithError(error: error)
 	}

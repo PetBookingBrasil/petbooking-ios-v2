@@ -116,9 +116,7 @@ extension SelectServiceTableViewCell: UITableViewDelegate, UITableViewDataSource
 }
 
 extension SelectServiceTableViewCell: ServiceTableViewDelegate {
-	func updateValue(service: Service) {
-		guard let index = serviceList.services.index(of: service) else { return }
-	}
+	func updateValue(service: Service) { }
 	
 	func didSelectedService(service: Service) {
         guard hasPet else { return }
@@ -156,6 +154,5 @@ extension SelectServiceTableViewCell: ServiceTableViewDelegate {
 }
 
 protocol SelectServiceTableViewCellDelegate: class {
-	func setSelectedService(selectedService:Service, selectedSubServices:[SubService])	
+	func setSelectedService(selectedService:Service, selectedSubServices:[SubService])
 }
-
